@@ -49,6 +49,7 @@
   .home-dashboard { position:relative;isolation:isolate;min-height:490px;height:clamp(490px,calc(100vh - 205px),600px);overflow:hidden;border:1px solid rgba(147,131,255,.55);border-radius:32px;background:radial-gradient(circle at 50% 44%,rgba(101,72,205,.34),transparent 38%),linear-gradient(145deg,#05071f 0%,#100a38 46%,#07112f 100%);box-shadow:0 26px 60px rgba(25,17,74,.32);color:#fff; }
   .home-dashboard::before { content:"";position:absolute;z-index:-2;inset:0;background:radial-gradient(circle at 8% 18%,#fff 0 1px,transparent 2px),radial-gradient(circle at 34% 8%,#ffe9a6 0 1.5px,transparent 2.5px),radial-gradient(circle at 74% 16%,#93efff 0 1px,transparent 2px),radial-gradient(circle at 91% 72%,#fff 0 1.5px,transparent 2.5px),radial-gradient(circle at 18% 82%,#d8b0ff 0 1px,transparent 2px);background-size:120px 120px,190px 170px,160px 150px,210px 190px,175px 165px;animation:homeStarTwinkle 4.2s ease-in-out infinite; }
   .home-dashboard::after { content:"";position:absolute;z-index:-1;inset:0;opacity:.38;background:linear-gradient(28deg,transparent 12%,rgba(255,208,93,.46) 12.25%,transparent 12.6%) 2% 9%/260px 210px,linear-gradient(-33deg,transparent 28%,rgba(111,224,255,.34) 28.25%,transparent 28.6%) 68% 15%/310px 250px;mask-image:radial-gradient(circle at center,#000 15%,transparent 78%); }
+  #home-stars { position:absolute;z-index:0;inset:0;width:100%;height:100%;display:block;pointer-events:none; }
   .home-space-copy { position:absolute;z-index:3;left:0;right:0;top:18px;text-align:center;pointer-events:none; }
   .home-space-kicker { margin:0;color:#91eef6;font-size:10px;font-weight:900;letter-spacing:.28em;text-transform:uppercase; }
   .home-space-copy h2 { margin:5px 0 0;font-size:clamp(25px,3vw,37px);line-height:1.08;font-weight:950;letter-spacing:.06em;text-shadow:0 4px 22px rgba(0,0,0,.58); }
@@ -71,6 +72,23 @@
   .home-subject-icon,.home-subject-go { display:none; }
   @media (max-width:900px) { .home-subject-card { --planet-size:clamp(188px,26vh,205px); } .home-subject-grid { gap:12px 15px; } }
   @media (max-width:640px) { .home-dashboard { height:auto;min-height:980px; } .home-space-copy { top:20px; } .home-subject-grid { top:92px;bottom:22px; } .home-subject-card { --planet-size:170px;width:46%;flex-basis:170px; } }
+
+  .subject-world { position:relative;isolation:isolate;height:clamp(520px,calc(100svh - 205px),760px);min-height:520px;overflow:hidden;border:1px solid rgba(155,138,255,.58);border-radius:30px;background:#090727;color:#fff;box-shadow:0 24px 55px rgba(26,18,75,.28);display:flex;flex-direction:column; }
+  .subject-world::before { content:"";position:absolute;z-index:-2;inset:0;background-image:var(--subject-world-image);background-size:cover;background-position:center;filter:saturate(1.08) contrast(1.03);transform:scale(1.025); }
+  .subject-world::after { content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(7,6,31,.86),rgba(10,8,41,.62) 48%,rgba(8,7,34,.8)),radial-gradient(circle at 75% 40%,transparent 0 20%,rgba(5,4,27,.4) 68%);backdrop-filter:blur(1px); }
+  .subject-world-toolbar { flex:0 0 auto;padding:16px 18px 12px;border-bottom:1px solid rgba(255,255,255,.16);background:linear-gradient(180deg,rgba(12,9,48,.8),rgba(16,12,58,.52));box-shadow:0 12px 30px rgba(0,0,0,.14); }
+  .subject-world-tabs,.subject-world-grades { display:flex;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:1px 1px 7px; }
+  .subject-world-tabs::-webkit-scrollbar,.subject-world-grades::-webkit-scrollbar { display:none; }
+  .subject-world-tabs button,.subject-world-grades button { flex:0 0 auto!important;border-color:rgba(255,255,255,.26)!important;background:rgba(255,255,255,.12)!important;color:rgba(255,255,255,.78)!important;backdrop-filter:blur(14px);box-shadow:inset 0 1px rgba(255,255,255,.13); }
+  .subject-world-tabs button[data-active="true"],.subject-world-grades button[data-active="true"] { border-color:var(--subject-world-accent)!important;background:color-mix(in srgb,var(--subject-world-accent) 78%,rgba(17,12,55,.7))!important;color:#fff!important;box-shadow:0 0 22px color-mix(in srgb,var(--subject-world-accent) 50%,transparent); }
+  .subject-world-content { min-height:0;flex:1;overflow-y:auto;overscroll-behavior:contain;padding:14px 18px 22px;scrollbar-color:var(--subject-world-accent) rgba(255,255,255,.09);scrollbar-width:thin; }
+  .subject-world-rule { margin-bottom:14px;padding:11px 14px;border:1px solid rgba(255,255,255,.2);border-radius:16px;background:rgba(12,10,48,.55);backdrop-filter:blur(16px);font-size:12px;font-weight:800;line-height:1.6;color:rgba(255,255,255,.85); }
+  .subject-world-grid { display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));padding-bottom:8px; }
+  .subject-world-card { position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.2)!important;border-radius:24px!important;padding:17px!important;background:linear-gradient(145deg,rgba(255,255,255,.93),rgba(242,239,255,.82))!important;color:#2b1f57;box-shadow:0 16px 30px rgba(0,0,0,.22)!important;backdrop-filter:blur(16px);transition:transform .2s ease,box-shadow .2s ease; }
+  .subject-world-card:hover { transform:translateY(-3px);box-shadow:0 19px 38px rgba(0,0,0,.3),0 0 20px color-mix(in srgb,var(--subject-world-accent) 24%,transparent)!important; }
+  .subject-world-card::before { content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--subject-world-accent); }
+  @media (max-width:900px) { .subject-world { height:calc(100svh - 198px);min-height:540px; } .subject-world-toolbar { padding:12px 13px 8px; } .subject-world-content { padding:11px 13px 18px; } .subject-world-grid { grid-template-columns:repeat(2,minmax(0,1fr));gap:11px; } }
+  @media (max-width:640px) { .subject-world { height:auto;min-height:850px; } .subject-world-grid { grid-template-columns:1fr; } }
   @keyframes gachaCapsuleLand { 0% { transform:translateY(-190px) scale(.58);opacity:0 } 68% { transform:translateY(10px) scale(1.08);opacity:1 } 84% { transform:translateY(-7px) scale(.94) } 100% { transform:translateY(0) scale(1);opacity:1 } }
   @keyframes gachaCapsuleHalo { 0%,100% { transform:scale(.9);opacity:.45 } 50% { transform:scale(1.14);opacity:1 } }
   @keyframes gachaCapsuleOpen { 0% { transform:scale(.68) rotate(-12deg);opacity:0 } 55% { transform:scale(1.08) rotate(5deg);opacity:1 } 100% { transform:scale(1) rotate(0) } }
@@ -539,6 +557,7 @@
 
     <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
       <div data-screen-label="首頁" class="home-dashboard">
+        <canvas id="home-stars" aria-hidden="true"></canvas>
         <div class="home-space-copy">
           <p class="home-space-kicker">Learning Planet</p>
           <h2>選一個任務，今天就出發</h2>
@@ -822,23 +841,26 @@
     </sc-if>
 
     <sc-if value="{{ isMap }}" hint-placeholder-val="{{ true }}">
-      <div data-screen-label="闖關地圖">
-        <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
+      <div data-screen-label="闖關地圖" class="subject-world" style="--subject-world-image:url('{{ subjectWorldImage }}');--subject-world-accent:{{ subjectWorldAccent }}">
+        <div class="subject-world-toolbar">
+        <div class="subject-world-tabs">
           <sc-for list="{{ subjectTabs }}" as="sb" hint-placeholder-count="2">
-            <button onClick="{{ sb.go }}" style="border:1.5px solid {{ sb.border }};background:{{ sb.bg }};color:{{ sb.fg }};border-radius:99px;padding:11px 24px;font-size:15px;font-weight:900;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:8px"><span style="font-size:18px">{{ sb.icon }}</span>{{ sb.label }}</button>
+            <button data-active="{{ sb.active }}" onClick="{{ sb.go }}" style="border:1.5px solid {{ sb.border }};background:{{ sb.bg }};color:{{ sb.fg }};border-radius:99px;padding:10px 20px;font-size:14px;font-weight:900;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:7px"><span style="font-size:17px">{{ sb.icon }}</span>{{ sb.label }}</button>
           </sc-for>
         </div>
-        <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+        <div class="subject-world-grades">
           <sc-for list="{{ gradeTabs }}" as="g" hint-placeholder-count="2">
-            <button onClick="{{ g.go }}" style="border:1.5px solid {{ g.border }};background:{{ g.bg }};color:{{ g.fg }};border-radius:99px;padding:10px 22px;font-size:15px;font-weight:900;font-family:inherit;cursor:pointer">{{ g.label }}</button>
+            <button data-active="{{ g.active }}" onClick="{{ g.go }}" style="border:1.5px solid {{ g.border }};background:{{ g.bg }};color:{{ g.fg }};border-radius:99px;padding:8px 18px;font-size:14px;font-weight:900;font-family:inherit;cursor:pointer">{{ g.label }}</button>
           </sc-for>
         </div>
-        <sc-if value="{{ showChallengeRules }}" hint-placeholder-val="{{ true }}"><div style="margin-bottom:16px;padding:13px 16px;border:1px solid #d9f4f8;border-radius:18px;background:linear-gradient(90deg,#eafbfd,#f3f0ff);font-size:12px;font-weight:800;line-height:1.7;color:#4a3d7a">
+        </div>
+        <div class="subject-world-content">
+        <sc-if value="{{ showChallengeRules }}" hint-placeholder-val="{{ true }}"><div class="subject-world-rule">
           🎯 每個單元每天最多完成三輪；100% 全對才會得到 I／II／III。第二輪每題少 5 秒，第三輪再少 5 秒，完成 III 後請換別的練習。
         </div></sc-if>
-        <div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+        <div class="subject-world-grid">
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="6">
-            <article style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:20px;box-shadow:0 14px 30px rgba(43,31,87,.06);display:flex;flex-direction:column;gap:12px">
+            <article class="subject-world-card" style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:20px;box-shadow:0 14px 30px rgba(43,31,87,.06);display:flex;flex-direction:column;gap:12px">
               <div style="display:flex;align-items:center;gap:12px">
                 <span style="width:52px;height:52px;border-radius:18px;display:grid;place-items:center;font-size:26px;background:{{ u.tint }}">{{ u.iconEl }}</span>
                 <div style="min-width:0">
@@ -863,6 +885,7 @@
               </sc-if>
             </article>
           </sc-for>
+        </div>
         </div>
       </div>
     </sc-if>
@@ -2223,7 +2246,7 @@
     <sc-if value="{{ isCollection }}" hint-placeholder-val="{{ true }}">
       <div data-screen-label="收藏圖鑑" style="display:grid;gap:16px">
         <section style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-radius:30px;padding:22px;background:linear-gradient(135deg,#241a4d,#60459a);color:#fff;box-shadow:0 18px 38px rgba(43,31,87,.2)">
-          <span style="width:66px;height:66px;border-radius:24px;display:grid;place-items:center;background:rgba(255,255,255,.14);overflow:hidden"></span>
+          <span style="width:66px;height:66px;border-radius:24px;display:grid;place-items:center;background:rgba(255,255,255,.14);overflow:hidden"><img src="images/gacha/categories/hachiware.png" alt="小八" style="width:54px;height:54px;object-fit:contain"></span>
           <div style="flex:1;min-width:190px"><p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.2em;color:#9eeaf1">COLLECTION BOOK</p><h2 style="margin:7px 0 3px;font-size:28px;font-weight:900">我的娃娃蒐集</h2><p style="margin:0;font-size:13px;font-weight:700;color:rgba(255,255,255,.72)">已解鎖 {{ gachaOwnedUnique }} 款</p></div>
           <span style="display:grid;grid-template-columns:auto auto;align-items:center;column-gap:5px;border:1px solid rgba(255,255,255,.38);border-radius:16px;padding:8px 11px;background:rgba(255,255,255,.12);color:#fff"><span style="grid-row:span 2;font-size:20px">🫧</span><strong style="font-size:17px;line-height:1">{{ gachaDraws }}</strong><small style="font-size:10px;color:rgba(255,255,255,.72)">扭蛋次數</small></span>
           <button onClick="{{ goGacha }}" style="border:0;border-radius:18px;padding:13px 18px;background:#fff;color:#5b3fe0;font-size:14px;font-weight:900;font-family:inherit;cursor:pointer">🫧 去抽扭蛋</button>
@@ -4161,6 +4184,16 @@ class Component extends DCLogic {
         return { mathGameBank: Object.assign({}, state.mathGameBank, { modules: existing.concat(bank.modules) }) };
       });
     }).catch(() => {});
+    const mergeLocalGachaItems = (items) => {
+      if (!Array.isArray(items) || !items.length) return;
+      this.setState((state) => {
+        const current = Array.isArray(state.gachaBank) ? state.gachaBank : [];
+        const known = new Set(current.map((item) => item.id));
+        return { gachaBank: current.concat(items.filter((item) => !known.has(item.id))) };
+      });
+    };
+    fetch("gacha-collectibles.json").then((r) => r.json()).then((bank) => mergeLocalGachaItems(bank.items)).catch(() => {});
+    fetch("gacha-remote-cache.json").then((r) => r.json()).then((bank) => mergeLocalGachaItems(bank.items)).catch(() => {});
     fetch("math-games.json").then((r) => r.json()).then((data) => {
       this.setState({ mathGameBank: data && data.modules ? data.modules : [] });
     }).catch(() => {});
@@ -7995,8 +8028,9 @@ class Component extends DCLogic {
     const tabDefs = [
       { key: "map", icon: "🗺️", label: "闖關" },
       { key: "weekly", icon: "📝", label: "週考" },
+      { key: "gacha", icon: "🫧", label: "扭蛋" },
     ];
-    const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "library" || s.screen === "writing" || s.screen === "memory" || s.screen === "video" || String(s.screen).indexOf("english") === 0 ? "map" : s.screen === "weeklyQuiz" || s.screen === "weeklyResult" ? "weekly" : s.screen;
+    const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "library" || s.screen === "writing" || s.screen === "memory" || s.screen === "video" || String(s.screen).indexOf("english") === 0 ? "map" : s.screen === "weeklyQuiz" || s.screen === "weeklyResult" ? "weekly" : s.screen === "collection" ? "gacha" : s.screen;
     const subjectUnits = s.subject === "math" ? MATH_UNITS : s.subject === "english" ? EN_UNITS : s.subject === "science" ? SCI_UNITS : s.subject === "experiment" ? EXPERIMENT_UNITS : CH_UNITS;
     const gradeWords = this.gradeWords(s.grade);
     const libFiltered = s.libUnit === "全部" ? gradeWords : gradeWords.filter((w) => w.u === s.libUnit);
@@ -8682,14 +8716,17 @@ class Component extends DCLogic {
         { key: "english", title: "英文", image: "images/home/planets/english-planet-v1.png", glow: "rgba(60,205,255,.76)" },
         { key: "science", title: "自然", image: "images/home/learning-planet-hero-v1.png", glow: "rgba(123,116,255,.72)" },
         { key: "experiment", title: "實驗", image: "images/home/planets/experiment-planet-v1.png", glow: "rgba(63,255,215,.72)" },
-      ].map((c) => Object.assign({}, c, { go: () => this.setState({ screen: "map", subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : s.grade }) })),      subjectTabs: [
+      ].map((c) => Object.assign({}, c, { go: () => this.setState({ screen: "map", subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : s.grade }) })),
+      subjectWorldImage: ({ math: "images/home/planets/math-planet-v1.png", chinese: "images/home/planets/chinese-planet-v1.png", english: "images/home/planets/english-planet-v1.png", science: "images/home/learning-planet-hero-v1.png", experiment: "images/home/planets/experiment-planet-v1.png" })[s.subject] || "images/home/planets/math-planet-v1.png",
+      subjectWorldAccent: ({ math: "#9f79ff", chinese: "#ffb454", english: "#56d7ff", science: "#8c7cff", experiment: "#48e7c9" })[s.subject] || "#9f79ff",
+      subjectTabs: [
         { key: "math", icon: "🧮", label: "數學" },
         { key: "chinese", icon: "📖", label: "國文" },
         { key: "english", icon: "🔤", label: "英文" },
         { key: "science", icon: "🔬", label: "自然" },
         { key: "experiment", icon: "🧪", label: "實驗" },
       ].map((c) => ({
-        icon: c.icon, label: c.label,
+        icon: c.icon, label: c.label, active: String(s.subject === c.key),
         go: () => this.setState({ subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : s.grade }),
         bg: s.subject === c.key ? "#7c5cff" : "#fff",
         fg: s.subject === c.key ? "#fff" : "#7c74a8",
@@ -8734,7 +8771,7 @@ class Component extends DCLogic {
 
       showChallengeRules: s.subject !== "experiment",
       isExperimentSubject: s.subject === "experiment",
-      gradeTabs: (s.subject === "experiment" ? [] : s.subject === "math" || s.subject === "english" ? [1, 2, 3, 4, 5, 6] : s.subject === "science" ? [3, 4, 5, 6] : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][g],
+      gradeTabs: (s.subject === "experiment" ? [] : s.subject === "math" || s.subject === "english" ? [1, 2, 3, 4, 5, 6] : s.subject === "science" ? [3, 4, 5, 6] : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][g], active: String(s.grade === g),
         go: () => this.setState({ grade: g }),
         bg: s.grade === g ? "#7c5cff" : "#fff",
         fg: s.grade === g ? "#fff" : "#7c74a8",
@@ -9530,6 +9567,76 @@ class Component extends DCLogic {
     return vals;
   }
 }
+</script>
+<script>
+(function () {
+  "use strict";
+  const initialized = new WeakSet();
+  const pointer = { x: -9999, y: -9999 };
+  if (!window.__learningPlanetStarPointer) {
+    window.__learningPlanetStarPointer = true;
+    window.addEventListener("pointermove", (event) => { pointer.x = event.clientX; pointer.y = event.clientY; }, { passive: true });
+    window.addEventListener("pointerleave", () => { pointer.x = pointer.y = -9999; });
+  }
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function mount(canvas) {
+    if (!canvas || initialized.has(canvas)) return;
+    initialized.add(canvas);
+    const ctx = canvas.getContext("2d", { alpha: true });
+    let width = 0, height = 0, stars = [], dust = [], raf = 0;
+    const linkDistance = 142;
+    const particleCount = () => Math.max(26, Math.min(62, Math.round(width * height / 13500)));
+    const seed = () => {
+      stars = Array.from({ length: Math.round(particleCount() * 2.5) }, () => ({ x: Math.random() * width, y: Math.random() * height, r: Math.random() * 1.05 + .35, phase: Math.random() * Math.PI * 2, speed: Math.random() * .9 + .4 }));
+      dust = Array.from({ length: particleCount() }, () => ({ x: Math.random() * width, y: Math.random() * height, vx: (Math.random() - .5) * .18, vy: (Math.random() - .5) * .18, r: Math.random() * 1.4 + .8 }));
+    };
+    const resize = () => {
+      const box = canvas.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = Math.max(1, box.width); height = Math.max(1, box.height);
+      canvas.width = Math.floor(width * dpr); canvas.height = Math.floor(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); seed();
+    };
+    const draw = (time) => {
+      if (!canvas.isConnected) { observer.disconnect(); cancelAnimationFrame(raf); return; }
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "#fff6e9";
+      stars.forEach((star) => {
+        ctx.globalAlpha = reduce.matches ? .62 : .32 + Math.sin(time * .001 * star.speed + star.phase) * .3;
+        ctx.beginPath(); ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2); ctx.fill();
+      });
+      ctx.strokeStyle = "#5fe0f0"; ctx.lineWidth = 1;
+      for (let i = 0; i < dust.length; i++) for (let j = i + 1; j < dust.length; j++) {
+        const dx = dust[i].x - dust[j].x, dy = dust[i].y - dust[j].y, distance = Math.hypot(dx, dy);
+        if (distance < linkDistance) {
+          ctx.globalAlpha = (1 - distance / linkDistance) * .28;
+          ctx.beginPath(); ctx.moveTo(dust[i].x, dust[i].y); ctx.lineTo(dust[j].x, dust[j].y); ctx.stroke();
+        }
+      }
+      dust.forEach((particle) => {
+        if (!reduce.matches) {
+          particle.x += particle.vx; particle.y += particle.vy;
+          if (particle.x < 0 || particle.x > width) particle.vx *= -1;
+          if (particle.y < 0 || particle.y > height) particle.vy *= -1;
+          const rect = canvas.getBoundingClientRect(), px = pointer.x - rect.left, py = pointer.y - rect.top;
+          if (Math.hypot(particle.x - px, particle.y - py) < 180) { particle.x -= (particle.x - px) * .004; particle.y -= (particle.y - py) * .004; }
+        }
+        const pulse = .72 + Math.sin(time * .0012 + particle.x * .02) * .28;
+        ctx.fillStyle = "#ffd86b"; ctx.globalAlpha = pulse * .2;
+        ctx.beginPath(); ctx.arc(particle.x, particle.y, particle.r * 2.7, 0, Math.PI * 2); ctx.fill();
+        ctx.globalAlpha = pulse; ctx.beginPath(); ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2); ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+      raf = requestAnimationFrame(draw);
+    };
+    const observer = new ResizeObserver(resize);
+    observer.observe(canvas); resize(); raf = requestAnimationFrame(draw);
+  }
+
+  const discover = () => mount(document.getElementById("home-stars"));
+  new MutationObserver(discover).observe(document.body, { childList: true, subtree: true });
+  discover();
+})();
 </script>
 </body>
 </html>
