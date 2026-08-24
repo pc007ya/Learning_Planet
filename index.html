@@ -83,10 +83,29 @@
   .subject-world-tabs button[data-active="true"],.subject-world-grades button[data-active="true"] { border-color:var(--subject-world-accent)!important;background:color-mix(in srgb,var(--subject-world-accent) 78%,rgba(17,12,55,.7))!important;color:#fff!important;box-shadow:0 0 22px color-mix(in srgb,var(--subject-world-accent) 50%,transparent); }
   .subject-world-content { min-height:0;flex:1;overflow-y:auto;overscroll-behavior:contain;padding:14px 18px 22px;scrollbar-color:var(--subject-world-accent) rgba(255,255,255,.09);scrollbar-width:thin; }
   .subject-world-rule { margin-bottom:14px;padding:11px 14px;border:1px solid rgba(255,255,255,.2);border-radius:16px;background:rgba(12,10,48,.55);backdrop-filter:blur(16px);font-size:12px;font-weight:800;line-height:1.6;color:rgba(255,255,255,.85); }
-  .subject-world-grid { display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));padding-bottom:8px; }
-  .subject-world-card { position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.2)!important;border-radius:24px!important;padding:17px!important;background:linear-gradient(145deg,rgba(255,255,255,.93),rgba(242,239,255,.82))!important;color:#2b1f57;box-shadow:0 16px 30px rgba(0,0,0,.22)!important;backdrop-filter:blur(16px);transition:transform .2s ease,box-shadow .2s ease; }
-  .subject-world-card:hover { transform:translateY(-3px);box-shadow:0 19px 38px rgba(0,0,0,.3),0 0 20px color-mix(in srgb,var(--subject-world-accent) 24%,transparent)!important; }
+  .subject-world-grid { display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));grid-auto-rows:1fr;align-items:stretch;padding-bottom:8px; }
+  .subject-world-card { position:relative;overflow:hidden;min-height:260px;border:1px solid rgba(255,255,255,.3)!important;border-radius:24px!important;padding:17px!important;background:linear-gradient(145deg,rgba(23,18,66,.56),rgba(8,9,41,.34))!important;color:#fff;box-shadow:inset 0 1px rgba(255,255,255,.16),0 16px 30px rgba(0,0,0,.24)!important;backdrop-filter:blur(18px) saturate(1.15);transition:transform .2s ease,box-shadow .2s ease; }
+  .subject-world-card:hover { box-shadow:0 19px 38px rgba(0,0,0,.3),0 0 20px color-mix(in srgb,var(--subject-world-accent) 24%,transparent)!important; }
   .subject-world-card::before { content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--subject-world-accent); }
+  .subject-world-card-head { min-height:64px; }
+  .subject-world-card-sub,.subject-world-card-state { color:rgba(255,255,255,.68)!important; }
+  .subject-world-card-bottom { display:flex;flex-direction:column;gap:10px;margin-top:auto; }
+  .subject-world-card-status { min-height:24px;align-items:center; }
+  .subject-world-card-progress-slot { min-height:7px; }
+  .subject-world-card-progress { height:7px!important;background:rgba(255,255,255,.17)!important; }
+  .subject-world-card-extra { display:flex;align-items:stretch;gap:8px;height:40px;min-height:40px; }
+  .subject-world-card-extra button { flex:1;margin:0!important;padding:0 9px!important;border-color:rgba(255,255,255,.25)!important;background:rgba(255,255,255,.12)!important;color:#fff!important;backdrop-filter:blur(10px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+  .subject-battle-button { --battle-hi:color-mix(in srgb,var(--subject-world-accent) 48%,white);--battle-mid:var(--subject-world-accent);--battle-lo:color-mix(in srgb,var(--subject-world-accent) 72%,#3a176e);--battle-edge:color-mix(in srgb,var(--subject-world-accent) 48%,#120626);position:relative;isolation:isolate;width:100%;border:0!important;border-radius:17px!important;padding:0!important;background:transparent!important;color:#fff!important;font-family:inherit;font-size:15px;font-weight:900;line-height:1.1;letter-spacing:.04em;cursor:pointer;filter:drop-shadow(0 8px 11px rgba(0,0,0,.24)); }
+  .subject-battle-button::before { content:"";position:absolute;z-index:-1;inset:8px 9%;border-radius:999px;background:var(--battle-mid);filter:blur(14px);opacity:.5;transition:opacity .2s ease; }
+  .subject-battle-face { position:relative;display:flex;align-items:center;justify-content:center;gap:8px;min-height:47px;overflow:hidden;border:1px solid rgba(255,255,255,.5);border-radius:17px;background:linear-gradient(180deg,var(--battle-hi),var(--battle-mid) 45%,var(--battle-lo));box-shadow:inset 0 2px 0 rgba(255,255,255,.48),inset 0 -2px 0 rgba(0,0,0,.13),0 6px 0 var(--battle-edge),0 10px 18px rgba(0,0,0,.26);text-shadow:0 2px 4px rgba(0,0,0,.3);transform:translateY(0);transition:transform .1s ease,box-shadow .1s ease,filter .18s ease; }
+  .subject-battle-face::after { content:"";position:absolute;inset:-55% auto -55% -42%;width:28%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);transform:skewX(-18deg);animation:subjectBattleSweep 3.2s ease-in-out infinite;pointer-events:none; }
+  .subject-battle-button:hover .subject-battle-face { filter:brightness(1.1) saturate(1.08); }
+  .subject-battle-button:hover::before { opacity:.78; }
+  .subject-battle-button:active .subject-battle-face { transform:translateY(6px);box-shadow:inset 0 2px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(0,0,0,.18),0 0 0 var(--battle-edge),0 3px 8px rgba(0,0,0,.2); }
+  .subject-battle-button:focus-visible { outline:3px solid #fff;outline-offset:5px; }
+  #subject-battle-sparks { position:fixed;z-index:99999;inset:0;width:100%;height:100%;pointer-events:none; }
+  @keyframes subjectBattleSweep { 0%,58% { left:-42%;opacity:0 } 66% { opacity:.9 } 82%,100% { left:118%;opacity:0 } }
+  @media (prefers-reduced-motion:reduce) { .subject-battle-face::after { animation:none } }
   @media (max-width:900px) { .subject-world { height:calc(100svh - 198px);min-height:540px; } .subject-world-toolbar { padding:12px 13px 8px; } .subject-world-content { padding:11px 13px 18px; } .subject-world-grid { grid-template-columns:repeat(2,minmax(0,1fr));gap:11px; } }
   @media (max-width:640px) { .subject-world { height:auto;min-height:850px; } .subject-world-grid { grid-template-columns:1fr; } }
   @keyframes gachaCapsuleLand { 0% { transform:translateY(-190px) scale(.58);opacity:0 } 68% { transform:translateY(10px) scale(1.08);opacity:1 } 84% { transform:translateY(-7px) scale(.94) } 100% { transform:translateY(0) scale(1);opacity:1 } }
@@ -860,29 +879,33 @@
         </div></sc-if>
         <div class="subject-world-grid">
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="6">
-            <article class="subject-world-card" style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:20px;box-shadow:0 14px 30px rgba(43,31,87,.06);display:flex;flex-direction:column;gap:12px">
-              <div style="display:flex;align-items:center;gap:12px">
+            <article class="subject-world-card" style="display:flex;flex-direction:column;gap:12px">
+              <div class="subject-world-card-head" style="display:flex;align-items:center;gap:12px">
                 <span style="width:52px;height:52px;border-radius:18px;display:grid;place-items:center;font-size:26px;background:{{ u.tint }}">{{ u.iconEl }}</span>
                 <div style="min-width:0">
                   <strong style="display:block;font-size:17px;font-weight:900">{{ u.title }}</strong>
-                  <span style="font-size:12px;font-weight:800;color:#9a90c8">{{ u.sub }}</span>
+                  <span class="subject-world-card-sub" style="font-size:12px;font-weight:800">{{ u.sub }}</span>
                 </div>
                 <sc-if value="{{ u.showMastery }}" hint-placeholder-val="{{ true }}"><span style="margin-left:auto;min-width:38px;height:38px;padding:0 8px;border-radius:14px;display:grid;place-items:center;font-size:14px;font-weight:900;color:{{ u.masteryFg }};background:{{ u.masteryBg }};border:1.5px solid {{ u.masteryBorder }}">{{ u.masteryMark }}</span></sc-if>
               </div>
-              <sc-if value="{{ u.showStatus }}" hint-placeholder-val="{{ true }}"><div style="display:flex;gap:6px">
+              <div class="subject-world-card-bottom">
+              <sc-if value="{{ u.showStatus }}" hint-placeholder-val="{{ true }}"><div class="subject-world-card-status" style="display:flex;gap:6px">
                 <sc-for list="{{ u.stars }}" as="s" hint-placeholder-count="3">
                   <span style="font-size:19px">{{ s }}</span>
                 </sc-for>
-                <span style="margin-left:auto;font-size:12px;font-weight:900;color:{{ u.stateColor }}">{{ u.stateLabel }}</span>
+                <span class="subject-world-card-state" style="margin-left:auto;font-size:12px;font-weight:900">{{ u.stateLabel }}</span>
               </div></sc-if>
-              <sc-if value="{{ u.showProgress }}" hint-placeholder-val="{{ true }}"><div style="height:8px;border-radius:99px;background:#f0ecff;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,#7c5cff,#22c8d8);width:{{ u.pct }}%"></div></div></sc-if>
-              <button onClick="{{ u.start }}" style="margin-top:2px;border:0;border-radius:18px;padding:13px;font-size:15px;font-weight:900;font-family:inherit;cursor:pointer;color:{{ u.btnFg }};background:{{ u.btnBg }}" style-hover="filter:brightness(1.04)">{{ u.btnLabel }}</button>
+              <div class="subject-world-card-progress-slot"><sc-if value="{{ u.showProgress }}" hint-placeholder-val="{{ true }}"><div class="subject-world-card-progress" style="border-radius:99px;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,var(--subject-world-accent),#59e5f2);width:{{ u.pct }}%"></div></div></sc-if></div>
+              <div class="subject-world-card-extra">
               <sc-if value="{{ u.hasVideo }}" hint-placeholder-val="{{ false }}">
                 <button onClick="{{ u.watchVideo }}" style="margin-top:-4px;border:1.5px solid #ffd9ec;border-radius:16px;padding:10px;font-size:13px;font-weight:900;font-family:inherit;cursor:pointer;color:#c8447a;background:#fff5f9">🎬 教學影片</button>
               </sc-if>
               <sc-if value="{{ u.hasLesson }}" hint-placeholder-val="{{ false }}">
                 <button onClick="{{ u.lesson }}" style="margin-top:-4px;border:1.5px solid #ddd5ff;border-radius:16px;padding:10px;font-size:13px;font-weight:900;font-family:inherit;cursor:pointer;color:#5b3fe0;background:#fbfaff">{{ u.lessonLabel }}</button>
               </sc-if>
+              </div>
+              <button class="subject-battle-button" data-spark="true" onClick="{{ u.start }}"><span class="subject-battle-face"><span aria-hidden="true">✦</span>{{ u.btnLabel }}</span></button>
+              </div>
             </article>
           </sc-for>
         </div>
@@ -9636,6 +9659,63 @@ class Component extends DCLogic {
   const discover = () => mount(document.getElementById("home-stars"));
   new MutationObserver(discover).observe(document.body, { childList: true, subtree: true });
   discover();
+})();
+</script>
+<script>
+(function () {
+  "use strict";
+  let canvas, ctx, particles = [], raf = 0, last = 0;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const ensureCanvas = () => {
+    if (canvas) return;
+    canvas = document.createElement("canvas");
+    canvas.id = "subject-battle-sparks";
+    canvas.setAttribute("aria-hidden", "true");
+    document.body.appendChild(canvas);
+    ctx = canvas.getContext("2d");
+    resize();
+  };
+  const resize = () => {
+    if (!canvas) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.floor(innerWidth * dpr);
+    canvas.height = Math.floor(innerHeight * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  const draw = (now) => {
+    const dt = Math.min(32, now - (last || now)); last = now;
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    particles = particles.filter((p) => {
+      p.life -= dt; p.x += p.vx * dt; p.y += p.vy * dt; p.vy += .0011 * dt; p.vx *= .988;
+      if (p.life <= 0) return false;
+      ctx.globalAlpha = Math.min(1, p.life / 260);
+      ctx.fillStyle = p.color;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.spin += .06);
+      ctx.fillRect(-p.size * 1.8, -p.size / 2, p.size * 3.6, p.size);
+      ctx.restore();
+      return true;
+    });
+    ctx.globalAlpha = 1;
+    if (particles.length) raf = requestAnimationFrame(draw); else { raf = 0; last = 0; }
+  };
+  const burst = (button) => {
+    if (reduce.matches) return;
+    ensureCanvas();
+    const box = button.getBoundingClientRect();
+    const accent = getComputedStyle(button).getPropertyValue("--battle-mid").trim() || "#7c5cff";
+    const colors = [accent, "#fff4a7", "#ffffff", "#55e8f3"];
+    for (let i = 0; i < 28; i++) {
+      const angle = -Math.PI + Math.random() * Math.PI;
+      const speed = .16 + Math.random() * .23;
+      particles.push({ x:box.left + box.width / 2,y:box.bottom - 4,vx:Math.cos(angle) * speed,vy:Math.sin(angle) * speed - .08,life:360 + Math.random() * 300,size:1.5 + Math.random() * 2.7,color:colors[i % colors.length],spin:Math.random() * 6 });
+    }
+    if (!raf) raf = requestAnimationFrame(draw);
+  };
+  addEventListener("resize", resize, { passive:true });
+  document.addEventListener("pointerdown", (event) => {
+    const button = event.target.closest && event.target.closest(".subject-battle-button[data-spark]");
+    if (button) burst(button);
+  });
 })();
 </script>
 </body>
