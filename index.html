@@ -73,6 +73,44 @@
   @media (max-width:900px) { .home-subject-card { --planet-size:clamp(188px,26vh,205px); } .home-subject-grid { gap:12px 15px; } }
   @media (max-width:640px) { .home-dashboard { height:auto;min-height:980px; } .home-space-copy { top:20px; } .home-subject-grid { top:92px;bottom:22px; } .home-subject-card { --planet-size:170px;width:46%;flex-basis:170px; } }
 
+  .app-home-btn img { display:block;width:34px;height:34px;object-fit:contain;filter:drop-shadow(0 3px 7px rgba(43,31,87,.25)); }
+  .user-sub-home,.logout-spaceship { display:none; }
+  .home-focus { position:relative;max-width:none!important;min-height:100svh;margin:0!important;padding:0!important;overflow:hidden;background:#05071f;color:#fff; }
+  .home-focus .app-header { position:absolute;z-index:30;top:0;left:0;right:0;min-height:82px;display:flex!important;flex-wrap:nowrap!important;margin:0!important;padding:12px 16px!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,rgba(4,6,28,.9),rgba(7,8,38,.56) 62%,transparent)!important;box-shadow:none!important;color:#fff;backdrop-filter:blur(4px); }
+  .home-focus .app-home-btn,.home-focus .user-avatar,.home-focus .user-sub-default { display:none!important; }
+  .home-focus .user-identity { min-width:72px!important; }
+  .home-focus .user-identity strong { color:#fff;font-size:18px!important;text-shadow:0 2px 10px rgba(0,0,0,.7); }
+  .home-focus .user-sub-home { display:block;color:#93efff;font-size:12px;font-weight:900; }
+  .home-focus .student-xp { flex:0 1 220px!important;min-width:145px!important;max-width:220px; }
+  .home-focus .student-xp-label { color:rgba(255,255,255,.76)!important; }
+  .home-focus .student-xp-track { height:8px!important;background:rgba(255,255,255,.16)!important;box-shadow:inset 0 1px 4px rgba(0,0,0,.35); }
+  .home-focus .player-actions { gap:3px!important; }
+  .home-focus .home-coin { border:0!important;background:transparent!important;color:#ffe18a!important;padding:7px 8px!important;text-shadow:0 0 15px rgba(255,204,64,.7); }
+  .home-focus .home-utility { width:42px;height:42px;display:grid!important;place-items:center;border:0!important;border-radius:50%!important;padding:0!important;background:transparent!important;color:#fff!important;font-size:20px!important;filter:drop-shadow(0 3px 8px rgba(0,0,0,.55));transition:transform .18s ease,filter .18s ease; }
+  .home-focus .home-utility:hover { transform:translateY(-3px) scale(1.08);filter:drop-shadow(0 0 10px rgba(120,228,255,.78)); }
+  .home-focus .home-utility-label { display:none; }
+  .home-focus .speech-toggle { width:42px!important;height:42px!important;border:0!important;border-radius:50%!important;padding:0!important;display:grid!important;place-items:center;background:transparent!important; }
+  .home-focus .speech-toggle img { width:25px!important;height:25px!important;filter:brightness(0) invert(1) drop-shadow(0 3px 7px rgba(0,0,0,.55))!important; }
+  .home-focus .speech-toggle span { display:none; }
+  .home-focus .logout-control { position:relative;width:58px;height:50px;border:0!important;padding:0!important;background:transparent!important; }
+  .home-focus .logout-control > span { display:none; }
+  .home-focus .logout-spaceship { display:block;position:absolute;inset:-5px;width:68px;height:58px;object-fit:contain;filter:drop-shadow(0 5px 10px rgba(0,0,0,.45));transition:transform .2s ease; }
+  .home-focus .logout-control:hover .logout-spaceship { transform:translate(4px,-4px) scale(1.08); }
+  .home-focus .app-nav { display:none!important; }
+  .home-focus .home-dashboard { width:100%;height:100svh;min-height:650px;border:0;border-radius:0;background:radial-gradient(circle at 50% 41%,rgba(103,73,208,.36),transparent 39%),linear-gradient(145deg,#040619 0%,#100936 48%,#07122f 100%);box-shadow:none; }
+  .home-focus .home-space-copy { top:96px; }
+  .home-focus .home-space-copy h2 { font-size:clamp(25px,3.2vw,38px); }
+  .home-focus .home-subject-grid { top:150px;bottom:10px;left:34px;right:34px;gap:14px 18px;align-content:center; }
+  .home-focus .home-subject-card { --planet-size:clamp(150px,21vh,180px); }
+  .home-brand-logo { position:absolute;z-index:25;top:80px;right:18px;width:88px;height:88px;object-fit:contain;filter:drop-shadow(0 0 16px rgba(255,206,68,.48));pointer-events:none;animation:homePlanetFloat 5.6s ease-in-out infinite; }
+  .home-aux-card { --planet-size:clamp(132px,18vh,158px)!important; }
+  .home-aux-card .home-planet-art { overflow:visible;border-radius:0;background-image:var(--planet-image);background-repeat:no-repeat;background-position:center;background-size:contain;box-shadow:none; }
+  .home-aux-card::after { inset:7%;border-color:rgba(255,255,255,.38);box-shadow:inset 0 0 18px rgba(255,255,255,.12),0 12px 28px rgba(0,0,0,.34),0 0 24px var(--subject-glow); }
+  .home-aux-card .home-subject-copy { bottom:4px; }
+  .home-aux-card .home-subject-copy strong { font-size:clamp(16px,2vw,21px); }
+  @media (max-width:900px) { .home-focus .home-subject-card { --planet-size:clamp(142px,20.5vh,168px); } .home-focus .home-aux-card { --planet-size:clamp(126px,17.5vh,146px)!important; } }
+  @media (max-width:700px) { .home-focus { overflow:auto; } .home-focus .app-header { flex-wrap:wrap!important;min-height:122px; } .home-focus .student-xp { order:3;flex-basis:100%!important;max-width:none; } .home-focus .home-dashboard { height:auto;min-height:1080px; } .home-focus .home-space-copy { top:140px; } .home-focus .home-subject-grid { top:210px;bottom:25px; } .home-brand-logo { top:132px;width:70px;height:70px; } }
+
   .subject-world { position:relative;isolation:isolate;height:clamp(520px,calc(100svh - 205px),760px);min-height:520px;overflow:hidden;border:1px solid rgba(155,138,255,.58);border-radius:30px;background:#090727;color:#fff;box-shadow:0 24px 55px rgba(26,18,75,.28);display:flex;flex-direction:column; }
   .subject-world::before { content:"";position:absolute;z-index:-2;inset:0;background-image:var(--subject-world-image);background-size:cover;background-position:center;filter:saturate(1.08) contrast(1.03);transform:scale(1.025); }
   .subject-world::after { content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(7,6,31,.86),rgba(10,8,41,.62) 48%,rgba(8,7,34,.8)),radial-gradient(circle at 75% 40%,transparent 0 20%,rgba(5,4,27,.4) 68%);backdrop-filter:blur(1px); }
@@ -306,11 +344,11 @@
     .closet-animated-pet { width:min(22%,140px);height:26%; }
   }
   @media (orientation: landscape) and (max-height: 850px) {
-    .app-shell { padding: 8px 14px 14px !important; }
-    .app-header { padding: 8px 14px !important; border-radius: 20px !important; }
-    .app-header > * { transform: scale(.92); }
-    .app-nav { margin: 7px 0 8px !important; }
-    .app-nav button { padding: 8px 14px !important; }
+    .app-shell:not(.home-focus) { padding: 8px 14px 14px !important; }
+    .app-shell:not(.home-focus) .app-header { padding: 8px 14px !important; border-radius: 20px !important; }
+    .app-shell:not(.home-focus) .app-header > * { transform: scale(.92); }
+    .app-shell:not(.home-focus) .app-nav { margin: 7px 0 8px !important; }
+    .app-shell:not(.home-focus) .app-nav button { padding: 8px 14px !important; }
     .quiz-progress { margin-bottom: 7px !important; }
     .quiz-timer-circle { width: 50px !important; height: 50px !important; }
     .quiz-auto-next { padding: 6px 9px !important; font-size: 10px !important; }
@@ -532,37 +570,38 @@
     <sc-if value="{{ showAppChrome }}" hint-placeholder-val="{{ true }}">
     <header class="app-header" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#fff;border:1px solid #ece7ff;border-radius:26px;padding:14px 18px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
       <sc-if value="{{ isStudent }}" hint-placeholder-val="{{ true }}">
-        <button onClick="{{ goHome }}" title="首頁" style="width:46px;height:46px;border-radius:16px;border:1.5px solid {{ homeBorder }};background:{{ homeBg }};font-size:22px;cursor:pointer;font-family:inherit">🏠</button>
+        <button class="app-home-btn" onClick="{{ goHome }}" title="首頁" aria-label="回到學習星球首頁" style="width:46px;height:46px;border-radius:16px;border:1.5px solid {{ homeBorder }};background:{{ homeBg }};font-size:22px;cursor:pointer;font-family:inherit"><img src="images/home/hud/learning-planet-logo-v1.png" alt=""></button>
       </sc-if>
-      <span style="width:46px;height:46px;border-radius:16px;display:grid;place-items:center;font-size:24px;background:{{ user.tint }}">{{ user.face }}</span>
-      <div style="min-width:110px">
+      <span class="user-avatar" style="width:46px;height:46px;border-radius:16px;display:grid;place-items:center;font-size:24px;background:{{ user.tint }}">{{ user.face }}</span>
+      <div class="user-identity" style="min-width:110px">
         <strong style="display:block;font-size:17px;font-weight:900">{{ user.name }}</strong>
-        <span style="font-size:12px;font-weight:800;color:#9a90c8">{{ userSub }}</span>
+        <span class="user-sub-default" style="font-size:12px;font-weight:800;color:#9a90c8">{{ userSub }}</span>
+        <span class="user-sub-home">{{ userLevelLabel }}</span>
       </div>
       <sc-if value="{{ isStudent }}" hint-placeholder-val="{{ true }}">
-        <div style="flex:1;min-width:150px">
-          <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:800;color:#9a90c8"><span>{{ xp }} XP</span><span>{{ toNext }} XP 升級</span></div>
-          <div style="margin-top:5px;height:10px;border-radius:99px;background:#f0ecff;overflow:hidden">
+        <div class="student-xp" style="flex:1;min-width:150px">
+          <div class="student-xp-label" style="display:flex;justify-content:space-between;font-size:11px;font-weight:800;color:#9a90c8"><span>{{ xp }} XP</span><span>{{ toNext }} XP 升級</span></div>
+          <div class="student-xp-track" style="margin-top:5px;height:10px;border-radius:99px;background:#f0ecff;overflow:hidden">
             <div style="height:100%;border-radius:99px;background:linear-gradient(90deg,#7c5cff,#22c8d8);width:{{ levelPct }}%"></div>
           </div>
         </div>
       </sc-if>
       <sc-if value="{{ isStudent }}" hint-placeholder-val="{{ true }}">
-        <div style="display:flex;gap:8px">
-          <span style="display:flex;align-items:center;gap:6px;background:#fff6e0;border:1px solid #ffe2ab;border-radius:99px;padding:8px 14px;font-size:15px;font-weight:900;color:#a06400">⭐ {{ coins }}</span>
-          <button onClick="{{ goSignin }}" style="border:1px solid #ece7ff;background:#fbfaff;border-radius:99px;padding:8px 13px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit;white-space:nowrap" style-hover="border-color:#c9bfff;color:#5b3fe0">📅 簽到</button>
-          <button onClick="{{ goRank }}" style="border:1px solid #ece7ff;background:#fbfaff;border-radius:99px;padding:8px 13px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit;white-space:nowrap" style-hover="border-color:#c9bfff;color:#5b3fe0">🏆 排行</button>
-          <button onClick="{{ goAchieve }}" style="border:1px solid #ece7ff;background:#fbfaff;border-radius:99px;padding:8px 13px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit;white-space:nowrap" style-hover="border-color:#c9bfff;color:#5b3fe0">🎖️ 成就</button>
+        <div class="player-actions" style="display:flex;gap:8px">
+          <span class="home-coin" style="display:flex;align-items:center;gap:6px;background:#fff6e0;border:1px solid #ffe2ab;border-radius:99px;padding:8px 14px;font-size:15px;font-weight:900;color:#a06400">⭐ {{ coins }}</span>
+          <button class="home-utility" onClick="{{ goSignin }}" title="簽到" aria-label="簽到" style="border:1px solid #ece7ff;background:#fbfaff;border-radius:99px;padding:8px 13px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit;white-space:nowrap" style-hover="border-color:#c9bfff;color:#5b3fe0"><span aria-hidden="true">📅</span><span class="home-utility-label">簽到</span></button>
+          <button class="home-utility" onClick="{{ goRank }}" title="排行" aria-label="排行" style="border:1px solid #ece7ff;background:#fbfaff;border-radius:99px;padding:8px 13px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit;white-space:nowrap" style-hover="border-color:#c9bfff;color:#5b3fe0"><span aria-hidden="true">🏆</span><span class="home-utility-label">排行</span></button>
+          <button class="home-utility" onClick="{{ goAchieve }}" title="成就" aria-label="成就" style="border:1px solid #ece7ff;background:#fbfaff;border-radius:99px;padding:8px 13px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit;white-space:nowrap" style-hover="border-color:#c9bfff;color:#5b3fe0"><span aria-hidden="true">🎖️</span><span class="home-utility-label">成就</span></button>
         </div>
       </sc-if>
       <span style="flex:1"></span>
       <sc-if value="{{ isStudent }}" hint-placeholder-val="{{ true }}">
-        <button onClick="{{ toggleSpeechMute }}" title="{{ speechMuteTitle }}" aria-label="{{ speechMuteTitle }}" aria-pressed="{{ speechMuted }}" style="height:42px;border:1px solid {{ speechMuteBorder }};background:{{ speechMuteBg }};color:{{ speechMuteFg }};border-radius:99px;padding:8px 12px;display:flex;align-items:center;gap:7px;font-size:12px;font-weight:900;cursor:pointer;font-family:inherit">
+        <button class="speech-toggle" onClick="{{ toggleSpeechMute }}" title="{{ speechMuteTitle }}" aria-label="{{ speechMuteTitle }}" aria-pressed="{{ speechMuted }}" style="height:42px;border:1px solid {{ speechMuteBorder }};background:{{ speechMuteBg }};color:{{ speechMuteFg }};border-radius:99px;padding:8px 12px;display:flex;align-items:center;gap:7px;font-size:12px;font-weight:900;cursor:pointer;font-family:inherit">
           <img src="images/ui/no-sound-rounded.svg" alt="" style="width:20px;height:20px;opacity:{{ speechMuteOpacity }};filter:{{ speechMuteFilter }}">
           <span>{{ speechMuteLabel }}</span>
         </button>
       </sc-if>
-      <button onClick="{{ logout }}" style="border:1px solid #ece7ff;background:#fbfaff;border-radius:99px;padding:9px 16px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit" style-hover="border-color:#c9bfff;color:#5b3fe0">登出</button>
+      <button class="logout-control" onClick="{{ logout }}" title="搭飛船登出" aria-label="登出" style="border:1px solid #ece7ff;background:#fbfaff;border-radius:99px;padding:9px 16px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit" style-hover="border-color:#c9bfff;color:#5b3fe0"><img class="logout-spaceship" src="images/home/hud/logout-spaceship-v1.png" alt=""><span>登出</span></button>
     </header>
 
     <nav class="app-nav" style="display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px">
@@ -577,6 +616,7 @@
     <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
       <div data-screen-label="首頁" class="home-dashboard">
         <canvas id="home-stars" aria-hidden="true"></canvas>
+        <img class="home-brand-logo" src="images/home/hud/learning-planet-logo-v1.png" alt="學習星球">
         <div class="home-space-copy">
           <p class="home-space-kicker">Learning Planet</p>
           <h2>選一個任務，今天就出發</h2>
@@ -591,6 +631,12 @@
               </span>
             </button>
           </sc-for>
+          <button class="home-subject-card home-aux-card" data-subject="weekly" aria-label="進入週考" onClick="{{ goWeekly }}" style="--planet-image:url('images/home/hud/weekly-planet-v1.png');--subject-glow:rgba(255,173,82,.8)">
+            <span class="home-planet-art" aria-hidden="true"></span><span class="home-subject-copy"><strong>週考</strong></span>
+          </button>
+          <button class="home-subject-card home-aux-card" data-subject="gacha" aria-label="進入扭蛋" onClick="{{ goGacha }}" style="--planet-image:url('images/home/hud/gacha-planet-v1.png');--subject-glow:rgba(99,231,255,.8)">
+            <span class="home-planet-art" aria-hidden="true"></span><span class="home-subject-copy"><strong>扭蛋</strong></span>
+          </button>
         </section>
       </div>
     </sc-if>
@@ -8082,7 +8128,7 @@ class Component extends DCLogic {
       isLogin: s.screen === "login",
       isApp: s.screen !== "login",
       showAppChrome: !isExperimentLabScreen,
-      appShellClass: isExperimentLabScreen ? "lab-focus" : "",
+      appShellClass: isExperimentLabScreen ? "lab-focus" : s.screen === "home" ? "home-focus" : "",
       isHome: s.screen === "home", isSignin: s.screen === "signin", isMap: s.screen === "map", isMemory: s.screen === "memory",
       isEnglishLibrary: s.screen === "englishLibrary", isEnglishScramble: s.screen === "englishScramble", isEnglishMatch: s.screen === "englishMatch", isEnglishChain: s.screen === "englishChain", isEnglishGrammar: s.screen === "englishGrammar", isEnglishAssociation: s.screen === "englishAssociation",
       isMindmap: s.screen === "mindmap",
@@ -8709,6 +8755,7 @@ class Component extends DCLogic {
       user: s.teacher || !me ? { name: "陳老師", seat: "導師", face: "🍎", tint: "#ffe0e6" } : { name: me.name, seat: me.seat, face: me.face, tint: me.tint },
       isStudent: !s.teacher && !!me,
       userSub: s.teacher || !me ? "教師工作台" : "Lv." + level + " · " + className(me.classId) + " " + me.seat,
+      userLevelLabel: "Lv." + level,
       level, xp: p.xp, coins: p.coins, streak: p.streak,
       levelPct: p.xp % 100, toNext: 100 - (p.xp % 100),
       todayCount: p.todayCount, correctTotal: p.correctTotal,
