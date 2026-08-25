@@ -110,6 +110,29 @@
   @media (max-width:900px) { .home-focus .home-subject-card { --planet-size:clamp(142px,20.5vh,168px); } .home-focus .home-aux-card { --planet-size:clamp(126px,17.5vh,146px)!important; } }
   @media (max-width:700px) { .home-focus { overflow:auto; } .home-focus .app-header { flex-wrap:wrap!important;min-height:122px; } .home-focus .student-xp { order:3;flex-basis:100%!important;max-width:none; } .home-focus .home-dashboard { height:auto;min-height:1080px; } .home-focus .home-space-copy { top:140px; } .home-focus .home-subject-grid { top:210px;bottom:25px; } }
 
+  .subject-focus { position:relative;isolation:isolate;max-width:none!important;min-height:100svh;margin:0!important;padding:82px clamp(12px,2vw,24px) 18px!important;overflow-x:hidden;background:radial-gradient(circle at 16% 8%,rgba(90,53,180,.28),transparent 33%),radial-gradient(circle at 86% 10%,rgba(20,159,191,.18),transparent 29%),linear-gradient(145deg,#040619 0%,#100936 48%,#07122f 100%);color:#fff; }
+  .subject-focus .app-header { position:absolute;z-index:30;top:0;left:0;right:0;min-height:78px;display:flex!important;flex-wrap:nowrap!important;margin:0!important;padding:10px 16px!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,rgba(4,6,28,.94),rgba(7,8,38,.6) 68%,transparent)!important;box-shadow:none!important;color:#fff;backdrop-filter:blur(5px); }
+  .subject-focus .app-home-btn { width:54px!important;height:54px!important;border:0!important;border-radius:50%!important;padding:0!important;background:transparent!important; }
+  .subject-focus .app-home-btn img { width:50px;height:50px;filter:drop-shadow(0 0 12px rgba(92,222,255,.5)); }
+  .subject-focus .user-identity { min-width:72px!important; }
+  .subject-focus .user-identity strong { color:#fff;font-size:17px!important;text-shadow:0 2px 10px rgba(0,0,0,.7); }
+  .subject-focus .user-sub-default { display:none!important; }
+  .subject-focus .user-sub-home { display:block;color:#93efff;font-size:12px;font-weight:900; }
+  .subject-focus .student-xp { flex:0 1 220px!important;min-width:145px!important;max-width:220px; }
+  .subject-focus .student-xp-label { color:rgba(255,255,255,.76)!important; }
+  .subject-focus .student-xp-track { height:8px!important;background:rgba(255,255,255,.16)!important; }
+  .subject-focus .player-actions { gap:3px!important; }
+  .subject-focus .home-coin { border:0!important;background:transparent!important;color:#ffe18a!important;padding:7px 8px!important;text-shadow:0 0 15px rgba(255,204,64,.7); }
+  .subject-focus .home-utility { width:42px;height:42px;display:grid!important;place-items:center;border:0!important;border-radius:50%!important;padding:0!important;background:transparent!important;color:#fff!important;font-size:20px!important;filter:drop-shadow(0 3px 8px rgba(0,0,0,.55)); }
+  .subject-focus .home-utility-label,.subject-focus .speech-toggle span,.subject-focus .logout-control>span { display:none; }
+  .subject-focus .speech-toggle { width:42px!important;height:42px!important;border:0!important;border-radius:50%!important;padding:0!important;display:grid!important;place-items:center;background:transparent!important; }
+  .subject-focus .speech-toggle img { width:25px!important;height:25px!important;filter:brightness(0) invert(1) drop-shadow(0 3px 7px rgba(0,0,0,.55))!important; }
+  .subject-focus .logout-control { position:relative;width:58px;height:50px;border:0!important;padding:0!important;background:transparent!important; }
+  .subject-focus .logout-spaceship { display:block;position:absolute;inset:-5px;width:68px;height:58px;object-fit:contain;filter:drop-shadow(0 5px 10px rgba(0,0,0,.45)); }
+  .subject-focus .app-nav { display:none!important; }
+  .subject-focus .subject-world { width:min(1120px,100%);margin:0 auto;border-color:rgba(141,223,255,.42);box-shadow:0 24px 58px rgba(0,0,0,.34); }
+  @media(max-width:700px){.subject-focus{padding-top:126px!important}.subject-focus .app-header{flex-wrap:wrap!important;min-height:122px}.subject-focus .student-xp{order:3;flex-basis:100%!important;max-width:none}}
+
   .cosmos-focus { position:relative;isolation:isolate;max-width:none!important;min-height:100svh;margin:0!important;padding:82px clamp(14px,2vw,26px) 26px!important;overflow-x:hidden;background:radial-gradient(circle at 18% 16%,rgba(90,53,180,.34),transparent 35%),radial-gradient(circle at 82% 24%,rgba(20,159,191,.2),transparent 31%),linear-gradient(145deg,#040619 0%,#100936 48%,#07122f 100%);color:#fff; }
   .cosmos-focus .cosmos-stars { position:fixed; }
   .cosmos-focus .app-header { position:absolute;z-index:30;top:0;left:0;right:0;min-height:78px;display:flex!important;flex-wrap:nowrap!important;margin:0!important;padding:10px 16px!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,rgba(4,6,28,.95),rgba(7,8,38,.64) 68%,transparent)!important;box-shadow:none!important;color:#fff;backdrop-filter:blur(5px); }
@@ -442,11 +465,11 @@
     .closet-animated-pet { width:min(22%,140px);height:26%; }
   }
   @media (orientation: landscape) and (max-height: 850px) {
-    .app-shell:not(.home-focus):not(.cosmos-focus) { padding: 8px 14px 14px !important; }
-    .app-shell:not(.home-focus):not(.cosmos-focus) .app-header { padding: 8px 14px !important; border-radius: 20px !important; }
-    .app-shell:not(.home-focus):not(.cosmos-focus) .app-header > * { transform: scale(.92); }
-    .app-shell:not(.home-focus):not(.cosmos-focus) .app-nav { margin: 7px 0 8px !important; }
-    .app-shell:not(.home-focus):not(.cosmos-focus) .app-nav button { padding: 8px 14px !important; }
+    .app-shell:not(.home-focus):not(.cosmos-focus):not(.subject-focus):not(.profile-focus) { padding: 8px 14px 14px !important; }
+    .app-shell:not(.home-focus):not(.cosmos-focus):not(.subject-focus):not(.profile-focus) .app-header { padding: 8px 14px !important; border-radius: 20px !important; }
+    .app-shell:not(.home-focus):not(.cosmos-focus):not(.subject-focus):not(.profile-focus) .app-header > * { transform: scale(.92); }
+    .app-shell:not(.home-focus):not(.cosmos-focus):not(.subject-focus):not(.profile-focus) .app-nav { margin: 7px 0 8px !important; }
+    .app-shell:not(.home-focus):not(.cosmos-focus):not(.subject-focus):not(.profile-focus) .app-nav button { padding: 8px 14px !important; }
     .quiz-progress { margin-bottom: 7px !important; }
     .quiz-timer-circle { width: 50px !important; height: 50px !important; }
     .quiz-auto-next { padding: 6px 9px !important; font-size: 10px !important; }
@@ -8300,7 +8323,7 @@ class Component extends DCLogic {
       isLogin: s.screen === "login",
       isApp: s.screen !== "login",
       showAppChrome: !isExperimentLabScreen,
-      appShellClass: isExperimentLabScreen ? "lab-focus" : s.screen === "home" ? "home-focus" : isCosmosHub ? "cosmos-focus" : s.screen === "profile" ? "profile-focus" : "",
+      appShellClass: isExperimentLabScreen ? "lab-focus" : s.screen === "home" ? "home-focus" : isCosmosHub ? "cosmos-focus" : s.screen === "profile" ? "profile-focus" : s.screen === "map" ? "subject-focus" : "",
       isCosmosHub,
       isHome: s.screen === "home", isProfile: s.screen === "profile", isSignin: s.screen === "signin", isMap: s.screen === "map", isMemory: s.screen === "memory",
       isEnglishLibrary: s.screen === "englishLibrary", isEnglishScramble: s.screen === "englishScramble", isEnglishMatch: s.screen === "englishMatch", isEnglishChain: s.screen === "englishChain", isEnglishGrammar: s.screen === "englishGrammar", isEnglishAssociation: s.screen === "englishAssociation",
