@@ -729,7 +729,7 @@
       <span style="flex:1"></span>
       <sc-if value="{{ isStudent }}" hint-placeholder-val="{{ true }}">
         <button class="speech-toggle" onClick="{{ toggleSpeechMute }}" title="{{ speechMuteTitle }}" aria-label="{{ speechMuteTitle }}" aria-pressed="{{ speechMuted }}" style="height:42px;border:1px solid {{ speechMuteBorder }};background:{{ speechMuteBg }};color:{{ speechMuteFg }};border-radius:99px;padding:8px 12px;display:flex;align-items:center;gap:7px;font-size:12px;font-weight:900;cursor:pointer;font-family:inherit">
-          <img src="images/ui/no-sound-rounded.svg" alt="" style="width:20px;height:20px;opacity:{{ speechMuteOpacity }};filter:{{ speechMuteFilter }}">
+          <img src="{{ speechIcon }}" alt="" style="width:20px;height:20px;opacity:{{ speechMuteOpacity }};filter:{{ speechMuteFilter }}">
           <span>{{ speechMuteLabel }}</span>
         </button>
       </sc-if>
@@ -8972,12 +8972,13 @@ class Component extends DCLogic {
       levelPct: p.xp % 100, toNext: 100 - (p.xp % 100),
       todayCount: p.todayCount, correctTotal: p.correctTotal,
       speechMuted: s.speechMuted,
-      speechMuteLabel: s.speechMuted ? "已靜音" : "靜音",
+      speechMuteLabel: s.speechMuted ? "靜音" : "正常",
+      speechIcon: s.speechMuted ? "images/ui/no-sound-rounded.svg" : "images/ui/sound-rounded.svg",
       speechMuteTitle: s.speechMuted ? "開啟題目自動朗讀" : "關閉題目自動朗讀",
       speechMuteBg: s.speechMuted ? "#ffeef2" : "#fbfaff",
       speechMuteBorder: s.speechMuted ? "#ffb7ca" : "#ece7ff",
       speechMuteFg: s.speechMuted ? "#c0325c" : "#7c74a8",
-      speechMuteOpacity: s.speechMuted ? 1 : .64,
+      speechMuteOpacity: 1,
       speechMuteFilter: s.speechMuted ? "invert(26%) sepia(58%) saturate(2000%) hue-rotate(310deg) brightness(88%)" : "none",
       toggleSpeechMute: () => this.toggleSpeechMute(),
       goHome: go("home"),
