@@ -1,0 +1,18 @@
+{
+  "name": "Learning Planet｜小學五科互動學習",
+  "short_name": "Learning Planet",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#05071f",
+  "theme_color": "#071333",
+  "icons": [
+    {
+      "src": "images/brand/learning-planet-brand-v1.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
