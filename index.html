@@ -146,8 +146,41 @@
   .hub-rank .rank-row>strong:last-child { color:#89eaff!important; }
   .hub-rank .rank-goal { position:sticky;top:92px;padding:20px!important; }
   .hub-rank .rank-goal p { color:#c7d5ee!important; }
-  .cosmos-focus .achievement-page { border-color:rgba(239,207,114,.46);background:linear-gradient(145deg,rgba(5,25,43,.88),rgba(11,50,65,.86) 52%,rgba(24,18,46,.9));box-shadow:0 28px 70px rgba(0,0,0,.42);backdrop-filter:blur(13px); }
+  .cosmos-focus .achievement-page { border-color:rgba(239,207,114,.46);background:linear-gradient(145deg,rgba(5,25,43,.5),rgba(11,50,65,.46) 52%,rgba(24,18,46,.58));box-shadow:0 28px 70px rgba(0,0,0,.34);backdrop-filter:blur(7px); }
+  .cosmos-focus .achievement-hero { background:radial-gradient(circle at 80% 0,rgba(35,207,219,.12),transparent 38%),linear-gradient(120deg,rgba(197,139,30,.12),transparent 52%); }
+  .cosmos-focus .achievement-recent-card { background:linear-gradient(135deg,rgba(13,68,85,.52),rgba(18,30,60,.46)); }
+  .cosmos-focus .achievement-card,.cosmos-focus .achievement-badge-item,.cosmos-focus .reputation-card { background:rgba(3,16,29,.3); }
   @media(max-width:760px){.cosmos-focus{padding-top:126px!important}.cosmos-focus .app-header{flex-wrap:wrap!important;min-height:120px}.cosmos-focus .student-xp{order:3;flex-basis:100%!important;max-width:none}.hub-rank{grid-template-columns:1fr}.hub-rank .rank-goal{position:static}}
+
+  .login-space { position:relative;isolation:isolate;min-height:100svh;overflow:hidden;padding:clamp(16px,3vw,34px);display:grid;place-items:center;background:radial-gradient(circle at 18% 15%,rgba(88,53,181,.42),transparent 34%),radial-gradient(circle at 82% 18%,rgba(0,207,230,.22),transparent 28%),linear-gradient(145deg,#030514,#0d0730 50%,#04142d);color:#eefaff; }
+  .login-space::after { content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(115deg,transparent 0 42%,rgba(78,227,255,.045) 42.2% 42.5%,transparent 42.7% 100%);pointer-events:none; }
+  .login-orbit-planet { position:absolute;z-index:1;object-fit:contain;pointer-events:none;filter:drop-shadow(0 0 28px rgba(102,211,255,.42));animation:homePlanetFloat 7s ease-in-out infinite; }
+  .login-orbit-planet.one { width:clamp(150px,22vw,260px);right:-45px;top:-48px;opacity:.58; }
+  .login-orbit-planet.two { width:clamp(120px,17vw,200px);left:-42px;bottom:-36px;opacity:.5;animation-delay:-3s; }
+  .login-space-shell { position:relative;z-index:3;width:min(1100px,100%);display:grid;gap:14px;animation:cardEnter .72s cubic-bezier(.16,1,.3,1) both; }
+  .login-space-head { display:flex;align-items:center;gap:14px;padding:0 10px; }
+  .login-space-mark { width:clamp(66px,8vw,92px);height:clamp(66px,8vw,92px);object-fit:contain;filter:drop-shadow(0 0 18px rgba(255,211,91,.56)); }
+  .login-space-title { flex:1;min-width:0; }
+  .login-space-title p { margin:0;color:#8feaff;font-size:11px;font-weight:950;letter-spacing:.22em;text-transform:uppercase; }
+  .login-space-title h1 { margin:3px 0 2px;color:#fff;font-size:clamp(27px,4vw,42px);font-weight:950;letter-spacing:.08em;text-shadow:0 0 17px rgba(60,219,255,.72); }
+  .login-space-title small { color:#a8cce8;font-size:13px;font-weight:800; }
+  .login-teacher { border:1px solid rgba(128,228,255,.45)!important;border-radius:999px!important;padding:11px 17px!important;background:rgba(8,19,55,.56)!important;color:#dffaff!important;box-shadow:inset 0 1px rgba(255,255,255,.14),0 0 18px rgba(38,201,231,.12);backdrop-filter:blur(12px); }
+  .login-hud { position:relative;overflow:auto;max-height:calc(100svh - 145px);padding:20px 22px 22px;border:2px solid rgba(0,226,255,.43);border-radius:30px;background:rgba(8,18,46,.68);box-shadow:0 0 42px rgba(0,220,255,.18),inset 0 0 28px rgba(0,226,255,.055);backdrop-filter:blur(18px) saturate(1.15); }
+  .login-hud::before,.login-hud::after { content:"";position:absolute;width:22px;height:22px;border-color:#ffe75c;border-style:solid;pointer-events:none; }
+  .login-hud::before { left:12px;top:12px;border-width:3px 0 0 3px;border-radius:8px 0 0; }
+  .login-hud::after { right:12px;bottom:12px;border-width:0 3px 3px 0;border-radius:0 0 8px; }
+  .login-scanner-status { display:flex;align-items:center;justify-content:center;gap:8px;margin:0 0 14px;color:#9cefff;font-size:11px;font-weight:950;letter-spacing:.18em;text-align:center; }
+  .login-scanner-status i { width:8px;height:8px;border-radius:50%;background:#58ffc7;box-shadow:0 0 12px #58ffc7;animation:homePlanetHalo 2s ease-in-out infinite; }
+  .login-class-chips { display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:16px; }
+  .login-class-chips button { border-color:rgba(119,220,255,.34)!important;background:rgba(255,255,255,.065)!important;color:#c8eaff!important;box-shadow:inset 0 1px rgba(255,255,255,.1);backdrop-filter:blur(8px); }
+  .login-roster-grid { display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px; }
+  .login-student-card { min-height:148px;border:1px solid rgba(255,255,255,.16)!important;border-radius:20px!important;padding:14px 8px!important;background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.025))!important;color:#fff;box-shadow:inset 0 1px rgba(255,255,255,.12);backdrop-filter:blur(10px); }
+  .login-student-card:hover { border-color:#59edff!important;background:rgba(0,214,244,.14)!important;transform:translateY(-5px)!important;box-shadow:0 0 22px rgba(0,226,255,.28); }
+  .login-student-card>span:first-child { box-shadow:0 0 18px rgba(75,222,255,.3); }
+  .login-student-card strong { color:#fff!important;text-shadow:0 2px 10px rgba(0,0,0,.55); }
+  .login-student-card span { color:#a8cce8!important; }
+  @keyframes cardEnter { from { opacity:0;transform:scale(.94) translateY(20px) } to { opacity:1;transform:none } }
+  @media(max-width:760px){.login-space{overflow:auto;place-items:start center}.login-space-head{flex-wrap:wrap}.login-teacher{margin-left:auto}.login-hud{max-height:none}.login-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
   .subject-world { position:relative;isolation:isolate;height:clamp(520px,calc(100svh - 205px),760px);min-height:520px;overflow:hidden;border:1px solid rgba(155,138,255,.58);border-radius:30px;background:#090727;color:#fff;box-shadow:0 24px 55px rgba(26,18,75,.28);display:flex;flex-direction:column; }
   .subject-world::before { content:"";position:absolute;z-index:-2;inset:0;background-image:var(--subject-world-image);background-size:cover;background-position:center;filter:saturate(1.08) contrast(1.03);transform:scale(1.025); }
@@ -567,26 +600,31 @@
 <div style="min-height:100vh;background:radial-gradient(circle at 12% -8%, #ffe9f6 0, transparent 42%), radial-gradient(circle at 88% -4%, #dff6ff 0, transparent 40%), #f6f3ff;color:#2b1f57">
 
 <sc-if value="{{ isLogin }}" hint-placeholder-val="{{ true }}">
-  <div data-screen-label="登入" style="min-height:100vh;padding:28px 20px 40px">
-    <div style="max-width:1100px;margin:0 auto">
-      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-        <span style="width:62px;height:62px;border-radius:22px;display:grid;place-items:center;font-size:32px;background:linear-gradient(140deg,#7c5cff,#22c8d8);box-shadow:0 14px 28px rgba(124,92,255,.32);animation:floaty 4s ease-in-out infinite">🧮</span>
-        <div style="flex:1;min-width:200px">
-          <h1 style="margin:0;font-size:34px;font-weight:900;letter-spacing:-.02em"><ruby>學<rt>ㄒㄩㄝˊ</rt></ruby><ruby>習<rt>ㄒㄧˊ</rt></ruby><ruby>星<rt>ㄒㄧㄥ</rt></ruby><ruby>球<rt>ㄑㄧㄡˊ</rt></ruby></h1>
-          <p style="margin:6px 0 0;font-size:15px;font-weight:700;color:#7c74a8"><ruby>數<rt>ㄕㄨˋ</rt></ruby><ruby>學<rt>ㄒㄩㄝˊ</rt></ruby>・<ruby>國<rt>ㄍㄨㄛˊ</rt></ruby><ruby>文<rt>ㄨㄣˊ</rt></ruby>　<ruby>找<rt>ㄓㄠˇ</rt></ruby><ruby>到<rt>ㄉㄠˋ</rt></ruby><ruby>你<rt>ㄋㄧˇ</rt></ruby><ruby>的<rt>ㄉㄜ˙</rt></ruby><ruby>名<rt>ㄇㄧㄥˊ</rt></ruby><ruby>字<rt>ㄗˋ</rt></ruby><ruby>就<rt>ㄐㄧㄡˋ</rt></ruby><ruby>開<rt>ㄎㄞ</rt></ruby><ruby>始<rt>ㄕˇ</rt></ruby></p>
+  <div data-screen-label="登入" class="login-space">
+    <canvas class="cosmos-stars login-stars" aria-hidden="true"></canvas>
+    <img class="login-orbit-planet one" src="images/home/planets/math-planet-v1.png" alt="" aria-hidden="true">
+    <img class="login-orbit-planet two" src="images/home/hud/gacha-planet-v1.png" alt="" aria-hidden="true">
+    <div class="login-space-shell">
+      <header class="login-space-head">
+        <img class="login-space-mark" src="images/home/hud/learning-planet-logo-v1.png" alt="學習星球">
+        <div class="login-space-title">
+          <p>Learning Planet · Identity Scanner</p>
+          <h1>星球探險隊</h1>
+          <small>找到你的隊員呼號，啟動星艦前往學習星球。</small>
         </div>
-        <button onClick="{{ loginTeacher }}" style="border:1px solid #ddd5ff;background:#fff;border-radius:99px;padding:10px 18px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit" style-hover="border-color:#7c5cff;color:#5b3fe0">🍎 老師登入</button>
-      </div>
+        <button class="login-teacher" onClick="{{ loginTeacher }}" style="border:1px solid #ddd5ff;background:#fff;border-radius:99px;padding:10px 18px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit">🍎 基地老師</button>
+      </header>
 
-      <div style="margin-top:22px;background:#fff;border:1px solid #ece7ff;border-radius:32px;padding:26px;box-shadow:0 22px 44px rgba(43,31,87,.08)">
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">
+      <section class="login-hud">
+        <p class="login-scanner-status"><i></i>STARSHIP IDENTITY SCANNER · 等待隊員驗證</p>
+        <div class="login-class-chips">
           <sc-for list="{{ classChips }}" as="c" hint-placeholder-count="3">
             <button onClick="{{ c.go }}" style="border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.fg }};border-radius:99px;padding:9px 20px;font-size:14px;font-weight:900;font-family:inherit;cursor:pointer">{{ c.label }} <span style="opacity:.6;font-size:12px">{{ c.count }}</span></button>
           </sc-for>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px">
+        <div class="login-roster-grid">
           <sc-for list="{{ roster }}" as="s" hint-placeholder-count="8">
-            <button onClick="{{ s.login }}" style="border:2px solid #ece7ff;background:#fbfaff;border-radius:24px;padding:18px 10px;display:grid;justify-items:center;gap:8px;cursor:pointer;font-family:inherit;transition:transform .15s ease, border-color .15s ease" style-hover="border-color:#7c5cff;transform:translateY(-4px)">
+            <button class="login-student-card" onClick="{{ s.login }}" style="border:2px solid #ece7ff;background:#fbfaff;border-radius:24px;padding:18px 10px;display:grid;justify-items:center;gap:8px;cursor:pointer;font-family:inherit;transition:transform .15s ease, border-color .15s ease">
               <span style="width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:30px;background:{{ s.tint }}">{{ s.face }}</span>
               <strong style="font-size:16px;font-weight:900;color:#2b1f57">{{ s.name }}</strong>
               <span style="font-size:12px;font-weight:800;color:#b3a9d8">{{ s.seat }} · Lv.{{ s.level }}</span>
@@ -597,7 +635,7 @@
         <sc-if value="{{ rosterEmpty }}" hint-placeholder-val="{{ false }}">
           <p style="margin:8px 0 0;font-size:14px;font-weight:800;color:#b3a9d8">這個班級還沒有學生，請老師到後台新增。</p>
         </sc-if>
-      </div>
+      </section>
     </div>
   </div>
 </sc-if>
@@ -2194,7 +2232,7 @@
           </div>
         </section>
         <section class="achievement-section">
-          <h3 class="achievement-section-title">四科主城聲望</h3>
+          <h3 class="achievement-section-title">四科星球聲望</h3>
           <div class="reputation-grid">
             <sc-for list="{{ reputationSubjects }}" as="rep" hint-placeholder-count="4">
               <article class="reputation-card">
@@ -4137,7 +4175,7 @@ function achievedMilestoneEntries(profile) {
   const reputationEntries = Object.keys(subjectMeta).map((key) => {
     const status = reputationStatus(subjectCorrect[key]);
     if (status.rankEn === "Unfriendly") return null;
-    return { id: "reputation:" + key + ":" + status.rankEn, title: subjectMeta[key][0] + "聲望 · " + status.rank, note: status.rankEn + " 主城聲望", image: "images/achievements/" + subjectMeta[key][1] };
+    return { id: "reputation:" + key + ":" + status.rankEn, title: subjectMeta[key][0] + "聲望 · " + status.rank, note: status.rankEn + " 星球聲望", image: "images/achievements/" + subjectMeta[key][1] };
   }).filter(Boolean);
   const wardrobeTier = Math.floor((Array.isArray(p.owned) ? p.owned.filter((id) => !/-00$/.test(id)).length : 0) / 20) * 20;
   const gachaUnique = Object.keys(p.gachaOwned || {}).filter((id) => Number(p.gachaOwned[id] || 0) > 0).length;
@@ -4149,7 +4187,7 @@ function achievedMilestoneEntries(profile) {
     perfectTier ? { id: "perfect:" + perfectTier, title: "全對 " + perfectTier + " 次", note: "完整答對挑戰", image: "images/achievements/perfect.png" } : null,
     questionTier ? { id: "questions:" + questionTier, title: "完成 " + questionTier + " 題", note: "累積完成題目", image: "images/achievements/questions.png" } : null,
     signinTier ? { id: "signin:" + signinTier, title: "完成 " + signinTier + " 次七日簽到", note: "學習海連續旅程", image: "images/achievements/signin.png" } : null,
-    wardrobeTier ? { id: "wardrobe:" + wardrobeTier, title: "收藏 " + wardrobeTier + " 件造型", note: "角色服裝收藏里程碑", image: "images/achievements/wardrobe.png" } : null,
+    wardrobeTier ? { id: "wardrobe:" + wardrobeTier, title: "收藏 " + wardrobeTier + " 件造型", note: "角色服裝收藏里程碑", image: "images/achievements/recent.png" } : null,
     gachaTier ? { id: "gacha:" + gachaTier, title: "解鎖 " + gachaTier + " 款扭蛋", note: "扭蛋圖鑑收藏里程碑", image: "images/achievements/gacha.png" } : null,
     allExalted ? { id: "mastery:exalted", title: "四科聲望大師", note: "國英數自全部達到崇拜", image: "images/achievements/mastery.png" } : null,
     allRounder ? { id: "recent:all-rounder", title: "星海全能冒險家", note: "四科、服裝與扭蛋全面成長", image: "images/achievements/recent.png" } : null,
@@ -8126,10 +8164,10 @@ class Component extends DCLogic {
       { title: "全對大師", note: "每 10 次全對更新一次", image: "perfect.png", earned: Number(p.perfect) >= 10, status: (Number(p.perfect) || 0) + " 次全對" },
       { title: "題海征服者", note: "每完成 200 題更新一次", image: "questions.png", earned: answeredTotal >= 200, status: answeredTotal + " 題" },
       { title: "七日遠征", note: "每完成 4 次七日簽到更新", image: "signin.png", earned: sevenDayRuns >= 4, status: sevenDayRuns + " 次七日旅程" },
-      { title: "數學主城聲望", note: "答對數學題提升聲望", image: "math.png", earned: reputationSubjects[0].rankEn !== "Unfriendly", status: reputationSubjects[0].rank },
-      { title: "國文主城聲望", note: "答對國文題提升聲望", image: "chinese.png", earned: reputationSubjects[1].rankEn !== "Unfriendly", status: reputationSubjects[1].rank },
-      { title: "英文主城聲望", note: "答對英文題提升聲望", image: "english.png", earned: reputationSubjects[2].rankEn !== "Unfriendly", status: reputationSubjects[2].rank },
-      { title: "自然主城聲望", note: "答對自然題提升聲望", image: "science.png", earned: reputationSubjects[3].rankEn !== "Unfriendly", status: reputationSubjects[3].rank },
+      { title: "數學星球聲望", note: "答對數學題提升聲望", image: "math.png", earned: reputationSubjects[0].rankEn !== "Unfriendly", status: reputationSubjects[0].rank },
+      { title: "國文星球聲望", note: "答對國文題提升聲望", image: "chinese.png", earned: reputationSubjects[1].rankEn !== "Unfriendly", status: reputationSubjects[1].rank },
+      { title: "英文星球聲望", note: "答對英文題提升聲望", image: "english.png", earned: reputationSubjects[2].rankEn !== "Unfriendly", status: reputationSubjects[2].rank },
+      { title: "自然星球聲望", note: "答對自然題提升聲望", image: "science.png", earned: reputationSubjects[3].rankEn !== "Unfriendly", status: reputationSubjects[3].rank },
       { title: "四科聲望大師", note: "四科聲望全部達到崇拜", image: "mastery.png", earned: allExalted, status: allExalted ? "已達成" : "最高聲望 " + Math.max.apply(null, reputationSubjects.map(rankStage)) + " / 5" },
     ].map((badge) => Object.assign({}, badge, { image: achievementImageRoot + badge.image, className: badge.earned ? "achievement-badge-item is-earned" : "achievement-badge-item" }));
     const achievedCount = Math.floor(level / 5) + Math.floor((Number(p.perfect) || 0) / 10) + Math.floor(answeredTotal / 200) + Math.floor(sevenDayRuns / 4) + reputationSubjects.reduce((sum, rep) => sum + rankStage(rep), 0) + (allExalted ? 1 : 0);
