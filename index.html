@@ -8153,7 +8153,9 @@ class Component extends DCLogic {
       return Object.assign({}, entry, { image: achievementImageRoot + entry.image, pct, width: pct + "%", progress: entry.progress || Math.min(entry.cur, entry.goal) + " / " + entry.goal, state: done ? "已達成" : "進行中", cardClass: done ? "achievement-card is-done" : "achievement-card", stateClass: done ? "achievement-state-done" : "" });
     });
     const storedAchievementHistory = Array.isArray(p.achievementHistory) ? p.achievementHistory : [];
-    const achievementHistory = (storedAchievementHistory.length ? storedAchievementHistory : achievedMilestoneEntries(p).reverse()).slice(0, 3);
+    const achievementHistory = (storedAchievementHistory.length ? storedAchievementHistory : achievedMilestoneEntries(p).reverse()).slice(0, 3).map((entry) => Object.assign({}, entry, {
+      image: entry.image === "images/achievements/wardrobe.png" ? "images/achievements/recent.png" : entry.image,
+    }));
     const recentPlaceholders = achievementCards.slice(0, 3).map((entry) => ({ title: "下一目標 · " + entry.title, note: entry.note, image: entry.image }));
     const recentAchievements = achievementHistory.concat(recentPlaceholders).slice(0, 3);
     const rankStage = (status) => Math.max(0, REPUTATION_RANKS.findIndex((rank) => rank.en === status.rankEn));
