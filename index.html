@@ -49,7 +49,7 @@
   .home-dashboard { position:relative;isolation:isolate;min-height:490px;height:clamp(490px,calc(100vh - 205px),600px);overflow:hidden;border:1px solid rgba(147,131,255,.55);border-radius:32px;background:radial-gradient(circle at 50% 44%,rgba(101,72,205,.34),transparent 38%),linear-gradient(145deg,#05071f 0%,#100a38 46%,#07112f 100%);box-shadow:0 26px 60px rgba(25,17,74,.32);color:#fff; }
   .home-dashboard::before { content:"";position:absolute;z-index:-2;inset:0;background:radial-gradient(circle at 8% 18%,#fff 0 1px,transparent 2px),radial-gradient(circle at 34% 8%,#ffe9a6 0 1.5px,transparent 2.5px),radial-gradient(circle at 74% 16%,#93efff 0 1px,transparent 2px),radial-gradient(circle at 91% 72%,#fff 0 1.5px,transparent 2.5px),radial-gradient(circle at 18% 82%,#d8b0ff 0 1px,transparent 2px);background-size:120px 120px,190px 170px,160px 150px,210px 190px,175px 165px;animation:homeStarTwinkle 4.2s ease-in-out infinite; }
   .home-dashboard::after { content:"";position:absolute;z-index:-1;inset:0;opacity:.38;background:linear-gradient(28deg,transparent 12%,rgba(255,208,93,.46) 12.25%,transparent 12.6%) 2% 9%/260px 210px,linear-gradient(-33deg,transparent 28%,rgba(111,224,255,.34) 28.25%,transparent 28.6%) 68% 15%/310px 250px;mask-image:radial-gradient(circle at center,#000 15%,transparent 78%); }
-  #home-stars { position:absolute;z-index:0;inset:0;width:100%;height:100%;display:block;pointer-events:none; }
+  #home-stars,.cosmos-stars { position:absolute;z-index:0;inset:0;width:100%;height:100%;display:block;pointer-events:none; }
   .home-space-copy { position:absolute;z-index:3;left:0;right:0;top:18px;text-align:center;pointer-events:none; }
   .home-space-kicker { margin:0;color:#91eef6;font-size:10px;font-weight:900;letter-spacing:.28em;text-transform:uppercase; }
   .home-space-copy h2 { margin:5px 0 0;font-size:clamp(25px,3vw,37px);line-height:1.08;font-weight:950;letter-spacing:.06em;text-shadow:0 4px 22px rgba(0,0,0,.58); }
@@ -110,6 +110,44 @@
   .home-aux-card .home-subject-copy strong { font-size:clamp(16px,2vw,21px); }
   @media (max-width:900px) { .home-focus .home-subject-card { --planet-size:clamp(142px,20.5vh,168px); } .home-focus .home-aux-card { --planet-size:clamp(126px,17.5vh,146px)!important; } }
   @media (max-width:700px) { .home-focus { overflow:auto; } .home-focus .app-header { flex-wrap:wrap!important;min-height:122px; } .home-focus .student-xp { order:3;flex-basis:100%!important;max-width:none; } .home-focus .home-dashboard { height:auto;min-height:1080px; } .home-focus .home-space-copy { top:140px; } .home-focus .home-subject-grid { top:210px;bottom:25px; } .home-brand-logo { top:132px;width:70px;height:70px; } }
+
+  .cosmos-focus { position:relative;isolation:isolate;max-width:none!important;min-height:100svh;margin:0!important;padding:82px clamp(14px,2vw,26px) 26px!important;overflow-x:hidden;background:radial-gradient(circle at 18% 16%,rgba(90,53,180,.34),transparent 35%),radial-gradient(circle at 82% 24%,rgba(20,159,191,.2),transparent 31%),linear-gradient(145deg,#040619 0%,#100936 48%,#07122f 100%);color:#fff; }
+  .cosmos-focus .cosmos-stars { position:fixed; }
+  .cosmos-focus .app-header { position:absolute;z-index:30;top:0;left:0;right:0;min-height:78px;display:flex!important;flex-wrap:nowrap!important;margin:0!important;padding:10px 16px!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,rgba(4,6,28,.95),rgba(7,8,38,.64) 68%,transparent)!important;box-shadow:none!important;color:#fff;backdrop-filter:blur(5px); }
+  .cosmos-focus .app-home-btn { width:54px!important;height:54px!important;border:0!important;border-radius:50%!important;padding:0!important;background:transparent!important; }
+  .cosmos-focus .app-home-btn img { width:50px;height:50px;filter:drop-shadow(0 0 12px rgba(255,211,91,.55)); }
+  .cosmos-focus .user-avatar,.cosmos-focus .user-sub-default { display:none!important; }
+  .cosmos-focus .user-identity { min-width:72px!important; }
+  .cosmos-focus .user-identity strong { color:#fff;font-size:17px!important;text-shadow:0 2px 10px rgba(0,0,0,.7); }
+  .cosmos-focus .user-sub-home { display:block;color:#93efff;font-size:12px;font-weight:900; }
+  .cosmos-focus .student-xp { flex:0 1 220px!important;min-width:145px!important;max-width:220px; }
+  .cosmos-focus .student-xp-label { color:rgba(255,255,255,.76)!important; }
+  .cosmos-focus .student-xp-track { height:8px!important;background:rgba(255,255,255,.16)!important; }
+  .cosmos-focus .player-actions { gap:3px!important; }
+  .cosmos-focus .home-coin { border:0!important;background:transparent!important;color:#ffe18a!important;padding:7px 8px!important;text-shadow:0 0 15px rgba(255,204,64,.7); }
+  .cosmos-focus .home-utility { width:42px;height:42px;display:grid!important;place-items:center;border:0!important;border-radius:50%!important;padding:0!important;background:transparent!important;color:#fff!important;font-size:20px!important;filter:drop-shadow(0 3px 8px rgba(0,0,0,.55)); }
+  .cosmos-focus .home-utility-label,.cosmos-focus .speech-toggle span,.cosmos-focus .logout-control>span { display:none; }
+  .cosmos-focus .speech-toggle { width:42px!important;height:42px!important;border:0!important;border-radius:50%!important;padding:0!important;display:grid!important;place-items:center;background:transparent!important; }
+  .cosmos-focus .speech-toggle img { width:25px!important;height:25px!important;filter:brightness(0) invert(1) drop-shadow(0 3px 7px rgba(0,0,0,.55))!important; }
+  .cosmos-focus .logout-control { position:relative;width:58px;height:50px;border:0!important;padding:0!important;background:transparent!important; }
+  .cosmos-focus .logout-spaceship { display:block;position:absolute;inset:-5px;width:68px;height:58px;object-fit:contain;filter:drop-shadow(0 5px 10px rgba(0,0,0,.45)); }
+  .cosmos-focus .app-nav { display:none!important; }
+  .hub-page { position:relative;z-index:3;width:min(1120px,100%);margin:0 auto; }
+  .hub-signin .signin-sea-shell { padding:8px!important;border:1px solid rgba(137,222,255,.42);border-radius:30px!important;background:rgba(12,15,56,.58)!important;box-shadow:0 24px 58px rgba(0,0,0,.38)!important;backdrop-filter:blur(14px); }
+  .hub-signin .signin-sea-stage { border:1px solid rgba(255,255,255,.42);box-shadow:inset 0 0 34px rgba(13,15,52,.24); }
+  .hub-rank { display:grid!important;grid-template-columns:minmax(0,1fr) 300px;gap:16px!important;align-items:start; }
+  .hub-rank .rank-board,.hub-rank .rank-goal { border:1px solid rgba(142,220,255,.36)!important;background:linear-gradient(145deg,rgba(17,23,72,.76),rgba(9,12,43,.62))!important;color:#fff;box-shadow:0 22px 52px rgba(0,0,0,.34)!important;backdrop-filter:blur(16px); }
+  .hub-rank .rank-board { padding:16px!important; }
+  .hub-rank .rank-board>p { color:#a8ddeb!important; }
+  .hub-rank .rank-row { gap:10px!important;margin-bottom:5px!important;padding:6px 10px!important;border-color:rgba(255,255,255,.16)!important;border-radius:16px!important;background:rgba(255,255,255,.08)!important; }
+  .hub-rank .rank-row>strong:first-child,.hub-rank .rank-row>span:nth-child(2) { width:34px!important;height:34px!important; }
+  .hub-rank .rank-row>span:nth-child(3)>strong { font-size:14px!important; }
+  .hub-rank .rank-row span span { color:#aab7d8!important; }
+  .hub-rank .rank-row>strong:last-child { color:#89eaff!important; }
+  .hub-rank .rank-goal { position:sticky;top:92px;padding:20px!important; }
+  .hub-rank .rank-goal p { color:#c7d5ee!important; }
+  .cosmos-focus .achievement-page { border-color:rgba(239,207,114,.46);background:linear-gradient(145deg,rgba(5,25,43,.88),rgba(11,50,65,.86) 52%,rgba(24,18,46,.9));box-shadow:0 28px 70px rgba(0,0,0,.42);backdrop-filter:blur(13px); }
+  @media(max-width:760px){.cosmos-focus{padding-top:126px!important}.cosmos-focus .app-header{flex-wrap:wrap!important;min-height:120px}.cosmos-focus .student-xp{order:3;flex-basis:100%!important;max-width:none}.hub-rank{grid-template-columns:1fr}.hub-rank .rank-goal{position:static}}
 
   .subject-world { position:relative;isolation:isolate;height:clamp(520px,calc(100svh - 205px),760px);min-height:520px;overflow:hidden;border:1px solid rgba(155,138,255,.58);border-radius:30px;background:#090727;color:#fff;box-shadow:0 24px 55px rgba(26,18,75,.28);display:flex;flex-direction:column; }
   .subject-world::before { content:"";position:absolute;z-index:-2;inset:0;background-image:var(--subject-world-image);background-size:cover;background-position:center;filter:saturate(1.08) contrast(1.03);transform:scale(1.025); }
@@ -344,11 +382,11 @@
     .closet-animated-pet { width:min(22%,140px);height:26%; }
   }
   @media (orientation: landscape) and (max-height: 850px) {
-    .app-shell:not(.home-focus) { padding: 8px 14px 14px !important; }
-    .app-shell:not(.home-focus) .app-header { padding: 8px 14px !important; border-radius: 20px !important; }
-    .app-shell:not(.home-focus) .app-header > * { transform: scale(.92); }
-    .app-shell:not(.home-focus) .app-nav { margin: 7px 0 8px !important; }
-    .app-shell:not(.home-focus) .app-nav button { padding: 8px 14px !important; }
+    .app-shell:not(.home-focus):not(.cosmos-focus) { padding: 8px 14px 14px !important; }
+    .app-shell:not(.home-focus):not(.cosmos-focus) .app-header { padding: 8px 14px !important; border-radius: 20px !important; }
+    .app-shell:not(.home-focus):not(.cosmos-focus) .app-header > * { transform: scale(.92); }
+    .app-shell:not(.home-focus):not(.cosmos-focus) .app-nav { margin: 7px 0 8px !important; }
+    .app-shell:not(.home-focus):not(.cosmos-focus) .app-nav button { padding: 8px 14px !important; }
     .quiz-progress { margin-bottom: 7px !important; }
     .quiz-timer-circle { width: 50px !important; height: 50px !important; }
     .quiz-auto-next { padding: 6px 9px !important; font-size: 10px !important; }
@@ -566,6 +604,8 @@
 
 <sc-if value="{{ isApp }}" hint-placeholder-val="{{ true }}">
   <div class="app-shell {{ appShellClass }}" style="max-width:1120px;margin:0 auto;padding:18px 18px 40px">
+
+    <sc-if value="{{ isCosmosHub }}" hint-placeholder-val="{{ false }}"><canvas class="cosmos-stars" aria-hidden="true"></canvas></sc-if>
 
     <sc-if value="{{ showAppChrome }}" hint-placeholder-val="{{ true }}">
     <header class="app-header" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#fff;border:1px solid #ece7ff;border-radius:26px;padding:14px 18px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
@@ -2108,13 +2148,13 @@
     </sc-if>
 
     <sc-if value="{{ isRank }}" hint-placeholder-val="{{ true }}">
-      <div data-screen-label="排行榜" style="display:grid;gap:16px">
-        <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+      <div data-screen-label="排行榜" class="hub-page hub-rank" style="display:grid;gap:16px">
+        <section class="rank-board" style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
           <p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:#22c8d8">CLASS RANKING</p>
           <h2 style="margin:8px 0 4px;font-size:28px;font-weight:900"><ruby>本<rt>ㄅㄣˇ</rt></ruby><ruby>週<rt>ㄓㄡ</rt></ruby><ruby>班<rt>ㄅㄢ</rt></ruby><ruby>級<rt>ㄐㄧˊ</rt></ruby><ruby>排<rt>ㄆㄞˊ</rt></ruby><ruby>行<rt>ㄏㄤˊ</rt></ruby></h2>
           <p style="margin:0 0 18px;font-size:13px;font-weight:700;color:#9a90c8">{{ myClassName }} · 依累積 XP 排序</p>
           <sc-for list="{{ ranking }}" as="r" hint-placeholder-count="8">
-            <div style="display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:20px;margin-bottom:8px;background:{{ r.bg }};border:1.5px solid {{ r.border }}">
+            <div class="rank-row" style="display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:20px;margin-bottom:8px;background:{{ r.bg }};border:1.5px solid {{ r.border }}">
               <strong style="width:38px;height:38px;border-radius:14px;display:grid;place-items:center;font-size:16px;font-weight:900;background:{{ r.medalBg }};color:{{ r.medalFg }}">{{ r.medal }}</strong>
               <span style="width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:20px;background:{{ r.tint }}">{{ r.face }}</span>
               <span style="flex:1;min-width:0"><strong style="display:block;font-size:16px;font-weight:900">{{ r.name }}</strong><span style="font-size:12px;font-weight:700;color:#b3a9d8">{{ r.detail }}</span></span>
@@ -2122,7 +2162,7 @@
             </div>
           </sc-for>
         </section>
-        <section style="background:linear-gradient(150deg,#eafbfd,#f3f0ff);border:1px solid #d9f4f8;border-radius:28px;padding:22px">
+        <section class="rank-goal" style="background:linear-gradient(150deg,#eafbfd,#f3f0ff);border:1px solid #d9f4f8;border-radius:28px;padding:22px">
           <h3 style="margin:0 0 6px;font-size:19px;font-weight:900">🏆 <ruby>全<rt>ㄑㄩㄢˊ</rt></ruby><ruby>班<rt>ㄅㄢ</rt></ruby><ruby>目<rt>ㄇㄨˋ</rt></ruby><ruby>標<rt>ㄅㄧㄠ</rt></ruby></h3>
           <p style="margin:0 0 14px;font-size:14px;font-weight:700;color:#4a3d7a">全班一起答對 1000 題，就能解鎖「班級限定裝備 · 傳說披風」</p>
           <div style="height:16px;border-radius:99px;background:#fff;overflow:hidden;border:1px solid #d9f4f8"><div style="height:100%;background:linear-gradient(90deg,#35c98a,#22c8d8);width:{{ classPct }}%"></div></div>
@@ -2132,7 +2172,7 @@
     </sc-if>
 
     <sc-if value="{{ isAchieve }}" hint-placeholder-val="{{ true }}">
-      <div data-screen-label="成就" class="achievement-page">
+      <div data-screen-label="成就" class="achievement-page hub-page hub-achieve">
         <header class="achievement-hero">
           <p class="achievement-kicker">HALL OF ACHIEVEMENTS</p>
           <h2 class="achievement-title">星海成就殿堂</h2>
@@ -2332,8 +2372,8 @@
     </sc-if>
 
     <sc-if value="{{ isSignin }}" hint-placeholder-val="{{ true }}">
-      <div data-screen-label="簽到" style="display:grid;gap:14px">
-        <section style="border-radius:32px;padding:14px;background:linear-gradient(145deg,#f9e8bd,#b9d6d6);box-shadow:0 18px 42px rgba(43,31,87,.12)">
+      <div data-screen-label="簽到" class="hub-page hub-signin" style="display:grid;gap:14px">
+        <section class="signin-sea-shell" style="border-radius:32px;padding:14px;background:linear-gradient(145deg,#f9e8bd,#b9d6d6);box-shadow:0 18px 42px rgba(43,31,87,.12)">
           <div class="signin-sea-stage" aria-label="連續獎勵簽到海圖">
             <h2 class="signin-sea-title"><ruby>連<rt>ㄌㄧㄢˊ</rt></ruby><ruby>續<rt>ㄒㄩˋ</rt></ruby><ruby>獎<rt>ㄐㄧㄤˇ</rt></ruby><ruby>勵<rt>ㄌㄧˋ</rt></ruby><ruby>表<rt>ㄅㄧㄠˇ</rt></ruby></h2>
             <sc-for list="{{ signinSeaSteps }}" as="step" hint-placeholder-count="8">
@@ -8124,11 +8164,13 @@ class Component extends DCLogic {
 
     const experimentLabScreens = ["dissolveLab", "magnetLab", "magnet2Lab", "plantWaterLab", "dayNightLab"];
     const isExperimentLabScreen = experimentLabScreens.includes(s.screen);
+    const isCosmosHub = ["signin", "rank", "achieve"].includes(s.screen);
     const vals = {
       isLogin: s.screen === "login",
       isApp: s.screen !== "login",
       showAppChrome: !isExperimentLabScreen,
-      appShellClass: isExperimentLabScreen ? "lab-focus" : s.screen === "home" ? "home-focus" : "",
+      appShellClass: isExperimentLabScreen ? "lab-focus" : s.screen === "home" ? "home-focus" : isCosmosHub ? "cosmos-focus" : "",
+      isCosmosHub,
       isHome: s.screen === "home", isSignin: s.screen === "signin", isMap: s.screen === "map", isMemory: s.screen === "memory",
       isEnglishLibrary: s.screen === "englishLibrary", isEnglishScramble: s.screen === "englishScramble", isEnglishMatch: s.screen === "englishMatch", isEnglishChain: s.screen === "englishChain", isEnglishGrammar: s.screen === "englishGrammar", isEnglishAssociation: s.screen === "englishAssociation",
       isMindmap: s.screen === "mindmap",
@@ -9703,7 +9745,7 @@ class Component extends DCLogic {
     observer.observe(canvas); resize(); raf = requestAnimationFrame(draw);
   }
 
-  const discover = () => mount(document.getElementById("home-stars"));
+  const discover = () => document.querySelectorAll("#home-stars,.cosmos-stars").forEach(mount);
   new MutationObserver(discover).observe(document.body, { childList: true, subtree: true });
   discover();
 })();
