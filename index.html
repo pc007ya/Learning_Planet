@@ -155,8 +155,9 @@
   .login-space { position:relative;isolation:isolate;min-height:100svh;overflow:hidden;padding:clamp(16px,3vw,34px);display:grid;place-items:center;background:radial-gradient(circle at 18% 15%,rgba(88,53,181,.42),transparent 34%),radial-gradient(circle at 82% 18%,rgba(0,207,230,.22),transparent 28%),linear-gradient(145deg,#030514,#0d0730 50%,#04142d);color:#eefaff; }
   .login-space::after { content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(115deg,transparent 0 42%,rgba(78,227,255,.045) 42.2% 42.5%,transparent 42.7% 100%);pointer-events:none; }
   .login-orbit-planet { position:absolute;z-index:1;object-fit:contain;pointer-events:none;filter:drop-shadow(0 0 28px rgba(102,211,255,.42));animation:homePlanetFloat 7s ease-in-out infinite; }
-  .login-orbit-planet.one { width:clamp(150px,22vw,260px);right:-45px;top:-48px;opacity:.58; }
+  .login-orbit-planet.one { width:clamp(170px,24vw,280px);right:-54px;top:-58px;opacity:.42;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 0 48%,rgba(0,0,0,.92) 57%,rgba(0,0,0,.45) 68%,transparent 80%);mask-image:radial-gradient(circle at 50% 50%,#000 0 48%,rgba(0,0,0,.92) 57%,rgba(0,0,0,.45) 68%,transparent 80%); }
   .login-orbit-planet.two { width:clamp(120px,17vw,200px);left:-42px;bottom:-36px;opacity:.5;animation-delay:-3s; }
+  .login-flyby { position:absolute;z-index:2;left:-150px;top:-130px;width:clamp(78px,10vw,125px);opacity:0;pointer-events:none;filter:drop-shadow(0 0 15px rgba(111,235,255,.85)) drop-shadow(-18px -10px 16px rgba(107,103,255,.4));animation:loginFlyby 10s linear infinite; }
   .login-space-shell { position:relative;z-index:3;width:min(1100px,100%);display:grid;gap:14px;animation:cardEnter .72s cubic-bezier(.16,1,.3,1) both; }
   .login-space-head { display:flex;align-items:center;gap:14px;padding:0 10px; }
   .login-space-mark { width:clamp(66px,8vw,92px);height:clamp(66px,8vw,92px);object-fit:contain;filter:drop-shadow(0 0 18px rgba(255,211,91,.56)); }
@@ -173,14 +174,20 @@
   .login-scanner-status i { width:8px;height:8px;border-radius:50%;background:#58ffc7;box-shadow:0 0 12px #58ffc7;animation:homePlanetHalo 2s ease-in-out infinite; }
   .login-class-chips { display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:16px; }
   .login-class-chips button { border-color:rgba(119,220,255,.34)!important;background:rgba(255,255,255,.065)!important;color:#c8eaff!important;box-shadow:inset 0 1px rgba(255,255,255,.1);backdrop-filter:blur(8px); }
-  .login-roster-grid { display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px; }
-  .login-student-card { min-height:148px;border:1px solid rgba(255,255,255,.16)!important;border-radius:20px!important;padding:14px 8px!important;background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.025))!important;color:#fff;box-shadow:inset 0 1px rgba(255,255,255,.12);backdrop-filter:blur(10px); }
+  .login-roster-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px; }
+  .login-student-card { min-height:96px;border:1px solid rgba(255,255,255,.16)!important;border-radius:20px!important;padding:10px 12px!important;display:grid!important;grid-template-columns:66px minmax(0,1fr);align-items:center;justify-items:stretch!important;gap:12px!important;text-align:left;background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.025))!important;color:#fff;box-shadow:inset 0 1px rgba(255,255,255,.12);backdrop-filter:blur(10px); }
   .login-student-card:hover { border-color:#59edff!important;background:rgba(0,214,244,.14)!important;transform:translateY(-5px)!important;box-shadow:0 0 22px rgba(0,226,255,.28); }
-  .login-student-card>span:first-child { box-shadow:0 0 18px rgba(75,222,255,.3); }
-  .login-student-card strong { color:#fff!important;text-shadow:0 2px 10px rgba(0,0,0,.55); }
-  .login-student-card span { color:#a8cce8!important; }
+  .login-card-avatar { width:62px;height:62px;border:1px solid rgba(255,255,255,.44);border-radius:16px;display:grid;place-items:center;font-size:31px;box-shadow:0 0 18px rgba(75,222,255,.3),inset 0 1px rgba(255,255,255,.5); }
+  .login-card-copy { min-width:0;display:grid;grid-template-columns:1fr;gap:2px; }
+  .login-card-name { overflow:hidden;color:#fff!important;font-size:17px;font-weight:950;text-overflow:ellipsis;white-space:nowrap;text-shadow:0 2px 10px rgba(0,0,0,.55); }
+  .login-card-en { overflow:hidden;color:#8ff3ff!important;font-size:11px;font-weight:950;letter-spacing:.11em;text-overflow:ellipsis;white-space:nowrap; }
+  .login-card-zh { margin-top:5px;color:#f5f8ff!important;font-size:12px;font-weight:900; }
+  .login-card-class-en { color:#9ebbd7!important;font-size:10px;font-weight:850;letter-spacing:.03em; }
+  @keyframes loginFlyby { 0%,5% { opacity:0;transform:translate(-12vw,-15vh) rotate(86deg) scale(.72) } 9% { opacity:1 } 48% { opacity:.96 } 57%,100% { opacity:0;transform:translate(124vw,116vh) rotate(86deg) scale(1.06) } }
   @keyframes cardEnter { from { opacity:0;transform:scale(.94) translateY(20px) } to { opacity:1;transform:none } }
-  @media(max-width:760px){.login-space{overflow:auto;place-items:start center}.login-space-head{flex-wrap:wrap}.login-teacher{margin-left:auto}.login-hud{max-height:none}.login-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:760px){.login-space{overflow:auto;place-items:start center}.login-space-head{flex-wrap:wrap}.login-teacher{margin-left:auto}.login-hud{max-height:none}.login-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.login-student-card{grid-template-columns:62px minmax(0,1fr);padding-inline:10px!important}.login-card-avatar{width:58px;height:58px;font-size:29px}}
+  @media(max-width:560px){.login-roster-grid{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){.login-flyby{display:none}}
 
   .subject-world { position:relative;isolation:isolate;height:clamp(520px,calc(100svh - 205px),760px);min-height:520px;overflow:hidden;border:1px solid rgba(155,138,255,.58);border-radius:30px;background:#090727;color:#fff;box-shadow:0 24px 55px rgba(26,18,75,.28);display:flex;flex-direction:column; }
   .subject-world::before { content:"";position:absolute;z-index:-2;inset:0;background-image:var(--subject-world-image);background-size:cover;background-position:center;filter:saturate(1.08) contrast(1.03);transform:scale(1.025); }
@@ -604,6 +611,7 @@
     <canvas class="cosmos-stars login-stars" aria-hidden="true"></canvas>
     <img class="login-orbit-planet one" src="images/home/planets/math-planet-v1.png" alt="" aria-hidden="true">
     <img class="login-orbit-planet two" src="images/home/hud/gacha-planet-v1.png" alt="" aria-hidden="true">
+    <img class="login-flyby" src="images/home/hud/logout-spaceship-v1.png" alt="" aria-hidden="true">
     <div class="login-space-shell">
       <header class="login-space-head">
         <img class="login-space-mark" src="images/home/hud/learning-planet-logo-v1.png" alt="學習星球">
@@ -624,11 +632,14 @@
         </div>
         <div class="login-roster-grid">
           <sc-for list="{{ roster }}" as="s" hint-placeholder-count="8">
-            <button class="login-student-card" onClick="{{ s.login }}" style="border:2px solid #ece7ff;background:#fbfaff;border-radius:24px;padding:18px 10px;display:grid;justify-items:center;gap:8px;cursor:pointer;font-family:inherit;transition:transform .15s ease, border-color .15s ease">
-              <span style="width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:30px;background:{{ s.tint }}">{{ s.face }}</span>
-              <strong style="font-size:16px;font-weight:900;color:#2b1f57">{{ s.name }}</strong>
-              <span style="font-size:12px;font-weight:800;color:#b3a9d8">{{ s.seat }} · Lv.{{ s.level }}</span>
-              <span style="font-size:11px;font-weight:900;color:{{ s.signColor }}">{{ s.signLabel }}</span>
+            <button class="login-student-card" onClick="{{ s.login }}" style="cursor:pointer;font-family:inherit;transition:transform .15s ease,border-color .15s ease">
+              <span class="login-card-avatar" style="background:{{ s.tint }}">{{ s.face }}</span>
+              <span class="login-card-copy">
+                <strong class="login-card-name">{{ s.name }}</strong>
+                <span class="login-card-en">{{ s.englishName }}</span>
+                <span class="login-card-zh">{{ s.classZh }}</span>
+                <span class="login-card-class-en">{{ s.classEn }}</span>
+              </span>
             </button>
           </sc-for>
         </div>
@@ -4202,6 +4213,31 @@ function makeStudents() {
     tint: TINTS[i % TINTS.length],
     profile: makeProfile(),
   }));
+}
+
+const STUDENT_ENGLISH_NAMES = {
+  "小宇": "HSIAO-YU",
+  "婷婷": "TING-TING",
+  "阿凱": "KAI",
+  "小語": "HSIAO-YU",
+  "阿哲": "CHE",
+  "妍妍": "YEN-YEN",
+  "阿翔": "HSIANG",
+  "小恩": "EN",
+};
+function studentIdentityCard(st) {
+  const classDigits = String(st.classId || "301").replace(/\D/g, "") || "301";
+  const grade = Number(classDigits.charAt(0)) || 3;
+  const classNo = Number(classDigits.slice(1)) || 1;
+  const seatNo = Number((String(st.seat || "").match(/\d+/) || [0])[0]);
+  const gradeZh = ["", "一年", "二年", "三年", "四年", "五年", "六年"][grade] || grade + "年";
+  const classZhNo = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九"][classNo] || String(classNo);
+  const paddedSeat = String(seatNo || 0).padStart(2, "0");
+  return {
+    englishName: STUDENT_ENGLISH_NAMES[st.name] || ("STUDENT " + paddedSeat),
+    classZh: gradeZh + classZhNo + "班 · " + paddedSeat + "號",
+    classEn: "Grade " + grade + " · Class " + classNo + " · No." + paddedSeat,
+  };
 }
 
 const SCI_ICON_EL = (emoji, px) => {
@@ -8819,13 +8855,16 @@ class Component extends DCLogic {
         fg: s.loginClass === c.id ? "#fff" : "#7c74a8",
         border: s.loginClass === c.id ? "#2b1f57" : "#ece7ff",
       })),
-      roster: s.students.filter((st) => st.classId === s.loginClass).slice().sort((a, b) => a.seat.localeCompare(b.seat, "en", { numeric: true })).map((st) => ({
-        name: st.name, seat: st.seat, face: st.face, tint: st.tint,
-        level: Math.floor(st.profile.xp / 100) + 1,
-        signLabel: hasSignedToday(st.profile) ? "今天已簽到" : "還沒簽到",
-        signColor: hasSignedToday(st.profile) ? "#35c98a" : "#c9bfff",
-        login: () => this.setState({ screen: "home", currentId: st.id, teacher: false, slot: "hair", shopCat: "hair" }),
-      })),
+      roster: s.students.filter((st) => st.classId === s.loginClass).slice().sort((a, b) => a.seat.localeCompare(b.seat, "en", { numeric: true })).map((st) => {
+        const identity = studentIdentityCard(st);
+        return {
+          name: st.name, face: st.face, tint: st.tint,
+          englishName: identity.englishName,
+          classZh: identity.classZh,
+          classEn: identity.classEn,
+          login: () => this.setState({ screen: "home", currentId: st.id, teacher: false, slot: "hair", shopCat: "hair" }),
+        };
+      }),
       rosterEmpty: s.students.filter((st) => st.classId === s.loginClass).length === 0,
       loginTeacher: () => this.setState({ screen: "teacher", teacher: true, currentId: null, adminTab: "weekly" }),
       logout: () => {
