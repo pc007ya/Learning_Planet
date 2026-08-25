@@ -77,7 +77,7 @@
   .user-sub-home,.logout-spaceship { display:none; }
   .home-focus { position:relative;max-width:none!important;min-height:100svh;margin:0!important;padding:0!important;overflow:hidden;background:#05071f;color:#fff; }
   .home-focus .app-header { position:absolute;z-index:30;top:0;left:0;right:0;min-height:82px;display:flex!important;flex-wrap:nowrap!important;margin:0!important;padding:12px 16px!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,rgba(4,6,28,.9),rgba(7,8,38,.56) 62%,transparent)!important;box-shadow:none!important;color:#fff;backdrop-filter:blur(4px); }
-  .home-focus .app-home-btn,.home-focus .user-avatar,.home-focus .user-sub-default { display:none!important; }
+  .home-focus .app-home-btn,.home-focus .user-sub-default { display:none!important; }
   .home-focus .user-identity { min-width:72px!important; }
   .home-focus .user-identity strong { color:#fff;font-size:18px!important;text-shadow:0 2px 10px rgba(0,0,0,.7); }
   .home-focus .user-sub-home { display:block;color:#93efff;font-size:12px;font-weight:900; }
@@ -159,11 +159,7 @@
   .login-flyby { position:absolute;z-index:2;left:-150px;top:-130px;width:clamp(78px,10vw,125px);opacity:0;pointer-events:none;filter:drop-shadow(0 0 15px rgba(111,235,255,.85)) drop-shadow(-18px -10px 16px rgba(107,103,255,.4));animation:loginFlyby 10s linear infinite; }
   .login-space-shell { position:relative;z-index:3;width:min(1100px,100%);display:grid;gap:14px;animation:cardEnter .72s cubic-bezier(.16,1,.3,1) both; }
   .login-space-head { display:flex;align-items:center;gap:14px;padding:0 10px; }
-  .login-space-mark { width:clamp(66px,8vw,92px);height:clamp(66px,8vw,92px);object-fit:contain;filter:drop-shadow(0 0 18px rgba(255,211,91,.56)); }
-  .login-space-title { flex:1;min-width:0; }
-  .login-space-title p { margin:0;color:#8feaff;font-size:11px;font-weight:950;letter-spacing:.22em;text-transform:uppercase; }
-  .login-space-title h1 { margin:3px 0 2px;color:#fff;font-size:clamp(27px,4vw,42px);font-weight:950;letter-spacing:.08em;text-shadow:0 0 17px rgba(60,219,255,.72); }
-  .login-space-title small { color:#a8cce8;font-size:13px;font-weight:800; }
+  .login-brand-full { width:clamp(260px,38vw,430px);height:clamp(72px,10vw,112px);object-fit:contain;object-position:left center;filter:drop-shadow(0 0 20px rgba(65,211,255,.42)); }
   .login-teacher { border:1px solid rgba(128,228,255,.45)!important;border-radius:999px!important;padding:11px 17px!important;background:rgba(8,19,55,.56)!important;color:#dffaff!important;box-shadow:inset 0 1px rgba(255,255,255,.14),0 0 18px rgba(38,201,231,.12);backdrop-filter:blur(12px); }
   .login-hud { position:relative;overflow:auto;max-height:calc(100svh - 145px);padding:20px 22px 22px;border:2px solid rgba(0,226,255,.43);border-radius:30px;background:rgba(8,18,46,.68);box-shadow:0 0 42px rgba(0,220,255,.18),inset 0 0 28px rgba(0,226,255,.055);backdrop-filter:blur(18px) saturate(1.15); }
   .login-hud::before,.login-hud::after { content:"";position:absolute;width:22px;height:22px;border-color:#ffe75c;border-style:solid;pointer-events:none; }
@@ -174,9 +170,11 @@
   .login-class-chips { display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:16px; }
   .login-class-chips button { border-color:rgba(119,220,255,.34)!important;background:rgba(255,255,255,.065)!important;color:#c8eaff!important;box-shadow:inset 0 1px rgba(255,255,255,.1);backdrop-filter:blur(8px); }
   .login-roster-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px; }
-  .login-student-card { min-height:96px;border:1px solid rgba(255,255,255,.16)!important;border-radius:20px!important;padding:10px 12px!important;display:grid!important;grid-template-columns:66px minmax(0,1fr);align-items:center;justify-items:stretch!important;gap:12px!important;text-align:left;background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.025))!important;color:#fff;box-shadow:inset 0 1px rgba(255,255,255,.12);backdrop-filter:blur(10px); }
+  .login-student-card { position:relative;overflow:hidden;min-height:108px;border:1px solid rgba(255,213,102,.32)!important;border-radius:20px!important;padding:10px 12px!important;display:grid!important;grid-template-columns:78px minmax(0,1fr);align-items:center;justify-items:stretch!important;gap:12px!important;text-align:left;background:radial-gradient(circle at 92% 12%,rgba(89,232,255,.18),transparent 28%),radial-gradient(circle at 8% 88%,rgba(110,82,255,.2),transparent 32%),linear-gradient(145deg,rgba(8,23,60,.88),rgba(12,12,48,.76))!important;color:#fff;box-shadow:inset 0 1px rgba(255,255,255,.12),0 11px 24px rgba(0,0,0,.15);backdrop-filter:blur(10px); }
+  .login-student-card::after { content:"✦  ·  ✧";position:absolute;right:10px;top:6px;color:rgba(255,224,115,.42);font-size:9px;letter-spacing:.35em;pointer-events:none; }
   .login-student-card:hover { border-color:#59edff!important;background:rgba(0,214,244,.14)!important;transform:translateY(-5px)!important;box-shadow:0 0 22px rgba(0,226,255,.28); }
-  .login-card-avatar { width:62px;height:62px;border:1px solid rgba(255,255,255,.44);border-radius:16px;display:grid;place-items:center;font-size:31px;box-shadow:0 0 18px rgba(75,222,255,.3),inset 0 1px rgba(255,255,255,.5); }
+  .student-photo { background-image:url('images/profile/student-avatar-sheet-v1.png');background-size:400% 600%;background-repeat:no-repeat;background-color:#13214d; }
+  .login-card-avatar { width:74px;height:82px;border:2px solid rgba(255,227,144,.68);border-radius:15px;display:block;box-shadow:0 0 18px rgba(75,222,255,.3),inset 0 1px rgba(255,255,255,.5); }
   .login-card-copy { min-width:0;display:grid;grid-template-columns:1fr;gap:2px; }
   .login-card-name { overflow:hidden;color:#fff!important;font-size:17px;font-weight:950;text-overflow:ellipsis;white-space:nowrap;text-shadow:0 2px 10px rgba(0,0,0,.55); }
   .login-card-en { overflow:hidden;color:#8ff3ff!important;font-size:11px;font-weight:950;letter-spacing:.11em;text-overflow:ellipsis;white-space:nowrap; }
@@ -184,7 +182,30 @@
   .login-card-class-en { color:#9ebbd7!important;font-size:10px;font-weight:850;letter-spacing:.03em; }
   @keyframes loginFlyby { 0%,5% { opacity:0;transform:translate(-12vw,-15vh) rotate(86deg) scale(.72) } 9% { opacity:1 } 48% { opacity:.96 } 57%,100% { opacity:0;transform:translate(124vw,116vh) rotate(86deg) scale(1.06) } }
   @keyframes cardEnter { from { opacity:0;transform:scale(.94) translateY(20px) } to { opacity:1;transform:none } }
-  @media(max-width:760px){.login-space{overflow:auto;place-items:start center}.login-space-head{flex-wrap:wrap}.login-teacher{margin-left:auto}.login-hud{max-height:none}.login-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.login-student-card{grid-template-columns:62px minmax(0,1fr);padding-inline:10px!important}.login-card-avatar{width:58px;height:58px;font-size:29px}}
+  .profile-focus { color:#eef8ff!important;min-height:100svh;background:radial-gradient(circle at 18% 8%,rgba(88,53,181,.35),transparent 32%),radial-gradient(circle at 90% 18%,rgba(0,207,230,.2),transparent 26%),linear-gradient(145deg,#030514,#0d0730 52%,#04142d)!important; }
+  .profile-focus .app-header { background:rgba(5,14,42,.72)!important;border-color:rgba(111,224,255,.25)!important;color:#fff;backdrop-filter:blur(16px); }
+  .profile-focus .app-nav { display:none!important; }
+  .user-avatar-photo { border:1px solid rgba(117,230,255,.55)!important;background-color:#13214d!important;background-size:400% 600%!important;box-shadow:0 0 16px rgba(64,221,255,.3); }
+  .student-profile-page { min-height:calc(100svh - 122px);display:grid;grid-template-columns:minmax(420px,1.15fr) minmax(320px,.85fr);gap:20px;align-items:center;padding:20px 0; }
+  .student-id-card { position:relative;overflow:hidden;aspect-ratio:1.58;border:2px solid rgba(255,219,105,.72);border-radius:30px;padding:clamp(22px,3vw,34px);display:grid;grid-template-columns:minmax(150px,.72fr) minmax(240px,1.28fr);gap:clamp(18px,3vw,34px);align-items:center;background:radial-gradient(circle at 82% 18%,rgba(83,226,255,.2),transparent 25%),radial-gradient(circle at 10% 90%,rgba(126,86,255,.3),transparent 36%),linear-gradient(145deg,#061638,#0b0b30 58%,#161042);box-shadow:0 24px 70px rgba(0,0,0,.38),inset 0 0 40px rgba(81,210,255,.08); }
+  .student-id-card::before { content:"✦   ·   ✧      ·   ✦";position:absolute;left:4%;right:4%;top:5%;color:rgba(255,226,115,.5);font-size:11px;letter-spacing:1.3em;white-space:nowrap; }
+  .student-id-brand { position:absolute;right:28px;top:22px;width:clamp(145px,21vw,240px);height:auto;filter:drop-shadow(0 0 12px rgba(70,220,255,.3)); }
+  .student-id-photo { width:100%;aspect-ratio:.84;border:4px solid rgba(255,226,132,.84);border-radius:42% 42% 30% 30%;box-shadow:0 0 25px rgba(73,222,255,.36); }
+  .student-id-data { display:grid;gap:13px;padding-top:34px; }
+  .student-id-row { display:grid;grid-template-columns:108px 1fr;align-items:end;gap:10px;border-bottom:1px solid rgba(157,220,255,.45);padding-bottom:7px; }
+  .student-id-row small { color:#89eaff;font-size:11px;font-weight:900;letter-spacing:.05em; }
+  .student-id-row strong { color:#fff;font-size:clamp(15px,1.8vw,21px);font-weight:950;text-align:right; }
+  .profile-editor-panel { max-height:calc(100svh - 155px);overflow:auto;padding:20px;border:1px solid rgba(109,226,255,.38);border-radius:26px;background:rgba(7,20,54,.68);box-shadow:0 18px 48px rgba(0,0,0,.28);backdrop-filter:blur(16px); }
+  .profile-editor-panel h2 { margin:0;color:#fff;font-size:24px; }
+  .profile-editor-panel>p { margin:6px 0 16px;color:#a8cce8;font-size:12px;font-weight:800; }
+  .profile-name-field { display:grid;gap:7px;color:#8feaff;font-size:12px;font-weight:900; }
+  .profile-name-field input { width:100%;box-sizing:border-box;border:1px solid rgba(124,227,255,.4);border-radius:15px;padding:12px 14px;background:rgba(255,255,255,.09);color:#fff;font:900 15px/1.2 inherit;outline:none;text-transform:uppercase; }
+  .profile-name-field input:focus { border-color:#69edff;box-shadow:0 0 0 3px rgba(74,225,255,.15); }
+  .profile-avatar-grid { display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;margin-top:14px; }
+  .profile-avatar-option { aspect-ratio:1;border:2px solid rgba(255,255,255,.14)!important;border-radius:13px!important;padding:0!important;cursor:pointer;background-size:400% 600%!important;box-shadow:none!important; }
+  .profile-avatar-option.active { border-color:#ffe36f!important;box-shadow:0 0 0 2px rgba(255,227,111,.22),0 0 16px rgba(95,227,255,.35)!important;transform:translateY(-2px); }
+  .profile-done { width:100%;margin-top:16px;border:0!important;border-radius:16px!important;padding:13px!important;background:linear-gradient(90deg,#7357ff,#22c8d8)!important;color:#fff!important;font:950 15px/1 inherit!important;cursor:pointer; }
+  @media(max-width:760px){.login-space{overflow:auto;place-items:start center}.login-space-head{flex-wrap:wrap}.login-brand-full{width:min(72vw,340px)}.login-teacher{margin-left:auto}.login-hud{max-height:none}.login-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.login-student-card{grid-template-columns:62px minmax(0,1fr);padding-inline:10px!important}.login-card-avatar{width:58px;height:66px}.student-profile-page{grid-template-columns:1fr;align-items:start}.student-id-card{min-height:360px}.profile-editor-panel{max-height:none}.profile-avatar-grid{grid-template-columns:repeat(6,minmax(0,1fr))}}
   @media(max-width:560px){.login-roster-grid{grid-template-columns:1fr}}
   @media(prefers-reduced-motion:reduce){.login-flyby{display:none}}
 
@@ -613,12 +634,7 @@
     <img class="login-flyby" src="images/home/hud/logout-spaceship-v1.png" alt="" aria-hidden="true">
     <div class="login-space-shell">
       <header class="login-space-head">
-        <img class="login-space-mark" src="images/brand/learning-planet-symbol-v1.png" alt="學習星球">
-        <div class="login-space-title">
-          <p>Learning Planet · Identity Scanner</p>
-          <h1>星球探險隊</h1>
-          <small>找到你的隊員呼號，啟動星艦前往學習星球。</small>
-        </div>
+        <img class="login-brand-full" src="images/brand/learning-planet-brand-v1.png" alt="Learning Planet 學習星球">
         <button class="login-teacher" onClick="{{ loginTeacher }}" style="border:1px solid #ddd5ff;background:#fff;border-radius:99px;padding:10px 18px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit">🍎 基地老師</button>
       </header>
 
@@ -632,7 +648,7 @@
         <div class="login-roster-grid">
           <sc-for list="{{ roster }}" as="s" hint-placeholder-count="8">
             <button class="login-student-card" onClick="{{ s.login }}" style="cursor:pointer;font-family:inherit;transition:transform .15s ease,border-color .15s ease">
-              <span class="login-card-avatar" style="background:{{ s.tint }}">{{ s.face }}</span>
+              <span class="login-card-avatar student-photo" style="{{ s.avatarStyle }}"></span>
               <span class="login-card-copy">
                 <strong class="login-card-name">{{ s.name }}</strong>
                 <span class="login-card-en">{{ s.englishName }}</span>
@@ -660,7 +676,12 @@
       <sc-if value="{{ isStudent }}" hint-placeholder-val="{{ true }}">
         <button class="app-home-btn" onClick="{{ goHome }}" title="首頁" aria-label="回到學習星球首頁" style="width:46px;height:46px;border-radius:16px;border:1.5px solid {{ homeBorder }};background:{{ homeBg }};font-size:22px;cursor:pointer;font-family:inherit"><img src="images/brand/learning-planet-symbol-v1.png" alt=""></button>
       </sc-if>
-      <span class="user-avatar" style="width:46px;height:46px;border-radius:16px;display:grid;place-items:center;font-size:24px;background:{{ user.tint }}">{{ user.face }}</span>
+      <sc-if value="{{ isStudent }}" hint-placeholder-val="{{ true }}">
+        <button class="user-avatar user-avatar-photo student-photo" onClick="{{ goProfile }}" title="個人資料" aria-label="開啟個人資料" style="width:46px;height:46px;border-radius:16px;cursor:pointer;{{ userAvatarStyle }}"></button>
+      </sc-if>
+      <sc-if value="{{ showTeacherAvatar }}" hint-placeholder-val="{{ false }}">
+        <span class="user-avatar" style="width:46px;height:46px;border-radius:16px;display:grid;place-items:center;font-size:24px;background:{{ user.tint }}">{{ user.face }}</span>
+      </sc-if>
       <div class="user-identity" style="min-width:110px">
         <strong style="display:block;font-size:17px;font-weight:900">{{ user.name }}</strong>
         <span class="user-sub-default" style="font-size:12px;font-weight:800;color:#9a90c8">{{ userSub }}</span>
@@ -725,6 +746,34 @@
             <span class="home-planet-art" aria-hidden="true"></span><span class="home-subject-copy"><strong>扭蛋</strong></span>
           </button>
         </section>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isProfile }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="個人資料" class="student-profile-page">
+        <section class="student-id-card" aria-label="學員卡預覽">
+          <img class="student-id-brand" src="images/brand/learning-planet-brand-v1.png" alt="Learning Planet">
+          <div class="student-id-photo student-photo" style="{{ profileAvatarStyle }}"></div>
+          <div class="student-id-data">
+            <div class="student-id-row"><small>中文姓名</small><strong>{{ profileChineseName }}</strong></div>
+            <div class="student-id-row"><small>English Name</small><strong>{{ profileEnglishName }}</strong></div>
+            <div class="student-id-row"><small>年級／班級</small><strong>{{ profileClassZh }}</strong></div>
+            <div class="student-id-row"><small>Grade / Class</small><strong>{{ profileClassEn }}</strong></div>
+          </div>
+        </section>
+        <aside class="profile-editor-panel">
+          <h2>我的個人資料</h2>
+          <p>選擇喜歡的學員頭像，並設定英文姓名。</p>
+          <label class="profile-name-field">英文姓名
+            <input type="text" maxlength="30" value="{{ profileEnglishName }}" onInput="{{ updateProfileEnglishName }}" aria-label="英文姓名">
+          </label>
+          <div class="profile-avatar-grid" aria-label="選擇學員頭像">
+            <sc-for list="{{ profileAvatarOptions }}" as="a" hint-placeholder-count="24">
+              <button class="profile-avatar-option student-photo {{ a.activeClass }}" style="{{ a.style }}" onClick="{{ a.pick }}" aria-label="{{ a.label }}"></button>
+            </sc-for>
+          </div>
+          <button class="profile-done" onClick="{{ goHome }}">完成並回首頁</button>
+        </aside>
       </div>
     </sc-if>
 
@@ -4171,6 +4220,7 @@ function makeProfile() {
     masteryHistory: {}, xpLedger: [], rewardedRuns: [], weeklyExam: null,
     gachaOwned: {}, gachaHistory: [], gachaDraws: 0,
     achievementHistory: [],
+    cardAvatarIndex: 0, englishName: "",
   };
 }
 function achievedMilestoneEntries(profile) {
@@ -4209,7 +4259,7 @@ function makeStudents() {
     classId: "c301",
     face: FACES[i % FACES.length],
     tint: TINTS[i % TINTS.length],
-    profile: makeProfile(),
+    profile: Object.assign(makeProfile(), { cardAvatarIndex: i, englishName: STUDENT_ENGLISH_NAMES[name] || "" }),
   }));
 }
 
@@ -4232,10 +4282,15 @@ function studentIdentityCard(st) {
   const classZhNo = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九"][classNo] || String(classNo);
   const paddedSeat = String(seatNo || 0).padStart(2, "0");
   return {
-    englishName: STUDENT_ENGLISH_NAMES[st.name] || ("STUDENT " + paddedSeat),
+    englishName: String((st.profile && st.profile.englishName) || STUDENT_ENGLISH_NAMES[st.name] || ("STUDENT " + paddedSeat)).toUpperCase(),
     classZh: gradeZh + classZhNo + "班 · " + paddedSeat + "號",
     classEn: "Grade " + grade + " · Class " + classNo + " · No." + paddedSeat,
   };
+}
+function studentAvatarStyle(index) {
+  const safe = Math.max(0, Math.min(23, Number(index) || 0));
+  const col = safe % 4, row = Math.floor(safe / 4);
+  return "background-position:" + (col * 100 / 3) + "% " + (row * 20) + "%;";
 }
 
 const SCI_ICON_EL = (emoji, px) => {
@@ -8239,13 +8294,15 @@ class Component extends DCLogic {
     const experimentLabScreens = ["dissolveLab", "magnetLab", "magnet2Lab", "plantWaterLab", "dayNightLab"];
     const isExperimentLabScreen = experimentLabScreens.includes(s.screen);
     const isCosmosHub = ["signin", "rank", "achieve"].includes(s.screen);
+    const profileIdentity = me ? studentIdentityCard(me) : { englishName: "", classZh: "", classEn: "" };
+    const profileAvatarIndex = Math.max(0, Math.min(23, Number(p.cardAvatarIndex) || 0));
     const vals = {
       isLogin: s.screen === "login",
       isApp: s.screen !== "login",
       showAppChrome: !isExperimentLabScreen,
-      appShellClass: isExperimentLabScreen ? "lab-focus" : s.screen === "home" ? "home-focus" : isCosmosHub ? "cosmos-focus" : "",
+      appShellClass: isExperimentLabScreen ? "lab-focus" : s.screen === "home" ? "home-focus" : isCosmosHub ? "cosmos-focus" : s.screen === "profile" ? "profile-focus" : "",
       isCosmosHub,
-      isHome: s.screen === "home", isSignin: s.screen === "signin", isMap: s.screen === "map", isMemory: s.screen === "memory",
+      isHome: s.screen === "home", isProfile: s.screen === "profile", isSignin: s.screen === "signin", isMap: s.screen === "map", isMemory: s.screen === "memory",
       isEnglishLibrary: s.screen === "englishLibrary", isEnglishScramble: s.screen === "englishScramble", isEnglishMatch: s.screen === "englishMatch", isEnglishChain: s.screen === "englishChain", isEnglishGrammar: s.screen === "englishGrammar", isEnglishAssociation: s.screen === "englishAssociation",
       isMindmap: s.screen === "mindmap",
       mindmapTitle: s.mmTopic ? s.mmTopic.title : "",
@@ -8857,6 +8914,7 @@ class Component extends DCLogic {
         const identity = studentIdentityCard(st);
         return {
           name: st.name, face: st.face, tint: st.tint,
+          avatarStyle: studentAvatarStyle(st.profile && st.profile.cardAvatarIndex),
           englishName: identity.englishName,
           classZh: identity.classZh,
           classEn: identity.classEn,
@@ -8873,6 +8931,18 @@ class Component extends DCLogic {
 
       user: s.teacher || !me ? { name: "陳老師", seat: "導師", face: "🍎", tint: "#ffe0e6" } : { name: me.name, seat: me.seat, face: me.face, tint: me.tint },
       isStudent: !s.teacher && !!me,
+      showTeacherAvatar: s.teacher || !me,
+      userAvatarStyle: studentAvatarStyle(profileAvatarIndex),
+      profileAvatarStyle: studentAvatarStyle(profileAvatarIndex),
+      profileChineseName: me ? me.name : "",
+      profileEnglishName: profileIdentity.englishName,
+      profileClassZh: profileIdentity.classZh,
+      profileClassEn: profileIdentity.classEn,
+      profileAvatarOptions: Array.from({ length: 24 }, (_, index) => ({
+        style: studentAvatarStyle(index), activeClass: index === profileAvatarIndex ? "active" : "",
+        label: "選擇第 " + (index + 1) + " 個頭像", pick: () => this.patch({ cardAvatarIndex: index }),
+      })),
+      updateProfileEnglishName: (event) => this.patch({ englishName: String(event && event.target ? event.target.value : "").slice(0, 30).toUpperCase() }),
       userSub: s.teacher || !me ? "教師工作台" : "Lv." + level + " · " + className(me.classId) + " " + me.seat,
       userLevelLabel: "Lv." + level,
       level, xp: p.xp, coins: p.coins, streak: p.streak,
@@ -8888,6 +8958,7 @@ class Component extends DCLogic {
       speechMuteFilter: s.speechMuted ? "invert(26%) sepia(58%) saturate(2000%) hue-rotate(310deg) brightness(88%)" : "none",
       toggleSpeechMute: () => this.toggleSpeechMute(),
       goHome: go("home"),
+      goProfile: go("profile"),
       homeBg: s.screen === "home" ? "#2b1f57" : "#fbfaff",
       homeBorder: s.screen === "home" ? "#2b1f57" : "#ece7ff",
 
