@@ -63,7 +63,7 @@
   .home-subject-card::before { content:"";position:absolute;z-index:-1;inset:-8px;border-radius:50%;background:radial-gradient(circle,var(--subject-glow) 0 34%,transparent 68%);filter:blur(7px);animation:homePlanetHalo 3.8s ease-in-out infinite; }
   .home-subject-card::after { content:"";position:absolute;z-index:2;inset:0;border:2px solid rgba(255,255,255,.64);border-radius:50%;box-shadow:inset 0 0 24px rgba(255,255,255,.16),0 18px 34px rgba(0,0,0,.36),0 0 25px var(--subject-glow);pointer-events:none; }
   .home-planet-art { position:absolute;inset:0;overflow:hidden;border-radius:50%;background-image:linear-gradient(180deg,transparent 53%,rgba(4,4,23,.94) 100%),var(--planet-image);background-position:center;background-size:cover;box-shadow:inset 0 -30px 40px rgba(3,3,22,.5); }
-  .home-subject-card[data-subject="science"] .home-planet-art { background-position:72% center; }
+  .home-subject-card[data-subject="science"] .home-planet-art { background-position:82% center; }
   .home-subject-card:hover { transform:translateY(-10px) scale(1.055);filter:brightness(1.13); }
   .home-subject-card:active { transform:translateY(-2px) scale(.98); }
   .home-subject-card:focus-visible { outline:3px solid #fff;outline-offset:7px; }
@@ -102,14 +102,13 @@
   .home-focus .home-space-copy h2 { font-size:clamp(25px,3.2vw,38px); }
   .home-focus .home-subject-grid { top:150px;bottom:10px;left:34px;right:34px;gap:14px 18px;align-content:center; }
   .home-focus .home-subject-card { --planet-size:clamp(150px,21vh,180px); }
-  .home-brand-logo { position:absolute;z-index:25;top:88px;right:22px;width:clamp(170px,21vw,230px);height:auto;object-fit:contain;filter:drop-shadow(0 0 14px rgba(64,199,255,.38));pointer-events:none;animation:homePlanetFloat 5.6s ease-in-out infinite; }
   .home-aux-card { --planet-size:clamp(132px,18vh,158px)!important; }
   .home-aux-card .home-planet-art { overflow:visible;border-radius:0;background-image:var(--planet-image);background-repeat:no-repeat;background-position:center;background-size:contain;box-shadow:none; }
   .home-aux-card::after { inset:7%;border-color:rgba(255,255,255,.38);box-shadow:inset 0 0 18px rgba(255,255,255,.12),0 12px 28px rgba(0,0,0,.34),0 0 24px var(--subject-glow); }
   .home-aux-card .home-subject-copy { bottom:4px; }
   .home-aux-card .home-subject-copy strong { font-size:clamp(16px,2vw,21px); }
   @media (max-width:900px) { .home-focus .home-subject-card { --planet-size:clamp(142px,20.5vh,168px); } .home-focus .home-aux-card { --planet-size:clamp(126px,17.5vh,146px)!important; } }
-  @media (max-width:700px) { .home-focus { overflow:auto; } .home-focus .app-header { flex-wrap:wrap!important;min-height:122px; } .home-focus .student-xp { order:3;flex-basis:100%!important;max-width:none; } .home-focus .home-dashboard { height:auto;min-height:1080px; } .home-focus .home-space-copy { top:140px; } .home-focus .home-subject-grid { top:210px;bottom:25px; } .home-brand-logo { top:132px;right:14px;width:150px; } }
+  @media (max-width:700px) { .home-focus { overflow:auto; } .home-focus .app-header { flex-wrap:wrap!important;min-height:122px; } .home-focus .student-xp { order:3;flex-basis:100%!important;max-width:none; } .home-focus .home-dashboard { height:auto;min-height:1080px; } .home-focus .home-space-copy { top:140px; } .home-focus .home-subject-grid { top:210px;bottom:25px; } }
 
   .cosmos-focus { position:relative;isolation:isolate;max-width:none!important;min-height:100svh;margin:0!important;padding:82px clamp(14px,2vw,26px) 26px!important;overflow-x:hidden;background:radial-gradient(circle at 18% 16%,rgba(90,53,180,.34),transparent 35%),radial-gradient(circle at 82% 24%,rgba(20,159,191,.2),transparent 31%),linear-gradient(145deg,#040619 0%,#100936 48%,#07122f 100%);color:#fff; }
   .cosmos-focus .cosmos-stars { position:fixed; }
@@ -705,7 +704,6 @@
     <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
       <div data-screen-label="首頁" class="home-dashboard">
         <canvas id="home-stars" aria-hidden="true"></canvas>
-        <img class="home-brand-logo" src="images/brand/learning-planet-brand-v1.png" alt="Learning Planet">
         <div class="home-space-copy">
           <p class="home-space-kicker">Learning Planet</p>
           <h2>選一個任務，今天就出發</h2>
