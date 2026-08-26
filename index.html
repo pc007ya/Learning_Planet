@@ -385,6 +385,10 @@
 
   /* Teacher console follows the same Learning Planet space system. */
   .app-shell.admin-focus{position:relative;isolation:isolate;max-width:none!important;min-height:100svh;margin:0!important;padding:92px clamp(16px,3vw,34px) 36px!important;background:radial-gradient(circle at 18% 8%,rgba(88,53,181,.38),transparent 32%),radial-gradient(circle at 90% 18%,rgba(0,207,230,.22),transparent 28%),linear-gradient(145deg,#030514,#0d0730 52%,#04142d)!important;color:#eef8ff}.admin-focus:before{content:"";position:fixed;z-index:-1;inset:0;background-image:radial-gradient(circle at 20% 25%,rgba(255,255,255,.7) 0 1px,transparent 1.6px),radial-gradient(circle at 75% 60%,rgba(120,235,255,.55) 0 1px,transparent 1.7px);background-size:93px 93px,137px 137px;opacity:.45}.admin-focus .app-header{position:absolute;top:0;left:0;right:0;margin:0!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,rgba(4,6,28,.96),rgba(7,8,38,.68) 72%,transparent)!important;color:#fff!important;box-shadow:none!important}.admin-focus .app-nav{display:none!important}.admin-focus [data-screen-label="教師後台"]>div:first-child{position:sticky;z-index:20;top:4px;padding:8px;border:1px solid rgba(110,227,255,.25);border-radius:18px;background:rgba(7,18,49,.72);backdrop-filter:blur(14px)}.admin-focus [data-screen-label="教師後台"] section{border-color:rgba(99,226,255,.28)!important;background:linear-gradient(145deg,rgba(8,24,58,.82),rgba(18,14,58,.7))!important;color:#f5f9ff!important;box-shadow:0 20px 55px rgba(0,0,0,.3)!important;backdrop-filter:blur(16px)}.admin-focus [data-screen-label="教師後台"] input,.admin-focus [data-screen-label="教師後台"] select{border-color:rgba(130,224,255,.42)!important;background:rgba(247,252,255,.96)!important;color:#18234d!important}.admin-focus [data-screen-label="教師後台"] input::placeholder{color:#7180a1!important}.admin-focus [data-screen-label="教師後台"] option{color:#18234d}.admin-focus .teacher-student-head,.admin-focus .teacher-student-row{color:#dff7ff!important}.admin-focus .teacher-student-row{border:1px solid rgba(125,224,255,.18);background:rgba(255,255,255,.07)!important}
+  /* Teacher console: every tab shares one dark glass system; no legacy white cards. */
+  .admin-focus .teacher-class-panel,.admin-focus [data-screen-label="教師後台"] section>div[style*="background:#fbfaff"],.admin-focus [data-screen-label="教師後台"] section>div>div[style*="background:#fbfaff"],.admin-focus [data-screen-label="教師後台"] section>div[style*="background:#f6f2ff"]{border-color:rgba(116,220,255,.25)!important;background:rgba(6,17,51,.62)!important;box-shadow:inset 0 1px rgba(255,255,255,.08),0 12px 26px rgba(0,0,0,.2);backdrop-filter:blur(10px)}
+  .admin-focus .teacher-admin-form{border-color:rgba(116,220,255,.28)!important;background:rgba(5,18,49,.68)!important}.admin-focus .teacher-class-row,.admin-focus .teacher-assignment-row{border-color:rgba(116,220,255,.23)!important;background:linear-gradient(110deg,rgba(12,27,66,.84),rgba(20,16,66,.68))!important;color:#eaf9ff!important}.admin-focus .teacher-class-row strong,.admin-focus .teacher-class-row span,.admin-focus .teacher-assignment-row strong,.admin-focus .teacher-assignment-row span{color:#eaf9ff!important}.admin-focus .teacher-class-row small,.admin-focus .teacher-assignment-row small{color:#a9c8e8!important}.admin-focus .teacher-assignment-avatar{width:38px;height:38px;border:1px solid rgba(151,231,255,.64);border-radius:12px;object-fit:cover;background:#13214d;box-shadow:0 0 13px rgba(79,213,255,.28)}
+  .admin-focus [data-screen-label="教師後台"] h2,.admin-focus [data-screen-label="教師後台"] h3,.admin-focus [data-screen-label="教師後台"] strong{color:#f4fbff!important}.admin-focus [data-screen-label="教師後台"] p[style*="color:#9a90c8"],.admin-focus [data-screen-label="教師後台"] span[style*="color:#9a90c8"],.admin-focus [data-screen-label="教師後台"] span[style*="color:#b3a9d8"]{color:#aac8e7!important}.admin-focus [data-screen-label="教師後台"] button[style*="background:#fff"],.admin-focus [data-screen-label="教師後台"] button[style*="background:#fbfaff"]{border-color:rgba(126,222,255,.35)!important;background:rgba(255,255,255,.1)!important;color:#e9f9ff!important}
   @media(max-width:760px){.login-space-head{justify-content:center}.login-brand-full{object-position:center top}.login-auth-wrap{padding:6px}.login-auth-card{padding:20px}.admin-focus{padding-top:118px!important}}
 
   .app-shell.module-focus { position:relative;isolation:isolate;overflow:hidden;max-width:none!important;min-height:100svh;padding:16px clamp(16px,4vw,52px) 34px!important;background:#060821!important;color:#f4f8ff; }
@@ -2830,16 +2834,16 @@
 
         <sc-if value="{{ adminClasses }}" hint-placeholder-val="{{ false }}">
           <div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
-            <section style="grid-column:1/-1;background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+            <section class="teacher-class-panel" style="grid-column:1/-1;background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
               <h2 style="margin:0 0 4px;font-size:26px;font-weight:900">班級管理</h2>
               <p style="margin:0 0 16px;font-size:13px;font-weight:700;color:#9a90c8">新增班級、改名稱，或把學生分配到別班</p>
-              <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#fbfaff;border:1px solid #ece7ff;border-radius:20px;padding:14px">
+              <div class="teacher-admin-form" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#fbfaff;border:1px solid #ece7ff;border-radius:20px;padding:14px">
                 <input value="{{ newClassName }}" onChange="{{ onNewClassName }}" placeholder="班級名稱，例如 302 班" style="flex:1;min-width:180px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57" />
                 <button onClick="{{ addClass }}" style="border:0;border-radius:14px;padding:12px 20px;font-size:15px;font-weight:900;font-family:inherit;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer">＋ 新增班級</button>
               </div>
               <div style="margin-top:16px;display:grid;gap:10px">
                 <sc-for list="{{ classRows }}" as="c" hint-placeholder-count="3">
-                  <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px;border-radius:20px;border:2px solid {{ c.border }};background:{{ c.bg }}">
+                  <div class="teacher-class-row" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px;border-radius:20px;border:2px solid {{ c.border }};background:{{ c.bg }}">
                     <sc-if value="{{ c.viewing }}" hint-placeholder-val="{{ true }}">
                       <span style="display:flex;align-items:center;gap:12px;flex:1;min-width:200px">
                         <span style="width:42px;height:42px;border-radius:16px;display:grid;place-items:center;font-size:20px;background:#f3f0ff">🏫</span>
@@ -2858,13 +2862,13 @@
               </div>
             </section>
 
-            <section style="grid-column:1/-1;background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+            <section class="teacher-class-panel" style="grid-column:1/-1;background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
               <h3 style="margin:0 0 4px;font-size:20px;font-weight:900">分配成員</h3>
               <p style="margin:0 0 14px;font-size:13px;font-weight:700;color:#9a90c8">每位學生右邊選一個班級就會立刻搬過去</p>
               <div style="display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
                 <sc-for list="{{ assignRows }}" as="a" hint-placeholder-count="8">
-                  <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:18px;background:#fbfaff;border:1px solid #ece7ff">
-                    <span style="width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:18px;background:{{ a.tint }}">{{ a.face }}</span>
+                  <div class="teacher-assignment-row" style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:18px;background:#fbfaff;border:1px solid #ece7ff">
+                    <img class="teacher-assignment-avatar" src="{{ a.avatarImage }}" alt="{{ a.name }}的頭像">
                     <span style="flex:1;min-width:0"><strong style="display:block;font-size:14px;font-weight:900">{{ a.name }}</strong><span style="font-size:11px;font-weight:800;color:#b3a9d8">{{ a.seat }}</span></span>
                     <select value="{{ a.classId }}" onChange="{{ a.move }}" style="border:1.5px solid #ddd5ff;border-radius:12px;padding:8px 10px;font-size:13px;font-weight:800;font-family:inherit;color:#5b3fe0;background:#fff">
                       <sc-for list="{{ classOptions }}" as="co" hint-placeholder-count="3">
@@ -10074,7 +10078,7 @@ class Component extends DCLogic {
         };
       }),
       assignRows: s.students.slice().sort((a, b) => (a.classId + a.seat).localeCompare(b.classId + b.seat, "en", { numeric: true })).map((st) => ({
-        name: st.name, seat: className(st.classId) + " " + st.seat, face: st.face, tint: st.tint,
+        name: st.name, seat: className(st.classId) + " " + st.seat, avatarImage: studentAvatarImage(st.profile && st.profile.cardAvatarIndex),
         classId: st.classId,
         move: (e) => {
           const target = e.target.value;
