@@ -369,6 +369,24 @@
     .login-space{padding:4px 14px 8px}.login-space-head{min-height:76px}.login-brand-full{height:78px;width:290px}.login-hud{overflow:hidden;padding:10px 14px 12px}.login-roster-grid{height:calc(100% - 55px)}.login-student-card{grid-template-columns:58px minmax(0,1fr)}.login-card-avatar{width:54px;height:64px}.login-card-name{font-size:14px}.login-card-en,.login-card-class-en{font-size:9px}.login-card-zh{font-size:10px}
   }
 
+  /* Login V4: credential-first identity scanner. */
+  .login-space-shell{grid-template-rows:auto minmax(0,1fr)}
+  .login-auth-wrap{height:100%;min-height:0;display:grid;place-items:center;padding:14px}
+  .login-auth-card{width:min(470px,92%);display:grid;gap:14px;padding:clamp(22px,4vw,38px);border:1px solid rgba(111,235,255,.38);border-radius:28px;background:linear-gradient(145deg,rgba(9,25,63,.88),rgba(16,12,55,.76));box-shadow:0 26px 70px rgba(0,0,0,.38),inset 0 0 36px rgba(73,222,255,.08);backdrop-filter:blur(18px)}
+  .login-auth-card h1{margin:0;color:#fff;font-size:clamp(24px,3vw,34px);text-align:center;letter-spacing:.06em}.login-auth-card>p{margin:0 0 4px;color:#9cefff;font-size:12px;font-weight:850;text-align:center;line-height:1.6}
+  .login-auth-field{display:grid;gap:7px;color:#a8ecff;font-size:12px;font-weight:950;letter-spacing:.08em}.login-auth-field input{box-sizing:border-box;width:100%;border:1px solid rgba(129,230,255,.38);border-radius:15px;padding:13px 15px;background:rgba(255,255,255,.08);color:#fff;font:900 16px/1.2 inherit;outline:none}.login-auth-field input:focus{border-color:#62edff;box-shadow:0 0 0 3px rgba(71,227,255,.14)}
+  .login-auth-submit{border:1px solid rgba(154,250,255,.45)!important;border-radius:16px!important;padding:14px!important;background:linear-gradient(90deg,#7357ff,#22c8d8)!important;color:#fff!important;font:950 16px/1 inherit!important;cursor:pointer;box-shadow:0 10px 28px rgba(34,200,216,.2)}
+  .login-auth-error{min-height:18px;margin:0!important;color:#ff9fbd!important;font-size:12px!important;font-weight:900!important;text-align:center!important}
+  .login-teacher-dialog{position:fixed;z-index:30;inset:0;display:grid;place-items:center;padding:20px;background:rgba(2,5,23,.72);backdrop-filter:blur(12px)}.login-teacher-dialog[hidden]{display:none}.login-teacher-card{width:min(420px,92vw);display:grid;gap:13px;padding:28px;border:1px solid rgba(255,222,104,.46);border-radius:26px;background:linear-gradient(145deg,rgba(7,22,58,.96),rgba(22,12,57,.94));box-shadow:0 30px 90px rgba(0,0,0,.55)}.login-teacher-head{display:flex;align-items:center;gap:13px}.login-teacher-head img{width:62px;height:62px;object-fit:contain}.login-teacher-head h2{margin:0;color:#fff;font-size:25px}.login-teacher-actions{display:grid;grid-template-columns:1fr 1.5fr;gap:9px}.login-teacher-actions button{border:1px solid rgba(157,226,255,.35);border-radius:14px;padding:12px;background:rgba(255,255,255,.08);color:#dff8ff;font:900 14px/1 inherit;cursor:pointer}.login-teacher-actions button:last-child{border:0;background:linear-gradient(90deg,#7357ff,#22c8d8);color:#fff}
+  .login-success-sequence{position:fixed;z-index:28;inset:0;display:none;place-items:center;pointer-events:none}.login-space.verified .login-success-sequence,.login-space.launching .login-success-sequence{display:grid}.login-success-core{display:grid;place-items:center;gap:14px}.login-success-avatar{width:clamp(130px,20vw,220px);aspect-ratio:1;object-fit:cover;border:3px solid rgba(104,255,204,.88);border-radius:26px;box-shadow:0 0 35px rgba(73,255,190,.55),0 0 90px rgba(36,207,255,.28);animation:loginIdentityReveal 2s cubic-bezier(.16,1,.3,1) both}.login-success-copy{padding:10px 22px;border:1px solid rgba(91,255,185,.62);border-radius:10px;background:rgba(3,45,36,.56);color:#7dffc4;font:1000 clamp(19px,3vw,32px)/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 0 12px #48ffab;box-shadow:inset 0 0 18px rgba(64,255,173,.12);animation:loginTechShake .15s steps(2,end) infinite}.login-success-name{color:#eafff5;font-size:13px;font-weight:950;letter-spacing:.12em}
+  @keyframes loginIdentityReveal{0%{opacity:0;transform:scale(.45);filter:blur(10px)}22%,78%{opacity:1;transform:scale(1);filter:none}100%{opacity:1;transform:scale(.96)}}@keyframes loginTechShake{0%{transform:translateX(-1px)}50%{transform:translateX(1px)}100%{transform:none}}
+  .login-space.verified .login-space-shell{filter:blur(1px);opacity:.18;transform:scale(.98);transition:.35s ease}.login-space.verified .login-teacher-satellite{opacity:0;pointer-events:none}
+  .login-space.launching .login-success-sequence{opacity:0;transform:scale(.55);transition:opacity .35s ease,transform .5s ease}.login-space.launching .login-launch-rocket{animation:loginLaunchRocket 3s cubic-bezier(.38,.05,.32,1) both}
+
+  /* Teacher console follows the same Learning Planet space system. */
+  .app-shell.admin-focus{position:relative;isolation:isolate;max-width:none!important;min-height:100svh;margin:0!important;padding:92px clamp(16px,3vw,34px) 36px!important;background:radial-gradient(circle at 18% 8%,rgba(88,53,181,.38),transparent 32%),radial-gradient(circle at 90% 18%,rgba(0,207,230,.22),transparent 28%),linear-gradient(145deg,#030514,#0d0730 52%,#04142d)!important;color:#eef8ff}.admin-focus:before{content:"";position:fixed;z-index:-1;inset:0;background-image:radial-gradient(circle at 20% 25%,rgba(255,255,255,.7) 0 1px,transparent 1.6px),radial-gradient(circle at 75% 60%,rgba(120,235,255,.55) 0 1px,transparent 1.7px);background-size:93px 93px,137px 137px;opacity:.45}.admin-focus .app-header{position:absolute;top:0;left:0;right:0;margin:0!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,rgba(4,6,28,.96),rgba(7,8,38,.68) 72%,transparent)!important;color:#fff!important;box-shadow:none!important}.admin-focus .app-nav{display:none!important}.admin-focus [data-screen-label="教師後台"]>div:first-child{position:sticky;z-index:20;top:4px;padding:8px;border:1px solid rgba(110,227,255,.25);border-radius:18px;background:rgba(7,18,49,.72);backdrop-filter:blur(14px)}.admin-focus [data-screen-label="教師後台"] section{border-color:rgba(99,226,255,.28)!important;background:linear-gradient(145deg,rgba(8,24,58,.82),rgba(18,14,58,.7))!important;color:#f5f9ff!important;box-shadow:0 20px 55px rgba(0,0,0,.3)!important;backdrop-filter:blur(16px)}.admin-focus [data-screen-label="教師後台"] input,.admin-focus [data-screen-label="教師後台"] select{border-color:rgba(130,224,255,.42)!important;background:rgba(247,252,255,.96)!important;color:#18234d!important}.admin-focus [data-screen-label="教師後台"] input::placeholder{color:#7180a1!important}.admin-focus [data-screen-label="教師後台"] option{color:#18234d}.admin-focus .teacher-student-head,.admin-focus .teacher-student-row{color:#dff7ff!important}.admin-focus .teacher-student-row{border:1px solid rgba(125,224,255,.18);background:rgba(255,255,255,.07)!important}
+  @media(max-width:760px){.login-space-head{justify-content:center}.login-brand-full{object-position:center top}.login-auth-wrap{padding:6px}.login-auth-card{padding:20px}.admin-focus{padding-top:118px!important}}
+
   .app-shell.module-focus { position:relative;isolation:isolate;overflow:hidden;max-width:none!important;min-height:100svh;padding:16px clamp(16px,4vw,52px) 34px!important;background:#060821!important;color:#f4f8ff; }
   .app-shell.module-focus::before { content:"";position:fixed;z-index:-2;inset:0;background-image:var(--module-world-image);background-size:cover;background-position:center;background-repeat:no-repeat;filter:saturate(1.15) contrast(1.04);transform:scale(1.035); }
   .app-shell.module-focus::after { content:"";position:fixed;z-index:-1;inset:0;background:radial-gradient(circle at 78% 42%,transparent 0 13%,rgba(4,7,27,.18) 38%,rgba(4,6,24,.72) 78%),linear-gradient(100deg,rgba(3,5,25,.94),rgba(7,8,40,.58) 52%,rgba(4,6,28,.7));backdrop-filter:blur(1px);pointer-events:none; }
@@ -836,32 +854,29 @@
         <img class="login-brand-full" src="images/brand/learning-planet-brand-v1.png" alt="Learning Planet 學習星球">
       </header>
 
-      <section class="login-hud">
-        <p class="login-scanner-status"><i></i>STARSHIP IDENTITY SCANNER · 等待隊員驗證</p>
-        <div class="login-class-chips">
-          <sc-for list="{{ classChips }}" as="c" hint-placeholder-count="3">
-            <button onClick="{{ c.go }}" style="border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.fg }};border-radius:99px;padding:9px 20px;font-size:14px;font-weight:900;font-family:inherit;cursor:pointer">{{ c.label }} <span style="opacity:.6;font-size:12px">{{ c.count }}</span></button>
-          </sc-for>
+      <section class="login-hud login-auth-wrap">
+        <div class="login-auth-card">
+          <p class="login-scanner-status"><i></i>STUDENT IDENTITY SCANNER</p>
+          <h1>學員登入</h1>
+          <p>輸入學員帳號與密碼，啟動學習星球任務。</p>
+          <label class="login-auth-field">學員帳號<input value="{{ studentLoginAccount }}" onChange="{{ changeStudentAccount }}" onKeyDown="{{ studentLoginKey }}" autoComplete="username" placeholder="例如：30102"></label>
+          <label class="login-auth-field">密碼<input type="password" value="{{ studentLoginPassword }}" onChange="{{ changeStudentPassword }}" onKeyDown="{{ studentLoginKey }}" autoComplete="current-password" placeholder="輸入密碼"></label>
+          <p class="login-auth-error">{{ studentLoginError }}</p>
+          <button class="login-auth-submit" onClick="{{ submitStudentLogin }}">登入學習星球</button>
         </div>
-        <div class="login-roster-grid">
-          <sc-for list="{{ roster }}" as="s" hint-placeholder-count="8">
-            <button class="login-student-card theme-{{ s.cardTheme }}" onClick="{{ s.login }}" style="--login-card-bg:url('{{ s.cardBackground }}');cursor:pointer;font-family:inherit;transition:transform .15s ease,border-color .15s ease">
-              <img class="login-card-avatar" src="{{ s.avatarImage }}" alt="{{ s.name }}的頭像">
-              <span class="login-card-copy">
-                <strong class="login-card-name">{{ s.name }}</strong>
-                <span class="login-card-en">{{ s.englishName }}</span>
-                <span class="login-card-zh">{{ s.gradeClassZh }}</span>
-                <span class="login-card-seat">{{ s.seatLabel }}</span>
-              </span>
-            </button>
-          </sc-for>
-        </div>
-        <sc-if value="{{ rosterEmpty }}" hint-placeholder-val="{{ false }}">
-          <p style="margin:8px 0 0;font-size:14px;font-weight:800;color:#b3a9d8">這個班級還沒有學生，請老師到後台新增。</p>
-        </sc-if>
       </section>
     </div>
-    <button class="login-teacher-satellite" onClick="{{ loginTeacher }}" title="基地老師" aria-label="進入基地老師後台"><img src="images/login/teacher-satellite-v1.png" alt=""></button>
+    <button class="login-teacher-satellite" onClick="{{ loginTeacher }}" title="老師登入" aria-label="開啟老師帳號登入"><img src="images/login/teacher-satellite-v1.png" alt=""></button>
+    <div class="login-success-sequence" aria-live="polite"><div class="login-success-core"><img class="login-success-avatar" src="{{ loginSuccessAvatar }}" alt=""><strong class="login-success-copy">LOGIN SUCCESSFUL</strong><span class="login-success-name">{{ loginSuccessName }}</span></div></div>
+    <div class="login-teacher-dialog" hidden="{{ teacherLoginHidden }}">
+      <section class="login-teacher-card" role="dialog" aria-modal="true" aria-label="老師登入">
+        <div class="login-teacher-head"><img src="images/login/teacher-satellite-v1.png" alt=""><div><h2>老師登入</h2><p style="margin:5px 0 0;color:#9cefff;font-size:11px;font-weight:850">TEACHER CONTROL SATELLITE</p></div></div>
+        <label class="login-auth-field">老師帳號<input value="{{ teacherLoginAccount }}" onChange="{{ changeTeacherAccount }}" onKeyDown="{{ teacherLoginKey }}" autoComplete="username" placeholder="老師帳號"></label>
+        <label class="login-auth-field">密碼<input type="password" value="{{ teacherLoginPassword }}" onChange="{{ changeTeacherPassword }}" onKeyDown="{{ teacherLoginKey }}" autoComplete="current-password" placeholder="輸入密碼"></label>
+        <p class="login-auth-error">{{ teacherLoginError }}</p>
+        <div class="login-teacher-actions"><button onClick="{{ closeTeacherLogin }}">取消</button><button onClick="{{ submitTeacherLogin }}">進入工作台</button></div>
+      </section>
+    </div>
   </div>
 </sc-if>
 
@@ -2702,10 +2717,7 @@
                 <p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:#22c8d8">TEACHER STUDIO</p>
                 <h2 style="margin:8px 0 0;font-size:28px;font-weight:900">學員維護</h2>
               </div>
-              <div style="display:flex;gap:10px">
-                <div style="background:#f3f0ff;border-radius:18px;padding:12px 18px;text-align:center"><p style="margin:0;font-size:11px;font-weight:900;color:#9a90c8">今日已登入</p><p style="margin:4px 0 0;font-size:22px;font-weight:900;color:#7c5cff">{{ loggedIn }}/{{ studentCount }}</p></div>
-                <div style="background:#eafbfd;border-radius:18px;padding:12px 18px;text-align:center"><p style="margin:0;font-size:11px;font-weight:900;color:#4aa9b6">全班答對</p><p style="margin:4px 0 0;font-size:22px;font-weight:900;color:#0e7d8c">{{ classCorrect }}</p></div>
-              </div>
+              <div style="display:flex;gap:10px"><div style="background:rgba(255,255,255,.08);border:1px solid rgba(121,228,255,.22);border-radius:18px;padding:12px 18px;text-align:center"><p style="margin:0;font-size:11px;font-weight:900;color:#9cefff">學員帳號</p><p style="margin:4px 0 0;font-size:22px;font-weight:900;color:#fff">{{ studentCount }}</p></div></div>
             </div>
 
             <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#fbfaff;border:1px solid #ece7ff;border-radius:20px;padding:14px">
@@ -2721,18 +2733,17 @@
             </div>
 
             <div style="margin-top:16px;overflow-x:auto">
-              <div style="min-width:780px">
-                <div style="display:grid;grid-template-columns:.5fr 1.2fr .9fr .8fr .7fr .7fr .7fr auto;gap:8px;padding:0 12px 10px;font-size:12px;font-weight:900;color:#b3a9d8"><span>座號</span><span>學生</span><span>班級</span><span>今日登入</span><span>等級</span><span>答對</span><span>星星幣</span><span>維護</span></div>
+              <div style="min-width:900px">
+                <div class="teacher-student-head" style="display:grid;grid-template-columns:.45fr 1.15fr .75fr 1fr .85fr 1.35fr auto;gap:8px;padding:0 12px 10px;font-size:12px;font-weight:900;color:#b3a9d8"><span>座號</span><span>學生</span><span>班級</span><span>帳號</span><span>密碼</span><span>最後登入日</span><span>維護</span></div>
                 <sc-for list="{{ teacherRows }}" as="row" hint-placeholder-count="8">
                   <sc-if value="{{ row.viewing }}" hint-placeholder-val="{{ true }}">
-                    <div style="display:grid;grid-template-columns:.5fr 1.2fr .9fr .8fr .7fr .7fr .7fr auto;gap:8px;align-items:center;padding:12px;border-radius:18px;margin-bottom:6px;background:{{ row.bg }}">
+                    <div class="teacher-student-row" style="display:grid;grid-template-columns:.45fr 1.15fr .75fr 1fr .85fr 1.35fr auto;gap:8px;align-items:center;padding:12px;border-radius:18px;margin-bottom:6px;background:{{ row.bg }}">
                       <span style="font-size:14px;font-weight:900;color:#7c74a8">{{ row.seat }}</span>
-                      <span style="display:flex;align-items:center;gap:10px"><span style="width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:17px;background:{{ row.tint }}">{{ row.face }}</span><strong style="font-size:15px;font-weight:900">{{ row.name }}</strong></span>
+                      <span style="display:flex;align-items:center;gap:10px"><img src="{{ row.avatarImage }}" alt="" style="width:34px;height:34px;border-radius:10px;object-fit:cover"><strong style="font-size:15px;font-weight:900">{{ row.name }}</strong></span>
                       <span style="font-size:13px;font-weight:900;color:#5b3fe0">{{ row.className }}</span>
-                      <span style="font-size:13px;font-weight:900;color:{{ row.loginColor }}">{{ row.loginLabel }}</span>
-                      <span style="font-size:14px;font-weight:800;color:#4a3d7a">Lv.{{ row.level }}</span>
-                      <span style="font-size:14px;font-weight:800;color:#4a3d7a">{{ row.correct }}</span>
-                      <span style="font-size:14px;font-weight:800;color:#a06400">⭐ {{ row.coins }}</span>
+                      <span style="font-size:13px;font-weight:900;color:#8feaff">{{ row.account }}</span>
+                      <span style="font-size:13px;font-weight:900;color:#ffe18a">{{ row.password }}</span>
+                      <span style="font-size:12px;font-weight:800;color:#c5d7ec">{{ row.lastLogin }}</span>
                       <span style="display:flex;gap:6px">
                         <button onClick="{{ row.edit }}" style="border:1px solid #ddd5ff;background:#fbfaff;border-radius:12px;padding:8px 12px;font-size:13px;font-weight:900;color:#5b3fe0;cursor:pointer;font-family:inherit">編輯</button>
                         <button onClick="{{ row.remove }}" style="border:1px solid #ffd0e6;background:#fff5f9;border-radius:12px;padding:8px 12px;font-size:13px;font-weight:900;color:#b0316f;cursor:pointer;font-family:inherit">移除</button>
@@ -2748,6 +2759,8 @@
                           <option value="{{ co.id }}">{{ co.name }}</option>
                         </sc-for>
                       </select>
+                      <input value="{{ editAccount }}" onChange="{{ onEditAccount }}" placeholder="登入帳號" style="width:135px;border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;font-size:14px;font-family:inherit;color:#2b1f57" />
+                      <input value="{{ editPassword }}" onChange="{{ onEditPassword }}" placeholder="登入密碼" style="width:120px;border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;font-size:14px;font-family:inherit;color:#2b1f57" />
                       <span style="font-size:12px;font-weight:900;color:{{ editHintColor }};min-width:104px">{{ editHint }}</span>
                       <button onClick="{{ saveEdit }}" style="border:0;border-radius:12px;padding:10px 18px;font-size:13px;font-weight:900;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer;font-family:inherit">儲存</button>
                       <button onClick="{{ cancelEdit }}" style="border:1px solid #ddd5ff;background:#fff;border-radius:12px;padding:10px 16px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit">取消</button>
@@ -4416,6 +4429,7 @@ function makeProfile() {
     gachaOwned: {}, gachaHistory: [], gachaDraws: 0,
     achievementHistory: [],
     cardAvatarIndex: 0, cardTheme: "C", englishName: "",
+    loginAccount: "", loginPassword: "", lastLoginAt: "",
   };
 }
 function achievedMilestoneEntries(profile) {
@@ -4499,6 +4513,23 @@ function studentCardTheme(profile) {
 function studentCardBackground(profile) {
   return "images/profile/card-themes/ID_Card_" + studentCardTheme(profile) + ".png";
 }
+function studentLoginAccount(student) {
+  const stored = String(student && student.profile && student.profile.loginAccount || "").trim();
+  if (stored) return stored;
+  const classDigits = String(student && student.classId || "301").replace(/[^0-9]/g, "") || "301";
+  const seatDigits = String(student && student.seat || "01").replace(/[^0-9]/g, "").padStart(2, "0");
+  return classDigits + seatDigits;
+}
+function studentLoginPassword(student) {
+  const stored = String(student && student.profile && student.profile.loginPassword || "");
+  return stored || "LP" + String(student && student.seat || "01").replace(/[^0-9]/g, "").padStart(2, "0");
+}
+function formatLastLogin(value) {
+  if (!value) return "尚未登入";
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) return "尚未登入";
+  return new Intl.DateTimeFormat("zh-TW", { year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }).format(date);
+}
 function requestAppFullscreen() {
   const root = document.documentElement;
   try {
@@ -4554,13 +4585,15 @@ class Component extends DCLogic {
     gachaBank: [], gachaStage: "idle", gachaResult: null, gachaCapsuleColor: "purple", collectionCharacter: "全部", collectionPage: 0,
     libUnit: "全部", detailChar: null,
     newName: "", newSeat: "", newClass: "c301",
-    editId: null, editName: "", editSeat: "", editClass: "c301",
+    editId: null, editName: "", editSeat: "", editClass: "c301", editAccount: "", editPassword: "",
     newClassName: "", classEditId: null, classEditName: "",
     vChar: "", vZhuyin: "", vWord: "", vRadical: "", vPic: "", vUnit: "",
     vocabHint: "", vocabHintColor: "#b3a9d8",
     speechMuted: readSpeechMuted(),
     autoNext: readAutoNext(),
-    loginLaunching: false,
+    loginLaunching: false, loginVerified: false, loginSuccessStudentId: null,
+    studentLoginAccount: "", studentLoginPassword: "", studentLoginError: "",
+    teacherLoginOpen: false, teacherLoginAccount: "", teacherLoginPassword: "", teacherLoginError: "",
     dissolveLab: null,
     magnet2Lab: null,
     dayNightLab: null,
@@ -4728,14 +4761,41 @@ class Component extends DCLogic {
   }
 
   launchStudentLogin(studentId) {
-    if (this.state.loginLaunching) return;
+    if (this.state.loginLaunching || this.state.loginVerified) return;
     requestAppFullscreen();
     clearTimeout(this.loginLaunchTimer);
-    this.setState({ loginLaunching: true }, () => {
+    const now = new Date().toISOString();
+    this.setState((state) => ({
+      loginVerified: true,
+      loginSuccessStudentId: studentId,
+      studentLoginError: "",
+      students: state.students.map((student) => student.id === studentId ? Object.assign({}, student, { profile: Object.assign({}, student.profile, { lastLoginAt: now }) }) : student),
+    }), () => {
       this.loginLaunchTimer = setTimeout(() => {
-        this.setState({ screen: "home", currentId: studentId, teacher: false, slot: "hair", shopCat: "hair", loginLaunching: false });
-      }, 3000);
+        this.setState({ loginVerified: false, loginLaunching: true }, () => {
+          this.loginLaunchTimer = setTimeout(() => {
+            this.setState({ screen: "home", currentId: studentId, teacher: false, slot: "hair", shopCat: "hair", loginLaunching: false, loginSuccessStudentId: null, studentLoginPassword: "" });
+          }, 3000);
+        });
+      }, 2000);
     });
+  }
+
+  authenticateStudent() {
+    const account = String(this.state.studentLoginAccount || "").trim().toLowerCase();
+    const password = String(this.state.studentLoginPassword || "");
+    if (!account || !password) { this.setState({ studentLoginError: "請輸入學員帳號與密碼。" }); return; }
+    const student = this.state.students.find((candidate) => studentLoginAccount(candidate).toLowerCase() === account && studentLoginPassword(candidate) === password);
+    if (!student) { this.setState({ studentLoginError: "帳號或密碼不正確，請再確認一次。" }); return; }
+    this.launchStudentLogin(student.id);
+  }
+
+  authenticateTeacher() {
+    const account = String(this.state.teacherLoginAccount || "").trim().toLowerCase();
+    const password = String(this.state.teacherLoginPassword || "");
+    if (account !== "teacher" || password !== "1234") { this.setState({ teacherLoginError: "老師帳號或密碼不正確。" }); return; }
+    requestAppFullscreen();
+    this.setState({ screen: "teacher", teacher: true, currentId: null, adminTab: "students", teacherLoginOpen: false, teacherLoginPassword: "", teacherLoginError: "" });
   }
 
   allWords() { return this.state.words.concat(this.state.customWords); }
@@ -7916,9 +7976,13 @@ class Component extends DCLogic {
     const seat = String(num).padStart(2, "0") + " 號";
     if (s.students.some((st) => st.id !== s.editId && st.classId === s.editClass && st.seat === seat)) { this.flash("該班級已經有 " + seat); return; }
     if (s.students.some((st) => st.id !== s.editId && st.classId === s.editClass && st.name === name)) { this.flash("該班級已經有同名學生：" + name); return; }
+    const loginAccount = String(s.editAccount || "").trim();
+    const loginPassword = String(s.editPassword || "");
+    if (!loginAccount || !loginPassword) { this.flash("帳號與密碼不可空白"); return; }
+    if (s.students.some((st) => st.id !== s.editId && studentLoginAccount(st).toLowerCase() === loginAccount.toLowerCase())) { this.flash("這個學員帳號已被使用"); return; }
     this.setState((st) => ({
-      students: st.students.map((x) => x.id === st.editId ? Object.assign({}, x, { name, seat, classId: st.editClass }) : x),
-      editId: null, editName: "", editSeat: "",
+      students: st.students.map((x) => x.id === st.editId ? Object.assign({}, x, { name, seat, classId: st.editClass, profile: Object.assign({}, x.profile, { loginAccount, loginPassword }) }) : x),
+      editId: null, editName: "", editSeat: "", editAccount: "", editPassword: "",
     }));
     this.flash("已更新 " + seat + " " + name);
   }
@@ -8533,10 +8597,10 @@ class Component extends DCLogic {
     const vals = {
       isLogin: s.screen === "login",
       isApp: s.screen !== "login",
-      loginTransitionClass: s.loginLaunching ? "launching" : "",
-      loginAriaBusy: s.loginLaunching ? "true" : "false",
+      loginTransitionClass: s.loginLaunching ? "launching" : s.loginVerified ? "verified" : "",
+      loginAriaBusy: s.loginLaunching || s.loginVerified ? "true" : "false",
       showAppChrome: !isExperimentLabScreen && !isFocusedLearningScreen,
-      appShellClass: isExperimentLabScreen ? "lab-focus" : isFocusedLearningScreen ? "module-focus" : s.screen === "home" ? "home-focus" : isCosmosHub ? "cosmos-focus" : s.screen === "profile" ? "profile-focus" : s.screen === "map" ? "subject-focus" : "",
+      appShellClass: isExperimentLabScreen ? "lab-focus" : isFocusedLearningScreen ? "module-focus" : s.screen === "home" ? "home-focus" : isCosmosHub ? "cosmos-focus" : s.screen === "profile" ? "profile-focus" : s.screen === "map" ? "subject-focus" : s.screen === "teacher" ? "admin-focus" : "",
       isCosmosHub,
       isHome: s.screen === "home", isProfile: s.screen === "profile", isSignin: s.screen === "signin", isMap: s.screen === "map", isMemory: s.screen === "memory",
       isEnglishLibrary: s.screen === "englishLibrary", isEnglishScramble: s.screen === "englishScramble", isEnglishMatch: s.screen === "englishMatch", isEnglishChain: s.screen === "englishChain", isEnglishGrammar: s.screen === "englishGrammar", isEnglishAssociation: s.screen === "englishAssociation",
@@ -9163,12 +9227,30 @@ class Component extends DCLogic {
         };
       }),
       rosterEmpty: s.students.filter((st) => st.classId === s.loginClass).length === 0,
-      loginTeacher: () => this.setState({ screen: "teacher", teacher: true, currentId: null, adminTab: "weekly" }),
+      studentLoginAccount: s.studentLoginAccount,
+      studentLoginPassword: s.studentLoginPassword,
+      studentLoginError: s.studentLoginError,
+      changeStudentAccount: (e) => this.setState({ studentLoginAccount: e.target.value, studentLoginError: "" }),
+      changeStudentPassword: (e) => this.setState({ studentLoginPassword: e.target.value, studentLoginError: "" }),
+      studentLoginKey: (e) => { if (e.key === "Enter") this.authenticateStudent(); },
+      submitStudentLogin: () => this.authenticateStudent(),
+      loginSuccessAvatar: (() => { const student = s.students.find((candidate) => candidate.id === s.loginSuccessStudentId); return student ? studentAvatarImage(student.profile && student.profile.cardAvatarIndex) : studentAvatarImage(0); })(),
+      loginSuccessName: (() => { const student = s.students.find((candidate) => candidate.id === s.loginSuccessStudentId); return student ? student.name + " · " + studentIdentityCard(student).englishName : ""; })(),
+      loginTeacher: () => this.setState({ teacherLoginOpen: true, teacherLoginError: "" }),
+      teacherLoginHidden: !s.teacherLoginOpen,
+      teacherLoginAccount: s.teacherLoginAccount,
+      teacherLoginPassword: s.teacherLoginPassword,
+      teacherLoginError: s.teacherLoginError,
+      changeTeacherAccount: (e) => this.setState({ teacherLoginAccount: e.target.value, teacherLoginError: "" }),
+      changeTeacherPassword: (e) => this.setState({ teacherLoginPassword: e.target.value, teacherLoginError: "" }),
+      teacherLoginKey: (e) => { if (e.key === "Enter") this.authenticateTeacher(); },
+      closeTeacherLogin: () => this.setState({ teacherLoginOpen: false, teacherLoginPassword: "", teacherLoginError: "" }),
+      submitTeacherLogin: () => this.authenticateTeacher(),
       logout: () => {
         clearTimeout(this.autoNextTimer);
         clearTimeout(this.loginLaunchTimer);
         if (typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
-        this.setState({ screen: "login", currentId: null, teacher: false, loginLaunching: false });
+        this.setState({ screen: "login", currentId: null, teacher: false, loginLaunching: false, loginVerified: false, loginSuccessStudentId: null, studentLoginPassword: "", teacherLoginPassword: "" });
       },
 
       user: s.teacher || !me ? { name: "陳老師", seat: "導師", face: "🍎", tint: "#ffe0e6" } : { name: me.name, seat: me.seat, face: me.face, tint: me.tint },
@@ -9853,16 +9935,15 @@ class Component extends DCLogic {
       teacherRows: s.students.slice().sort((a, b) => (a.classId + a.seat).localeCompare(b.classId + b.seat, "en", { numeric: true })).map((st) => ({
         seat: st.seat.replace(" 號", ""),
         face: st.face, tint: st.tint, name: st.name,
+        avatarImage: studentAvatarImage(st.profile && st.profile.cardAvatarIndex),
         className: className(st.classId),
-        loginLabel: hasSignedToday(st.profile) ? "✅ 已登入" : "⚠️ 未登入",
-        loginColor: hasSignedToday(st.profile) ? "#35c98a" : "#ff5c8a",
-        level: Math.floor(st.profile.xp / 100) + 1,
-        correct: st.profile.correctTotal,
-        coins: st.profile.coins,
+        account: studentLoginAccount(st),
+        password: studentLoginPassword(st),
+        lastLogin: formatLastLogin(st.profile && st.profile.lastLoginAt),
         bg: hasSignedToday(st.profile) ? "#fbfaff" : "#fff6f8",
         viewing: s.editId !== st.id,
         editing: s.editId === st.id,
-        edit: () => this.setState({ editId: st.id, editName: st.name, editSeat: st.seat.replace(/[^0-9]/g, ""), editClass: st.classId }),
+        edit: () => this.setState({ editId: st.id, editName: st.name, editSeat: st.seat.replace(/[^0-9]/g, ""), editClass: st.classId, editAccount: studentLoginAccount(st), editPassword: studentLoginPassword(st) }),
         remove: () => this.removeStudent(st.id, st.name),
       })),
       newName: s.newName, newSeat: s.newSeat, newClass: s.newClass,
@@ -9870,11 +9951,13 @@ class Component extends DCLogic {
       onNewSeat: (e) => this.setState({ newSeat: e.target.value.replace(/[^0-9]/g, "").slice(0, 2) }),
       onNewClass: (e) => this.setState({ newClass: e.target.value }),
       addStudent: () => this.addStudent(),
-      editName: s.editName, editSeat: s.editSeat, editClass: s.editClass,
+      editName: s.editName, editSeat: s.editSeat, editClass: s.editClass, editAccount: s.editAccount, editPassword: s.editPassword,
       onEditName: (e) => this.setState({ editName: e.target.value }),
       onEditSeat: (e) => this.setState({ editSeat: e.target.value.replace(/[^0-9]/g, "").slice(0, 2) }),
       onEditClass: (e) => this.setState({ editClass: e.target.value }),
-      cancelEdit: () => this.setState({ editId: null, editName: "", editSeat: "" }),
+      onEditAccount: (e) => this.setState({ editAccount: e.target.value }),
+      onEditPassword: (e) => this.setState({ editPassword: e.target.value }),
+      cancelEdit: () => this.setState({ editId: null, editName: "", editSeat: "", editAccount: "", editPassword: "" }),
       saveEdit: () => this.saveEdit(),
       seatHint: (() => {
         const raw = s.newSeat.replace(/[^0-9]/g, "");
