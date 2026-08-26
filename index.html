@@ -162,22 +162,21 @@
   .hub-page { position:relative;z-index:3;width:min(1120px,100%);margin:0 auto; }
   .hub-signin .signin-sea-shell { padding:8px!important;border:1px solid rgba(137,222,255,.42);border-radius:30px!important;background:rgba(12,15,56,.58)!important;box-shadow:0 24px 58px rgba(0,0,0,.38)!important;backdrop-filter:blur(14px); }
   .hub-signin .signin-sea-stage { border:1px solid rgba(255,255,255,.42);box-shadow:inset 0 0 34px rgba(13,15,52,.24); }
-  .hub-rank { display:grid!important;grid-template-columns:minmax(0,1fr) 300px;gap:16px!important;align-items:start; }
-  .hub-rank .rank-board,.hub-rank .rank-goal { border:1px solid rgba(142,220,255,.36)!important;background:linear-gradient(145deg,rgba(17,23,72,.76),rgba(9,12,43,.62))!important;color:#fff;box-shadow:0 22px 52px rgba(0,0,0,.34)!important;backdrop-filter:blur(16px); }
+  .hub-rank { display:grid!important;grid-template-columns:minmax(0,1fr);gap:16px!important;align-items:start; }
+  .hub-rank .rank-board { border:1px solid rgba(142,220,255,.36)!important;background:linear-gradient(145deg,rgba(17,23,72,.76),rgba(9,12,43,.62))!important;color:#fff;box-shadow:0 22px 52px rgba(0,0,0,.34)!important;backdrop-filter:blur(16px); }
   .hub-rank .rank-board { padding:16px!important; }
   .hub-rank .rank-board>p { color:#a8ddeb!important; }
   .hub-rank .rank-row { gap:10px!important;margin-bottom:5px!important;padding:6px 10px!important;border-color:rgba(255,255,255,.16)!important;border-radius:16px!important;background:rgba(255,255,255,.08)!important; }
-  .hub-rank .rank-row>strong:first-child,.hub-rank .rank-row>span:nth-child(2) { width:34px!important;height:34px!important; }
+  .hub-rank .rank-row>strong:first-child,.hub-rank .rank-avatar { width:34px!important;height:34px!important; }
+  .hub-rank .rank-avatar { display:block;flex:0 0 34px;border:1px solid rgba(255,255,255,.48);border-radius:50%;object-fit:cover;box-shadow:0 2px 9px rgba(0,0,0,.28); }
   .hub-rank .rank-row>span:nth-child(3)>strong { font-size:14px!important; }
   .hub-rank .rank-row span span { color:#aab7d8!important; }
   .hub-rank .rank-row>strong:last-child { color:#89eaff!important; }
-  .hub-rank .rank-goal { position:sticky;top:92px;padding:20px!important; }
-  .hub-rank .rank-goal p { color:#c7d5ee!important; }
   .cosmos-focus .achievement-page { border-color:rgba(239,207,114,.46);background:linear-gradient(145deg,rgba(5,25,43,.5),rgba(11,50,65,.46) 52%,rgba(24,18,46,.58));box-shadow:0 28px 70px rgba(0,0,0,.34);backdrop-filter:blur(7px); }
   .cosmos-focus .achievement-hero { background:radial-gradient(circle at 80% 0,rgba(35,207,219,.12),transparent 38%),linear-gradient(120deg,rgba(197,139,30,.12),transparent 52%); }
   .cosmos-focus .achievement-recent-card { background:linear-gradient(135deg,rgba(13,68,85,.52),rgba(18,30,60,.46)); }
   .cosmos-focus .achievement-card,.cosmos-focus .achievement-badge-item,.cosmos-focus .reputation-card { background:rgba(3,16,29,.3); }
-  @media(max-width:760px){.cosmos-focus{padding-top:126px!important}.cosmos-focus .app-header{flex-wrap:wrap!important;min-height:120px}.cosmos-focus .student-xp{order:3;flex-basis:100%!important;max-width:none}.hub-rank{grid-template-columns:1fr}.hub-rank .rank-goal{position:static}}
+  @media(max-width:760px){.cosmos-focus{padding-top:126px!important}.cosmos-focus .app-header{flex-wrap:wrap!important;min-height:120px}.cosmos-focus .student-xp{order:3;flex-basis:100%!important;max-width:none}.hub-rank{grid-template-columns:1fr}}
 
   .login-space { position:relative;isolation:isolate;min-height:100svh;overflow:hidden;padding:clamp(16px,3vw,34px);display:grid;place-items:center;background:radial-gradient(circle at 18% 15%,rgba(88,53,181,.42),transparent 34%),radial-gradient(circle at 82% 18%,rgba(0,207,230,.22),transparent 28%),linear-gradient(145deg,#030514,#0d0730 50%,#04142d);color:#eefaff; }
   .login-space::after { content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(115deg,transparent 0 42%,rgba(78,227,255,.045) 42.2% 42.5%,transparent 42.7% 100%);pointer-events:none; }
@@ -2454,17 +2453,11 @@
           <sc-for list="{{ ranking }}" as="r" hint-placeholder-count="8">
             <div class="rank-row" style="display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:20px;margin-bottom:8px;background:{{ r.bg }};border:1.5px solid {{ r.border }}">
               <strong style="width:38px;height:38px;border-radius:14px;display:grid;place-items:center;font-size:16px;font-weight:900;background:{{ r.medalBg }};color:{{ r.medalFg }}">{{ r.medal }}</strong>
-              <span style="width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:20px;background:{{ r.tint }}">{{ r.face }}</span>
+              <img class="rank-avatar" src="{{ r.avatarImage }}" alt="{{ r.name }}的頭像">
               <span style="flex:1;min-width:0"><strong style="display:block;font-size:16px;font-weight:900">{{ r.name }}</strong><span style="font-size:12px;font-weight:700;color:#b3a9d8">{{ r.detail }}</span></span>
               <strong style="font-size:17px;font-weight:900;color:#7c5cff">{{ r.xp }} XP</strong>
             </div>
           </sc-for>
-        </section>
-        <section class="rank-goal" style="background:linear-gradient(150deg,#eafbfd,#f3f0ff);border:1px solid #d9f4f8;border-radius:28px;padding:22px">
-          <h3 style="margin:0 0 6px;font-size:19px;font-weight:900">🏆 <ruby>全<rt>ㄑㄩㄢˊ</rt></ruby><ruby>班<rt>ㄅㄢ</rt></ruby><ruby>目<rt>ㄇㄨˋ</rt></ruby><ruby>標<rt>ㄅㄧㄠ</rt></ruby></h3>
-          <p style="margin:0 0 14px;font-size:14px;font-weight:700;color:#4a3d7a">全班一起答對 1000 題，就能解鎖「班級限定裝備 · 傳說披風」</p>
-          <div style="height:16px;border-radius:99px;background:#fff;overflow:hidden;border:1px solid #d9f4f8"><div style="height:100%;background:linear-gradient(90deg,#35c98a,#22c8d8);width:{{ classPct }}%"></div></div>
-          <p style="margin:10px 0 0;font-size:13px;font-weight:900;color:#0e7d8c">{{ classCorrect }} / 1000 題</p>
         </section>
       </div>
     </sc-if>
@@ -9804,7 +9797,7 @@ class Component extends DCLogic {
       ranking: classmates.slice().sort((a, b) => b.profile.xp - a.profile.xp).map((st, i) => ({
         medal: i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : String(i + 1),
         medalBg: i < 3 ? "#fff6e0" : "#f3f0ff", medalFg: i < 3 ? "#a06400" : "#9a90c8",
-        face: st.face, tint: st.tint, name: st.name,
+        avatarImage: studentAvatarImage(st.profile && st.profile.cardAvatarIndex), name: st.name,
         detail: "答對 " + st.profile.correctTotal + " 題 · 通關 " + st.profile.cleared.length + " 個單元",
         xp: st.profile.xp,
         bg: me && me.id === st.id ? "#f1e6ff" : "#fbfaff",
