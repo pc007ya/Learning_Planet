@@ -836,6 +836,60 @@
   .earth-orbit-v01-tips-toggle{position:absolute;z-index:5;right:18px;top:18px;border:1px solid rgba(255,255,255,.4);border-radius:99px;padding:10px 15px;background:rgba(8,18,54,.7);color:#fff;font-family:inherit;font-size:11px;font-weight:1000;cursor:pointer;backdrop-filter:blur(12px)}.earth-orbit-v01-tips-toggle[hidden]{display:none}.earth-orbit-v01-tips{position:absolute;z-index:6;right:18px;top:18px;width:min(320px,calc(100% - 36px));padding:16px;border:1px solid rgba(210,226,255,.4);border-radius:22px;background:rgba(8,18,54,.7);box-shadow:0 18px 50px rgba(3,8,30,.32);color:#f4f8ff;backdrop-filter:blur(14px)}.earth-orbit-v01-tips[hidden]{display:none}.earth-orbit-v01-tips-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.earth-orbit-v01-tips h3{margin:0;color:#fff;font-size:17px}.earth-orbit-v01-tips-close{border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:8px 11px;background:rgba(255,255,255,.12);color:#fff;font:900 10px/1 inherit;cursor:pointer}.earth-orbit-v01-tips>p{margin:8px 0 12px;color:#cbd8ee;font-size:11px;font-weight:850;line-height:1.55}.earth-orbit-v01-readout{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:0}.earth-orbit-v01-readout div{display:grid;gap:3px;padding:9px;border:1px solid rgba(219,229,241,.28);border-radius:12px;background:rgba(255,255,255,.1)}.earth-orbit-v01-readout dt{color:#bdcae2;font-size:10px;font-weight:900}.earth-orbit-v01-readout dd{margin:0;color:#fff;font-size:11px;font-weight:1000}.earth-orbit-v01-note{margin:10px 0 0!important;padding:9px;border-radius:12px;background:rgba(255,222,100,.16);color:#fff0aa!important}
   @media(max-width:760px){.earth-orbit-v01-shell{min-height:470px}.earth-orbit-v01-stage{height:calc(100vh - 190px);min-height:470px}.earth-orbit-v01-actions{bottom:10px}.earth-orbit-v01-actions button{padding:9px 12px}.earth-orbit-v01-tips,.earth-orbit-v01-tips-toggle{top:10px;right:10px}}@media(max-width:520px){.earth-orbit-v01-stage{min-height:420px}.earth-orbit-v01-actions{width:auto;justify-content:center}.earth-orbit-v01-actions button{padding-inline:12px}}
   .earth-orbit-v01-loading{position:absolute;z-index:9;inset:0;display:grid;place-items:center;margin:0;background:rgba(3,8,26,.82);color:#e9f7ff;font-size:15px;font-weight:900}.earth-orbit-v01-loading[hidden]{display:none}.earth-orbit-v01-canvas:focus-visible{outline:4px solid #ffd75f;outline-offset:-7px}
+
+  /* Living Subject Field: five learning worlds are primary destinations;
+     weekly test and gacha remain smaller satellite activities. */
+  .home-focus .home-dashboard { background:radial-gradient(ellipse at 50% 62%,rgba(54,135,206,.22),transparent 31%),radial-gradient(circle at 18% 18%,rgba(145,84,255,.24),transparent 24%),linear-gradient(145deg,#040619 0%,#0c0b35 51%,#07132f 100%); }
+  .home-focus .home-subject-grid { display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:minmax(170px,1fr) minmax(140px,.8fr);align-items:center;justify-items:center;align-content:center;gap:0 8px; }
+  .home-focus .home-subject-grid::before { content:"";position:absolute;z-index:-1;left:50%;top:51%;width:min(43vw,420px);aspect-ratio:2.25;transform:translate(-50%,-50%);border:1px solid rgba(129,226,255,.17);border-radius:50%;background:radial-gradient(ellipse,rgba(102,204,255,.13),transparent 64%);box-shadow:0 0 46px rgba(92,189,255,.12),inset 0 0 30px rgba(154,103,255,.1);pointer-events:none; }
+  .home-focus .home-subject-card { width:var(--planet-size);flex:none;touch-action:manipulation;will-change:transform; }
+  .home-focus .home-subject-card[data-subject="math"] { grid-column:1 / span 3;grid-row:1;transform:translate(4%,-5%); }
+  .home-focus .home-subject-card[data-subject="chinese"] { grid-column:4 / span 3;grid-row:1;transform:translate(-2%,7%); }
+  .home-focus .home-subject-card[data-subject="english"] { grid-column:7 / span 3;grid-row:1;transform:translate(3%,6%); }
+  .home-focus .home-subject-card[data-subject="science"] { grid-column:10 / span 3;grid-row:1;transform:translate(-5%,-5%); }
+  .home-focus .home-subject-card[data-subject="experiment"] { grid-column:5 / span 4;grid-row:2;transform:translateY(-4%); }
+  .home-focus .home-subject-card[data-subject="weekly"] { grid-column:1 / span 3;grid-row:2;transform:translate(12%,5%) scale(.78);transform-origin:center; }
+  .home-focus .home-subject-card[data-subject="gacha"] { grid-column:10 / span 3;grid-row:2;transform:translate(-12%,5%) scale(.78);transform-origin:center; }
+  .home-focus .home-subject-card[data-subject="science"] .home-planet-art { background-position:50% center; }
+  .home-focus .home-subject-card::after { border-color:rgba(219,243,255,.7);box-shadow:inset 0 0 28px rgba(255,255,255,.18),0 17px 36px rgba(0,0,0,.42),0 0 30px var(--subject-glow); }
+  .home-focus .home-subject-card:hover,.home-focus .home-subject-card:focus-visible { filter:brightness(1.16) saturate(1.1); }
+  .home-focus .home-subject-card[data-subject="math"]:hover,.home-focus .home-subject-card[data-subject="math"]:focus-visible { transform:translate(4%,-12%) scale(1.055); }
+  .home-focus .home-subject-card[data-subject="chinese"]:hover,.home-focus .home-subject-card[data-subject="chinese"]:focus-visible { transform:translate(-2%,0) scale(1.055); }
+  .home-focus .home-subject-card[data-subject="english"]:hover,.home-focus .home-subject-card[data-subject="english"]:focus-visible { transform:translate(3%,-1%) scale(1.055); }
+  .home-focus .home-subject-card[data-subject="science"]:hover,.home-focus .home-subject-card[data-subject="science"]:focus-visible { transform:translate(-5%,-12%) scale(1.055); }
+  .home-focus .home-subject-card[data-subject="experiment"]:hover,.home-focus .home-subject-card[data-subject="experiment"]:focus-visible { transform:translateY(-11%) scale(1.055); }
+  .home-focus .home-subject-card[data-subject="weekly"]:hover,.home-focus .home-subject-card[data-subject="weekly"]:focus-visible { transform:translate(12%,-4%) scale(.85); }
+  .home-focus .home-subject-card[data-subject="gacha"]:hover,.home-focus .home-subject-card[data-subject="gacha"]:focus-visible { transform:translate(-12%,-4%) scale(.85); }
+  .home-focus .home-aux-card .home-subject-copy strong { color:#fff7d6;letter-spacing:.08em;text-shadow:0 3px 10px #000,0 0 16px var(--subject-glow); }
+  .home-focus .home-aux-card::after { border-style:dashed;opacity:.82; }
+
+  /* Subject worlds use a compact navigator and a steady mission-card rhythm. */
+  .subject-focus .subject-world { border-color:color-mix(in srgb,var(--subject-world-accent) 58%,#cceeff);background:#080b28; }
+  .subject-world::after { background:linear-gradient(100deg,rgba(5,7,34,.86),rgba(8,10,39,.46) 54%,rgba(5,7,32,.78)),radial-gradient(circle at 76% 46%,transparent 0 18%,rgba(5,4,27,.32) 70%); }
+  .subject-world-toolbar { border-bottom-color:color-mix(in srgb,var(--subject-world-accent) 26%,rgba(255,255,255,.18));background:linear-gradient(180deg,rgba(8,10,40,.88),rgba(11,12,49,.58)); }
+  .subject-world-filter { padding:7px 55px 6px 14px; }
+  .subject-world-filter:not([open])::before { content:attr(data-world) " 星球・任務清單";color:#eff9ff;text-shadow:0 0 14px color-mix(in srgb,var(--subject-world-accent) 62%,transparent); }
+  .subject-world-tabs { padding-bottom:4px; }
+  .subject-world-tabs button,.subject-world-grades button { min-height:32px;border-radius:14px!important; }
+  .subject-world-tabs button[data-active="true"] { transform:translateY(-1px); }
+  .subject-world-content { padding:14px 16px 24px; }
+  .subject-world-grid { grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(218px,1fr);gap:14px;counter-reset:mission; }
+  .subject-world-card { min-height:218px!important;padding:15px!important;border-color:rgba(225,241,255,.3)!important;background:linear-gradient(145deg,rgba(17,20,65,.74),rgba(7,10,43,.5))!important;box-shadow:inset 0 1px rgba(255,255,255,.2),0 13px 27px rgba(0,0,0,.24)!important; }
+  .subject-world-card::after { counter-increment:mission;content:"0" counter(mission);position:absolute;right:14px;top:11px;color:color-mix(in srgb,var(--subject-world-accent) 63%,white);font-size:10px;font-weight:1000;letter-spacing:.12em;opacity:.64;pointer-events:none; }
+  .subject-world-card:hover { transform:translateY(-5px);border-color:color-mix(in srgb,var(--subject-world-accent) 82%,white)!important; }
+  .subject-world-card-head { min-height:58px;padding-right:30px; }
+  .subject-world-card-head > span:first-child { width:46px!important;height:46px!important;border-radius:16px!important;font-size:23px!important;box-shadow:inset 0 1px rgba(255,255,255,.45),0 7px 14px rgba(0,0,0,.15); }
+  .subject-world-card-head strong { font-size:16px!important;line-height:1.2; }
+  .subject-world-card-sub { display:block;margin-top:3px;line-height:1.38; }
+  .subject-world-card-bottom { gap:8px; }
+  .subject-world-card-status { min-height:21px; }
+  .subject-world-card-extra { height:36px;min-height:36px; }
+  .subject-world-card-extra button { border-radius:12px!important;font-size:12px!important; }
+  .subject-battle-face { min-height:42px;border-radius:14px;font-size:14px; }
+  .subject-battle-button { border-radius:14px!important; }
+  .subject-battle-button::before { inset:7px 10%; }
+  @media (max-width:900px) { .home-focus .home-subject-grid { grid-template-columns:repeat(8,minmax(0,1fr));grid-template-rows:repeat(3,minmax(132px,1fr));gap:0; }.home-focus .home-subject-card[data-subject="math"] { grid-column:1 / span 2;grid-row:1; }.home-focus .home-subject-card[data-subject="chinese"] { grid-column:3 / span 2;grid-row:1; }.home-focus .home-subject-card[data-subject="english"] { grid-column:5 / span 2;grid-row:1; }.home-focus .home-subject-card[data-subject="science"] { grid-column:7 / span 2;grid-row:1; }.home-focus .home-subject-card[data-subject="experiment"] { grid-column:4 / span 2;grid-row:2; }.home-focus .home-subject-card[data-subject="weekly"] { grid-column:1 / span 2;grid-row:2; }.home-focus .home-subject-card[data-subject="gacha"] { grid-column:7 / span 2;grid-row:2; }.subject-world-grid { grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(210px,1fr); } }
+  @media (max-width:640px) { .home-focus .home-dashboard { min-height:980px; }.home-focus .home-subject-grid { grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,minmax(155px,1fr));top:205px;bottom:20px;left:18px;right:18px; }.home-focus .home-subject-card,.home-focus .home-aux-card { --planet-size:min(39vw,170px)!important;transform:none!important; }.home-focus .home-subject-card[data-subject="math"] { grid-column:1;grid-row:1; }.home-focus .home-subject-card[data-subject="chinese"] { grid-column:2;grid-row:1; }.home-focus .home-subject-card[data-subject="english"] { grid-column:1;grid-row:2; }.home-focus .home-subject-card[data-subject="science"] { grid-column:2;grid-row:2; }.home-focus .home-subject-card[data-subject="experiment"] { grid-column:1 / span 2;grid-row:3; }.home-focus .home-subject-card[data-subject="weekly"] { grid-column:1;grid-row:4; }.home-focus .home-subject-card[data-subject="gacha"] { grid-column:2;grid-row:4; }.home-focus .home-subject-card:hover,.home-focus .home-subject-card:focus-visible { transform:translateY(-5px) scale(1.03)!important; }.subject-world-grid { grid-template-columns:1fr;grid-auto-rows:auto; }.subject-world-card { min-height:208px!important; } }
 </style>
 </helmet>
 
@@ -944,7 +998,7 @@
           <h2>選一個任務，今天就出發</h2>
           <p>每一次練習，都是點亮學習星球的一小步。</p>
         </div>
-        <section class="home-subject-grid">
+        <section class="home-subject-grid" aria-label="選擇學習星球或衛星任務">
           <sc-for list="{{ subjectCards }}" as="sc" hint-placeholder-count="2">
             <button class="home-subject-card" data-subject="{{ sc.key }}" aria-label="進入{{ sc.title }}學習" onClick="{{ sc.go }}" style="--planet-image:url('{{ sc.image }}');--subject-glow:{{ sc.glow }}">
               <span class="home-planet-art" aria-hidden="true"></span>
@@ -1264,7 +1318,7 @@
 
     <sc-if value="{{ isMap }}" hint-placeholder-val="{{ true }}">
       <div data-screen-label="闖關地圖" class="subject-world" style="--subject-world-image:url('{{ subjectWorldImage }}');--subject-world-accent:{{ subjectWorldAccent }}">
-        <div class="subject-world-toolbar"><details class="subject-world-filter" open="open">
+        <div class="subject-world-toolbar"><details class="subject-world-filter" data-world="{{ subjectWorldTitle }}" open="open">
         <summary aria-label="收折或展開科目與年級" title="收折或展開"></summary>
         <div class="subject-world-tabs">
           <sc-for list="{{ subjectTabs }}" as="sb" hint-placeholder-count="2">
@@ -9310,6 +9364,7 @@ class Component extends DCLogic {
       ].map((c) => Object.assign({}, c, { go: () => this.setState({ screen: "map", subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : s.grade }) })),
       subjectWorldImage: ({ math: "images/home/planets/math-planet-v1.png", chinese: "images/home/planets/chinese-planet-v1.png", english: "images/home/planets/english-planet-v1.png", science: "images/home/learning-planet-hero-v1.png", experiment: "images/home/planets/experiment-planet-v1.png" })[moduleWorldSubject] || "images/home/planets/math-planet-v1.png",
       subjectWorldAccent: ({ math: "#9f79ff", chinese: "#ffb454", english: "#56d7ff", science: "#8c7cff", experiment: "#48e7c9" })[moduleWorldSubject] || "#9f79ff",
+      subjectWorldTitle: ({ math: "數學", chinese: "國文", english: "英文", science: "自然", experiment: "實驗" })[moduleWorldSubject] || "數學",
       subjectTabs: [
         { key: "math", icon: "🧮", label: "數學" },
         { key: "chinese", icon: "📖", label: "國文" },
