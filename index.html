@@ -843,23 +843,25 @@
   .home-focus .home-subject-grid { display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:minmax(170px,1fr) minmax(140px,.8fr);align-items:center;justify-items:center;align-content:center;gap:0 8px; }
   .home-focus .home-subject-grid::before { content:"";position:absolute;z-index:-1;left:50%;top:51%;width:min(43vw,420px);aspect-ratio:2.25;transform:translate(-50%,-50%);border:1px solid rgba(129,226,255,.17);border-radius:50%;background:radial-gradient(ellipse,rgba(102,204,255,.13),transparent 64%);box-shadow:0 0 46px rgba(92,189,255,.12),inset 0 0 30px rgba(154,103,255,.1);pointer-events:none; }
   .home-focus .home-subject-card { width:var(--planet-size);flex:none;touch-action:manipulation;will-change:transform; }
-  .home-focus .home-subject-card[data-subject="math"] { grid-column:1 / span 3;grid-row:1;transform:translate(4%,-5%); }
-  .home-focus .home-subject-card[data-subject="chinese"] { grid-column:4 / span 3;grid-row:1;transform:translate(-2%,7%); }
-  .home-focus .home-subject-card[data-subject="english"] { grid-column:7 / span 3;grid-row:1;transform:translate(3%,6%); }
-  .home-focus .home-subject-card[data-subject="science"] { grid-column:10 / span 3;grid-row:1;transform:translate(-5%,-5%); }
-  .home-focus .home-subject-card[data-subject="experiment"] { grid-column:5 / span 4;grid-row:2;transform:translateY(-4%); }
-  .home-focus .home-subject-card[data-subject="weekly"] { grid-column:1 / span 3;grid-row:2;transform:translate(12%,5%) scale(.78);transform-origin:center; }
-  .home-focus .home-subject-card[data-subject="gacha"] { grid-column:10 / span 3;grid-row:2;transform:translate(-12%,5%) scale(.78);transform-origin:center; }
-  .home-focus .home-subject-card[data-subject="science"] .home-planet-art { background-position:50% center; }
-  .home-focus .home-subject-card::after { border-color:rgba(219,243,255,.7);box-shadow:inset 0 0 28px rgba(255,255,255,.18),0 17px 36px rgba(0,0,0,.42),0 0 30px var(--subject-glow); }
+  /* Use the individual translate property: it keeps the staggered layout while
+     the float animation can still own transform without cancelling it. */
+  .home-focus .home-subject-card[data-subject="math"] { grid-column:1 / span 3;grid-row:1;translate:4% -9%; }
+  .home-focus .home-subject-card[data-subject="chinese"] { grid-column:4 / span 3;grid-row:1;translate:-2% 6%; }
+  .home-focus .home-subject-card[data-subject="english"] { grid-column:7 / span 3;grid-row:1;translate:3% -1%; }
+  .home-focus .home-subject-card[data-subject="science"] { grid-column:10 / span 3;grid-row:1;translate:-5% 9%; }
+  .home-focus .home-subject-card[data-subject="experiment"] { grid-column:5 / span 4;grid-row:2;translate:0 -8%; }
+  .home-focus .home-subject-card[data-subject="weekly"] { grid-column:1 / span 3;grid-row:2;translate:12% 9%;transform-origin:center; }
+  .home-focus .home-subject-card[data-subject="gacha"] { grid-column:10 / span 3;grid-row:2;translate:-12% 7%;transform-origin:center; }
+  .home-focus .home-subject-card[data-subject="science"] .home-planet-art { background-position:100% center; }
+  .home-focus .home-subject-card::after { inset:1px;border:1px solid rgba(219,243,255,.16);background:radial-gradient(circle at 33% 22%,rgba(255,255,255,.2),transparent 32%);box-shadow:inset 0 0 30px rgba(255,255,255,.09),0 17px 36px rgba(0,0,0,.42),0 0 18px var(--subject-glow),0 0 40px color-mix(in srgb,var(--subject-glow) 52%,transparent); }
   .home-focus .home-subject-card:hover,.home-focus .home-subject-card:focus-visible { filter:brightness(1.16) saturate(1.1); }
-  .home-focus .home-subject-card[data-subject="math"]:hover,.home-focus .home-subject-card[data-subject="math"]:focus-visible { transform:translate(4%,-12%) scale(1.055); }
-  .home-focus .home-subject-card[data-subject="chinese"]:hover,.home-focus .home-subject-card[data-subject="chinese"]:focus-visible { transform:translate(-2%,0) scale(1.055); }
-  .home-focus .home-subject-card[data-subject="english"]:hover,.home-focus .home-subject-card[data-subject="english"]:focus-visible { transform:translate(3%,-1%) scale(1.055); }
-  .home-focus .home-subject-card[data-subject="science"]:hover,.home-focus .home-subject-card[data-subject="science"]:focus-visible { transform:translate(-5%,-12%) scale(1.055); }
-  .home-focus .home-subject-card[data-subject="experiment"]:hover,.home-focus .home-subject-card[data-subject="experiment"]:focus-visible { transform:translateY(-11%) scale(1.055); }
-  .home-focus .home-subject-card[data-subject="weekly"]:hover,.home-focus .home-subject-card[data-subject="weekly"]:focus-visible { transform:translate(12%,-4%) scale(.85); }
-  .home-focus .home-subject-card[data-subject="gacha"]:hover,.home-focus .home-subject-card[data-subject="gacha"]:focus-visible { transform:translate(-12%,-4%) scale(.85); }
+  .home-focus .home-subject-card[data-subject="math"]:hover,.home-focus .home-subject-card[data-subject="math"]:focus-visible { translate:4% -13%; }
+  .home-focus .home-subject-card[data-subject="chinese"]:hover,.home-focus .home-subject-card[data-subject="chinese"]:focus-visible { translate:-2% 2%; }
+  .home-focus .home-subject-card[data-subject="english"]:hover,.home-focus .home-subject-card[data-subject="english"]:focus-visible { translate:3% -5%; }
+  .home-focus .home-subject-card[data-subject="science"]:hover,.home-focus .home-subject-card[data-subject="science"]:focus-visible { translate:-5% 4%; }
+  .home-focus .home-subject-card[data-subject="experiment"]:hover,.home-focus .home-subject-card[data-subject="experiment"]:focus-visible { translate:0 -13%; }
+  .home-focus .home-subject-card[data-subject="weekly"]:hover,.home-focus .home-subject-card[data-subject="weekly"]:focus-visible { translate:12% 3%; }
+  .home-focus .home-subject-card[data-subject="gacha"]:hover,.home-focus .home-subject-card[data-subject="gacha"]:focus-visible { translate:-12% 1%; }
   .home-focus .home-aux-card .home-subject-copy strong { color:#fff7d6;letter-spacing:.08em;text-shadow:0 3px 10px #000,0 0 16px var(--subject-glow); }
   .home-focus .home-aux-card::after { border-style:dashed;opacity:.82; }
 
@@ -889,7 +891,7 @@
   .subject-battle-button { border-radius:14px!important; }
   .subject-battle-button::before { inset:7px 10%; }
   @media (max-width:900px) { .home-focus .home-subject-grid { grid-template-columns:repeat(8,minmax(0,1fr));grid-template-rows:repeat(3,minmax(132px,1fr));gap:0; }.home-focus .home-subject-card[data-subject="math"] { grid-column:1 / span 2;grid-row:1; }.home-focus .home-subject-card[data-subject="chinese"] { grid-column:3 / span 2;grid-row:1; }.home-focus .home-subject-card[data-subject="english"] { grid-column:5 / span 2;grid-row:1; }.home-focus .home-subject-card[data-subject="science"] { grid-column:7 / span 2;grid-row:1; }.home-focus .home-subject-card[data-subject="experiment"] { grid-column:4 / span 2;grid-row:2; }.home-focus .home-subject-card[data-subject="weekly"] { grid-column:1 / span 2;grid-row:2; }.home-focus .home-subject-card[data-subject="gacha"] { grid-column:7 / span 2;grid-row:2; }.subject-world-grid { grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(210px,1fr); } }
-  @media (max-width:640px) { .home-focus .home-dashboard { min-height:980px; }.home-focus .home-subject-grid { grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,minmax(155px,1fr));top:205px;bottom:20px;left:18px;right:18px; }.home-focus .home-subject-card,.home-focus .home-aux-card { --planet-size:min(39vw,170px)!important;transform:none!important; }.home-focus .home-subject-card[data-subject="math"] { grid-column:1;grid-row:1; }.home-focus .home-subject-card[data-subject="chinese"] { grid-column:2;grid-row:1; }.home-focus .home-subject-card[data-subject="english"] { grid-column:1;grid-row:2; }.home-focus .home-subject-card[data-subject="science"] { grid-column:2;grid-row:2; }.home-focus .home-subject-card[data-subject="experiment"] { grid-column:1 / span 2;grid-row:3; }.home-focus .home-subject-card[data-subject="weekly"] { grid-column:1;grid-row:4; }.home-focus .home-subject-card[data-subject="gacha"] { grid-column:2;grid-row:4; }.home-focus .home-subject-card:hover,.home-focus .home-subject-card:focus-visible { transform:translateY(-5px) scale(1.03)!important; }.subject-world-grid { grid-template-columns:1fr;grid-auto-rows:auto; }.subject-world-card { min-height:208px!important; } }
+  @media (max-width:640px) { .home-focus .home-dashboard { min-height:980px; }.home-focus .home-subject-grid { grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,minmax(155px,1fr));top:205px;bottom:20px;left:18px;right:18px; }.home-focus .home-subject-card,.home-focus .home-aux-card { --planet-size:min(39vw,170px)!important;transform:none!important;translate:none!important; }.home-focus .home-subject-card[data-subject="math"] { grid-column:1;grid-row:1; }.home-focus .home-subject-card[data-subject="chinese"] { grid-column:2;grid-row:1; }.home-focus .home-subject-card[data-subject="english"] { grid-column:1;grid-row:2; }.home-focus .home-subject-card[data-subject="science"] { grid-column:2;grid-row:2; }.home-focus .home-subject-card[data-subject="experiment"] { grid-column:1 / span 2;grid-row:3; }.home-focus .home-subject-card[data-subject="weekly"] { grid-column:1;grid-row:4; }.home-focus .home-subject-card[data-subject="gacha"] { grid-column:2;grid-row:4; }.home-focus .home-subject-card:hover,.home-focus .home-subject-card:focus-visible { transform:translateY(-5px) scale(1.03)!important; }.subject-world-grid { grid-template-columns:1fr;grid-auto-rows:auto; }.subject-world-card { min-height:208px!important; } }
 </style>
 </helmet>
 
@@ -899,7 +901,7 @@
   <div data-screen-label="登入" class="login-space {{ loginTransitionClass }}" aria-busy="{{ loginAriaBusy }}">
     <canvas class="cosmos-stars login-stars" aria-hidden="true"></canvas>
     <img class="login-orbit-planet one" src="images/home/planets/math-planet-v1.png" alt="" aria-hidden="true">
-    <img class="login-orbit-planet two" src="images/home/hud/gacha-planet-v1.png" alt="" aria-hidden="true">
+    <img class="login-orbit-planet two" src="images/home/hud/gacha-planet-v2.png" alt="" aria-hidden="true">
     <img class="login-cat-flyby" src="images/login/cat-starfighter-v1.png" alt="" aria-hidden="true">
     <img class="login-dog-flyby" src="images/login/dog-ufo-v1.png" alt="" aria-hidden="true">
     <img class="login-launch-rocket" src="images/login/launch-rocket-v1.png" alt="" aria-hidden="true">
@@ -1010,7 +1012,7 @@
           <button class="home-subject-card home-aux-card" data-subject="weekly" aria-label="進入週考" onClick="{{ goWeekly }}" style="--planet-image:url('images/home/hud/weekly-planet-v1.png');--subject-glow:rgba(255,173,82,.8)">
             <span class="home-planet-art" aria-hidden="true"></span><span class="home-subject-copy"><strong>週考</strong></span>
           </button>
-          <button class="home-subject-card home-aux-card" data-subject="gacha" aria-label="進入扭蛋" onClick="{{ goGacha }}" style="--planet-image:url('images/home/hud/gacha-planet-v1.png');--subject-glow:rgba(99,231,255,.8)">
+          <button class="home-subject-card home-aux-card" data-subject="gacha" aria-label="進入扭蛋" onClick="{{ goGacha }}" style="--planet-image:url('images/home/hud/gacha-planet-v2.png');--subject-glow:rgba(255,115,177,.9)">
             <span class="home-planet-art" aria-hidden="true"></span><span class="home-subject-copy"><strong>扭蛋</strong></span>
           </button>
         </section>
