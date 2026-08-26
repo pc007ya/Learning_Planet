@@ -354,17 +354,34 @@
   }
   .student-photo { background-image:var(--student-avatar-image)!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important; }
   .user-avatar-photo,.profile-avatar-option { background-size:cover!important;background-position:center!important; }
-  .student-id-card { background-image:linear-gradient(rgba(255,255,255,.02),rgba(255,255,255,.02)),var(--profile-card-bg)!important;background-size:100% 100%!important;background-position:center!important;background-repeat:no-repeat!important; }
+  /* The six supplied ID-card artworks have different native proportions.  Keep
+     each canvas at its own ratio so the printed photo well and guide lines do
+     not stretch away from the live photo and text. */
+  .student-id-card { background-image:linear-gradient(rgba(255,255,255,.015),rgba(255,255,255,.015)),var(--profile-card-bg)!important;background-size:100% 100%!important;background-position:center!important;background-repeat:no-repeat!important; }
+  .student-id-card.theme-a,.student-id-card.theme-d { aspect-ratio:590 / 456; }
+  .student-id-card.theme-b { aspect-ratio:586 / 458; }
+  .student-id-card.theme-c { aspect-ratio:600 / 458; }
+  .student-id-card.theme-e { aspect-ratio:590 / 470; }
+  .student-id-card.theme-f { aspect-ratio:598 / 456; }
   .student-id-card::before,.student-id-brand { display:none; }
   .student-id-card { display:block; }
-  .student-id-photo { position:absolute;left:7.5%;top:22%;width:31%;height:55%;aspect-ratio:auto;border:0;object-fit:cover;background-size:cover!important;border-radius:22px;box-shadow:none; }
-  .student-id-card:is(.theme-c,.theme-e) .student-id-photo { left:8.5%;top:24%;width:31%;height:52%;border-radius:50%; }
-  .student-id-data { position:absolute;left:49%;right:7%;top:27%;bottom:17%;display:grid;grid-template-rows:repeat(4,1fr);gap:0;padding:0; }
+  .student-id-photo { position:absolute;left:7%;top:17%;width:32.7%;height:64%;aspect-ratio:auto;border:0;object-fit:cover;background-size:cover!important;background-position:center!important;border-radius:22px;box-shadow:none; }
+  .student-id-card:is(.theme-c,.theme-e) .student-id-photo { left:4.5%;top:24%;width:34.5%;height:57%;border-radius:50%; }
+  .student-id-data { position:absolute;left:58%;right:5%;top:32%;bottom:14%;display:grid;grid-template-rows:repeat(4,1fr);gap:0;padding:0; }
   .student-id-row { display:flex;align-items:center;justify-content:flex-end;border:0;padding:0; }
   .student-id-row small { display:none; }
   .student-id-row strong { max-width:100%;overflow:hidden;color:#102b59!important;font-size:clamp(13px,1.55vw,18px);text-align:right;text-overflow:ellipsis;white-space:nowrap;text-shadow:0 1px 0 rgba(255,255,255,.7); }
   .student-id-row:last-child strong { font-size:clamp(10px,1.15vw,13px); }
   .student-id-card.theme-c .student-id-row strong { color:#fff!important;text-shadow:0 2px 8px rgba(0,0,0,.8); }
+  .student-id-card.theme-c .student-id-data { left:57%;right:5.5%;top:32%;bottom:14%; }
+  .student-id-card.theme-e .student-id-data { left:54.5%;right:7%;top:32%;bottom:15%; }
+  .student-id-card.theme-f .student-id-photo { left:5.5%;top:25%;width:31%;height:60%;border-radius:22px; }
+  .student-id-card.theme-f .student-id-data { left:57%;right:5.5%;top:32%;bottom:14%; }
+
+  /* Learning cards retain the cosmic system even when a legacy activity uses
+     inline light surfaces for its teaching illustration. */
+  .module-focus .quiz-card,.module-focus .quiz-visual,.module-focus .english-word-card,.module-focus .english-match-card,.module-focus .english-pair-target,.module-focus .english-grammar-slot,.module-focus .english-association-big,.module-focus .english-missing-option,.module-focus .english-four-option { background:rgba(8,19,58,.66)!important;border-color:rgba(115,222,255,.38)!important;color:#f2fbff!important;box-shadow:inset 0 1px rgba(255,255,255,.12),0 14px 32px rgba(0,0,0,.22)!important;backdrop-filter:blur(12px); }
+  .module-focus .quiz-visual [style*="background:#fff"],.module-focus .quiz-visual [style*="background:#fbfaff"],.module-focus .quiz-visual [style*="background:#faf8ff"] { background:rgba(255,255,255,.1)!important;color:#f3fbff!important;border-color:rgba(151,223,255,.36)!important; }
   @media(max-width:900px) and (orientation:landscape){
     .login-space{padding:4px 14px 8px}.login-space-head{min-height:76px}.login-brand-full{height:78px;width:290px}.login-hud{overflow:hidden;padding:10px 14px 12px}.login-roster-grid{height:calc(100% - 55px)}.login-student-card{grid-template-columns:58px minmax(0,1fr)}.login-card-avatar{width:54px;height:64px}.login-card-name{font-size:14px}.login-card-en,.login-card-class-en{font-size:9px}.login-card-zh{font-size:10px}
   }
