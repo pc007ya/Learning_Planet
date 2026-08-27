@@ -1,0 +1,97 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function role() {
+      return signedIn() ? request.auth.token.role : null;
+    }
+
+    function isAdmin() {
+      return role() == 'admin';
+    }
+
+    function isTeacher() {
+      return role() == 'teacher';
+    }
+
+    function isStudent() {
+      return role() == 'student';
+    }
+
+    function teacherDoc() {
+      return get(/databases/$(database)/documents/teachers/$(request.auth.uid));
+    }
+
+    function teacherOwnsClass(classId) {
+      return isTeacher() && classId in teacherDoc().data.assignedClassIds;
+    }
+
+    function teacherHasCourse(courseId) {
+      return isTeacher() && courseId in teacherDoc().data.assignedCourseIds;
+    }
+
+    match /admins/{uid} {
+      allow read, update: if isAdmin() && request.auth.uid == uid;
+      allow create, delete: if false;
+    }
+
+    match /teachers/{uid} {
+      allow read: if isAdmin() || (isTeacher() && request.auth.uid == uid);
+      allow create, delete: if false;
+      allow update: if isAdmin() || (
+        isTeacher() && request.auth.uid == uid
+        && request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['googleEmail', 'googleLinked', 'firstLoginCompleted', 'lastLoginAt', 'updatedAt'])
+      );
+    }
+
+    match /classes/{classId} {
+      allow read: if isAdmin() || teacherOwnsClass(classId);
+      allow write: if isAdmin();
+    }
+
+    match /courses/{courseId} {
+      allow read: if isAdmin() || teacherHasCourse(courseId) || isStudent();
+      allow write: if isAdmin();
+    }
+
+    match /students/{studentId} {
+      allow read: if isAdmin() || (
+        isTeacher() && resource.data.classId in teacherDoc().data.assignedClassIds
+      ) || (isStudent() && request.auth.uid == studentId);
+      allow create, delete: if isAdmin();
+      allow update: if isAdmin();
+    }
+
+    match /student_progress/{progressId} {
+      allow read: if isAdmin() || (
+        isTeacher() && resource.data.classId in teacherDoc().data.assignedClassIds
+      ) || (isStudent() && resource.data.studentId == request.auth.uid);
+      allow create, update: if isAdmin() || (
+        isTeacher() && request.resource.data.classId in teacherDoc().data.assignedClassIds
+      ) || (isStudent() && request.resource.data.studentId == request.auth.uid);
+      allow delete: if isAdmin();
+    }
+
+    match /course_assignments/{assignmentId} {
+      allow read: if isAdmin() || (
+        isTeacher() && resource.data.classId in teacherDoc().data.assignedClassIds
+      ) || (isStudent() && resource.data.studentId == request.auth.uid);
+      allow create, update: if isAdmin() || (
+        isTeacher()
+        && request.resource.data.classId in teacherDoc().data.assignedClassIds
+        && request.resource.data.courseId in teacherDoc().data.assignedCourseIds
+      );
+      allow delete: if isAdmin() || (
+        isTeacher() && resource.data.classId in teacherDoc().data.assignedClassIds
+      );
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
