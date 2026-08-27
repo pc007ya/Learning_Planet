@@ -4963,20 +4963,18 @@ class Component extends DCLogic {
 
         const studentId = "g_" + googleUid.slice(0, 8);
         const displayName = fbUser.displayName || (email ? email.split("@")[0] : "探險家");
-        const defaultProfile = {
+        const fullProfile = Object.assign(makeProfile(), {
           cardAvatarIndex: 0,
-          cardTheme: "theme-c",
+          cardTheme: "C",
           englishName: displayName.split(" ")[0] || "Explorer",
           xp: 100,
           coins: 60,
           level: 1,
           avatar: "girl",
           avatarStyle: "atelier",
-          dailyMastery: {},
-          owned: BASE_OWNED.slice(),
-          equipped: Object.assign({}, BASE_EQUIP),
+          avatarSelected: false,
           lastLoginAt: new Date().toISOString()
-        };
+        }, cloudProfile && typeof cloudProfile === "object" ? cloudProfile : {});
 
         student = {
           id: studentId,
@@ -4988,7 +4986,7 @@ class Component extends DCLogic {
           googleUid: googleUid,
           email: email,
           photoURL: fbUser.photoURL,
-          profile: Object.assign({}, defaultProfile, cloudProfile && typeof cloudProfile === "object" ? cloudProfile : {})
+          profile: fullProfile
         };
 
         this.setState((state) => ({
@@ -8687,10 +8685,10 @@ class Component extends DCLogic {
     const className = (id) => (s.classes.find((c) => c.id === id) || { name: "未分班" }).name;
     const myClass = me ? me.classId : s.loginClass;
     const classmates = s.students.filter((st) => st.classId === myClass);
-    const classCorrect = classmates.reduce((sum, st) => sum + st.profile.correctTotal, 0);
+    const classCorrect = classmates.reduce((sum, st) => sum + (st.profile ? (Number(st.profile.correctTotal) || 0) : 0), 0);
     const shopKeyword = s.shopQuery.trim().toLocaleLowerCase("zh-Hant");
     const slotMatches = (item, slot) => slot === "handRight" || slot === "handLeft" ? item.category === "hand" : item.category === slot;
-    const slotEquipId = (slot) => p.equipped[slot];
+    const slotEquipId = (slot) => (p.equipped && p.equipped[slot]) || "";
     const shopPool = compatibleCatalog.filter((item) => item.category === s.shopCat)
       .filter((item) => !s.shopOwnedOnly || p.owned.indexOf(item.id) >= 0)
       .filter((item) => !shopKeyword || (item.name + " " + item.collection).toLocaleLowerCase("zh-Hant").indexOf(shopKeyword) >= 0);
