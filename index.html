@@ -4187,6 +4187,21 @@ function saveWeeklyConfig(value) {
   try { localStorage.setItem(WEEKLY_CONFIG_STORE_KEY, JSON.stringify(value)); } catch (_) {}
 }
 
+const TEACHER_FACE_IMAGES = [
+  "images/teacher/teacher_01.png",
+  "images/teacher/teacher_02.png",
+  "images/teacher/teacher_03.png",
+  "images/teacher/teacher_04.png",
+  "images/teacher/teacher_05.png",
+  "images/teacher/teacher_06.png"
+];
+function normalizeTeacherFace(face, fallbackIndex = 0) {
+  const normalizedIndex = Math.max(0, Math.min(TEACHER_FACE_IMAGES.length - 1, Number(fallbackIndex) || 0));
+  return typeof face === "string" && face.indexOf("images/teacher/") === 0
+    ? face
+    : TEACHER_FACE_IMAGES[normalizedIndex];
+}
+
 const TEACHER_CONFIG_STORE_KEY = "learning_planet_teacher_config_v1";
 function defaultTeacherRecord(data = {}) {
   return Object.assign({
