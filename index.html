@@ -12,6 +12,14 @@
 <meta name="description" content="提供小學數學、國文、英文、自然與科學實驗的互動學習網站。">
 <script src="./support.js"></script>
 <script src="./sci-art.js"></script>
+<link rel="stylesheet" href="./styles/auth.css">
+<link rel="stylesheet" href="./styles/admin.css">
+<link rel="stylesheet" href="./styles/teacher.css">
+<script type="module" src="./auth-v2/firebase-client.js"></script>
+<script type="module" src="./auth-v2/auth-state.js"></script>
+<script type="module" src="./auth-v2/role-router.js"></script>
+<script type="module" src="./admin/teacher-management.js"></script>
+<script type="module" src="./teacher/teacher-dashboard.js"></script>
 <script type="module" src="./src/firebase-config.js"></script>
 <script type="module" src="./modules/earth-orbit/earth-orbit-v01.js"></script>
 </head>
@@ -983,15 +991,84 @@
         </div>
       </section>
     </div>
-    <button class="login-teacher-satellite" onClick="{{ loginTeacher }}" title="老師登入" aria-label="開啟老師帳號登入"><img src="images/login/teacher-satellite-v1.png" alt=""></button>
+    <button class="login-teacher-satellite" onClick="{{ openAuthModal }}" title="管理端登入" aria-label="開啟管理者與教師登入入口"><img src="images/login/teacher-satellite-v1.png" alt=""></button>
     <div class="login-success-sequence" aria-live="polite"><div class="login-success-core"><img class="login-success-avatar" src="{{ loginSuccessAvatar }}" alt=""><strong class="login-success-copy">LOGIN SUCCESSFUL</strong><span class="login-success-name">{{ loginSuccessName }}</span></div></div>
-    <div class="login-teacher-dialog" hidden="{{ teacherLoginHidden }}">
-      <section class="login-teacher-card" role="dialog" aria-modal="true" aria-label="老師登入">
-        <div class="login-teacher-head"><img src="images/login/teacher-satellite-v1.png" alt=""><div><h2>老師登入</h2><p style="margin:5px 0 0;color:#9cefff;font-size:11px;font-weight:850">TEACHER CONTROL SATELLITE</p></div></div>
-        <label class="login-auth-field">老師帳號<input value="{{ teacherLoginAccount }}" onChange="{{ changeTeacherAccount }}" onKeyDown="{{ teacherLoginKey }}" autoComplete="username" placeholder="老師帳號"></label>
-        <label class="login-auth-field">密碼<input type="password" value="{{ teacherLoginPassword }}" onChange="{{ changeTeacherPassword }}" onKeyDown="{{ teacherLoginKey }}" autoComplete="current-password" placeholder="輸入密碼"></label>
-        <p class="login-auth-error">{{ teacherLoginError }}</p>
-        <div class="login-teacher-actions"><button onClick="{{ closeTeacherLogin }}">取消</button><button onClick="{{ submitTeacherLogin }}">進入工作台</button></div>
+    
+    <!-- Login v2: Role-based Management Portal -->
+    <div class="auth-modal-overlay" hidden="{{ authModalHidden }}">
+      <section class="auth-card" role="dialog" aria-modal="true" aria-label="學習星球管理入口">
+        <div class="auth-card-head">
+          <div class="auth-card-icon">{{ authModalIcon }}</div>
+          <h2 class="auth-card-title">學習星球 管理入口</h2>
+          <p class="auth-card-subtitle">請選擇您的身份進入專屬工作台</p>
+        </div>
+
+        <div class="auth-role-tabs">
+          <button class="auth-role-tab {{ authAdminTabClass }}" onClick="{{ selectAdminAuthTab }}">🛡️ 管理者登入</button>
+          <button class="auth-role-tab {{ authTeacherTabClass }}" onClick="{{ selectTeacherAuthTab }}">🍎 教師登入</button>
+        </div>
+
+        <!-- Admin Login Panel -->
+        <sc-if value="{{ isAuthAdminTab }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div class="auth-input-group">
+              <label class="auth-input-label">管理者帳號</label>
+              <input class="auth-input" value="{{ authAccount }}" onChange="{{ changeAuthAccount }}" onKeyDown="{{ authKeyAdmin }}" placeholder="例如：admin" autoComplete="username">
+            </div>
+            <div class="auth-input-group">
+              <label class="auth-input-label">管理者密碼</label>
+              <input class="auth-input" type="password" value="{{ authPassword }}" onChange="{{ changeAuthPassword }}" onKeyDown="{{ authKeyAdmin }}" placeholder="輸入密碼" autoComplete="current-password">
+            </div>
+            <p class="auth-error-msg">{{ authError }}</p>
+            <button class="auth-btn-primary" onClick="{{ submitAdminLogin }}">進入管理中心</button>
+          </div>
+        </sc-if>
+
+        <!-- Teacher Login Panel -->
+        <sc-if value="{{ isAuthTeacherTab }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <div class="auth-input-group">
+              <label class="auth-input-label">教師帳號</label>
+              <input class="auth-input" value="{{ authAccount }}" onChange="{{ changeAuthAccount }}" onKeyDown="{{ authKeyTeacher }}" placeholder="例如：teacher01" autoComplete="username">
+            </div>
+            <div class="auth-input-group">
+              <label class="auth-input-label">教師密碼</label>
+              <input class="auth-input" type="password" value="{{ authPassword }}" onChange="{{ changeAuthPassword }}" onKeyDown="{{ authKeyTeacher }}" placeholder="輸入密碼" autoComplete="current-password">
+            </div>
+            <p class="auth-error-msg">{{ authError }}</p>
+            <button class="auth-btn-primary" onClick="{{ submitTeacherLogin }}">進入教師工作台</button>
+          </div>
+        </sc-if>
+
+        <button class="auth-btn-secondary" onClick="{{ closeAuthModal }}">取消返回</button>
+      </section>
+    </div>
+
+    <!-- Phase B: Teacher First-Login Google Binding Modal -->
+    <div class="auth-modal-overlay" hidden="{{ teacherFirstLoginHidden }}">
+      <section class="auth-card" role="dialog" aria-modal="true" aria-label="教師首次登入 Google 綁定">
+        <div class="auth-card-head">
+          <div class="auth-card-icon" style="background:#e8f4fd">🔗</div>
+          <h2 class="auth-card-title">歡迎，{{ teacherFirstLoginName }}！</h2>
+          <p class="auth-card-subtitle">這是您第一次登入學習星球。<br>請綁定您的 Google 帳號，以同步教師資料與啟用快速認證。</p>
+        </div>
+
+        <div style="background:#fbfaff;border:1.5px dashed #c7b9ff;border-radius:18px;padding:16px;margin-bottom:20px;text-align:center">
+          <p style="margin:0;font-size:13px;font-weight:800;color:#5b3fe0">🛡️ 安全同步機制</p>
+          <span style="font-size:12px;color:#7c74a8;display:block;margin-top:4px">綁定後您的 Google UID 與 Email 將會與教師檔案連結，未來可直接使用 Google 快速認證登入。</span>
+        </div>
+
+        <p class="auth-error-msg">{{ teacherFirstLoginError }}</p>
+        <button class="auth-btn-google" onClick="{{ bindTeacherFirstLoginGoogle }}">
+          <svg class="google-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/>
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.33 24 12 24z"/>
+            <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
+          </svg>
+          <span style="font-weight:900">使用 Google 帳號綁定</span>
+        </button>
+        <button class="auth-btn-secondary" onClick="{{ cancelTeacherFirstLogin }}">登出並返回</button>
       </section>
     </div>
   </div>
@@ -1044,13 +1121,15 @@
       <button class="logout-control" onClick="{{ logout }}" title="搭飛船登出" aria-label="登出" style="border:1px solid #ece7ff;background:#fbfaff;border-radius:99px;padding:9px 16px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit" style-hover="border-color:#c9bfff;color:#5b3fe0"><img class="logout-spaceship" src="images/home/hud/logout-spaceship-v1.png" alt=""><span>登出</span></button>
     </header>
 
-    <nav class="app-nav" style="display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px">
-      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="6">
-        <button onClick="{{ t.go }}" style="border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};border-radius:18px;padding:11px 18px;font-size:15px;font-weight:900;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:{{ t.shadow }}">
-          <span style="font-size:18px">{{ t.icon }}</span>{{ t.label }}
-        </button>
-      </sc-for>
-    </nav>
+    <sc-if value="{{ isStudent }}" hint-placeholder-val="{{ true }}">
+      <nav class="app-nav" style="display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="6">
+          <button onClick="{{ t.go }}" style="border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};border-radius:18px;padding:11px 18px;font-size:15px;font-weight:900;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:{{ t.shadow }}">
+            <span style="font-size:18px">{{ t.icon }}</span>{{ t.label }}
+          </button>
+        </sc-for>
+      </nav>
+    </sc-if>
     </sc-if>
 
     <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
@@ -2834,8 +2913,8 @@
       </div>
     </sc-if>
 
-    <sc-if value="{{ isTeacher }}" hint-placeholder-val="{{ true }}">
-      <div data-screen-label="教師後台">
+    <sc-if value="{{ isAdmin }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="管理中心">
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
           <sc-for list="{{ adminTabs }}" as="t" hint-placeholder-count="4">
             <button onClick="{{ t.go }}" style="border:1.5px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};border-radius:99px;padding:11px 22px;font-size:14px;font-weight:900;font-family:inherit;cursor:pointer">{{ t.label }}</button>
@@ -3027,91 +3106,251 @@
           </div>
         </sc-if>
 
-        <sc-if value="{{ adminSettings }}" hint-placeholder-val="{{ false }}">
-          <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
-            <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px">
-              <div>
-                <p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:#22c8d8">TEACHER PROFILE &amp; SECURITY</p>
-                <h2 style="margin:8px 0 0;font-size:28px;font-weight:900">教師帳號與安全性設定</h2>
-                <p style="margin:6px 0 0;font-size:13px;font-weight:700;color:#9a90c8">目前角色：{{ teacherRoleLabel }}。一般教師只能管理自己的帳號；管理者綁定 Google 後可維護全體教師。</p>
-              </div>
-            </div>
-
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px">
-              <div style="background:#fbfaff;border:1px solid #ece7ff;border-radius:22px;padding:20px">
-                <h3 style="margin:0 0 14px;font-size:17px;font-weight:900;color:#2b1f57">🍎 教師基本資料</h3>
-                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800;color:#7c74a8">
-                  老師稱謂／顯示名稱
-                  <input value="{{ editTeacherName }}" onChange="{{ onEditTeacherName }}" placeholder="例如：陳老師" disabled="{{ teacherSettingsLocked }}" style="display:block;width:100%;margin-top:6px;border:1.5px solid #ddd5ff;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57;background:#fff" />
-                </label>
-                <p style="margin:0 0 8px;font-size:13px;font-weight:800;color:#7c74a8">選擇教師代表圖示</p>
-                <div style="display:flex;gap:10px;flex-wrap:wrap">
-                  <sc-for list="{{ teacherFaceOptions }}" as="f" hint-placeholder-count="6">
-                    <button onClick="{{ f.pick }}" style="width:46px;height:46px;border-radius:14px;border:2px solid {{ f.border }};background:{{ f.bg }};font-size:24px;cursor:pointer;display:grid;place-items:center">{{ f.icon }}</button>
-                  </sc-for>
-                </div>
-              </div>
-
-              <div style="background:#fbfaff;border:1px solid #ece7ff;border-radius:22px;padding:20px">
-                <h3 style="margin:0 0 14px;font-size:17px;font-weight:900;color:#2b1f57">🔐 登入帳號與密碼</h3>
-                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800;color:#7c74a8">
-                  教師登入帳號
-                  <input value="{{ editTeacherAccount }}" onChange="{{ onEditTeacherAccount }}" placeholder="例如：teacher" disabled="{{ teacherSettingsLocked }}" style="display:block;width:100%;margin-top:6px;border:1.5px solid #ddd5ff;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57;background:#fff" />
-                </label>
-                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800;color:#7c74a8">
-                  教師登入密碼
-                  <input type="password" value="{{ editTeacherPassword }}" onChange="{{ onEditTeacherPassword }}" placeholder="輸入新密碼" disabled="{{ teacherSettingsLocked }}" style="display:block;width:100%;margin-top:6px;border:1.5px solid #ddd5ff;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57;background:#fff" />
-                </label>
-              </div>
-            </div>
-
-            <div style="margin-top:20px;padding:18px 20px;border:1.5px solid {{ teacherGoogleBoundBorder }};border-radius:22px;background:{{ teacherGoogleBoundBg }};display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-              <div style="display:flex;align-items:center;gap:14px;min-width:0">
-                <svg class="google-icon" viewBox="0 0 24 24" width="28" height="28" style="flex-shrink:0" aria-hidden="true">
-                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/>
-                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.33 24 12 24z"/>
-                  <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
-                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
-                </svg>
+        <sc-if value="{{ adminTeachers }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;gap:16px">
+            <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+              <div class="admin-teacher-header">
                 <div>
-                  <strong style="display:block;font-size:15px;font-weight:900;color:{{ teacherGoogleBoundColor }}">{{ teacherGoogleStatusLabel }}</strong>
-                  <span style="display:block;font-size:12px;font-weight:700;color:#7c74a8">{{ teacherGoogleDetailLabel }}</span>
+                  <h2 class="admin-teacher-title">👨‍🏫 教師管理中心</h2>
+                  <p class="admin-teacher-subtitle">建立與維護全校教師帳號、指派負責班級與安全性設定。（由 Firebase Cloud Functions 嚴格權限管理）</p>
                 </div>
+                <button onClick="{{ openCreateTeacherModal }}" style="border:0;border-radius:14px;padding:12px 22px;font-size:14px;font-weight:900;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer;font-family:inherit;box-shadow:0 8px 20px rgba(124,92,255,.25)">＋ 新增教師帳號</button>
               </div>
+
+              <!-- Teacher List Grid -->
+              <div class="admin-teacher-grid">
+                <sc-for list="{{ teachersAdminList }}" as="t" hint-placeholder-count="3">
+                  <div class="admin-teacher-card {{ t.cardClass }}">
+                    <div class="admin-teacher-top">
+                      <div class="admin-teacher-avatar">👨‍🏫</div>
+                      <div class="admin-teacher-meta">
+                        <div class="admin-teacher-name">{{ t.displayName }}</div>
+                        <div class="admin-teacher-username">帳號：{{ t.username }}</div>
+                      </div>
+                      <span class="auth-badge {{ t.statusBadgeClass }}">{{ t.statusLabel }}</span>
+                    </div>
+
+                    <div class="admin-teacher-info-row">
+                      <span class="admin-teacher-info-label">Google 綁定</span>
+                      <span class="auth-badge {{ t.googleBadgeClass }}">{{ t.googleStatus }}</span>
+                    </div>
+                    <div class="admin-teacher-info-row">
+                      <span class="admin-teacher-info-label">負責班級</span>
+                      <span class="admin-teacher-info-val">{{ t.classesLabel }}</span>
+                    </div>
+                    <div class="admin-teacher-info-row">
+                      <span class="admin-teacher-info-label">最後登入</span>
+                      <span class="admin-teacher-info-val" style="font-size:11px;color:#7c74a8">{{ t.lastLogin }}</span>
+                    </div>
+
+                    <div class="admin-teacher-actions">
+                      <button class="admin-btn-action" onClick="{{ t.onEdit }}">編輯班級</button>
+                      <button class="admin-btn-action" onClick="{{ t.onResetPassword }}">重設密碼</button>
+                      <button class="admin-btn-action {{ t.toggleBtnClass }}" onClick="{{ t.onToggleEnabled }}">{{ t.toggleBtnLabel }}</button>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+              <sc-if value="{{ noTeachersInAdmin }}" hint-placeholder-val="{{ false }}">
+                <div class="teacher-empty-state">
+                  <div class="teacher-empty-icon">👨‍🏫</div>
+                  <p style="margin:0;font-size:14px;font-weight:800">目前尚無教師帳號，請點擊上方按鈕建立。</p>
+                </div>
+              </sc-if>
+            </section>
+          </div>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <!-- Admin Modal: Create Teacher -->
+    <div class="auth-modal-overlay" hidden="{{ createTeacherModalHidden }}">
+      <section class="auth-card" role="dialog" aria-modal="true" aria-label="新增教師帳號">
+        <div class="auth-card-head">
+          <div class="auth-card-icon" style="background:#f2edff">👨‍🏫</div>
+          <h2 class="auth-card-title">新增教師帳號</h2>
+          <p class="auth-card-subtitle">建立新教師並指派負責班級</p>
+        </div>
+        <div class="auth-input-group">
+          <label class="auth-input-label">教師姓名</label>
+          <input class="auth-input" value="{{ newTeacherDisplayName }}" onChange="{{ changeNewTeacherDisplayName }}" placeholder="例如：王老師">
+        </div>
+        <div class="auth-input-group">
+          <label class="auth-input-label">登入帳號 (3~32 字元)</label>
+          <input class="auth-input" value="{{ newTeacherUsername }}" onChange="{{ changeNewTeacherUsername }}" placeholder="例如：teacher01">
+        </div>
+        <div class="auth-input-group">
+          <label class="auth-input-label">初始密碼 (至少 8 碼)</label>
+          <input class="auth-input" type="password" value="{{ newTeacherPassword }}" onChange="{{ changeNewTeacherPassword }}" placeholder="輸入至少 8 碼密碼">
+        </div>
+        <div class="auth-input-group">
+          <label class="auth-input-label">指派負責班級</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+            <sc-for list="{{ createTeacherClassOptions }}" as="opt" hint-placeholder-count="3">
+              <button class="teacher-class-tag" onClick="{{ opt.toggle }}" style="border-color:{{ opt.selected ? '#7c5cff' : '#ddd5ff' }};background:{{ opt.selected ? '#f2edff' : '#fff' }};color:{{ opt.selected ? '#5b3fe0' : '#7c74a8' }};cursor:pointer">{{ opt.name }} {{ opt.selected ? '✓' : '' }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <p class="auth-error-msg">{{ createTeacherError }}</p>
+        <button class="auth-btn-primary" onClick="{{ submitCreateTeacher }}">確認建立教師</button>
+        <button class="auth-btn-secondary" onClick="{{ closeCreateTeacherModal }}">取消</button>
+      </section>
+    </div>
+
+    <!-- Admin Modal: Edit Teacher -->
+    <div class="auth-modal-overlay" hidden="{{ editTeacherModalHidden }}">
+      <section class="auth-card" role="dialog" aria-modal="true" aria-label="編輯教師">
+        <div class="auth-card-head">
+          <div class="auth-card-icon" style="background:#f2edff">✏️</div>
+          <h2 class="auth-card-title">編輯教師設定</h2>
+          <p class="auth-card-subtitle">修改姓名與指派負責班級</p>
+        </div>
+        <div class="auth-input-group">
+          <label class="auth-input-label">教師姓名</label>
+          <input class="auth-input" value="{{ editTeacherDisplayName }}" onChange="{{ changeEditTeacherDisplayName }}" placeholder="例如：王老師">
+        </div>
+        <div class="auth-input-group">
+          <label class="auth-input-label">指派負責班級</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+            <sc-for list="{{ editTeacherClassOptions }}" as="opt" hint-placeholder-count="3">
+              <button class="teacher-class-tag" onClick="{{ opt.toggle }}" style="border-color:{{ opt.selected ? '#7c5cff' : '#ddd5ff' }};background:{{ opt.selected ? '#f2edff' : '#fff' }};color:{{ opt.selected ? '#5b3fe0' : '#7c74a8' }};cursor:pointer">{{ opt.name }} {{ opt.selected ? '✓' : '' }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <p class="auth-error-msg">{{ editTeacherError }}</p>
+        <button class="auth-btn-primary" onClick="{{ submitEditTeacher }}">儲存變更</button>
+        <button class="auth-btn-secondary" onClick="{{ closeEditTeacherModal }}">取消</button>
+      </section>
+    </div>
+
+    <!-- Admin Modal: Reset Teacher Password -->
+    <div class="auth-modal-overlay" hidden="{{ resetTeacherModalHidden }}">
+      <section class="auth-card" role="dialog" aria-modal="true" aria-label="重設教師密碼">
+        <div class="auth-card-head">
+          <div class="auth-card-icon" style="background:#fff0f3">🔑</div>
+          <h2 class="auth-card-title">重設教師密碼</h2>
+          <p class="auth-card-subtitle">為 {{ resetTeacherTargetName }} 設定新密碼</p>
+        </div>
+        <div class="auth-input-group">
+          <label class="auth-input-label">新密碼 (至少 8 碼)</label>
+          <input class="auth-input" type="password" value="{{ resetTeacherNewPassword }}" onChange="{{ changeResetTeacherNewPassword }}" placeholder="輸入新密碼">
+        </div>
+        <p class="auth-error-msg">{{ resetTeacherError }}</p>
+        <button class="auth-btn-primary" onClick="{{ submitResetTeacherPassword }}">確認重設密碼</button>
+        <button class="auth-btn-secondary" onClick="{{ closeResetTeacherModal }}">取消</button>
+      </section>
+    </div>
+
+    <!-- Teacher Dashboard Screen (Phase H - M) -->
+    <sc-if value="{{ isTeacherDashboard }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="教師專屬工作台" class="teacher-dashboard-shell">
+        <div class="teacher-nav-bar">
+          <sc-for list="{{ teacherNavTabs }}" as="tab" hint-placeholder-count="5">
+            <button class="teacher-nav-item {{ tab.activeClass }}" onClick="{{ tab.go }}">{{ tab.label }}</button>
+          </sc-for>
+        </div>
+
+        <!-- Teacher Tab: Overview / Home -->
+        <sc-if value="{{ isTeacherTabHome }}" hint-placeholder-val="{{ true }}">
+          <div class="teacher-section-card">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;flex-wrap:wrap">
+              <div style="width:54px;height:54px;border-radius:18px;background:linear-gradient(135deg,#f2edff,#e5f6ff);display:grid;place-items:center;font-size:28px">🍎</div>
               <div>
-                <sc-if value="{{ isTeacherGoogleBound }}" hint-placeholder-val="{{ false }}">
-                  <button onClick="{{ unbindTeacherGoogle }}" style="border:1px solid #ffccd7;background:#fff1f4;color:#d83b68;border-radius:14px;padding:10px 16px;font-size:13px;font-weight:900;cursor:pointer">解除綁定</button>
-                </sc-if>
-                <sc-if value="{{ isTeacherNotGoogleBound }}" hint-placeholder-val="{{ true }}">
-                  <button onClick="{{ bindTeacherGoogle }}" style="border:0;background:linear-gradient(90deg,#4285F4,#34A853);color:#fff;border-radius:14px;padding:10px 20px;font-size:13px;font-weight:900;cursor:pointer;box-shadow:0 4px 14px rgba(66,133,244,.35)">立即綁定 Google 帳號</button>
-                </sc-if>
+                <h2 style="margin:0;font-size:24px;font-weight:900;color:#2b1f57">歡迎回來，{{ currentTeacherDisplayName }} 老師！</h2>
+                <p style="margin:4px 0 0;font-size:13px;font-weight:700;color:#7c74a8">這是您的專屬教學工作台，您可以查看負責班級學生的學習紀錄與指派任務。</p>
               </div>
             </div>
 
-            <div style="margin-top:24px;display:flex;justify-content:flex-end">
-              <button onClick="{{ saveTeacherSettings }}" style="border:0;border-radius:14px;padding:14px 28px;font-size:15px;font-weight:900;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer;box-shadow:0 8px 20px rgba(124,92,255,.3)">儲存教師設定</button>
+            <div class="teacher-stat-grid">
+              <div class="teacher-stat-box">
+                <span class="teacher-stat-label">負責班級數</span>
+                <span class="teacher-stat-num">{{ teacherAssignedClassesCount }}</span>
+              </div>
+              <div class="teacher-stat-box">
+                <span class="teacher-stat-label">班級總學員數</span>
+                <span class="teacher-stat-num">{{ teacherAssignedStudentsCount }}</span>
+              </div>
+              <div class="teacher-stat-box">
+                <span class="teacher-stat-label">今日已登入學習</span>
+                <span class="teacher-stat-num" style="color:#1d7a55">{{ teacherTodayLoggedInCount }}</span>
+              </div>
             </div>
+          </div>
+        </sc-if>
 
-            <sc-if value="{{ isTeacherManager }}" hint-placeholder-val="{{ false }}">
-              <div style="margin-top:26px;padding-top:24px;border-top:1px solid rgba(120,210,255,.24)">
-                <h3 style="margin:0 0 8px;font-size:20px;font-weight:900">管理者：教師帳號清單</h3>
-                <p style="margin:0 0 14px;font-size:13px;font-weight:700;color:#9a90c8">Google 綁定後，可建立一般教師並選取帳號進行修改。Google 綁定與 UID 狀態由每位教師自行完成。</p>
-                <div style="display:grid;grid-template-columns:1.1fr 1fr 1fr auto;gap:10px;padding:14px;border:1px solid #ece7ff;border-radius:18px;background:#fbfaff">
-                  <input value="{{ newTeacherName }}" onChange="{{ changeNewTeacherName }}" placeholder="教師名稱" style="min-width:0;border:1px solid #ddd5ff;border-radius:11px;padding:11px;font:800 14px inherit">
-                  <input value="{{ newTeacherAccount }}" onChange="{{ changeNewTeacherAccount }}" placeholder="預設帳號" style="min-width:0;border:1px solid #ddd5ff;border-radius:11px;padding:11px;font:800 14px inherit">
-                  <input type="password" value="{{ newTeacherPassword }}" onChange="{{ changeNewTeacherPassword }}" placeholder="預設密碼" style="min-width:0;border:1px solid #ddd5ff;border-radius:11px;padding:11px;font:800 14px inherit">
-                  <button onClick="{{ addTeacherAccount }}" style="border:0;border-radius:11px;padding:11px 15px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font:900 14px inherit;cursor:pointer">＋新增</button>
+        <!-- Teacher Tab: My Classes -->
+        <sc-if value="{{ isTeacherTabClasses }}" hint-placeholder-val="{{ false }}">
+          <div class="teacher-section-card">
+            <h2 style="margin:0 0 6px;font-size:22px;font-weight:900;color:#2b1f57">我的班級</h2>
+            <p style="margin:0 0 16px;font-size:13px;font-weight:700;color:#7c74a8">您被指派負責的班級清單：</p>
+            <div style="display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+              <sc-for list="{{ teacherClassCards }}" as="cls" hint-placeholder-count="2">
+                <div style="background:#fbfaff;border:1.5px solid #ece7ff;border-radius:20px;padding:18px">
+                  <strong style="display:block;font-size:18px;font-weight:900;color:#2b1f57">{{ cls.name }}</strong>
+                  <span style="display:block;margin-top:6px;font-size:13px;font-weight:700;color:#7c74a8">學員人數：{{ cls.count }} 位</span>
                 </div>
-                <div style="display:grid;gap:8px;margin-top:12px">
-                  <sc-for list="{{ teacherDirectory }}" as="teacher" hint-placeholder-count="2">
-                    <button onClick="{{ teacher.select }}" style="display:grid;grid-template-columns:1.1fr .8fr .8fr 1fr 1fr auto;align-items:center;gap:10px;border:1px solid {{ teacher.editing ? '#6e8dff' : '#dce8ff' }};border-radius:15px;padding:12px 14px;background:{{ teacher.editing ? '#edf4ff' : '#fff' }};text-align:left;cursor:pointer;font-family:inherit">
-                      <strong>{{ teacher.name }}<small style="display:block;color:#7c74a8">{{ teacher.roleLabel }}</small></strong><span>{{ teacher.account }}</span><span>{{ teacher.password }}</span><span>{{ teacher.lastLogin }}</span><span>{{ teacher.google }}</span><b style="color:#5e4bd6">編輯</b>
-                    </button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- Teacher Tab: My Students (NO CREDENTIALS) -->
+        <sc-if value="{{ isTeacherTabStudents }}" hint-placeholder-val="{{ false }}">
+          <div class="teacher-section-card">
+            <h2 style="margin:0 0 6px;font-size:22px;font-weight:900;color:#2b1f57">我的學生名冊</h2>
+            <p style="margin:0 0 16px;font-size:13px;font-weight:700;color:#7c74a8">檢視負責班級內的學生進度與學習等級（密碼與帳號資料已受隱私保護隔離）。</p>
+            <div style="overflow-x:auto">
+              <table style="width:100%;border-collapse:collapse;text-align:left;font-size:14px">
+                <thead>
+                  <tr style="border-bottom:2px solid #ece7ff;color:#7c74a8;font-size:12px;font-weight:900">
+                    <th style="padding:12px 8px">座號</th>
+                    <th style="padding:12px 8px">學生姓名</th>
+                    <th style="padding:12px 8px">班級</th>
+                    <th style="padding:12px 8px">等級 / 經驗值</th>
+                    <th style="padding:12px 8px">連續天數</th>
+                    <th style="padding:12px 8px">最後上線</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <sc-for list="{{ teacherStudentRows }}" as="st" hint-placeholder-count="4">
+                    <tr style="border-bottom:1px solid #f6f3ff">
+                      <td style="padding:12px 8px;font-weight:800;color:#7c74a8">{{ st.seat }}</td>
+                      <td style="padding:12px 8px;font-weight:900;color:#2b1f57">{{ st.name }}</td>
+                      <td style="padding:12px 8px;font-weight:800;color:#5b3fe0">{{ st.className }}</td>
+                      <td style="padding:12px 8px;font-weight:800;color:#2b1f57">Lv.{{ st.level }} ({{ st.xp }} XP)</td>
+                      <td style="padding:12px 8px;font-weight:800;color:#e67e22">🔥 {{ st.streak }} 天</td>
+                      <td style="padding:12px 8px;font-size:12px;color:#7c74a8">{{ st.lastLogin }}</td>
+                    </tr>
                   </sc-for>
-                </div>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- Teacher Tab: Profile & Security -->
+        <sc-if value="{{ isTeacherTabProfile }}" hint-placeholder-val="{{ false }}">
+          <div class="teacher-section-card">
+            <h2 style="margin:0 0 6px;font-size:22px;font-weight:900;color:#2b1f57">我的帳號與安全性</h2>
+            <p style="margin:0 0 20px;font-size:13px;font-weight:700;color:#7c74a8">檢視個人教師基本資料、Google 認證狀態與變更登入密碼。</p>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+              <div style="background:#fbfaff;border:1px solid #ece7ff;border-radius:20px;padding:20px">
+                <h3 style="margin:0 0 12px;font-size:16px;font-weight:900;color:#2b1f57">🍎 個人資料</h3>
+                <div class="admin-teacher-info-row"><span class="admin-teacher-info-label">教師姓名</span><span class="admin-teacher-info-val">{{ currentTeacherDisplayName }}</span></div>
+                <div class="admin-teacher-info-row"><span class="admin-teacher-info-label">登入帳號</span><span class="admin-teacher-info-val">{{ currentTeacherUsername }}</span></div>
+                <div class="admin-teacher-info-row"><span class="admin-teacher-info-label">Google 綁定</span><span class="auth-badge auth-badge-success">{{ currentTeacherGoogleEmail }}</span></div>
               </div>
-            </sc-if>
-          </section>
+
+              <div style="background:#fbfaff;border:1px solid #ece7ff;border-radius:20px;padding:20px">
+                <h3 style="margin:0 0 12px;font-size:16px;font-weight:900;color:#2b1f57">🔐 變更個人密碼</h3>
+                <label class="auth-input-label">新密碼 (至少 8 碼)<input class="auth-input" type="password" value="{{ teacherSelfNewPassword }}" onChange="{{ changeTeacherSelfNewPassword }}" placeholder="輸入新密碼"></label>
+                <label class="auth-input-label" style="margin-top:10px">確認新密碼<input class="auth-input" type="password" value="{{ teacherSelfConfirmPassword }}" onChange="{{ changeTeacherSelfConfirmPassword }}" placeholder="再次輸入新密碼"></label>
+                <p class="auth-error-msg">{{ teacherSelfPasswordError }}</p>
+                <button class="auth-btn-primary" style="margin-top:14px" onClick="{{ submitTeacherSelfPasswordChange }}">更新密碼</button>
+              </div>
+            </div>
+          </div>
         </sc-if>
       </div>
     </sc-if>
@@ -5155,107 +5394,302 @@ class Component extends DCLogic {
     });
   }
 
-  authenticateTeacher() {
-    const cfg = this.state.teacherConfig || readTeacherConfig();
-    const account = String(this.state.teacherLoginAccount || "").trim().toLowerCase();
-    const password = String(this.state.teacherLoginPassword || "");
-    const teacher = (cfg.teachers || []).find((candidate) => String(candidate.account || "").trim().toLowerCase() === account && String(candidate.password || "") === password);
-    if (!teacher) {
-      this.setState({ teacherLoginError: "老師帳號或密碼不正確。" });
-      return;
-    }
-    const updated = Object.assign({}, cfg, { teachers: cfg.teachers.map((candidate) => candidate.id === teacher.id ? Object.assign({}, candidate, { lastLoginAt: new Date().toISOString() }) : candidate) });
-    const loggedInTeacher = teacherById(updated, teacher.id);
-    saveTeacherConfig(updated);
-    requestAppFullscreen();
-    this.setState({
-      screen: "teacher",
-      teacher: true,
-      currentId: null,
-      currentTeacherId: loggedInTeacher.id,
-      editingTeacherId: loggedInTeacher.id,
-      adminTab: loggedInTeacher.role === "admin" ? "students" : "settings",
-      teacherLoginOpen: false,
-      teacherLoginPassword: "",
-      teacherLoginError: "",
-      teacherConfig: updated,
-      editTeacherName: loggedInTeacher.name,
-      editTeacherAccount: loggedInTeacher.account,
-      editTeacherPassword: loggedInTeacher.password,
-      editTeacherFace: loggedInTeacher.face || "🍎"
-    });
-  }
-
-  async bindTeacherGoogleAccount() {
-    if (!window.LearningPlanetFirebase) {
-      this.flash("Firebase 模組載入中，請稍候重試");
+  async submitAdminLogin() {
+    const account = String(this.state.authAccount || "").trim();
+    const password = String(this.state.authPassword || "");
+    if (!account || !password) {
+      this.setState({ authError: "請輸入管理者帳號與密碼。" });
       return;
     }
     try {
-      const fbUser = await window.LearningPlanetFirebase.signInWithGoogle();
-      if (!fbUser) return;
-      
-      const email = (fbUser.email || "").toLowerCase();
-      const googleUid = fbUser.uid;
-      
-      const cfg = Object.assign({}, this.state.teacherConfig, { teachers: this.state.teacherConfig.teachers.map((teacher) => teacher.id === this.state.currentTeacherId ? Object.assign({}, teacher, { googleUid, email }) : teacher) });
-      saveTeacherConfig(cfg);
-      this.setState({ teacherConfig: cfg }, () => {
-        this.flash("✅ 老師 Google 帳號綁定成功！(" + (email || googleUid.slice(0, 8)) + ")");
+      this.setState({ authError: "" });
+      if (!window.LearningPlanetAuthV2) throw new Error("驗證模組尚未載入");
+      await window.LearningPlanetAuthV2.passwordLogin(account, password, "admin");
+      requestAppFullscreen();
+      this.setState({
+        screen: "admin",
+        teacher: false,
+        admin: true,
+        adminTab: "students",
+        authModalOpen: false,
+        authAccount: "",
+        authPassword: "",
+        authError: "",
+        currentId: null
+      }, () => {
+        this.loadTeachersList();
+        this.flash("🛡️ 歡迎進入管理者控制中心！");
       });
     } catch (err) {
-      console.error("Teacher binding error:", err);
-      this.flash("綁定失敗：" + (err.message || "未知錯誤"));
+      console.error("Admin login error:", err);
+      this.setState({ authError: err.message || "管理者登入失敗。" });
     }
   }
 
-  unbindTeacherGoogleAccount() {
-    if (!confirm("確定要解除老師的 Google 帳號綁定嗎？")) return;
-    const cfg = Object.assign({}, this.state.teacherConfig, { teachers: this.state.teacherConfig.teachers.map((teacher) => teacher.id === this.state.currentTeacherId ? Object.assign({}, teacher, { googleUid: "", email: "" }) : teacher) });
-    saveTeacherConfig(cfg);
-    this.setState({ teacherConfig: cfg }, () => {
-      this.flash("已解除老師 Google 帳號綁定");
-    });
+  async submitTeacherLogin() {
+    const account = String(this.state.authAccount || "").trim();
+    const password = String(this.state.authPassword || "");
+    if (!account || !password) {
+      this.setState({ authError: "請輸入教師帳號與密碼。" });
+      return;
+    }
+    try {
+      this.setState({ authError: "" });
+      if (!window.LearningPlanetAuthV2) throw new Error("驗證模組尚未載入");
+      await window.LearningPlanetAuthV2.passwordLogin(account, password, "teacher");
+      const profile = await window.LearningPlanetAuthV2.loadMyProfile();
+      if (profile && profile.enabled === false) {
+        await window.LearningPlanetAuthV2.signOut();
+        this.setState({ authError: "此教師帳號已被停用，請聯繫管理員。" });
+        return;
+      }
+      if (profile && profile.firstLoginCompleted !== true) {
+        this.setState({
+          authModalOpen: false,
+          teacherFirstLoginOpen: true,
+          teacherFirstLoginName: profile.displayName || account,
+          teacherFirstLoginError: "",
+          currentTeacherProfile: profile
+        });
+        return;
+      }
+      requestAppFullscreen();
+      this.setState({
+        screen: "teacher-dashboard",
+        teacher: true,
+        admin: false,
+        teacherTab: "home",
+        authModalOpen: false,
+        authAccount: "",
+        authPassword: "",
+        authError: "",
+        currentTeacherProfile: profile,
+        currentId: null
+      }, () => {
+        this.flash("🍎 歡迎回來，" + (profile ? profile.displayName : "老師") + "！");
+      });
+    } catch (err) {
+      console.error("Teacher login error:", err);
+      this.setState({ authError: err.message || "教師登入失敗。" });
+    }
   }
 
-  saveTeacherSettings() {
-    const name = String(this.state.editTeacherName || "").trim();
-    const account = String(this.state.editTeacherAccount || "").trim().toLowerCase();
-    const password = String(this.state.editTeacherPassword || "").trim();
-    const face = this.state.editTeacherFace || "🍎";
-    if (!name) { this.flash("請輸入老師顯示名稱"); return; }
-    if (!account || !password) { this.flash("老師帳號與密碼不可為空"); return; }
-    const current = teacherById(this.state.teacherConfig, this.state.currentTeacherId);
-    const editing = teacherById(this.state.teacherConfig, this.state.editingTeacherId);
-    if (!current.googleUid) { this.flash("請先綁定 Google 帳號，才可以修改教師資料。"); return; }
-    if (current.role !== "admin" && editing.id !== current.id) { this.flash("一般教師只能修改自己的資料。"); return; }
-    if ((this.state.teacherConfig.teachers || []).some((teacher) => teacher.id !== editing.id && String(teacher.account).toLowerCase() === account)) { this.flash("此教師帳號已被使用。"); return; }
-    const cfg = Object.assign({}, this.state.teacherConfig, { teachers: this.state.teacherConfig.teachers.map((teacher) => teacher.id === editing.id ? Object.assign({}, teacher, { name, account, password, face }) : teacher) });
-    saveTeacherConfig(cfg);
+  async bindTeacherFirstLoginGoogle() {
+    try {
+      this.setState({ teacherFirstLoginError: "" });
+      if (!window.LearningPlanetAuthV2) throw new Error("驗證模組尚未載入");
+      await window.LearningPlanetAuthV2.linkCurrentUserWithGoogle();
+      const profile = await window.LearningPlanetAuthV2.loadMyProfile();
+      requestAppFullscreen();
+      this.setState({
+        teacherFirstLoginOpen: false,
+        screen: "teacher-dashboard",
+        teacher: true,
+        admin: false,
+        teacherTab: "home",
+        currentTeacherProfile: profile,
+        currentId: null
+      }, () => {
+        this.flash("✅ Google 帳號綁定成功！歡迎進入教師工作台");
+      });
+    } catch (err) {
+      console.error("First login binding error:", err);
+      this.setState({ teacherFirstLoginError: err.message || "Google 綁定失敗，請重試。" });
+    }
+  }
+
+  async cancelTeacherFirstLogin() {
+    if (window.LearningPlanetAuthV2) {
+      await window.LearningPlanetAuthV2.signOut().catch(() => {});
+    }
     this.setState({
-      teacherConfig: cfg
-    }, () => {
-      this.flash("✅ 教師設定已成功更新！");
+      teacherFirstLoginOpen: false,
+      authModalOpen: false,
+      screen: "login"
     });
   }
 
-  selectTeacherForSettings(id) {
-    const teacher = teacherById(this.state.teacherConfig, id);
-    this.setState({ editingTeacherId: teacher.id, editTeacherName: teacher.name, editTeacherAccount: teacher.account, editTeacherPassword: teacher.password, editTeacherFace: teacher.face || "👩‍🏫" });
+  async loadTeachersList() {
+    try {
+      if (window.LearningPlanetTeacherManagement) {
+        const list = await window.LearningPlanetTeacherManagement.loadAllTeachers();
+        this.setState({ teachersList: list || [] });
+      }
+    } catch (err) {
+      console.error("Failed to load teachers list:", err);
+    }
   }
 
-  addTeacherAccount() {
-    const current = teacherById(this.state.teacherConfig, this.state.currentTeacherId);
-    const name = String(this.state.newTeacherName || "").trim();
-    const account = String(this.state.newTeacherAccount || "").trim().toLowerCase();
-    const password = String(this.state.newTeacherPassword || "").trim();
-    if (current.role !== "admin" || !current.googleUid) { this.flash("管理者完成 Google 綁定後，才可新增教師。"); return; }
-    if (!name || !account || !password) { this.flash("請填寫教師名稱、帳號與預設密碼。"); return; }
-    if (this.state.teacherConfig.teachers.some((teacher) => String(teacher.account).toLowerCase() === account)) { this.flash("此教師帳號已被使用。"); return; }
-    const teacher = defaultTeacherRecord({ id: "teacher-" + Date.now(), name, account, password });
-    const cfg = Object.assign({}, this.state.teacherConfig, { teachers: this.state.teacherConfig.teachers.concat(teacher) });
-    saveTeacherConfig(cfg);
-    this.setState({ teacherConfig: cfg, newTeacherName: "", newTeacherAccount: "", newTeacherPassword: "1234" }, () => this.flash("✅ 已新增一般教師帳號。"));
+  openCreateTeacherModal() {
+    this.setState({
+      createTeacherModalOpen: true,
+      newTeacherDisplayName: "",
+      newTeacherUsername: "",
+      newTeacherPassword: "",
+      newTeacherClassIds: ["c301"],
+      newTeacherCourseIds: [],
+      createTeacherError: ""
+    });
+  }
+
+  closeCreateTeacherModal() {
+    this.setState({ createTeacherModalOpen: false, createTeacherError: "" });
+  }
+
+  async submitCreateTeacher() {
+    const displayName = String(this.state.newTeacherDisplayName || "").trim();
+    const username = String(this.state.newTeacherUsername || "").trim();
+    const password = String(this.state.newTeacherPassword || "");
+    const assignedClassIds = this.state.newTeacherClassIds || [];
+    const assignedCourseIds = this.state.newTeacherCourseIds || [];
+    if (!displayName || !username || !password) {
+      this.setState({ createTeacherError: "請填寫教師名稱、帳號與初始密碼。" });
+      return;
+    }
+    if (password.length < 8) {
+      this.setState({ createTeacherError: "密碼長度至少需要 8 碼。" });
+      return;
+    }
+    try {
+      this.setState({ createTeacherError: "" });
+      if (!window.LearningPlanetTeacherManagement) throw new Error("模組尚未載入");
+      await window.LearningPlanetTeacherManagement.handleCreateTeacher({
+        username,
+        password,
+        displayName,
+        assignedClassIds,
+        assignedCourseIds
+      });
+      this.closeCreateTeacherModal();
+      this.loadTeachersList();
+      this.flash("✅ 教師「" + displayName + "」已成功建立！");
+    } catch (err) {
+      console.error("Create teacher error:", err);
+      this.setState({ createTeacherError: err.message || "建立教師失敗。" });
+    }
+  }
+
+  openEditTeacherModal(teacher) {
+    if (!teacher) return;
+    this.setState({
+      editTeacherModalOpen: true,
+      targetTeacherUid: teacher.id,
+      editTeacherDisplayName: teacher.displayName || "",
+      editTeacherClassIds: Array.isArray(teacher.assignedClassIds) ? teacher.assignedClassIds.slice() : [],
+      editTeacherCourseIds: Array.isArray(teacher.assignedCourseIds) ? teacher.assignedCourseIds.slice() : [],
+      editTeacherError: ""
+    });
+  }
+
+  closeEditTeacherModal() {
+    this.setState({ editTeacherModalOpen: false, editTeacherError: "" });
+  }
+
+  async submitEditTeacher() {
+    const uid = this.state.targetTeacherUid;
+    const displayName = String(this.state.editTeacherDisplayName || "").trim();
+    const assignedClassIds = this.state.editTeacherClassIds || [];
+    const assignedCourseIds = this.state.editTeacherCourseIds || [];
+    if (!uid) return;
+    if (!displayName) {
+      this.setState({ editTeacherError: "教師姓名不可為空。" });
+      return;
+    }
+    try {
+      this.setState({ editTeacherError: "" });
+      if (!window.LearningPlanetTeacherManagement) throw new Error("模組尚未載入");
+      await window.LearningPlanetTeacherManagement.handleUpdateTeacher({
+        uid,
+        displayName,
+        assignedClassIds,
+        assignedCourseIds
+      });
+      this.closeEditTeacherModal();
+      this.loadTeachersList();
+      this.flash("✅ 教師資料已成功更新！");
+    } catch (err) {
+      console.error("Update teacher error:", err);
+      this.setState({ editTeacherError: err.message || "更新教師資料失敗。" });
+    }
+  }
+
+  openResetTeacherPasswordModal(teacher) {
+    if (!teacher) return;
+    this.setState({
+      resetTeacherModalOpen: true,
+      targetTeacherUid: teacher.id,
+      resetTeacherTargetName: teacher.displayName || teacher.username,
+      resetTeacherNewPassword: "",
+      resetTeacherError: ""
+    });
+  }
+
+  closeResetTeacherPasswordModal() {
+    this.setState({ resetTeacherModalOpen: false, resetTeacherError: "" });
+  }
+
+  async submitResetTeacherPassword() {
+    const uid = this.state.targetTeacherUid;
+    const password = String(this.state.resetTeacherNewPassword || "");
+    if (!uid) return;
+    if (!password || password.length < 8) {
+      this.setState({ resetTeacherError: "新密碼長度至少需要 8 碼。" });
+      return;
+    }
+    try {
+      this.setState({ resetTeacherError: "" });
+      if (!window.LearningPlanetTeacherManagement) throw new Error("模組尚未載入");
+      await window.LearningPlanetTeacherManagement.handleResetTeacherPassword({ uid, password });
+      this.closeResetTeacherPasswordModal();
+      this.flash("✅ 教師密碼已重設！");
+    } catch (err) {
+      console.error("Reset teacher password error:", err);
+      this.setState({ resetTeacherError: err.message || "重設密碼失敗。" });
+    }
+  }
+
+  async toggleTeacherEnabled(teacher) {
+    if (!teacher || !teacher.id) return;
+    const nextState = !teacher.enabled;
+    const confirmMsg = nextState
+      ? "確定要重新「啟用」教師 " + teacher.displayName + " 嗎？"
+      : "確定要「停用」教師 " + teacher.displayName + " 嗎？停用後該教師將無法登入。";
+    if (!confirm(confirmMsg)) return;
+    try {
+      if (!window.LearningPlanetTeacherManagement) throw new Error("模組尚未載入");
+      await window.LearningPlanetTeacherManagement.handleToggleTeacherEnabled({
+        uid: teacher.id,
+        enabled: nextState
+      });
+      this.loadTeachersList();
+      this.flash(nextState ? "✅ 教師帳號已啟用" : "⚠️ 教師帳號已停用");
+    } catch (err) {
+      console.error("Toggle teacher enabled error:", err);
+      this.flash("操作失敗：" + err.message);
+    }
+  }
+
+  async submitTeacherSelfPasswordChange() {
+    const p1 = String(this.state.teacherSelfNewPassword || "");
+    const p2 = String(this.state.teacherSelfConfirmPassword || "");
+    if (!p1 || p1.length < 8) {
+      this.setState({ teacherSelfPasswordError: "新密碼長度至少需要 8 碼。" });
+      return;
+    }
+    if (p1 !== p2) {
+      this.setState({ teacherSelfPasswordError: "兩次輸入的密碼不一致。" });
+      return;
+    }
+    try {
+      this.setState({ teacherSelfPasswordError: "" });
+      if (!window.LearningPlanetTeacherWorkspace) throw new Error("模組尚未載入");
+      await window.LearningPlanetTeacherWorkspace.updateOwnPassword(p1);
+      this.setState({ teacherSelfNewPassword: "", teacherSelfConfirmPassword: "" });
+      this.flash("✅ 個人密碼更新成功！");
+    } catch (err) {
+      console.error("Self password change error:", err);
+      this.setState({ teacherSelfPasswordError: err.message || "更新密碼失敗。" });
+    }
   }
 
   allWords() { return this.state.words.concat(this.state.customWords); }
@@ -9661,7 +10095,7 @@ class Component extends DCLogic {
       englishMissingAnswered: s.englishMissingAnswered, englishMissingCorrect: s.englishMissingCorrect, englishMissingSpeak: () => this.speakEnglishMissingPrompt(), englishMissingNext: () => this.nextEnglishMissingWord(), englishRestartMissing: () => this.startEnglishChain(),
       englishMissingOptions: englishMissingQuestion ? englishMissingQuestion.options.map((word) => { const selected = s.englishMissingSelected === word.id, correct = s.englishMissingAnswered && word.id === englishMissingQuestion.answer.id; return { word: word.word, pick: () => this.answerEnglishMissingWord(word.id), speak: (event) => { if (event && event.stopPropagation) event.stopPropagation(); this.speakEnglish(word.word); }, border: correct ? "#35c98a" : selected ? "#ff5c86" : "#ddd5ff", bg: correct ? "#e6f7ee" : selected ? "#fff0f4" : "#fff", fg: correct ? "#1d7a55" : selected ? "#c72e58" : "#2b1f57" }; }) : [],
 
-      isLibrary: s.screen === "library", isTeacher: s.screen === "teacher",
+      isLibrary: s.screen === "library", isTeacher: s.screen === "teacher", isAdmin: s.screen === "admin" || s.screen === "teacher", isTeacherDashboard: s.screen === "teacher-dashboard",
       toast: s.toast,
       classChips: s.classes.map((c) => ({
         label: c.name, count: s.students.filter((st) => st.classId === c.id).length,
@@ -9725,29 +10159,47 @@ class Component extends DCLogic {
       },
       loginSuccessAvatar: (() => { const student = s.students.find((candidate) => candidate.id === s.loginSuccessStudentId); return student ? studentAvatarImage(student.profile && student.profile.cardAvatarIndex) : studentAvatarImage(0); })(),
       loginSuccessName: (() => { const student = s.students.find((candidate) => candidate.id === s.loginSuccessStudentId); return student ? student.name + " · " + studentIdentityCard(student).englishName : ""; })(),
-      loginTeacher: () => this.setState({ teacherLoginOpen: true, teacherLoginError: "" }),
-      teacherLoginHidden: !s.teacherLoginOpen,
-      teacherLoginAccount: s.teacherLoginAccount,
-      teacherLoginPassword: s.teacherLoginPassword,
-      teacherLoginError: s.teacherLoginError,
-      changeTeacherAccount: (e) => this.setState({ teacherLoginAccount: e.target.value, teacherLoginError: "" }),
-      changeTeacherPassword: (e) => this.setState({ teacherLoginPassword: e.target.value, teacherLoginError: "" }),
-      teacherLoginKey: (e) => { if (e.key === "Enter") this.authenticateTeacher(); },
-      closeTeacherLogin: () => this.setState({ teacherLoginOpen: false, teacherLoginPassword: "", teacherLoginError: "" }),
-      submitTeacherLogin: () => this.authenticateTeacher(),
+      loginTeacher: () => this.setState({ authModalOpen: true, authModalTab: "admin", authError: "" }),
+      authModalHidden: !s.authModalOpen,
+      authModalIcon: s.authModalTab === "admin" ? "🛡️" : "🍎",
+      authAdminTabClass: s.authModalTab === "admin" ? "active" : "",
+      authTeacherTabClass: s.authModalTab === "teacher" ? "active" : "",
+      isAuthAdminTab: s.authModalTab === "admin",
+      isAuthTeacherTab: s.authModalTab === "teacher",
+      authAccount: s.authAccount,
+      authPassword: s.authPassword,
+      authError: s.authError,
+      openAuthModal: () => this.setState({ authModalOpen: true, authError: "" }),
+      closeAuthModal: () => this.setState({ authModalOpen: false, authAccount: "", authPassword: "", authError: "" }),
+      selectAdminAuthTab: () => this.setState({ authModalTab: "admin", authError: "" }),
+      selectTeacherAuthTab: () => this.setState({ authModalTab: "teacher", authError: "" }),
+      changeAuthAccount: (e) => this.setState({ authAccount: e.target.value, authError: "" }),
+      changeAuthPassword: (e) => this.setState({ authPassword: e.target.value, authError: "" }),
+      authKeyAdmin: (e) => { if (e.key === "Enter") this.submitAdminLogin(); },
+      authKeyTeacher: (e) => { if (e.key === "Enter") this.submitTeacherLogin(); },
+      submitAdminLogin: () => this.submitAdminLogin(),
+      submitTeacherLogin: () => this.submitTeacherLogin(),
+      teacherFirstLoginHidden: !s.teacherFirstLoginOpen,
+      teacherFirstLoginName: s.teacherFirstLoginName,
+      teacherFirstLoginError: s.teacherFirstLoginError,
+      bindTeacherFirstLoginGoogle: () => this.bindTeacherFirstLoginGoogle(),
+      cancelTeacherFirstLogin: () => this.cancelTeacherFirstLogin(),
+
       logout: () => {
         clearTimeout(this.autoNextTimer);
         clearTimeout(this.loginLaunchTimer);
         if (typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
-        if (window.LearningPlanetFirebase && window.LearningPlanetFirebase.logout) {
-          window.LearningPlanetFirebase.logout().catch(() => {});
+        if (window.LearningPlanetAuthV2) {
+          window.LearningPlanetAuthV2.signOut().catch(() => {});
         }
-        this.setState({ screen: "login", currentId: null, teacher: false, currentTeacherId: "", editingTeacherId: teacherById(this.state.teacherConfig, "").id, loginLaunching: false, loginVerified: false, loginSuccessStudentId: null, studentLoginPassword: "", teacherLoginPassword: "" });
+        this.setState({ screen: "login", currentId: null, teacher: false, admin: false, currentTeacherProfile: null, currentRole: null, loginLaunching: false, loginVerified: false, loginSuccessStudentId: null, studentLoginPassword: "", authPassword: "" });
       },
 
-      user: s.teacher || !me ? (() => { const teacher = teacherById(s.teacherConfig, s.currentTeacherId); return { name: teacher.name, seat: teacher.role === "admin" ? "管理者" : "一般教師", face: teacher.face || "👩‍🏫", tint: teacher.tint || "#dff5ff" }; })() : { name: me.name, seat: me.seat, face: me.face, tint: me.tint },
-      isStudent: !s.teacher && !!me,
-      showTeacherAvatar: s.teacher || !me,
+      user: s.screen === "admin" ? { name: "管理中心", seat: "全域管理員", face: "🛡️", tint: "#edf4ff" } : s.screen === "teacher-dashboard" ? { name: (s.currentTeacherProfile ? s.currentTeacherProfile.displayName : "教師"), seat: "教師", face: "🍎", tint: "#ffe8ec" } : !me ? { name: "訪客", seat: "未登入", face: "🌟", tint: "#ffe0e6" } : { name: me.name, seat: me.seat, face: me.face, tint: me.tint },
+      isStudent: s.screen !== "admin" && s.screen !== "teacher-dashboard" && !!me,
+      isAdmin: s.screen === "admin",
+      isTeacherDashboard: s.screen === "teacher-dashboard",
+      showTeacherAvatar: s.screen === "admin" || s.screen === "teacher-dashboard" || !me,
       userAvatarStyle: studentAvatarStyle(profileAvatarIndex),
       profileAvatarStyle: studentAvatarStyle(profileAvatarIndex),
       profileCardTheme: studentCardTheme(p).toLowerCase(),
@@ -9774,7 +10226,7 @@ class Component extends DCLogic {
       profileGoogleBoundColor: ((p && p.googleUid) || (me && me.googleUid)) ? "#1d7a55" : "#2b1f57",
       bindGoogle: () => this.bindGoogleAccount(),
       unbindGoogle: () => this.unbindGoogleAccount(),
-      userSub: s.teacher || !me ? "教師工作台" : "Lv." + level + " · " + className(me.classId) + " " + me.seat,
+      userSub: s.screen === "admin" ? "全域管理控制台" : s.screen === "teacher-dashboard" ? "專屬教師工作台" : !me ? "學習星際" : "Lv." + level + " · " + className(me.classId) + " " + me.seat,
       userLevelLabel: "Lv." + level,
       level, xp: p.xp, coins: p.coins, streak: p.streak,
       levelPct: p.xp % 100, toNext: 100 - (p.xp % 100),
@@ -10400,62 +10852,138 @@ class Component extends DCLogic {
       gachaCollectionPct,
       gachaCollectionProgress: gachaOwnedUnique + " / " + gachaItems.length + " 款 · " + gachaCollectionPct + "%",
 
-      adminTabs: ((teacherById(s.teacherConfig, s.currentTeacherId).role === "admin") ? [
+      adminTabs: [
         { key: "weekly", label: "每週考卷" },
         { key: "students", label: "學員維護" },
         { key: "classes", label: "班級管理" },
         { key: "vocab", label: "字彙維護" },
         { key: "assign", label: "指派與獎勵" },
-        { key: "settings", label: "教師設定" },
-      ] : [
-        { key: "settings", label: "我的帳號設定" },
-      ]).map((t) => ({
+        { key: "teachers", label: "教師管理" },
+      ].map((t) => ({
         label: t.label,
         go: () => this.setState({ adminTab: t.key }),
         bg: s.adminTab === t.key ? "#2b1f57" : "#fff",
         fg: s.adminTab === t.key ? "#fff" : "#7c74a8",
         border: s.adminTab === t.key ? "#2b1f57" : "#ece7ff",
       })),
-      adminStudents: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin" && s.adminTab === "students",
-      adminWeekly: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin" && s.adminTab === "weekly",
-      adminClasses: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin" && s.adminTab === "classes",
-      adminVocab: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin" && s.adminTab === "vocab",
-      adminAssign: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin" && s.adminTab === "assign",
-      adminSettings: s.adminTab === "settings",
+      adminStudents: s.adminTab === "students",
+      adminWeekly: s.adminTab === "weekly",
+      adminClasses: s.adminTab === "classes",
+      adminVocab: s.adminTab === "vocab",
+      adminAssign: s.adminTab === "assign",
+      adminTeachers: s.adminTab === "teachers",
 
-      editTeacherName: s.editTeacherName,
-      onEditTeacherName: (e) => this.setState({ editTeacherName: e.target.value }),
-      editTeacherAccount: s.editTeacherAccount,
-      onEditTeacherAccount: (e) => this.setState({ editTeacherAccount: e.target.value }),
-      editTeacherPassword: s.editTeacherPassword,
-      onEditTeacherPassword: (e) => this.setState({ editTeacherPassword: e.target.value }),
-      teacherFaceOptions: ["🍎", "👩‍🏫", "👨‍🏫", "🎓", "🌟", "🚀"].map((face) => ({
-        icon: face,
-        border: (s.editTeacherFace === face || (!s.editTeacherFace && face === "🍎")) ? "#7c5cff" : "#ece7ff",
-        bg: (s.editTeacherFace === face || (!s.editTeacherFace && face === "🍎")) ? "#f3efff" : "#fff",
-        pick: () => this.setState({ editTeacherFace: face })
-      })),
-      isTeacherGoogleBound: !!teacherById(s.teacherConfig, s.currentTeacherId).googleUid,
-      isTeacherNotGoogleBound: !teacherById(s.teacherConfig, s.currentTeacherId).googleUid,
-      teacherGoogleStatusLabel: teacherById(s.teacherConfig, s.currentTeacherId).googleUid ? "已綁定 Google 帳號" : "尚未綁定 Google 帳號",
-      teacherGoogleDetailLabel: teacherById(s.teacherConfig, s.currentTeacherId).email || (teacherById(s.teacherConfig, s.currentTeacherId).googleUid ? "UID: " + teacherById(s.teacherConfig, s.currentTeacherId).googleUid : "綁定後才能修改帳號、密碼與顯示名稱。"),
-      teacherGoogleBoundBorder: teacherById(s.teacherConfig, s.currentTeacherId).googleUid ? "rgba(52,168,83,.45)" : "#ece7ff",
-      teacherGoogleBoundBg: teacherById(s.teacherConfig, s.currentTeacherId).googleUid ? "rgba(52,168,83,.08)" : "#fbfaff",
-      teacherGoogleBoundColor: teacherById(s.teacherConfig, s.currentTeacherId).googleUid ? "#1d7a55" : "#2b1f57",
-      bindTeacherGoogle: () => this.bindTeacherGoogleAccount(),
-      unbindTeacherGoogle: () => this.unbindTeacherGoogleAccount(),
-      saveTeacherSettings: () => this.saveTeacherSettings(),
-      isTeacherManager: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin",
-      teacherSettingsLocked: !teacherById(s.teacherConfig, s.currentTeacherId).googleUid,
-      teacherRoleLabel: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin" ? "管理者" : "一般教師",
-      teacherDirectory: (s.teacherConfig.teachers || []).map((teacher) => ({ id: teacher.id, name: teacher.name, roleLabel: teacher.role === "admin" ? "管理者" : "一般教師", account: teacher.account, password: teacher.password, google: teacher.googleUid ? (teacher.email || "UID: " + teacher.googleUid.slice(0, 10) + "…") : "未綁定", lastLogin: teacher.lastLoginAt ? new Date(teacher.lastLoginAt).toLocaleString("zh-TW", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" }) : "尚未登入", editing: s.editingTeacherId === teacher.id, select: () => this.selectTeacherForSettings(teacher.id) })),
-      newTeacherName: s.newTeacherName,
-      newTeacherAccount: s.newTeacherAccount,
+      teachersAdminList: (s.teachersList || []).map((t) => {
+        const classNames = (t.assignedClassIds || []).map((id) => className(id)).join("、") || "尚未指派班級";
+        const googleBound = !!(t.googleEmail || t.googleLinked);
+        const enabled = t.enabled !== false;
+        return {
+          displayName: t.displayName || "未命名教師",
+          username: t.username || "-",
+          classesLabel: classNames,
+          googleStatus: googleBound ? (t.googleEmail ? "✓ " + t.googleEmail : "✓ 已綁定") : "⚪ 未綁定",
+          googleBadgeClass: googleBound ? "auth-badge-success" : "auth-badge-warning",
+          statusLabel: enabled ? "啟用中" : "已停用",
+          statusBadgeClass: enabled ? "auth-badge-success" : "auth-badge-danger",
+          lastLogin: t.lastLoginAt ? formatLastLogin(t.lastLoginAt.toDate ? t.lastLoginAt.toDate() : t.lastLoginAt) : "尚未登入",
+          cardClass: enabled ? "" : "disabled",
+          toggleBtnLabel: enabled ? "停用" : "啟用",
+          toggleBtnClass: enabled ? "admin-btn-danger" : "",
+          onEdit: () => this.openEditTeacherModal(t),
+          onResetPassword: () => this.openResetTeacherPasswordModal(t),
+          onToggleEnabled: () => this.toggleTeacherEnabled(t)
+        };
+      }),
+      noTeachersInAdmin: (s.teachersList || []).length === 0,
+      openCreateTeacherModal: () => this.openCreateTeacherModal(),
+      closeCreateTeacherModal: () => this.closeCreateTeacherModal(),
+      createTeacherModalHidden: !s.createTeacherModalOpen,
+      newTeacherDisplayName: s.newTeacherDisplayName,
+      newTeacherUsername: s.newTeacherUsername,
       newTeacherPassword: s.newTeacherPassword,
-      changeNewTeacherName: (e) => this.setState({ newTeacherName: e.target.value }),
-      changeNewTeacherAccount: (e) => this.setState({ newTeacherAccount: e.target.value }),
-      changeNewTeacherPassword: (e) => this.setState({ newTeacherPassword: e.target.value }),
-      addTeacherAccount: () => this.addTeacherAccount(),
+      changeNewTeacherDisplayName: (e) => this.setState({ newTeacherDisplayName: e.target.value, createTeacherError: "" }),
+      changeNewTeacherUsername: (e) => this.setState({ newTeacherUsername: e.target.value, createTeacherError: "" }),
+      changeNewTeacherPassword: (e) => this.setState({ newTeacherPassword: e.target.value, createTeacherError: "" }),
+      createTeacherClassOptions: s.classes.map((c) => ({
+        id: c.id,
+        name: c.name,
+        selected: (s.newTeacherClassIds || []).includes(c.id),
+        toggle: () => {
+          const cur = (s.newTeacherClassIds || []).slice();
+          const idx = cur.indexOf(c.id);
+          if (idx >= 0) cur.splice(idx, 1); else cur.push(c.id);
+          this.setState({ newTeacherClassIds: cur });
+        }
+      })),
+      createTeacherError: s.createTeacherError,
+      submitCreateTeacher: () => this.submitCreateTeacher(),
+
+      editTeacherModalHidden: !s.editTeacherModalOpen,
+      editTeacherDisplayName: s.editTeacherDisplayName,
+      changeEditTeacherDisplayName: (e) => this.setState({ editTeacherDisplayName: e.target.value, editTeacherError: "" }),
+      editTeacherClassOptions: s.classes.map((c) => ({
+        id: c.id,
+        name: c.name,
+        selected: (s.editTeacherClassIds || []).includes(c.id),
+        toggle: () => {
+          const cur = (s.editTeacherClassIds || []).slice();
+          const idx = cur.indexOf(c.id);
+          if (idx >= 0) cur.splice(idx, 1); else cur.push(c.id);
+          this.setState({ editTeacherClassIds: cur });
+        }
+      })),
+      editTeacherError: s.editTeacherError,
+      submitEditTeacher: () => this.submitEditTeacher(),
+      closeEditTeacherModal: () => this.closeEditTeacherModal(),
+
+      resetTeacherModalHidden: !s.resetTeacherModalOpen,
+      resetTeacherTargetName: s.resetTeacherTargetName,
+      resetTeacherNewPassword: s.resetTeacherNewPassword,
+      changeResetTeacherNewPassword: (e) => this.setState({ resetTeacherNewPassword: e.target.value, resetTeacherError: "" }),
+      resetTeacherError: s.resetTeacherError,
+      submitResetTeacherPassword: () => this.submitResetTeacherPassword(),
+      closeResetTeacherPasswordModal: () => this.closeResetTeacherPasswordModal(),
+
+      // Teacher Scoped Dashboard
+      teacherNavTabs: [
+        { key: "home", label: "🍎 首頁概況" },
+        { key: "classes", label: "🏫 我的班級" },
+        { key: "students", label: "👥 我的學生" },
+        { key: "profile", label: "🔐 我的帳號" }
+      ].map((tab) => ({
+        label: tab.label,
+        activeClass: s.teacherTab === tab.key ? "active" : "",
+        go: () => this.setState({ teacherTab: tab.key })
+      })),
+      isTeacherTabHome: s.teacherTab === "home",
+      isTeacherTabClasses: s.teacherTab === "classes",
+      isTeacherTabStudents: s.teacherTab === "students",
+      isTeacherTabProfile: s.teacherTab === "profile",
+      currentTeacherDisplayName: s.currentTeacherProfile ? s.currentTeacherProfile.displayName : "教師",
+      currentTeacherUsername: s.currentTeacherProfile ? s.currentTeacherProfile.username : "-",
+      currentTeacherGoogleEmail: (s.currentTeacherProfile && s.currentTeacherProfile.googleEmail) || "✓ 已綁定 Google",
+      teacherAssignedClassesCount: ((s.currentTeacherProfile && s.currentTeacherProfile.assignedClassIds) || []).length,
+      teacherAssignedStudentsCount: s.students.filter((st) => ((s.currentTeacherProfile && s.currentTeacherProfile.assignedClassIds) || []).includes(st.classId)).length,
+      teacherTodayLoggedInCount: s.students.filter((st) => ((s.currentTeacherProfile && s.currentTeacherProfile.assignedClassIds) || []).includes(st.classId) && hasSignedToday(st.profile)).length,
+      teacherClassCards: s.classes.filter((c) => ((s.currentTeacherProfile && s.currentTeacherProfile.assignedClassIds) || []).includes(c.id)).map((c) => ({
+        name: c.name,
+        count: s.students.filter((st) => st.classId === c.id).length
+      })),
+      teacherStudentRows: s.students.filter((st) => ((s.currentTeacherProfile && s.currentTeacherProfile.assignedClassIds) || []).includes(st.classId)).map((st) => ({
+        seat: st.seat,
+        name: st.name,
+        className: className(st.classId),
+        level: Math.floor(((st.profile && st.profile.xp) || 0) / 100) + 1,
+        xp: (st.profile && st.profile.xp) || 0,
+        streak: (st.profile && st.profile.streak) || 0,
+        lastLogin: formatLastLogin(st.profile && st.profile.lastLoginAt)
+      })),
+      teacherSelfNewPassword: s.teacherSelfNewPassword,
+      teacherSelfConfirmPassword: s.teacherSelfConfirmPassword,
+      teacherSelfPasswordError: s.teacherSelfPasswordError,
+      changeTeacherSelfNewPassword: (e) => this.setState({ teacherSelfNewPassword: e.target.value, teacherSelfPasswordError: "" }),
+      changeTeacherSelfConfirmPassword: (e) => this.setState({ teacherSelfConfirmPassword: e.target.value, teacherSelfPasswordError: "" }),
+      submitTeacherSelfPasswordChange: () => this.submitTeacherSelfPasswordChange(),
 
       weeklyTeacherTime: s.weeklyConfig.timeSeconds,
       weeklyTimeOptions: [15, 20, 30, 45, 60, 90, 120].map((value) => ({ value, label: value + " 秒" })),

@@ -1,0 +1,99 @@
+/* styles/teacher.css - Scoped Teacher Dashboard */
+
+.teacher-dashboard-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.teacher-nav-bar {
+  display: flex;
+  gap: 8px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 8px;
+  border: 1px solid #ece7ff;
+  box-shadow: 0 8px 24px rgba(43, 31, 87, 0.04);
+  overflow-x: auto;
+}
+
+.teacher-nav-item {
+  padding: 10px 18px;
+  border-radius: 14px;
+  border: 0;
+  background: transparent;
+  color: #7c74a8;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.teacher-nav-item.active {
+  background: #2b1f57;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(43, 31, 87, 0.2);
+}
+
+.teacher-section-card {
+  background: #ffffff;
+  border: 1px solid #ece7ff;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(43, 31, 87, 0.05);
+}
+
+.teacher-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.teacher-stat-box {
+  background: #fbfaff;
+  border: 1px solid #ece7ff;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.teacher-stat-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #7c74a8;
+}
+
+.teacher-stat-num {
+  font-size: 26px;
+  font-weight: 900;
+  color: #2b1f57;
+}
+
+.teacher-class-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  background: #f2edff;
+  color: #5b3fe0;
+  font-size: 13px;
+  font-weight: 800;
+  border: 1px solid #ddd5ff;
+}
+
+.teacher-empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #9a90c8;
+}
+
+.teacher-empty-icon {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
