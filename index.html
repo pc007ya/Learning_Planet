@@ -13,6 +13,7 @@
 <script src="./support.js"></script>
 <script src="./sci-art.js"></script>
 <script type="module" src="./src/firebase-config.js"></script>
+<script type="module" src="./auth-v2/firebase-client.js"></script>
 <script type="module" src="./modules/earth-orbit/earth-orbit-v01.js"></script>
 </head>
 <body>
@@ -862,6 +863,23 @@
 .gacha-collection-focus{display:grid!important;gap:16px!important}.gacha-focus .gacha-collection-hero{position:relative;isolation:isolate;overflow:hidden;min-height:172px;border:1px solid rgba(130,222,255,.5)!important;border-radius:30px!important;background:linear-gradient(110deg,rgba(8,10,42,.94),rgba(29,16,75,.76))!important;box-shadow:0 18px 44px rgba(0,0,0,.35)!important}.gacha-focus .gacha-collection-hero:after{content:"";position:absolute;z-index:-1;right:-22px;bottom:-85px;width:330px;height:330px;background:url('images/home/hud/gacha-planet-v2.png') center/contain no-repeat;filter:drop-shadow(0 0 22px rgba(255,123,192,.4));opacity:.94}.gacha-focus .gacha-collection-hero-art{width:66px;height:66px;border-radius:20px!important;background:rgba(123,86,255,.2)!important;border:1px solid rgba(158,237,255,.5);z-index:1}.gacha-focus .gacha-collection-hero-art img{width:78px!important;height:78px!important;object-fit:contain!important}.gacha-focus .gacha-collection-hero h2{color:#fff}.gacha-focus .gacha-collection-hero>div,.gacha-focus .gacha-collection-hero>button,.gacha-focus .gacha-collection-hero>span{position:relative;z-index:1}.gacha-focus .gacha-collection-category{border-color:rgba(147,219,255,.28)!important;background:linear-gradient(145deg,rgba(15,19,60,.9),rgba(30,19,73,.74))!important;color:#fff!important;box-shadow:inset 0 1px rgba(255,255,255,.1),0 10px 22px rgba(0,0,0,.22)!important}.gacha-focus .gacha-collection-category strong{color:#fff!important}.gacha-focus .gacha-collection-category div:last-child{background:rgba(255,255,255,.14)!important}.gacha-focus .gacha-collection-filter{background:rgba(15,19,61,.76)!important;color:#eaf9ff!important;border-color:rgba(150,225,255,.35)!important}.gacha-focus .gacha-collection-filter[data-active="true"]{background:linear-gradient(100deg,#6547db,#19b9d5)!important;border-color:#8eedff!important}.gacha-focus .gacha-collection-card{border-color:rgba(129,226,255,.48)!important;background:linear-gradient(150deg,rgba(20,25,73,.94),rgba(54,28,91,.82))!important;box-shadow:inset 0 1px rgba(255,255,255,.12),0 12px 24px rgba(0,0,0,.24)!important;color:#fff}.gacha-focus .gacha-collection-card>div:first-child{background:radial-gradient(circle,rgba(126,221,255,.18),transparent 68%)!important}.gacha-focus .gacha-collection-card span{color:#c9ddff!important}.gacha-focus .gacha-collection-pager{color:#c9ddff!important}.gacha-focus .gacha-collection-pager button{border-color:rgba(145,227,255,.42)!important;background:rgba(16,22,69,.82)!important;color:#ecf9ff!important}
 .gacha-focus .gacha-collection-focus>section:nth-of-type(2)>button{border-color:rgba(147,219,255,.28)!important;background:linear-gradient(145deg,rgba(15,19,60,.9),rgba(30,19,73,.74))!important;color:#fff!important;box-shadow:inset 0 1px rgba(255,255,255,.1),0 10px 22px rgba(0,0,0,.22)!important}.gacha-focus .gacha-collection-focus>section:nth-of-type(2)>button strong{color:#fff!important}.gacha-focus .gacha-collection-focus>section:nth-of-type(2)>button>div:last-child{background:rgba(255,255,255,.14)!important}.gacha-focus .gacha-collection-focus>section:nth-of-type(3)>button{background:rgba(15,19,61,.76)!important;color:#eaf9ff!important;border-color:rgba(150,225,255,.35)!important}.gacha-focus .gacha-collection-focus>section:nth-of-type(4)>article{border-color:rgba(129,226,255,.48)!important;background:linear-gradient(150deg,rgba(20,25,73,.94),rgba(54,28,91,.82))!important;box-shadow:inset 0 1px rgba(255,255,255,.12),0 12px 24px rgba(0,0,0,.24)!important;color:#fff}.gacha-focus .gacha-collection-focus>section:nth-of-type(4)>article>div:first-child{background:radial-gradient(circle,rgba(126,221,255,.18),transparent 68%)!important}.gacha-focus .gacha-collection-focus>section:nth-of-type(4)>article span{color:#c9ddff!important}.gacha-focus .gacha-collection-focus>div:last-child{color:#c9ddff!important}.gacha-focus .gacha-collection-focus>div:last-child button{border-color:rgba(145,227,255,.42)!important;background:rgba(16,22,69,.82)!important;color:#ecf9ff!important}
 @media(max-width:700px){.gacha-focus{padding:74px 12px 22px!important}.gacha-focus .gacha-machine-stage{min-height:540px!important}.gacha-focus .gacha-collection-hero{min-height:190px}.gacha-focus .gacha-collection-hero:after{right:-88px;opacity:.45}.gacha-focus .gacha-collection-hero-art{width:54px;height:54px}.gacha-focus .gacha-collection-hero-art img{width:62px!important;height:62px!important}}
+/* Auth v2 teacher console: the navigation belongs in the document flow so it
+   never covers a settings panel while iPad Safari changes its viewport. */
+.app-shell.admin-focus{min-height:100svh!important;padding:16px clamp(16px,3vw,34px) 40px!important;overflow:visible!important;background:radial-gradient(circle at 82% 6%,rgba(32,116,221,.22),transparent 28%),radial-gradient(circle at 12% 88%,rgba(112,69,210,.2),transparent 32%),#050826!important;color:#eef8ff!important}
+.admin-focus .app-header{position:relative!important;inset:auto!important;z-index:30!important;margin:0 auto 16px!important;max-width:1240px!important;min-height:64px!important;padding:10px 14px!important;border:1px solid rgba(85,224,255,.36)!important;border-radius:22px!important;background:linear-gradient(100deg,rgba(7,15,54,.94),rgba(14,26,75,.82))!important;box-shadow:inset 0 1px rgba(255,255,255,.1),0 16px 36px rgba(0,0,0,.28)!important;backdrop-filter:blur(14px)}
+.admin-focus [data-screen-label="教師後台"]>div:first-child{position:relative!important;top:auto!important;z-index:10!important;max-width:1240px!important;margin:0 auto 14px!important;border:1px solid rgba(86,225,255,.26)!important;border-radius:18px!important;background:rgba(8,17,59,.7)!important;backdrop-filter:blur(12px)}
+.admin-focus .teacher-settings-shell{position:relative;z-index:1;max-width:1240px;margin:0 auto!important;border:1px solid rgba(87,229,255,.34)!important;background:linear-gradient(145deg,rgba(8,17,58,.94),rgba(13,26,79,.84))!important;box-shadow:inset 0 1px rgba(255,255,255,.08),0 22px 54px rgba(0,0,0,.3)!important;backdrop-filter:blur(14px)}
+.admin-focus .teacher-settings-shell h2,.admin-focus .teacher-settings-shell h3{color:#f4fbff!important}.admin-focus .teacher-settings-shell label,.admin-focus .teacher-settings-shell p,.admin-focus .teacher-settings-shell span{color:#b8d6f2!important}
+.teacher-settings-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px;padding:2px 0 16px;border-bottom:1px solid rgba(95,224,255,.2)}
+.teacher-settings-role-chip{display:inline-flex!important;align-items:center;min-height:34px;padding:0 13px!important;border:1px solid rgba(93,237,201,.55);border-radius:999px;background:rgba(43,207,175,.1);color:#71ffd8!important;font-size:12px!important;font-weight:900!important;letter-spacing:.04em}
+.admin-focus .teacher-settings-card{border-color:rgba(91,220,255,.34)!important;background:linear-gradient(145deg,rgba(18,47,98,.86),rgba(8,28,70,.9))!important;box-shadow:inset 0 1px rgba(255,255,255,.08)!important}
+.admin-focus .teacher-settings-card input,.admin-focus .teacher-settings-shell input,.admin-focus .teacher-settings-shell select{border-color:rgba(100,223,255,.5)!important;background:rgba(3,14,49,.62)!important;color:#f6fbff!important;box-shadow:inset 0 1px rgba(255,255,255,.05)!important}
+.admin-focus .teacher-settings-card input::placeholder,.admin-focus .teacher-settings-shell input::placeholder{color:#7796bb!important}
+.admin-focus .teacher-avatar-choice{overflow:hidden;border-radius:14px!important;background:rgba(5,19,59,.72)!important}.admin-focus .teacher-avatar-choice img{width:100%;height:100%;object-fit:cover;display:block}
+.admin-focus .teacher-cloud-safety-note{border-color:rgba(103,221,255,.35)!important;background:rgba(13,46,93,.58)!important;color:#bcdcf4!important}.admin-focus .teacher-cloud-safety-note strong{color:#79edff!important}
+.admin-focus .teacher-directory-head{color:#a8c7e8!important}.admin-focus .teacher-directory-row{border-color:rgba(91,220,255,.28)!important;background:rgba(8,26,66,.72)!important;color:#ecf9ff!important}.admin-focus .teacher-directory-row[style*="edf4ff"]{background:rgba(27,79,142,.72)!important}
+.admin-focus .teacher-directory-create{border:1px solid rgba(93,221,255,.28)!important;background:linear-gradient(110deg,rgba(8,28,73,.88),rgba(17,40,86,.66))!important}.admin-focus .teacher-directory-row.is-editing{border-color:#67ecff!important;background:linear-gradient(100deg,rgba(29,88,150,.86),rgba(41,36,116,.86))!important;box-shadow:0 0 0 2px rgba(88,225,255,.18),0 10px 24px rgba(0,0,0,.18)}.admin-focus .teacher-directory-row b{color:#62e9ff!important}.admin-focus .teacher-directory-row small{color:#8fc9ef!important}
+@media(max-width:760px){.app-shell.admin-focus{padding:10px 10px 28px!important}.admin-focus .app-header{margin-bottom:10px!important;border-radius:16px!important}.admin-focus .teacher-settings-shell{padding:16px!important;border-radius:20px!important}.teacher-settings-heading{align-items:flex-start}.teacher-settings-role-chip{max-width:100%;white-space:normal}.admin-focus .teacher-directory-head{display:none!important}.admin-focus .teacher-directory-row{grid-template-columns:1fr 1fr!important}.admin-focus .teacher-directory-row span:nth-of-type(n+3){display:none!important}}
 </style>
 <style>
   /* Magnetic objects attach to the magnet instead of jittering in place. */
@@ -3052,22 +3070,23 @@
 
         <sc-if value="{{ adminSettings }}" hint-placeholder-val="{{ false }}">
           <section class="teacher-settings-shell" style="border-radius:28px;padding:24px">
-            <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px">
+            <div class="teacher-settings-heading">
               <div>
                 <p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:#57eaff">TEACHER PROFILE &amp; SECURITY</p>
-                <h2 style="margin:8px 0 0;font-size:28px;font-weight:900">教師帳號與安全性設定</h2>
-                <p style="margin:6px 0 0;font-size:13px;font-weight:700;color:#9a90c8">目前角色：{{ teacherRoleLabel }}。一般教師只能管理自己的帳號；管理者綁定 Google 後可維護全體教師。</p>
+                <h2 style="margin:8px 0 0;font-size:28px;font-weight:900">{{ teacherSettingsTitle }}</h2>
+                <p style="margin:6px 0 0;font-size:13px;font-weight:700;color:#9a90c8">{{ teacherSettingsDescription }}</p>
               </div>
+              <span class="teacher-settings-role-chip">{{ teacherSettingsTarget }}</span>
             </div>
 
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px">
-              <div class="teacher-settings-card" style="background:#fbfaff;border:1px solid #ece7ff;border-radius:22px;padding:20px">
-                <h3 style="margin:0 0 14px;font-size:17px;font-weight:900;color:#2b1f57">教師基本資料</h3>
-                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800;color:#7c74a8">
+              <div class="teacher-settings-card" style="border-radius:22px;padding:20px">
+                <h3 style="margin:0 0 14px;font-size:17px;font-weight:900">{{ teacherProfileCardTitle }}</h3>
+                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800">
                   老師稱謂／顯示名稱
-                  <input value="{{ editTeacherName }}" onChange="{{ onEditTeacherName }}" placeholder="例如：陳老師" style="display:block;width:100%;margin-top:6px;border:1.5px solid #ddd5ff;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57;background:#fff" />
+                  <input value="{{ editTeacherName }}" onChange="{{ onEditTeacherName }}" placeholder="例如：陳老師" style="display:block;width:100%;margin-top:6px;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit" />
                 </label>
-                <p style="margin:0 0 8px;font-size:13px;font-weight:800;color:#7c74a8">選擇教師代表圖示</p>
+                <p style="margin:0 0 8px;font-size:13px;font-weight:800">選擇教師代表圖示</p>
                 <div style="display:flex;gap:10px;flex-wrap:wrap">
                   <sc-for list="{{ teacherFaceOptions }}" as="f" hint-placeholder-count="6">
                     <button class="teacher-avatar-choice" onClick="{{ f.pick }}" title="選擇教師頭像" style="width:46px;height:46px;border-radius:14px;border:2px solid {{ f.border }};background:{{ f.bg }};font-size:24px;cursor:pointer;display:grid;place-items:center"><img src="{{ f.image }}" alt=""></button>
@@ -3075,15 +3094,15 @@
                 </div>
               </div>
 
-              <div class="teacher-settings-card" style="background:#fbfaff;border:1px solid #ece7ff;border-radius:22px;padding:20px">
-                <h3 style="margin:0 0 14px;font-size:17px;font-weight:900;color:#2b1f57">登入帳號與密碼</h3>
-                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800;color:#7c74a8">
+              <div class="teacher-settings-card" style="border-radius:22px;padding:20px">
+                <h3 style="margin:0 0 14px;font-size:17px;font-weight:900">{{ teacherCredentialCardTitle }}</h3>
+                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800">
                   教師登入帳號
-                  <input value="{{ editTeacherAccount }}" onChange="{{ onEditTeacherAccount }}" placeholder="例如：teacher" style="display:block;width:100%;margin-top:6px;border:1.5px solid #ddd5ff;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57;background:#fff" />
+                  <input value="{{ editTeacherAccount }}" onChange="{{ onEditTeacherAccount }}" placeholder="例如：teacher" style="display:block;width:100%;margin-top:6px;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit" />
                 </label>
-                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800;color:#7c74a8">
+                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800">
                   教師登入密碼
-                  <input type="password" value="{{ editTeacherPassword }}" onChange="{{ onEditTeacherPassword }}" placeholder="輸入新密碼" style="display:block;width:100%;margin-top:6px;border:1.5px solid #ddd5ff;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57;background:#fff" />
+                  <input type="password" value="{{ editTeacherPassword }}" onChange="{{ onEditTeacherPassword }}" placeholder="輸入新密碼" style="display:block;width:100%;margin-top:6px;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit" />
                 </label>
               </div>
             </div>
@@ -3098,14 +3117,11 @@
                 </svg>
                 <div>
                   <strong style="display:block;font-size:15px;font-weight:900;color:{{ teacherGoogleBoundColor }}">{{ teacherGoogleStatusLabel }}</strong>
-                  <span style="display:block;font-size:12px;font-weight:700;color:#7c74a8">{{ teacherGoogleDetailLabel }}</span>
+                  <span style="display:block;font-size:12px;font-weight:700">{{ teacherGoogleDetailLabel }}</span>
                 </div>
               </div>
               <div>
-                <sc-if value="{{ isTeacherGoogleBound }}" hint-placeholder-val="{{ false }}">
-                  <button onClick="{{ unbindTeacherGoogle }}" style="border:1px solid #ffccd7;background:#fff1f4;color:#d83b68;border-radius:14px;padding:10px 16px;font-size:13px;font-weight:900;cursor:pointer">解除綁定</button>
-                </sc-if>
-                <sc-if value="{{ isTeacherNotGoogleBound }}" hint-placeholder-val="{{ true }}">
+                <sc-if value="{{ canBindOwnTeacherGoogle }}" hint-placeholder-val="{{ true }}">
                   <button onClick="{{ bindTeacherGoogle }}" style="border:0;background:linear-gradient(90deg,#4285F4,#34A853);color:#fff;border-radius:14px;padding:10px 20px;font-size:13px;font-weight:900;cursor:pointer;box-shadow:0 4px 14px rgba(66,133,244,.35)">立即綁定 Google 帳號</button>
                 </sc-if>
               </div>
@@ -3123,11 +3139,11 @@
             <sc-if value="{{ isTeacherManager }}" hint-placeholder-val="{{ false }}">
               <div style="margin-top:26px;padding-top:24px;border-top:1px solid rgba(120,210,255,.24)">
                 <h3 style="margin:0 0 8px;font-size:20px;font-weight:900">管理者：教師帳號清單</h3>
-                <p style="margin:0 0 14px;font-size:13px;font-weight:700;color:#9a90c8">Google 綁定後，可建立一般教師並選取帳號進行修改。Google 綁定與 UID 狀態由每位教師自行完成。</p>
-                <div style="display:grid;grid-template-columns:1.1fr 1fr 1fr auto;gap:10px;padding:14px;border:1px solid #ece7ff;border-radius:18px;background:#fbfaff">
-                  <input value="{{ newTeacherName }}" onChange="{{ changeNewTeacherName }}" placeholder="教師名稱" style="min-width:0;border:1px solid #ddd5ff;border-radius:11px;padding:11px;font:800 14px inherit">
-                  <input value="{{ newTeacherAccount }}" onChange="{{ changeNewTeacherAccount }}" placeholder="預設帳號" style="min-width:0;border:1px solid #ddd5ff;border-radius:11px;padding:11px;font:800 14px inherit">
-                  <input type="password" value="{{ newTeacherPassword }}" onChange="{{ changeNewTeacherPassword }}" placeholder="預設密碼" style="min-width:0;border:1px solid #ddd5ff;border-radius:11px;padding:11px;font:800 14px inherit">
+                <p style="margin:0 0 14px;font-size:13px;font-weight:700">Google 綁定後，可建立一般教師並選取帳號進行修改。Google 綁定與 UID 狀態由每位教師自行完成。</p>
+                <div class="teacher-directory-create" style="display:grid;grid-template-columns:1.1fr 1fr 1fr auto;gap:10px;padding:14px;border-radius:18px">
+                  <input value="{{ newTeacherName }}" onChange="{{ changeNewTeacherName }}" placeholder="教師名稱" style="min-width:0;border-radius:11px;padding:11px;font:800 14px inherit">
+                  <input value="{{ newTeacherAccount }}" onChange="{{ changeNewTeacherAccount }}" placeholder="預設帳號" style="min-width:0;border-radius:11px;padding:11px;font:800 14px inherit">
+                  <input type="password" value="{{ newTeacherPassword }}" onChange="{{ changeNewTeacherPassword }}" placeholder="預設密碼" style="min-width:0;border-radius:11px;padding:11px;font:800 14px inherit">
                   <button onClick="{{ addTeacherAccount }}" style="border:0;border-radius:11px;padding:11px 15px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font:900 14px inherit;cursor:pointer">＋新增</button>
                 </div>
                 <div style="display:grid;gap:8px;margin-top:12px">
@@ -3135,8 +3151,8 @@
                     <span>教師／角色</span><span>帳號</span><span>密碼</span><span>最後登入</span><span>Google Email／UID</span><span>操作</span>
                   </div>
                   <sc-for list="{{ teacherDirectory }}" as="teacher" hint-placeholder-count="2">
-                    <button class="teacher-directory-row" onClick="{{ teacher.select }}" style="display:grid;grid-template-columns:1.1fr .8fr .8fr 1fr 1fr auto;align-items:center;gap:10px;border:1px solid {{ teacher.editing ? '#6e8dff' : '#dce8ff' }};border-radius:15px;padding:12px 14px;background:{{ teacher.editing ? '#edf4ff' : '#fff' }};text-align:left;cursor:pointer;font-family:inherit">
-                      <strong class="teacher-directory-name">{{ teacher.name }}<small style="display:block;color:#7c74a8">{{ teacher.roleLabel }}</small></strong><span>{{ teacher.account }}</span><span aria-label="密碼已隱藏">••••••</span><span>{{ teacher.lastLogin }}</span><span class="teacher-directory-google">{{ teacher.google }}</span><b style="color:#5e4bd6">編輯</b>
+                    <button class="teacher-directory-row {{ teacher.editing ? 'is-editing' : '' }}" onClick="{{ teacher.select }}" style="display:grid;grid-template-columns:1.1fr .8fr .8fr 1fr 1fr auto;align-items:center;gap:10px;border-radius:15px;padding:12px 14px;text-align:left;cursor:pointer;font-family:inherit">
+                      <strong class="teacher-directory-name">{{ teacher.name }}<small style="display:block">{{ teacher.roleLabel }}</small></strong><span>{{ teacher.account }}</span><span aria-label="密碼已隱藏">••••••</span><span>{{ teacher.lastLogin }}</span><span class="teacher-directory-google">{{ teacher.google }}</span><b>編輯</b>
                     </button>
                   </sc-for>
                 </div>
@@ -4187,14 +4203,7 @@ function saveWeeklyConfig(value) {
   try { localStorage.setItem(WEEKLY_CONFIG_STORE_KEY, JSON.stringify(value)); } catch (_) {}
 }
 
-const TEACHER_FACE_IMAGES = [
-  "images/teacher/teacher_01.png",
-  "images/teacher/teacher_02.png",
-  "images/teacher/teacher_03.png",
-  "images/teacher/teacher_04.png",
-  "images/teacher/teacher_05.png",
-  "images/teacher/teacher_06.png"
-];
+const TEACHER_FACE_IMAGES = Array.from({ length: 24 }, (_, index) => `images/teacher/teacher_${String(index + 1).padStart(2, "0")}.png`);
 function normalizeTeacherFace(face, fallbackIndex = 0) {
   const normalizedIndex = Math.max(0, Math.min(TEACHER_FACE_IMAGES.length - 1, Number(fallbackIndex) || 0));
   return typeof face === "string" && face.indexOf("images/teacher/") === 0
@@ -4205,7 +4214,7 @@ function normalizeTeacherFace(face, fallbackIndex = 0) {
 const TEACHER_CONFIG_STORE_KEY = "learning_planet_teacher_config_v1";
 function defaultTeacherRecord(data = {}) {
   return Object.assign({
-    id: "", role: "teacher", name: "王老師", account: "teacher01", password: "1234",
+    id: "", role: "teacher", name: "王老師", account: "teacher01", password: "",
     face: TEACHER_FACE_IMAGES[1], tint: "#dff5ff", googleUid: "", email: "", lastLoginAt: ""
   }, data);
 }
@@ -4213,7 +4222,7 @@ function defaultTeacherConfig() {
   return {
     version: 2,
     teachers: [
-      defaultTeacherRecord({ id: "admin-chen", role: "admin", name: "陳老師", account: "teacher", password: "1234", face: TEACHER_FACE_IMAGES[0], tint: "#ffe0e6" }),
+      defaultTeacherRecord({ id: "admin-chen", role: "admin", name: "陳老師", account: "admin", password: "", face: TEACHER_FACE_IMAGES[0], tint: "#ffe0e6" }),
       defaultTeacherRecord({ id: "teacher-wang", role: "teacher" })
     ]
   };
@@ -4229,7 +4238,7 @@ function normalizeTeacherConfig(saved) {
   return {
     version: 2,
     teachers: [
-      defaultTeacherRecord({ id: "admin-chen", role: "admin", name: saved.name || "陳老師", account: saved.account || "teacher", password: saved.password || "1234", face: normalizeTeacherFace(saved.face, 0), tint: saved.tint || "#ffe0e6", googleUid: saved.googleUid || "", email: saved.email || "", lastLoginAt: saved.lastLoginAt || "" }),
+      defaultTeacherRecord({ id: "admin-chen", role: "admin", name: saved.name || "陳老師", account: saved.account || "admin", password: "", face: normalizeTeacherFace(saved.face, 0), tint: saved.tint || "#ffe0e6", googleUid: saved.googleUid || "", email: saved.email || "", lastLoginAt: saved.lastLoginAt || "" }),
       fallback.teachers[1]
     ]
   };
@@ -4760,7 +4769,9 @@ function makeProfile() {
     gachaOwned: {}, gachaHistory: [], gachaDraws: 0,
     achievementHistory: [],
     cardAvatarIndex: 0, cardTheme: "C", englishName: "",
-    loginAccount: "", loginPassword: "", lastLoginAt: "",
+    // Passwords belong exclusively to Firebase Authentication.  The browser
+    // may retain a login name for display, but never a password.
+    loginAccount: "", lastLoginAt: "",
   };
 }
 function achievedMilestoneEntries(profile) {
@@ -4850,10 +4861,6 @@ function studentLoginAccount(student) {
   const classDigits = String(student && student.classId || "301").replace(/[^0-9]/g, "") || "301";
   const seatDigits = String(student && student.seat || "01").replace(/[^0-9]/g, "").padStart(2, "0");
   return classDigits + seatDigits;
-}
-function studentLoginPassword(student) {
-  const stored = String(student && student.profile && student.profile.loginPassword || "");
-  return stored || "LP" + String(student && student.seat || "01").replace(/[^0-9]/g, "").padStart(2, "0");
 }
 function formatLastLogin(value) {
   if (!value) return "尚未登入";
@@ -5073,16 +5080,20 @@ class Component extends DCLogic {
   }
   cloudRosterPayload() {
     return {
-      schemaVersion: 1,
+      schemaVersion: 2,
       classes: (this.state.classes || []).map((item) => Object.assign({}, item)),
       students: (this.state.students || []).map((student) => ({ id: student.id, name: student.name, seat: student.seat, classId: student.classId, face: student.face || "", tint: student.tint || "", profile: this.cloudSafeProfile(student.profile) })),
       teachers: (this.state.teacherConfig.teachers || []).map((teacher) => ({ id: teacher.id, role: teacher.role, name: teacher.name, account: teacher.account, face: normalizeTeacherFace(teacher.face), tint: teacher.tint, googleUid: teacher.googleUid || "", email: teacher.email || "", lastLoginAt: teacher.lastLoginAt || "" }))
     };
   }
   queueCloudRosterSync() {
-    if (this.applyingCloudRoster || !window.LearningPlanetFirebase || !window.LearningPlanetFirebase.saveRosterToFirestore) return;
+    const authV2 = window.LearningPlanetAuthV2;
+    const current = teacherById(this.state.teacherConfig, this.state.currentTeacherId);
+    if (this.applyingCloudRoster || !authV2 || !authV2.saveRosterSnapshot || !this.state.teacher || !current || current.role !== "admin" || !current.googleUid) return;
     clearTimeout(this.cloudRosterTimer);
-    this.cloudRosterTimer = setTimeout(() => window.LearningPlanetFirebase.saveRosterToFirestore(this.cloudRosterPayload()), 550);
+    this.cloudRosterTimer = setTimeout(() => {
+      authV2.saveRosterSnapshot(this.cloudRosterPayload()).catch((error) => console.warn("Cloud roster save failed:", error));
+    }, 550);
   }
   applyCloudRoster(remote) {
     if (!remote || this.applyingCloudRoster || !Array.isArray(remote.students)) return;
@@ -5097,28 +5108,67 @@ class Component extends DCLogic {
       const localTeachers = new Map((state.teacherConfig.teachers || []).map((teacher) => [teacher.id, teacher]));
       const teachers = Array.isArray(remote.teachers) ? remote.teachers.map((entry, index) => {
         const local = localTeachers.get(entry.id) || {};
-        return defaultTeacherRecord(Object.assign({}, entry, { password: local.password || "", face: normalizeTeacherFace(entry.face, index) }));
+        return defaultTeacherRecord(Object.assign({}, local, entry, { password: "", face: normalizeTeacherFace(entry.face, index) }));
       }) : state.teacherConfig.teachers;
       return { students, classes: Array.isArray(remote.classes) ? remote.classes : state.classes, teacherConfig: Object.assign({}, state.teacherConfig, { teachers }) };
     }, () => { this.applyingCloudRoster = false; });
   }
   enableCloudRosterSync() {
-    if (this.cloudRosterUnsubscribe || !window.LearningPlanetFirebase || !window.LearningPlanetFirebase.watchRosterFromFirestore) return;
-    this.cloudRosterUnsubscribe = window.LearningPlanetFirebase.watchRosterFromFirestore((remote) => this.applyCloudRoster(remote));
-    if (window.LearningPlanetFirebase.loadRosterFromFirestore) window.LearningPlanetFirebase.loadRosterFromFirestore().then((remote) => this.applyCloudRoster(remote));
+    const authV2 = window.LearningPlanetAuthV2;
+    if (this.cloudRosterUnsubscribe || !authV2 || !authV2.subscribeRosterSnapshot) return;
+    authV2.currentRole().then((role) => {
+      if (role !== "admin" || this.cloudRosterUnsubscribe) return;
+      this.cloudRosterUnsubscribe = authV2.subscribeRosterSnapshot((remote) => this.applyCloudRoster(remote));
+      authV2.loadRosterSnapshot().then((remote) => this.applyCloudRoster(remote)).catch(() => {});
+    }).catch(() => {});
+  }
+  async syncCloudRosterAccounts() {
+    const authV2 = window.LearningPlanetAuthV2;
+    const current = teacherById(this.state.teacherConfig, this.state.currentTeacherId);
+    if (!authV2 || !current || current.role !== "admin" || !current.googleUid) return;
+    try {
+      const cloudStudents = await authV2.fetchStudentsList();
+      const byUsername = new Map(cloudStudents.map((item) => [String(item.username || "").toLowerCase(), item]));
+      const updates = [];
+      for (const student of this.state.students) {
+        const username = studentLoginAccount(student).toLowerCase();
+        let remote = byUsername.get(username);
+        const payload = { displayName: student.name, username, classId: student.classId, seat: student.seat, avatar: studentAvatarImage(student.profile && student.profile.cardAvatarIndex) };
+        if (remote) await authV2.updateStudent(Object.assign({ uid: remote.id }, payload));
+        else {
+          // New records receive a safe one-time default. The manager can set a
+          // different password in 學員維護 before handing the account out.
+          const created = await authV2.createStudent(Object.assign({ password: "LP2026" }, payload));
+          remote = { id: created.data.uid };
+        }
+        updates.push({ localId: student.id, uid: remote.id });
+      }
+      this.setState((state) => ({ students: state.students.map((student) => {
+        const linked = updates.find((item) => item.localId === student.id);
+        return linked ? Object.assign({}, student, { profile: Object.assign({}, student.profile, { cloudUid: linked.uid }) }) : student;
+      }) }));
+      this.flash("☁️ 名冊與 Firebase Authentication 已同步");
+    } catch (error) { this.flash("雲端名冊同步失敗：" + (error.message || "請稍後再試")); }
   }
   syncBoundStudentProfiles() {
-    if (!window.LearningPlanetFirebase || !window.LearningPlanetFirebase.saveProfileToFirestore) return;
-    (this.state.students || []).forEach((student) => {
-      const uid = student.profile && student.profile.googleUid;
-      if (!uid) return;
-      const payload = this.cloudSafeProfile(student.profile);
-      const signature = JSON.stringify(payload);
+    const authV2 = window.LearningPlanetAuthV2;
+    if (!authV2 || !authV2.auth.currentUser || !authV2.saveMyStudentProgress) return;
+    authV2.currentRole().then((role) => {
+      if (role !== "student") return;
+      const uid = authV2.auth.currentUser.uid;
+      const student = (this.state.students || []).find((item) => item.profile && item.profile.cloudUid === uid);
+      if (!student) return;
+      const profile = this.cloudSafeProfile(student.profile);
+      const signature = JSON.stringify(profile);
       this.cloudProfileSignatures = this.cloudProfileSignatures || {};
       if (this.cloudProfileSignatures[uid] === signature) return;
       this.cloudProfileSignatures[uid] = signature;
-      window.LearningPlanetFirebase.saveProfileToFirestore(uid, payload);
-    });
+      authV2.saveMyStudentProgress({
+        xp: profile.xp || 0, coins: profile.coins || 0,
+        inventory: { owned: profile.owned || [], equipped: profile.equipped || {} },
+        profile, avatar: studentAvatarImage(profile.cardAvatarIndex), lastLoginAt: new Date().toISOString()
+      }).catch((error) => console.warn("Student progress sync failed:", error));
+    }).catch(() => {});
   }
   componentDidUpdate(prevProps, prevState) {
     document.body.dataset.nozhuyin = (this.props.showZhuyin ?? true) ? "0" : "1";
@@ -5128,11 +5178,11 @@ class Component extends DCLogic {
       saveStudentProfiles(this.state.students);
       this.syncBoundStudentProfiles();
       const currentTeacher = teacherById(this.state.teacherConfig, this.state.currentTeacherId);
-      if (this.state.teacher && currentTeacher.googleUid) this.queueCloudRosterSync();
+      if (this.state.teacher && currentTeacher.role === "admin" && currentTeacher.googleUid) this.queueCloudRosterSync();
     }
     if (!prevState || prevState.classes !== this.state.classes || prevState.teacherConfig !== this.state.teacherConfig) {
       const currentTeacher = teacherById(this.state.teacherConfig, this.state.currentTeacherId);
-      if (this.state.teacher && currentTeacher.googleUid) this.queueCloudRosterSync();
+      if (this.state.teacher && currentTeacher.role === "admin" && currentTeacher.googleUid) this.queueCloudRosterSync();
     }
     if (this.state.screen === "divLesson") {
       const trailEl = document.getElementById("div-lesson-trail");
@@ -5187,45 +5237,74 @@ class Component extends DCLogic {
     });
   }
 
-  authenticateStudent() {
+  async authenticateStudent() {
     const account = String(this.state.studentLoginAccount || "").trim().toLowerCase();
     const password = String(this.state.studentLoginPassword || "");
     if (!account || !password) { this.setState({ studentLoginError: "請輸入學員帳號與密碼。" }); return; }
-    const student = this.state.students.find((candidate) => studentLoginAccount(candidate).toLowerCase() === account && studentLoginPassword(candidate) === password);
-    if (!student) { this.setState({ studentLoginError: "帳號或密碼不正確，請再確認一次。" }); return; }
-    this.launchStudentLogin(student.id);
+    const authV2 = window.LearningPlanetAuthV2;
+    if (!authV2) { this.setState({ studentLoginError: "登入服務正在載入，請稍候再試。" }); return; }
+    try {
+      await authV2.passwordLogin(account, password, "student");
+      const remote = await authV2.loadMyProfile();
+      await authV2.touchProfileLogin();
+      let student = this.state.students.find((candidate) => studentLoginAccount(candidate).toLowerCase() === account);
+      // A learner can still enter from a new device before an administrator
+      // has opened it: build a local view from their own allowed Firestore
+      // document, never from the class roster or another learner's data.
+      if (!student && remote) {
+        const profile = Object.assign(makeProfile(), remote.profile || {}, {
+          loginAccount: remote.username || account,
+          cloudUid: authV2.auth.currentUser.uid,
+          email: remote.googleEmail || "",
+          lastLoginAt: new Date().toISOString()
+        });
+        student = {
+          id: "cloud-" + authV2.auth.currentUser.uid,
+          name: remote.displayName || "學員",
+          seat: remote.seat || "",
+          classId: remote.classId || "",
+          face: remote.avatar || FACES[0],
+          tint: TINTS[0],
+          profile
+        };
+      }
+      if (!student) { this.setState({ studentLoginError: "找不到此學員的雲端資料，請聯絡老師確認名冊。" }); return; }
+      this.setState((state) => {
+        const mergeStudent = (candidate) => Object.assign({}, candidate, {
+          profile: Object.assign({}, candidate.profile, remote && remote.profile || {}, {
+            cloudUid: authV2.auth.currentUser.uid,
+            googleUid: remote && remote.googleLinked ? authV2.auth.currentUser.uid : (candidate.profile.googleUid || ""),
+            email: remote && remote.googleEmail || "",
+            lastLoginAt: new Date().toISOString()
+          })
+        });
+        const known = state.students.some((candidate) => candidate.id === student.id);
+        return { students: known ? state.students.map((candidate) => candidate.id === student.id ? mergeStudent(candidate) : candidate) : state.students.concat(mergeStudent(student)) };
+      }, () => this.launchStudentLogin(student.id));
+    } catch (error) { this.setState({ studentLoginError: "帳號或密碼不正確，請再確認一次。" }); }
   }
 
   async bindGoogleAccount() {
-    if (!window.LearningPlanetFirebase) {
+    const authV2 = window.LearningPlanetAuthV2;
+    if (!authV2) {
       this.flash("Firebase 模組載入中，請稍候重試");
       return;
     }
     const curStudent = this.cur();
     if (!curStudent) return;
     try {
-      const fbUser = await window.LearningPlanetFirebase.signInWithGoogle();
-      if (!fbUser) return;
-      const email = (fbUser.email || "").toLowerCase();
-      const googleUid = fbUser.uid;
-      // A returning Google-bound learner receives the cloud save first; the
-      // login fields remain device-local and are never copied to Firestore.
-      const remote = window.LearningPlanetFirebase.loadProfileFromFirestore
-        ? await window.LearningPlanetFirebase.loadProfileFromFirestore(googleUid) : null;
-      let profileForCloud = null;
+      const linked = await authV2.linkCurrentUserWithGoogle();
+      const email = (linked.email || "").toLowerCase(), googleUid = linked.user.uid;
       this.setState((state) => ({
         students: state.students.map((st) => {
           if (st.id !== curStudent.id) return st;
-          const updatedProfile = Object.assign({}, st.profile, remote || {}, {
+          const updatedProfile = Object.assign({}, st.profile, {
             googleUid, email, lastLoginAt: new Date().toISOString()
           });
-          profileForCloud = this.cloudSafeProfile(updatedProfile);
-          return Object.assign({}, st, { googleUid, email, photoURL: fbUser.photoURL, profile: updatedProfile });
+          return Object.assign({}, st, { googleUid, email, photoURL: linked.user.photoURL, profile: updatedProfile });
         })
       }), () => {
-        if (profileForCloud && window.LearningPlanetFirebase.saveProfileToFirestore) {
-          window.LearningPlanetFirebase.saveProfileToFirestore(googleUid, profileForCloud);
-        }
+        authV2.saveMyStudentProgress({ profile: this.cloudSafeProfile(this.cur().profile) }).catch(() => {});
         this.flash("✅ Google 帳號綁定成功！(" + (email || googleUid.slice(0, 8)) + ")");
       });
     } catch (err) {
@@ -5260,16 +5339,38 @@ class Component extends DCLogic {
     });
   }
 
-  authenticateTeacher() {
+  async authenticateTeacher() {
     const cfg = this.state.teacherConfig || readTeacherConfig();
     const account = String(this.state.teacherLoginAccount || "").trim().toLowerCase();
     const password = String(this.state.teacherLoginPassword || "");
-    const teacher = (cfg.teachers || []).find((candidate) => String(candidate.account || "").trim().toLowerCase() === account && String(candidate.password || "") === password);
-    if (!teacher) {
-      this.setState({ teacherLoginError: "老師帳號或密碼不正確。" });
-      return;
+    const authV2 = window.LearningPlanetAuthV2;
+    if (!authV2) { this.setState({ teacherLoginError: "登入服務正在載入，請稍候再試。" }); return; }
+    let role, remote;
+    try {
+      try { await authV2.passwordLogin(account, password, "admin"); role = "admin"; }
+      catch (_) { await authV2.passwordLogin(account, password, "teacher"); role = "teacher"; }
+      remote = await authV2.loadMyProfile(); await authV2.touchProfileLogin();
+    } catch (_) {
+      // First-run bootstrap: Firebase Auth requires six characters, so the
+      // documented initial administrator is admin / admin123. The callable
+      // refuses itself permanently once an admin document exists.
+      if (account === "admin" && password === "admin123" && authV2.bootstrapFirstAdmin) {
+        try {
+          await authV2.bootstrapFirstAdmin({ username: "admin", password: "admin123", displayName: "陳老師", face: TEACHER_FACE_IMAGES[0] });
+          await authV2.passwordLogin(account, password, "admin");
+          role = "admin";
+          remote = await authV2.loadMyProfile();
+          await authV2.touchProfileLogin();
+        } catch (bootstrapError) {
+          this.setState({ teacherLoginError: "老師帳號或密碼不正確。" }); return;
+        }
+      } else { this.setState({ teacherLoginError: "老師帳號或密碼不正確。" }); return; }
     }
-    const updated = Object.assign({}, cfg, { teachers: cfg.teachers.map((candidate) => candidate.id === teacher.id ? Object.assign({}, candidate, { lastLoginAt: new Date().toISOString() }) : candidate) });
+    let teacher = (cfg.teachers || []).find((candidate) => candidate.id === remote.id || String(candidate.account || "").trim().toLowerCase() === account);
+    if (!teacher) teacher = defaultTeacherRecord({ id: remote.id, role, name: remote.displayName || account, account, face: remote.face || "" });
+    const teacherRecord = Object.assign({}, teacher, { id: remote.id, role, name: remote.displayName || teacher.name, account: remote.username || account, face: remote.face || teacher.face, googleUid: remote.googleLinked ? remote.id : "", email: remote.googleEmail || "", lastLoginAt: new Date().toISOString(), password: "" });
+    const hasTeacher = cfg.teachers.some((candidate) => candidate.id === teacher.id || candidate.id === remote.id);
+    const updated = Object.assign({}, cfg, { teachers: (hasTeacher ? cfg.teachers.map((candidate) => (candidate.id === teacher.id || candidate.id === remote.id) ? teacherRecord : candidate) : cfg.teachers.concat(teacherRecord)) });
     const loggedInTeacher = teacherById(updated, teacher.id);
     saveTeacherConfig(updated);
     requestAppFullscreen();
@@ -5286,32 +5387,34 @@ class Component extends DCLogic {
       teacherConfig: updated,
       editTeacherName: loggedInTeacher.name,
       editTeacherAccount: loggedInTeacher.account,
-      editTeacherPassword: loggedInTeacher.password,
+      editTeacherPassword: "",
       editTeacherFace: normalizeTeacherFace(loggedInTeacher.face, 0)
     }, () => {
-      // A previously linked Google session enables the shared roster immediately.
-      this.enableCloudRosterSync();
-      if (loggedInTeacher.googleUid) this.queueCloudRosterSync();
+      if (role === "admin") {
+        this.enableCloudRosterSync();
+        this.syncCloudRosterAccounts();
+      }
     });
   }
 
   async bindTeacherGoogleAccount() {
-    if (!window.LearningPlanetFirebase) {
+    const authV2 = window.LearningPlanetAuthV2;
+    if (!authV2) {
       this.flash("Firebase 模組載入中，請稍候重試");
       return;
     }
     try {
-      const fbUser = await window.LearningPlanetFirebase.signInWithGoogle();
-      if (!fbUser) return;
-      
-      const email = (fbUser.email || "").toLowerCase();
-      const googleUid = fbUser.uid;
+      const linked = await authV2.linkCurrentUserWithGoogle();
+      const email = (linked.email || "").toLowerCase(), googleUid = linked.user.uid;
       
       const cfg = Object.assign({}, this.state.teacherConfig, { teachers: this.state.teacherConfig.teachers.map((teacher) => teacher.id === this.state.currentTeacherId ? Object.assign({}, teacher, { googleUid, email }) : teacher) });
       saveTeacherConfig(cfg);
       this.setState({ teacherConfig: cfg }, () => {
-        this.enableCloudRosterSync();
-        this.queueCloudRosterSync();
+        const current = teacherById(cfg, this.state.currentTeacherId);
+        if (current.role === "admin") {
+          this.enableCloudRosterSync();
+          this.syncCloudRosterAccounts();
+        }
         this.flash("✅ 老師 Google 帳號綁定成功！(" + (email || googleUid.slice(0, 8)) + ")");
       });
     } catch (err) {
@@ -5321,52 +5424,61 @@ class Component extends DCLogic {
   }
 
   unbindTeacherGoogleAccount() {
-    if (!confirm("確定要解除老師的 Google 帳號綁定嗎？")) return;
-    const cfg = Object.assign({}, this.state.teacherConfig, { teachers: this.state.teacherConfig.teachers.map((teacher) => teacher.id === this.state.currentTeacherId ? Object.assign({}, teacher, { googleUid: "", email: "" }) : teacher) });
-    saveTeacherConfig(cfg);
-    this.setState({ teacherConfig: cfg }, () => {
-      this.flash("已解除老師 Google 帳號綁定");
-    });
+    this.flash("Google 綁定請在 Google 帳號設定中管理；平台不會在本機偽造解除綁定。 ");
   }
 
-  saveTeacherSettings() {
+  async saveTeacherSettings() {
     const name = String(this.state.editTeacherName || "").trim();
     const account = String(this.state.editTeacherAccount || "").trim().toLowerCase();
     const password = String(this.state.editTeacherPassword || "").trim();
     const face = normalizeTeacherFace(this.state.editTeacherFace, 0);
     if (!name) { this.flash("請輸入老師顯示名稱"); return; }
-    if (!account || !password) { this.flash("老師帳號與密碼不可為空"); return; }
+    if (!account) { this.flash("老師帳號不可為空"); return; }
+    if (password && password.length < 6) { this.flash("新密碼至少需要 6 碼"); return; }
     const current = teacherById(this.state.teacherConfig, this.state.currentTeacherId);
     const editing = teacherById(this.state.teacherConfig, this.state.editingTeacherId);
     if (!current.googleUid) { this.flash("請先綁定 Google 帳號，才可以修改教師資料。"); return; }
     if (current.role !== "admin" && editing.id !== current.id) { this.flash("一般教師只能修改自己的資料。"); return; }
     if ((this.state.teacherConfig.teachers || []).some((teacher) => teacher.id !== editing.id && String(teacher.account).toLowerCase() === account)) { this.flash("此教師帳號已被使用。"); return; }
-    const cfg = Object.assign({}, this.state.teacherConfig, { teachers: this.state.teacherConfig.teachers.map((teacher) => teacher.id === editing.id ? Object.assign({}, teacher, { name, account, password, face }) : teacher) });
+    const authV2 = window.LearningPlanetAuthV2;
+    try {
+      if (current.role === "admin" && editing.id !== current.id) await authV2.updateTeacher({ uid: editing.cloudUid || editing.id, displayName: name, username: account, password: password || undefined, face });
+      else await authV2.updateOwnTeacherSettings({ displayName: name, username: account, password: password || undefined, face });
+    } catch (error) { this.flash("更新失敗：" + (error.message || "請確認雲端權限")); return; }
+    const cfg = Object.assign({}, this.state.teacherConfig, { teachers: this.state.teacherConfig.teachers.map((teacher) => teacher.id === editing.id ? Object.assign({}, teacher, { name, account, password: "", face }) : teacher) });
     saveTeacherConfig(cfg);
     this.setState({
       teacherConfig: cfg
     }, () => {
+      this.queueCloudRosterSync();
       this.flash("✅ 教師設定已成功更新！");
     });
   }
 
   selectTeacherForSettings(id) {
     const teacher = teacherById(this.state.teacherConfig, id);
-    this.setState({ editingTeacherId: teacher.id, editTeacherName: teacher.name, editTeacherAccount: teacher.account, editTeacherPassword: teacher.password, editTeacherFace: normalizeTeacherFace(teacher.face, 0) });
+    this.setState({ editingTeacherId: teacher.id, editTeacherName: teacher.name, editTeacherAccount: teacher.account, editTeacherPassword: "", editTeacherFace: normalizeTeacherFace(teacher.face, 0) });
   }
 
-  addTeacherAccount() {
+  async addTeacherAccount() {
     const current = teacherById(this.state.teacherConfig, this.state.currentTeacherId);
     const name = String(this.state.newTeacherName || "").trim();
     const account = String(this.state.newTeacherAccount || "").trim().toLowerCase();
     const password = String(this.state.newTeacherPassword || "").trim();
     if (current.role !== "admin" || !current.googleUid) { this.flash("管理者完成 Google 綁定後，才可新增教師。"); return; }
     if (!name || !account || !password) { this.flash("請填寫教師名稱、帳號與預設密碼。"); return; }
+    if (password.length < 6) { this.flash("預設密碼至少需要 6 碼。"); return; }
     if (this.state.teacherConfig.teachers.some((teacher) => String(teacher.account).toLowerCase() === account)) { this.flash("此教師帳號已被使用。"); return; }
-    const teacher = defaultTeacherRecord({ id: "teacher-" + Date.now(), name, account, password });
+    let cloud;
+    try { cloud = await window.LearningPlanetAuthV2.createTeacher({ displayName: name, username: account, password, face: TEACHER_FACE_IMAGES[0], assignedClassIds: this.state.classes.map((item) => item.id) }); }
+    catch (error) { this.flash("新增失敗：" + (error.message || "請確認雲端權限")); return; }
+    const teacher = defaultTeacherRecord({ id: cloud.data.uid, name, account, password: "", face: TEACHER_FACE_IMAGES[0] });
     const cfg = Object.assign({}, this.state.teacherConfig, { teachers: this.state.teacherConfig.teachers.concat(teacher) });
     saveTeacherConfig(cfg);
-    this.setState({ teacherConfig: cfg, newTeacherName: "", newTeacherAccount: "", newTeacherPassword: "1234" }, () => this.flash("✅ 已新增一般教師帳號。"));
+    this.setState({ teacherConfig: cfg, newTeacherName: "", newTeacherAccount: "", newTeacherPassword: "" }, () => {
+      this.queueCloudRosterSync();
+      this.flash("✅ 已新增一般教師帳號。");
+    });
   }
 
   allWords() { return this.state.words.concat(this.state.customWords); }
@@ -8514,7 +8626,7 @@ class Component extends DCLogic {
     this.flash("已選好角色，開始闖關！");
   }
 
-  addStudent() {
+  async addStudent() {
     const s = this.state;
     const name = s.newName.trim();
     const raw = s.newSeat.replace(/[^0-9]/g, "");
@@ -8525,18 +8637,24 @@ class Component extends DCLogic {
     const seat = String(num).padStart(2, "0") + " 號";
     if (s.students.some((st) => st.classId === s.newClass && st.seat === seat)) { this.flash("這個班級已經有 " + seat); return; }
     if (s.students.some((st) => st.classId === s.newClass && st.name === name)) { this.flash("這個班級已經有同名學生：" + name); return; }
+    const username = (String(this.state.newAccount || "").trim().toLowerCase() || (String(s.newClass || "").replace(/\D/g, "") + String(num).padStart(2, "0")));
+    const password = String(this.state.newPassword || "LP2026");
+    if (password.length < 6) { this.flash("學員密碼至少需要 6 碼"); return; }
+    let cloud;
+    try { cloud = await window.LearningPlanetAuthV2.createStudent({ displayName: name, username, password, classId: s.newClass, seat, avatar: "" }); }
+    catch (error) { this.flash("新增雲端帳號失敗：" + (error.message || "請確認管理者權限")); return; }
     this.setState((st) => ({
       students: st.students.concat({
         id: "s" + Date.now(), name, seat, classId: st.newClass,
         face: FACES[st.students.length % FACES.length],
         tint: TINTS[st.students.length % TINTS.length],
-        profile: makeProfile(),
+        profile: Object.assign(makeProfile(), { loginAccount: username, cloudUid: cloud.data.uid }),
       }),
       newName: "", newSeat: "",
     }));
     this.flash("已新增學員 " + seat + " " + name);
   }
-  saveEdit() {
+  async saveEdit() {
     const s = this.state;
     const name = s.editName.trim();
     const raw = s.editSeat.replace(/[^0-9]/g, "");
@@ -8549,17 +8667,29 @@ class Component extends DCLogic {
     if (s.students.some((st) => st.id !== s.editId && st.classId === s.editClass && st.name === name)) { this.flash("該班級已經有同名學生：" + name); return; }
     const loginAccount = String(s.editAccount || "").trim();
     const loginPassword = String(s.editPassword || "");
-    if (!loginAccount || !loginPassword) { this.flash("帳號與密碼不可空白"); return; }
+    if (!loginAccount) { this.flash("帳號不可空白"); return; }
+    if (loginPassword && loginPassword.length < 6) { this.flash("新密碼至少需要 6 碼"); return; }
     if (s.students.some((st) => st.id !== s.editId && studentLoginAccount(st).toLowerCase() === loginAccount.toLowerCase())) { this.flash("這個學員帳號已被使用"); return; }
+    const existing = s.students.find((item) => item.id === s.editId);
+    const cloudUid = existing && existing.profile && existing.profile.cloudUid;
+    if (!cloudUid) { this.flash("此學員尚未建立雲端帳號；請先以管理者重新同步名冊。"); return; }
+    try { await window.LearningPlanetAuthV2.updateStudent({ uid: cloudUid, displayName: name, username: loginAccount, password: loginPassword || undefined, classId: s.editClass, seat, avatar: studentAvatarImage(existing.profile && existing.profile.cardAvatarIndex) }); }
+    catch (error) { this.flash("雲端更新失敗：" + (error.message || "請確認管理者權限")); return; }
     this.setState((st) => ({
-      students: st.students.map((x) => x.id === st.editId ? Object.assign({}, x, { name, seat, classId: st.editClass, profile: Object.assign({}, x.profile, { loginAccount, loginPassword }) }) : x),
+      students: st.students.map((x) => x.id === st.editId ? Object.assign({}, x, { name, seat, classId: st.editClass, profile: Object.assign({}, x.profile, { loginAccount }) }) : x),
       editId: null, editName: "", editSeat: "", editAccount: "", editPassword: "",
     }));
     this.flash("已更新 " + seat + " " + name);
   }
-  removeStudent(id, name) {
-    this.setState((s) => ({ students: s.students.filter((st) => st.id !== id), currentId: s.currentId === id ? null : s.currentId }));
-    this.flash("已移除 " + name);
+  async removeStudent(id, name) {
+    const existing = this.state.students.find((student) => student.id === id);
+    const cloudUid = existing && existing.profile && existing.profile.cloudUid;
+    if (cloudUid && window.LearningPlanetAuthV2 && window.LearningPlanetAuthV2.setStudentEnabled) {
+      try { await window.LearningPlanetAuthV2.setStudentEnabled({ uid: cloudUid, enabled: false }); }
+      catch (error) { this.flash("雲端停用失敗：" + (error.message || "請確認管理者權限")); return; }
+    }
+    this.setState((s) => ({ students: s.students.filter((st) => st.id !== id), currentId: s.currentId === id ? null : s.currentId }), () => this.queueCloudRosterSync());
+    this.flash("已移除 " + name + (cloudUid ? "，雲端登入已停用。" : ""));
   }
   addClass() {
     const name = this.state.newClassName.trim();
@@ -10547,13 +10677,19 @@ class Component extends DCLogic {
         bg: "#102552",
         pick: () => this.setState({ editTeacherFace: face })
       })),
-      isTeacherGoogleBound: !!teacherById(s.teacherConfig, s.currentTeacherId).googleUid,
-      isTeacherNotGoogleBound: !teacherById(s.teacherConfig, s.currentTeacherId).googleUid,
-      teacherGoogleStatusLabel: teacherById(s.teacherConfig, s.currentTeacherId).googleUid ? "已綁定 Google 帳號" : "尚未綁定 Google 帳號",
-      teacherGoogleDetailLabel: teacherById(s.teacherConfig, s.currentTeacherId).email || (teacherById(s.teacherConfig, s.currentTeacherId).googleUid ? "UID: " + teacherById(s.teacherConfig, s.currentTeacherId).googleUid : "綁定後才能修改帳號、密碼與顯示名稱。"),
-      teacherGoogleBoundBorder: teacherById(s.teacherConfig, s.currentTeacherId).googleUid ? "rgba(52,168,83,.45)" : "#ece7ff",
-      teacherGoogleBoundBg: teacherById(s.teacherConfig, s.currentTeacherId).googleUid ? "rgba(52,168,83,.08)" : "#fbfaff",
-      teacherGoogleBoundColor: teacherById(s.teacherConfig, s.currentTeacherId).googleUid ? "#1d7a55" : "#2b1f57",
+      teacherSettingsTitle: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin" ? "教師帳號與權限中心" : "我的教師帳號與安全性設定",
+      teacherSettingsDescription: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin" ? "管理者可維護教師帳號與班級名冊；所有密碼都只由 Firebase Authentication 保存。" : "一般教師只能管理自己的帳號；完成 Google 綁定後，才可變更名稱、帳號與密碼。",
+      teacherSettingsTarget: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin" ? "管理者 · 正在管理「" + teacherById(s.teacherConfig, s.editingTeacherId).name + "」" : "一般教師 · 僅能管理本人",
+      teacherProfileCardTitle: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin" && s.editingTeacherId !== s.currentTeacherId ? "受管理教師基本資料" : "我的教師基本資料",
+      teacherCredentialCardTitle: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin" && s.editingTeacherId !== s.currentTeacherId ? "受管理教師登入帳密" : "我的登入帳密",
+      isTeacherGoogleBound: !!teacherById(s.teacherConfig, s.editingTeacherId).googleUid,
+      isTeacherNotGoogleBound: !teacherById(s.teacherConfig, s.editingTeacherId).googleUid,
+      canBindOwnTeacherGoogle: s.editingTeacherId === s.currentTeacherId && !teacherById(s.teacherConfig, s.currentTeacherId).googleUid,
+      teacherGoogleStatusLabel: teacherById(s.teacherConfig, s.editingTeacherId).googleUid ? "已綁定 Google 帳號" : (s.editingTeacherId === s.currentTeacherId ? "尚未綁定 Google 帳號" : teacherById(s.teacherConfig, s.editingTeacherId).name + " 尚未綁定 Google 帳號"),
+      teacherGoogleDetailLabel: teacherById(s.teacherConfig, s.editingTeacherId).email || (teacherById(s.teacherConfig, s.editingTeacherId).googleUid ? "UID: " + teacherById(s.teacherConfig, s.editingTeacherId).googleUid : (s.editingTeacherId === s.currentTeacherId ? "綁定後才能修改帳號、密碼與顯示名稱。" : "此帳號需由該教師本人登入後綁定 Google。")),
+      teacherGoogleBoundBorder: teacherById(s.teacherConfig, s.editingTeacherId).googleUid ? "rgba(52,168,83,.45)" : "#ece7ff",
+      teacherGoogleBoundBg: teacherById(s.teacherConfig, s.editingTeacherId).googleUid ? "rgba(52,168,83,.08)" : "#fbfaff",
+      teacherGoogleBoundColor: teacherById(s.teacherConfig, s.editingTeacherId).googleUid ? "#1d7a55" : "#2b1f57",
       bindTeacherGoogle: () => this.bindTeacherGoogleAccount(),
       unbindTeacherGoogle: () => this.unbindTeacherGoogleAccount(),
       saveTeacherSettings: () => this.saveTeacherSettings(),
@@ -10593,7 +10729,7 @@ class Component extends DCLogic {
           avatarImage: studentAvatarImage(st.profile && st.profile.cardAvatarIndex),
           className: className(st.classId),
           account: studentLoginAccount(st),
-          password: studentLoginPassword(st),
+          password: "••••••",
           lastLogin: formatLastLogin(st.profile && st.profile.lastLoginAt),
           googleBound: !!googleUid,
           googleNotBound: !googleUid,
@@ -10603,7 +10739,7 @@ class Component extends DCLogic {
           bg: hasSignedToday(st.profile) ? "#fbfaff" : "#fff6f8",
           viewing: s.editId !== st.id,
           editing: s.editId === st.id,
-          edit: () => this.setState({ editId: st.id, editName: st.name, editSeat: st.seat.replace(/[^0-9]/g, ""), editClass: st.classId, editAccount: studentLoginAccount(st), editPassword: studentLoginPassword(st) }),
+          edit: () => this.setState({ editId: st.id, editName: st.name, editSeat: st.seat.replace(/[^0-9]/g, ""), editClass: st.classId, editAccount: studentLoginAccount(st), editPassword: "" }),
           remove: () => this.removeStudent(st.id, st.name),
         };
       }),

@@ -1,0 +1,250 @@
+import { initializeApp, getApps, getApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  linkWithPopup,
+  signOut,
+  onAuthStateChanged,
+  getIdTokenResult,
+  updatePassword
+} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+  onSnapshot,
+  serverTimestamp
+} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
+import { getFunctions, httpsCallable } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-functions.js';
+
+const TEACHER_DOMAIN = 'teacher.learning-planet.invalid';
+const ADMIN_DOMAIN = 'admin.learning-planet.invalid';
+const STUDENT_DOMAIN = 'student.learning-planet.invalid';
+
+const DEFAULT_FIREBASE_CONFIG = {
+  apiKey: "AIzaSyCVXHP1mgnD3WOtxGBnHW3dHa1PH3F8g-k",
+  authDomain: "learnplanet-cce52.firebaseapp.com",
+  projectId: "learnplanet-cce52",
+  storageBucket: "learnplanet-cce52.firebasestorage.app",
+  messagingSenderId: "1068189320501",
+  appId: "1:1068189320501:web:ed64ec200f6eb853cbf87c",
+  measurementId: "G-TNCBCHSRMW"
+};
+
+async function resolveFirebaseConfig() {
+  if (window.LEARNING_PLANET_FIREBASE_CONFIG) return window.LEARNING_PLANET_FIREBASE_CONFIG;
+
+  try {
+    const saved = localStorage.getItem("LEARNING_PLANET_FIREBASE_CONFIG");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed && parsed.apiKey) return parsed;
+    }
+  } catch (_) {}
+
+  try {
+    const response = await fetch('/__/firebase/init.json', { cache: 'no-store' });
+    if (response.ok) return await response.json();
+  } catch (_) {
+    // GitHub Pages does not provide Firebase Hosting's reserved init endpoint.
+  }
+
+  return DEFAULT_FIREBASE_CONFIG;
+}
+
+const firebaseConfig = await resolveFirebaseConfig();
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+export const functions = getFunctions(app, 'asia-east1');
+export const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' });
+
+function normalizedUsername(username) {
+  return String(username || '').trim().toLowerCase().replace(/[^a-z0-9._-]/g, '');
+}
+
+export function loginEmailFor(username, role) {
+  const safe = normalizedUsername(username);
+  if (!safe) throw new Error('帳號格式不正確');
+  const domain = role === 'admin' ? ADMIN_DOMAIN : role === 'student' ? STUDENT_DOMAIN : TEACHER_DOMAIN;
+  return `${safe}@${domain}`;
+}
+
+export async function passwordLogin(username, password, role) {
+  const credential = await signInWithEmailAndPassword(auth, loginEmailFor(username, role), password);
+  const token = await getIdTokenResult(credential.user, true);
+  const actualRole = token.claims.role || null;
+  if (actualRole !== role) {
+    await signOut(auth);
+    const label = role === 'admin' ? '管理員' : role === 'teacher' ? '教師' : '學員';
+    throw new Error(`此帳號不是 ${label} 權限`);
+  }
+  return credential.user;
+}
+
+export async function currentRole(forceRefresh = false) {
+  if (!auth.currentUser) return null;
+  const token = await getIdTokenResult(auth.currentUser, forceRefresh);
+  return token.claims.role || null;
+}
+
+export async function linkCurrentUserWithGoogle() {
+  if (!auth.currentUser) throw new Error('尚未登入');
+  const result = await linkWithPopup(auth.currentUser, googleProvider);
+  const role = await currentRole(true);
+  const email = result.user.providerData.find((p) => p.providerId === 'google.com')?.email || result.user.email || null;
+  const collectionName = role === 'admin' ? 'admins' : role === 'teacher' ? 'teachers' : 'students';
+
+  await setDoc(doc(db, collectionName, result.user.uid), {
+    googleEmail: email,
+    googleLinked: true,
+    firstLoginCompleted: true,
+    updatedAt: serverTimestamp(),
+    lastLoginAt: serverTimestamp()
+  }, { merge: true });
+
+  return { user: result.user, email, role };
+}
+
+export async function touchProfileLogin() {
+  if (!auth.currentUser) return;
+  const role = await currentRole();
+  if (!['admin', 'teacher', 'student'].includes(role)) return;
+  const collectionName = role === 'admin' ? 'admins' : role === 'teacher' ? 'teachers' : 'students';
+  await setDoc(doc(db, collectionName, auth.currentUser.uid), {
+    lastLoginAt: serverTimestamp()
+  }, { merge: true });
+}
+
+export async function loadMyProfile() {
+  if (!auth.currentUser) return null;
+  const role = await currentRole();
+  if (!['admin', 'teacher', 'student'].includes(role)) return null;
+  const collectionName = role === 'admin' ? 'admins' : role === 'teacher' ? 'teachers' : 'students';
+  const snap = await getDoc(doc(db, collectionName, auth.currentUser.uid));
+  return snap.exists() ? { id: snap.id, ...snap.data(), role } : { id: auth.currentUser.uid, role };
+}
+
+export async function changeMyPassword(newPassword) {
+  if (!auth.currentUser) throw new Error('尚未登入');
+  if (!newPassword || newPassword.length < 6) throw new Error('密碼長度至少需要 6 碼');
+  await updatePassword(auth.currentUser, newPassword);
+  return { ok: true };
+}
+
+export async function fetchTeachersList() {
+  const q = query(collection(db, 'teachers'));
+  const snap = await getDocs(q);
+  const teachers = [];
+  snap.forEach((d) => {
+    teachers.push({ id: d.id, ...d.data() });
+  });
+  return teachers;
+}
+
+export async function fetchStudentsList() {
+  const snap = await getDocs(query(collection(db, 'students')));
+  const students = [];
+  snap.forEach((item) => students.push({ id: item.id, ...item.data() }));
+  return students;
+}
+
+// The learner may update only their own cloud save.  Credentials are never
+// included here: Firebase Authentication is the sole password store.
+export async function saveMyStudentProgress(progress = {}) {
+  if (!auth.currentUser || await currentRole() !== 'student') throw new Error('學員登入後才能同步進度');
+  // Individual saves follow the product rule: a learner first links Google,
+  // then XP/coins/inventory travel with that Google-backed cloud identity.
+  // The account credential itself remains exclusively in Firebase Auth.
+  const profile = await loadMyProfile();
+  if (!profile?.googleLinked) return { skipped: true, reason: 'google-not-linked' };
+  const allowed = ['xp', 'coins', 'inventory', 'profile', 'avatar', 'lastLoginAt'];
+  const patch = { updatedAt: serverTimestamp() };
+  allowed.forEach((key) => { if (Object.prototype.hasOwnProperty.call(progress, key)) patch[key] = progress[key]; });
+  await setDoc(doc(db, 'students', auth.currentUser.uid), patch, { merge: true });
+}
+
+// The roster is shared configuration, never a credential store.  Only an
+// administrator with a Firebase custom claim can write it (also enforced by
+// firestore.rules); teachers may read it for their assigned classes.
+export async function saveRosterSnapshot(roster = {}) {
+  if (await currentRole() !== 'admin') throw new Error('只有管理者可以更新雲端名冊');
+  await setDoc(doc(db, 'system', 'roster'), {
+    ...roster,
+    schemaVersion: 2,
+    updatedAt: serverTimestamp()
+  }, { merge: true });
+}
+
+export async function loadRosterSnapshot() {
+  const snap = await getDoc(doc(db, 'system', 'roster'));
+  return snap.exists() ? snap.data() : null;
+}
+
+export function subscribeRosterSnapshot(callback) {
+  return onSnapshot(doc(db, 'system', 'roster'), (snap) => {
+    callback(snap.exists() ? snap.data() : null);
+  }, (error) => console.warn('Cloud roster subscription failed:', error));
+}
+
+export const createTeacher = httpsCallable(functions, 'createTeacher');
+export const updateTeacher = httpsCallable(functions, 'updateTeacher');
+export const resetTeacherPassword = httpsCallable(functions, 'resetTeacherPassword');
+export const setTeacherEnabled = httpsCallable(functions, 'setTeacherEnabled');
+export const createStudent = httpsCallable(functions, 'createStudent');
+export const updateStudent = httpsCallable(functions, 'updateStudent');
+export const resetStudentPassword = httpsCallable(functions, 'resetStudentPassword');
+export const setStudentEnabled = httpsCallable(functions, 'setStudentEnabled');
+export const updateOwnTeacherSettings = httpsCallable(functions, 'updateOwnTeacherSettings');
+export const bootstrapFirstAdmin = httpsCallable(functions, 'bootstrapFirstAdmin');
+
+export {
+  onAuthStateChanged,
+  signOut,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+  onSnapshot
+};
+
+// Global export for vanilla runtime interoperability
+window.LearningPlanetAuthV2 = {
+  auth,
+  db,
+  functions,
+  passwordLogin,
+  currentRole,
+  linkCurrentUserWithGoogle,
+  touchProfileLogin,
+  loadMyProfile,
+  changeMyPassword,
+  fetchTeachersList,
+  fetchStudentsList,
+  saveMyStudentProgress,
+  saveRosterSnapshot,
+  loadRosterSnapshot,
+  subscribeRosterSnapshot,
+  createTeacher,
+  updateTeacher,
+  resetTeacherPassword,
+  setTeacherEnabled,
+  createStudent,
+  updateStudent,
+  resetStudentPassword,
+  setStudentEnabled,
+  updateOwnTeacherSettings,
+  bootstrapFirstAdmin,
+  onAuthStateChanged,
+  signOut
+};
