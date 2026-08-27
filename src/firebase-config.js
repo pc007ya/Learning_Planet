@@ -18,7 +18,8 @@ import {
   getFirestore, 
   doc, 
   setDoc, 
-  getDoc 
+  getDoc,
+  onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // Official Firebase Config for LearnPlanet (learnplanet-cce52)
@@ -180,6 +181,56 @@ export async function loadProfileFromFirestore(uid) {
   }
 }
 
+// Shared roster is intentionally restricted to signed-in Google accounts by
+// Firestore rules. Login passwords are never put in this document; Firebase
+// Authentication is the secure migration path for cross-device credentials.
+const ROSTER_DOCUMENT = ["system", "roster"];
+
+export async function saveRosterToFirestore(rosterData) {
+  if (!db || !auth?.currentUser) return false;
+  try {
+    await setDoc(doc(db, ...ROSTER_DOCUMENT), {
+      ...rosterData,
+      updatedAt: new Date().toISOString(),
+      updatedBy: auth.currentUser.uid
+    }, { merge: true });
+    return true;
+  } catch (e) {
+    console.warn("[Firestore] Failed to save roster:", e);
+    return false;
+  }
+}
+
+export async function loadRosterFromFirestore() {
+  if (!db || !auth?.currentUser) return null;
+  try {
+    const snap = await getDoc(doc(db, ...ROSTER_DOCUMENT));
+    return snap.exists() ? snap.data() : null;
+  } catch (e) {
+    console.warn("[Firestore] Failed to load roster:", e);
+    return null;
+  }
+}
+
+export function watchRosterFromFirestore(callback) {
+  if (!db || !auth) return () => {};
+  let stopSnapshot = null;
+  const stopAuth = onAuthStateChanged(auth, (user) => {
+    if (stopSnapshot) {
+      stopSnapshot();
+      stopSnapshot = null;
+    }
+    if (!user) return;
+    stopSnapshot = onSnapshot(doc(db, ...ROSTER_DOCUMENT), (snap) => callback(snap.exists() ? snap.data() : null), (e) => {
+      console.warn("[Firestore] Failed to watch roster:", e);
+    });
+  });
+  return () => {
+    if (stopSnapshot) stopSnapshot();
+    stopAuth();
+  };
+}
+
 export function saveCustomConfig(config) {
   try {
     localStorage.setItem(CONFIG_STORAGE_KEY, JSON.stringify(config));
@@ -209,6 +260,9 @@ window.LearningPlanetFirebase = {
   onAuthUserChanged,
   saveProfileToFirestore,
   loadProfileFromFirestore,
+  saveRosterToFirestore,
+  loadRosterFromFirestore,
+  watchRosterFromFirestore,
   saveConfig: saveCustomConfig,
   getConfig: getStoredConfig,
   isReady: isFirebaseReady
