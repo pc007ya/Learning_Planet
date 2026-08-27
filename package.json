@@ -2,10 +2,13 @@
   "name": "learning-planet",
   "private": true,
   "scripts": {
+    "dev": "vite",
     "build:earth-orbit": "vite build",
     "typecheck": "tsc --noEmit",
     "test:earth-orbit": "vitest run",
-    "check": "npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit"
+    "check": "npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit",
+    "deploy": "npx -y firebase-tools@latest deploy --only hosting",
+    "deploy:all": "npx -y firebase-tools@latest deploy"
   },
   "dependencies": {
     "pixi.js": "^8.18.1",

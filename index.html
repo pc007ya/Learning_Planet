@@ -12,6 +12,7 @@
 <meta name="description" content="提供小學數學、國文、英文、自然與科學實驗的互動學習網站。">
 <script src="./support.js"></script>
 <script src="./sci-art.js"></script>
+<script type="module" src="./src/firebase-config.js"></script>
 <script type="module" src="./modules/earth-orbit/earth-orbit-v01.js"></script>
 </head>
 <body>
@@ -391,8 +392,23 @@
   .login-auth-wrap{height:100%;min-height:0;display:grid;place-items:center;padding:14px}
   .login-auth-card{width:min(470px,92%);display:grid;gap:14px;padding:clamp(22px,4vw,38px);border:1px solid rgba(111,235,255,.38);border-radius:28px;background:linear-gradient(145deg,rgba(9,25,63,.88),rgba(16,12,55,.76));box-shadow:0 26px 70px rgba(0,0,0,.38),inset 0 0 36px rgba(73,222,255,.08);backdrop-filter:blur(18px)}
   .login-auth-card h1{margin:0;color:#fff;font-size:clamp(24px,3vw,34px);text-align:center;letter-spacing:.06em}.login-auth-card>p{margin:0 0 4px;color:#9cefff;font-size:12px;font-weight:850;text-align:center;line-height:1.6}
+  .login-google-btn{width:100%;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:12px;border:1.5px solid rgba(255,255,255,.8)!important;border-radius:16px!important;padding:13px 18px!important;background:#ffffff!important;color:#202124!important;font:950 15px/1 inherit!important;cursor:pointer;transition:all .2s ease;box-shadow:0 10px 24px rgba(0,0,0,.25),inset 0 1px #fff}
+  .login-google-btn:hover{background:#f8faff!important;transform:translateY(-2px);box-shadow:0 14px 30px rgba(66,133,244,.4),0 0 15px rgba(66,133,244,.25)}
+  .login-google-btn:active{transform:translateY(0)}
+  .google-icon{width:22px;height:22px;flex-shrink:0;display:block}
+  .login-divider{display:flex;align-items:center;text-align:center;margin:4px 0;color:rgba(156,239,255,.75);font-size:11px;font-weight:850;letter-spacing:.08em}
+  .login-divider::before,.login-divider::after{content:"";flex:1;border-bottom:1px dashed rgba(111,235,255,.3)}
+  .login-divider span{padding:0 12px}
   .login-auth-field{display:grid;gap:7px;color:#a8ecff;font-size:12px;font-weight:950;letter-spacing:.08em}.login-auth-field input{box-sizing:border-box;width:100%;border:1px solid rgba(129,230,255,.38);border-radius:15px;padding:13px 15px;background:rgba(255,255,255,.08);color:#fff;font:900 16px/1.2 inherit;outline:none}.login-auth-field input:focus{border-color:#62edff;box-shadow:0 0 0 3px rgba(71,227,255,.14)}
   .login-auth-submit{border:1px solid rgba(154,250,255,.45)!important;border-radius:16px!important;padding:14px!important;background:linear-gradient(90deg,#7357ff,#22c8d8)!important;color:#fff!important;font:950 16px/1 inherit!important;cursor:pointer;box-shadow:0 10px 28px rgba(34,200,216,.2)}
+  .login-firebase-config-trigger{border:0;background:transparent;color:rgba(156,239,255,.75);font-size:11px;font-weight:800;cursor:pointer;text-decoration:underline;margin:2px auto 0;display:inline-block}
+  .login-firebase-config-trigger:hover{color:#fff}
+  .firebase-config-dialog{position:fixed;z-index:32;inset:0;display:grid;place-items:center;padding:20px;background:rgba(2,5,23,.78);backdrop-filter:blur(14px)}.firebase-config-dialog[hidden]{display:none}
+  .firebase-config-card{width:min(480px,94vw);display:grid;gap:12px;padding:26px;border:1px solid rgba(111,235,255,.45);border-radius:24px;background:linear-gradient(145deg,rgba(8,23,60,.96),rgba(20,12,61,.94));color:#fff;box-shadow:0 25px 80px rgba(0,0,0,.6)}
+  .firebase-config-card h2{margin:0;color:#fff;font-size:22px}
+  .firebase-config-card p{margin:0;color:#9cefff;font-size:12px;line-height:1.5}
+  .firebase-config-card textarea{width:100%;height:110px;box-sizing:border-box;border:1px solid rgba(111,235,255,.35);border-radius:12px;background:rgba(0,0,0,.35);color:#8ef3ff;font-family:monospace;font-size:12px;padding:10px;outline:none}
+  .firebase-config-card textarea:focus{border-color:#62edff}
   .login-auth-error{min-height:18px;margin:0!important;color:#ff9fbd!important;font-size:12px!important;font-weight:900!important;text-align:center!important}
   .login-teacher-dialog{position:fixed;z-index:30;inset:0;display:grid;place-items:center;padding:20px;background:rgba(2,5,23,.72);backdrop-filter:blur(12px)}.login-teacher-dialog[hidden]{display:none}.login-teacher-card{width:min(420px,92vw);display:grid;gap:13px;padding:28px;border:1px solid rgba(255,222,104,.46);border-radius:26px;background:linear-gradient(145deg,rgba(7,22,58,.96),rgba(22,12,57,.94));box-shadow:0 30px 90px rgba(0,0,0,.55)}.login-teacher-head{display:flex;align-items:center;gap:13px}.login-teacher-head img{width:62px;height:62px;object-fit:contain}.login-teacher-head h2{margin:0;color:#fff;font-size:25px}.login-teacher-actions{display:grid;grid-template-columns:1fr 1.5fr;gap:9px}.login-teacher-actions button{border:1px solid rgba(157,226,255,.35);border-radius:14px;padding:12px;background:rgba(255,255,255,.08);color:#dff8ff;font:900 14px/1 inherit;cursor:pointer}.login-teacher-actions button:last-child{border:0;background:linear-gradient(90deg,#7357ff,#22c8d8);color:#fff}
   .login-success-sequence{position:fixed;z-index:28;inset:0;display:none;place-items:center;pointer-events:none}.login-space.verified .login-success-sequence,.login-space.launching .login-success-sequence{display:grid}.login-success-core{display:grid;place-items:center;gap:14px}.login-success-avatar{width:clamp(130px,20vw,220px);aspect-ratio:1;object-fit:cover;border:3px solid rgba(104,255,204,.88);border-radius:26px;box-shadow:0 0 35px rgba(73,255,190,.55),0 0 90px rgba(36,207,255,.28);animation:loginIdentityReveal 2s cubic-bezier(.16,1,.3,1) both}.login-success-copy{padding:10px 22px;border:1px solid rgba(91,255,185,.62);border-radius:10px;background:rgba(3,45,36,.56);color:#7dffc4;font:1000 clamp(19px,3vw,32px)/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 0 12px #48ffab;box-shadow:inset 0 0 18px rgba(64,255,173,.12);animation:loginTechShake .15s steps(2,end) infinite}.login-success-name{color:#eafff5;font-size:13px;font-weight:950;letter-spacing:.12em}
@@ -957,16 +973,47 @@
         <div class="login-auth-card">
           <p class="login-scanner-status"><i></i>STUDENT IDENTITY SCANNER</p>
           <h1>學員登入</h1>
-          <p>輸入學員帳號與密碼，啟動學習星球任務。</p>
+          <p>透過 Google 認證或輸入學員帳號，啟動學習星球任務。</p>
+
+          <button class="login-google-btn" onClick="{{ submitGoogleLogin }}" aria-label="使用 Google 帳號快速登入">
+            <svg class="google-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.33 24 12 24z"/>
+              <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
+            </svg>
+            <span>使用 Google 帳號登入</span>
+          </button>
+
+          <div class="login-divider"><span>或使用學員帳號</span></div>
+
           <label class="login-auth-field">學員帳號<input value="{{ studentLoginAccount }}" onChange="{{ changeStudentAccount }}" onKeyDown="{{ studentLoginKey }}" autoComplete="username" placeholder="例如：30102"></label>
           <label class="login-auth-field">密碼<input type="password" value="{{ studentLoginPassword }}" onChange="{{ changeStudentPassword }}" onKeyDown="{{ studentLoginKey }}" autoComplete="current-password" placeholder="輸入密碼"></label>
           <p class="login-auth-error">{{ studentLoginError }}</p>
           <button class="login-auth-submit" onClick="{{ submitStudentLogin }}">登入學習星球</button>
+
+          <button class="login-firebase-config-trigger" onClick="{{ openFirebaseConfig }}" title="設定 Firebase 專案">⚙️ Firebase 專案設定</button>
         </div>
       </section>
     </div>
     <button class="login-teacher-satellite" onClick="{{ loginTeacher }}" title="老師登入" aria-label="開啟老師帳號登入"><img src="images/login/teacher-satellite-v1.png" alt=""></button>
     <div class="login-success-sequence" aria-live="polite"><div class="login-success-core"><img class="login-success-avatar" src="{{ loginSuccessAvatar }}" alt=""><strong class="login-success-copy">LOGIN SUCCESSFUL</strong><span class="login-success-name">{{ loginSuccessName }}</span></div></div>
+    
+    <div class="firebase-config-dialog" hidden="{{ firebaseConfigHidden }}">
+      <section class="firebase-config-card" role="dialog" aria-modal="true" aria-label="Firebase 專案設定">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <h2>⚙️ Firebase 雲端與 Google 認證設定</h2>
+          <button style="border:0;background:transparent;color:#9cefff;font-size:20px;cursor:pointer" onClick="{{ closeFirebaseConfig }}">✕</button>
+        </div>
+        <p>貼上你在 Firebase Console (專案設定 -&gt; 網頁應用) 取得的 <code>firebaseConfig</code> JSON 內容：</p>
+        <textarea value="{{ firebaseConfigJson }}" onChange="{{ changeFirebaseConfigJson }}" placeholder='{ "apiKey": "AIzaSy...", "authDomain": "learnplanet-xxxx.firebaseapp.com", "projectId": "learnplanet-xxxx" }'></textarea>
+        <p class="login-auth-error">{{ firebaseConfigError }}</p>
+        <div style="display:flex;justify-content:flex-end;gap:10px">
+          <button style="border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:10px 18px;background:rgba(255,255,255,.1);color:#fff;cursor:pointer" onClick="{{ closeFirebaseConfig }}">取消</button>
+          <button style="border:0;border-radius:12px;padding:10px 20px;background:linear-gradient(90deg,#7357ff,#22c8d8);color:#fff;font-weight:900;cursor:pointer" onClick="{{ saveFirebaseConfig }}">儲存並連線</button>
+        </div>
+      </section>
+    </div>
     <div class="login-teacher-dialog" hidden="{{ teacherLoginHidden }}">
       <section class="login-teacher-card" role="dialog" aria-modal="true" aria-label="老師登入">
         <div class="login-teacher-head"><img src="images/login/teacher-satellite-v1.png" alt=""><div><h2>老師登入</h2><p style="margin:5px 0 0;color:#9cefff;font-size:11px;font-weight:850">TEACHER CONTROL SATELLITE</p></div></div>
@@ -4692,6 +4739,7 @@ class Component extends DCLogic {
     loginLaunching: false, loginVerified: false, loginSuccessStudentId: null,
     studentLoginAccount: "", studentLoginPassword: "", studentLoginError: "",
     teacherLoginOpen: false, teacherLoginAccount: "", teacherLoginPassword: "", teacherLoginError: "",
+    firebaseConfigOpen: false, firebaseConfigJson: "", firebaseConfigError: "",
     dissolveLab: null,
     magnet2Lab: null,
     dayNightLab: null,
@@ -4886,6 +4934,73 @@ class Component extends DCLogic {
     const student = this.state.students.find((candidate) => studentLoginAccount(candidate).toLowerCase() === account && studentLoginPassword(candidate) === password);
     if (!student) { this.setState({ studentLoginError: "帳號或密碼不正確，請再確認一次。" }); return; }
     this.launchStudentLogin(student.id);
+  }
+
+  async authenticateGoogle() {
+    if (this.state.loginLaunching || this.state.loginVerified) return;
+    if (!window.LearningPlanetFirebase) {
+      this.setState({ studentLoginError: "Firebase 模組載入中，請稍候重試。" });
+      return;
+    }
+    try {
+      this.setState({ studentLoginError: "" });
+      const fbUser = await window.LearningPlanetFirebase.signInWithGoogle();
+      if (!fbUser) return;
+      
+      const email = (fbUser.email || "").toLowerCase();
+      const googleUid = fbUser.uid;
+      
+      let student = this.state.students.find((candidate) => 
+        (candidate.googleUid && candidate.googleUid === googleUid) ||
+        (candidate.email && candidate.email.toLowerCase() === email)
+      );
+
+      if (!student) {
+        let cloudProfile = null;
+        try {
+          cloudProfile = await window.LearningPlanetFirebase.loadProfileFromFirestore(googleUid);
+        } catch (e) {}
+
+        const studentId = "g_" + googleUid.slice(0, 8);
+        const displayName = fbUser.displayName || (email ? email.split("@")[0] : "探險家");
+        const defaultProfile = {
+          cardAvatarIndex: 0,
+          cardTheme: "theme-c",
+          englishName: displayName.split(" ")[0] || "Explorer",
+          xp: 100,
+          coins: 60,
+          level: 1,
+          avatar: "girl",
+          avatarStyle: "atelier",
+          dailyMastery: {},
+          owned: BASE_OWNED.slice(),
+          equipped: Object.assign({}, BASE_EQUIP),
+          lastLoginAt: new Date().toISOString()
+        };
+
+        student = {
+          id: studentId,
+          name: displayName,
+          seat: "G" + (Math.floor(Math.random() * 89) + 10),
+          classId: "c301",
+          face: "🚀",
+          tint: "#dff6ff",
+          googleUid: googleUid,
+          email: email,
+          photoURL: fbUser.photoURL,
+          profile: Object.assign({}, defaultProfile, cloudProfile && typeof cloudProfile === "object" ? cloudProfile : {})
+        };
+
+        this.setState((state) => ({
+          students: [student, ...state.students]
+        }));
+      }
+
+      this.launchStudentLogin(student.id);
+    } catch (err) {
+      console.error("Google login error:", err);
+      this.setState({ studentLoginError: err.message || "Google 登入失敗。" });
+    }
   }
 
   authenticateTeacher() {
@@ -9332,6 +9447,35 @@ class Component extends DCLogic {
       changeStudentPassword: (e) => this.setState({ studentLoginPassword: e.target.value, studentLoginError: "" }),
       studentLoginKey: (e) => { if (e.key === "Enter") this.authenticateStudent(); },
       submitStudentLogin: () => this.authenticateStudent(),
+      submitGoogleLogin: () => this.authenticateGoogle(),
+      firebaseConfigHidden: !s.firebaseConfigOpen,
+      firebaseConfigJson: s.firebaseConfigJson,
+      firebaseConfigError: s.firebaseConfigError,
+      openFirebaseConfig: () => {
+        const cur = window.LearningPlanetFirebase ? window.LearningPlanetFirebase.getConfig() : {};
+        this.setState({ firebaseConfigOpen: true, firebaseConfigJson: JSON.stringify(cur, null, 2), firebaseConfigError: "" });
+      },
+      closeFirebaseConfig: () => this.setState({ firebaseConfigOpen: false, firebaseConfigError: "" }),
+      changeFirebaseConfigJson: (e) => this.setState({ firebaseConfigJson: e.target.value, firebaseConfigError: "" }),
+      saveFirebaseConfig: () => {
+        try {
+          const parsed = JSON.parse(this.state.firebaseConfigJson);
+          if (!parsed || !parsed.apiKey) {
+            this.setState({ firebaseConfigError: "請填入有效的 Firebase API Key 與 projectId。" });
+            return;
+          }
+          if (window.LearningPlanetFirebase) {
+            const ok = window.LearningPlanetFirebase.saveConfig(parsed);
+            if (ok) {
+              this.setState({ firebaseConfigOpen: false, firebaseConfigError: "", toast: "Firebase 設定已儲存並成功連線！" });
+            } else {
+              this.setState({ firebaseConfigError: "Firebase 連線初始化失敗，請檢查 Config。" });
+            }
+          }
+        } catch (e) {
+          this.setState({ firebaseConfigError: "JSON 格式錯誤，請確認貼上的內容格式。" });
+        }
+      },
       loginSuccessAvatar: (() => { const student = s.students.find((candidate) => candidate.id === s.loginSuccessStudentId); return student ? studentAvatarImage(student.profile && student.profile.cardAvatarIndex) : studentAvatarImage(0); })(),
       loginSuccessName: (() => { const student = s.students.find((candidate) => candidate.id === s.loginSuccessStudentId); return student ? student.name + " · " + studentIdentityCard(student).englishName : ""; })(),
       loginTeacher: () => this.setState({ teacherLoginOpen: true, teacherLoginError: "" }),
@@ -9348,6 +9492,9 @@ class Component extends DCLogic {
         clearTimeout(this.autoNextTimer);
         clearTimeout(this.loginLaunchTimer);
         if (typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
+        if (window.LearningPlanetFirebase && window.LearningPlanetFirebase.logout) {
+          window.LearningPlanetFirebase.logout().catch(() => {});
+        }
         this.setState({ screen: "login", currentId: null, teacher: false, loginLaunching: false, loginVerified: false, loginSuccessStudentId: null, studentLoginPassword: "", teacherLoginPassword: "" });
       },
 
