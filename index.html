@@ -973,47 +973,16 @@
         <div class="login-auth-card">
           <p class="login-scanner-status"><i></i>STUDENT IDENTITY SCANNER</p>
           <h1>學員登入</h1>
-          <p>透過 Google 認證或輸入學員帳號，啟動學習星球任務。</p>
-
-          <button class="login-google-btn" onClick="{{ submitGoogleLogin }}" aria-label="使用 Google 帳號快速登入">
-            <svg class="google-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/>
-              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.33 24 12 24z"/>
-              <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
-              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
-            </svg>
-            <span>使用 Google 帳號登入</span>
-          </button>
-
-          <div class="login-divider"><span>或使用學員帳號</span></div>
-
+          <p>輸入學員帳號與密碼，啟動學習星球任務。</p>
           <label class="login-auth-field">學員帳號<input value="{{ studentLoginAccount }}" onChange="{{ changeStudentAccount }}" onKeyDown="{{ studentLoginKey }}" autoComplete="username" placeholder="例如：30102"></label>
           <label class="login-auth-field">密碼<input type="password" value="{{ studentLoginPassword }}" onChange="{{ changeStudentPassword }}" onKeyDown="{{ studentLoginKey }}" autoComplete="current-password" placeholder="輸入密碼"></label>
           <p class="login-auth-error">{{ studentLoginError }}</p>
           <button class="login-auth-submit" onClick="{{ submitStudentLogin }}">登入學習星球</button>
-
-          <button class="login-firebase-config-trigger" onClick="{{ openFirebaseConfig }}" title="設定 Firebase 專案">⚙️ Firebase 專案設定</button>
         </div>
       </section>
     </div>
     <button class="login-teacher-satellite" onClick="{{ loginTeacher }}" title="老師登入" aria-label="開啟老師帳號登入"><img src="images/login/teacher-satellite-v1.png" alt=""></button>
     <div class="login-success-sequence" aria-live="polite"><div class="login-success-core"><img class="login-success-avatar" src="{{ loginSuccessAvatar }}" alt=""><strong class="login-success-copy">LOGIN SUCCESSFUL</strong><span class="login-success-name">{{ loginSuccessName }}</span></div></div>
-    
-    <div class="firebase-config-dialog" hidden="{{ firebaseConfigHidden }}">
-      <section class="firebase-config-card" role="dialog" aria-modal="true" aria-label="Firebase 專案設定">
-        <div style="display:flex;align-items:center;justify-content:space-between">
-          <h2>⚙️ Firebase 雲端與 Google 認證設定</h2>
-          <button style="border:0;background:transparent;color:#9cefff;font-size:20px;cursor:pointer" onClick="{{ closeFirebaseConfig }}">✕</button>
-        </div>
-        <p>貼上你在 Firebase Console (專案設定 -&gt; 網頁應用) 取得的 <code>firebaseConfig</code> JSON 內容：</p>
-        <textarea value="{{ firebaseConfigJson }}" onChange="{{ changeFirebaseConfigJson }}" placeholder='{ "apiKey": "AIzaSy...", "authDomain": "learnplanet-xxxx.firebaseapp.com", "projectId": "learnplanet-xxxx" }'></textarea>
-        <p class="login-auth-error">{{ firebaseConfigError }}</p>
-        <div style="display:flex;justify-content:flex-end;gap:10px">
-          <button style="border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:10px 18px;background:rgba(255,255,255,.1);color:#fff;cursor:pointer" onClick="{{ closeFirebaseConfig }}">取消</button>
-          <button style="border:0;border-radius:12px;padding:10px 20px;background:linear-gradient(90deg,#7357ff,#22c8d8);color:#fff;font-weight:900;cursor:pointer" onClick="{{ saveFirebaseConfig }}">儲存並連線</button>
-        </div>
-      </section>
-    </div>
     <div class="login-teacher-dialog" hidden="{{ teacherLoginHidden }}">
       <section class="login-teacher-card" role="dialog" aria-modal="true" aria-label="老師登入">
         <div class="login-teacher-head"><img src="images/login/teacher-satellite-v1.png" alt=""><div><h2>老師登入</h2><p style="margin:5px 0 0;color:#9cefff;font-size:11px;font-weight:850">TEACHER CONTROL SATELLITE</p></div></div>
@@ -1139,6 +1108,29 @@
               <button class="profile-avatar-option student-photo {{ a.activeClass }}" style="{{ a.style }}" onClick="{{ a.pick }}" aria-label="{{ a.label }}"></button>
             </sc-for>
           </div>
+
+          <p class="profile-section-label">Google 帳號認證與綁定</p>
+          <div class="profile-google-card" style="padding:12px 14px;border:1.5px solid {{ profileGoogleBoundBorder }};border-radius:18px;background:{{ profileGoogleBoundBg }};display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px">
+            <div style="display:flex;align-items:center;gap:10px;min-width:0">
+              <svg class="google-icon" viewBox="0 0 24 24" width="22" height="22" style="flex-shrink:0" aria-hidden="true">
+                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/>
+                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.33 24 12 24z"/>
+                <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
+                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
+              </svg>
+              <div style="min-width:0">
+                <strong style="display:block;font-size:13px;font-weight:900;color:{{ profileGoogleBoundColor }}">{{ profileGoogleStatusLabel }}</strong>
+                <span style="display:block;font-size:11px;font-weight:700;color:#7c74a8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ profileGoogleDetailLabel }}</span>
+              </div>
+            </div>
+            <sc-if value="{{ isGoogleBound }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ unbindGoogle }}" style="border:1px solid #ffccd7;background:#fff1f4;color:#d83b68;border-radius:12px;padding:7px 12px;font-size:12px;font-weight:900;cursor:pointer;white-space:nowrap">解除綁定</button>
+            </sc-if>
+            <sc-if value="{{ isNotGoogleBound }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ bindGoogle }}" style="border:0;background:linear-gradient(90deg,#4285F4,#34A853);color:#fff;border-radius:12px;padding:8px 14px;font-size:12px;font-weight:900;cursor:pointer;white-space:nowrap;box-shadow:0 4px 12px rgba(66,133,244,.3)">立即綁定</button>
+            </sc-if>
+          </div>
+
           <button class="profile-done" onClick="{{ goHome }}">完成並回首頁</button>
         </aside>
       </div>
@@ -2880,16 +2872,25 @@
 
             <div style="margin-top:16px;overflow-x:auto">
               <div style="min-width:900px">
-                <div class="teacher-student-head" style="display:grid;grid-template-columns:.45fr 1.15fr .75fr 1fr .85fr 1.35fr auto;gap:8px;padding:0 12px 10px;font-size:12px;font-weight:900;color:#b3a9d8"><span>座號</span><span>學生</span><span>班級</span><span>帳號</span><span>密碼</span><span>最後登入日</span><span>維護</span></div>
+                <div class="teacher-student-head" style="display:grid;grid-template-columns:.4fr 1fr .65fr .85fr .75fr 1.1fr 1.35fr auto;gap:8px;padding:0 12px 10px;font-size:12px;font-weight:900;color:#b3a9d8"><span>座號</span><span>學生</span><span>班級</span><span>帳號</span><span>密碼</span><span>最後登入日</span><span>Google 綁定 / UID</span><span>維護</span></div>
                 <sc-for list="{{ teacherRows }}" as="row" hint-placeholder-count="8">
                   <sc-if value="{{ row.viewing }}" hint-placeholder-val="{{ true }}">
-                    <div class="teacher-student-row" style="display:grid;grid-template-columns:.45fr 1.15fr .75fr 1fr .85fr 1.35fr auto;gap:8px;align-items:center;padding:12px;border-radius:18px;margin-bottom:6px;background:{{ row.bg }}">
+                    <div class="teacher-student-row" style="display:grid;grid-template-columns:.4fr 1fr .65fr .85fr .75fr 1.1fr 1.35fr auto;gap:8px;align-items:center;padding:12px;border-radius:18px;margin-bottom:6px;background:{{ row.bg }}">
                       <span style="font-size:14px;font-weight:900;color:#7c74a8">{{ row.seat }}</span>
                       <span style="display:flex;align-items:center;gap:10px"><img src="{{ row.avatarImage }}" alt="" style="width:34px;height:34px;border-radius:10px;object-fit:cover"><strong style="font-size:15px;font-weight:900">{{ row.name }}</strong></span>
                       <span style="font-size:13px;font-weight:900;color:#5b3fe0">{{ row.className }}</span>
                       <span style="font-size:13px;font-weight:900;color:#8feaff">{{ row.account }}</span>
                       <span style="font-size:13px;font-weight:900;color:#ffe18a">{{ row.password }}</span>
                       <span style="font-size:12px;font-weight:800;color:#c5d7ec">{{ row.lastLogin }}</span>
+                      <span style="font-size:12px;font-weight:800;min-width:0">
+                        <sc-if value="{{ row.googleBound }}" hint-placeholder-val="{{ true }}">
+                          <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(52,168,83,.2);border:1px solid rgba(52,168,83,.5);color:#58ffc7;border-radius:8px;padding:3px 7px;font-size:11px;font-weight:900" title="{{ row.googleEmail }}">✓ 已綁定</span>
+                          <small style="display:block;font-size:10px;color:#9cefff;margin-top:2px;font-family:monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="{{ row.googleUidFull }}">UID: {{ row.googleUidShort }}</small>
+                        </sc-if>
+                        <sc-if value="{{ row.googleNotBound }}" hint-placeholder-val="{{ false }}">
+                          <span style="color:#7c74a8;font-size:11px;font-weight:800">⚪ 未綁定</span>
+                        </sc-if>
+                      </span>
                       <span style="display:flex;gap:6px">
                         <button onClick="{{ row.edit }}" style="border:1px solid #ddd5ff;background:#fbfaff;border-radius:12px;padding:8px 12px;font-size:13px;font-weight:900;color:#5b3fe0;cursor:pointer;font-family:inherit">編輯</button>
                         <button onClick="{{ row.remove }}" style="border:1px solid #ffd0e6;background:#fff5f9;border-radius:12px;padding:8px 12px;font-size:13px;font-weight:900;color:#b0316f;cursor:pointer;font-family:inherit">移除</button>
@@ -2897,7 +2898,7 @@
                     </div>
                   </sc-if>
                   <sc-if value="{{ row.editing }}" hint-placeholder-val="{{ false }}">
-                    <div class="teacher-student-edit" style="display:grid;grid-template-columns:.45fr 1.15fr .75fr 1fr .85fr 1.35fr auto;gap:8px;align-items:center;padding:12px;border-radius:18px;margin-bottom:6px;background:#f6f2ff;border:2px solid #7c5cff">
+                    <div class="teacher-student-edit" style="display:grid;grid-template-columns:.4fr 1fr .65fr .85fr .75fr 1.1fr 1.35fr auto;gap:8px;align-items:center;padding:12px;border-radius:18px;margin-bottom:6px;background:#f6f2ff;border:2px solid #7c5cff">
                       <input value="{{ editSeat }}" onChange="{{ onEditSeat }}" inputMode="numeric" maxLength="2" placeholder="座號" style="width:100%;min-width:0;border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;font-size:15px;font-family:inherit;color:#2b1f57" />
                       <input value="{{ editName }}" onChange="{{ onEditName }}" placeholder="姓名" style="width:100%;min-width:0;border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;font-size:15px;font-family:inherit;color:#2b1f57" />
                       <select value="{{ editClass }}" onChange="{{ onEditClass }}" style="width:100%;min-width:0;border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;font-size:15px;font-family:inherit;color:#2b1f57;background:#fff">
@@ -2908,6 +2909,7 @@
                       <input value="{{ editAccount }}" onChange="{{ onEditAccount }}" placeholder="登入帳號" style="width:100%;min-width:0;border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;font-size:14px;font-family:inherit;color:#2b1f57" />
                       <input value="{{ editPassword }}" onChange="{{ onEditPassword }}" placeholder="登入密碼" style="width:100%;min-width:0;border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;font-size:14px;font-family:inherit;color:#2b1f57" />
                       <span style="font-size:12px;font-weight:900;color:{{ editHintColor }};min-width:0">{{ editHint }}</span>
+                      <span style="font-size:11px;font-weight:800;color:#9cefff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ editGoogleUidInfo }}</span>
                       <span style="display:flex;gap:6px"><button onClick="{{ saveEdit }}" style="border:0;border-radius:12px;padding:10px 14px;font-size:13px;font-weight:900;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer;font-family:inherit">儲存</button><button onClick="{{ cancelEdit }}" style="border:1px solid #ddd5ff;background:#fff;border-radius:12px;padding:10px 12px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit">取消</button></span>
                     </div>
                   </sc-if>
@@ -4936,69 +4938,76 @@ class Component extends DCLogic {
     this.launchStudentLogin(student.id);
   }
 
-  async authenticateGoogle() {
-    if (this.state.loginLaunching || this.state.loginVerified) return;
+  async bindGoogleAccount() {
     if (!window.LearningPlanetFirebase) {
-      this.setState({ studentLoginError: "Firebase 模組載入中，請稍候重試。" });
+      this.flash("Firebase 模組載入中，請稍候重試");
       return;
     }
+    const curStudent = this.cur();
+    if (!curStudent) return;
     try {
-      this.setState({ studentLoginError: "" });
       const fbUser = await window.LearningPlanetFirebase.signInWithGoogle();
       if (!fbUser) return;
       
       const email = (fbUser.email || "").toLowerCase();
       const googleUid = fbUser.uid;
       
-      let student = this.state.students.find((candidate) => 
-        (candidate.googleUid && candidate.googleUid === googleUid) ||
-        (candidate.email && candidate.email.toLowerCase() === email)
-      );
-
-      if (!student) {
-        let cloudProfile = null;
-        try {
-          cloudProfile = await window.LearningPlanetFirebase.loadProfileFromFirestore(googleUid);
-        } catch (e) {}
-
-        const studentId = "g_" + googleUid.slice(0, 8);
-        const displayName = fbUser.displayName || (email ? email.split("@")[0] : "探險家");
-        const fullProfile = Object.assign(makeProfile(), {
-          cardAvatarIndex: 0,
-          cardTheme: "C",
-          englishName: displayName.split(" ")[0] || "Explorer",
-          xp: 100,
-          coins: 60,
-          level: 1,
-          avatar: "girl",
-          avatarStyle: "atelier",
-          avatarSelected: false,
-          lastLoginAt: new Date().toISOString()
-        }, cloudProfile && typeof cloudProfile === "object" ? cloudProfile : {});
-
-        student = {
-          id: studentId,
-          name: displayName,
-          seat: "G" + (Math.floor(Math.random() * 89) + 10),
-          classId: "c301",
-          face: "🚀",
-          tint: "#dff6ff",
-          googleUid: googleUid,
-          email: email,
-          photoURL: fbUser.photoURL,
-          profile: fullProfile
+      this.setState((state) => {
+        const updatedStudents = state.students.map((st) => {
+          if (st.id === curStudent.id) {
+            const updatedProfile = Object.assign({}, st.profile, {
+              googleUid,
+              email,
+              lastLoginAt: new Date().toISOString()
+            });
+            if (window.LearningPlanetFirebase && window.LearningPlanetFirebase.saveProfileToFirestore) {
+              window.LearningPlanetFirebase.saveProfileToFirestore(googleUid, updatedProfile);
+            }
+            return Object.assign({}, st, {
+              googleUid,
+              email,
+              photoURL: fbUser.photoURL,
+              profile: updatedProfile
+            });
+          }
+          return st;
+        });
+        return {
+          students: updatedStudents
         };
-
-        this.setState((state) => ({
-          students: [student, ...state.students]
-        }));
-      }
-
-      this.launchStudentLogin(student.id);
+      }, () => {
+        this.flash("✅ Google 帳號綁定成功！(" + (email || googleUid.slice(0, 8)) + ")");
+      });
     } catch (err) {
-      console.error("Google login error:", err);
-      this.setState({ studentLoginError: err.message || "Google 登入失敗。" });
+      console.error("Binding error:", err);
+      this.flash("綁定失敗：" + (err.message || "未知錯誤"));
     }
+  }
+
+  unbindGoogleAccount() {
+    const curStudent = this.cur();
+    if (!curStudent) return;
+    if (!confirm("確定要解除綁定的 Google 帳號嗎？")) return;
+    this.setState((state) => {
+      const updatedStudents = state.students.map((st) => {
+        if (st.id === curStudent.id) {
+          const updatedProfile = Object.assign({}, st.profile);
+          delete updatedProfile.googleUid;
+          delete updatedProfile.email;
+          const updatedSt = Object.assign({}, st, { profile: updatedProfile });
+          delete updatedSt.googleUid;
+          delete updatedSt.email;
+          delete updatedSt.photoURL;
+          return updatedSt;
+        }
+        return st;
+      });
+      return {
+        students: updatedStudents
+      };
+    }, () => {
+      this.flash("已解除 Google 帳號綁定");
+    });
   }
 
   authenticateTeacher() {
@@ -9516,6 +9525,15 @@ class Component extends DCLogic {
         pick: () => this.patch({ cardTheme: theme }),
       })),
       updateProfileEnglishName: (event) => this.patch({ englishName: String(event && event.target ? event.target.value : "").slice(0, 30).toUpperCase() }),
+      isGoogleBound: !!((p && p.googleUid) || (me && me.googleUid)),
+      isNotGoogleBound: !((p && p.googleUid) || (me && me.googleUid)),
+      profileGoogleStatusLabel: ((p && p.googleUid) || (me && me.googleUid)) ? "已綁定 Google 帳號" : "尚未綁定 Google 帳號",
+      profileGoogleDetailLabel: ((p && p.email) || (me && me.email)) ? ((p && p.email) || (me && me.email)) : ((p && p.googleUid) || (me && me.googleUid)) ? "UID: " + ((p && p.googleUid) || (me && me.googleUid)).slice(0, 14) + "..." : "綁定後可在雲端備份學習進度並獲得 Google 認證",
+      profileGoogleBoundBorder: ((p && p.googleUid) || (me && me.googleUid)) ? "rgba(52,168,83,.45)" : "#ece7ff",
+      profileGoogleBoundBg: ((p && p.googleUid) || (me && me.googleUid)) ? "rgba(52,168,83,.08)" : "#fbfaff",
+      profileGoogleBoundColor: ((p && p.googleUid) || (me && me.googleUid)) ? "#1d7a55" : "#2b1f57",
+      bindGoogle: () => this.bindGoogleAccount(),
+      unbindGoogle: () => this.unbindGoogleAccount(),
       userSub: s.teacher || !me ? "教師工作台" : "Lv." + level + " · " + className(me.classId) + " " + me.seat,
       userLevelLabel: "Lv." + level,
       level, xp: p.xp, coins: p.coins, streak: p.streak,
@@ -10176,20 +10194,29 @@ class Component extends DCLogic {
       studentCount: s.students.length,
       loggedIn: s.students.filter((st) => hasSignedToday(st.profile)).length,
       classOptions: s.classes.map((c) => ({ id: c.id, name: c.name })),
-      teacherRows: s.students.slice().sort((a, b) => (a.classId + a.seat).localeCompare(b.classId + b.seat, "en", { numeric: true })).map((st) => ({
-        seat: st.seat.replace(" 號", ""),
-        face: st.face, tint: st.tint, name: st.name,
-        avatarImage: studentAvatarImage(st.profile && st.profile.cardAvatarIndex),
-        className: className(st.classId),
-        account: studentLoginAccount(st),
-        password: studentLoginPassword(st),
-        lastLogin: formatLastLogin(st.profile && st.profile.lastLoginAt),
-        bg: hasSignedToday(st.profile) ? "#fbfaff" : "#fff6f8",
-        viewing: s.editId !== st.id,
-        editing: s.editId === st.id,
-        edit: () => this.setState({ editId: st.id, editName: st.name, editSeat: st.seat.replace(/[^0-9]/g, ""), editClass: st.classId, editAccount: studentLoginAccount(st), editPassword: studentLoginPassword(st) }),
-        remove: () => this.removeStudent(st.id, st.name),
-      })),
+      teacherRows: s.students.slice().sort((a, b) => (a.classId + a.seat).localeCompare(b.classId + b.seat, "en", { numeric: true })).map((st) => {
+        const googleUid = (st.profile && st.profile.googleUid) || st.googleUid || "";
+        const googleEmail = (st.profile && st.profile.email) || st.email || "";
+        return {
+          seat: st.seat.replace(" 號", ""),
+          face: st.face, tint: st.tint, name: st.name,
+          avatarImage: studentAvatarImage(st.profile && st.profile.cardAvatarIndex),
+          className: className(st.classId),
+          account: studentLoginAccount(st),
+          password: studentLoginPassword(st),
+          lastLogin: formatLastLogin(st.profile && st.profile.lastLoginAt),
+          googleBound: !!googleUid,
+          googleNotBound: !googleUid,
+          googleUidFull: googleUid,
+          googleUidShort: googleUid ? (googleUid.length > 10 ? googleUid.slice(0, 8) + "..." : googleUid) : "無",
+          googleEmail: googleEmail || "無信箱",
+          bg: hasSignedToday(st.profile) ? "#fbfaff" : "#fff6f8",
+          viewing: s.editId !== st.id,
+          editing: s.editId === st.id,
+          edit: () => this.setState({ editId: st.id, editName: st.name, editSeat: st.seat.replace(/[^0-9]/g, ""), editClass: st.classId, editAccount: studentLoginAccount(st), editPassword: studentLoginPassword(st) }),
+          remove: () => this.removeStudent(st.id, st.name),
+        };
+      }),
       newName: s.newName, newSeat: s.newSeat, newClass: s.newClass,
       onNewName: (e) => this.setState({ newName: e.target.value }),
       onNewSeat: (e) => this.setState({ newSeat: e.target.value.replace(/[^0-9]/g, "").slice(0, 2) }),
@@ -10235,6 +10262,14 @@ class Component extends DCLogic {
         const seat = String(parseInt(raw, 10)).padStart(2, "0") + " 號";
         const dupe = s.students.some((st) => st.id !== s.editId && st.classId === s.editClass && (st.seat === seat || st.name === name));
         return dupe ? "#ff5c8a" : "#35c98a";
+      })(),
+      editGoogleUidInfo: (() => {
+        const editingStudent = s.students.find((st) => st.id === s.editId);
+        if (!editingStudent) return "";
+        const uid = (editingStudent.profile && editingStudent.profile.googleUid) || editingStudent.googleUid;
+        const email = (editingStudent.profile && editingStudent.profile.email) || editingStudent.email;
+        if (uid) return "Google: " + (email || uid.slice(0, 10) + "...");
+        return "Google: 未綁定";
       })(),
 
       newClassName: s.newClassName,
