@@ -44,7 +44,7 @@ service cloud.firestore {
       allow update: if isAdmin() || (
         isTeacher() && request.auth.uid == uid
         && request.resource.data.diff(resource.data).affectedKeys()
-          .hasOnly(['googleEmail', 'googleLinked', 'firstLoginCompleted', 'lastLoginAt', 'updatedAt'])
+          .hasOnly(['googleEmail', 'googleLinked', 'firstLoginCompleted', 'lastLoginAt', 'passwordRecoveredAt', 'updatedAt'])
       );
     }
 
@@ -66,7 +66,7 @@ service cloud.firestore {
       allow update: if isAdmin() || (isStudent() && request.auth.uid == studentId
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
           'googleEmail', 'googleLinked', 'firstLoginCompleted', 'lastLoginAt',
-          'xp', 'coins', 'inventory', 'profile', 'avatar', 'updatedAt'
+          'passwordRecoveredAt', 'xp', 'coins', 'inventory', 'profile', 'avatar', 'updatedAt'
         ]));
     }
 

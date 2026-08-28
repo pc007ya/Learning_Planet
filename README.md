@@ -20,6 +20,8 @@
 - 班級排行、成就、簽到、XP 與星星幣
 - 獨立星光扭蛋機與蒐集圖鑑
 - 教師端學生、班級與字彙設定
+- 本機體驗帳號 `DEMO / DEMO`（固定禁止 Firebase／Google 綁定）
+- 登入、密碼恢復與教師設定欄位支援密碼顯示／隱藏
 
 本專案不包含衣櫃或造型獎勵商城；扭蛋以獨立遊戲入口保留。
 
@@ -29,7 +31,11 @@
 
 ## 本機預覽
 
-請透過本機 HTTP server 開啟 `index.html`；直接使用 `file://` 可能限制資料載入與瀏覽器功能。
+請透過本機 HTTP server 開啟 `index.html`；不要直接使用 `file://`，否則 Firebase 登入、資料載入與部分瀏覽器功能可能無法正常運作。
+
+## Firebase 登入設定
+
+教師、管理員與學員帳密登入需要在 Firebase Console 的 Authentication → Sign-in method 中啟用 Email/Password。若未啟用，所有帳密都會被 Firebase 拒絕，即使帳號與密碼正確也無法登入。
 
 ## 資料與隱私
 

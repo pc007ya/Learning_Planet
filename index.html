@@ -403,7 +403,9 @@
   .login-divider::before,.login-divider::after{content:"";flex:1;border-bottom:1px dashed rgba(111,235,255,.3)}
   .login-divider span{padding:0 12px}
   .login-auth-field{display:grid;gap:7px;color:#a8ecff;font-size:12px;font-weight:950;letter-spacing:.08em}.login-auth-field input{box-sizing:border-box;width:100%;border:1px solid rgba(129,230,255,.38);border-radius:15px;padding:13px 15px;background:rgba(255,255,255,.08);color:#fff;font:900 16px/1.2 inherit;outline:none}.login-auth-field input:focus{border-color:#62edff;box-shadow:0 0 0 3px rgba(71,227,255,.14)}
+  .password-field-wrap{position:relative;display:block;width:100%;min-width:0}.password-field-wrap>input{padding-right:48px!important}.password-eye{position:absolute;z-index:2;right:8px;top:50%;width:36px;height:34px;display:grid;place-items:center;transform:translateY(-50%);border:0!important;border-radius:10px!important;padding:0!important;background:transparent!important;color:#9cefff!important;font-size:18px!important;line-height:1!important;cursor:pointer}.password-eye:hover{background:rgba(255,255,255,.1)!important;color:#fff!important}.password-field-wrap.settings-password{margin-top:6px}.password-field-wrap.settings-password>input{margin-top:0!important}.password-field-wrap.settings-password .password-eye{color:#6b55b5!important}
   .login-auth-submit{border:1px solid rgba(154,250,255,.45)!important;border-radius:16px!important;padding:14px!important;background:linear-gradient(90deg,#7357ff,#22c8d8)!important;color:#fff!important;font:950 16px/1 inherit!important;cursor:pointer;box-shadow:0 10px 28px rgba(34,200,216,.2)}
+  .login-forgot-btn{justify-self:center;border:0!important;padding:2px 4px!important;background:transparent!important;color:#9cefff!important;font:850 12px/1.4 inherit!important;cursor:pointer;text-decoration:underline;text-underline-offset:3px}.login-forgot-btn:hover{color:#fff!important}.login-forgot-btn:disabled{cursor:wait;opacity:.55}
   .login-firebase-config-trigger{border:0;background:transparent;color:rgba(156,239,255,.75);font-size:11px;font-weight:800;cursor:pointer;text-decoration:underline;margin:2px auto 0;display:inline-block}
   .login-firebase-config-trigger:hover{color:#fff}
   .firebase-config-dialog{position:fixed;z-index:32;inset:0;display:grid;place-items:center;padding:20px;background:rgba(2,5,23,.78);backdrop-filter:blur(14px)}.firebase-config-dialog[hidden]{display:none}
@@ -414,6 +416,7 @@
   .firebase-config-card textarea:focus{border-color:#62edff}
   .login-auth-error{min-height:18px;margin:0!important;color:#ff9fbd!important;font-size:12px!important;font-weight:900!important;text-align:center!important}
   .login-teacher-dialog{position:fixed;z-index:30;inset:0;display:grid;place-items:center;padding:20px;background:rgba(2,5,23,.72);backdrop-filter:blur(12px)}.login-teacher-dialog[hidden]{display:none}.login-teacher-card{width:min(420px,92vw);display:grid;gap:13px;padding:28px;border:1px solid rgba(255,222,104,.46);border-radius:26px;background:linear-gradient(145deg,rgba(7,22,58,.96),rgba(22,12,57,.94));box-shadow:0 30px 90px rgba(0,0,0,.55)}.login-teacher-head{display:flex;align-items:center;gap:13px}.login-teacher-head img{width:62px;height:62px;object-fit:contain}.login-teacher-head h2{margin:0;color:#fff;font-size:25px}.login-teacher-actions{display:grid;grid-template-columns:1fr 1.5fr;gap:9px}.login-teacher-actions button{border:1px solid rgba(157,226,255,.35);border-radius:14px;padding:12px;background:rgba(255,255,255,.08);color:#dff8ff;font:900 14px/1 inherit;cursor:pointer}.login-teacher-actions button:last-child{border:0;background:linear-gradient(90deg,#7357ff,#22c8d8);color:#fff}
+  .login-recovery-card{width:min(440px,92vw)}.login-recovery-note{margin:0;color:#c9e9f5;font-size:12px;font-weight:750;line-height:1.65}.login-recovery-actions{display:grid;grid-template-columns:1fr 1.7fr;gap:9px}.login-recovery-actions button{border:1px solid rgba(157,226,255,.35);border-radius:14px;padding:12px;background:rgba(255,255,255,.08);color:#dff8ff;font:900 14px/1.25 inherit;cursor:pointer}.login-recovery-actions button:last-child{border:0;background:linear-gradient(90deg,#4285f4,#22c8d8);color:#fff}.login-recovery-actions button:disabled{cursor:wait;opacity:.55}
   .login-success-sequence{position:fixed;z-index:28;inset:0;display:none;place-items:center;pointer-events:none}.login-space.verified .login-success-sequence,.login-space.launching .login-success-sequence{display:grid}.login-success-core{display:grid;place-items:center;gap:14px}.login-success-avatar{width:clamp(130px,20vw,220px);aspect-ratio:1;object-fit:cover;border:3px solid rgba(104,255,204,.88);border-radius:26px;box-shadow:0 0 35px rgba(73,255,190,.55),0 0 90px rgba(36,207,255,.28);animation:loginIdentityReveal 2s cubic-bezier(.16,1,.3,1) both}.login-success-copy{padding:10px 22px;border:1px solid rgba(91,255,185,.62);border-radius:10px;background:rgba(3,45,36,.56);color:#7dffc4;font:1000 clamp(19px,3vw,32px)/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 0 12px #48ffab;box-shadow:inset 0 0 18px rgba(64,255,173,.12);animation:loginTechShake .15s steps(2,end) infinite}.login-success-name{color:#eafff5;font-size:13px;font-weight:950;letter-spacing:.12em}
   @keyframes loginIdentityReveal{0%{opacity:0;transform:scale(.45);filter:blur(10px)}22%,78%{opacity:1;transform:scale(1);filter:none}100%{opacity:1;transform:scale(.96)}}@keyframes loginTechShake{0%{transform:translateX(-1px)}50%{transform:translateX(1px)}100%{transform:none}}
   .login-space.verified .login-space-shell{filter:blur(1px);opacity:.18;transform:scale(.98);transition:.35s ease}.login-space.verified .login-teacher-satellite{opacity:0;pointer-events:none}
@@ -446,7 +449,6 @@
   .teacher-settings-shell .teacher-directory-row small{color:#69e6ff!important}.teacher-settings-shell .teacher-directory-row span{color:#c6ddf5!important}.teacher-settings-shell .teacher-directory-row b{color:#62e8ff!important}
   .admin-focus .logout-control{position:relative;width:58px;height:50px;border:0!important;padding:0!important;background:transparent!important}.admin-focus .logout-control>span{display:none!important}.admin-focus .logout-spaceship{display:block!important;position:absolute;inset:-5px;width:68px;height:58px;object-fit:contain;filter:drop-shadow(0 5px 10px rgba(0,0,0,.45));transition:transform .22s ease}.admin-focus .logout-control:hover .logout-spaceship{transform:translate(4px,-4px) scale(1.08)}
   .teacher-avatar-choice{overflow:hidden!important;padding:0!important;background:#102552!important}.teacher-avatar-choice img{width:100%;height:100%;display:block;object-fit:cover}.teacher-directory-head,.teacher-directory-row{grid-template-columns:minmax(150px,1.2fr) minmax(88px,.7fr) minmax(80px,.65fr) minmax(118px,.92fr) minmax(175px,1.18fr) auto!important}.teacher-directory-head{display:grid;align-items:center;gap:10px;padding:0 14px 5px;color:#78e9ff;font-size:11px;font-weight:950;letter-spacing:.05em}.teacher-directory-row .teacher-directory-name{min-width:145px}.teacher-directory-row .teacher-directory-google{min-width:175px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.teacher-cloud-pulse{width:9px;height:9px;display:inline-block;border-radius:50%;margin-right:7px;background:#58ffbd;box-shadow:0 0 0 0 rgba(88,255,189,.7);animation:teacherCloudPulse 1.7s infinite}@keyframes teacherCloudPulse{70%{box-shadow:0 0 0 9px rgba(88,255,189,0)}100%{box-shadow:0 0 0 0 rgba(88,255,189,0)}}
-  .teacher-cloud-safety-note{margin-top:16px;display:grid;grid-template-columns:auto 1fr;align-items:start;gap:10px;padding:13px 16px;border:1px solid rgba(83,221,255,.28);border-radius:16px;background:linear-gradient(110deg,rgba(12,44,91,.82),rgba(20,29,81,.72));color:#cbeaff;font-size:12px;font-weight:750;line-height:1.7}.teacher-cloud-safety-note strong{color:#65f0c2;white-space:nowrap}.teacher-cloud-safety-note span{min-width:0}
   @media(max-width:760px){.login-space-head{justify-content:center}.login-brand-full{object-position:center top}.login-auth-wrap{padding:6px}.login-auth-card{padding:20px}.admin-focus{padding-top:118px!important}.admin-focus [data-screen-label="教師後台"]>div:first-child{top:auto!important}.teacher-directory-head{display:none!important}.teacher-directory-row{grid-template-columns:1fr!important}.teacher-directory-row span,.teacher-directory-row b{padding-left:2px}}
 
   .app-shell.module-focus { position:relative;isolation:isolate;overflow:hidden;max-width:none!important;min-height:100svh;padding:16px clamp(16px,4vw,52px) 34px!important;background:#060821!important;color:#f4f8ff; }
@@ -870,13 +872,12 @@
 .admin-focus [data-screen-label="教師後台"]>div:first-child{position:relative!important;top:auto!important;z-index:10!important;max-width:1240px!important;margin:0 auto 14px!important;border:1px solid rgba(86,225,255,.26)!important;border-radius:18px!important;background:rgba(8,17,59,.7)!important;backdrop-filter:blur(12px)}
 .admin-focus .teacher-settings-shell{position:relative;z-index:1;max-width:1240px;margin:0 auto!important;border:1px solid rgba(87,229,255,.34)!important;background:linear-gradient(145deg,rgba(8,17,58,.94),rgba(13,26,79,.84))!important;box-shadow:inset 0 1px rgba(255,255,255,.08),0 22px 54px rgba(0,0,0,.3)!important;backdrop-filter:blur(14px)}
 .admin-focus .teacher-settings-shell h2,.admin-focus .teacher-settings-shell h3{color:#f4fbff!important}.admin-focus .teacher-settings-shell label,.admin-focus .teacher-settings-shell p,.admin-focus .teacher-settings-shell span{color:#b8d6f2!important}
-.teacher-settings-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px;padding:2px 0 16px;border-bottom:1px solid rgba(95,224,255,.2)}
+.teacher-settings-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px;padding:2px 0 12px;border-bottom:1px solid rgba(95,224,255,.2)}
 .teacher-settings-role-chip{display:inline-flex!important;align-items:center;min-height:34px;padding:0 13px!important;border:1px solid rgba(93,237,201,.55);border-radius:999px;background:rgba(43,207,175,.1);color:#71ffd8!important;font-size:12px!important;font-weight:900!important;letter-spacing:.04em}
 .admin-focus .teacher-settings-card{border-color:rgba(91,220,255,.34)!important;background:linear-gradient(145deg,rgba(18,47,98,.86),rgba(8,28,70,.9))!important;box-shadow:inset 0 1px rgba(255,255,255,.08)!important}
 .admin-focus .teacher-settings-card input,.admin-focus .teacher-settings-shell input,.admin-focus .teacher-settings-shell select{border-color:rgba(100,223,255,.5)!important;background:rgba(3,14,49,.62)!important;color:#f6fbff!important;box-shadow:inset 0 1px rgba(255,255,255,.05)!important}
 .admin-focus .teacher-settings-card input::placeholder,.admin-focus .teacher-settings-shell input::placeholder{color:#7796bb!important}
 .admin-focus .teacher-avatar-choice{overflow:hidden;border-radius:14px!important;background:rgba(5,19,59,.72)!important}.admin-focus .teacher-avatar-choice img{width:100%;height:100%;object-fit:cover;display:block}
-.admin-focus .teacher-cloud-safety-note{border-color:rgba(103,221,255,.35)!important;background:rgba(13,46,93,.58)!important;color:#bcdcf4!important}.admin-focus .teacher-cloud-safety-note strong{color:#79edff!important}
 .admin-focus .teacher-directory-head{color:#a8c7e8!important}.admin-focus .teacher-directory-row{border-color:rgba(91,220,255,.28)!important;background:rgba(8,26,66,.72)!important;color:#ecf9ff!important}.admin-focus .teacher-directory-row[style*="edf4ff"]{background:rgba(27,79,142,.72)!important}
 .admin-focus .teacher-directory-create{border:1px solid rgba(93,221,255,.28)!important;background:linear-gradient(110deg,rgba(8,28,73,.88),rgba(17,40,86,.66))!important}.admin-focus .teacher-directory-row.is-editing{border-color:#67ecff!important;background:linear-gradient(100deg,rgba(29,88,150,.86),rgba(41,36,116,.86))!important;box-shadow:0 0 0 2px rgba(88,225,255,.18),0 10px 24px rgba(0,0,0,.18)}.admin-focus .teacher-directory-row b{color:#62e9ff!important}.admin-focus .teacher-directory-row small{color:#8fc9ef!important}
 @media(max-width:760px){.app-shell.admin-focus{padding:10px 10px 28px!important}.admin-focus .app-header{margin-bottom:10px!important;border-radius:16px!important}.admin-focus .teacher-settings-shell{padding:16px!important;border-radius:20px!important}.teacher-settings-heading{align-items:flex-start}.teacher-settings-role-chip{max-width:100%;white-space:normal}.admin-focus .teacher-directory-head{display:none!important}.admin-focus .teacher-directory-row{grid-template-columns:1fr 1fr!important}.admin-focus .teacher-directory-row span:nth-of-type(n+3){display:none!important}}
@@ -1016,10 +1017,11 @@
           <p class="login-scanner-status"><i></i>STUDENT IDENTITY SCANNER</p>
           <h1>學員登入</h1>
           <p>輸入學員帳號與密碼，啟動學習星球任務。</p>
-          <label class="login-auth-field">學員帳號<input value="{{ studentLoginAccount }}" onChange="{{ changeStudentAccount }}" onKeyDown="{{ studentLoginKey }}" autoComplete="username" placeholder="例如：30102"></label>
-          <label class="login-auth-field">密碼<input type="password" value="{{ studentLoginPassword }}" onChange="{{ changeStudentPassword }}" onKeyDown="{{ studentLoginKey }}" autoComplete="current-password" placeholder="輸入密碼"></label>
+          <label class="login-auth-field">學員帳號<input value="{{ studentLoginAccount }}" onChange="{{ changeStudentAccount }}" onKeyDown="{{ studentLoginKey }}" autoComplete="username" placeholder="DEMO"></label>
+          <label class="login-auth-field">密碼<span class="password-field-wrap"><input type="{{ studentLoginPasswordType }}" value="{{ studentLoginPassword }}" onChange="{{ changeStudentPassword }}" onKeyDown="{{ studentLoginKey }}" autoComplete="current-password" placeholder="DEMO"><button type="button" class="password-eye" onClick="{{ toggleStudentLoginPassword }}" title="{{ studentLoginPasswordToggleTitle }}" aria-label="{{ studentLoginPasswordToggleTitle }}">{{ studentLoginPasswordEye }}</button></span></label>
           <p class="login-auth-error">{{ studentLoginError }}</p>
           <button class="login-auth-submit" onClick="{{ submitStudentLogin }}">登入學習星球</button>
+          <button class="login-forgot-btn" onClick="{{ openStudentRecovery }}">忘記密碼？</button>
         </div>
       </section>
     </div>
@@ -1029,9 +1031,21 @@
       <section class="login-teacher-card" role="dialog" aria-modal="true" aria-label="老師登入">
         <div class="login-teacher-head"><img src="images/login/teacher-satellite-v1.png" alt=""><div><h2>老師登入</h2><p style="margin:5px 0 0;color:#9cefff;font-size:11px;font-weight:850">TEACHER CONTROL SATELLITE</p></div></div>
         <label class="login-auth-field">老師帳號<input value="{{ teacherLoginAccount }}" onChange="{{ changeTeacherAccount }}" onKeyDown="{{ teacherLoginKey }}" autoComplete="username" placeholder="老師帳號"></label>
-        <label class="login-auth-field">密碼<input type="password" value="{{ teacherLoginPassword }}" onChange="{{ changeTeacherPassword }}" onKeyDown="{{ teacherLoginKey }}" autoComplete="current-password" placeholder="輸入密碼"></label>
+        <label class="login-auth-field">密碼<span class="password-field-wrap"><input type="{{ teacherLoginPasswordType }}" value="{{ teacherLoginPassword }}" onChange="{{ changeTeacherPassword }}" onKeyDown="{{ teacherLoginKey }}" autoComplete="current-password" placeholder="輸入密碼"><button type="button" class="password-eye" onClick="{{ toggleTeacherLoginPassword }}" title="{{ teacherLoginPasswordToggleTitle }}" aria-label="{{ teacherLoginPasswordToggleTitle }}">{{ teacherLoginPasswordEye }}</button></span></label>
         <p class="login-auth-error">{{ teacherLoginError }}</p>
+        <button class="login-forgot-btn" onClick="{{ openTeacherRecovery }}">忘記密碼？</button>
         <div class="login-teacher-actions"><button onClick="{{ closeTeacherLogin }}">取消</button><button onClick="{{ submitTeacherLogin }}">進入工作台</button></div>
+      </section>
+    </div>
+    <div class="login-teacher-dialog" hidden="{{ passwordRecoveryHidden }}">
+      <section class="login-teacher-card login-recovery-card" role="dialog" aria-modal="true" aria-label="恢復密碼">
+        <div class="login-teacher-head"><img src="images/login/teacher-satellite-v1.png" alt=""><div><h2>恢復密碼</h2><p style="margin:5px 0 0;color:#9cefff;font-size:11px;font-weight:850">GOOGLE IDENTITY CHECK</p></div></div>
+        <p class="login-recovery-note">請輸入帳號與新密碼，再用先前綁定的 Google 帳號驗證。若尚未綁定 Google，學員請聯絡老師，教師請聯絡管理者協助重設。</p>
+        <label class="login-auth-field">帳號<input value="{{ passwordRecoveryAccount }}" onChange="{{ changePasswordRecoveryAccount }}" autoComplete="username" placeholder="輸入帳號"></label>
+        <label class="login-auth-field">新密碼<span class="password-field-wrap"><input type="{{ passwordRecoveryNewType }}" value="{{ passwordRecoveryNew }}" onChange="{{ changePasswordRecoveryNew }}" autoComplete="new-password" placeholder="至少 6 碼"><button type="button" class="password-eye" onClick="{{ togglePasswordRecoveryNew }}" title="{{ passwordRecoveryNewToggleTitle }}" aria-label="{{ passwordRecoveryNewToggleTitle }}">{{ passwordRecoveryNewEye }}</button></span></label>
+        <label class="login-auth-field">確認新密碼<span class="password-field-wrap"><input type="{{ passwordRecoveryConfirmType }}" value="{{ passwordRecoveryConfirm }}" onChange="{{ changePasswordRecoveryConfirm }}" onKeyDown="{{ passwordRecoveryKey }}" autoComplete="new-password" placeholder="再次輸入新密碼"><button type="button" class="password-eye" onClick="{{ togglePasswordRecoveryConfirm }}" title="{{ passwordRecoveryConfirmToggleTitle }}" aria-label="{{ passwordRecoveryConfirmToggleTitle }}">{{ passwordRecoveryConfirmEye }}</button></span></label>
+        <p class="login-auth-error" aria-live="polite">{{ passwordRecoveryError }}</p>
+        <div class="login-recovery-actions"><button onClick="{{ closePasswordRecovery }}" disabled="{{ passwordRecoveryBusy }}">取消</button><button onClick="{{ submitPasswordRecovery }}" disabled="{{ passwordRecoveryBusy }}">{{ passwordRecoverySubmitLabel }}</button></div>
       </section>
     </div>
   </div>
@@ -2902,21 +2916,24 @@
               <div style="display:flex;gap:10px"><div style="background:rgba(255,255,255,.08);border:1px solid rgba(121,228,255,.22);border-radius:18px;padding:12px 18px;text-align:center"><p style="margin:0;font-size:11px;font-weight:900;color:#9cefff">學員帳號</p><p style="margin:4px 0 0;font-size:22px;font-weight:900;color:#fff">{{ studentCount }}</p></div></div>
             </div>
 
-            <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#fbfaff;border:1px solid #ece7ff;border-radius:20px;padding:14px">
-              <input value="{{ newName }}" onChange="{{ onNewName }}" placeholder="學生姓名" style="flex:1;min-width:130px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57" />
-              <input value="{{ newSeat }}" onChange="{{ onNewSeat }}" inputMode="numeric" maxLength="2" placeholder="座號 1～99" style="width:120px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57" />
-              <select value="{{ newClass }}" onChange="{{ onNewClass }}" style="min-width:120px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57;background:#fff">
-                <sc-for list="{{ classOptions }}" as="co" hint-placeholder-count="3">
-                  <option value="{{ co.id }}">{{ co.name }}</option>
-                </sc-for>
-              </select>
-              <span style="font-size:12px;font-weight:900;color:{{ seatHintColor }};min-width:104px">{{ seatHint }}</span>
-              <button onClick="{{ addStudent }}" style="border:0;border-radius:14px;padding:12px 20px;font-size:15px;font-weight:900;font-family:inherit;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer">＋ 新增學員</button>
+            <div style="margin-top:18px;display:grid;gap:12px;background:#fbfaff;border:1px solid #ece7ff;border-radius:20px;padding:14px">
+              <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+                <input value="{{ newName }}" onChange="{{ onNewName }}" placeholder="學生姓名" style="flex:1;min-width:130px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57" />
+                <input value="{{ newSeat }}" onChange="{{ onNewSeat }}" inputMode="numeric" maxLength="2" placeholder="座號 1～99" style="width:120px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57" />
+                <select value="{{ newClass }}" onChange="{{ onNewClass }}" style="min-width:120px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57;background:#fff">
+                  <sc-for list="{{ classOptions }}" as="co" hint-placeholder-count="3">
+                    <option value="{{ co.id }}">{{ co.name }}</option>
+                  </sc-for>
+                </select>
+                <span style="font-size:12px;font-weight:900;color:{{ seatHintColor }};min-width:104px">{{ seatHint }}</span>
+                <button onClick="{{ addStudent }}" style="border:0;border-radius:14px;padding:12px 20px;font-size:15px;font-weight:900;font-family:inherit;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer">＋ 新增學員</button>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;min-width:0"><strong style="flex:0 0 auto;font-size:12px;color:#9cefff">選擇頭像</strong><div style="display:flex;gap:7px;overflow-x:auto;padding:2px 2px 5px;scrollbar-width:thin"><sc-for list="{{ newStudentAvatarOptions }}" as="avatar" hint-placeholder-count="24"><button onClick="{{ avatar.pick }}" title="{{ avatar.label }}" aria-label="{{ avatar.label }}" style="flex:0 0 auto;width:42px;height:42px;border:2px solid {{ avatar.border }};border-radius:12px;padding:2px;background:{{ avatar.bg }};cursor:pointer"><img src="{{ avatar.image }}" alt="" style="display:block;width:100%;height:100%;border-radius:8px;object-fit:cover"></button></sc-for></div></div>
             </div>
 
             <div style="margin-top:16px;overflow-x:auto">
               <div style="min-width:900px">
-                <div class="teacher-student-head" style="display:grid;grid-template-columns:.4fr 1fr .65fr .85fr .75fr 1.1fr 1.35fr auto;gap:8px;padding:0 12px 10px;font-size:12px;font-weight:900;color:#b3a9d8"><span>座號</span><span>學生</span><span>班級</span><span>帳號</span><span>密碼</span><span>最後登入日</span><span>Google 綁定 / UID</span><span>維護</span></div>
+                <div class="teacher-student-head" style="display:grid;grid-template-columns:.4fr 1fr .65fr .85fr .75fr 1.1fr 1.35fr auto;gap:8px;padding:0 12px 10px;font-size:12px;font-weight:900;color:#b3a9d8"><span>座號</span><span>學生</span><span>班級</span><span>帳號</span><span>首次密碼</span><span>最後登入日</span><span>Google 綁定 / UID</span><span>維護</span></div>
                 <sc-for list="{{ teacherRows }}" as="row" hint-placeholder-count="8">
                   <sc-if value="{{ row.viewing }}" hint-placeholder-val="{{ true }}">
                     <div class="teacher-student-row" style="display:grid;grid-template-columns:.4fr 1fr .65fr .85fr .75fr 1.1fr 1.35fr auto;gap:8px;align-items:center;padding:12px;border-radius:18px;margin-bottom:6px;background:{{ row.bg }}">
@@ -3069,7 +3086,7 @@
         </sc-if>
 
         <sc-if value="{{ adminSettings }}" hint-placeholder-val="{{ false }}">
-          <section class="teacher-settings-shell" style="border-radius:28px;padding:24px">
+          <section class="teacher-settings-shell" style="border-radius:28px;padding:18px">
             <div class="teacher-settings-heading">
               <div>
                 <p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:#57eaff">TEACHER PROFILE &amp; SECURITY</p>
@@ -3079,8 +3096,8 @@
               <span class="teacher-settings-role-chip">{{ teacherSettingsTarget }}</span>
             </div>
 
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px">
-              <div class="teacher-settings-card" style="border-radius:22px;padding:20px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px">
+              <div class="teacher-settings-card" style="border-radius:22px;padding:16px">
                 <h3 style="margin:0 0 14px;font-size:17px;font-weight:900">{{ teacherProfileCardTitle }}</h3>
                 <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800">
                   老師稱謂／顯示名稱
@@ -3094,7 +3111,7 @@
                 </div>
               </div>
 
-              <div class="teacher-settings-card" style="border-radius:22px;padding:20px">
+              <div class="teacher-settings-card" style="border-radius:22px;padding:16px">
                 <h3 style="margin:0 0 14px;font-size:17px;font-weight:900">{{ teacherCredentialCardTitle }}</h3>
                 <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800">
                   教師登入帳號
@@ -3102,48 +3119,27 @@
                 </label>
                 <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800">
                   教師登入密碼
-                  <input type="password" value="{{ editTeacherPassword }}" onChange="{{ onEditTeacherPassword }}" placeholder="輸入新密碼" style="display:block;width:100%;margin-top:6px;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit" />
+                  <span class="password-field-wrap settings-password"><input type="{{ editTeacherPasswordType }}" value="{{ editTeacherPassword }}" onChange="{{ onEditTeacherPassword }}" placeholder="輸入新密碼" style="display:block;width:100%;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit" /><button type="button" class="password-eye" onClick="{{ toggleEditTeacherPassword }}" title="{{ editTeacherPasswordToggleTitle }}" aria-label="{{ editTeacherPasswordToggleTitle }}">{{ editTeacherPasswordEye }}</button></span>
                 </label>
-              </div>
-            </div>
-
-            <div style="margin-top:20px;padding:18px 20px;border:1.5px solid {{ teacherGoogleBoundBorder }};border-radius:22px;background:{{ teacherGoogleBoundBg }};display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-              <div style="display:flex;align-items:center;gap:14px;min-width:0">
-                <svg class="google-icon" viewBox="0 0 24 24" width="28" height="28" style="flex-shrink:0" aria-hidden="true">
-                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/>
-                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.33 24 12 24z"/>
-                  <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
-                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
-                </svg>
-                <div>
-                  <strong style="display:block;font-size:15px;font-weight:900;color:{{ teacherGoogleBoundColor }}">{{ teacherGoogleStatusLabel }}</strong>
-                  <span style="display:block;font-size:12px;font-weight:700">{{ teacherGoogleDetailLabel }}</span>
+                <div class="teacher-google-compact" style="padding:10px 12px;border:1.5px solid {{ teacherGoogleBoundBorder }};border-radius:14px;background:{{ teacherGoogleBoundBg }};display:flex;align-items:center;justify-content:space-between;gap:10px">
+                  <div style="display:flex;align-items:center;gap:9px;min-width:0">
+                    <svg class="google-icon" viewBox="0 0 24 24" width="22" height="22" style="flex-shrink:0" aria-hidden="true"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.33 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/></svg>
+                    <div style="min-width:0"><strong style="display:block;font-size:13px;font-weight:900;color:{{ teacherGoogleBoundColor }}">{{ teacherGoogleStatusLabel }}</strong><span style="display:block;font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ teacherGoogleDetailLabel }}</span></div>
+                  </div>
+                  <sc-if value="{{ canBindOwnTeacherGoogle }}" hint-placeholder-val="{{ true }}"><button onClick="{{ bindTeacherGoogle }}" style="flex:0 0 auto;border:0;background:linear-gradient(90deg,#4285F4,#34A853);color:#fff;border-radius:10px;padding:8px 11px;font-size:11px;font-weight:900;cursor:pointer">綁定 Google</button></sc-if>
                 </div>
               </div>
-              <div>
-                <sc-if value="{{ canBindOwnTeacherGoogle }}" hint-placeholder-val="{{ true }}">
-                  <button onClick="{{ bindTeacherGoogle }}" style="border:0;background:linear-gradient(90deg,#4285F4,#34A853);color:#fff;border-radius:14px;padding:10px 20px;font-size:13px;font-weight:900;cursor:pointer;box-shadow:0 4px 14px rgba(66,133,244,.35)">立即綁定 Google 帳號</button>
-                </sc-if>
-              </div>
             </div>
 
-            <div class="teacher-cloud-safety-note" role="note">
-              <strong>☁️ 雲端同步範圍</strong>
-              <span>Google 綁定後會同步班級名冊、學員帳號，以及已綁定學員的 XP、星星幣與裝扮。為保護師生，原始密碼不會上傳 Firestore；跨裝置密碼將由 Firebase Authentication 安全管理。</span>
-            </div>
-
-            <div style="margin-top:24px;display:flex;justify-content:flex-end">
-              <button onClick="{{ saveTeacherSettings }}" style="border:0;border-radius:14px;padding:14px 28px;font-size:15px;font-weight:900;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer;box-shadow:0 8px 20px rgba(124,92,255,.3)">儲存教師設定</button>
-            </div>
+            <sc-if value="{{ isNotTeacherManager }}" hint-placeholder-val="{{ true }}"><div style="margin-top:14px;display:flex;justify-content:flex-end"><button onClick="{{ saveTeacherSettings }}" style="border:0;border-radius:12px;padding:11px 20px;font-size:14px;font-weight:900;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer">儲存教師設定</button></div></sc-if>
 
             <sc-if value="{{ isTeacherManager }}" hint-placeholder-val="{{ false }}">
-              <div style="margin-top:26px;padding-top:24px;border-top:1px solid rgba(120,210,255,.24)">
-                <h3 style="margin:0 0 8px;font-size:20px;font-weight:900">管理者：教師帳號清單</h3>
-                <p style="margin:0 0 14px;font-size:13px;font-weight:700">Google 綁定後，可建立一般教師並選取帳號進行修改。Google 綁定與 UID 狀態由每位教師自行完成。</p>
+              <div style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(120,210,255,.24)">
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap"><div><h3 style="margin:0 0 5px;font-size:20px;font-weight:900">管理者：教師帳號清單</h3><p style="margin:0 0 12px;font-size:12px;font-weight:700">建立教師、選取帳號並修改資料。</p></div><button onClick="{{ saveTeacherSettings }}" style="border:0;border-radius:12px;padding:10px 18px;font-size:13px;font-weight:900;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer;box-shadow:0 6px 16px rgba(124,92,255,.25)">儲存教師設定</button></div>
                 <div class="teacher-directory-create" style="display:grid;grid-template-columns:1.1fr 1fr 1fr auto;gap:10px;padding:14px;border-radius:18px">
                   <input value="{{ newTeacherName }}" onChange="{{ changeNewTeacherName }}" placeholder="教師名稱" style="min-width:0;border-radius:11px;padding:11px;font:800 14px inherit">
                   <input value="{{ newTeacherAccount }}" onChange="{{ changeNewTeacherAccount }}" placeholder="預設帳號" style="min-width:0;border-radius:11px;padding:11px;font:800 14px inherit">
-                  <input type="password" value="{{ newTeacherPassword }}" onChange="{{ changeNewTeacherPassword }}" placeholder="預設密碼" style="min-width:0;border-radius:11px;padding:11px;font:800 14px inherit">
+                  <span class="password-field-wrap"><input type="{{ newTeacherPasswordType }}" value="{{ newTeacherPassword }}" onChange="{{ changeNewTeacherPassword }}" placeholder="預設密碼" style="width:100%;min-width:0;border-radius:11px;padding:11px;font:800 14px inherit"><button type="button" class="password-eye" onClick="{{ toggleNewTeacherPassword }}" title="{{ newTeacherPasswordToggleTitle }}" aria-label="{{ newTeacherPasswordToggleTitle }}">{{ newTeacherPasswordEye }}</button></span>
                   <button onClick="{{ addTeacherAccount }}" style="border:0;border-radius:11px;padding:11px 15px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font:900 14px inherit;cursor:pointer">＋新增</button>
                 </div>
                 <div style="display:grid;gap:8px;margin-top:12px">
@@ -4810,8 +4806,25 @@ function makeStudents() {
     classId: "c301",
     face: FACES[i % FACES.length],
     tint: TINTS[i % TINTS.length],
-    profile: Object.assign(makeProfile(), { cardAvatarIndex: i, cardTheme: ["A", "B", "C", "D", "E", "F"][i % 6], englishName: STUDENT_ENGLISH_NAMES[name] || "" }),
+    profile: Object.assign(makeProfile(), { cardAvatarIndex: i, cardTheme: ["A", "B", "C", "D", "E", "F"][i % 6], englishName: STUDENT_ENGLISH_NAMES[name] || "", loginPassword: "LP2026" }),
   }));
+}
+function makeDemoStudent() {
+  return {
+    id: "demo-local",
+    name: "體驗學員",
+    seat: "DEMO",
+    classId: "c301",
+    face: FACES[0],
+    tint: TINTS[0],
+    profile: Object.assign(makeProfile(), {
+      loginAccount: "DEMO",
+      demoAccount: true,
+      cardAvatarIndex: 0,
+      cardTheme: "C",
+      englishName: "DEMO"
+    })
+  };
 }
 
 const STUDENT_ENGLISH_NAMES = {
@@ -4880,6 +4893,22 @@ function requestAppFullscreen() {
   } catch (error) {}
 }
 
+function firebaseLoginErrorMessage(error, label) {
+  const code = String(error && error.code || "").toLowerCase();
+  const message = String(error && error.message || "").toLowerCase();
+  if (code.includes("operation-not-allowed") || message.includes("password_login_disabled")) {
+    return "Firebase 尚未啟用帳號密碼登入，請由管理者開啟 Email/Password 登入方式。";
+  }
+  if (code.includes("network-request-failed") || message.includes("network")) {
+    return "無法連線到登入服務，請檢查網路後再試。";
+  }
+  if (code.includes("too-many-requests")) {
+    return "登入嘗試次數過多，請稍候幾分鐘再試。";
+  }
+  if (code.includes("user-disabled")) return "此帳號已停用，請聯絡管理者。";
+  return label + "帳號或密碼不正確，請再確認一次。";
+}
+
 const SCI_ICON_EL = (emoji, px) => {
   if (!emoji || !window.SCI_ART || !window.SCI_ART.hasIcon(emoji)) return emoji || "";
   return React.createElement("span", {
@@ -4922,7 +4951,7 @@ class Component extends DCLogic {
     mathGameBank: MATH_GAME_FALLBACK,
     gachaBank: [], gachaStage: "idle", gachaResult: null, gachaCapsuleColor: "purple", collectionCharacter: "全部", collectionPage: 0,
     libUnit: "全部", detailChar: null,
-    newName: "", newSeat: "", newClass: "c301",
+    newName: "", newSeat: "", newClass: "c301", newAvatarIndex: 0,
     editId: null, editName: "", editSeat: "", editClass: "c301", editAccount: "", editPassword: "",
     newClassName: "", classEditId: null, classEditName: "",
     vChar: "", vZhuyin: "", vWord: "", vRadical: "", vPic: "", vUnit: "",
@@ -4932,6 +4961,11 @@ class Component extends DCLogic {
     loginLaunching: false, loginVerified: false, loginSuccessStudentId: null,
     studentLoginAccount: "", studentLoginPassword: "", studentLoginError: "",
     teacherLoginOpen: false, teacherLoginAccount: "", teacherLoginPassword: "", teacherLoginError: "",
+    passwordRecoveryOpen: false, passwordRecoveryRole: "student", passwordRecoveryAccount: "",
+    passwordRecoveryNew: "", passwordRecoveryConfirm: "", passwordRecoveryError: "", passwordRecoveryBusy: false,
+    showStudentLoginPassword: false, showTeacherLoginPassword: false,
+    showPasswordRecoveryNew: false, showPasswordRecoveryConfirm: false,
+    showEditTeacherPassword: false, showNewTeacherPassword: false,
     teacherConfig: INITIAL_TEACHER_CONFIG,
     currentTeacherId: "", editingTeacherId: INITIAL_TEACHER_CONFIG.teachers[0].id,
     editTeacherName: INITIAL_TEACHER_CONFIG.teachers[0].name,
@@ -5241,6 +5275,16 @@ class Component extends DCLogic {
     const account = String(this.state.studentLoginAccount || "").trim().toLowerCase();
     const password = String(this.state.studentLoginPassword || "");
     if (!account || !password) { this.setState({ studentLoginError: "請輸入學員帳號與密碼。" }); return; }
+    if (account === "demo") {
+      if (password !== "DEMO") { this.setState({ studentLoginError: "DEMO 密碼不正確。" }); return; }
+      const authV2 = window.LearningPlanetAuthV2;
+      if (authV2 && authV2.signOut && authV2.auth) authV2.signOut(authV2.auth).catch(() => {});
+      const existing = this.state.students.find((candidate) => candidate.id === "demo-local");
+      if (existing) { this.launchStudentLogin(existing.id); return; }
+      const demoStudent = makeDemoStudent();
+      this.setState((state) => ({ students: state.students.concat(demoStudent), studentLoginError: "" }), () => this.launchStudentLogin(demoStudent.id));
+      return;
+    }
     const authV2 = window.LearningPlanetAuthV2;
     if (!authV2) { this.setState({ studentLoginError: "登入服務正在載入，請稍候再試。" }); return; }
     try {
@@ -5281,7 +5325,64 @@ class Component extends DCLogic {
         const known = state.students.some((candidate) => candidate.id === student.id);
         return { students: known ? state.students.map((candidate) => candidate.id === student.id ? mergeStudent(candidate) : candidate) : state.students.concat(mergeStudent(student)) };
       }, () => this.launchStudentLogin(student.id));
-    } catch (error) { this.setState({ studentLoginError: "帳號或密碼不正確，請再確認一次。" }); }
+    } catch (error) { this.setState({ studentLoginError: firebaseLoginErrorMessage(error, "學員") }); }
+  }
+
+  openPasswordRecovery(role) {
+    const isStaff = role === "staff";
+    this.setState({
+      passwordRecoveryOpen: true,
+      passwordRecoveryRole: isStaff ? "staff" : "student",
+      passwordRecoveryAccount: String(isStaff ? this.state.teacherLoginAccount : this.state.studentLoginAccount || "").trim(),
+      passwordRecoveryNew: "",
+      passwordRecoveryConfirm: "",
+      passwordRecoveryError: "",
+      passwordRecoveryBusy: false,
+      showPasswordRecoveryNew: false,
+      showPasswordRecoveryConfirm: false,
+      teacherLoginOpen: false
+    });
+  }
+
+  async recoverPassword() {
+    if (this.state.passwordRecoveryBusy) return;
+    const account = String(this.state.passwordRecoveryAccount || "").trim().toLowerCase();
+    const newPassword = String(this.state.passwordRecoveryNew || "");
+    const confirmation = String(this.state.passwordRecoveryConfirm || "");
+    if (!account) { this.setState({ passwordRecoveryError: "請輸入帳號。" }); return; }
+    if (account === "demo") { this.setState({ passwordRecoveryError: "DEMO 是固定的本機體驗帳號，密碼為 DEMO。" }); return; }
+    if (newPassword.length < 6) { this.setState({ passwordRecoveryError: "新密碼至少需要 6 碼。" }); return; }
+    if (newPassword !== confirmation) { this.setState({ passwordRecoveryError: "兩次輸入的新密碼不一致。" }); return; }
+    const authV2 = window.LearningPlanetAuthV2;
+    if (!authV2 || !authV2.recoverPasswordWithGoogle) {
+      this.setState({ passwordRecoveryError: "密碼恢復服務正在載入，請稍候再試。" });
+      return;
+    }
+    this.setState({ passwordRecoveryBusy: true, passwordRecoveryError: "" });
+    try {
+      await authV2.recoverPasswordWithGoogle(account, this.state.passwordRecoveryRole, newPassword);
+      const staff = this.state.passwordRecoveryRole === "staff";
+      this.setState({
+        passwordRecoveryOpen: false,
+        passwordRecoveryBusy: false,
+        passwordRecoveryNew: "",
+        passwordRecoveryConfirm: "",
+        passwordRecoveryError: "",
+        showPasswordRecoveryNew: false,
+        showPasswordRecoveryConfirm: false,
+        studentLoginAccount: staff ? this.state.studentLoginAccount : account,
+        teacherLoginAccount: staff ? account : this.state.teacherLoginAccount,
+        teacherLoginOpen: staff,
+        toast: "✅ 密碼已更新，請使用新密碼登入。"
+      });
+    } catch (error) {
+      const code = String(error && error.code || "");
+      let message = error && error.message ? String(error.message).replace(/^Firebase:\s*/i, "") : "無法恢復密碼，請稍後再試。";
+      if (code.includes("popup-closed") || code.includes("cancelled-popup")) message = "Google 驗證已取消，密碼尚未變更。";
+      else if (code.includes("popup-blocked")) message = "瀏覽器阻擋了 Google 驗證視窗，請允許彈出式視窗後重試。";
+      else if (code.includes("user-disabled")) message = "此帳號已停用，請聯絡管理者。";
+      this.setState({ passwordRecoveryBusy: false, passwordRecoveryError: message });
+    }
   }
 
   async bindGoogleAccount() {
@@ -5292,6 +5393,10 @@ class Component extends DCLogic {
     }
     const curStudent = this.cur();
     if (!curStudent) return;
+    if (curStudent.profile && curStudent.profile.demoAccount) {
+      this.flash("DEMO 體驗帳號不允許綁定 Firebase 或 Google");
+      return;
+    }
     try {
       const linked = await authV2.linkCurrentUserWithGoogle();
       const email = (linked.email || "").toLowerCase(), googleUid = linked.user.uid;
@@ -5350,7 +5455,7 @@ class Component extends DCLogic {
       try { await authV2.passwordLogin(account, password, "admin"); role = "admin"; }
       catch (_) { await authV2.passwordLogin(account, password, "teacher"); role = "teacher"; }
       remote = await authV2.loadMyProfile(); await authV2.touchProfileLogin();
-    } catch (_) {
+    } catch (loginError) {
       // First-run bootstrap: Firebase Auth requires six characters, so the
       // documented initial administrator is admin / admin123. The callable
       // refuses itself permanently once an admin document exists.
@@ -5362,9 +5467,10 @@ class Component extends DCLogic {
           remote = await authV2.loadMyProfile();
           await authV2.touchProfileLogin();
         } catch (bootstrapError) {
-          this.setState({ teacherLoginError: "老師帳號或密碼不正確。" }); return;
+          const sourceError = String(loginError && loginError.code || "").includes("operation-not-allowed") ? loginError : bootstrapError;
+          this.setState({ teacherLoginError: firebaseLoginErrorMessage(sourceError, "老師") }); return;
         }
-      } else { this.setState({ teacherLoginError: "老師帳號或密碼不正確。" }); return; }
+      } else { this.setState({ teacherLoginError: firebaseLoginErrorMessage(loginError, "老師") }); return; }
     }
     let teacher = (cfg.teachers || []).find((candidate) => candidate.id === remote.id || String(candidate.account || "").trim().toLowerCase() === account);
     if (!teacher) teacher = defaultTeacherRecord({ id: remote.id, role, name: remote.displayName || account, account, face: remote.face || "" });
@@ -8641,16 +8747,18 @@ class Component extends DCLogic {
     const password = String(this.state.newPassword || "LP2026");
     if (password.length < 6) { this.flash("學員密碼至少需要 6 碼"); return; }
     let cloud;
-    try { cloud = await window.LearningPlanetAuthV2.createStudent({ displayName: name, username, password, classId: s.newClass, seat, avatar: "" }); }
+    const avatarIndex = Math.max(0, Math.min(23, Number(s.newAvatarIndex) || 0));
+    const avatarImage = studentAvatarImage(avatarIndex);
+    try { cloud = await window.LearningPlanetAuthV2.createStudent({ displayName: name, username, password, classId: s.newClass, seat, avatar: avatarImage }); }
     catch (error) { this.flash("新增雲端帳號失敗：" + (error.message || "請確認管理者權限")); return; }
     this.setState((st) => ({
       students: st.students.concat({
         id: "s" + Date.now(), name, seat, classId: st.newClass,
-        face: FACES[st.students.length % FACES.length],
+        face: avatarImage,
         tint: TINTS[st.students.length % TINTS.length],
-        profile: Object.assign(makeProfile(), { loginAccount: username, cloudUid: cloud.data.uid }),
+        profile: Object.assign(makeProfile(), { loginAccount: username, loginPassword: password, cloudUid: cloud.data.uid, cardAvatarIndex: avatarIndex }),
       }),
-      newName: "", newSeat: "",
+      newName: "", newSeat: "", newAvatarIndex: 0,
     }));
     this.flash("已新增學員 " + seat + " " + name);
   }
@@ -8676,7 +8784,7 @@ class Component extends DCLogic {
     try { await window.LearningPlanetAuthV2.updateStudent({ uid: cloudUid, displayName: name, username: loginAccount, password: loginPassword || undefined, classId: s.editClass, seat, avatar: studentAvatarImage(existing.profile && existing.profile.cardAvatarIndex) }); }
     catch (error) { this.flash("雲端更新失敗：" + (error.message || "請確認管理者權限")); return; }
     this.setState((st) => ({
-      students: st.students.map((x) => x.id === st.editId ? Object.assign({}, x, { name, seat, classId: st.editClass, profile: Object.assign({}, x.profile, { loginAccount }) }) : x),
+      students: st.students.map((x) => x.id === st.editId ? Object.assign({}, x, { name, seat, classId: st.editClass, profile: Object.assign({}, x.profile, { loginAccount, loginPassword: loginPassword || x.profile.loginPassword || "" }) }) : x),
       editId: null, editName: "", editSeat: "", editAccount: "", editPassword: "",
     }));
     this.flash("已更新 " + seat + " " + name);
@@ -9931,10 +10039,15 @@ class Component extends DCLogic {
       studentLoginAccount: s.studentLoginAccount,
       studentLoginPassword: s.studentLoginPassword,
       studentLoginError: s.studentLoginError,
+      studentLoginPasswordType: s.showStudentLoginPassword ? "text" : "password",
+      studentLoginPasswordEye: s.showStudentLoginPassword ? "🙈" : "👁️",
+      studentLoginPasswordToggleTitle: s.showStudentLoginPassword ? "隱藏密碼" : "顯示密碼",
+      toggleStudentLoginPassword: () => this.setState({ showStudentLoginPassword: !s.showStudentLoginPassword }),
       changeStudentAccount: (e) => this.setState({ studentLoginAccount: e.target.value, studentLoginError: "" }),
       changeStudentPassword: (e) => this.setState({ studentLoginPassword: e.target.value, studentLoginError: "" }),
       studentLoginKey: (e) => { if (e.key === "Enter") this.authenticateStudent(); },
       submitStudentLogin: () => this.authenticateStudent(),
+      openStudentRecovery: () => this.openPasswordRecovery("student"),
       submitGoogleLogin: () => this.authenticateGoogle(),
       firebaseConfigHidden: !s.firebaseConfigOpen,
       firebaseConfigJson: s.firebaseConfigJson,
@@ -9971,11 +10084,46 @@ class Component extends DCLogic {
       teacherLoginAccount: s.teacherLoginAccount,
       teacherLoginPassword: s.teacherLoginPassword,
       teacherLoginError: s.teacherLoginError,
+      teacherLoginPasswordType: s.showTeacherLoginPassword ? "text" : "password",
+      teacherLoginPasswordEye: s.showTeacherLoginPassword ? "🙈" : "👁️",
+      teacherLoginPasswordToggleTitle: s.showTeacherLoginPassword ? "隱藏密碼" : "顯示密碼",
+      toggleTeacherLoginPassword: () => this.setState({ showTeacherLoginPassword: !s.showTeacherLoginPassword }),
       changeTeacherAccount: (e) => this.setState({ teacherLoginAccount: e.target.value, teacherLoginError: "" }),
       changeTeacherPassword: (e) => this.setState({ teacherLoginPassword: e.target.value, teacherLoginError: "" }),
       teacherLoginKey: (e) => { if (e.key === "Enter") this.authenticateTeacher(); },
-      closeTeacherLogin: () => this.setState({ teacherLoginOpen: false, teacherLoginPassword: "", teacherLoginError: "" }),
+      closeTeacherLogin: () => this.setState({ teacherLoginOpen: false, teacherLoginPassword: "", teacherLoginError: "", showTeacherLoginPassword: false }),
       submitTeacherLogin: () => this.authenticateTeacher(),
+      openTeacherRecovery: () => this.openPasswordRecovery("staff"),
+      passwordRecoveryHidden: !s.passwordRecoveryOpen,
+      passwordRecoveryAccount: s.passwordRecoveryAccount,
+      passwordRecoveryNew: s.passwordRecoveryNew,
+      passwordRecoveryConfirm: s.passwordRecoveryConfirm,
+      passwordRecoveryError: s.passwordRecoveryError,
+      passwordRecoveryBusy: s.passwordRecoveryBusy,
+      passwordRecoveryNewType: s.showPasswordRecoveryNew ? "text" : "password",
+      passwordRecoveryNewEye: s.showPasswordRecoveryNew ? "🙈" : "👁️",
+      passwordRecoveryNewToggleTitle: s.showPasswordRecoveryNew ? "隱藏新密碼" : "顯示新密碼",
+      togglePasswordRecoveryNew: () => this.setState({ showPasswordRecoveryNew: !s.showPasswordRecoveryNew }),
+      passwordRecoveryConfirmType: s.showPasswordRecoveryConfirm ? "text" : "password",
+      passwordRecoveryConfirmEye: s.showPasswordRecoveryConfirm ? "🙈" : "👁️",
+      passwordRecoveryConfirmToggleTitle: s.showPasswordRecoveryConfirm ? "隱藏確認密碼" : "顯示確認密碼",
+      togglePasswordRecoveryConfirm: () => this.setState({ showPasswordRecoveryConfirm: !s.showPasswordRecoveryConfirm }),
+      passwordRecoverySubmitLabel: s.passwordRecoveryBusy ? "等待 Google 驗證…" : "用 Google 驗證並更新",
+      changePasswordRecoveryAccount: (e) => this.setState({ passwordRecoveryAccount: e.target.value, passwordRecoveryError: "" }),
+      changePasswordRecoveryNew: (e) => this.setState({ passwordRecoveryNew: e.target.value, passwordRecoveryError: "" }),
+      changePasswordRecoveryConfirm: (e) => this.setState({ passwordRecoveryConfirm: e.target.value, passwordRecoveryError: "" }),
+      passwordRecoveryKey: (e) => { if (e.key === "Enter") this.recoverPassword(); },
+      closePasswordRecovery: () => this.setState({
+        passwordRecoveryOpen: false,
+        passwordRecoveryBusy: false,
+        passwordRecoveryNew: "",
+        passwordRecoveryConfirm: "",
+        passwordRecoveryError: "",
+        showPasswordRecoveryNew: false,
+        showPasswordRecoveryConfirm: false,
+        teacherLoginOpen: s.passwordRecoveryRole === "staff"
+      }),
+      submitPasswordRecovery: () => this.recoverPassword(),
       logout: () => {
         clearTimeout(this.autoNextTimer);
         clearTimeout(this.loginLaunchTimer);
@@ -9983,7 +10131,7 @@ class Component extends DCLogic {
         if (window.LearningPlanetFirebase && window.LearningPlanetFirebase.logout) {
           window.LearningPlanetFirebase.logout().catch(() => {});
         }
-        this.setState({ screen: "login", currentId: null, teacher: false, currentTeacherId: "", editingTeacherId: teacherById(this.state.teacherConfig, "").id, loginLaunching: false, loginVerified: false, loginSuccessStudentId: null, studentLoginPassword: "", teacherLoginPassword: "" });
+        this.setState({ screen: "login", currentId: null, teacher: false, currentTeacherId: "", editingTeacherId: teacherById(this.state.teacherConfig, "").id, loginLaunching: false, loginVerified: false, loginSuccessStudentId: null, studentLoginPassword: "", teacherLoginPassword: "", showStudentLoginPassword: false, showTeacherLoginPassword: false });
       },
 
       user: s.teacher || !me ? (() => { const teacher = teacherById(s.teacherConfig, s.currentTeacherId); return { name: teacher.name, seat: teacher.role === "admin" ? "管理者" : "一般教師", face: normalizeTeacherFace(teacher.face, 0), tint: teacher.tint || "#dff5ff" }; })() : { name: me.name, seat: me.seat, face: me.face, tint: me.tint },
@@ -10007,13 +10155,13 @@ class Component extends DCLogic {
         pick: () => this.patch({ cardTheme: theme }),
       })),
       updateProfileEnglishName: (event) => this.patch({ englishName: String(event && event.target ? event.target.value : "").slice(0, 30).toUpperCase() }),
-      isGoogleBound: !!((p && p.googleUid) || (me && me.googleUid)),
-      isNotGoogleBound: !((p && p.googleUid) || (me && me.googleUid)),
-      profileGoogleStatusLabel: ((p && p.googleUid) || (me && me.googleUid)) ? "已綁定 Google 帳號" : "尚未綁定 Google 帳號",
-      profileGoogleDetailLabel: ((p && p.email) || (me && me.email)) ? ((p && p.email) || (me && me.email)) : ((p && p.googleUid) || (me && me.googleUid)) ? "UID: " + ((p && p.googleUid) || (me && me.googleUid)).slice(0, 14) + "..." : "綁定後可在雲端備份學習進度並獲得 Google 認證",
-      profileGoogleBoundBorder: ((p && p.googleUid) || (me && me.googleUid)) ? "rgba(52,168,83,.45)" : "#ece7ff",
-      profileGoogleBoundBg: ((p && p.googleUid) || (me && me.googleUid)) ? "rgba(52,168,83,.08)" : "#fbfaff",
-      profileGoogleBoundColor: ((p && p.googleUid) || (me && me.googleUid)) ? "#1d7a55" : "#2b1f57",
+      isGoogleBound: !(p && p.demoAccount) && !!((p && p.googleUid) || (me && me.googleUid)),
+      isNotGoogleBound: !(p && p.demoAccount) && !((p && p.googleUid) || (me && me.googleUid)),
+      profileGoogleStatusLabel: p && p.demoAccount ? "DEMO 體驗帳號" : ((p && p.googleUid) || (me && me.googleUid)) ? "已綁定 Google 帳號" : "尚未綁定 Google 帳號",
+      profileGoogleDetailLabel: p && p.demoAccount ? "僅供本機體驗，不允許綁定 Firebase 或 Google" : ((p && p.email) || (me && me.email)) ? ((p && p.email) || (me && me.email)) : ((p && p.googleUid) || (me && me.googleUid)) ? "UID: " + ((p && p.googleUid) || (me && me.googleUid)).slice(0, 14) + "..." : "綁定後可在雲端備份學習進度並獲得 Google 認證",
+      profileGoogleBoundBorder: p && p.demoAccount ? "#ffd46b" : ((p && p.googleUid) || (me && me.googleUid)) ? "rgba(52,168,83,.45)" : "#ece7ff",
+      profileGoogleBoundBg: p && p.demoAccount ? "#fff9df" : ((p && p.googleUid) || (me && me.googleUid)) ? "rgba(52,168,83,.08)" : "#fbfaff",
+      profileGoogleBoundColor: p && p.demoAccount ? "#9a6500" : ((p && p.googleUid) || (me && me.googleUid)) ? "#1d7a55" : "#2b1f57",
       bindGoogle: () => this.bindGoogleAccount(),
       unbindGoogle: () => this.unbindGoogleAccount(),
       userSub: s.teacher || !me ? "教師工作台" : "Lv." + level + " · " + className(me.classId) + " " + me.seat,
@@ -10671,6 +10819,10 @@ class Component extends DCLogic {
       onEditTeacherAccount: (e) => this.setState({ editTeacherAccount: e.target.value }),
       editTeacherPassword: s.editTeacherPassword,
       onEditTeacherPassword: (e) => this.setState({ editTeacherPassword: e.target.value }),
+      editTeacherPasswordType: s.showEditTeacherPassword ? "text" : "password",
+      editTeacherPasswordEye: s.showEditTeacherPassword ? "🙈" : "👁️",
+      editTeacherPasswordToggleTitle: s.showEditTeacherPassword ? "隱藏新密碼" : "顯示新密碼",
+      toggleEditTeacherPassword: () => this.setState({ showEditTeacherPassword: !s.showEditTeacherPassword }),
       teacherFaceOptions: TEACHER_FACE_IMAGES.map((face) => ({
         image: face,
         border: s.editTeacherFace === face ? "#58eaff" : "rgba(121,209,255,.34)",
@@ -10694,6 +10846,7 @@ class Component extends DCLogic {
       unbindTeacherGoogle: () => this.unbindTeacherGoogleAccount(),
       saveTeacherSettings: () => this.saveTeacherSettings(),
       isTeacherManager: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin",
+      isNotTeacherManager: teacherById(s.teacherConfig, s.currentTeacherId).role !== "admin",
       teacherSettingsLocked: !teacherById(s.teacherConfig, s.currentTeacherId).googleUid,
       teacherRoleLabel: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin" ? "管理者" : "一般教師",
       teacherDirectory: (s.teacherConfig.teachers || []).map((teacher) => ({ id: teacher.id, name: teacher.name, roleLabel: teacher.role === "admin" ? "管理者" : "一般教師", account: teacher.account, google: teacher.googleUid ? ("已綁定 · " + (teacher.email || "UID: " + teacher.googleUid.slice(0, 10) + "…")) : "未綁定 · 無 Email", lastLogin: teacher.lastLoginAt ? new Date(teacher.lastLoginAt).toLocaleString("zh-TW", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" }) : "尚未登入", editing: s.editingTeacherId === teacher.id, select: () => this.selectTeacherForSettings(teacher.id) })),
@@ -10703,6 +10856,10 @@ class Component extends DCLogic {
       changeNewTeacherName: (e) => this.setState({ newTeacherName: e.target.value }),
       changeNewTeacherAccount: (e) => this.setState({ newTeacherAccount: e.target.value }),
       changeNewTeacherPassword: (e) => this.setState({ newTeacherPassword: e.target.value }),
+      newTeacherPasswordType: s.showNewTeacherPassword ? "text" : "password",
+      newTeacherPasswordEye: s.showNewTeacherPassword ? "🙈" : "👁️",
+      newTeacherPasswordToggleTitle: s.showNewTeacherPassword ? "隱藏預設密碼" : "顯示預設密碼",
+      toggleNewTeacherPassword: () => this.setState({ showNewTeacherPassword: !s.showNewTeacherPassword }),
       addTeacherAccount: () => this.addTeacherAccount(),
 
       weeklyTeacherTime: s.weeklyConfig.timeSeconds,
@@ -10729,7 +10886,7 @@ class Component extends DCLogic {
           avatarImage: studentAvatarImage(st.profile && st.profile.cardAvatarIndex),
           className: className(st.classId),
           account: studentLoginAccount(st),
-          password: "••••••",
+          password: String(st.profile && st.profile.loginPassword || "未留存"),
           lastLogin: formatLastLogin(st.profile && st.profile.lastLoginAt),
           googleBound: !!googleUid,
           googleNotBound: !googleUid,
@@ -10747,6 +10904,13 @@ class Component extends DCLogic {
       onNewName: (e) => this.setState({ newName: e.target.value }),
       onNewSeat: (e) => this.setState({ newSeat: e.target.value.replace(/[^0-9]/g, "").slice(0, 2) }),
       onNewClass: (e) => this.setState({ newClass: e.target.value }),
+      newStudentAvatarOptions: Array.from({ length: 24 }, (_, index) => ({
+        image: studentAvatarImage(index),
+        label: "選擇第 " + (index + 1) + " 個學員頭像",
+        border: s.newAvatarIndex === index ? "#56e8ff" : "rgba(115,190,235,.36)",
+        bg: s.newAvatarIndex === index ? "rgba(86,232,255,.18)" : "rgba(5,22,63,.7)",
+        pick: () => this.setState({ newAvatarIndex: index })
+      })),
       addStudent: () => this.addStudent(),
       editName: s.editName, editSeat: s.editSeat, editClass: s.editClass, editAccount: s.editAccount, editPassword: s.editPassword,
       onEditName: (e) => this.setState({ editName: e.target.value }),

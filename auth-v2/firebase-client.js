@@ -3,6 +3,7 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
+  signInWithPopup,
   linkWithPopup,
   signOut,
   onAuthStateChanged,
@@ -87,6 +88,38 @@ export async function passwordLogin(username, password, role) {
     throw new Error(`此帳號不是 ${label} 權限`);
   }
   return credential.user;
+}
+
+export async function recoverPasswordWithGoogle(username, role, newPassword) {
+  const safeUsername = normalizedUsername(username);
+  if (!safeUsername) throw new Error('請輸入要恢復的帳號');
+  if (!['staff', 'student'].includes(role)) throw new Error('帳號類型不正確');
+  if (!newPassword || newPassword.length < 6) throw new Error('新密碼至少需要 6 碼');
+
+  const credential = await signInWithPopup(auth, googleProvider);
+  const token = await getIdTokenResult(credential.user, true);
+  const actualRole = token.claims.role || null;
+  const roleMatches = role === 'staff' ? ['admin', 'teacher'].includes(actualRole) : actualRole === 'student';
+  if (!roleMatches) {
+    await signOut(auth);
+    throw new Error('這個 Google 帳號不屬於所選的帳號類型');
+  }
+
+  const collectionName = actualRole === 'admin' ? 'admins' : actualRole === 'teacher' ? 'teachers' : 'students';
+  const snap = await getDoc(doc(db, collectionName, credential.user.uid));
+  const profile = snap.exists() ? snap.data() : null;
+  if (!profile || normalizedUsername(profile.username) !== safeUsername || !profile.googleLinked) {
+    await signOut(auth);
+    throw new Error('Google 帳號與輸入的學習星球帳號不相符');
+  }
+
+  await updatePassword(credential.user, newPassword);
+  await setDoc(doc(db, collectionName, credential.user.uid), {
+    passwordRecoveredAt: serverTimestamp(),
+    updatedAt: serverTimestamp()
+  }, { merge: true }).catch(() => {});
+  await signOut(auth);
+  return { ok: true };
 }
 
 export async function currentRole(forceRefresh = false) {
@@ -224,6 +257,7 @@ window.LearningPlanetAuthV2 = {
   db,
   functions,
   passwordLogin,
+  recoverPasswordWithGoogle,
   currentRole,
   linkCurrentUserWithGoogle,
   touchProfileLogin,
