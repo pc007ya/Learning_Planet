@@ -130,9 +130,21 @@ export async function currentRole(forceRefresh = false) {
 
 export async function linkCurrentUserWithGoogle() {
   if (!auth.currentUser) throw new Error('尚未登入');
-  const result = await linkWithPopup(auth.currentUser, googleProvider);
+  let result;
+  let recoveredEmail = null;
+  try {
+    result = await linkWithPopup(auth.currentUser, googleProvider);
+  } catch (error) {
+    const conflict = ['auth/credential-already-in-use', 'auth/account-exists-with-different-credential'].includes(error?.code);
+    const credential = conflict ? GoogleAuthProvider.credentialFromError(error) : null;
+    if (!credential?.idToken) throw error;
+    const resolved = await resolveGoogleLinkConflict({ googleIdToken: credential.idToken });
+    recoveredEmail = resolved.data?.email || null;
+    await auth.currentUser.reload();
+    result = { user: auth.currentUser };
+  }
   const role = await currentRole(true);
-  const email = result.user.providerData.find((p) => p.providerId === 'google.com')?.email || result.user.email || null;
+  const email = recoveredEmail || result.user.providerData.find((p) => p.providerId === 'google.com')?.email || result.user.email || null;
   const collectionName = role === 'admin' ? 'admins' : role === 'teacher' ? 'teachers' : 'students';
 
   await setDoc(doc(db, collectionName, result.user.uid), {
@@ -237,6 +249,7 @@ export const resetStudentPassword = httpsCallable(functions, 'resetStudentPasswo
 export const setStudentEnabled = httpsCallable(functions, 'setStudentEnabled');
 export const updateOwnTeacherSettings = httpsCallable(functions, 'updateOwnTeacherSettings');
 export const bootstrapFirstAdmin = httpsCallable(functions, 'bootstrapFirstAdmin');
+export const resolveGoogleLinkConflict = httpsCallable(functions, 'resolveGoogleLinkConflict');
 
 export {
   onAuthStateChanged,
@@ -279,6 +292,7 @@ window.LearningPlanetAuthV2 = {
   setStudentEnabled,
   updateOwnTeacherSettings,
   bootstrapFirstAdmin,
+  resolveGoogleLinkConflict,
   onAuthStateChanged,
   signOut
 };

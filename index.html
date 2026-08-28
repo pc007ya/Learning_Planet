@@ -4909,6 +4909,18 @@ function firebaseLoginErrorMessage(error, label) {
   return label + "帳號或密碼不正確，請再確認一次。";
 }
 
+function firebaseGoogleLinkErrorMessage(error) {
+  const code = String(error && error.code || "").toLowerCase();
+  const message = String(error && error.message || "").replace(/^Firebase:\s*/i, "");
+  if (code.includes("popup-blocked")) return "瀏覽器阻擋了 Google 視窗，請允許彈出式視窗後重試。";
+  if (code.includes("popup-closed")) return "Google 驗證視窗已關閉，尚未完成綁定。";
+  if (code.includes("unauthorized-domain")) return "目前網站網址尚未加入 Firebase 授權網域。";
+  if (code.includes("operation-not-allowed")) return "Firebase 尚未啟用 Google 登入方式。";
+  if (code.includes("web-storage-unsupported") || code.includes("disallowed-useragent")) return "目前的內建瀏覽器不支援 Google 驗證，請改用 Chrome 或 Safari 開啟網站。";
+  if (code.includes("already-exists")) return "這個 Google 帳號已綁定另一個有資料的學習星球帳號，系統不會自動覆蓋。";
+  return message || "未知錯誤";
+}
+
 const SCI_ICON_EL = (emoji, px) => {
   if (!emoji || !window.SCI_ART || !window.SCI_ART.hasIcon(emoji)) return emoji || "";
   return React.createElement("span", {
@@ -5414,7 +5426,7 @@ class Component extends DCLogic {
       });
     } catch (err) {
       console.error("Binding error:", err);
-      this.flash("綁定失敗：" + (err.message || "未知錯誤"));
+      this.flash("綁定失敗：" + firebaseGoogleLinkErrorMessage(err));
     }
   }
 
@@ -5525,7 +5537,7 @@ class Component extends DCLogic {
       });
     } catch (err) {
       console.error("Teacher binding error:", err);
-      this.flash("綁定失敗：" + (err.message || "未知錯誤"));
+      this.flash("綁定失敗：" + firebaseGoogleLinkErrorMessage(err));
     }
   }
 

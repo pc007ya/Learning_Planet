@@ -1,6 +1,7 @@
 const { onCall, HttpsError } = require('firebase-functions/v2/https');
 const { setGlobalOptions } = require('firebase-functions/v2');
 const admin = require('firebase-admin');
+const { OAuth2Client } = require('google-auth-library');
 
 admin.initializeApp();
 setGlobalOptions({ region: 'asia-east1', maxInstances: 10 });
@@ -9,10 +10,18 @@ const db = admin.firestore();
 const TEACHER_DOMAIN = 'teacher.learning-planet.invalid';
 const ADMIN_DOMAIN = 'admin.learning-planet.invalid';
 const STUDENT_DOMAIN = 'student.learning-planet.invalid';
+const GOOGLE_WEB_CLIENT_ID = '1068189320501-qq48mqdioqeltl3qfed6eqis3ha5k68a.apps.googleusercontent.com';
+const googleOAuthClient = new OAuth2Client(GOOGLE_WEB_CLIENT_ID);
 
 function requireAdmin(request) {
   if (!request.auth || request.auth.token.role !== 'admin') {
     throw new HttpsError('permission-denied', 'Only administrators can perform this action.');
+  }
+}
+
+function requireAppUser(request) {
+  if (!request.auth || !['admin', 'teacher', 'student'].includes(request.auth.token.role)) {
+    throw new HttpsError('permission-denied', 'A Learning Planet login is required.');
   }
 }
 
@@ -221,6 +230,52 @@ exports.setStudentEnabled = onCall(async (request) => {
   await admin.auth().updateUser(uid, { disabled: !enabled });
   await db.collection('students').doc(uid).set({ enabled, updatedAt: admin.firestore.FieldValue.serverTimestamp() }, { merge: true });
   return { ok: true };
+});
+
+exports.resolveGoogleLinkConflict = onCall(async (request) => {
+  requireAppUser(request);
+  const googleIdToken = String(request.data?.googleIdToken || '');
+  if (!googleIdToken) throw new HttpsError('invalid-argument', 'Google identity token is required.');
+
+  let payload;
+  try {
+    const ticket = await googleOAuthClient.verifyIdToken({ idToken: googleIdToken, audience: GOOGLE_WEB_CLIENT_ID });
+    payload = ticket.getPayload();
+  } catch (_) {
+    throw new HttpsError('unauthenticated', 'Google identity verification failed.');
+  }
+  if (!payload?.sub || !payload?.email || payload.email_verified !== true) {
+    throw new HttpsError('unauthenticated', 'A verified Google account is required.');
+  }
+
+  let conflict = null;
+  try { conflict = await admin.auth().getUserByProviderUid('google.com', payload.sub); }
+  catch (error) { if (error.code !== 'auth/user-not-found') throw error; }
+
+  if (conflict && conflict.uid !== request.auth.uid) {
+    const role = conflict.customClaims?.role || null;
+    const docs = await Promise.all(['admins', 'teachers', 'students'].map((name) => db.collection(name).doc(conflict.uid).get()));
+    if (role || docs.some((snap) => snap.exists)) {
+      throw new HttpsError('already-exists', 'This Google account is already linked to another Learning Planet account.');
+    }
+    await admin.auth().deleteUser(conflict.uid);
+  }
+
+  const providerToLink = { uid: payload.sub, providerId: 'google.com', email: payload.email };
+  if (payload.name) providerToLink.displayName = payload.name;
+  if (payload.picture) providerToLink.photoURL = payload.picture;
+  await admin.auth().updateUser(request.auth.uid, { providerToLink });
+
+  const role = request.auth.token.role;
+  const collectionName = role === 'admin' ? 'admins' : role === 'teacher' ? 'teachers' : 'students';
+  await db.collection(collectionName).doc(request.auth.uid).set({
+    googleEmail: payload.email,
+    googleLinked: true,
+    firstLoginCompleted: true,
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    lastLoginAt: admin.firestore.FieldValue.serverTimestamp()
+  }, { merge: true });
+  return { ok: true, email: payload.email };
 });
 
 // One-time initialization endpoint. It is intentionally disabled after the
