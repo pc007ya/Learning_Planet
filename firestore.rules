@@ -86,6 +86,20 @@ service cloud.firestore {
       allow delete: if isAdmin();
     }
 
+    match /weekly_results/{resultId} {
+      allow read: if isAdmin() || (
+        isTeacher() && resource.data.classId in teacherDoc().data.assignedClassIds
+      ) || (isStudent() && resource.data.userId == request.auth.uid);
+      allow create, update: if isStudent()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.classId == get(/databases/$(database)/documents/students/$(request.auth.uid)).data.classId
+        && request.resource.data.keys().hasOnly([
+          'userId', 'testId', 'classId', 'title', 'answers', 'correct', 'total', 'score',
+          'subjectScores', 'baseXp', 'bonusXp', 'earnedXp', 'earnedCoins', 'duration', 'completedAt'
+        ]);
+      allow delete: if isAdmin();
+    }
+
     match /course_assignments/{assignmentId} {
       allow read: if isAdmin() || (
         isTeacher() && resource.data.classId in teacherDoc().data.assignedClassIds

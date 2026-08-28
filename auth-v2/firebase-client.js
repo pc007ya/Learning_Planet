@@ -228,6 +228,31 @@ export async function saveRosterSnapshot(roster = {}) {
   }, { merge: true });
 }
 
+export async function saveWeeklyResult(result = {}) {
+  if (!auth.currentUser || await currentRole() !== 'student') throw new Error('只有學員可以提交週考成績');
+  const testId = String(result.testId || '').trim();
+  if (!testId) throw new Error('週考識別碼不可為空');
+  const safeTestId = testId.replace(/[^a-zA-Z0-9._-]/g, '-').slice(0, 80);
+  const payload = {
+    userId: auth.currentUser.uid,
+    testId,
+    classId: String(result.classId || ''),
+    title: String(result.title || ''),
+    answers: Array.isArray(result.answers) ? result.answers : [],
+    correct: Number(result.correct) || 0,
+    total: Number(result.total) || 0,
+    score: Number(result.score) || 0,
+    subjectScores: result.subjectScores && typeof result.subjectScores === 'object' ? result.subjectScores : {},
+    baseXp: Number(result.baseXp) || 0,
+    bonusXp: Number(result.bonusXp) || 0,
+    earnedXp: Number(result.earnedXp) || 0,
+    earnedCoins: Number(result.earnedCoins) || 0,
+    duration: Number(result.duration) || 0,
+    completedAt: serverTimestamp()
+  };
+  await setDoc(doc(db, 'weekly_results', `${auth.currentUser.uid}_${safeTestId}`), payload, { merge: true });
+}
+
 export async function loadRosterSnapshot() {
   const snap = await getDoc(doc(db, 'system', 'roster'));
   return snap.exists() ? snap.data() : null;
@@ -280,6 +305,7 @@ window.LearningPlanetAuthV2 = {
   fetchTeachersList,
   fetchStudentsList,
   saveMyStudentProgress,
+  saveWeeklyResult,
   saveRosterSnapshot,
   loadRosterSnapshot,
   subscribeRosterSnapshot,
