@@ -111,6 +111,30 @@ exports.updateTeacher = onCall(async (request) => {
   return { ok: true };
 });
 
+exports.deleteTeacher = onCall(async (request) => {
+  requireAdmin(request);
+  const uid = String(request.data?.uid || '').trim();
+  if (!uid) throw new HttpsError('invalid-argument', 'uid is required.');
+  if (uid === request.auth.uid) throw new HttpsError('failed-precondition', 'The current administrator cannot be deleted.');
+
+  const adminDoc = await db.collection('admins').doc(uid).get();
+  if (adminDoc.exists) throw new HttpsError('permission-denied', 'Administrator accounts cannot be deleted here.');
+
+  let userRecord = null;
+  try {
+    userRecord = await admin.auth().getUser(uid);
+  } catch (error) {
+    if (error.code !== 'auth/user-not-found') throw error;
+  }
+  if (userRecord?.customClaims?.role === 'admin') {
+    throw new HttpsError('permission-denied', 'Administrator accounts cannot be deleted here.');
+  }
+
+  await db.collection('teachers').doc(uid).delete();
+  if (userRecord) await admin.auth().deleteUser(uid);
+  return { ok: true };
+});
+
 exports.resetTeacherPassword = onCall(async (request) => {
   requireAdmin(request);
   const { uid, password } = request.data || {};

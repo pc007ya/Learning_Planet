@@ -880,7 +880,7 @@
 .admin-focus .teacher-avatar-choice{overflow:hidden;border-radius:14px!important;background:rgba(5,19,59,.72)!important}.admin-focus .teacher-avatar-choice img{width:100%;height:100%;object-fit:cover;display:block}
 .admin-focus .teacher-directory-head{color:#a8c7e8!important}.admin-focus .teacher-directory-row{border-color:rgba(91,220,255,.28)!important;background:rgba(8,26,66,.72)!important;color:#ecf9ff!important}.admin-focus .teacher-directory-row[style*="edf4ff"]{background:rgba(27,79,142,.72)!important}
 .admin-focus .teacher-directory-create{border:1px solid rgba(93,221,255,.28)!important;background:linear-gradient(110deg,rgba(8,28,73,.88),rgba(17,40,86,.66))!important}.admin-focus .teacher-directory-row.is-editing{border-color:#67ecff!important;background:linear-gradient(100deg,rgba(29,88,150,.86),rgba(41,36,116,.86))!important;box-shadow:0 0 0 2px rgba(88,225,255,.18),0 10px 24px rgba(0,0,0,.18)}.admin-focus .teacher-directory-row b{color:#62e9ff!important}.admin-focus .teacher-directory-row small{color:#8fc9ef!important}
-@media(max-width:760px){.app-shell.admin-focus{padding:10px 10px 28px!important}.admin-focus .app-header{margin-bottom:10px!important;border-radius:16px!important}.admin-focus .teacher-settings-shell{padding:16px!important;border-radius:20px!important}.teacher-settings-heading{align-items:flex-start}.teacher-settings-role-chip{max-width:100%;white-space:normal}.admin-focus .teacher-directory-head{display:none!important}.admin-focus .teacher-directory-row{grid-template-columns:1fr 1fr!important}.admin-focus .teacher-directory-row span:nth-of-type(n+3){display:none!important}}
+@media(max-width:760px){.app-shell.admin-focus{padding:10px 10px 28px!important}.admin-focus .app-header{margin-bottom:10px!important;border-radius:16px!important}.admin-focus .teacher-settings-shell{padding:16px!important;border-radius:20px!important}.teacher-settings-heading{align-items:flex-start}.teacher-settings-role-chip{max-width:100%;white-space:normal}.admin-focus .teacher-directory-head{display:none!important}.admin-focus .teacher-directory-row{grid-template-columns:1fr 1fr!important}.admin-focus .teacher-directory-row>span:nth-of-type(n+3){display:none!important}.admin-focus .teacher-directory-row>span:last-child{display:flex!important}}
 </style>
 <style>
   /* Magnetic objects attach to the magnet instead of jittering in place. */
@@ -3147,9 +3147,10 @@
                     <span>教師／角色</span><span>帳號</span><span>密碼</span><span>最後登入</span><span>Google Email／UID</span><span>操作</span>
                   </div>
                   <sc-for list="{{ teacherDirectory }}" as="teacher" hint-placeholder-count="2">
-                    <button class="teacher-directory-row {{ teacher.editing ? 'is-editing' : '' }}" onClick="{{ teacher.select }}" style="display:grid;grid-template-columns:1.1fr .8fr .8fr 1fr 1fr auto;align-items:center;gap:10px;border-radius:15px;padding:12px 14px;text-align:left;cursor:pointer;font-family:inherit">
-                      <strong class="teacher-directory-name">{{ teacher.name }}<small style="display:block">{{ teacher.roleLabel }}</small></strong><span>{{ teacher.account }}</span><span aria-label="密碼已隱藏">••••••</span><span>{{ teacher.lastLogin }}</span><span class="teacher-directory-google">{{ teacher.google }}</span><b>編輯</b>
-                    </button>
+                    <div class="teacher-directory-row {{ teacher.editing ? 'is-editing' : '' }}" style="display:grid;grid-template-columns:1.1fr .8fr .8fr 1fr 1fr auto;align-items:center;gap:10px;border-radius:15px;padding:12px 14px;text-align:left;font-family:inherit">
+                      <strong class="teacher-directory-name">{{ teacher.name }}<small style="display:block">{{ teacher.roleLabel }}</small></strong><span>{{ teacher.account }}</span><span aria-label="密碼已隱藏">••••••</span><span>{{ teacher.lastLogin }}</span><span class="teacher-directory-google">{{ teacher.google }}</span>
+                      <span style="display:flex;justify-content:flex-end;gap:7px"><button onClick="{{ teacher.select }}" style="border:0;border-radius:9px;padding:8px 10px;background:#eafbff;color:#3256c8;font:900 12px inherit;cursor:pointer">編輯</button><sc-if value="{{ teacher.canDelete }}"><button onClick="{{ teacher.remove }}" style="border:0;border-radius:9px;padding:8px 10px;background:#fff0f7;color:#c12e70;font:900 12px inherit;cursor:pointer">刪除</button></sc-if></span>
+                    </div>
                   </sc-for>
                 </div>
               </div>
@@ -4228,8 +4229,25 @@ function normalizeTeacherConfig(saved) {
   if (!saved || typeof saved !== "object") return fallback;
   if (Array.isArray(saved.teachers)) {
     const teachers = saved.teachers.map((teacher, index) => { const record = defaultTeacherRecord(Object.assign({ id: index === 0 ? "admin-chen" : "teacher-" + index }, teacher)); record.face = normalizeTeacherFace(record.face, index); return record; });
-    if (!teachers.some((teacher) => teacher.role === "admin")) teachers.unshift(fallback.teachers[0]);
-    return { version: 2, teachers };
+    const adminCandidates = teachers.filter((teacher) => teacher.role === "admin");
+    const admin = (adminCandidates.length ? adminCandidates : [fallback.teachers[0]]).slice().sort((left, right) => {
+      const leftTime = Date.parse(left.lastLoginAt || "") || 0;
+      const rightTime = Date.parse(right.lastLoginAt || "") || 0;
+      const leftScore = (String(left.id || "").length > 20 ? 4 : 0) + (left.googleUid ? 2 : 0) + (String(left.id || "") !== "admin-chen" ? 1 : 0);
+      const rightScore = (String(right.id || "").length > 20 ? 4 : 0) + (right.googleUid ? 2 : 0) + (String(right.id || "") !== "admin-chen" ? 1 : 0);
+      return rightTime - leftTime || rightScore - leftScore;
+    })[0];
+    const seenIds = new Set();
+    const seenAccounts = new Set();
+    const regularTeachers = teachers.filter((teacher) => teacher.role !== "admin").filter((teacher) => {
+      const id = String(teacher.id || "");
+      const account = String(teacher.account || "").trim().toLowerCase();
+      if ((id && seenIds.has(id)) || (account && seenAccounts.has(account))) return false;
+      if (id) seenIds.add(id);
+      if (account) seenAccounts.add(account);
+      return true;
+    });
+    return { version: 2, teachers: [defaultTeacherRecord(Object.assign({}, admin, { role: "admin" }))].concat(regularTeachers) };
   }
   return {
     version: 2,
@@ -4242,7 +4260,11 @@ function normalizeTeacherConfig(saved) {
 function readTeacherConfig() {
   try {
     const saved = JSON.parse(localStorage.getItem(TEACHER_CONFIG_STORE_KEY) || "null");
-    if (saved && typeof saved === "object") return normalizeTeacherConfig(saved);
+    if (saved && typeof saved === "object") {
+      const normalized = normalizeTeacherConfig(saved);
+      localStorage.setItem(TEACHER_CONFIG_STORE_KEY, JSON.stringify(normalized));
+      return normalized;
+    }
   } catch (_) {}
   return defaultTeacherConfig();
 }
@@ -5156,8 +5178,12 @@ class Component extends DCLogic {
         const local = localTeachers.get(entry.id) || {};
         return defaultTeacherRecord(Object.assign({}, local, entry, { password: "", face: normalizeTeacherFace(entry.face, index) }));
       }) : state.teacherConfig.teachers;
-      return { students, classes: Array.isArray(remote.classes) ? remote.classes : state.classes, teacherConfig: Object.assign({}, state.teacherConfig, { teachers }) };
-    }, () => { this.applyingCloudRoster = false; });
+      return { students, classes: Array.isArray(remote.classes) ? remote.classes : state.classes, teacherConfig: normalizeTeacherConfig(Object.assign({}, state.teacherConfig, { teachers })) };
+    }, () => {
+      this.applyingCloudRoster = false;
+      saveTeacherConfig(this.state.teacherConfig);
+      if (Array.isArray(remote.teachers) && remote.teachers.filter((teacher) => teacher.role === "admin").length > 1) this.queueCloudRosterSync();
+    });
   }
   enableCloudRosterSync() {
     const authV2 = window.LearningPlanetAuthV2;
@@ -5484,12 +5510,15 @@ class Component extends DCLogic {
         }
       } else { this.setState({ teacherLoginError: firebaseLoginErrorMessage(loginError, "老師") }); return; }
     }
-    let teacher = (cfg.teachers || []).find((candidate) => candidate.id === remote.id || String(candidate.account || "").trim().toLowerCase() === account);
+    let teacher = (cfg.teachers || []).find((candidate) => candidate.id === remote.id || String(candidate.account || "").trim().toLowerCase() === account || (role === "admin" && candidate.role === "admin"));
     if (!teacher) teacher = defaultTeacherRecord({ id: remote.id, role, name: remote.displayName || account, account, face: remote.face || "" });
     const teacherRecord = Object.assign({}, teacher, { id: remote.id, role, name: remote.displayName || teacher.name, account: remote.username || account, face: remote.face || teacher.face, googleUid: remote.googleLinked ? remote.id : "", email: remote.googleEmail || "", lastLoginAt: new Date().toISOString(), password: "" });
     const hasTeacher = cfg.teachers.some((candidate) => candidate.id === teacher.id || candidate.id === remote.id);
-    const updated = Object.assign({}, cfg, { teachers: (hasTeacher ? cfg.teachers.map((candidate) => (candidate.id === teacher.id || candidate.id === remote.id) ? teacherRecord : candidate) : cfg.teachers.concat(teacherRecord)) });
-    const loggedInTeacher = teacherById(updated, teacher.id);
+    const nextTeachers = role === "admin"
+      ? [teacherRecord].concat((cfg.teachers || []).filter((candidate) => candidate.role !== "admin"))
+      : (hasTeacher ? cfg.teachers.map((candidate) => (candidate.id === teacher.id || candidate.id === remote.id) ? teacherRecord : candidate) : cfg.teachers.concat(teacherRecord));
+    const updated = normalizeTeacherConfig(Object.assign({}, cfg, { teachers: nextTeachers }));
+    const loggedInTeacher = updated.teachers.find((candidate) => candidate.id === remote.id) || teacherById(updated, teacher.id);
     saveTeacherConfig(updated);
     requestAppFullscreen();
     this.setState({
@@ -5563,7 +5592,7 @@ class Component extends DCLogic {
       if (current.role === "admin" && editing.id !== current.id) await authV2.updateTeacher({ uid: editing.cloudUid || editing.id, displayName: name, username: account, password: password || undefined, face });
       else await authV2.updateOwnTeacherSettings({ displayName: name, username: account, password: password || undefined, face });
     } catch (error) { this.flash("更新失敗：" + (error.message || "請確認雲端權限")); return; }
-    const cfg = Object.assign({}, this.state.teacherConfig, { teachers: this.state.teacherConfig.teachers.map((teacher) => teacher.id === editing.id ? Object.assign({}, teacher, { name, account, password: "", face }) : teacher) });
+    const cfg = normalizeTeacherConfig(Object.assign({}, this.state.teacherConfig, { teachers: this.state.teacherConfig.teachers.map((teacher) => teacher.id === editing.id ? Object.assign({}, teacher, { name, account, password: "", face }) : teacher) }));
     saveTeacherConfig(cfg);
     this.setState({
       teacherConfig: cfg
@@ -5596,6 +5625,33 @@ class Component extends DCLogic {
     this.setState({ teacherConfig: cfg, newTeacherName: "", newTeacherAccount: "", newTeacherPassword: "" }, () => {
       this.queueCloudRosterSync();
       this.flash("✅ 已新增一般教師帳號。");
+    });
+  }
+
+  async deleteTeacherAccount(id) {
+    const current = teacherById(this.state.teacherConfig, this.state.currentTeacherId);
+    const target = (this.state.teacherConfig.teachers || []).find((teacher) => teacher.id === id);
+    if (current.role !== "admin") { this.flash("只有管理者可以刪除教師帳號。"); return; }
+    if (!target) { this.flash("找不到這個教師帳號。"); return; }
+    if (target.role === "admin" || target.id === current.id) { this.flash("管理者帳號受保護，不能刪除。"); return; }
+    if (!window.confirm("確定刪除一般教師「" + target.name + "」？此操作會刪除登入帳號，無法復原。")) return;
+    const authV2 = window.LearningPlanetAuthV2;
+    if (!authV2 || !authV2.deleteTeacher) { this.flash("刪除服務正在載入，請稍候再試。"); return; }
+    try { await authV2.deleteTeacher({ uid: target.cloudUid || target.id }); }
+    catch (error) { this.flash("刪除失敗：" + (error.message || "請確認雲端權限")); return; }
+    const cfg = normalizeTeacherConfig(Object.assign({}, this.state.teacherConfig, { teachers: this.state.teacherConfig.teachers.filter((teacher) => teacher.id !== target.id) }));
+    const selected = cfg.teachers.find((teacher) => teacher.id === current.id) || cfg.teachers[0];
+    saveTeacherConfig(cfg);
+    this.setState({
+      teacherConfig: cfg,
+      editingTeacherId: selected.id,
+      editTeacherName: selected.name,
+      editTeacherAccount: selected.account,
+      editTeacherPassword: "",
+      editTeacherFace: normalizeTeacherFace(selected.face, 0)
+    }, () => {
+      this.queueCloudRosterSync();
+      this.flash("✅ 已刪除一般教師帳號。");
     });
   }
 
@@ -10861,7 +10917,7 @@ class Component extends DCLogic {
       isNotTeacherManager: teacherById(s.teacherConfig, s.currentTeacherId).role !== "admin",
       teacherSettingsLocked: !teacherById(s.teacherConfig, s.currentTeacherId).googleUid,
       teacherRoleLabel: teacherById(s.teacherConfig, s.currentTeacherId).role === "admin" ? "管理者" : "一般教師",
-      teacherDirectory: (s.teacherConfig.teachers || []).map((teacher) => ({ id: teacher.id, name: teacher.name, roleLabel: teacher.role === "admin" ? "管理者" : "一般教師", account: teacher.account, google: teacher.googleUid ? ("已綁定 · " + (teacher.email || "UID: " + teacher.googleUid.slice(0, 10) + "…")) : "未綁定 · 無 Email", lastLogin: teacher.lastLoginAt ? new Date(teacher.lastLoginAt).toLocaleString("zh-TW", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" }) : "尚未登入", editing: s.editingTeacherId === teacher.id, select: () => this.selectTeacherForSettings(teacher.id) })),
+      teacherDirectory: (s.teacherConfig.teachers || []).map((teacher) => ({ id: teacher.id, name: teacher.name, roleLabel: teacher.role === "admin" ? "管理者" : "一般教師", account: teacher.account, google: teacher.googleUid ? ("已綁定 · " + (teacher.email || "UID: " + teacher.googleUid.slice(0, 10) + "…")) : "未綁定 · 無 Email", lastLogin: teacher.lastLoginAt ? new Date(teacher.lastLoginAt).toLocaleString("zh-TW", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" }) : "尚未登入", editing: s.editingTeacherId === teacher.id, canDelete: teacher.role !== "admin" && teacher.id !== s.currentTeacherId, select: () => this.selectTeacherForSettings(teacher.id), remove: () => this.deleteTeacherAccount(teacher.id) })),
       newTeacherName: s.newTeacherName,
       newTeacherAccount: s.newTeacherAccount,
       newTeacherPassword: s.newTeacherPassword,

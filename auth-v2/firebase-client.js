@@ -241,6 +241,7 @@ export function subscribeRosterSnapshot(callback) {
 
 export const createTeacher = httpsCallable(functions, 'createTeacher');
 export const updateTeacher = httpsCallable(functions, 'updateTeacher');
+export const deleteTeacher = httpsCallable(functions, 'deleteTeacher');
 export const resetTeacherPassword = httpsCallable(functions, 'resetTeacherPassword');
 export const setTeacherEnabled = httpsCallable(functions, 'setTeacherEnabled');
 export const createStudent = httpsCallable(functions, 'createStudent');
@@ -284,6 +285,7 @@ window.LearningPlanetAuthV2 = {
   subscribeRosterSnapshot,
   createTeacher,
   updateTeacher,
+  deleteTeacher,
   resetTeacherPassword,
   setTeacherEnabled,
   createStudent,
