@@ -40,4 +40,4 @@ jobs:
           credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LEARNPLANET }}
 
       - name: Deploy Firebase Functions and Firestore Rules
-        run: npx --yes firebase-tools@latest deploy --only functions,firestore:rules --project learnplanet-cce52 --non-interactive
+        run: npx --yes firebase-tools@latest deploy --only functions,firestore:rules --project learnplanet-cce52 --non-interactive --force
