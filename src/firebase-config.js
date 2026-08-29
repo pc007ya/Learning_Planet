@@ -153,13 +153,51 @@ function installMobileViewportGuard() {
       .module-focus .quiz-card,.module-focus .quiz-visual,.module-focus .result-summary,.lab-focus>*,.gacha-focus [data-screen-label]{max-width:100%!important;min-width:0!important}
       .gacha-focus{padding-left:10px!important;padding-right:10px!important}
       .gacha-focus .gacha-machine-stage{width:100%!important;max-width:100%!important;min-width:0!important}
-      .home-focus .app-header{width:100%;max-width:100%;padding-left:8px!important;padding-right:8px!important;gap:2px!important;overflow:hidden}
-      .home-focus .user-identity{min-width:0!important;flex:0 1 auto!important}
-      .home-focus .student-xp{min-width:0!important;max-width:120px!important;flex:1 1 72px!important}
-      .home-focus .player-actions{min-width:0!important;gap:0!important;flex:0 1 auto!important}
-      .home-focus .home-utility,.home-focus .speech-toggle{width:36px!important;height:36px!important}
-      .home-focus .logout-control{width:44px!important;height:42px!important}
-      .home-focus .logout-spaceship{width:52px!important;height:46px!important}
+
+      /* Student header: one compact identity row + one XP row on phones only. */
+      .home-focus .app-header,.subject-focus .app-header,.profile-focus .app-header,.gacha-focus .app-header{
+        width:100%!important;max-width:100%!important;min-height:0!important;height:auto!important;
+        display:flex!important;flex-wrap:wrap!important;align-items:center!important;
+        column-gap:5px!important;row-gap:5px!important;padding:7px 8px 8px!important;overflow:hidden!important;
+      }
+      .home-focus .app-home-btn,.subject-focus .app-home-btn,.profile-focus .app-home-btn,.gacha-focus .app-home-btn{
+        display:grid!important;place-items:center!important;order:1!important;flex:0 0 48px!important;
+        width:48px!important;height:48px!important;min-width:48px!important;padding:0!important;border:0!important;background:transparent!important;
+      }
+      .home-focus .app-home-btn img,.subject-focus .app-home-btn img,.profile-focus .app-home-btn img,.gacha-focus .app-home-btn img{
+        width:48px!important;height:48px!important;object-fit:contain!important;
+      }
+      .home-focus .user-avatar,.subject-focus .user-avatar,.profile-focus .user-avatar,.gacha-focus .user-avatar{
+        display:block!important;order:2!important;flex:0 0 48px!important;width:48px!important;height:48px!important;min-width:48px!important;
+      }
+      .home-focus .user-identity,.subject-focus .user-identity,.profile-focus .user-identity,.gacha-focus .user-identity{
+        order:3!important;flex:1 1 78px!important;min-width:0!important;max-width:none!important;line-height:1.12!important;
+      }
+      .home-focus .user-identity strong,.subject-focus .user-identity strong,.profile-focus .user-identity strong,.gacha-focus .user-identity strong{
+        font-size:15px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;
+      }
+      .home-focus .user-sub-home,.subject-focus .user-sub-home,.profile-focus .user-sub-home,.gacha-focus .user-sub-home{font-size:11px!important}
+      .home-focus .player-actions,.subject-focus .player-actions,.profile-focus .player-actions,.gacha-focus .player-actions{display:none!important}
+      .home-focus .speech-toggle,.subject-focus .speech-toggle,.profile-focus .speech-toggle,.gacha-focus .speech-toggle{
+        order:4!important;flex:0 0 34px!important;width:34px!important;height:34px!important;min-width:34px!important;
+      }
+      .home-focus .logout-control,.subject-focus .logout-control,.profile-focus .logout-control,.gacha-focus .logout-control{
+        order:5!important;flex:0 0 42px!important;width:42px!important;height:40px!important;min-width:42px!important;
+      }
+      .home-focus .logout-spaceship,.subject-focus .logout-spaceship,.profile-focus .logout-spaceship,.gacha-focus .logout-spaceship{
+        width:50px!important;height:44px!important;
+      }
+      .home-focus .student-xp,.subject-focus .student-xp,.profile-focus .student-xp,.gacha-focus .student-xp{
+        order:20!important;flex:0 0 100%!important;width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;
+      }
+      .home-focus .student-xp-label,.subject-focus .student-xp-label,.profile-focus .student-xp-label,.gacha-focus .student-xp-label{font-size:10px!important;line-height:1!important}
+      .home-focus .student-xp-track,.subject-focus .student-xp-track,.profile-focus .student-xp-track,.gacha-focus .student-xp-track{height:7px!important;margin-top:4px!important}
+      .home-focus .home-space-copy{top:106px!important}
+      .home-focus .home-subject-grid{top:160px!important}
+      .subject-focus{padding-top:104px!important}
+      .profile-focus{padding-top:104px!important}
+      .gacha-focus{padding-top:104px!important}
+
       .home-subject-grid{left:10px!important;right:10px!important;gap:10px!important}
       .home-subject-card{--planet-size:min(42vw,158px)!important;width:var(--planet-size)!important;flex:0 0 var(--planet-size)!important}
     }
