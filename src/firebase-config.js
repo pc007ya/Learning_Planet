@@ -137,6 +137,8 @@ function installMobileViewportGuard() {
     img,svg,canvas,video{max-width:100%}
     .app-header,.player-actions,.user-identity,.student-xp,[data-screen-label],section,article{min-width:0}
     @media(max-width:760px){
+      .login-space .login-space-head{justify-content:flex-start!important;text-align:left!important}
+      .login-space .login-brand-full{display:block!important;margin-left:0!important;margin-right:auto!important;object-position:left top!important}
       .app-header{max-width:100%!important;min-width:0!important;gap:3px!important}
       .profile-focus .app-header,.admin-focus .app-header,.gacha-focus .app-header{flex-wrap:wrap!important;padding-left:8px!important;padding-right:8px!important}
       .profile-focus .user-identity,.admin-focus .user-identity,.gacha-focus .user-identity{min-width:0!important;flex:0 1 auto!important}
