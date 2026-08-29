@@ -158,45 +158,54 @@ function installMobileViewportGuard() {
       .home-focus .app-header,.subject-focus .app-header,.profile-focus .app-header,.gacha-focus .app-header{
         width:100%!important;max-width:100%!important;min-height:0!important;height:auto!important;
         display:flex!important;flex-wrap:wrap!important;align-items:center!important;
-        column-gap:5px!important;row-gap:5px!important;padding:7px 8px 8px!important;overflow:hidden!important;
+        column-gap:4px!important;row-gap:5px!important;padding:7px 6px 8px!important;overflow:hidden!important;
       }
       .home-focus .app-home-btn,.subject-focus .app-home-btn,.profile-focus .app-home-btn,.gacha-focus .app-home-btn{
-        display:grid!important;place-items:center!important;order:1!important;flex:0 0 48px!important;
-        width:48px!important;height:48px!important;min-width:48px!important;padding:0!important;border:0!important;background:transparent!important;
+        display:grid!important;place-items:center!important;order:1!important;flex:0 0 44px!important;
+        width:44px!important;height:44px!important;min-width:44px!important;padding:0!important;border:0!important;background:transparent!important;
       }
       .home-focus .app-home-btn img,.subject-focus .app-home-btn img,.profile-focus .app-home-btn img,.gacha-focus .app-home-btn img{
-        width:48px!important;height:48px!important;object-fit:contain!important;
+        width:44px!important;height:44px!important;object-fit:contain!important;
       }
       .home-focus .user-avatar,.subject-focus .user-avatar,.profile-focus .user-avatar,.gacha-focus .user-avatar{
-        display:block!important;order:2!important;flex:0 0 48px!important;width:48px!important;height:48px!important;min-width:48px!important;
+        display:block!important;order:2!important;flex:0 0 44px!important;width:44px!important;height:44px!important;min-width:44px!important;
       }
       .home-focus .user-identity,.subject-focus .user-identity,.profile-focus .user-identity,.gacha-focus .user-identity{
-        order:3!important;flex:1 1 78px!important;min-width:0!important;max-width:none!important;line-height:1.12!important;
+        order:3!important;flex:0 0 4.7em!important;width:4.7em!important;min-width:0!important;max-width:4.7em!important;line-height:1.12!important;
       }
       .home-focus .user-identity strong,.subject-focus .user-identity strong,.profile-focus .user-identity strong,.gacha-focus .user-identity strong{
-        font-size:15px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;
+        display:block!important;max-width:4em!important;font-size:14px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:clip!important;
       }
-      .home-focus .user-sub-home,.subject-focus .user-sub-home,.profile-focus .user-sub-home,.gacha-focus .user-sub-home{font-size:11px!important}
-      .home-focus .player-actions,.subject-focus .player-actions,.profile-focus .player-actions,.gacha-focus .player-actions{display:none!important}
+      .home-focus .user-sub-home,.subject-focus .user-sub-home,.profile-focus .user-sub-home,.gacha-focus .user-sub-home{display:none!important}
+      .home-focus .player-actions,.subject-focus .player-actions,.profile-focus .player-actions,.gacha-focus .player-actions{
+        display:flex!important;order:4!important;flex:0 1 auto!important;min-width:0!important;gap:1px!important;align-items:center!important;
+      }
+      .home-focus .home-coin,.subject-focus .home-coin,.profile-focus .home-coin,.gacha-focus .home-coin{
+        display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;padding:4px 3px!important;font-size:11px!important;white-space:nowrap!important;
+      }
+      .home-focus .home-utility,.subject-focus .home-utility,.profile-focus .home-utility,.gacha-focus .home-utility{
+        display:grid!important;place-items:center!important;width:28px!important;height:30px!important;min-width:28px!important;padding:0!important;font-size:16px!important;
+      }
       .home-focus .speech-toggle,.subject-focus .speech-toggle,.profile-focus .speech-toggle,.gacha-focus .speech-toggle{
-        order:4!important;flex:0 0 34px!important;width:34px!important;height:34px!important;min-width:34px!important;
+        order:5!important;flex:0 0 30px!important;width:30px!important;height:30px!important;min-width:30px!important;
       }
+      .home-focus .speech-toggle img,.subject-focus .speech-toggle img,.profile-focus .speech-toggle img,.gacha-focus .speech-toggle img{width:20px!important;height:20px!important}
       .home-focus .logout-control,.subject-focus .logout-control,.profile-focus .logout-control,.gacha-focus .logout-control{
-        order:5!important;flex:0 0 42px!important;width:42px!important;height:40px!important;min-width:42px!important;
+        order:6!important;flex:0 0 34px!important;width:34px!important;height:34px!important;min-width:34px!important;
       }
       .home-focus .logout-spaceship,.subject-focus .logout-spaceship,.profile-focus .logout-spaceship,.gacha-focus .logout-spaceship{
-        width:50px!important;height:44px!important;
+        width:42px!important;height:38px!important;
       }
       .home-focus .student-xp,.subject-focus .student-xp,.profile-focus .student-xp,.gacha-focus .student-xp{
         order:20!important;flex:0 0 100%!important;width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;
       }
       .home-focus .student-xp-label,.subject-focus .student-xp-label,.profile-focus .student-xp-label,.gacha-focus .student-xp-label{font-size:10px!important;line-height:1!important}
       .home-focus .student-xp-track,.subject-focus .student-xp-track,.profile-focus .student-xp-track,.gacha-focus .student-xp-track{height:7px!important;margin-top:4px!important}
-      .home-focus .home-space-copy{top:106px!important}
-      .home-focus .home-subject-grid{top:160px!important}
-      .subject-focus{padding-top:104px!important}
-      .profile-focus{padding-top:104px!important}
-      .gacha-focus{padding-top:104px!important}
+      .home-focus .home-space-copy{top:102px!important}
+      .home-focus .home-subject-grid{top:156px!important}
+      .subject-focus{padding-top:100px!important}
+      .profile-focus{padding-top:100px!important}
+      .gacha-focus{padding-top:100px!important}
 
       .home-subject-grid{left:10px!important;right:10px!important;gap:10px!important}
       .home-subject-card{--planet-size:min(42vw,158px)!important;width:var(--planet-size)!important;flex:0 0 var(--planet-size)!important}
