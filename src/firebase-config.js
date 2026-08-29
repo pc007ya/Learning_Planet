@@ -249,6 +249,87 @@ export function isFirebaseReady() {
   return !!auth;
 }
 
+// Mobile viewport guard: prevents iOS input zoom and horizontal layout drift.
+function installMobileViewportGuard() {
+  if (typeof document === "undefined" || document.getElementById("learning-planet-mobile-guard")) return;
+  const style = document.createElement("style");
+  style.id = "learning-planet-mobile-guard";
+  style.textContent = `
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden !important;
+      overscroll-behavior-x: none;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    body, #dc-root, #dc-root > .sc-host {
+      max-width: 100vw;
+    }
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+    img, svg, canvas, video {
+      max-width: 100%;
+    }
+    @media (max-width: 640px) {
+      .home-focus {
+        width: 100%;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+      }
+      .home-focus .app-header {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        gap: 2px !important;
+        overflow: hidden;
+      }
+      .home-focus .user-identity {
+        min-width: 0 !important;
+        flex: 0 1 auto !important;
+      }
+      .home-focus .student-xp {
+        min-width: 0 !important;
+        max-width: 120px !important;
+        flex: 1 1 72px !important;
+      }
+      .home-focus .player-actions {
+        min-width: 0 !important;
+        gap: 0 !important;
+        flex: 0 1 auto !important;
+      }
+      .home-focus .home-utility,
+      .home-focus .speech-toggle {
+        width: 36px !important;
+        height: 36px !important;
+      }
+      .home-focus .logout-control {
+        width: 44px !important;
+        height: 42px !important;
+      }
+      .home-focus .logout-spaceship {
+        width: 52px !important;
+        height: 46px !important;
+      }
+      .home-subject-grid {
+        left: 10px !important;
+        right: 10px !important;
+        gap: 10px !important;
+      }
+      .home-subject-card {
+        --planet-size: min(42vw, 158px) !important;
+        width: var(--planet-size) !important;
+        flex: 0 0 var(--planet-size) !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+installMobileViewportGuard();
+
 // Automatically try initializing
 initFirebase();
 
