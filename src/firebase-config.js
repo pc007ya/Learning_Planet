@@ -174,7 +174,57 @@ function installMobileViewportGuard() {
   document.head.appendChild(style);
 }
 
+function installInteractionViewportGuard() {
+  if (typeof window === "undefined" || window.__learningPlanetInteractionGuard) return;
+  window.__learningPlanetInteractionGuard = true;
+  let activePointer = null;
+  let lastViewport = { width: window.visualViewport?.width || window.innerWidth, height: window.visualViewport?.height || window.innerHeight };
+
+  document.addEventListener("pointerdown", (event) => {
+    if (!event.isPrimary) return;
+    if (event.target?.closest?.(".magnet-stage,.magnet2-board,.plant-stage,.earth-orbit-v01-stage")) {
+      activePointer = { pointerId: event.pointerId, pointerType: event.pointerType || "touch", clientX: event.clientX, clientY: event.clientY };
+    }
+  }, true);
+  document.addEventListener("pointermove", (event) => {
+    if (activePointer && event.pointerId === activePointer.pointerId) {
+      activePointer.clientX = event.clientX;
+      activePointer.clientY = event.clientY;
+    }
+  }, true);
+  const clearPointer = (event) => {
+    if (!activePointer || event.pointerId === activePointer.pointerId) activePointer = null;
+  };
+  document.addEventListener("pointerup", clearPointer, true);
+  document.addEventListener("pointercancel", clearPointer, true);
+
+  const cancelStaleDrag = () => {
+    const next = { width: window.visualViewport?.width || window.innerWidth, height: window.visualViewport?.height || window.innerHeight };
+    const changed = Math.abs(next.width - lastViewport.width) > 2 || Math.abs(next.height - lastViewport.height) > 2;
+    lastViewport = next;
+    if (!changed || !activePointer) return;
+    const p = activePointer;
+    activePointer = null;
+    try {
+      document.dispatchEvent(new PointerEvent("pointercancel", {
+        bubbles: true,
+        cancelable: true,
+        pointerId: p.pointerId,
+        pointerType: p.pointerType,
+        isPrimary: true,
+        clientX: p.clientX,
+        clientY: p.clientY
+      }));
+    } catch (_) {}
+  };
+
+  window.addEventListener("orientationchange", cancelStaleDrag, { passive: true });
+  window.addEventListener("resize", cancelStaleDrag, { passive: true });
+  window.visualViewport?.addEventListener("resize", cancelStaleDrag, { passive: true });
+}
+
 installMobileViewportGuard();
+installInteractionViewportGuard();
 initFirebase();
 
 window.LearningPlanetFirebase = {
