@@ -7,11 +7,11 @@ describe('Math Master Template', () => {
   it('keeps a reusable fixed shell around dynamic quiz content', () => {
     for (const contract of [
       'quiz-master-shell',
-      'math-master-hint',
+      'math-presenter-card',
       'answer-slot-grid',
       'math-master-submit',
       'math-master-analysis',
-      'math-master-robot',
+      'math-presenter-sprite',
     ]) expect(html).toContain(contract);
   });
 
@@ -25,10 +25,10 @@ describe('Math Master Template', () => {
   it('uses project art instead of emoji placeholders for counting and guidance', () => {
     expect(html).toContain('images/math-master/v1/apple-red-v1.png');
     expect(html).toContain('images/math-master/v1/apple-green-v1.png');
-    expect(html).toContain('images/math-master/v1/guide-robot-v1.png');
+    expect(html).toContain('images/math-master/v2/presenter-sprite-v1.png');
     expect(html).toContain('images/math-master/v1/back-arrow-v1.svg');
     expect(html).toContain('showClassicAutoNext: !useModernQuizControls');
-    expect(html).not.toContain('<div class="math-master-robot" aria-hidden="true"><span>🤖</span>');
+    expect(html).not.toContain('guide-robot-v1.png');
     for (const asset of ['rabbit-v1.png', 'soap-v1.png', 'ferris-wheel-v1.png', 'basket-v1.png', 'coin-v1.png']) {
       expect(existsSync(new URL(`../images/math-master/v1/objects/${asset}`, import.meta.url))).toBe(true);
     }
@@ -44,15 +44,16 @@ describe('Math Master Template', () => {
     expect(html).toContain('showMathSubmit: isMathMaster && !s.locked');
   });
 
-  it('keeps side controls aligned and gives the guide robot useful states', () => {
+  it('uses a six-frame presenter with useful quiz states', () => {
     expect(html).toContain('--math-side-control-height:176px');
     expect(html).toContain('height:var(--math-side-control-height)');
     expect(html).toContain('mathRobotGuidance');
-    for (const state of ['is-thinking', 'is-ready', 'is-correct', 'is-wrong', 'is-urgent']) {
+    for (const state of ['is-welcome', 'is-thinking', 'is-ready', 'is-correct', 'is-wrong', 'is-urgent']) {
       expect(html).toContain(state);
     }
-    expect(html).toContain('點我朗讀導航');
-    expect(html).toContain('@keyframes mathRobotFloat');
+    expect(html).toContain('點一下，聽主播說明');
+    expect(html).toContain('@keyframes presenterEncourage');
+    expect(existsSync(new URL('../images/math-master/v2/presenter-sprite-v1.png', import.meta.url))).toBe(true);
   });
 
   it('keeps math audio and auto-next controls visually minimal', () => {
