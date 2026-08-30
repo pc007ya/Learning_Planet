@@ -618,7 +618,7 @@
   .achievement-badge-item em { display:block;margin-top:5px;color:#ffe07b;font-size:10px;font-style:normal;font-weight:900; }
   @media (max-width:720px) { .achievement-hero,.achievement-section { padding:20px 15px; } .achievement-recent { grid-template-columns:1fr; } .reputation-grid,.collection-grid,.achievement-grid,.achievement-badge-overview { grid-template-columns:1fr; } .achievement-recent-card:nth-child(n+4) { display:none; } }
   .english-word-card { min-height:190px;border:1px solid #ece7ff;border-radius:24px;background:#fff;overflow:hidden;box-shadow:0 10px 24px rgba(43,31,87,.08); }
-  .english-word-card img { width:100%;height:128px;object-fit:cover;display:block; }
+  .english-word-card img { width:100%;height:128px;object-fit:contain;object-position:center;padding:7px;box-sizing:border-box;display:block; }
   .english-letter-tile { min-width:52px;height:58px;border:2px solid #fff;border-radius:16px;background:linear-gradient(145deg,#ffcf66,#ff9fc9);color:#2b1f57;box-shadow:0 8px 15px rgba(43,31,87,.18);font:900 25px/1 "Baloo 2",sans-serif;cursor:grab;touch-action:none;animation:englishTilePop .25s ease both; }
   .english-letter-tile:active { cursor:grabbing;transform:scale(.94); }
   .english-answer-grid { min-height:78px;border-radius:22px;background:rgba(255,255,255,.55);padding:9px;display:flex;align-items:center;justify-content:center;gap:8px;overflow-x:auto; }
@@ -4306,6 +4306,8 @@ function mathObjectImages(value) {
   return Array.from({ length: count }, () => asset.image);
 }
 const ENGLISH_REAL_ART = new Set("ant,apple,ball,banana,bear,bed,bee,bell,bird,boat,book,bowl,box,bread,bus,cake,camel,candy,car,card,cat,chair,chicken,clock,cloud,coat,coin,cow,cup,desk,dog,doll,door,drum,duck,egg,elephant,fish,flag,flower,fork,fox,frog,garden,gate,gift,goat,gold,goose,grape,hat,heart,horse,hotel,house,ice,jeans,juice,kite,knee,knife,lake,lamb,leaf,lion,lock,mail,meal,meat,moon,mouse,movie,ocean,orange,owl,panda,pen,pencil,phone,photo,piano,pig,pizza,plane,plate,pond,pool,rabbit,radio,rain,ring,rock,rope,rose,salt,sand,scarf,school,sheep,ship,shirt,shoe,shop,skirt,soap,sofa,soup,stamp,tape,taxi,tent,tool,tooth,train,truck,wheel,wind,wing,wolf,wood,zebra".split(","));
+const ENGLISH_DIRECT_SHARED_ART = new Set("ant,apple,autumn,autumn-tree,baby,backpack,bag,ball,bamboo,banana,beans,bear,beautiful,bed,bee,bell,bird,black,blanket,blue,boat,body,book,bowl,box,bread,bridge,bus,busy,cake,camel,candy,cap,car,card,cat,chair,chicken,child,circle,city,classmates,classroom,clock,close-door,cloud,coat,coin,cow,cry,cup,desk,dog,doll,door,drum,duck,ear,egg,elephant,eye,family,fast,father,fear,fire,fish,flag,flower,foot,fork,fox,friends,frog,garden,gate,gift,goat,gold,goose,grape,hand,hat,head,heart,heart-anatomy,hold,horse,hotel,house,ice,jeans,juice,kindness,kite,knee,knife,lake,lamb,leaf,lemon,lightning,lion,lock,long,look,love,low,mail,mango,meal,meat,milk,monkey,moon,mother,mountain,mouse,mouth,movie,music,new,ocean,old,older-brother,older-sister,open-book,open-door,orange,owl,panda,paper,park,pear,pen,pencil,phone,photo,piano,pig,pizza,plane,plate,playground,pond,pool,rabbit,radio,rain,rain-cloud,red,rice,ring,road,rock,rope,rose,ruler,run,salt,sand,scarf,school,school-desk,sheep,ship,shirt,shoe,shop,short,sit,skirt,sky,slow,smile,sneaker,snowflake,soap,socks,sofa,soil,soup,spring,spring-garden,square,stamp,stand,station,strength,student-reading,summer,summer-beach,sun,sunny,tall,tape,taxi,tea,teacher,tent,thunderstorm,tool,tooth,train,tree,triangle,truck,umbrella,vegetables,walk,water,watermelon,wheel,white,wind,window,wing,winter-snowman,wolf,wood,yellow,younger-brother,younger-sister,zebra".split(","));
+const ENGLISH_GENERATED_V3_ART = new Set("brown,eight,five,four,seven,six,cold,come,cook,dance,dark,dinner,draw,drink,easy,eat,body,father,sister,spoon,snake,star,close,big,bike,birthday,blackboard,buy,call,carry,clean,evening,animal,color,day,farm,food,fruit,game,good,grass,green,happy,hello,hen,jacket,jump,key,little,map,morning,name,nest,night,nine,nose,number,one,pink,plant,play,purple,queen,robot,room,small,table,ten,tiger,toy,two,van,zoo,after,again,air,answer,ask,away,back,because,before,every,find,first,floor,fly,funny,get,give,glass,go,great,hair,help,here".split(","));
 const LANGUAGE_SHARED_ASSET_DIR = "images/language-shared-v1/";
 const ENGLISH_SHARED_ALIASES = Object.freeze({
   arm:"strength",baby:"baby",bag:"bag",body:"body",boy:"child",brother:"older-brother",child:"child",class:"classroom",dad:"father",ear:"ear",eye:"eye",face:"head",family:"family",father:"father",foot:"foot",friend:"friends",girl:"child",hand:"hand",head:"head",home:"house",leg:"foot",mom:"mother",mother:"mother",mouth:"mouth",parent:"family",sister:"older-sister",student:"student-reading",teacher:"teacher",
@@ -4317,7 +4319,7 @@ const ENGLISH_SHARED_ALIASES = Object.freeze({
 });
 function englishSharedAssetKey(word) {
   const key = String(word && word.word || word || "").toLowerCase().replace(/[^a-z-]/g, "");
-  return ENGLISH_SHARED_ALIASES[key] || (ENGLISH_REAL_ART.has(key) ? key : "");
+  return ENGLISH_SHARED_ALIASES[key] || (ENGLISH_DIRECT_SHARED_ART.has(key) || ENGLISH_REAL_ART.has(key) ? key : "");
 }
 function languageSharedAsset(key) { return key ? LANGUAGE_SHARED_ASSET_DIR + key + ".webp" : ""; }
 const ENGLISH_CATEGORY_ART = { "食物": "food", "動物": "animals", "生活": "daily-life", "人物": "people", "用品": "supplies", "交通": "transport", "學校": "school", "自然": "nature", "場所": "daily-life" };
@@ -6206,6 +6208,7 @@ class Component extends DCLogic {
     if (!word) return "images/english-category-v1/abstract-v1.png";
     const key = String(word.word || "").toLowerCase().replace(/[^a-z-]/g, "");
     const existing = String(word.image || "");
+    if (ENGLISH_GENERATED_V3_ART.has(key)) return "images/english-generated-v3/" + key + "-v1.webp";
     const sharedKey = englishSharedAssetKey(word);
     if (sharedKey) return languageSharedAsset(sharedKey);
     if (existing.indexOf("images/english-generated-v2/") === 0 && existing !== "images/english-generated-v2/atlas-01.webp") return existing;

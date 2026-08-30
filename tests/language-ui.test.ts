@@ -28,12 +28,24 @@ describe('Language submodule visual system', () => {
     expect(html).toContain('images/home/planets/english-planet-v1.png');
   });
 
-  it('routes old English emoji SVG cards to real or generated category art', () => {
+  it('routes English word cards to shared or dedicated concept art', () => {
     expect(html).toContain('ENGLISH_REAL_ART');
+    expect(html).toContain('ENGLISH_DIRECT_SHARED_ART');
+    expect(html).toContain('ENGLISH_GENERATED_V3_ART');
     expect(html).toContain('ENGLISH_CATEGORY_ART');
     for (const name of ['food', 'animals', 'people', 'school', 'abstract']) {
       expect(existsSync(new URL(`../images/english-category-v1/${name}-v1.png`, import.meta.url))).toBe(true);
     }
+  });
+
+  it('keeps the corrected English word art complete and uncropped', () => {
+    const generatedDir = new URL('../images/english-generated-v3/', import.meta.url);
+    const files = readdirSync(generatedDir).filter((name) => name.endsWith('-v1.webp'));
+    expect(files.length).toBeGreaterThanOrEqual(96);
+    for (const word of ['brown', 'five', 'cold', 'cook', 'father', 'sister', 'spoon', 'close', 'because']) {
+      expect(files).toContain(`${word}-v1.webp`);
+    }
+    expect(html).toContain('.english-word-card img { width:100%;height:128px;object-fit:contain;object-position:center;padding:7px;box-sizing:border-box;display:block; }');
   });
 
   it('does not reveal a Chinese quiz answer through an emoji picture hint', () => {
