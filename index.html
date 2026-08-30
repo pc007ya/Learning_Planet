@@ -5572,9 +5572,26 @@ class Component extends DCLogic {
   }
   cloudRosterPayload() {
     return {
-      schemaVersion: 2,
+      schemaVersion: 3,
       classes: (this.state.classes || []).map((item) => Object.assign({}, item)),
-      students: (this.state.students || []).map((student) => ({ id: student.id, name: student.name, seat: student.seat, classId: student.classId, face: student.face || "", tint: student.tint || "", profile: this.cloudSafeProfile(student.profile) })),
+      // The roster is identity metadata only. Learning history belongs solely
+      // to students/{uid}; duplicating it here eventually breaches Firestore's
+      // single-document size limit and causes unnecessary writes.
+      students: (this.state.students || []).map((student) => {
+        const profile = student.profile || {};
+        return {
+          id: student.id,
+          cloudUid: profile.cloudUid || "",
+          name: student.name,
+          seat: student.seat,
+          classId: student.classId,
+          face: student.face || "",
+          tint: student.tint || "",
+          loginAccount: studentLoginAccount(student),
+          cardAvatarIndex: Math.max(0, Math.min(23, Number(profile.cardAvatarIndex) || 0)),
+          passwordCustomized: !!profile.passwordCustomized
+        };
+      }),
       teachers: (this.state.teacherConfig.teachers || []).map((teacher) => ({ id: teacher.id, role: teacher.role, name: teacher.name, account: teacher.account, face: normalizeTeacherFace(teacher.face), tint: teacher.tint, googleUid: teacher.googleUid || "", email: teacher.email || "", lastLoginAt: teacher.lastLoginAt || "" }))
     };
   }
@@ -5594,8 +5611,25 @@ class Component extends DCLogic {
       const localById = new Map((state.students || []).map((student) => [student.id, student]));
       const students = remote.students.map((entry) => {
         const local = localById.get(entry.id) || {};
-        const localProfile = local.profile || {};
-        return Object.assign({}, local, entry, { profile: Object.assign({}, localProfile, entry.profile || {}) });
+        const localProfile = Object.assign(makeProfile(), local.profile || {});
+        // Schema v1/v2 stored the full learner profile in this shared roster.
+        // During migration, extract identity fields only and deliberately
+        // ignore XP, coins, progress, histories and gacha state.
+        const legacyProfile = entry.profile && typeof entry.profile === "object" ? entry.profile : {};
+        return Object.assign({}, local, {
+          id: entry.id,
+          name: entry.name,
+          seat: entry.seat,
+          classId: entry.classId,
+          face: entry.face || local.face || "",
+          tint: entry.tint || local.tint || "",
+          profile: Object.assign({}, localProfile, {
+            cloudUid: entry.cloudUid || legacyProfile.cloudUid || localProfile.cloudUid || "",
+            loginAccount: entry.loginAccount || legacyProfile.loginAccount || localProfile.loginAccount || "",
+            cardAvatarIndex: Math.max(0, Math.min(23, Number(entry.cardAvatarIndex ?? legacyProfile.cardAvatarIndex ?? localProfile.cardAvatarIndex) || 0)),
+            passwordCustomized: entry.passwordCustomized != null ? !!entry.passwordCustomized : !!localProfile.passwordCustomized
+          })
+        });
       });
       const localTeachers = new Map((state.teacherConfig.teachers || []).map((teacher) => [teacher.id, teacher]));
       const teachers = Array.isArray(remote.teachers) ? remote.teachers.map((entry, index) => {
@@ -5606,7 +5640,9 @@ class Component extends DCLogic {
     }, () => {
       this.applyingCloudRoster = false;
       saveTeacherConfig(this.state.teacherConfig);
-      if (Array.isArray(remote.teachers) && remote.teachers.filter((teacher) => teacher.role === "admin").length > 1) this.queueCloudRosterSync();
+      // The next admin session automatically replaces legacy profile-heavy
+      // roster arrays with the compact schema-v3 representation.
+      if (Number(remote.schemaVersion) < 3) this.queueCloudRosterSync();
     });
   }
   enableCloudRosterSync() {
@@ -5625,22 +5661,31 @@ class Component extends DCLogic {
     if (!Array.isArray(remoteStudents)) return;
     const byUid = new Map(remoteStudents.map((item) => [String(item.id || ""), item]));
     const byUsername = new Map(remoteStudents.map((item) => [String(item.username || "").toLowerCase(), item]));
-    this.setState((state) => ({ students: (state.students || []).map((student) => {
+    this.setState((state) => {
+      let changed = false;
+      const students = (state.students || []).map((student) => {
       const profile = student.profile || {};
       const remote = byUid.get(String(profile.cloudUid || "")) || byUsername.get(studentLoginAccount(student).toLowerCase());
       if (!remote) return student;
       const linked = !!remote.googleLinked;
+      const googleUid = linked ? remote.id : "";
+      const email = linked ? (remote.googleEmail || "") : "";
+      const lastLoginAt = remote.lastLoginAt && typeof remote.lastLoginAt.toDate === "function" ? remote.lastLoginAt.toDate().toISOString() : (remote.lastLoginAt || profile.lastLoginAt || "");
+      if (String(profile.cloudUid || "") === String(remote.id || "") && String(profile.googleUid || "") === googleUid && String(profile.email || "") === email && String(profile.lastLoginAt || "") === String(lastLoginAt || "") && String(student.googleUid || "") === googleUid && String(student.email || "") === email) return student;
+      changed = true;
       return Object.assign({}, student, {
-        googleUid: linked ? remote.id : "",
-        email: linked ? (remote.googleEmail || "") : "",
+        googleUid,
+        email,
         profile: Object.assign({}, profile, {
           cloudUid: remote.id,
-          googleUid: linked ? remote.id : "",
-          email: linked ? (remote.googleEmail || "") : "",
-          lastLoginAt: remote.lastLoginAt && typeof remote.lastLoginAt.toDate === "function" ? remote.lastLoginAt.toDate().toISOString() : (remote.lastLoginAt || profile.lastLoginAt || "")
+          googleUid,
+          email,
+          lastLoginAt
         })
       });
-    }) }));
+      });
+      return changed ? { students } : {};
+    });
   }
   async syncCloudRosterAccounts() {
     const authV2 = window.LearningPlanetAuthV2;
@@ -5654,7 +5699,14 @@ class Component extends DCLogic {
         const username = studentLoginAccount(student).toLowerCase();
         let remote = byUsername.get(username);
         const payload = { displayName: student.name, username, classId: student.classId, seat: student.seat, avatar: studentAvatarImage(student.profile && student.profile.cardAvatarIndex) };
-        if (remote) await authV2.updateStudent(Object.assign({ uid: remote.id }, payload));
+        if (remote) {
+          const needsUpdate = String(remote.displayName || "") !== payload.displayName
+            || String(remote.username || "").toLowerCase() !== payload.username
+            || String(remote.classId || "") !== payload.classId
+            || String(remote.seat || "") !== payload.seat
+            || String(remote.avatar || "") !== payload.avatar;
+          if (needsUpdate) await authV2.updateStudent(Object.assign({ uid: remote.id }, payload));
+        }
         else {
           // New records receive a safe one-time default. The manager can set a
           // different password in 學員維護 before handing the account out.
@@ -5699,7 +5751,7 @@ class Component extends DCLogic {
       await authV2.saveMyStudentProgress({
         xp: profile.xp || 0, coins: profile.coins || 0,
         inventory: { owned: profile.owned || [], equipped: profile.equipped || {} },
-        profile, avatar: studentAvatarImage(profile.cardAvatarIndex), lastLoginAt: new Date().toISOString()
+        profile, avatar: studentAvatarImage(profile.cardAvatarIndex)
       });
       // Only mark a version as synced after Firestore confirms the write, so
       // an offline/failed attempt is retried by the next change or heartbeat.

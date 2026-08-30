@@ -33,4 +33,22 @@ describe('Firebase student progress sync', () => {
     expect(app).toContain('password: st.profile && st.profile.passwordCustomized ? "已自訂" : "LP2026"');
     expect(app).not.toContain('password: String(st.profile && st.profile.loginPassword || "未留存")');
   });
+
+  it('keeps the shared roster compact and migrates legacy roster documents', () => {
+    const rosterStart = app.indexOf('cloudRosterPayload()');
+    const rosterEnd = app.indexOf('queueCloudRosterSync()', rosterStart);
+    const rosterImplementation = app.slice(rosterStart, rosterEnd);
+    expect(rosterImplementation).toContain('schemaVersion: 3');
+    expect(rosterImplementation).toContain('loginAccount: studentLoginAccount(student)');
+    expect(rosterImplementation).not.toContain('profile: this.cloudSafeProfile(student.profile)');
+    expect(app).toContain('if (Number(remote.schemaVersion) < 3');
+    expect(app).not.toContain('remote.teachers.filter((teacher) => teacher.role === "admin").length > 1');
+    expect(firebaseClient).toContain('schemaVersion: 3');
+  });
+
+  it('does not rewrite the roster for progress-only student snapshots', () => {
+    expect(app).toContain('return changed ? { students } : {};');
+    expect(app).toContain('if (needsUpdate) await authV2.updateStudent');
+    expect(app).not.toContain('profile, avatar: studentAvatarImage(profile.cardAvatarIndex), lastLoginAt: new Date().toISOString()');
+  });
 });
