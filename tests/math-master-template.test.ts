@@ -53,6 +53,8 @@ describe('Math Master Template', () => {
     }
     expect(html).not.toContain('math-presenter-copy');
     expect(html).toContain('@keyframes presenterWrongFrame');
+    expect(html).toContain('border:0;border-radius:0;outline:0;background:transparent;box-shadow:none');
+    expect(html).toContain('inset:0 0 6px');
     for (const frame of ['hint', 'blink', 'welcome', 'correct', 'wrong', 'retry']) {
       expect(existsSync(new URL(`../images/math-master/v3/presenter/presenter-${frame}-v1.png`, import.meta.url))).toBe(true);
     }
