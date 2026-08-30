@@ -11,7 +11,7 @@ describe('Math Master Template', () => {
       'answer-slot-grid',
       'math-master-submit',
       'math-master-analysis',
-      'math-presenter-sprite',
+      'math-presenter-frame',
     ]) expect(html).toContain(contract);
   });
 
@@ -25,7 +25,7 @@ describe('Math Master Template', () => {
   it('uses project art instead of emoji placeholders for counting and guidance', () => {
     expect(html).toContain('images/math-master/v1/apple-red-v1.png');
     expect(html).toContain('images/math-master/v1/apple-green-v1.png');
-    expect(html).toContain('images/math-master/v2/presenter-sprite-v1.png');
+    expect(html).toContain('images/math-master/v3/presenter/presenter-hint-v1.png');
     expect(html).toContain('images/math-master/v1/back-arrow-v1.svg');
     expect(html).toContain('showClassicAutoNext: !useModernQuizControls');
     expect(html).not.toContain('guide-robot-v1.png');
@@ -51,9 +51,11 @@ describe('Math Master Template', () => {
     for (const state of ['is-welcome', 'is-thinking', 'is-ready', 'is-correct', 'is-wrong', 'is-urgent']) {
       expect(html).toContain(state);
     }
-    expect(html).toContain('點一下，聽主播說明');
-    expect(html).toContain('@keyframes presenterEncourage');
-    expect(existsSync(new URL('../images/math-master/v2/presenter-sprite-v1.png', import.meta.url))).toBe(true);
+    expect(html).not.toContain('math-presenter-copy');
+    expect(html).toContain('@keyframes presenterWrongFrame');
+    for (const frame of ['hint', 'blink', 'welcome', 'correct', 'wrong', 'retry']) {
+      expect(existsSync(new URL(`../images/math-master/v3/presenter/presenter-${frame}-v1.png`, import.meta.url))).toBe(true);
+    }
   });
 
   it('keeps math audio and auto-next controls visually minimal', () => {
