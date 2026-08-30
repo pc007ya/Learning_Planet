@@ -205,15 +205,21 @@ export async function fetchStudentsList() {
 // included here: Firebase Authentication is the sole password store.
 export async function saveMyStudentProgress(progress = {}) {
   if (!auth.currentUser || await currentRole() !== 'student') throw new Error('學員登入後才能同步進度');
-  // Individual saves follow the product rule: a learner first links Google,
-  // then XP/coins/inventory travel with that Google-backed cloud identity.
-  // The account credential itself remains exclusively in Firebase Auth.
-  const profile = await loadMyProfile();
-  if (!profile?.googleLinked) return { skipped: true, reason: 'google-not-linked' };
+  // Password login already identifies the learner through Firebase Auth.
+  // Google linking is optional and must not gate the learner's cloud save.
   const allowed = ['xp', 'coins', 'inventory', 'profile', 'avatar', 'lastLoginAt'];
   const patch = { updatedAt: serverTimestamp() };
   allowed.forEach((key) => { if (Object.prototype.hasOwnProperty.call(progress, key)) patch[key] = progress[key]; });
   await setDoc(doc(db, 'students', auth.currentUser.uid), patch, { merge: true });
+  return { saved: true };
+}
+
+export function subscribeStudentsList(callback) {
+  return onSnapshot(query(collection(db, 'students')), (snap) => {
+    const students = [];
+    snap.forEach((item) => students.push({ id: item.id, ...item.data() }));
+    callback(students);
+  }, (error) => console.warn('Cloud student directory subscription failed:', error));
 }
 
 // The roster is shared configuration, never a credential store.  Only an
@@ -304,6 +310,7 @@ window.LearningPlanetAuthV2 = {
   changeMyPassword,
   fetchTeachersList,
   fetchStudentsList,
+  subscribeStudentsList,
   saveMyStudentProgress,
   saveWeeklyResult,
   saveRosterSnapshot,
