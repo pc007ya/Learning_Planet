@@ -298,6 +298,41 @@ exports.setStudentEnabled = onCall(async (request) => {
   return { ok: true };
 });
 
+exports.reconcileStudentGoogleLinks = onCall(async (request) => {
+  requireAdmin(request);
+  const studentsSnap = await db.collection('students').get();
+  const references = studentsSnap.docs.map((snap) => ({ uid: snap.id }));
+  const usersByUid = new Map();
+  for (let offset = 0; offset < references.length; offset += 100) {
+    const result = await admin.auth().getUsers(references.slice(offset, offset + 100));
+    result.users.forEach((user) => usersByUid.set(user.uid, user));
+  }
+
+  const repairs = [];
+  studentsSnap.docs.forEach((snap) => {
+    const current = snap.data() || {};
+    const user = usersByUid.get(snap.id);
+    if (!user) return;
+    const googleProvider = user && user.providerData.find((provider) => provider.providerId === 'google.com');
+    const googleLinked = !!googleProvider;
+    const googleEmail = googleProvider?.email || null;
+    if (!!current.googleLinked !== googleLinked || (current.googleEmail || null) !== googleEmail) {
+      repairs.push({ ref: snap.ref, patch: {
+        googleLinked,
+        googleEmail,
+        googleLinkCheckedAt: admin.firestore.FieldValue.serverTimestamp(),
+        updatedAt: admin.firestore.FieldValue.serverTimestamp()
+      } });
+    }
+  });
+  for (let offset = 0; offset < repairs.length; offset += 400) {
+    const batch = db.batch();
+    repairs.slice(offset, offset + 400).forEach((repair) => batch.set(repair.ref, repair.patch, { merge: true }));
+    await batch.commit();
+  }
+  return { checked: studentsSnap.size, repaired: repairs.length };
+});
+
 exports.resolveGoogleLinkConflict = onCall(async (request) => {
   requireAppUser(request);
   const googleIdToken = String(request.data?.googleIdToken || '');

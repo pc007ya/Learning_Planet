@@ -196,6 +196,9 @@ export async function fetchTeachersList() {
 }
 
 export async function fetchStudentsList() {
+  if (await currentRole() === 'admin') {
+    await reconcileStudentGoogleLinks().catch((error) => console.warn('Student Google-link reconciliation failed:', error));
+  }
   const snap = await getDocs(query(collection(db, 'students')));
   const students = [];
   snap.forEach((item) => students.push({ id: item.id, ...item.data() }));
@@ -302,6 +305,7 @@ export const createStudent = httpsCallable(functions, 'createStudent');
 export const updateStudent = httpsCallable(functions, 'updateStudent');
 export const resetStudentPassword = httpsCallable(functions, 'resetStudentPassword');
 export const setStudentEnabled = httpsCallable(functions, 'setStudentEnabled');
+export const reconcileStudentGoogleLinks = httpsCallable(functions, 'reconcileStudentGoogleLinks');
 export const changeMyStudentUsername = httpsCallable(functions, 'changeMyStudentUsername');
 export const updateOwnTeacherSettings = httpsCallable(functions, 'updateOwnTeacherSettings');
 export const bootstrapFirstAdmin = httpsCallable(functions, 'bootstrapFirstAdmin');

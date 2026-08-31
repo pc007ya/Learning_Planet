@@ -74,6 +74,15 @@ describe('Firebase student progress sync', () => {
     expect(app).not.toContain('password: String(st.profile && st.profile.loginPassword || "未留存")');
   });
 
+  it('reconciles displayed Google binding state against Firebase Authentication', () => {
+    expect(firebaseClient).toContain("httpsCallable(functions, 'reconcileStudentGoogleLinks')");
+    expect(firebaseClient).toContain("await reconcileStudentGoogleLinks().catch");
+    expect(firebaseFunctions).toContain('exports.reconcileStudentGoogleLinks = onCall');
+    expect(firebaseFunctions).toContain("provider.providerId === 'google.com'");
+    expect(firebaseFunctions).toContain('googleLinkCheckedAt: admin.firestore.FieldValue.serverTimestamp()');
+    expect(firebaseFunctions).toContain('repairs.slice(offset, offset + 400)');
+  });
+
   it('keeps students canonical in their own documents instead of the shared roster', () => {
     const rosterStart = app.indexOf('cloudRosterPayload()');
     const rosterEnd = app.indexOf('queueCloudRosterSync()', rosterStart);
