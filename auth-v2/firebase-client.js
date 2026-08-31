@@ -201,6 +201,16 @@ export async function fetchStudentsList() {
   return students;
 }
 
+export async function saveStudentPasswordMetadata(uid, passwordCustomized) {
+  if (await currentRole() !== 'admin') throw new Error('只有管理者可以更新密碼狀態');
+  if (!uid || typeof passwordCustomized !== 'boolean') throw new Error('密碼狀態不完整');
+  await setDoc(doc(db, 'students', uid), {
+    passwordCustomized,
+    updatedAt: serverTimestamp()
+  }, { merge: true });
+  return { saved: true };
+}
+
 // The learner may update only their own cloud save.  Credentials are never
 // included here: Firebase Authentication is the sole password store.
 export async function saveMyStudentProgress(progress = {}) {
@@ -310,6 +320,7 @@ window.LearningPlanetAuthV2 = {
   changeMyPassword,
   fetchTeachersList,
   fetchStudentsList,
+  saveStudentPasswordMetadata,
   subscribeStudentsList,
   saveMyStudentProgress,
   saveWeeklyResult,

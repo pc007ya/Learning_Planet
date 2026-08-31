@@ -30,7 +30,10 @@ describe('Firebase student progress sync', () => {
   it('keeps the admin binding directory live and shows the default first password', () => {
     expect(firebaseClient).toContain('export function subscribeStudentsList(callback)');
     expect(app).toContain('this.applyCloudStudentDirectory(students)');
-    expect(app).toContain('password: st.profile && st.profile.passwordCustomized ? "已自訂" : "LP2026"');
+    expect(app).toContain('password: st.profile && st.profile.passwordCustomized === true ? "已自訂" : st.profile && st.profile.passwordCustomized === false ? "LP2026" : "未確認"');
+    expect(firebaseClient).toContain('export async function saveStudentPasswordMetadata');
+    expect(app).toContain('saveStudentPasswordMetadata(cloud.data.uid, password !== "LP2026")');
+    expect(app).toContain('saveStudentPasswordMetadata(cloudUid, loginPassword !== "LP2026")');
     expect(app).not.toContain('password: String(st.profile && st.profile.loginPassword || "未留存")');
   });
 
@@ -55,5 +58,14 @@ describe('Firebase student progress sync', () => {
     expect(app).toContain('if (needsUpdate) await authV2.updateStudent');
     expect(app).not.toContain('if (this.state.teacher && currentTeacher.role === "admin") this.queueCloudRosterSync();\n    }\n    if (!prevState || prevState.classes');
     expect(app).not.toContain('profile, avatar: studentAvatarImage(profile.cardAvatarIndex), lastLoginAt: new Date().toISOString()');
+  });
+
+  it('filters the admin roster by a complete grade and class index', () => {
+    expect(app).toContain('const STANDARD_SCHOOL_CLASSES');
+    expect(app).toContain('Array.from({ length: 6 }');
+    expect(app).toContain('Array.from({ length: 3 }');
+    expect(app).toContain('studentClassFilter: "c301"');
+    expect(app).toContain('s.students.filter((st) => st.classId === s.studentClassFilter)');
+    expect(app).toContain('名單僅顯示所選班級');
   });
 });

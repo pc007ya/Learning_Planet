@@ -3099,6 +3099,14 @@
               <div style="display:flex;gap:10px"><div style="background:rgba(255,255,255,.08);border:1px solid rgba(121,228,255,.22);border-radius:18px;padding:12px 18px;text-align:center"><p style="margin:0;font-size:11px;font-weight:900;color:#9cefff">學員帳號</p><p style="margin:4px 0 0;font-size:22px;font-weight:900;color:#fff">{{ studentCount }}</p></div></div>
             </div>
 
+            <div style="margin-top:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+              <strong style="font-size:13px;color:#9cefff">顯示班級</strong>
+              <select value="{{ studentClassFilter }}" onChange="{{ onStudentClassFilter }}" style="min-width:150px;border:1px solid rgba(121,228,255,.35);border-radius:13px;padding:10px 14px;background:rgba(7,24,67,.82);color:#fff;font-family:inherit;font-size:14px;font-weight:900">
+                <sc-for list="{{ classOptions }}" as="co" hint-placeholder-count="18"><option value="{{ co.id }}">{{ co.name }}</option></sc-for>
+              </select>
+              <span style="font-size:12px;font-weight:800;color:#9cefff">名單僅顯示所選班級</span>
+            </div>
+
             <div style="margin-top:18px;display:grid;gap:12px;background:#fbfaff;border:1px solid #ece7ff;border-radius:20px;padding:14px">
               <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
                 <input value="{{ newName }}" onChange="{{ onNewName }}" placeholder="學生姓名" style="flex:1;min-width:130px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57" />
@@ -5167,7 +5175,7 @@ function makeProfile() {
     cardAvatarIndex: 0, cardTheme: "C", englishName: "",
     // Passwords belong exclusively to Firebase Authentication.  The browser
     // may retain a login name for display, but never a password.
-    loginAccount: "", lastLoginAt: "", passwordCustomized: false,
+    loginAccount: "", lastLoginAt: "", passwordCustomized: null,
   };
 }
 function achievedMilestoneEntries(profile) {
@@ -5371,12 +5379,20 @@ const chineseHintPictureForWord = (word) => {
   return sharedKey ? languageSharedAsset(sharedKey) : (CHINESE_HINT_PICTURE_BY_CHAR[char] || "");
 };
 
+const STANDARD_SCHOOL_CLASSES = Object.freeze(Array.from({ length: 6 }, (_, gradeIndex) =>
+  Array.from({ length: 3 }, (_, classIndex) => {
+    const code = String(gradeIndex + 1) + String(classIndex + 1).padStart(2, "0");
+    return { id: "c" + code, name: code + " 班" };
+  })
+).flat());
+
 class Component extends DCLogic {
   state = {
     screen: "login",
     students: makeStudents(),
-    classes: [{ id: "c301", name: "301 班" }, { id: "c302", name: "302 班" }],
+    classes: STANDARD_SCHOOL_CLASSES.map((item) => Object.assign({}, item)),
     loginClass: "c301",
+    studentClassFilter: "c301",
     currentId: null,
     teacher: false,
     adminTab: "students",
@@ -5610,12 +5626,13 @@ class Component extends DCLogic {
     }
     this.applyingCloudRoster = true;
     this.setState((state) => {
+      const classById = new Map(STANDARD_SCHOOL_CLASSES.concat(Array.isArray(remote.classes) ? remote.classes : []).map((item) => [item.id, item]));
       const localTeachers = new Map((state.teacherConfig.teachers || []).map((teacher) => [teacher.id, teacher]));
       const teachers = Array.isArray(remote.teachers) ? remote.teachers.map((entry, index) => {
         const local = localTeachers.get(entry.id) || {};
         return defaultTeacherRecord(Object.assign({}, local, entry, { password: "", face: normalizeTeacherFace(entry.face, index) }));
       }) : state.teacherConfig.teachers;
-      return { classes: Array.isArray(remote.classes) ? remote.classes : state.classes, teacherConfig: normalizeTeacherConfig(Object.assign({}, state.teacherConfig, { teachers })) };
+      return { classes: Array.from(classById.values()), teacherConfig: normalizeTeacherConfig(Object.assign({}, state.teacherConfig, { teachers })) };
     }, () => {
       this.applyingCloudRoster = false;
       this.cloudRosterLoaded = true;
@@ -5666,7 +5683,7 @@ class Component extends DCLogic {
             cloudUid: String(remote.id),
             loginAccount: username || localProfile.loginAccount || "",
             cardAvatarIndex: avatarIndex,
-            passwordCustomized: !!localProfile.passwordCustomized,
+            passwordCustomized: typeof remote.passwordCustomized === "boolean" ? remote.passwordCustomized : null,
             googleUid,
             email,
             lastLoginAt
@@ -9398,7 +9415,10 @@ class Component extends DCLogic {
     let cloud;
     const avatarIndex = Math.max(0, Math.min(23, Number(s.newAvatarIndex) || 0));
     const avatarImage = studentAvatarImage(avatarIndex);
-    try { cloud = await window.LearningPlanetAuthV2.createStudent({ displayName: name, username, password, classId: s.newClass, seat, avatar: avatarImage }); }
+    try {
+      cloud = await window.LearningPlanetAuthV2.createStudent({ displayName: name, username, password, classId: s.newClass, seat, avatar: avatarImage });
+      await window.LearningPlanetAuthV2.saveStudentPasswordMetadata(cloud.data.uid, password !== "LP2026");
+    }
     catch (error) { this.flash("新增雲端帳號失敗：" + (error.message || "請確認管理者權限")); return; }
     this.setState((st) => ({
       students: st.students.concat({
@@ -9407,7 +9427,7 @@ class Component extends DCLogic {
         tint: TINTS[st.students.length % TINTS.length],
         profile: Object.assign(makeProfile(), { loginAccount: username, passwordCustomized: password !== "LP2026", cloudUid: cloud.data.uid, cardAvatarIndex: avatarIndex }),
       }),
-      newName: "", newSeat: "", newAvatarIndex: 0,
+      newName: "", newSeat: "", newAvatarIndex: 0, studentClassFilter: st.newClass,
     }));
     this.flash("已新增學員 " + seat + " " + name);
   }
@@ -9430,10 +9450,14 @@ class Component extends DCLogic {
     const existing = s.students.find((item) => item.id === s.editId);
     const cloudUid = existing && existing.profile && existing.profile.cloudUid;
     if (!cloudUid) { this.flash("此學員尚未建立雲端帳號；請先以管理者重新同步名冊。"); return; }
-    try { await window.LearningPlanetAuthV2.updateStudent({ uid: cloudUid, displayName: name, username: loginAccount, password: loginPassword || undefined, classId: s.editClass, seat, avatar: studentAvatarImage(existing.profile && existing.profile.cardAvatarIndex) }); }
+    try {
+      await window.LearningPlanetAuthV2.updateStudent({ uid: cloudUid, displayName: name, username: loginAccount, password: loginPassword || undefined, classId: s.editClass, seat, avatar: studentAvatarImage(existing.profile && existing.profile.cardAvatarIndex) });
+      if (loginPassword) await window.LearningPlanetAuthV2.saveStudentPasswordMetadata(cloudUid, loginPassword !== "LP2026");
+    }
     catch (error) { this.flash("雲端更新失敗：" + (error.message || "請確認管理者權限")); return; }
     this.setState((st) => ({
-      students: st.students.map((x) => x.id === st.editId ? Object.assign({}, x, { name, seat, classId: st.editClass, profile: Object.assign({}, x.profile, { loginAccount, passwordCustomized: loginPassword ? true : !!x.profile.passwordCustomized }) }) : x),
+      students: st.students.map((x) => x.id === st.editId ? Object.assign({}, x, { name, seat, classId: st.editClass, profile: Object.assign({}, x.profile, { loginAccount, passwordCustomized: loginPassword ? loginPassword !== "LP2026" : x.profile.passwordCustomized }) }) : x),
+      studentClassFilter: st.editClass,
       editId: null, editName: "", editSeat: "", editAccount: "", editPassword: "",
     }));
     this.flash("已更新 " + seat + " " + name);
@@ -11598,10 +11622,15 @@ class Component extends DCLogic {
       }),
       weeklyTeacherTotal: allUnits.filter((candidate) => candidate.grade === s.weeklyTeacherGrade).reduce((sum, candidate) => sum + Number((s.weeklyConfig.modules[candidate.id] || {}).count || 0), 0),
 
-      studentCount: s.students.length,
-      loggedIn: s.students.filter((st) => hasSignedToday(st.profile)).length,
+      studentCount: s.students.filter((st) => st.classId === s.studentClassFilter).length,
+      loggedIn: s.students.filter((st) => st.classId === s.studentClassFilter && hasSignedToday(st.profile)).length,
       classOptions: s.classes.map((c) => ({ id: c.id, name: c.name })),
-      teacherRows: s.students.slice().sort((a, b) => (a.classId + a.seat).localeCompare(b.classId + b.seat, "en", { numeric: true })).map((st) => {
+      studentClassFilter: s.studentClassFilter,
+      onStudentClassFilter: (e) => {
+        const classId = e.target.value;
+        this.setState({ studentClassFilter: classId, newClass: classId, editId: null });
+      },
+      teacherRows: s.students.filter((st) => st.classId === s.studentClassFilter).slice().sort((a, b) => a.seat.localeCompare(b.seat, "en", { numeric: true })).map((st) => {
         const googleUid = (st.profile && st.profile.googleUid) || st.googleUid || "";
         const googleEmail = (st.profile && st.profile.email) || st.email || "";
         return {
@@ -11610,7 +11639,7 @@ class Component extends DCLogic {
           avatarImage: studentAvatarImage(st.profile && st.profile.cardAvatarIndex),
           className: className(st.classId),
           account: studentLoginAccount(st),
-          password: st.profile && st.profile.passwordCustomized ? "已自訂" : "LP2026",
+          password: st.profile && st.profile.passwordCustomized === true ? "已自訂" : st.profile && st.profile.passwordCustomized === false ? "LP2026" : "未確認",
           lastLogin: formatLastLogin(st.profile && st.profile.lastLoginAt),
           googleBound: !!googleUid,
           googleNotBound: !googleUid,
