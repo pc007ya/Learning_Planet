@@ -9540,13 +9540,14 @@ class Component extends DCLogic {
     if (onDone) { u.onend = onDone; u.onerror = onDone; }
     speechSynthesis.cancel(); speechSynthesis.speak(u);
   }
-  playPresenterVoice(source, fallbackText) {
+  playPresenterVoice(source, fallbackText, followupText) {
     if (this.state.speechMuted) return;
     if (this.presenterVoiceAudio) {
       this.presenterVoiceAudio.pause();
       this.presenterVoiceAudio.currentTime = 0;
     }
-    if (typeof Audio === "undefined" || !source) { this.speakText(fallbackText); return; }
+    const fullFallbackText = [fallbackText, followupText].filter(Boolean).join("。");
+    if (typeof Audio === "undefined" || !source) { this.speakText(fullFallbackText); return; }
     if (typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
     const audio = new Audio(source);
     this.presenterVoiceAudio = audio;
@@ -9554,7 +9555,13 @@ class Component extends DCLogic {
     const fallback = () => {
       if (fellBack || this.presenterVoiceAudio !== audio) return;
       fellBack = true;
-      this.speakText(fallbackText);
+      this.presenterVoiceAudio = null;
+      this.speakText(fullFallbackText);
+    };
+    audio.onended = () => {
+      if (fellBack || this.presenterVoiceAudio !== audio) return;
+      this.presenterVoiceAudio = null;
+      if (followupText) this.speakText(followupText);
     };
     audio.onerror = fallback;
     audio.play().catch(fallback);
@@ -11134,7 +11141,11 @@ class Component extends DCLogic {
       mathHint: mathHintText,
       mathPresenterClass,
       mathPresenterLead,
-      mathPresenterSpeak: () => this.playPresenterVoice(mathPresenterAudio, mathPresenterLead + "。" + mathRobotDialogue),
+      mathPresenterSpeak: () => this.playPresenterVoice(
+        mathPresenterAudio,
+        s.locked ? mathPresenterLead : mathPresenterLead + "。" + mathRobotDialogue,
+        s.locked && q ? q.explain : ""
+      ),
       mathAnalysisPending: isMathMaster && !s.locked,
       mathAnalysisOpen: isMathMaster && s.locked,
       mathAnalysisClass: s.locked ? (s.lastRight ? "is-correct" : "is-wrong") : "is-pending",

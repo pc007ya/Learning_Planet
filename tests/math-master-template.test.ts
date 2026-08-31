@@ -84,8 +84,10 @@ describe('Math Master Template', () => {
       expect(existsSync(new URL(`../audio/math-presenter/v1/${clip}-v1.mp3`, import.meta.url))).toBe(true);
     }
     expect(html).toContain('function mathPresenterHintAudio(question)');
-    expect(html).toContain('this.playPresenterVoice(mathPresenterAudio');
+    expect(html).toContain('this.playPresenterVoice(');
     expect(html).toContain('if (this.presenterVoiceAudio)');
+    expect(html).toContain('audio.onended = () =>');
+    expect(html).toContain('s.locked && q ? q.explain : ""');
   });
 
   it('retains the existing science confirmation and classic feedback paths', () => {
