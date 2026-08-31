@@ -88,6 +88,8 @@ describe('Math Master Template', () => {
     expect(html).toContain('if (this.presenterVoiceAudio)');
     expect(html).toContain('audio.onended = () =>');
     expect(html).toContain('s.locked && q ? q.explain : ""');
+    const presenterVoiceBody = html.match(/playPresenterVoice\(source, fallbackText, followupText\) \{([\s\S]*?)\n  \}/)?.[1] || '';
+    expect(presenterVoiceBody).not.toContain('this.state.speechMuted');
   });
 
   it('retains the existing science confirmation and classic feedback paths', () => {

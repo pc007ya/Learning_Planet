@@ -9541,7 +9541,6 @@ class Component extends DCLogic {
     speechSynthesis.cancel(); speechSynthesis.speak(u);
   }
   playPresenterVoice(source, fallbackText, followupText) {
-    if (this.state.speechMuted) return;
     if (this.presenterVoiceAudio) {
       this.presenterVoiceAudio.pause();
       this.presenterVoiceAudio.currentTime = 0;
