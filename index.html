@@ -4363,6 +4363,7 @@ function mathObjectImages(value) {
 }
 const ENGLISH_REAL_ART = new Set("ant,apple,ball,banana,bear,bed,bee,bell,bird,boat,book,bowl,box,bread,bus,cake,camel,candy,car,card,cat,chair,chicken,clock,cloud,coat,coin,cow,cup,desk,dog,doll,door,drum,duck,egg,elephant,fish,flag,flower,fork,fox,frog,garden,gate,gift,goat,gold,goose,grape,hat,heart,horse,hotel,house,ice,jeans,juice,kite,knee,knife,lake,lamb,leaf,lion,lock,mail,meal,meat,moon,mouse,movie,ocean,orange,owl,panda,pen,pencil,phone,photo,piano,pig,pizza,plane,plate,pond,pool,rabbit,radio,rain,ring,rock,rope,rose,salt,sand,scarf,school,sheep,ship,shirt,shoe,shop,skirt,soap,sofa,soup,stamp,tape,taxi,tent,tool,tooth,train,truck,wheel,wind,wing,wolf,wood,zebra".split(","));
 const ENGLISH_DIRECT_SHARED_ART = new Set("ant,apple,autumn,autumn-tree,baby,backpack,bag,ball,bamboo,banana,beans,bear,beautiful,bed,bee,bell,bird,black,blanket,blue,boat,body,book,bowl,box,bread,bridge,bus,busy,cake,camel,candy,cap,car,card,cat,chair,chicken,child,circle,city,classmates,classroom,clock,close-door,cloud,coat,coin,cow,cry,cup,desk,dog,doll,door,drum,duck,ear,egg,elephant,eye,family,fast,father,fear,fire,fish,flag,flower,foot,fork,fox,friends,frog,garden,gate,gift,goat,gold,goose,grape,hand,hat,head,heart,heart-anatomy,hold,horse,hotel,house,ice,jeans,juice,kindness,kite,knee,knife,lake,lamb,leaf,lemon,lightning,lion,lock,long,look,love,low,mail,mango,meal,meat,milk,monkey,moon,mother,mountain,mouse,mouth,movie,music,new,ocean,old,older-brother,older-sister,open-book,open-door,orange,owl,panda,paper,park,pear,pen,pencil,phone,photo,piano,pig,pizza,plane,plate,playground,pond,pool,rabbit,radio,rain,rain-cloud,red,rice,ring,road,rock,rope,rose,ruler,run,salt,sand,scarf,school,school-desk,sheep,ship,shirt,shoe,shop,short,sit,skirt,sky,slow,smile,sneaker,snowflake,soap,socks,sofa,soil,soup,spring,spring-garden,square,stamp,stand,station,strength,student-reading,summer,summer-beach,sun,sunny,tall,tape,taxi,tea,teacher,tent,thunderstorm,tool,tooth,train,tree,triangle,truck,umbrella,vegetables,walk,water,watermelon,wheel,white,wind,window,wing,winter-snowman,wolf,wood,yellow,younger-brother,younger-sister,zebra".split(","));
+const ENGLISH_REPAIRED_V2_ART = new Set("car,eight,body,older-brother,eye,head,father,mother,older-sister,student-reading,child,family,friends,teacher,younger-brother,younger-sister".split(","));
 const ENGLISH_GENERATED_V3_ART = new Set("brown,eight,five,four,seven,six,cold,come,cook,dance,dark,dinner,draw,drink,easy,eat,body,father,sister,spoon,snake,star,close,big,bike,birthday,blackboard,buy,call,carry,clean,evening,animal,color,day,farm,food,fruit,game,good,grass,green,happy,hello,hen,jacket,jump,key,little,map,morning,name,nest,night,nine,nose,number,one,pink,plant,play,purple,queen,robot,room,small,table,ten,tiger,toy,two,van,zoo,after,again,air,answer,ask,away,back,because,before,every,find,first,floor,fly,funny,get,give,glass,go,great,hair,help,here".split(","));
 const LANGUAGE_SHARED_ASSET_DIR = "images/language-shared-v1/";
 const ENGLISH_SHARED_ALIASES = Object.freeze({
@@ -6402,8 +6403,11 @@ class Component extends DCLogic {
     if (!word) return "images/english-category-v1/abstract-v1.png";
     const key = String(word.word || "").toLowerCase().replace(/[^a-z-]/g, "");
     const existing = String(word.image || "");
-    if (ENGLISH_GENERATED_V3_ART.has(key)) return "images/english-generated-v3/" + key + "-v1.webp";
+    if (existing.indexOf("images/english-generated-v4/") === 0) return existing;
     const sharedKey = englishSharedAssetKey(word);
+    const repairedKey = sharedKey || key;
+    if (ENGLISH_REPAIRED_V2_ART.has(repairedKey)) return "images/language-shared-v2/" + repairedKey + "-v1.webp";
+    if (ENGLISH_GENERATED_V3_ART.has(key)) return "images/english-generated-v3/" + key + "-v1.webp";
     if (sharedKey) return languageSharedAsset(sharedKey);
     if (existing.indexOf("images/english-generated-v2/") === 0 && existing !== "images/english-generated-v2/atlas-01.webp") return existing;
     const category = ENGLISH_CATEGORY_ART[String(word.category || "")] || "abstract";
@@ -6417,7 +6421,7 @@ class Component extends DCLogic {
   }
   englishGeneratedPicturePool(grade) {
     return this.englishPool(grade).map((word) => Object.assign({}, word, { image: this.englishImageForWord(word) })).filter((word) => {
-      return !!englishSharedAssetKey(word) || word.image.indexOf("images/english-generated-v2/") === 0;
+      return !!englishSharedAssetKey(word) || word.image.indexOf("images/english-generated-v2/") === 0 || word.image.indexOf("images/english-generated-v4/") === 0;
     });
   }
   englishShuffle(items) { return items.slice().sort(() => Math.random() - .5); }

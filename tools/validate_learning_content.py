@@ -43,6 +43,61 @@ for grade in (1, 2):
     if len(generated) != 60 or len({entry["word"] for entry in generated}) != 60:
         fail(f"grade {grade} needs exactly 60 unique generated picture questions, found {len(generated)}")
 
+grade3_path = ROOT / "data" / "english-words-grade3-v2.json"
+grade3_words = json.loads(grade3_path.read_text(encoding="utf-8"))["words"]
+if len(grade3_words) != 500 or len({entry["word"] for entry in grade3_words}) != 500:
+    fail("grade 3 must contain 500 unique words")
+grade3_generated = [entry for entry in grade3_words if entry["image"].startswith("images/english-generated-v4/")]
+if len(grade3_generated) != 433 or len({entry["image"] for entry in grade3_generated}) != 433:
+    fail(f"grade 3 needs 433 unique generated illustrations, found {len(grade3_generated)}")
+for entry in grade3_generated:
+    art = ROOT / entry["image"]
+    if not art.exists():
+        fail(f"missing grade-3 art: {entry['image']}")
+    with Image.open(art).convert("RGBA") as picture:
+        if picture.size != (320, 320):
+            fail(f"grade-3 art must be 320x320: {entry['word']}")
+        alpha = picture.getchannel("A")
+        bbox = alpha.getbbox()
+        if not bbox:
+            fail(f"grade-3 art is empty: {entry['word']}")
+        if bbox[0] < 32 or bbox[1] < 32 or bbox[2] > 288 or bbox[3] > 288:
+            fail(f"grade-3 art violates the 10% safe inset: {entry['word']} {bbox}")
+        edge = max(
+            alpha.crop((0, 0, 320, 1)).getextrema()[1],
+            alpha.crop((0, 319, 320, 320)).getextrema()[1],
+            alpha.crop((0, 0, 1, 320)).getextrema()[1],
+            alpha.crop((319, 0, 320, 320)).getextrema()[1],
+        )
+        if edge:
+            fail(f"grade-3 art has non-transparent edge residue: {entry['word']}")
+if 'existing.indexOf("images/english-generated-v4/") === 0' not in html:
+    fail("grade-3 word cards do not resolve their dedicated v4 illustrations")
+if 'word.image.indexOf("images/english-generated-v4/") === 0' not in html:
+    fail("grade-3 generated illustrations are excluded from English picture games")
+
+repaired_shared = {
+    "car", "eight", "body", "older-brother", "eye", "head", "father", "mother",
+    "older-sister", "student-reading", "child", "family", "friends", "teacher",
+    "younger-brother", "younger-sister",
+}
+for key in repaired_shared:
+    art = ROOT / "images" / "language-shared-v2" / f"{key}-v1.webp"
+    if not art.exists():
+        fail(f"missing repaired shared art: {key}")
+    with Image.open(art).convert("RGBA") as picture:
+        if picture.size != (320, 320):
+            fail(f"repaired shared art must be 320x320: {key}")
+        bbox = picture.getchannel("A").getbbox()
+        if not bbox or bbox[0] < 32 or bbox[1] < 32 or bbox[2] > 288 or bbox[3] > 288:
+            fail(f"repaired shared art violates safe inset: {key} {bbox}")
+if 'ENGLISH_REPAIRED_V2_ART.has(repairedKey)' not in html:
+    fail("repaired shared English art is not selected before legacy art")
+
+slicer = (ROOT / "tools" / "slice_english_atlas.py").read_text(encoding="utf-8")
+if "SOURCE_GUARD_RATIO = 0.20" not in slicer:
+    fail("English atlas slicer must use a 20% overlap/residue guard")
+
 river = next(entry for entry in json.loads((ROOT / "data" / "english-words-grade1-v2.json").read_text(encoding="utf-8"))["words"] if entry["word"] == "river")
 if river["emoji"] == "🔤" or "🏞️" not in (ROOT / river["image"]).read_text(encoding="utf-8"):
     fail("river card must use a river landscape illustration")
@@ -61,26 +116,25 @@ for ambiguous in ("mom", "mother", "sister", "brother", "girl", "boy", "son", "f
 for marker in (
     ".english-pair-board { width:100%;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))",
     "englishGeneratedPicturePool(grade)",
-    'word.image.indexOf("images/english-generated-v1/") === 0',
+    'word.image.indexOf("images/english-generated-v4/") === 0',
     ".slice(0, 6)",
     "正面卡 6 對 6",
-    'content:"下一輪 →"',
     ".english-pair-board { grid-template-columns:repeat(3,minmax(0,1fr));gap:8px; }",
     "全站 120 題專圖庫・本年級 60 題",
     "60 題專圖庫 · 六對六三輪／60 秒",
 ):
     if marker not in html:
         fail(f"six-pair generated-art game marker is missing: {marker}")
-if html.count("const pool = this.englishGeneratedPicturePool") < 4:
+if html.count("this.englishGeneratedPicturePool()") < 4:
     fail("all four English picture-game flows must use the generated 120-question bank")
 for marker in (
     "englishPairRound: 0",
     "englishPairAssignments: {}",
     "timeLeft: 60",
-    "s.englishPairUsedIds.indexOf(word.id) < 0",
+    "filter((word) => !used.has(word.id))",
     "const incorrect = s.englishPairImages.filter",
     "s.englishPairRound >= 3",
-    "rewardBaseForDifficulty(2)",
+    "const coins = 10, xp = 18",
     "finishEnglishPairTimeout()",
 ):
     if marker not in html:

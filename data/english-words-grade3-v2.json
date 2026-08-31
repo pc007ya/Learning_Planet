@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "grade": 3,
   "count": 500,
-  "source": "Third-grade extension bank; shared vocabulary metadata with independently rendered generated art.",
+  "source": "Third-grade 500-word bank with word-specific generated and shared vocabulary art.",
   "words": [
     {
       "id": "en-g3-001",
@@ -12,37 +12,37 @@
       "phonetic": "niә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/near-v1.webp"
     },
     {
       "id": "en-g3-002",
       "grade": 3,
       "word": "page",
-      "meaning": "页",
+      "meaning": "頁",
       "phonetic": "peidʒ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/page-v1.webp"
     },
     {
       "id": "en-g3-003",
       "grade": 3,
       "word": "poor",
-      "meaning": "贫穷的",
+      "meaning": "貧困的",
       "phonetic": "puә. pɒ:",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/poor-v1.webp"
     },
     {
       "id": "en-g3-004",
       "grade": 3,
       "word": "race",
-      "meaning": "種族",
+      "meaning": "賽跑",
       "phonetic": "reis",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/race-v1.webp"
     },
     {
       "id": "en-g3-005",
@@ -52,7 +52,7 @@
       "phonetic": "raiz",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/rise-v1.webp"
     },
     {
       "id": "en-g3-006",
@@ -62,7 +62,7 @@
       "phonetic": "i:st",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/east-v1.webp"
     },
     {
       "id": "en-g3-007",
@@ -72,7 +72,7 @@
       "phonetic": "seiv",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/save-v1.webp"
     },
     {
       "id": "en-g3-008",
@@ -82,7 +82,7 @@
       "phonetic": "saiz",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/size-v1.webp"
     },
     {
       "id": "en-g3-009",
@@ -92,7 +92,7 @@
       "phonetic": "list",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/list-v1.webp"
     },
     {
       "id": "en-g3-010",
@@ -102,7 +102,7 @@
       "phonetic": "feil",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/fail-v1.webp"
     },
     {
       "id": "en-g3-011",
@@ -112,7 +112,7 @@
       "phonetic": "mis",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/miss-v1.webp"
     },
     {
       "id": "en-g3-012",
@@ -122,7 +122,7 @@
       "phonetic": "sɒ:t",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sort-v1.webp"
     },
     {
       "id": "en-g3-013",
@@ -132,7 +132,7 @@
       "phonetic": "hæŋ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/hang-v1.webp"
     },
     {
       "id": "en-g3-014",
@@ -152,7 +152,7 @@
       "phonetic": "mein",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/main-v1.webp"
     },
     {
       "id": "en-g3-016",
@@ -172,7 +172,7 @@
       "phonetic": "si:t",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/seat-v1.webp"
     },
     {
       "id": "en-g3-018",
@@ -182,7 +182,7 @@
       "phonetic": "hju:dʒ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/huge-v1.webp"
     },
     {
       "id": "en-g3-019",
@@ -192,7 +192,7 @@
       "phonetic": "waid",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/wide-v1.webp"
     },
     {
       "id": "en-g3-020",
@@ -202,7 +202,7 @@
       "phonetic": "trip",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/trip-v1.webp"
     },
     {
       "id": "en-g3-021",
@@ -212,7 +212,7 @@
       "phonetic": "'ju:nit",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/unit-v1.webp"
     },
     {
       "id": "en-g3-022",
@@ -222,7 +222,7 @@
       "phonetic": "di:p",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/deep-v1.webp"
     },
     {
       "id": "en-g3-023",
@@ -232,7 +232,7 @@
       "phonetic": "edʒ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/edge-v1.webp"
     },
     {
       "id": "en-g3-024",
@@ -252,7 +252,7 @@
       "phonetic": "hi:t",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/heat-v1.webp"
     },
     {
       "id": "en-g3-026",
@@ -262,7 +262,7 @@
       "phonetic": "hu:m",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/whom-v1.webp"
     },
     {
       "id": "en-g3-027",
@@ -272,7 +272,7 @@
       "phonetic": "jɑ:d",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/yard-v1.webp"
     },
     {
       "id": "en-g3-028",
@@ -282,7 +282,7 @@
       "phonetic": "bi:t",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/beat-v1.webp"
     },
     {
       "id": "en-g3-029",
@@ -292,7 +292,7 @@
       "phonetic": "tɑ:sk",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/task-v1.webp"
     },
     {
       "id": "en-g3-030",
@@ -302,7 +302,7 @@
       "phonetic": "wiʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/wish-v1.webp"
     },
     {
       "id": "en-g3-031",
@@ -312,7 +312,7 @@
       "phonetic": "seif",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/safe-v1.webp"
     },
     {
       "id": "en-g3-032",
@@ -322,7 +322,7 @@
       "phonetic": "ri:tʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/rich-v1.webp"
     },
     {
       "id": "en-g3-033",
@@ -332,7 +332,7 @@
       "phonetic": "nʌn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/none-v1.webp"
     },
     {
       "id": "en-g3-034",
@@ -342,7 +342,7 @@
       "phonetic": "bɒ:n",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/born-v1.webp"
     },
     {
       "id": "en-g3-035",
@@ -362,7 +362,7 @@
       "phonetic": "hә:t",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/hurt-v1.webp"
     },
     {
       "id": "en-g3-037",
@@ -372,7 +372,7 @@
       "phonetic": "kæmp",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/camp-v1.webp"
     },
     {
       "id": "en-g3-038",
@@ -382,7 +382,7 @@
       "phonetic": "deit",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/date-v1.webp"
     },
     {
       "id": "en-g3-039",
@@ -392,7 +392,7 @@
       "phonetic": "hәul",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/hole-v1.webp"
     },
     {
       "id": "en-g3-040",
@@ -418,17 +418,17 @@
       "id": "en-g3-042",
       "grade": 3,
       "word": "hide",
-      "meaning": "兽皮",
+      "meaning": "躲藏",
       "phonetic": "haid",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/hide-v1.webp"
     },
     {
       "id": "en-g3-043",
       "grade": 3,
       "word": "gold",
-      "meaning": "黄金",
+      "meaning": "黃金",
       "phonetic": "gәuld",
       "category": "生活",
       "emoji": "",
@@ -442,17 +442,17 @@
       "phonetic": "klʌb",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/club-v1.webp"
     },
     {
       "id": "en-g3-045",
       "grade": 3,
       "word": "ride",
-      "meaning": "骑馬",
+      "meaning": "騎乘",
       "phonetic": "raid",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/ride-v1.webp"
     },
     {
       "id": "en-g3-046",
@@ -462,7 +462,7 @@
       "phonetic": "tekst",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/text-v1.webp"
     },
     {
       "id": "en-g3-047",
@@ -478,21 +478,21 @@
       "id": "en-g3-048",
       "grade": 3,
       "word": "tiny",
-      "meaning": "很少的",
+      "meaning": "微小的",
       "phonetic": "'taini",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/tiny-v1.webp"
     },
     {
       "id": "en-g3-049",
       "grade": 3,
       "word": "feed",
-      "meaning": "饲料",
+      "meaning": "餵食",
       "phonetic": "fi:d",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/feed-v1.webp"
     },
     {
       "id": "en-g3-050",
@@ -502,7 +502,7 @@
       "phonetic": "pɑ:θ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/path-v1.webp"
     },
     {
       "id": "en-g3-051",
@@ -522,7 +522,7 @@
       "phonetic": "lift",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/lift-v1.webp"
     },
     {
       "id": "en-g3-053",
@@ -532,7 +532,7 @@
       "phonetic": "wɒ:m",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/warm-v1.webp"
     },
     {
       "id": "en-g3-054",
@@ -542,7 +542,7 @@
       "phonetic": "sɒft",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/soft-v1.webp"
     },
     {
       "id": "en-g3-055",
@@ -562,7 +562,7 @@
       "phonetic": "blәu",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/blow-v1.webp"
     },
     {
       "id": "en-g3-057",
@@ -572,7 +572,7 @@
       "phonetic": "bә:n",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/burn-v1.webp"
     },
     {
       "id": "en-g3-058",
@@ -582,7 +582,7 @@
       "phonetic": "wain",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/wine-v1.webp"
     },
     {
       "id": "en-g3-059",
@@ -592,7 +592,7 @@
       "phonetic": "ku:l",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/cool-v1.webp"
     },
     {
       "id": "en-g3-060",
@@ -602,7 +602,7 @@
       "phonetic": "tuә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/tour-v1.webp"
     },
     {
       "id": "en-g3-061",
@@ -612,7 +612,7 @@
       "phonetic": "fєә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/fair-v1.webp"
     },
     {
       "id": "en-g3-062",
@@ -622,7 +622,7 @@
       "phonetic": "pєә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/pair-v1.webp"
     },
     {
       "id": "en-g3-063",
@@ -652,7 +652,7 @@
       "phonetic": "'leidi",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/lady-v1.webp"
     },
     {
       "id": "en-g3-066",
@@ -662,7 +662,7 @@
       "phonetic": "nek",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/neck-v1.webp"
     },
     {
       "id": "en-g3-067",
@@ -672,7 +672,7 @@
       "phonetic": "ʃʌʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/shut-v1.webp"
     },
     {
       "id": "en-g3-068",
@@ -712,7 +712,7 @@
       "phonetic": "θin",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/thin-v1.webp"
     },
     {
       "id": "en-g3-072",
@@ -732,7 +732,7 @@
       "phonetic": "mɑ:k",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/mark-v1.webp"
     },
     {
       "id": "en-g3-074",
@@ -752,7 +752,7 @@
       "phonetic": "sik",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sick-v1.webp"
     },
     {
       "id": "en-g3-076",
@@ -762,7 +762,7 @@
       "phonetic": "'dju:ti",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/duty-v1.webp"
     },
     {
       "id": "en-g3-077",
@@ -772,7 +772,7 @@
       "phonetic": "weik",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/wake-v1.webp"
     },
     {
       "id": "en-g3-078",
@@ -782,7 +782,7 @@
       "phonetic": "wɒ:n",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/warn-v1.webp"
     },
     {
       "id": "en-g3-079",
@@ -802,7 +802,7 @@
       "phonetic": "hil",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/hill-v1.webp"
     },
     {
       "id": "en-g3-081",
@@ -812,7 +812,7 @@
       "phonetic": "kik",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/kick-v1.webp"
     },
     {
       "id": "en-g3-082",
@@ -822,7 +822,7 @@
       "phonetic": "'ju:st",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/used-v1.webp"
     },
     {
       "id": "en-g3-083",
@@ -842,7 +842,7 @@
       "phonetic": "hɒ:l",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/hall-v1.webp"
     },
     {
       "id": "en-g3-085",
@@ -862,7 +862,7 @@
       "phonetic": "'hiәrәu",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/hero-v1.webp"
     },
     {
       "id": "en-g3-087",
@@ -882,7 +882,7 @@
       "phonetic": "'kɒpi",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/copy-v1.webp"
     },
     {
       "id": "en-g3-089",
@@ -892,7 +892,7 @@
       "phonetic": "diʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/dish-v1.webp"
     },
     {
       "id": "en-g3-090",
@@ -912,7 +912,7 @@
       "phonetic": "rʌʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/rush-v1.webp"
     },
     {
       "id": "en-g3-092",
@@ -932,7 +932,7 @@
       "phonetic": "wi:k",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/weak-v1.webp"
     },
     {
       "id": "en-g3-094",
@@ -942,7 +942,7 @@
       "phonetic": "kiŋ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/king-v1.webp"
     },
     {
       "id": "en-g3-095",
@@ -952,7 +952,7 @@
       "phonetic": "pәust",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/post-v1.webp"
     },
     {
       "id": "en-g3-096",
@@ -982,7 +982,7 @@
       "phonetic": "seil",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sale-v1.webp"
     },
     {
       "id": "en-g3-099",
@@ -992,7 +992,7 @@
       "phonetic": "teil",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/tale-v1.webp"
     },
     {
       "id": "en-g3-100",
@@ -1002,7 +1002,7 @@
       "phonetic": "dʒәuk",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/joke-v1.webp"
     },
     {
       "id": "en-g3-101",
@@ -1012,7 +1012,7 @@
       "phonetic": "glæd",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/glad-v1.webp"
     },
     {
       "id": "en-g3-102",
@@ -1022,7 +1022,7 @@
       "phonetic": "'aiәn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/iron-v1.webp"
     },
     {
       "id": "en-g3-103",
@@ -1032,7 +1032,7 @@
       "phonetic": "kis",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/kiss-v1.webp"
     },
     {
       "id": "en-g3-104",
@@ -1042,7 +1042,7 @@
       "phonetic": "bɒs",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/boss-v1.webp"
     },
     {
       "id": "en-g3-105",
@@ -1052,7 +1052,7 @@
       "phonetic": "lʌk",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/luck-v1.webp"
     },
     {
       "id": "en-g3-106",
@@ -1072,7 +1072,7 @@
       "phonetic": "'pәuim",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/poem-v1.webp"
     },
     {
       "id": "en-g3-108",
@@ -1092,13 +1092,13 @@
       "phonetic": "flæt",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/flat-v1.webp"
     },
     {
       "id": "en-g3-110",
       "grade": 3,
       "word": "bell",
-      "meaning": "铃",
+      "meaning": "鈴鐺",
       "phonetic": "bel",
       "category": "生活",
       "emoji": "",
@@ -1108,11 +1108,11 @@
       "id": "en-g3-111",
       "grade": 3,
       "word": "pale",
-      "meaning": "栅栏",
+      "meaning": "蒼白的",
       "phonetic": "peil",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/pale-v1.webp"
     },
     {
       "id": "en-g3-112",
@@ -1122,7 +1122,7 @@
       "phonetic": "mæθ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/math-v1.webp"
     },
     {
       "id": "en-g3-113",
@@ -1132,7 +1132,7 @@
       "phonetic": "teil",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/tail-v1.webp"
     },
     {
       "id": "en-g3-114",
@@ -1162,7 +1162,7 @@
       "phonetic": "'menju:",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/menu-v1.webp"
     },
     {
       "id": "en-g3-117",
@@ -1172,7 +1172,7 @@
       "phonetic": "laud",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/loud-v1.webp"
     },
     {
       "id": "en-g3-118",
@@ -1182,7 +1182,7 @@
       "phonetic": "waiz",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/wise-v1.webp"
     },
     {
       "id": "en-g3-119",
@@ -1192,7 +1192,7 @@
       "phonetic": "'ʌgli",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/ugly-v1.webp"
     },
     {
       "id": "en-g3-120",
@@ -1212,7 +1212,7 @@
       "phonetic": "kәul",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/coal-v1.webp"
     },
     {
       "id": "en-g3-122",
@@ -1222,7 +1222,7 @@
       "phonetic": "'diә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/dear-v1.webp"
     },
     {
       "id": "en-g3-123",
@@ -1232,7 +1232,7 @@
       "phonetic": "dєә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/dare-v1.webp"
     },
     {
       "id": "en-g3-124",
@@ -1242,7 +1242,7 @@
       "phonetic": "bi:f",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/beef-v1.webp"
     },
     {
       "id": "en-g3-125",
@@ -1252,7 +1252,7 @@
       "phonetic": "lend",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/lend-v1.webp"
     },
     {
       "id": "en-g3-126",
@@ -1282,7 +1282,7 @@
       "phonetic": "nu:n",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/noon-v1.webp"
     },
     {
       "id": "en-g3-129",
@@ -1292,7 +1292,7 @@
       "phonetic": "hә:z",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/hers-v1.webp"
     },
     {
       "id": "en-g3-130",
@@ -1302,7 +1302,7 @@
       "phonetic": "læmp",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/lamp-v1.webp"
     },
     {
       "id": "en-g3-131",
@@ -1312,7 +1312,7 @@
       "phonetic": "silk",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/silk-v1.webp"
     },
     {
       "id": "en-g3-132",
@@ -1322,7 +1322,7 @@
       "phonetic": "'auәz",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/ours-v1.webp"
     },
     {
       "id": "en-g3-133",
@@ -1342,7 +1342,7 @@
       "phonetic": "seil",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sail-v1.webp"
     },
     {
       "id": "en-g3-135",
@@ -1362,7 +1362,7 @@
       "phonetic": "ɑ:nt",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/aunt-v1.webp"
     },
     {
       "id": "en-g3-137",
@@ -1372,7 +1372,7 @@
       "phonetic": "ig'zæm",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/exam-v1.webp"
     },
     {
       "id": "en-g3-138",
@@ -1382,7 +1382,7 @@
       "phonetic": "pɒ:k",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/pork-v1.webp"
     },
     {
       "id": "en-g3-139",
@@ -1422,7 +1422,7 @@
       "phonetic": "'ziәrәu",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/zero-v1.webp"
     },
     {
       "id": "en-g3-143",
@@ -1432,7 +1432,7 @@
       "phonetic": "til",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/till-v1.webp"
     },
     {
       "id": "en-g3-144",
@@ -1452,7 +1452,7 @@
       "phonetic": "'sauә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sour-v1.webp"
     },
     {
       "id": "en-g3-146",
@@ -1472,7 +1472,7 @@
       "phonetic": "'leizi",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/lazy-v1.webp"
     },
     {
       "id": "en-g3-148",
@@ -1482,7 +1482,7 @@
       "phonetic": "klæp",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/clap-v1.webp"
     },
     {
       "id": "en-g3-149",
@@ -1492,7 +1492,7 @@
       "phonetic": "def",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/deaf-v1.webp"
     },
     {
       "id": "en-g3-150",
@@ -1502,7 +1502,7 @@
       "phonetic": "'piti",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/pity-v1.webp"
     },
     {
       "id": "en-g3-151",
@@ -1512,7 +1512,7 @@
       "phonetic": "eik",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/ache-v1.webp"
     },
     {
       "id": "en-g3-152",
@@ -1522,7 +1522,7 @@
       "phonetic": "bil",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/bill-v1.webp"
     },
     {
       "id": "en-g3-153",
@@ -1532,37 +1532,37 @@
       "phonetic": "intʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/inch-v1.webp"
     },
     {
       "id": "en-g3-154",
       "grade": 3,
       "word": "tidy",
-      "meaning": "椅子的背罩",
+      "meaning": "整齊的",
       "phonetic": "'taidi",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/tidy-v1.webp"
     },
     {
       "id": "en-g3-155",
       "grade": 3,
       "word": "mend",
-      "meaning": "改進",
+      "meaning": "修補",
       "phonetic": "mend",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/mend-v1.webp"
     },
     {
       "id": "en-g3-156",
       "grade": 3,
       "word": "coke",
-      "meaning": "可口可樂",
+      "meaning": "可樂",
       "phonetic": "kәuk",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/coke-v1.webp"
     },
     {
       "id": "en-g3-157",
@@ -1582,7 +1582,7 @@
       "phonetic": "dʒu:n",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/june-v1.webp"
     },
     {
       "id": "en-g3-159",
@@ -1592,7 +1592,7 @@
       "phonetic": "mail",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/mile-v1.webp"
     },
     {
       "id": "en-g3-160",
@@ -1602,7 +1602,7 @@
       "phonetic": "dʒu:'lai",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/july-v1.webp"
     },
     {
       "id": "en-g3-161",
@@ -1612,7 +1612,7 @@
       "phonetic": "'eiʒә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/asia-v1.webp"
     },
     {
       "id": "en-g3-162",
@@ -1622,7 +1622,7 @@
       "phonetic": "sent",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/cent-v1.webp"
     },
     {
       "id": "en-g3-163",
@@ -1632,7 +1632,7 @@
       "phonetic": "'kilәu",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/kilo-v1.webp"
     },
     {
       "id": "en-g3-164",
@@ -1642,7 +1642,7 @@
       "phonetic": "ðєә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/their-v1.webp"
     },
     {
       "id": "en-g3-165",
@@ -1652,7 +1652,7 @@
       "phonetic": "wud",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/would-v1.webp"
     },
     {
       "id": "en-g3-166",
@@ -1662,7 +1662,7 @@
       "phonetic": "ә'baut",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/about-v1.webp"
     },
     {
       "id": "en-g3-167",
@@ -1672,7 +1672,7 @@
       "phonetic": "ðєә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/there-v1.webp"
     },
     {
       "id": "en-g3-168",
@@ -1682,7 +1682,7 @@
       "phonetic": "hwitʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/which-v1.webp"
     },
     {
       "id": "en-g3-169",
@@ -1692,7 +1692,7 @@
       "phonetic": "kud",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/could-v1.webp"
     },
     {
       "id": "en-g3-170",
@@ -1702,7 +1702,7 @@
       "phonetic": "'ʌðә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/other-v1.webp"
     },
     {
       "id": "en-g3-171",
@@ -1712,7 +1712,7 @@
       "phonetic": "ði:z",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/these-v1.webp"
     },
     {
       "id": "en-g3-172",
@@ -1722,7 +1722,7 @@
       "phonetic": "ðәuz",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/those-v1.webp"
     },
     {
       "id": "en-g3-173",
@@ -1732,7 +1732,7 @@
       "phonetic": "'wumәn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/woman-v1.webp"
     },
     {
       "id": "en-g3-174",
@@ -1742,17 +1742,17 @@
       "phonetic": "wә:ld",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/world-v1.webp"
     },
     {
       "id": "en-g3-175",
       "grade": 3,
       "word": "still",
-      "meaning": "蒸馏室",
+      "meaning": "靜止的",
       "phonetic": "stil",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/still-v1.webp"
     },
     {
       "id": "en-g3-176",
@@ -1762,17 +1762,17 @@
       "phonetic": "θri:",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/three-v1.webp"
     },
     {
       "id": "en-g3-177",
       "grade": 3,
       "word": "state",
-      "meaning": "州",
+      "meaning": "狀態",
       "phonetic": "steit",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/state-v1.webp"
     },
     {
       "id": "en-g3-178",
@@ -1782,17 +1782,17 @@
       "phonetic": "'nevә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/never-v1.webp"
     },
     {
       "id": "en-g3-179",
       "grade": 3,
       "word": "leave",
-      "meaning": "许可",
+      "meaning": "離開",
       "phonetic": "li:v",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/leave-v1.webp"
     },
     {
       "id": "en-g3-180",
@@ -1802,17 +1802,17 @@
       "phonetic": "hwail",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/while-v1.webp"
     },
     {
       "id": "en-g3-181",
       "grade": 3,
       "word": "group",
-      "meaning": "团体",
+      "meaning": "團體",
       "phonetic": "gru:p",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/group-v1.webp"
     },
     {
       "id": "en-g3-182",
@@ -1822,27 +1822,27 @@
       "phonetic": "bi'gin",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/begin-v1.webp"
     },
     {
       "id": "en-g3-183",
       "grade": 3,
       "word": "start",
-      "meaning": "惊起",
+      "meaning": "開始",
       "phonetic": "stɑ:t",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/start-v1.webp"
     },
     {
       "id": "en-g3-184",
       "grade": 3,
       "word": "might",
-      "meaning": "力量",
+      "meaning": "可能",
       "phonetic": "mait",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/might-v1.webp"
     },
     {
       "id": "en-g3-185",
@@ -1852,7 +1852,7 @@
       "phonetic": "pleis",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/place-v1.webp"
     },
     {
       "id": "en-g3-186",
@@ -1862,7 +1862,7 @@
       "phonetic": "pɒint",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/point-v1.webp"
     },
     {
       "id": "en-g3-187",
@@ -1872,7 +1872,7 @@
       "phonetic": "briŋ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/bring-v1.webp"
     },
     {
       "id": "en-g3-188",
@@ -1882,7 +1882,7 @@
       "phonetic": "lɑ:dʒ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/large-v1.webp"
     },
     {
       "id": "en-g3-189",
@@ -1892,7 +1892,7 @@
       "phonetic": "'mʌni",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/money-v1.webp"
     },
     {
       "id": "en-g3-190",
@@ -1902,7 +1902,7 @@
       "phonetic": "mʌnθ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/month-v1.webp"
     },
     {
       "id": "en-g3-191",
@@ -1912,7 +1912,7 @@
       "phonetic": "sins",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/since-v1.webp"
     },
     {
       "id": "en-g3-192",
@@ -1922,7 +1922,7 @@
       "phonetic": "әn'til",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/until-v1.webp"
     },
     {
       "id": "en-g3-193",
@@ -1932,7 +1932,7 @@
       "phonetic": "'ɒ:fn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/often-v1.webp"
     },
     {
       "id": "en-g3-194",
@@ -1942,7 +1942,7 @@
       "phonetic": "ә'mʌŋ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/among-v1.webp"
     },
     {
       "id": "en-g3-195",
@@ -1952,7 +1952,7 @@
       "phonetic": "li:st",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/least-v1.webp"
     },
     {
       "id": "en-g3-196",
@@ -1962,7 +1962,7 @@
       "phonetic": "'levl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/level-v1.webp"
     },
     {
       "id": "en-g3-197",
@@ -1972,7 +1972,7 @@
       "phonetic": "ә'lau",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/allow-v1.webp"
     },
     {
       "id": "en-g3-198",
@@ -1982,7 +1982,7 @@
       "phonetic": "spend",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/spend-v1.webp"
     },
     {
       "id": "en-g3-199",
@@ -1992,7 +1992,7 @@
       "phonetic": "'ә:li",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/early-v1.webp"
     },
     {
       "id": "en-g3-200",
@@ -2002,7 +2002,7 @@
       "phonetic": "fɒ:s",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/force-v1.webp"
     },
     {
       "id": "en-g3-201",
@@ -2012,7 +2012,7 @@
       "phonetic": "'ɒfә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/offer-v1.webp"
     },
     {
       "id": "en-g3-202",
@@ -2022,7 +2022,7 @@
       "phonetic": "'meibi:",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/maybe-v1.webp"
     },
     {
       "id": "en-g3-203",
@@ -2032,7 +2032,7 @@
       "phonetic": "'hju:mәn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/human-v1.webp"
     },
     {
       "id": "en-g3-204",
@@ -2042,7 +2042,7 @@
       "phonetic": "sә:v",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/serve-v1.webp"
     },
     {
       "id": "en-g3-205",
@@ -2052,7 +2052,7 @@
       "phonetic": "sens",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sense-v1.webp"
     },
     {
       "id": "en-g3-206",
@@ -2062,7 +2062,7 @@
       "phonetic": "bild",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/build-v1.webp"
     },
     {
       "id": "en-g3-207",
@@ -2072,7 +2072,7 @@
       "phonetic": "ri:tʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/reach-v1.webp"
     },
     {
       "id": "en-g3-208",
@@ -2082,7 +2082,7 @@
       "phonetic": "reiz",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/raise-v1.webp"
     },
     {
       "id": "en-g3-209",
@@ -2092,7 +2092,7 @@
       "phonetic": "fi:ld",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/field-v1.webp"
     },
     {
       "id": "en-g3-210",
@@ -2102,7 +2102,7 @@
       "phonetic": "ә'lɒŋ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/along-v1.webp"
     },
     {
       "id": "en-g3-211",
@@ -2122,7 +2122,7 @@
       "phonetic": "lait",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/light-v1.webp"
     },
     {
       "id": "en-g3-213",
@@ -2132,7 +2132,7 @@
       "phonetic": "vɒis",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/voice-v1.webp"
     },
     {
       "id": "en-g3-214",
@@ -2142,7 +2142,7 @@
       "phonetic": "hәul",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/whole-v1.webp"
     },
     {
       "id": "en-g3-215",
@@ -2152,7 +2152,7 @@
       "phonetic": "prais",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/price-v1.webp"
     },
     {
       "id": "en-g3-216",
@@ -2162,7 +2162,7 @@
       "phonetic": "draiv",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/drive-v1.webp"
     },
     {
       "id": "en-g3-217",
@@ -2172,7 +2172,7 @@
       "phonetic": "breik",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/break-v1.webp"
     },
     {
       "id": "en-g3-218",
@@ -2182,7 +2182,7 @@
       "phonetic": "'vælju:",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/value-v1.webp"
     },
     {
       "id": "en-g3-219",
@@ -2192,7 +2192,7 @@
       "phonetic": "'mɒdәl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/model-v1.webp"
     },
     {
       "id": "en-g3-220",
@@ -2202,7 +2202,7 @@
       "phonetic": "ә'gri:",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/agree-v1.webp"
     },
     {
       "id": "en-g3-221",
@@ -2212,7 +2212,7 @@
       "phonetic": "speis",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/space-v1.webp"
     },
     {
       "id": "en-g3-222",
@@ -2222,7 +2222,7 @@
       "phonetic": "hu:z",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/whose-v1.webp"
     },
     {
       "id": "en-g3-223",
@@ -2232,7 +2232,7 @@
       "phonetic": "ti:tʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/teach-v1.webp"
     },
     {
       "id": "en-g3-224",
@@ -2252,7 +2252,7 @@
       "phonetic": "'kʌvә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/cover-v1.webp"
     },
     {
       "id": "en-g3-226",
@@ -2262,7 +2262,7 @@
       "phonetic": "kwait",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/quite-v1.webp"
     },
     {
       "id": "en-g3-227",
@@ -2272,7 +2272,7 @@
       "phonetic": "kliә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/clear-v1.webp"
     },
     {
       "id": "en-g3-228",
@@ -2282,7 +2282,7 @@
       "phonetic": "pi:s",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/piece-v1.webp"
     },
     {
       "id": "en-g3-229",
@@ -2302,7 +2302,7 @@
       "phonetic": "nɒ:θ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/north-v1.webp"
     },
     {
       "id": "en-g3-231",
@@ -2312,7 +2312,7 @@
       "phonetic": "θә:d",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/third-v1.webp"
     },
     {
       "id": "en-g3-232",
@@ -2322,7 +2322,7 @@
       "phonetic": "kætʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/catch-v1.webp"
     },
     {
       "id": "en-g3-233",
@@ -2332,7 +2332,7 @@
       "phonetic": "kɒ:z",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/cause-v1.webp"
     },
     {
       "id": "en-g3-234",
@@ -2342,7 +2342,7 @@
       "phonetic": "sauθ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/south-v1.webp"
     },
     {
       "id": "en-g3-235",
@@ -2352,7 +2352,7 @@
       "phonetic": "rɒŋ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/wrong-v1.webp"
     },
     {
       "id": "en-g3-236",
@@ -2362,7 +2362,7 @@
       "phonetic": "spɒ:t",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sport-v1.webp"
     },
     {
       "id": "en-g3-237",
@@ -2372,7 +2372,7 @@
       "phonetic": "bɒ:d",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/board-v1.webp"
     },
     {
       "id": "en-g3-238",
@@ -2382,7 +2382,7 @@
       "phonetic": "θrәu",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/throw-v1.webp"
     },
     {
       "id": "en-g3-239",
@@ -2392,7 +2392,7 @@
       "phonetic": "'ɒ:dә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/order-v1.webp"
     },
     {
       "id": "en-g3-240",
@@ -2402,7 +2402,7 @@
       "phonetic": "stɒ:",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/store-v1.webp"
     },
     {
       "id": "en-g3-241",
@@ -2412,7 +2412,7 @@
       "phonetic": "saund",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sound-v1.webp"
     },
     {
       "id": "en-g3-242",
@@ -2422,47 +2422,47 @@
       "phonetic": "'entә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/enter-v1.webp"
     },
     {
       "id": "en-g3-243",
       "grade": 3,
       "word": "share",
-      "meaning": "部分",
+      "meaning": "分享",
       "phonetic": "ʃєә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/share-v1.webp"
     },
     {
       "id": "en-g3-244",
       "grade": 3,
       "word": "ready",
-      "meaning": "预备好的状态",
+      "meaning": "準備好的",
       "phonetic": "'redi",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/ready-v1.webp"
     },
     {
       "id": "en-g3-245",
       "grade": 3,
       "word": "trade",
-      "meaning": "贸易",
+      "meaning": "交易",
       "phonetic": "treid",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/trade-v1.webp"
     },
     {
       "id": "en-g3-246",
       "grade": 3,
       "word": "skill",
-      "meaning": "技术",
+      "meaning": "技能",
       "phonetic": "'skil",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/skill-v1.webp"
     },
     {
       "id": "en-g3-247",
@@ -2472,37 +2472,37 @@
       "phonetic": "tru:θ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/truth-v1.webp"
     },
     {
       "id": "en-g3-248",
       "grade": 3,
       "word": "check",
-      "meaning": "检查",
+      "meaning": "檢查",
       "phonetic": "tʃek",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/check-v1.webp"
     },
     {
       "id": "en-g3-249",
       "grade": 3,
       "word": "guess",
-      "meaning": "猜测",
+      "meaning": "猜測",
       "phonetic": "ges",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/guess-v1.webp"
     },
     {
       "id": "en-g3-250",
       "grade": 3,
       "word": "prove",
-      "meaning": "证明",
+      "meaning": "證明",
       "phonetic": "pru:v",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/prove-v1.webp"
     },
     {
       "id": "en-g3-251",
@@ -2512,17 +2512,17 @@
       "phonetic": "in'dʒɒi",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/enjoy-v1.webp"
     },
     {
       "id": "en-g3-252",
       "grade": 3,
       "word": "final",
-      "meaning": "期末考试",
+      "meaning": "最後的",
       "phonetic": "'fainl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/final-v1.webp"
     },
     {
       "id": "en-g3-253",
@@ -2532,7 +2532,7 @@
       "phonetic": "ә'bʌv",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/above-v1.webp"
     },
     {
       "id": "en-g3-254",
@@ -2552,7 +2552,7 @@
       "phonetic": "'vizit",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/visit-v1.webp"
     },
     {
       "id": "en-g3-256",
@@ -2562,7 +2562,7 @@
       "phonetic": "ә'vɒid",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/avoid-v1.webp"
     },
     {
       "id": "en-g3-257",
@@ -2572,7 +2572,7 @@
       "phonetic": "pi:s",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/peace-v1.webp"
     },
     {
       "id": "en-g3-258",
@@ -2582,7 +2582,7 @@
       "phonetic": "ʃeik",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/shake-v1.webp"
     },
     {
       "id": "en-g3-259",
@@ -2592,7 +2592,7 @@
       "phonetic": "'wʌri",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/worry-v1.webp"
     },
     {
       "id": "en-g3-260",
@@ -2602,7 +2602,7 @@
       "phonetic": "dri:m",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/dream-v1.webp"
     },
     {
       "id": "en-g3-261",
@@ -2622,37 +2622,37 @@
       "phonetic": "'hevi",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/heavy-v1.webp"
     },
     {
       "id": "en-g3-263",
       "grade": 3,
       "word": "owner",
-      "meaning": "拥有者",
+      "meaning": "擁有者",
       "phonetic": "'әunә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/owner-v1.webp"
     },
     {
       "id": "en-g3-264",
       "grade": 3,
       "word": "coach",
-      "meaning": "四轮大馬車",
+      "meaning": "教練",
       "phonetic": "kәutʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/coach-v1.webp"
     },
     {
       "id": "en-g3-265",
       "grade": 3,
       "word": "total",
-      "meaning": "全体的",
+      "meaning": "總計",
       "phonetic": "'tәutl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/total-v1.webp"
     },
     {
       "id": "en-g3-266",
@@ -2662,7 +2662,7 @@
       "phonetic": "skɒ:",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/score-v1.webp"
     },
     {
       "id": "en-g3-267",
@@ -2672,7 +2672,7 @@
       "phonetic": "frʌnt",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/front-v1.webp"
     },
     {
       "id": "en-g3-268",
@@ -2682,7 +2682,7 @@
       "phonetic": "ә'lәun",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/alone-v1.webp"
     },
     {
       "id": "en-g3-269",
@@ -2692,7 +2692,7 @@
       "phonetic": "freʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/fresh-v1.webp"
     },
     {
       "id": "en-g3-270",
@@ -2702,7 +2702,7 @@
       "phonetic": "'vidiәu",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/video-v1.webp"
     },
     {
       "id": "en-g3-271",
@@ -2712,7 +2712,7 @@
       "phonetic": "'beisik",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/basic-v1.webp"
     },
     {
       "id": "en-g3-272",
@@ -2722,7 +2722,7 @@
       "phonetic": "tʌtʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/touch-v1.webp"
     },
     {
       "id": "en-g3-273",
@@ -2732,7 +2732,7 @@
       "phonetic": "brein",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/brain-v1.webp"
     },
     {
       "id": "en-g3-274",
@@ -2742,7 +2742,7 @@
       "phonetic": "'dʌzn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/dozen-v1.webp"
     },
     {
       "id": "en-g3-275",
@@ -2752,7 +2752,7 @@
       "phonetic": "'sɒri",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sorry-v1.webp"
     },
     {
       "id": "en-g3-276",
@@ -2762,7 +2762,7 @@
       "phonetic": "stik",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/stick-v1.webp"
     },
     {
       "id": "en-g3-277",
@@ -2772,7 +2772,7 @@
       "phonetic": "stәun",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/stone-v1.webp"
     },
     {
       "id": "en-g3-278",
@@ -2792,7 +2792,7 @@
       "phonetic": "ʃeip",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/shape-v1.webp"
     },
     {
       "id": "en-g3-280",
@@ -2802,7 +2802,7 @@
       "phonetic": "gɑ:d",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/guard-v1.webp"
     },
     {
       "id": "en-g3-281",
@@ -2812,7 +2812,7 @@
       "phonetic": "kwik",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/quick-v1.webp"
     },
     {
       "id": "en-g3-282",
@@ -2822,7 +2822,7 @@
       "phonetic": "paund",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/pound-v1.webp"
     },
     {
       "id": "en-g3-283",
@@ -2832,7 +2832,7 @@
       "phonetic": "gest",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/guest-v1.webp"
     },
     {
       "id": "en-g3-284",
@@ -2852,7 +2852,7 @@
       "phonetic": "kaunt",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/count-v1.webp"
     },
     {
       "id": "en-g3-286",
@@ -2862,7 +2862,7 @@
       "phonetic": "'mæri",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/marry-v1.webp"
     },
     {
       "id": "en-g3-287",
@@ -2872,7 +2872,7 @@
       "phonetic": "wә:θ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/worth-v1.webp"
     },
     {
       "id": "en-g3-288",
@@ -2882,17 +2882,17 @@
       "phonetic": "spi:d",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/speed-v1.webp"
     },
     {
       "id": "en-g3-289",
       "grade": 3,
       "word": "cross",
-      "meaning": "十字架",
+      "meaning": "穿越",
       "phonetic": "krɒs",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/cross-v1.webp"
     },
     {
       "id": "en-g3-290",
@@ -2902,7 +2902,7 @@
       "phonetic": "twais",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/twice-v1.webp"
     },
     {
       "id": "en-g3-291",
@@ -2912,7 +2912,7 @@
       "phonetic": "greid",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/grade-v1.webp"
     },
     {
       "id": "en-g3-292",
@@ -2922,7 +2922,7 @@
       "phonetic": "'kwaiәt",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/quiet-v1.webp"
     },
     {
       "id": "en-g3-293",
@@ -2932,7 +2932,7 @@
       "phonetic": "dres",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/dress-v1.webp"
     },
     {
       "id": "en-g3-294",
@@ -2942,7 +2942,7 @@
       "phonetic": "bi'lәu",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/below-v1.webp"
     },
     {
       "id": "en-g3-295",
@@ -2952,7 +2952,7 @@
       "phonetic": "'deili",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/daily-v1.webp"
     },
     {
       "id": "en-g3-296",
@@ -2962,7 +2962,7 @@
       "phonetic": "bә:θ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/birth-v1.webp"
     },
     {
       "id": "en-g3-297",
@@ -2982,7 +2982,7 @@
       "phonetic": "ә'laiv",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/alive-v1.webp"
     },
     {
       "id": "en-g3-299",
@@ -2992,7 +2992,7 @@
       "phonetic": "ә:θ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/earth-v1.webp"
     },
     {
       "id": "en-g3-300",
@@ -3002,7 +3002,7 @@
       "phonetic": "peint",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/paint-v1.webp"
     },
     {
       "id": "en-g3-301",
@@ -3012,7 +3012,7 @@
       "phonetic": "klaim",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/climb-v1.webp"
     },
     {
       "id": "en-g3-302",
@@ -3022,7 +3022,7 @@
       "phonetic": "swi:t",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sweet-v1.webp"
     },
     {
       "id": "en-g3-303",
@@ -3032,7 +3032,7 @@
       "phonetic": "'metәl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/metal-v1.webp"
     },
     {
       "id": "en-g3-304",
@@ -3042,7 +3042,7 @@
       "phonetic": "'ʃugә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sugar-v1.webp"
     },
     {
       "id": "en-g3-305",
@@ -3052,7 +3052,7 @@
       "phonetic": "'enimi",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/enemy-v1.webp"
     },
     {
       "id": "en-g3-306",
@@ -3062,7 +3062,7 @@
       "phonetic": "sait",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sight-v1.webp"
     },
     {
       "id": "en-g3-307",
@@ -3072,7 +3072,7 @@
       "phonetic": "'empti",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/empty-v1.webp"
     },
     {
       "id": "en-g3-308",
@@ -3082,7 +3082,7 @@
       "phonetic": "stɒ:m",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/storm-v1.webp"
     },
     {
       "id": "en-g3-309",
@@ -3092,7 +3092,7 @@
       "phonetic": "'æŋgri",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/angry-v1.webp"
     },
     {
       "id": "en-g3-310",
@@ -3102,7 +3102,7 @@
       "phonetic": "tʃest",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/chest-v1.webp"
     },
     {
       "id": "en-g3-311",
@@ -3112,7 +3112,7 @@
       "phonetic": "θik",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/thick-v1.webp"
     },
     {
       "id": "en-g3-312",
@@ -3132,7 +3132,7 @@
       "phonetic": "'pailәt",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/pilot-v1.webp"
     },
     {
       "id": "en-g3-314",
@@ -3142,7 +3142,7 @@
       "phonetic": "sti:l",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/steal-v1.webp"
     },
     {
       "id": "en-g3-315",
@@ -3152,7 +3152,7 @@
       "phonetic": "'kreizi",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/crazy-v1.webp"
     },
     {
       "id": "en-g3-316",
@@ -3162,7 +3162,7 @@
       "phonetic": "trʌst",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/trust-v1.webp"
     },
     {
       "id": "en-g3-317",
@@ -3192,7 +3192,7 @@
       "phonetic": "smɑ:t",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/smart-v1.webp"
     },
     {
       "id": "en-g3-320",
@@ -3202,7 +3202,7 @@
       "phonetic": "nә:s",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/nurse-v1.webp"
     },
     {
       "id": "en-g3-321",
@@ -3212,7 +3212,7 @@
       "phonetic": "daut",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/doubt-v1.webp"
     },
     {
       "id": "en-g3-322",
@@ -3222,7 +3222,7 @@
       "phonetic": "tʃi:p",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/cheap-v1.webp"
     },
     {
       "id": "en-g3-323",
@@ -3232,7 +3232,7 @@
       "phonetic": "bi:tʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/beach-v1.webp"
     },
     {
       "id": "en-g3-324",
@@ -3242,7 +3242,7 @@
       "phonetic": "taiәd",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/tired-v1.webp"
     },
     {
       "id": "en-g3-325",
@@ -3252,7 +3252,7 @@
       "phonetic": "mætʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/match-v1.webp"
     },
     {
       "id": "en-g3-326",
@@ -3262,7 +3262,7 @@
       "phonetic": "praud",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/proud-v1.webp"
     },
     {
       "id": "en-g3-327",
@@ -3272,7 +3272,7 @@
       "phonetic": "weist",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/waste-v1.webp"
     },
     {
       "id": "en-g3-328",
@@ -3292,7 +3292,7 @@
       "phonetic": "'sɒlid",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/solid-v1.webp"
     },
     {
       "id": "en-g3-330",
@@ -3302,7 +3302,7 @@
       "phonetic": "nɒiz",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/noise-v1.webp"
     },
     {
       "id": "en-g3-331",
@@ -3312,7 +3312,7 @@
       "phonetic": "teist",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/taste-v1.webp"
     },
     {
       "id": "en-g3-332",
@@ -3322,7 +3322,7 @@
       "phonetic": "nɒk",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/knock-v1.webp"
     },
     {
       "id": "en-g3-333",
@@ -3332,7 +3332,7 @@
       "phonetic": "'lʌki",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/lucky-v1.webp"
     },
     {
       "id": "en-g3-334",
@@ -3342,7 +3342,7 @@
       "phonetic": "sti:l",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/steel-v1.webp"
     },
     {
       "id": "en-g3-335",
@@ -3352,7 +3352,7 @@
       "phonetic": "ʃaut",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/shout-v1.webp"
     },
     {
       "id": "en-g3-336",
@@ -3362,7 +3362,7 @@
       "phonetic": "ʃæl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/shall-v1.webp"
     },
     {
       "id": "en-g3-337",
@@ -3372,7 +3372,7 @@
       "phonetic": "print",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/print-v1.webp"
     },
     {
       "id": "en-g3-338",
@@ -3382,7 +3382,7 @@
       "phonetic": "ri'plai",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/reply-v1.webp"
     },
     {
       "id": "en-g3-339",
@@ -3402,7 +3402,7 @@
       "phonetic": "'hæbit",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/habit-v1.webp"
     },
     {
       "id": "en-g3-341",
@@ -3412,7 +3412,7 @@
       "phonetic": "'eiʃәn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/asian-v1.webp"
     },
     {
       "id": "en-g3-342",
@@ -3422,7 +3422,7 @@
       "phonetic": "'ju:ʒuәl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/usual-v1.webp"
     },
     {
       "id": "en-g3-343",
@@ -3432,7 +3432,7 @@
       "phonetic": "raund",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/round-v1.webp"
     },
     {
       "id": "en-g3-344",
@@ -3442,7 +3442,7 @@
       "phonetic": "smel",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/smell-v1.webp"
     },
     {
       "id": "en-g3-345",
@@ -3452,7 +3452,7 @@
       "phonetic": "'tauә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/tower-v1.webp"
     },
     {
       "id": "en-g3-346",
@@ -3462,7 +3462,7 @@
       "phonetic": "smәuk",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/smoke-v1.webp"
     },
     {
       "id": "en-g3-347",
@@ -3472,7 +3472,7 @@
       "phonetic": "kәust",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/coast-v1.webp"
     },
     {
       "id": "en-g3-348",
@@ -3482,7 +3482,7 @@
       "phonetic": "swiŋ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/swing-v1.webp"
     },
     {
       "id": "en-g3-349",
@@ -3492,7 +3492,7 @@
       "phonetic": "fifθ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/fifth-v1.webp"
     },
     {
       "id": "en-g3-350",
@@ -3502,37 +3502,37 @@
       "phonetic": "wei",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/weigh-v1.webp"
     },
     {
       "id": "en-g3-351",
       "grade": 3,
       "word": "sweep",
-      "meaning": "扫除",
+      "meaning": "打掃",
       "phonetic": "swi:p",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sweep-v1.webp"
     },
     {
       "id": "en-g3-352",
       "grade": 3,
       "word": "blind",
-      "meaning": "蒙蔽物",
+      "meaning": "失明的",
       "phonetic": "blaind",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/blind-v1.webp"
     },
     {
       "id": "en-g3-353",
       "grade": 3,
       "word": "salad",
-      "meaning": "色拉",
+      "meaning": "沙拉",
       "phonetic": "'sælәd",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/salad-v1.webp"
     },
     {
       "id": "en-g3-354",
@@ -3542,7 +3542,7 @@
       "phonetic": "praid",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/pride-v1.webp"
     },
     {
       "id": "en-g3-355",
@@ -3552,7 +3552,7 @@
       "phonetic": "ri'læks",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/relax-v1.webp"
     },
     {
       "id": "en-g3-356",
@@ -3562,7 +3562,7 @@
       "phonetic": "'dә:ti",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/dirty-v1.webp"
     },
     {
       "id": "en-g3-357",
@@ -3572,7 +3572,7 @@
       "phonetic": "ʃelf",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/shelf-v1.webp"
     },
     {
       "id": "en-g3-358",
@@ -3582,7 +3582,7 @@
       "phonetic": "'ræpid",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/rapid-v1.webp"
     },
     {
       "id": "en-g3-359",
@@ -3592,7 +3592,7 @@
       "phonetic": "'fifti",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/fifty-v1.webp"
     },
     {
       "id": "en-g3-360",
@@ -3602,7 +3602,7 @@
       "phonetic": "glʌv",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/glove-v1.webp"
     },
     {
       "id": "en-g3-361",
@@ -3612,7 +3612,7 @@
       "phonetic": "juәz",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/yours-v1.webp"
     },
     {
       "id": "en-g3-362",
@@ -3622,7 +3622,7 @@
       "phonetic": "wu:nd",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/wound-v1.webp"
     },
     {
       "id": "en-g3-363",
@@ -3632,7 +3632,7 @@
       "phonetic": "brʌʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/brush-v1.webp"
     },
     {
       "id": "en-g3-364",
@@ -3652,7 +3652,7 @@
       "phonetic": "ʌŋkl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/uncle-v1.webp"
     },
     {
       "id": "en-g3-366",
@@ -3662,7 +3662,7 @@
       "phonetic": "ʃain",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/shine-v1.webp"
     },
     {
       "id": "en-g3-367",
@@ -3672,7 +3672,7 @@
       "phonetic": "'mædʒik",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/magic-v1.webp"
     },
     {
       "id": "en-g3-368",
@@ -3692,7 +3692,7 @@
       "phonetic": "mɑ:tʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/march-v1.webp"
     },
     {
       "id": "en-g3-370",
@@ -3702,7 +3702,7 @@
       "phonetic": "siksθ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sixth-v1.webp"
     },
     {
       "id": "en-g3-371",
@@ -3712,7 +3712,7 @@
       "phonetic": "plein",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/plain-v1.webp"
     },
     {
       "id": "en-g3-372",
@@ -3722,7 +3722,7 @@
       "phonetic": "'hʌri",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/hurry-v1.webp"
     },
     {
       "id": "en-g3-373",
@@ -3742,7 +3742,7 @@
       "phonetic": "'tauәl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/towel-v1.webp"
     },
     {
       "id": "en-g3-375",
@@ -3752,7 +3752,7 @@
       "phonetic": "praiz",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/prize-v1.webp"
     },
     {
       "id": "en-g3-376",
@@ -3762,7 +3762,7 @@
       "phonetic": "'fɒ:ti",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/forty-v1.webp"
     },
     {
       "id": "en-g3-377",
@@ -3772,7 +3772,7 @@
       "phonetic": "ʃeim",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/shame-v1.webp"
     },
     {
       "id": "en-g3-378",
@@ -3782,7 +3782,7 @@
       "phonetic": "'sili",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/silly-v1.webp"
     },
     {
       "id": "en-g3-379",
@@ -3792,7 +3792,7 @@
       "phonetic": "'eldә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/elder-v1.webp"
     },
     {
       "id": "en-g3-380",
@@ -3802,7 +3802,7 @@
       "phonetic": "hweil",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/whale-v1.webp"
     },
     {
       "id": "en-g3-381",
@@ -3812,7 +3812,7 @@
       "phonetic": "'daiәri",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/diary-v1.webp"
     },
     {
       "id": "en-g3-382",
@@ -3822,7 +3822,7 @@
       "phonetic": "pә:s",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/purse-v1.webp"
     },
     {
       "id": "en-g3-383",
@@ -3832,7 +3832,7 @@
       "phonetic": "tʃi:t",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/cheat-v1.webp"
     },
     {
       "id": "en-g3-384",
@@ -3842,7 +3842,7 @@
       "phonetic": "'fi:vә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/fever-v1.webp"
     },
     {
       "id": "en-g3-385",
@@ -3852,7 +3852,7 @@
       "phonetic": "hwi:t",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/wheat-v1.webp"
     },
     {
       "id": "en-g3-386",
@@ -3862,7 +3862,7 @@
       "phonetic": "spєә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/spare-v1.webp"
     },
     {
       "id": "en-g3-387",
@@ -3872,7 +3872,7 @@
       "phonetic": "tʃiә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/cheer-v1.webp"
     },
     {
       "id": "en-g3-388",
@@ -3882,7 +3882,7 @@
       "phonetic": "ә'weik",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/awake-v1.webp"
     },
     {
       "id": "en-g3-389",
@@ -3892,7 +3892,7 @@
       "phonetic": "'kru:әl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/cruel-v1.webp"
     },
     {
       "id": "en-g3-390",
@@ -3902,7 +3902,7 @@
       "phonetic": "breiv",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/brave-v1.webp"
     },
     {
       "id": "en-g3-391",
@@ -3922,7 +3922,7 @@
       "phonetic": "'pju:pl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/pupil-v1.webp"
     },
     {
       "id": "en-g3-393",
@@ -3932,7 +3932,7 @@
       "phonetic": "nainθ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/ninth-v1.webp"
     },
     {
       "id": "en-g3-394",
@@ -3962,7 +3962,7 @@
       "phonetic": "'siksti",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/sixty-v1.webp"
     },
     {
       "id": "en-g3-397",
@@ -3972,7 +3972,7 @@
       "phonetic": "ә'laud",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/aloud-v1.webp"
     },
     {
       "id": "en-g3-398",
@@ -3982,7 +3982,7 @@
       "phonetic": "skeit",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/skate-v1.webp"
     },
     {
       "id": "en-g3-399",
@@ -4002,7 +4002,7 @@
       "phonetic": "kɒf",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/cough-v1.webp"
     },
     {
       "id": "en-g3-401",
@@ -4012,7 +4012,7 @@
       "phonetic": "'hɒbi",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/hobby-v1.webp"
     },
     {
       "id": "en-g3-402",
@@ -4022,33 +4022,33 @@
       "phonetic": "fetʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/fetch-v1.webp"
     },
     {
       "id": "en-g3-403",
       "grade": 3,
       "word": "chant",
-      "meaning": "圣歌",
+      "meaning": "反覆吟唱",
       "phonetic": "tʃænt. tʃɑ:nt",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/chant-v1.webp"
     },
     {
       "id": "en-g3-404",
       "grade": 3,
       "word": "chess",
-      "meaning": "國际象棋",
+      "meaning": "西洋棋",
       "phonetic": "tʃes",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/chess-v1.webp"
     },
     {
       "id": "en-g3-405",
       "grade": 3,
       "word": "camel",
-      "meaning": "骆驼",
+      "meaning": "駱駝",
       "phonetic": "'kæml",
       "category": "生活",
       "emoji": "",
@@ -4062,7 +4062,7 @@
       "phonetic": "'reini",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/rainy-v1.webp"
     },
     {
       "id": "en-g3-407",
@@ -4072,7 +4072,7 @@
       "phonetic": "tenθ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/tenth-v1.webp"
     },
     {
       "id": "en-g3-408",
@@ -4082,7 +4082,7 @@
       "phonetic": "'tʃainә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/china-v1.webp"
     },
     {
       "id": "en-g3-409",
@@ -4092,27 +4092,27 @@
       "phonetic": "'windi",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/windy-v1.webp"
     },
     {
       "id": "en-g3-410",
       "grade": 3,
       "word": "clone",
-      "meaning": "无性系",
+      "meaning": "複製品",
       "phonetic": "klәun",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/clone-v1.webp"
     },
     {
       "id": "en-g3-411",
       "grade": 3,
       "word": "chalk",
-      "meaning": "粉笔",
+      "meaning": "粉筆",
       "phonetic": "tʃɒ:k",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/chalk-v1.webp"
     },
     {
       "id": "en-g3-412",
@@ -4122,7 +4122,7 @@
       "phonetic": "'snәui",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/snowy-v1.webp"
     },
     {
       "id": "en-g3-413",
@@ -4142,7 +4142,7 @@
       "phonetic": "'mædәm",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/madam-v1.webp"
     },
     {
       "id": "en-g3-415",
@@ -4152,7 +4152,7 @@
       "phonetic": "'eiprәl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/april-v1.webp"
     },
     {
       "id": "en-g3-416",
@@ -4162,7 +4162,7 @@
       "phonetic": "dʒә'pæn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/japan-v1.webp"
     },
     {
       "id": "en-g3-417",
@@ -4172,7 +4172,7 @@
       "phonetic": "'indjә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/india-v1.webp"
     },
     {
       "id": "en-g3-418",
@@ -4182,7 +4182,7 @@
       "phonetic": "'mi:tә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/metre-v1.webp"
     },
     {
       "id": "en-g3-419",
@@ -4192,7 +4192,7 @@
       "phonetic": "'peni",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/penny-v1.webp"
     },
     {
       "id": "en-g3-420",
@@ -4202,7 +4202,7 @@
       "phonetic": "pens",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/pence-v1.webp"
     },
     {
       "id": "en-g3-421",
@@ -4212,7 +4212,7 @@
       "phonetic": "'i:'meil",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/email-v1.webp"
     },
     {
       "id": "en-g3-422",
@@ -4232,7 +4232,7 @@
       "phonetic": "ʃud",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/should-v1.webp"
     },
     {
       "id": "en-g3-424",
@@ -4242,7 +4242,7 @@
       "phonetic": "bi'kʌm",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/become-v1.webp"
     },
     {
       "id": "en-g3-425",
@@ -4252,7 +4252,7 @@
       "phonetic": "'riәli",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/really-v1.webp"
     },
     {
       "id": "en-g3-426",
@@ -4262,7 +4262,7 @@
       "phonetic": "'djuәriŋ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/during-v1.webp"
     },
     {
       "id": "en-g3-427",
@@ -4272,7 +4272,7 @@
       "phonetic": "'ɒ:lweiz",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/always-v1.webp"
     },
     {
       "id": "en-g3-428",
@@ -4282,7 +4282,7 @@
       "phonetic": "'hæpәn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/happen-v1.webp"
     },
     {
       "id": "en-g3-429",
@@ -4292,7 +4292,7 @@
       "phonetic": "ðәu",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/though-v1.webp"
     },
     {
       "id": "en-g3-430",
@@ -4302,7 +4302,7 @@
       "phonetic": "ә'raund",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/around-v1.webp"
     },
     {
       "id": "en-g3-431",
@@ -4312,7 +4312,7 @@
       "phonetic": "'membә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/member-v1.webp"
     },
     {
       "id": "en-g3-432",
@@ -4322,7 +4322,7 @@
       "phonetic": "'ɒ:lmәust",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/almost-v1.webp"
     },
     {
       "id": "en-g3-433",
@@ -4332,7 +4332,7 @@
       "phonetic": "tʃeindʒ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/change-v1.webp"
     },
     {
       "id": "en-g3-434",
@@ -4342,7 +4342,7 @@
       "phonetic": "'minit. mai'nju:t",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/minute-v1.webp"
     },
     {
       "id": "en-g3-435",
@@ -4352,7 +4352,7 @@
       "phonetic": "'sәuʃәl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/social-v1.webp"
     },
     {
       "id": "en-g3-436",
@@ -4362,7 +4362,7 @@
       "phonetic": "'fɒlәu",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/follow-v1.webp"
     },
     {
       "id": "en-g3-437",
@@ -4382,7 +4382,7 @@
       "phonetic": "kri:'eit",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/create-v1.webp"
     },
     {
       "id": "en-g3-439",
@@ -4392,7 +4392,7 @@
       "phonetic": "'pʌblik",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/public-v1.webp"
     },
     {
       "id": "en-g3-440",
@@ -4402,7 +4402,7 @@
       "phonetic": "'ɒfis",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/office-v1.webp"
     },
     {
       "id": "en-g3-441",
@@ -4412,7 +4412,7 @@
       "phonetic": "'helθ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/health-v1.webp"
     },
     {
       "id": "en-g3-442",
@@ -4422,7 +4422,7 @@
       "phonetic": "'pә:sn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/person-v1.webp"
     },
     {
       "id": "en-g3-443",
@@ -4432,7 +4432,7 @@
       "phonetic": "ri'zʌlt",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/result-v1.webp"
     },
     {
       "id": "en-g3-444",
@@ -4442,7 +4442,7 @@
       "phonetic": "'ri:zn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/reason-v1.webp"
     },
     {
       "id": "en-g3-445",
@@ -4452,7 +4452,7 @@
       "phonetic": "'mәumәnt",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/moment-v1.webp"
     },
     {
       "id": "en-g3-446",
@@ -4462,7 +4462,7 @@
       "phonetic": "i'nʌf",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/enough-v1.webp"
     },
     {
       "id": "en-g3-447",
@@ -4472,7 +4472,7 @@
       "phonetic": "ә'krɒs",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/across-v1.webp"
     },
     {
       "id": "en-g3-448",
@@ -4482,7 +4482,7 @@
       "phonetic": "'sekәnd",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/second-v1.webp"
     },
     {
       "id": "en-g3-449",
@@ -4492,7 +4492,7 @@
       "phonetic": "tә'wɒ:d",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/toward-v1.webp"
     },
     {
       "id": "en-g3-450",
@@ -4502,7 +4502,7 @@
       "phonetic": "'pɒlisi",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/policy-v1.webp"
     },
     {
       "id": "en-g3-451",
@@ -4512,7 +4512,7 @@
       "phonetic": "ә'piә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/appear-v1.webp"
     },
     {
       "id": "en-g3-452",
@@ -4522,7 +4522,7 @@
       "phonetic": "'mɑ:kit",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/market-v1.webp"
     },
     {
       "id": "en-g3-453",
@@ -4532,7 +4532,7 @@
       "phonetic": "iks'pekt",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/expect-v1.webp"
     },
     {
       "id": "en-g3-454",
@@ -4542,7 +4542,7 @@
       "phonetic": "kɒ:s",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/course-v1.webp"
     },
     {
       "id": "en-g3-455",
@@ -4552,7 +4552,7 @@
       "phonetic": "bi'haind",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/behind-v1.webp"
     },
     {
       "id": "en-g3-456",
@@ -4562,7 +4562,7 @@
       "phonetic": "ri'mein",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/remain-v1.webp"
     },
     {
       "id": "en-g3-457",
@@ -4572,7 +4572,7 @@
       "phonetic": "ri'pɒ:t",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/report-v1.webp"
     },
     {
       "id": "en-g3-458",
@@ -4582,7 +4582,7 @@
       "phonetic": "'efәt",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/effort-v1.webp"
     },
     {
       "id": "en-g3-459",
@@ -4592,7 +4592,7 @@
       "phonetic": "di'said",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/decide-v1.webp"
     },
     {
       "id": "en-g3-460",
@@ -4602,7 +4602,7 @@
       "phonetic": "strɒŋ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/strong-v1.webp"
     },
     {
       "id": "en-g3-461",
@@ -4612,7 +4612,7 @@
       "phonetic": "'li:dә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/leader-v1.webp"
     },
     {
       "id": "en-g3-462",
@@ -4622,7 +4622,7 @@
       "phonetic": "pә'li:s",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/police-v1.webp"
     },
     {
       "id": "en-g3-463",
@@ -4632,7 +4632,7 @@
       "phonetic": "ri'tә:n",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/return-v1.webp"
     },
     {
       "id": "en-g3-464",
@@ -4642,7 +4642,7 @@
       "phonetic": "'ækʃәn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/action-v1.webp"
     },
     {
       "id": "en-g3-465",
@@ -4652,37 +4652,37 @@
       "phonetic": "'si:zn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/season-v1.webp"
     },
     {
       "id": "en-g3-466",
       "grade": 3,
       "word": "record",
-      "meaning": "記录",
+      "meaning": "記錄",
       "phonetic": "ri'kɒ:d",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/record-v1.webp"
     },
     {
       "id": "en-g3-467",
       "grade": 3,
       "word": "ground",
-      "meaning": "土地",
+      "meaning": "地面",
       "phonetic": "graund",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/ground-v1.webp"
     },
     {
       "id": "en-g3-468",
       "grade": 3,
       "word": "couple",
-      "meaning": "對",
+      "meaning": "一對",
       "phonetic": "'kʌpl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/couple-v1.webp"
     },
     {
       "id": "en-g3-469",
@@ -4692,17 +4692,17 @@
       "phonetic": "it'self",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/itself-v1.webp"
     },
     {
       "id": "en-g3-470",
       "grade": 3,
       "word": "either",
-      "meaning": "(兩者之中)任一的",
+      "meaning": "任一個",
       "phonetic": "'i:ðә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/either-v1.webp"
     },
     {
       "id": "en-g3-471",
@@ -4712,17 +4712,17 @@
       "phonetic": "'ri:snt",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/recent-v1.webp"
     },
     {
       "id": "en-g3-472",
       "grade": 3,
       "word": "doctor",
-      "meaning": "医生",
+      "meaning": "醫生",
       "phonetic": "'dɒktә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/doctor-v1.webp"
     },
     {
       "id": "en-g3-473",
@@ -4732,37 +4732,37 @@
       "phonetic": "'wә:kә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/worker-v1.webp"
     },
     {
       "id": "en-g3-474",
       "grade": 3,
       "word": "nearly",
-      "meaning": "几乎",
+      "meaning": "幾乎",
       "phonetic": "'niәli",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/nearly-v1.webp"
     },
     {
       "id": "en-g3-475",
       "grade": 3,
       "word": "choose",
-      "meaning": "选择",
+      "meaning": "選擇",
       "phonetic": "tʃu:z",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/choose-v1.webp"
     },
     {
       "id": "en-g3-476",
       "grade": 3,
       "word": "chance",
-      "meaning": "机會",
+      "meaning": "機會",
       "phonetic": "tʃæns. tʃɑ:ns",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/chance-v1.webp"
     },
     {
       "id": "en-g3-477",
@@ -4772,7 +4772,7 @@
       "phonetic": "'enәdʒi",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/energy-v1.webp"
     },
     {
       "id": "en-g3-478",
@@ -4782,7 +4782,7 @@
       "phonetic": "'piәriәd",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/period-v1.webp"
     },
     {
       "id": "en-g3-479",
@@ -4802,7 +4802,7 @@
       "phonetic": "'letә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/letter-v1.webp"
     },
     {
       "id": "en-g3-481",
@@ -4812,17 +4812,17 @@
       "phonetic": "tʃɒis",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/choice-v1.webp"
     },
     {
       "id": "en-g3-482",
       "grade": 3,
       "word": "single",
-      "meaning": "單身的",
+      "meaning": "單一的",
       "phonetic": "'siŋgl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/single-v1.webp"
     },
     {
       "id": "en-g3-483",
@@ -4832,7 +4832,7 @@
       "phonetic": "tʃә:tʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/church-v1.webp"
     },
     {
       "id": "en-g3-484",
@@ -4842,7 +4842,7 @@
       "phonetic": "'fju:tʃә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/future-v1.webp"
     },
     {
       "id": "en-g3-485",
@@ -4852,7 +4852,7 @@
       "phonetic": "'eniwʌn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/anyone-v1.webp"
     },
     {
       "id": "en-g3-486",
@@ -4862,7 +4862,7 @@
       "phonetic": "mai'self",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/myself-v1.webp"
     },
     {
       "id": "en-g3-487",
@@ -4872,17 +4872,17 @@
       "phonetic": "'neitʃә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/nature-v1.webp"
     },
     {
       "id": "en-g3-488",
       "grade": 3,
       "word": "common",
-      "meaning": "通常的",
+      "meaning": "常見的",
       "phonetic": "'kɒmәn",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/common-v1.webp"
     },
     {
       "id": "en-g3-489",
@@ -4892,7 +4892,7 @@
       "phonetic": "bi'jɒnd",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/beyond-v1.webp"
     },
     {
       "id": "en-g3-490",
@@ -4902,7 +4902,7 @@
       "phonetic": "'simpl",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/simple-v1.webp"
     },
     {
       "id": "en-g3-491",
@@ -4912,7 +4912,7 @@
       "phonetic": "әk'sept",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/accept-v1.webp"
     },
     {
       "id": "en-g3-492",
@@ -4922,17 +4922,17 @@
       "phonetic": "di'gri:",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/degree-v1.webp"
     },
     {
       "id": "en-g3-493",
       "grade": 3,
       "word": "wonder",
-      "meaning": "奇迹",
+      "meaning": "驚奇",
       "phonetic": "'wʌndә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/wonder-v1.webp"
     },
     {
       "id": "en-g3-494",
@@ -4942,27 +4942,27 @@
       "phonetic": "'priti",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/pretty-v1.webp"
     },
     {
       "id": "en-g3-495",
       "grade": 3,
       "word": "arrive",
-      "meaning": "到达",
+      "meaning": "到達",
       "phonetic": "ә'raiv",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/arrive-v1.webp"
     },
     {
       "id": "en-g3-496",
       "grade": 3,
       "word": "rather",
-      "meaning": "宁可",
+      "meaning": "寧可",
       "phonetic": "'ræðә",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/rather-v1.webp"
     },
     {
       "id": "en-g3-497",
@@ -4972,17 +4972,17 @@
       "phonetic": "fә'get",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/forget-v1.webp"
     },
     {
       "id": "en-g3-498",
       "grade": 3,
       "word": "memory",
-      "meaning": "記忆",
+      "meaning": "記憶",
       "phonetic": "'memәri",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/memory-v1.webp"
     },
     {
       "id": "en-g3-499",
@@ -5002,7 +5002,7 @@
       "phonetic": "'finiʃ",
       "category": "生活",
       "emoji": "",
-      "image": "images/english-generated-v2/atlas-01.webp"
+      "image": "images/english-generated-v4/finish-v1.webp"
     }
   ]
 }
