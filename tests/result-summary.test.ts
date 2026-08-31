@@ -17,6 +17,16 @@ describe('Result summary', () => {
     expect(html).not.toContain('<p class="result-bonus">{{ resultBonusLabel }}</p>');
   });
 
+  it('matches weekly preflight rewards to the space-glass result style', () => {
+    expect(html).toContain('class="weekly-preflight-stats"');
+    expect(html).toContain('class="weekly-preflight-stat xp"');
+    expect(html).toContain('class="weekly-preflight-stat coin"');
+    expect(html).toContain('class="weekly-preflight-coin"');
+    expect(html).toContain('.weekly-preflight-stat{position:relative;overflow:hidden');
+    expect(html).toContain('--weekly-stat-value:#6effc4');
+    expect(html).toContain('--weekly-stat-value:#ffd96f');
+  });
+
   it('slows the complete result sequence by thirty percent', () => {
     expect(html).toContain('animation:resultCardIn .715s');
     expect(html).toContain('animation:resultStarPop .546s');
