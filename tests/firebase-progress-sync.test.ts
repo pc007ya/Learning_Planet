@@ -24,11 +24,23 @@ describe('Firebase student progress sync', () => {
     expect(app).toContain('function cloudProgressNumber(remote, key, fallbackValue)');
     expect(app).toContain('if (key === "xp") return Math.max');
     expect(app).toContain('verifiedProgressRecovery(remote)');
-    expect(app).toContain('gale-c302-s77-20260831');
+    expect(app).toContain('gale-c302-s77-20260831-v2');
+    expect(app).toContain('uidPrefix: "PTUBRMiMmQhu2K"');
+    expect(app).toContain('uid.startsWith(entry.uidPrefix)');
     expect(firebaseClient).toContain('runTransaction(db, async (transaction) =>');
     expect(firebaseClient).toContain('const protectedXp = Math.max(0, ...existingXpValues, ...requestedXpValues);');
     expect(firebaseClient).toContain('patch.profile = { ...(patch.profile || {}), xp: protectedXp };');
     expect(app).not.toContain('Number(remote.xp ?? remote.profile?.xp) || 0');
+  });
+
+  it('restores signed-in student account and password controls on the profile page', () => {
+    expect(app).toContain('class="profile-account-card"');
+    expect(app).toContain('學員帳號');
+    expect(app).toContain('變更密碼');
+    expect(app).toContain('changeCurrentStudentPassword()');
+    expect(app).toContain('await authV2.changeMyPassword(newPassword)');
+    expect(app).toContain('this.patch({ passwordCustomized: true });');
+    expect(app).not.toContain('profile.loginPassword =');
   });
 
   it('retries every ten minutes and when the page is backgrounded', () => {

@@ -295,6 +295,19 @@
   .profile-name-field { display:grid;gap:7px;color:#8feaff;font-size:12px;font-weight:900; }
   .profile-name-field input { width:100%;box-sizing:border-box;border:1px solid rgba(124,227,255,.4);border-radius:15px;padding:12px 14px;background:rgba(255,255,255,.09);color:#fff;font:900 15px/1.2 inherit;outline:none;text-transform:uppercase; }
   .profile-name-field input:focus { border-color:#69edff;box-shadow:0 0 0 3px rgba(74,225,255,.15); }
+  .profile-account-card { margin-top:16px;padding:14px;border:1px solid rgba(124,227,255,.3);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(80,111,205,.08));box-shadow:inset 0 1px 0 rgba(255,255,255,.12); }
+  .profile-account-title { margin:0 0 11px;color:#8feaff;font-size:12px;font-weight:950;letter-spacing:.08em; }
+  .profile-account-note { margin:7px 0 0;color:#91aac7;font-size:11px;font-weight:750;line-height:1.5; }
+  .profile-password-grid { display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px; }
+  .profile-credential-field { display:grid;gap:6px;color:#c8ecff;font-size:11px;font-weight:900; }
+  .profile-credential-control { display:flex;align-items:center;border:1px solid rgba(124,227,255,.36);border-radius:13px;background:rgba(2,12,38,.42);overflow:hidden; }
+  .profile-credential-control:focus-within { border-color:#69edff;box-shadow:0 0 0 3px rgba(74,225,255,.13); }
+  .profile-credential-control input { width:100%;min-width:0;border:0;padding:11px 12px;background:transparent;color:#fff;font:850 13px/1.2 inherit;outline:none; }
+  .profile-credential-control input[readonly] { color:#a9bed5;cursor:not-allowed; }
+  .profile-password-toggle { align-self:stretch;border:0!important;border-left:1px solid rgba(124,227,255,.2)!important;border-radius:0!important;padding:0 11px!important;background:rgba(255,255,255,.06)!important;color:#9defff!important;font:900 11px/1 inherit!important;cursor:pointer; }
+  .profile-password-error { min-height:17px;margin:8px 0 0!important;color:#ffadc0!important;font-size:11px!important;font-weight:850!important; }
+  .profile-password-submit { width:100%;margin-top:4px;border:1px solid rgba(126,240,255,.45)!important;border-radius:13px!important;padding:11px!important;background:linear-gradient(90deg,rgba(115,87,255,.88),rgba(34,200,216,.88))!important;color:#fff!important;font:950 13px/1 inherit!important;cursor:pointer; }
+  .profile-password-submit:disabled { opacity:.5;cursor:wait; }
   .profile-section-label { margin:16px 0 8px;color:#8feaff;font-size:12px;font-weight:950;letter-spacing:.08em; }
   .profile-theme-grid { display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px; }
   .profile-theme-option { border:1px solid rgba(126,225,255,.35)!important;border-radius:13px!important;padding:10px 4px!important;background:rgba(255,255,255,.08)!important;color:#dffaff!important;font:950 13px/1 inherit!important;cursor:pointer; }
@@ -303,7 +316,7 @@
   .profile-avatar-option { aspect-ratio:1;border:2px solid rgba(255,255,255,.14)!important;border-radius:13px!important;padding:0!important;cursor:pointer;background-size:441.38% 662.07%!important;box-shadow:none!important; }
   .profile-avatar-option.active { border-color:#ffe36f!important;box-shadow:0 0 0 2px rgba(255,227,111,.22),0 0 16px rgba(95,227,255,.35)!important;transform:translateY(-2px); }
   .profile-done { width:100%;margin-top:16px;border:0!important;border-radius:16px!important;padding:13px!important;background:linear-gradient(90deg,#7357ff,#22c8d8)!important;color:#fff!important;font:950 15px/1 inherit!important;cursor:pointer; }
-  @media(max-width:760px){.login-space{overflow:auto;place-items:start center}.login-space-head{flex-wrap:wrap}.login-brand-full{width:min(72vw,340px)}.login-hud{max-height:none}.login-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.login-student-card{grid-template-columns:62px minmax(0,1fr);padding-inline:10px!important}.login-card-avatar{width:58px;height:66px}.login-teacher-satellite{position:fixed}.student-profile-page{grid-template-columns:1fr;align-items:start}.student-id-card{min-height:360px}.profile-editor-panel{max-height:none}.profile-avatar-grid{grid-template-columns:repeat(6,minmax(0,1fr))}}
+  @media(max-width:760px){.login-space{overflow:auto;place-items:start center}.login-space-head{flex-wrap:wrap}.login-brand-full{width:min(72vw,340px)}.login-hud{max-height:none}.login-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.login-student-card{grid-template-columns:62px minmax(0,1fr);padding-inline:10px!important}.login-card-avatar{width:58px;height:66px}.login-teacher-satellite{position:fixed}.student-profile-page{grid-template-columns:1fr;align-items:start}.student-id-card{min-height:360px}.profile-editor-panel{max-height:none}.profile-avatar-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.profile-password-grid{grid-template-columns:1fr}}
   @media(max-width:560px){.login-roster-grid{grid-template-columns:1fr}}
   @media(prefers-reduced-motion:reduce){.login-cat-flyby,.login-dog-flyby{display:none}.login-space.launching .login-launch-rocket{animation-duration:3s}}
 
@@ -1321,6 +1334,23 @@
           <label class="profile-name-field">英文姓名
             <input type="text" maxlength="30" value="{{ profileEnglishName }}" onInput="{{ updateProfileEnglishName }}" aria-label="英文姓名">
           </label>
+          <section class="profile-account-card" aria-label="帳號與密碼">
+            <p class="profile-account-title">帳號與密碼</p>
+            <label class="profile-credential-field">學員帳號
+              <span class="profile-credential-control"><input type="text" value="{{ profileLoginAccount }}" readonly aria-label="學員帳號"></span>
+            </label>
+            <p class="profile-account-note">帳號由管理者維護；如需變更帳號，請聯絡老師。</p>
+            <div class="profile-password-grid">
+              <label class="profile-credential-field">新密碼
+                <span class="profile-credential-control"><input type="{{ profileNewPasswordType }}" minlength="6" autocomplete="new-password" value="{{ profileNewPassword }}" onInput="{{ updateProfileNewPassword }}" aria-label="新密碼"><button type="button" class="profile-password-toggle" onClick="{{ toggleProfileNewPassword }}">{{ profileNewPasswordToggleLabel }}</button></span>
+              </label>
+              <label class="profile-credential-field">確認新密碼
+                <span class="profile-credential-control"><input type="{{ profileConfirmPasswordType }}" minlength="6" autocomplete="new-password" value="{{ profileConfirmPassword }}" onInput="{{ updateProfileConfirmPassword }}" aria-label="確認新密碼"><button type="button" class="profile-password-toggle" onClick="{{ toggleProfileConfirmPassword }}">{{ profileConfirmPasswordToggleLabel }}</button></span>
+              </label>
+            </div>
+            <p class="profile-password-error" role="alert">{{ profilePasswordError }}</p>
+            <button class="profile-password-submit" disabled="{{ profilePasswordBusy }}" onClick="{{ submitProfilePassword }}">{{ profilePasswordSubmitLabel }}</button>
+          </section>
           <p class="profile-section-label">學員卡款式</p>
           <div class="profile-theme-grid" aria-label="選擇學員卡款式">
             <sc-for list="{{ profileCardThemes }}" as="t" hint-placeholder-count="6">
@@ -5196,7 +5226,7 @@ function makeProfile() {
   };
 }
 const VERIFIED_PROGRESS_RECOVERIES = [
-  { id: "gale-c302-s77-20260831", displayName: "gale", classId: "c302", seat: "77", xp: 456, coins: 201 },
+  { id: "gale-c302-s77-20260831-v2", uidPrefix: "PTUBRMiMmQhu2K", displayName: "gale", classId: "302", seat: "77", xp: 456, coins: 201 },
 ];
 function finiteProgressNumber(value) {
   const number = Number(value);
@@ -5216,11 +5246,12 @@ function cloudProgressNumber(remote, key, fallbackValue) {
 }
 function verifiedProgressRecovery(remote) {
   if (!remote) return null;
+  const uid = String(remote.id || "").trim();
   const displayName = String(remote.displayName || "").trim().toLowerCase();
-  const classId = String(remote.classId || "").trim().toLowerCase();
+  const classId = String(remote.classId || "").trim().toLowerCase().replace(/^c/, "");
   const seat = String(remote.seat || "").trim();
-  return VERIFIED_PROGRESS_RECOVERIES.find((entry) => entry.displayName === displayName
-    && entry.classId === classId && entry.seat === seat
+  return VERIFIED_PROGRESS_RECOVERIES.find((entry) => (uid.startsWith(entry.uidPrefix)
+      || (entry.displayName === displayName && entry.classId === classId && entry.seat === seat))
     && (!remote.profile || remote.profile.progressRecoveryId !== entry.id)
     && cloudProgressNumber(remote, "xp", 0) === 0
     && cloudProgressNumber(remote, "coins", 0) === 0) || null;
@@ -5483,8 +5514,10 @@ class Component extends DCLogic {
     teacherLoginOpen: false, teacherLoginAccount: "", teacherLoginPassword: "", teacherLoginError: "",
     passwordRecoveryOpen: false, passwordRecoveryRole: "student", passwordRecoveryAccount: "",
     passwordRecoveryNew: "", passwordRecoveryConfirm: "", passwordRecoveryError: "", passwordRecoveryBusy: false,
+    profileNewPassword: "", profileConfirmPassword: "", profilePasswordError: "", profilePasswordBusy: false,
     showStudentLoginPassword: false, showTeacherLoginPassword: false,
     showPasswordRecoveryNew: false, showPasswordRecoveryConfirm: false,
+    showProfileNewPassword: false, showProfileConfirmPassword: false,
     showEditTeacherPassword: false, showNewTeacherPassword: false,
     teacherConfig: INITIAL_TEACHER_CONFIG,
     currentTeacherId: "", editingTeacherId: INITIAL_TEACHER_CONFIG.teachers[0].id,
@@ -6042,6 +6075,46 @@ class Component extends DCLogic {
     } catch (err) {
       console.error("Binding error:", err);
       this.flash("綁定失敗：" + firebaseGoogleLinkErrorMessage(err));
+    }
+  }
+
+  async changeCurrentStudentPassword() {
+    if (this.state.profilePasswordBusy) return;
+    const student = this.cur();
+    const newPassword = String(this.state.profileNewPassword || "");
+    const confirmation = String(this.state.profileConfirmPassword || "");
+    if (!student || student.profile && student.profile.demoAccount) {
+      this.setState({ profilePasswordError: "DEMO 體驗帳號不能變更密碼。" });
+      return;
+    }
+    if (newPassword.length < 6) {
+      this.setState({ profilePasswordError: "新密碼至少需要 6 碼。" });
+      return;
+    }
+    if (newPassword !== confirmation) {
+      this.setState({ profilePasswordError: "兩次輸入的新密碼不一致。" });
+      return;
+    }
+    const authV2 = window.LearningPlanetAuthV2;
+    if (!authV2 || !authV2.changeMyPassword || !authV2.auth || !authV2.auth.currentUser) {
+      this.setState({ profilePasswordError: "密碼變更服務尚未就緒，請重新登入後再試。" });
+      return;
+    }
+    this.setState({ profilePasswordBusy: true, profilePasswordError: "" });
+    try {
+      await authV2.changeMyPassword(newPassword);
+      this.patch({ passwordCustomized: true });
+      this.setState({
+        profileNewPassword: "", profileConfirmPassword: "", profilePasswordError: "", profilePasswordBusy: false,
+        showProfileNewPassword: false, showProfileConfirmPassword: false
+      });
+      this.flash("密碼已更新，下次請使用新密碼登入。");
+    } catch (error) {
+      const code = String(error && error.code || "").toLowerCase();
+      const message = code.includes("requires-recent-login")
+        ? "為保護帳號，請登出後重新登入，再變更密碼。"
+        : (error && error.message ? String(error.message).replace(/^Firebase:\s*/i, "") : "無法變更密碼，請稍後再試。");
+      this.setState({ profilePasswordBusy: false, profilePasswordError: message });
     }
   }
 
@@ -10915,6 +10988,21 @@ class Component extends DCLogic {
       profileCardBackground: studentCardBackground(p),
       profileChineseName: me ? me.name : "",
       profileEnglishName: profileIdentity.englishName,
+      profileLoginAccount: me ? studentLoginAccount(me) : "",
+      profileNewPassword: s.profileNewPassword,
+      profileConfirmPassword: s.profileConfirmPassword,
+      profilePasswordError: s.profilePasswordError,
+      profilePasswordBusy: s.profilePasswordBusy,
+      profileNewPasswordType: s.showProfileNewPassword ? "text" : "password",
+      profileConfirmPasswordType: s.showProfileConfirmPassword ? "text" : "password",
+      profileNewPasswordToggleLabel: s.showProfileNewPassword ? "隱藏" : "顯示",
+      profileConfirmPasswordToggleLabel: s.showProfileConfirmPassword ? "隱藏" : "顯示",
+      profilePasswordSubmitLabel: s.profilePasswordBusy ? "更新中…" : "變更密碼",
+      updateProfileNewPassword: (event) => this.setState({ profileNewPassword: event.target.value, profilePasswordError: "" }),
+      updateProfileConfirmPassword: (event) => this.setState({ profileConfirmPassword: event.target.value, profilePasswordError: "" }),
+      toggleProfileNewPassword: () => this.setState({ showProfileNewPassword: !s.showProfileNewPassword }),
+      toggleProfileConfirmPassword: () => this.setState({ showProfileConfirmPassword: !s.showProfileConfirmPassword }),
+      submitProfilePassword: () => this.changeCurrentStudentPassword(),
       profileClassZh: profileIdentity.classZh,
       profileClassEn: profileIdentity.classEn,
       profileAvatarOptions: Array.from({ length: 24 }, (_, index) => ({
