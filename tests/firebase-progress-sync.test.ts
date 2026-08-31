@@ -20,6 +20,17 @@ describe('Firebase student progress sync', () => {
     expect(app).toContain('profile, avatar: studentAvatarImage(profile.cardAvatarIndex)');
   });
 
+  it('does not let legacy zero mirrors erase progress and protects XP from decreasing', () => {
+    expect(app).toContain('function cloudProgressNumber(remote, key, fallbackValue)');
+    expect(app).toContain('if (key === "xp") return Math.max');
+    expect(app).toContain('verifiedProgressRecovery(remote)');
+    expect(app).toContain('gale-c302-s77-20260831');
+    expect(firebaseClient).toContain('runTransaction(db, async (transaction) =>');
+    expect(firebaseClient).toContain('const protectedXp = Math.max(0, ...existingXpValues, ...requestedXpValues);');
+    expect(firebaseClient).toContain('patch.profile = { ...(patch.profile || {}), xp: protectedXp };');
+    expect(app).not.toContain('Number(remote.xp ?? remote.profile?.xp) || 0');
+  });
+
   it('retries every ten minutes and when the page is backgrounded', () => {
     expect(app).toContain('10 * 60 * 1000');
     expect(app).toContain('document.visibilityState === "hidden"');

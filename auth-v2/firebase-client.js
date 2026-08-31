@@ -20,6 +20,7 @@ import {
   query,
   where,
   onSnapshot,
+  runTransaction,
   serverTimestamp
 } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
 import { getFunctions, httpsCallable } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-functions.js';
@@ -220,7 +221,19 @@ export async function saveMyStudentProgress(progress = {}) {
   const allowed = ['xp', 'coins', 'inventory', 'profile', 'avatar', 'lastLoginAt'];
   const patch = { updatedAt: serverTimestamp() };
   allowed.forEach((key) => { if (Object.prototype.hasOwnProperty.call(progress, key)) patch[key] = progress[key]; });
-  await setDoc(doc(db, 'students', auth.currentUser.uid), patch, { merge: true });
+  const studentRef = doc(db, 'students', auth.currentUser.uid);
+  await runTransaction(db, async (transaction) => {
+    const snap = await transaction.get(studentRef);
+    const current = snap.exists() ? snap.data() : {};
+    const existingXpValues = [current.xp, current.profile?.xp].map(Number).filter((value) => Number.isFinite(value) && value >= 0);
+    const requestedXpValues = [patch.xp, patch.profile?.xp].map(Number).filter((value) => Number.isFinite(value) && value >= 0);
+    const protectedXp = Math.max(0, ...existingXpValues, ...requestedXpValues);
+    if (Object.prototype.hasOwnProperty.call(patch, 'xp') || Object.prototype.hasOwnProperty.call(patch, 'profile')) {
+      patch.xp = protectedXp;
+      patch.profile = { ...(patch.profile || {}), xp: protectedXp };
+    }
+    transaction.set(studentRef, patch, { merge: true });
+  });
   return { saved: true };
 }
 

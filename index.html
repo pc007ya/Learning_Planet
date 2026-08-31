@@ -5195,6 +5195,36 @@ function makeProfile() {
     loginAccount: "", lastLoginAt: "", passwordCustomized: null,
   };
 }
+const VERIFIED_PROGRESS_RECOVERIES = [
+  { id: "gale-c302-s77-20260831", displayName: "gale", classId: "c302", seat: "77", xp: 456, coins: 201 },
+];
+function finiteProgressNumber(value) {
+  const number = Number(value);
+  return Number.isFinite(number) && number >= 0 ? number : null;
+}
+function cloudProgressNumber(remote, key, fallbackValue) {
+  const nested = finiteProgressNumber(remote && remote.profile && remote.profile[key]);
+  const topLevel = finiteProgressNumber(remote && remote[key]);
+  const fallback = finiteProgressNumber(fallbackValue);
+  // XP never decreases.  Taking the greatest known copy also repairs legacy
+  // documents whose top-level XP was initialized to zero before full-profile
+  // synchronization existed.
+  if (key === "xp") return Math.max(nested ?? 0, topLevel ?? 0, fallback ?? 0);
+  // Spendable balances may legitimately decrease, so the versioned full
+  // profile is canonical; use the denormalized top-level value only as backup.
+  return nested ?? topLevel ?? fallback ?? 0;
+}
+function verifiedProgressRecovery(remote) {
+  if (!remote) return null;
+  const displayName = String(remote.displayName || "").trim().toLowerCase();
+  const classId = String(remote.classId || "").trim().toLowerCase();
+  const seat = String(remote.seat || "").trim();
+  return VERIFIED_PROGRESS_RECOVERIES.find((entry) => entry.displayName === displayName
+    && entry.classId === classId && entry.seat === seat
+    && (!remote.profile || remote.profile.progressRecoveryId !== entry.id)
+    && cloudProgressNumber(remote, "xp", 0) === 0
+    && cloudProgressNumber(remote, "coins", 0) === 0) || null;
+}
 function achievedMilestoneEntries(profile) {
   const p = profile || {}, level = Math.floor((Number(p.xp) || 0) / 100) + 1;
   const levelTier = Math.floor(level / 5) * 5;
@@ -5875,6 +5905,7 @@ class Component extends DCLogic {
     try {
       await authV2.passwordLogin(account, password, "student");
       const remote = await authV2.loadMyProfile();
+      const verifiedRecovery = verifiedProgressRecovery(remote);
       await authV2.touchProfileLogin();
       let student = this.state.students.find((candidate) => studentLoginAccount(candidate).toLowerCase() === account);
       // A learner can still enter from a new device before an administrator
@@ -5882,14 +5913,15 @@ class Component extends DCLogic {
       // document, never from the class roster or another learner's data.
       if (!student && remote) {
         const profile = Object.assign(makeProfile(), remote.profile || {}, {
-          xp: Number(remote.xp ?? remote.profile?.xp) || 0,
-          coins: Number(remote.coins ?? remote.profile?.coins) || 0,
+          xp: verifiedRecovery ? verifiedRecovery.xp : cloudProgressNumber(remote, "xp", 0),
+          coins: verifiedRecovery ? verifiedRecovery.coins : cloudProgressNumber(remote, "coins", 0),
           owned: remote.inventory && Array.isArray(remote.inventory.owned) ? remote.inventory.owned : (remote.profile && remote.profile.owned) || BASE_OWNED.slice(),
           equipped: remote.inventory && remote.inventory.equipped ? remote.inventory.equipped : (remote.profile && remote.profile.equipped) || Object.assign({}, BASE_EQUIP),
           loginAccount: remote.username || account,
           cloudUid: authV2.auth.currentUser.uid,
           email: remote.googleEmail || "",
-          lastLoginAt: new Date().toISOString()
+          lastLoginAt: new Date().toISOString(),
+          progressRecoveryId: verifiedRecovery ? verifiedRecovery.id : (remote.profile && remote.profile.progressRecoveryId || "")
         });
         student = {
           id: "cloud-" + authV2.auth.currentUser.uid,
@@ -5905,10 +5937,11 @@ class Component extends DCLogic {
       this.setState((state) => {
         const mergeStudent = (candidate) => Object.assign({}, candidate, {
           profile: Object.assign({}, candidate.profile, remote && remote.profile || {}, remote ? {
-            xp: Number(remote.xp ?? remote.profile?.xp) || 0,
-            coins: Number(remote.coins ?? remote.profile?.coins) || 0,
+            xp: verifiedRecovery ? verifiedRecovery.xp : cloudProgressNumber(remote, "xp", candidate.profile.xp),
+            coins: verifiedRecovery ? verifiedRecovery.coins : cloudProgressNumber(remote, "coins", candidate.profile.coins),
             owned: remote.inventory && Array.isArray(remote.inventory.owned) ? remote.inventory.owned : (remote.profile && remote.profile.owned) || candidate.profile.owned,
             equipped: remote.inventory && remote.inventory.equipped ? remote.inventory.equipped : (remote.profile && remote.profile.equipped) || candidate.profile.equipped,
+            progressRecoveryId: verifiedRecovery ? verifiedRecovery.id : (remote.profile && remote.profile.progressRecoveryId || candidate.profile.progressRecoveryId || ""),
           } : {}, {
             cloudUid: authV2.auth.currentUser.uid,
             googleUid: remote && remote.googleLinked ? authV2.auth.currentUser.uid : (candidate.profile.googleUid || ""),
