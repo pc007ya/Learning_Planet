@@ -4366,6 +4366,17 @@ function mathRobotGuidance(question, state) {
   if (["shape", "shapeGrid"].includes(question.fig)) return "導航任務：找出邊和角的特徵，再比對答案。";
   return "導航任務：圈出已知條件，再找最符合的答案。";
 }
+function mathPresenterHintAudio(question) {
+  const base = "audio/math-presenter/v1/";
+  if (!question) return base + "hint-generic-v1.mp3";
+  if (["dots", "baskets", "groups"].includes(question.fig)) return base + "hint-counting-v1.mp3";
+  if (question.fig === "clock") return base + "hint-clock-v1.mp3";
+  if (["shape", "shapeGrid"].includes(question.fig)) return base + "hint-shape-v1.mp3";
+  if (question.fig === "line") return base + "hint-line-v1.mp3";
+  if (question.fig === "weight") return base + "hint-weight-v1.mp3";
+  if (question.fig === "columns") return base + "hint-columns-v1.mp3";
+  return base + "hint-generic-v1.mp3";
+}
 function mathAnswerSlotKind(question, option) {
   if (option && typeof option === "object" && option.type) return String(option.type);
   const label = answerOptionLabel(option);
@@ -5814,6 +5825,7 @@ class Component extends DCLogic {
     document.removeEventListener("pointermove", this.vertPointerMove);
     document.removeEventListener("pointerup", this.vertPointerUp);
     this.removeVertGhost();
+    if (this.presenterVoiceAudio) { this.presenterVoiceAudio.pause(); this.presenterVoiceAudio.currentTime = 0; }
     if (typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
   }
 
@@ -9528,6 +9540,25 @@ class Component extends DCLogic {
     if (onDone) { u.onend = onDone; u.onerror = onDone; }
     speechSynthesis.cancel(); speechSynthesis.speak(u);
   }
+  playPresenterVoice(source, fallbackText) {
+    if (this.state.speechMuted) return;
+    if (this.presenterVoiceAudio) {
+      this.presenterVoiceAudio.pause();
+      this.presenterVoiceAudio.currentTime = 0;
+    }
+    if (typeof Audio === "undefined" || !source) { this.speakText(fallbackText); return; }
+    if (typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
+    const audio = new Audio(source);
+    this.presenterVoiceAudio = audio;
+    let fellBack = false;
+    const fallback = () => {
+      if (fellBack || this.presenterVoiceAudio !== audio) return;
+      fellBack = true;
+      this.speakText(fallbackText);
+    };
+    audio.onerror = fallback;
+    audio.play().catch(fallback);
+  }
   narrateAndAdvance(text, cb) {
     if (this.state.speechMuted || typeof speechSynthesis === "undefined") {
       const pause = Math.min(4200, 900 + String(text || "").length * 90);
@@ -9547,6 +9578,7 @@ class Component extends DCLogic {
     const muted = !this.state.speechMuted;
     saveSpeechMuted(muted);
     if (muted && typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
+    if (muted && this.presenterVoiceAudio) { this.presenterVoiceAudio.pause(); this.presenterVoiceAudio.currentTime = 0; }
     this.setState({ speechMuted: muted });
   }
 
@@ -10092,6 +10124,7 @@ class Component extends DCLogic {
     const mathPresenterWelcoming = !s.locked && (s.mathChoice === null || s.mathChoice === undefined) && s.timeLeft >= mathQuestionSeconds - 2;
     const mathPresenterClass = s.locked ? (s.lastRight ? "is-correct" : "is-wrong") : (s.mathChoice !== null && s.mathChoice !== undefined) ? "is-ready" : mathPresenterWelcoming ? "is-welcome" : s.timeLeft <= 5 ? "is-urgent" : "is-thinking";
     const mathPresenterLead = s.locked ? (s.lastRight ? "答對了，太棒了！" : "沒關係，我們再試一次") : (s.mathChoice !== null && s.mathChoice !== undefined) ? "答案收到，準備確認" : mathPresenterWelcoming ? "歡迎登艦，一起解題！" : s.timeLeft <= 5 ? "先排除不可能的選項" : "主播提示";
+    const mathPresenterAudio = s.locked ? (s.lastRight ? "audio/math-presenter/v1/correct-v1.mp3" : "audio/math-presenter/v1/wrong-v1.mp3") : (s.mathChoice !== null && s.mathChoice !== undefined) ? "audio/math-presenter/v1/ready-v1.mp3" : mathPresenterWelcoming ? "audio/math-presenter/v1/welcome-v1.mp3" : s.timeLeft <= 5 ? "audio/math-presenter/v1/urgent-v1.mp3" : mathPresenterHintAudio(q);
     const moduleWorldSubject = (s.screen === "quiz" || s.screen === "result") ? (s.quizSubject || s.subject) : s.subject;
     const isCosmosHub = ["signin", "rank", "achieve"].includes(s.screen);
     const profileIdentity = me ? studentIdentityCard(me) : { englishName: "", classZh: "", classEn: "" };
@@ -11101,7 +11134,7 @@ class Component extends DCLogic {
       mathHint: mathHintText,
       mathPresenterClass,
       mathPresenterLead,
-      mathPresenterSpeak: () => this.speakText(mathPresenterLead + "。" + mathRobotDialogue),
+      mathPresenterSpeak: () => this.playPresenterVoice(mathPresenterAudio, mathPresenterLead + "。" + mathRobotDialogue),
       mathAnalysisPending: isMathMaster && !s.locked,
       mathAnalysisOpen: isMathMaster && s.locked,
       mathAnalysisClass: s.locked ? (s.lastRight ? "is-correct" : "is-wrong") : "is-pending",

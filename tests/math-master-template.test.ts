@@ -78,6 +78,16 @@ describe('Math Master Template', () => {
     expect(html).toContain('background:transparent!important;box-shadow:none!important');
   });
 
+  it('uses recorded HsiaoChen presenter lines with type-specific hints', () => {
+    const clips = ['welcome', 'ready', 'correct', 'wrong', 'urgent', 'hint-counting', 'hint-clock', 'hint-columns', 'hint-shape', 'hint-line', 'hint-weight', 'hint-generic'];
+    for (const clip of clips) {
+      expect(existsSync(new URL(`../audio/math-presenter/v1/${clip}-v1.mp3`, import.meta.url))).toBe(true);
+    }
+    expect(html).toContain('function mathPresenterHintAudio(question)');
+    expect(html).toContain('this.playPresenterVoice(mathPresenterAudio');
+    expect(html).toContain('if (this.presenterVoiceAudio)');
+  });
+
   it('retains the existing science confirmation and classic feedback paths', () => {
     expect(html).toContain('confirmSciAnswer()');
     expect(html).toContain('showSciConfirm:');
