@@ -27,6 +27,16 @@ describe('Result summary', () => {
     expect(html).toContain('--weekly-stat-value:#ffd96f');
   });
 
+  it('keeps weekly result review readable and return actions always available', () => {
+    expect(html).toContain('class="weekly-review-card {{ row.className }}"');
+    expect(html).toContain('className: row.correct ? "is-correct" : "is-wrong"');
+    expect(html).toContain('class="weekly-review-answer"');
+    expect(html).toContain('class="weekly-review-explain"');
+    expect(html).toContain('class="weekly-result-footer"');
+    expect(html).toContain('<span>返回學習星球</span>');
+    expect(html).toContain('<p class="result-bonus">基礎獎勵 ＋{{ weeklyBaseXp }} XP　·　高分加成 ＋{{ weeklyBonusXp }} XP</p>\n          <div class="result-actions">');
+  });
+
   it('slows the complete result sequence by thirty percent', () => {
     expect(html).toContain('animation:resultCardIn .715s');
     expect(html).toContain('animation:resultStarPop .546s');
