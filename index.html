@@ -5580,77 +5580,47 @@ class Component extends DCLogic {
   }
   cloudRosterPayload() {
     return {
-      schemaVersion: 3,
+      schemaVersion: 4,
       classes: (this.state.classes || []).map((item) => Object.assign({}, item)),
-      // The roster is identity metadata only. Learning history belongs solely
-      // to students/{uid}; duplicating it here eventually breaches Firestore's
-      // single-document size limit and causes unnecessary writes.
-      students: (this.state.students || []).map((student) => {
-        const profile = student.profile || {};
-        return {
-          id: student.id,
-          cloudUid: profile.cloudUid || "",
-          name: student.name,
-          seat: student.seat,
-          classId: student.classId,
-          face: student.face || "",
-          tint: student.tint || "",
-          loginAccount: studentLoginAccount(student),
-          cardAvatarIndex: Math.max(0, Math.min(23, Number(profile.cardAvatarIndex) || 0)),
-          passwordCustomized: !!profile.passwordCustomized
-        };
-      }),
+      // Student identity is canonical in students/{uid}. Keeping another
+      // student array here caused stale browser data to erase whole classes.
       teachers: (this.state.teacherConfig.teachers || []).map((teacher) => ({ id: teacher.id, role: teacher.role, name: teacher.name, account: teacher.account, face: normalizeTeacherFace(teacher.face), tint: teacher.tint, googleUid: teacher.googleUid || "", email: teacher.email || "", lastLoginAt: teacher.lastLoginAt || "" }))
     };
   }
   queueCloudRosterSync() {
     const authV2 = window.LearningPlanetAuthV2;
     const current = teacherById(this.state.teacherConfig, this.state.currentTeacherId);
-    if (this.applyingCloudRoster || !authV2 || !authV2.saveRosterSnapshot || !this.state.teacher || !current || current.role !== "admin") return;
+    if (this.cloudAdminBootstrapPending || this.applyingCloudRoster || !authV2 || !authV2.saveRosterSnapshot || !this.state.teacher || !current || current.role !== "admin") return;
     clearTimeout(this.cloudRosterTimer);
     this.cloudRosterTimer = setTimeout(() => {
       authV2.saveRosterSnapshot(this.cloudRosterPayload()).catch((error) => console.warn("Cloud roster save failed:", error));
     }, 550);
   }
+  finishCloudAdminBootstrap() {
+    if (!this.cloudAdminBootstrapPending || !this.cloudRosterLoaded || !this.cloudStudentDirectoryLoaded) return;
+    this.cloudAdminBootstrapPending = false;
+    this.queueCloudRosterSync();
+  }
   applyCloudRoster(remote) {
-    if (!remote || this.applyingCloudRoster || !Array.isArray(remote.students)) return;
+    if (this.applyingCloudRoster) return;
+    if (!remote) {
+      this.cloudRosterLoaded = true;
+      this.finishCloudAdminBootstrap();
+      return;
+    }
     this.applyingCloudRoster = true;
     this.setState((state) => {
-      const localById = new Map((state.students || []).map((student) => [student.id, student]));
-      const students = remote.students.map((entry) => {
-        const local = localById.get(entry.id) || {};
-        const localProfile = Object.assign(makeProfile(), local.profile || {});
-        // Schema v1/v2 stored the full learner profile in this shared roster.
-        // During migration, extract identity fields only and deliberately
-        // ignore XP, coins, progress, histories and gacha state.
-        const legacyProfile = entry.profile && typeof entry.profile === "object" ? entry.profile : {};
-        return Object.assign({}, local, {
-          id: entry.id,
-          name: entry.name,
-          seat: entry.seat,
-          classId: entry.classId,
-          face: entry.face || local.face || "",
-          tint: entry.tint || local.tint || "",
-          profile: Object.assign({}, localProfile, {
-            cloudUid: entry.cloudUid || legacyProfile.cloudUid || localProfile.cloudUid || "",
-            loginAccount: entry.loginAccount || legacyProfile.loginAccount || localProfile.loginAccount || "",
-            cardAvatarIndex: Math.max(0, Math.min(23, Number(entry.cardAvatarIndex ?? legacyProfile.cardAvatarIndex ?? localProfile.cardAvatarIndex) || 0)),
-            passwordCustomized: entry.passwordCustomized != null ? !!entry.passwordCustomized : !!localProfile.passwordCustomized
-          })
-        });
-      });
       const localTeachers = new Map((state.teacherConfig.teachers || []).map((teacher) => [teacher.id, teacher]));
       const teachers = Array.isArray(remote.teachers) ? remote.teachers.map((entry, index) => {
         const local = localTeachers.get(entry.id) || {};
         return defaultTeacherRecord(Object.assign({}, local, entry, { password: "", face: normalizeTeacherFace(entry.face, index) }));
       }) : state.teacherConfig.teachers;
-      return { students, classes: Array.isArray(remote.classes) ? remote.classes : state.classes, teacherConfig: normalizeTeacherConfig(Object.assign({}, state.teacherConfig, { teachers })) };
+      return { classes: Array.isArray(remote.classes) ? remote.classes : state.classes, teacherConfig: normalizeTeacherConfig(Object.assign({}, state.teacherConfig, { teachers })) };
     }, () => {
       this.applyingCloudRoster = false;
+      this.cloudRosterLoaded = true;
       saveTeacherConfig(this.state.teacherConfig);
-      // The next admin session automatically replaces legacy profile-heavy
-      // roster arrays with the compact schema-v3 representation.
-      if (Number(remote.schemaVersion) < 3) this.queueCloudRosterSync();
+      this.finishCloudAdminBootstrap();
     });
   }
   enableCloudRosterSync() {
@@ -5658,8 +5628,10 @@ class Component extends DCLogic {
     if (this.cloudRosterUnsubscribe || !authV2 || !authV2.subscribeRosterSnapshot) return;
     authV2.currentRole().then((role) => {
       if (role !== "admin" || this.cloudRosterUnsubscribe) return;
+      this.cloudAdminBootstrapPending = true;
+      this.cloudRosterLoaded = false;
+      this.cloudStudentDirectoryLoaded = false;
       this.cloudRosterUnsubscribe = authV2.subscribeRosterSnapshot((remote) => this.applyCloudRoster(remote));
-      authV2.loadRosterSnapshot().then((remote) => this.applyCloudRoster(remote)).catch(() => {});
       if (!this.cloudStudentUnsubscribe && authV2.subscribeStudentsList) {
         this.cloudStudentUnsubscribe = authV2.subscribeStudentsList((students) => this.applyCloudStudentDirectory(students));
       }
@@ -5667,32 +5639,44 @@ class Component extends DCLogic {
   }
   applyCloudStudentDirectory(remoteStudents) {
     if (!Array.isArray(remoteStudents)) return;
-    const byUid = new Map(remoteStudents.map((item) => [String(item.id || ""), item]));
-    const byUsername = new Map(remoteStudents.map((item) => [String(item.username || "").toLowerCase(), item]));
     this.setState((state) => {
-      let changed = false;
-      const students = (state.students || []).map((student) => {
-      const profile = student.profile || {};
-      const remote = byUid.get(String(profile.cloudUid || "")) || byUsername.get(studentLoginAccount(student).toLowerCase());
-      if (!remote) return student;
-      const linked = !!remote.googleLinked;
-      const googleUid = linked ? remote.id : "";
-      const email = linked ? (remote.googleEmail || "") : "";
-      const lastLoginAt = remote.lastLoginAt && typeof remote.lastLoginAt.toDate === "function" ? remote.lastLoginAt.toDate().toISOString() : (remote.lastLoginAt || profile.lastLoginAt || "");
-      if (String(profile.cloudUid || "") === String(remote.id || "") && String(profile.googleUid || "") === googleUid && String(profile.email || "") === email && String(profile.lastLoginAt || "") === String(lastLoginAt || "") && String(student.googleUid || "") === googleUid && String(student.email || "") === email) return student;
-      changed = true;
-      return Object.assign({}, student, {
-        googleUid,
-        email,
-        profile: Object.assign({}, profile, {
-          cloudUid: remote.id,
+      const localByUid = new Map((state.students || []).map((student) => [String(student.profile && student.profile.cloudUid || ""), student]));
+      const localByUsername = new Map((state.students || []).map((student) => [studentLoginAccount(student).toLowerCase(), student]));
+      const activeRemote = remoteStudents.filter((remote) => remote && remote.enabled !== false && remote.id);
+      const students = activeRemote.map((remote, index) => {
+        const username = String(remote.username || "").trim().toLowerCase();
+        const local = localByUid.get(String(remote.id)) || localByUsername.get(username) || {};
+        const localProfile = Object.assign(makeProfile(), local.profile || {});
+        const avatarMatch = String(remote.avatar || "").match(/avatar_(\d+)\.png/i);
+        const avatarIndex = avatarMatch ? Math.max(0, Math.min(23, Number(avatarMatch[1]) - 1)) : Math.max(0, Math.min(23, Number(localProfile.cardAvatarIndex) || 0));
+        const linked = !!remote.googleLinked;
+        const googleUid = linked ? String(remote.id) : "";
+        const email = linked ? String(remote.googleEmail || "") : "";
+        const lastLoginAt = remote.lastLoginAt && typeof remote.lastLoginAt.toDate === "function" ? remote.lastLoginAt.toDate().toISOString() : (remote.lastLoginAt || localProfile.lastLoginAt || "");
+        return Object.assign({}, local, {
+          id: local.id || ("cloud-" + remote.id),
+          name: remote.displayName || local.name || username || "學員",
+          seat: remote.seat || local.seat || "",
+          classId: remote.classId || local.classId || "",
+          face: remote.avatar || local.face || studentAvatarImage(avatarIndex),
+          tint: local.tint || TINTS[index % TINTS.length],
           googleUid,
           email,
-          lastLoginAt
-        })
+          profile: Object.assign({}, localProfile, {
+            cloudUid: String(remote.id),
+            loginAccount: username || localProfile.loginAccount || "",
+            cardAvatarIndex: avatarIndex,
+            passwordCustomized: !!localProfile.passwordCustomized,
+            googleUid,
+            email,
+            lastLoginAt
+          })
+        });
       });
-      });
-      return changed ? { students } : {};
+      return { students };
+    }, () => {
+      this.cloudStudentDirectoryLoaded = true;
+      this.finishCloudAdminBootstrap();
     });
   }
   async syncCloudRosterAccounts() {
@@ -5773,8 +5757,6 @@ class Component extends DCLogic {
     if (!prevState || prevState.students !== this.state.students) {
       saveStudentProfiles(this.state.students);
       this.queueCloudStudentProgressSync();
-      const currentTeacher = teacherById(this.state.teacherConfig, this.state.currentTeacherId);
-      if (this.state.teacher && currentTeacher.role === "admin") this.queueCloudRosterSync();
     }
     if (!prevState || prevState.classes !== this.state.classes || prevState.teacherConfig !== this.state.teacherConfig) {
       const currentTeacher = teacherById(this.state.teacherConfig, this.state.currentTeacherId);

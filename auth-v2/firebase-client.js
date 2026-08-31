@@ -229,9 +229,9 @@ export async function saveRosterSnapshot(roster = {}) {
   if (await currentRole() !== 'admin') throw new Error('只有管理者可以更新雲端名冊');
   await setDoc(doc(db, 'system', 'roster'), {
     ...roster,
-    schemaVersion: 3,
+    schemaVersion: 4,
     updatedAt: serverTimestamp()
-  }, { merge: true });
+  });
 }
 
 export async function saveWeeklyResult(result = {}) {

@@ -34,21 +34,26 @@ describe('Firebase student progress sync', () => {
     expect(app).not.toContain('password: String(st.profile && st.profile.loginPassword || "未留存")');
   });
 
-  it('keeps the shared roster compact and migrates legacy roster documents', () => {
+  it('keeps students canonical in their own documents instead of the shared roster', () => {
     const rosterStart = app.indexOf('cloudRosterPayload()');
     const rosterEnd = app.indexOf('queueCloudRosterSync()', rosterStart);
     const rosterImplementation = app.slice(rosterStart, rosterEnd);
-    expect(rosterImplementation).toContain('schemaVersion: 3');
-    expect(rosterImplementation).toContain('loginAccount: studentLoginAccount(student)');
+    expect(rosterImplementation).toContain('schemaVersion: 4');
+    expect(rosterImplementation).not.toContain('students:');
     expect(rosterImplementation).not.toContain('profile: this.cloudSafeProfile(student.profile)');
-    expect(app).toContain('if (Number(remote.schemaVersion) < 3');
-    expect(app).not.toContain('remote.teachers.filter((teacher) => teacher.role === "admin").length > 1');
-    expect(firebaseClient).toContain('schemaVersion: 3');
+    expect(firebaseClient).toContain('schemaVersion: 4');
+    expect(firebaseClient).toContain("setDoc(doc(db, 'system', 'roster')");
+    expect(firebaseClient).not.toContain("}, { merge: true });\n}\n\nexport async function saveWeeklyResult");
   });
 
-  it('does not rewrite the roster for progress-only student snapshots', () => {
-    expect(app).toContain('return changed ? { students } : {};');
+  it('rebuilds the admin directory from active Firebase student documents', () => {
+    expect(app).toContain('const activeRemote = remoteStudents.filter((remote) => remote && remote.enabled !== false && remote.id);');
+    expect(app).toContain('id: local.id || ("cloud-" + remote.id)');
+    expect(app).toContain('cloudUid: String(remote.id)');
+    expect(app).toContain('this.cloudAdminBootstrapPending = true;');
+    expect(app).toContain('if (this.cloudAdminBootstrapPending');
     expect(app).toContain('if (needsUpdate) await authV2.updateStudent');
+    expect(app).not.toContain('if (this.state.teacher && currentTeacher.role === "admin") this.queueCloudRosterSync();\n    }\n    if (!prevState || prevState.classes');
     expect(app).not.toContain('profile, avatar: studentAvatarImage(profile.cardAvatarIndex), lastLoginAt: new Date().toISOString()');
   });
 });
