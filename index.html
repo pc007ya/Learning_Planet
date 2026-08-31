@@ -298,6 +298,8 @@
   .profile-account-card { margin-top:16px;padding:14px;border:1px solid rgba(124,227,255,.3);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(80,111,205,.08));box-shadow:inset 0 1px 0 rgba(255,255,255,.12); }
   .profile-account-title { margin:0 0 11px;color:#8feaff;font-size:12px;font-weight:950;letter-spacing:.08em; }
   .profile-account-note { margin:7px 0 0;color:#91aac7;font-size:11px;font-weight:750;line-height:1.5; }
+  .profile-account-submit { width:100%;margin-top:10px;border:1px solid rgba(255,225,111,.5)!important;border-radius:13px!important;padding:11px!important;background:linear-gradient(90deg,rgba(255,174,66,.9),rgba(255,105,151,.86))!important;color:#172557!important;font:950 13px/1 inherit!important;cursor:pointer; }
+  .profile-account-submit:disabled { opacity:.5;cursor:wait; }
   .profile-password-grid { display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px; }
   .profile-credential-field { display:grid;gap:6px;color:#c8ecff;font-size:11px;font-weight:900; }
   .profile-credential-control { display:flex;align-items:center;border:1px solid rgba(124,227,255,.36);border-radius:13px;background:rgba(2,12,38,.42);overflow:hidden; }
@@ -1336,10 +1338,20 @@
           </label>
           <section class="profile-account-card" aria-label="帳號與密碼">
             <p class="profile-account-title">帳號與密碼</p>
-            <label class="profile-credential-field">學員帳號
-              <span class="profile-credential-control"><input type="text" value="{{ profileLoginAccount }}" readonly aria-label="學員帳號"></span>
-            </label>
-            <p class="profile-account-note">帳號由管理者維護；如需變更帳號，請聯絡老師。</p>
+            <sc-if value="{{ profileAccountCanChange }}" hint-placeholder-val="{{ true }}">
+              <label class="profile-credential-field">新學員帳號
+                <span class="profile-credential-control"><input type="text" maxlength="32" autocomplete="username" value="{{ profileLoginAccountDraft }}" onInput="{{ updateProfileLoginAccount }}" aria-label="新學員帳號"></span>
+              </label>
+              <p class="profile-account-note">可使用 3–32 碼英文小寫、數字、句點、底線或連字號。帳號只能成功變更一次。</p>
+              <p class="profile-password-error" role="alert">{{ profileAccountError }}</p>
+              <button class="profile-account-submit" disabled="{{ profileAccountBusy }}" onClick="{{ submitProfileAccount }}">{{ profileAccountSubmitLabel }}</button>
+            </sc-if>
+            <sc-if value="{{ profileAccountLocked }}" hint-placeholder-val="{{ false }}">
+              <label class="profile-credential-field">學員帳號
+                <span class="profile-credential-control"><input type="text" value="{{ profileLoginAccount }}" readonly aria-label="學員帳號"></span>
+              </label>
+              <p class="profile-account-note">已使用過唯一一次帳號變更機會；如需協助，請聯絡管理者。</p>
+            </sc-if>
             <div class="profile-password-grid">
               <label class="profile-credential-field">新密碼
                 <span class="profile-credential-control"><input type="{{ profileNewPasswordType }}" minlength="6" autocomplete="new-password" value="{{ profileNewPassword }}" onInput="{{ updateProfileNewPassword }}" aria-label="新密碼"><button type="button" class="profile-password-toggle" onClick="{{ toggleProfileNewPassword }}">{{ profileNewPasswordToggleLabel }}</button></span>
@@ -5515,6 +5527,7 @@ class Component extends DCLogic {
     passwordRecoveryOpen: false, passwordRecoveryRole: "student", passwordRecoveryAccount: "",
     passwordRecoveryNew: "", passwordRecoveryConfirm: "", passwordRecoveryError: "", passwordRecoveryBusy: false,
     profileNewPassword: "", profileConfirmPassword: "", profilePasswordError: "", profilePasswordBusy: false,
+    profileAccountDraft: "", profileAccountError: "", profileAccountBusy: false,
     showStudentLoginPassword: false, showTeacherLoginPassword: false,
     showPasswordRecoveryNew: false, showPasswordRecoveryConfirm: false,
     showProfileNewPassword: false, showProfileConfirmPassword: false,
@@ -5951,6 +5964,7 @@ class Component extends DCLogic {
           owned: remote.inventory && Array.isArray(remote.inventory.owned) ? remote.inventory.owned : (remote.profile && remote.profile.owned) || BASE_OWNED.slice(),
           equipped: remote.inventory && remote.inventory.equipped ? remote.inventory.equipped : (remote.profile && remote.profile.equipped) || Object.assign({}, BASE_EQUIP),
           loginAccount: remote.username || account,
+          usernameChangeUsed: remote.usernameChangeUsed === true,
           cloudUid: authV2.auth.currentUser.uid,
           email: remote.googleEmail || "",
           lastLoginAt: new Date().toISOString(),
@@ -5975,6 +5989,8 @@ class Component extends DCLogic {
             owned: remote.inventory && Array.isArray(remote.inventory.owned) ? remote.inventory.owned : (remote.profile && remote.profile.owned) || candidate.profile.owned,
             equipped: remote.inventory && remote.inventory.equipped ? remote.inventory.equipped : (remote.profile && remote.profile.equipped) || candidate.profile.equipped,
             progressRecoveryId: verifiedRecovery ? verifiedRecovery.id : (remote.profile && remote.profile.progressRecoveryId || candidate.profile.progressRecoveryId || ""),
+            loginAccount: remote.username || account,
+            usernameChangeUsed: remote.usernameChangeUsed === true,
           } : {}, {
             cloudUid: authV2.auth.currentUser.uid,
             googleUid: remote && remote.googleLinked ? authV2.auth.currentUser.uid : (candidate.profile.googleUid || ""),
@@ -6115,6 +6131,61 @@ class Component extends DCLogic {
         ? "為保護帳號，請登出後重新登入，再變更密碼。"
         : (error && error.message ? String(error.message).replace(/^Firebase:\s*/i, "") : "無法變更密碼，請稍後再試。");
       this.setState({ profilePasswordBusy: false, profilePasswordError: message });
+    }
+  }
+
+  async changeCurrentStudentUsername() {
+    if (this.state.profileAccountBusy) return;
+    const student = this.cur();
+    const currentAccount = student ? studentLoginAccount(student).toLowerCase() : "";
+    const nextAccount = String(this.state.profileAccountDraft || "").trim().toLowerCase();
+    if (!student || student.profile && student.profile.demoAccount) {
+      this.setState({ profileAccountError: "DEMO 體驗帳號不能變更帳號。" });
+      return;
+    }
+    if (student.profile && student.profile.usernameChangeUsed) {
+      this.setState({ profileAccountError: "這個帳號已使用過唯一一次變更機會。" });
+      return;
+    }
+    if (!/^[a-z0-9._-]{3,32}$/.test(nextAccount)) {
+      this.setState({ profileAccountError: "請輸入 3–32 碼英文小寫、數字、句點、底線或連字號。" });
+      return;
+    }
+    if (nextAccount === currentAccount) {
+      this.setState({ profileAccountError: "新帳號必須與目前帳號不同。" });
+      return;
+    }
+    const authV2 = window.LearningPlanetAuthV2;
+    if (!authV2 || !authV2.changeMyStudentUsername) {
+      this.setState({ profileAccountError: "帳號變更服務尚未就緒，請稍後再試。" });
+      return;
+    }
+    if (!confirm("帳號只能成功變更一次。\n\n確定將帳號改為「" + nextAccount + "」嗎？")) return;
+    this.setState({ profileAccountBusy: true, profileAccountError: "" });
+    try {
+      const result = await authV2.changeMyStudentUsername({ username: nextAccount });
+      const updatedAccount = String(result && result.data && result.data.username || nextAccount);
+      this.setState((state) => ({
+        students: state.students.map((candidate) => candidate.id === state.currentId
+          ? Object.assign({}, candidate, { profile: Object.assign({}, candidate.profile, { loginAccount: updatedAccount, usernameChangeUsed: true }) })
+          : candidate),
+        profileAccountDraft: updatedAccount,
+        profileAccountBusy: false,
+        profileAccountError: ""
+      }), () => {
+        saveStudentProfiles(this.state.students);
+        this.flash("帳號已變更。下次請使用新帳號登入。");
+      });
+    } catch (error) {
+      const code = String(error && error.code || "").toLowerCase();
+      const message = code.includes("already-exists")
+        ? "這個帳號已被使用，請換一個帳號。"
+        : code.includes("failed-precondition")
+          ? "這個帳號已使用過唯一一次變更機會。"
+          : code.includes("invalid-argument")
+            ? "帳號格式不正確，請重新輸入。"
+            : "無法變更帳號，請稍後再試。";
+      this.setState({ profileAccountBusy: false, profileAccountError: message });
     }
   }
 
@@ -10989,6 +11060,14 @@ class Component extends DCLogic {
       profileChineseName: me ? me.name : "",
       profileEnglishName: profileIdentity.englishName,
       profileLoginAccount: me ? studentLoginAccount(me) : "",
+      profileLoginAccountDraft: s.profileAccountDraft,
+      profileAccountCanChange: !!me && !(p && p.demoAccount) && !(p && p.usernameChangeUsed),
+      profileAccountLocked: !!me && ((p && p.demoAccount) || !!(p && p.usernameChangeUsed)),
+      profileAccountError: s.profileAccountError,
+      profileAccountBusy: s.profileAccountBusy,
+      profileAccountSubmitLabel: s.profileAccountBusy ? "檢查並更新中…" : "檢查重複並變更帳號",
+      updateProfileLoginAccount: (event) => this.setState({ profileAccountDraft: String(event.target.value || "").toLowerCase().replace(/[^a-z0-9._-]/g, ""), profileAccountError: "" }),
+      submitProfileAccount: () => this.changeCurrentStudentUsername(),
       profileNewPassword: s.profileNewPassword,
       profileConfirmPassword: s.profileConfirmPassword,
       profilePasswordError: s.profilePasswordError,
@@ -11039,7 +11118,7 @@ class Component extends DCLogic {
       speechMuteFilter: s.speechMuted ? "invert(26%) sepia(58%) saturate(2000%) hue-rotate(310deg) brightness(88%)" : "none",
       toggleSpeechMute: () => this.toggleSpeechMute(),
       goHome: go("home"),
-      goProfile: go("profile"),
+      goProfile: () => this.setState({ screen: "profile", profileAccountDraft: me ? studentLoginAccount(me).toLowerCase() : "", profileAccountError: "", profileAccountBusy: false }),
       homeBg: s.screen === "home" ? "#2b1f57" : "#fbfaff",
       homeBorder: s.screen === "home" ? "#2b1f57" : "#ece7ff",
 

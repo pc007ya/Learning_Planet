@@ -302,6 +302,7 @@ export const createStudent = httpsCallable(functions, 'createStudent');
 export const updateStudent = httpsCallable(functions, 'updateStudent');
 export const resetStudentPassword = httpsCallable(functions, 'resetStudentPassword');
 export const setStudentEnabled = httpsCallable(functions, 'setStudentEnabled');
+export const changeMyStudentUsername = httpsCallable(functions, 'changeMyStudentUsername');
 export const updateOwnTeacherSettings = httpsCallable(functions, 'updateOwnTeacherSettings');
 export const bootstrapFirstAdmin = httpsCallable(functions, 'bootstrapFirstAdmin');
 export const resolveGoogleLinkConflict = httpsCallable(functions, 'resolveGoogleLinkConflict');
@@ -349,6 +350,7 @@ window.LearningPlanetAuthV2 = {
   updateStudent,
   resetStudentPassword,
   setStudentEnabled,
+  changeMyStudentUsername,
   updateOwnTeacherSettings,
   bootstrapFirstAdmin,
   resolveGoogleLinkConflict,

@@ -239,6 +239,48 @@ exports.updateStudent = onCall(async (request) => {
   return { ok: true };
 });
 
+exports.changeMyStudentUsername = onCall(async (request) => {
+  if (!request.auth || request.auth.token.role !== 'student') {
+    throw new HttpsError('permission-denied', 'Student login required.');
+  }
+  const uid = request.auth.uid;
+  const username = normalizeUsername(request.data?.username);
+  const studentRef = db.collection('students').doc(uid);
+  const current = await studentRef.get();
+  if (!current.exists) throw new HttpsError('not-found', 'Student profile not found.');
+  const currentData = current.data() || {};
+  if (currentData.usernameChangeUsed === true) {
+    throw new HttpsError('failed-precondition', 'The student username has already been changed once.');
+  }
+  const previousUsername = normalizeUsername(currentData.username);
+  if (username === previousUsername) {
+    throw new HttpsError('invalid-argument', 'The new username must be different.');
+  }
+  const nextEmail = authEmail(username, 'student');
+  const previousEmail = currentData.authEmail || authEmail(previousUsername, 'student');
+  try {
+    await admin.auth().updateUser(uid, { email: nextEmail });
+  } catch (error) {
+    if (error.code === 'auth/email-already-exists') {
+      throw new HttpsError('already-exists', 'This student username is already in use.');
+    }
+    throw new HttpsError('internal', error.message || 'Unable to update the student username.');
+  }
+  try {
+    await studentRef.set({
+      username,
+      authEmail: nextEmail,
+      usernameChangeUsed: true,
+      usernameChangedAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: admin.firestore.FieldValue.serverTimestamp()
+    }, { merge: true });
+  } catch (error) {
+    await admin.auth().updateUser(uid, { email: previousEmail }).catch(() => {});
+    throw new HttpsError('internal', 'The username was not saved. Please try again.');
+  }
+  return { ok: true, username, usernameChangeUsed: true };
+});
+
 exports.resetStudentPassword = onCall(async (request) => {
   requireAdmin(request);
   const { uid, password } = request.data || {};

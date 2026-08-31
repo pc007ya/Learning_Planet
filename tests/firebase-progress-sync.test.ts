@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 
 const app = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const firebaseClient = readFileSync(new URL('../auth-v2/firebase-client.js', import.meta.url), 'utf8');
+const firebaseFunctions = readFileSync(new URL('../functions/index.js', import.meta.url), 'utf8');
 
 describe('Firebase student progress sync', () => {
   it('syncs authenticated students without requiring Google linking', () => {
@@ -41,6 +42,19 @@ describe('Firebase student progress sync', () => {
     expect(app).toContain('await authV2.changeMyPassword(newPassword)');
     expect(app).toContain('this.patch({ passwordCustomized: true });');
     expect(app).not.toContain('profile.loginPassword =');
+  });
+
+  it('allows one student username change after a server-side duplicate check', () => {
+    expect(app).toContain('帳號只能成功變更一次');
+    expect(app).toContain('changeCurrentStudentUsername()');
+    expect(app).toContain('authV2.changeMyStudentUsername({ username: nextAccount })');
+    expect(firebaseClient).toContain("httpsCallable(functions, 'changeMyStudentUsername')");
+    expect(firebaseFunctions).toContain('exports.changeMyStudentUsername = onCall');
+    expect(firebaseFunctions).toContain("request.auth.token.role !== 'student'");
+    expect(firebaseFunctions).toContain('currentData.usernameChangeUsed === true');
+    expect(firebaseFunctions).toContain("error.code === 'auth/email-already-exists'");
+    expect(firebaseFunctions).toContain('usernameChangeUsed: true');
+    expect(firebaseFunctions).toContain("await admin.auth().updateUser(uid, { email: nextEmail })");
   });
 
   it('retries every ten minutes and when the page is backgrounded', () => {
