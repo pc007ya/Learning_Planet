@@ -41,3 +41,6 @@ jobs:
 
       - name: Deploy Firebase Functions and Firestore Rules
         run: npx --yes firebase-tools@latest deploy --only functions,firestore:rules --project learnplanet-cce52 --non-interactive --force
+
+      - name: Reconcile legacy student Google links
+        run: node functions/scripts/reconcile-student-google-links.cjs

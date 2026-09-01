@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 const app = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const firebaseClient = readFileSync(new URL('../auth-v2/firebase-client.js', import.meta.url), 'utf8');
 const firebaseFunctions = readFileSync(new URL('../functions/index.js', import.meta.url), 'utf8');
+const firebaseDeploy = readFileSync(new URL('../.github/workflows/firebase-backend-deploy.yml', import.meta.url), 'utf8');
 
 describe('Firebase student progress sync', () => {
   it('syncs authenticated students without requiring Google linking', () => {
@@ -86,6 +87,7 @@ describe('Firebase student progress sync', () => {
     expect(firebaseFunctions).toContain('updateUser(user.uid, { providerToLink })');
     expect(firebaseFunctions).toContain('legacyMatches.length === 1');
     expect(firebaseFunctions).toContain('legacyGoogleMigratedTo: snap.id');
+    expect(firebaseDeploy).toContain('node functions/scripts/reconcile-student-google-links.cjs');
   });
 
   it('keeps students canonical in their own documents instead of the shared roster', () => {
