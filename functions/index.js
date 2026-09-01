@@ -405,9 +405,27 @@ exports.resolveGoogleLinkConflict = onCall(async (request) => {
 
   if (conflict && conflict.uid !== request.auth.uid) {
     const role = conflict.customClaims?.role || null;
-    const docs = await Promise.all(['admins', 'teachers', 'students'].map((name) => db.collection(name).doc(conflict.uid).get()));
-    if (role || docs.some((snap) => snap.exists)) {
+    const [adminDoc, teacherDoc, studentDoc] = await Promise.all(
+      ['admins', 'teachers', 'students'].map((name) => db.collection(name).doc(conflict.uid).get())
+    );
+    const legacyStudentData = studentDoc.exists ? (studentDoc.data() || {}) : null;
+    const canReclaimLegacyStudent = request.auth.token.role === 'student'
+      && !role
+      && !adminDoc.exists
+      && !teacherDoc.exists
+      && studentDoc.exists
+      && !legacyStudentData.username
+      && !legacyStudentData.role;
+    if (role || (adminDoc.exists || teacherDoc.exists || studentDoc.exists) && !canReclaimLegacyStudent) {
       throw new HttpsError('already-exists', 'This Google account is already linked to another Learning Planet account.');
+    }
+    if (canReclaimLegacyStudent) {
+      await studentDoc.ref.set({
+        enabled: false,
+        legacyGoogleMigratedTo: request.auth.uid,
+        legacyGoogleMigratedAt: admin.firestore.FieldValue.serverTimestamp(),
+        updatedAt: admin.firestore.FieldValue.serverTimestamp()
+      }, { merge: true });
     }
     await admin.auth().deleteUser(conflict.uid);
   }

@@ -87,6 +87,9 @@ describe('Firebase student progress sync', () => {
     expect(firebaseFunctions).toContain('updateUser(user.uid, { providerToLink })');
     expect(firebaseFunctions).toContain('legacyMatches.length === 1');
     expect(firebaseFunctions).toContain('legacyGoogleMigratedTo: snap.id');
+    expect(firebaseFunctions).toContain("const canReclaimLegacyStudent = request.auth.token.role === 'student'");
+    expect(firebaseFunctions).toContain('legacyGoogleMigratedTo: request.auth.uid');
+    expect(firebaseFunctions).toContain('await admin.auth().deleteUser(conflict.uid)');
     expect(firebaseDeploy).toContain('node functions/scripts/reconcile-student-google-links.cjs');
   });
 
