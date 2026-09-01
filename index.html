@@ -1931,6 +1931,12 @@
           <sc-if value="{{ figShape }}" hint-placeholder-val="{{ false }}">
             <div style="margin:0 0 20px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff"><sc-for list="{{ shapes }}" as="shape" hint-placeholder-count="4"><span style="width:74px;height:74px;background:{{ shape.color }};border-radius:{{ shape.radius }};clip-path:{{ shape.clip }}"></span></sc-for></div>
           </sc-if>
+          <sc-if value="{{ figCompareBars }}" hint-placeholder-val="{{ false }}"><div style="margin:0 0 20px;display:flex;justify-content:center;padding:16px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;overflow:hidden">{{ compareFigEl }}</div></sc-if>
+          <sc-if value="{{ figNumberBond }}" hint-placeholder-val="{{ false }}"><div style="margin:0 0 20px;padding:16px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:grid;justify-items:center;gap:10px"><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:8px 14px;border-radius:16px;background:#fff6e0;border:2px solid #ffd98a"><strong style="flex-basis:100%;text-align:center;color:#a06400">全部</strong><sc-for list="{{ numberBondTotal }}" as="star" hint-placeholder-count="10"><img class="math-object-image is-small" src="{{ star.image }}" alt="星星"></sc-for></div><div style="width:100%;display:grid;grid-template-columns:1fr 1fr;gap:12px"><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:10px;border-radius:16px;background:#fff;border:2px solid #bfe8fb"><strong style="flex-basis:100%;text-align:center">已知部分</strong><sc-for list="{{ numberBondKnown }}" as="star" hint-placeholder-count="5"><img class="math-object-image is-small" src="{{ star.image }}" alt="星星"></sc-for></div><div style="display:grid;place-items:center;border-radius:16px;background:#fff;border:2px dashed #ff8dbb;font-size:38px;font-weight:1000;color:#ff5c92">?</div></div></div></sc-if>
+          <sc-if value="{{ figTensOnes }}" hint-placeholder-val="{{ false }}"><div style="margin:0 0 20px;padding:14px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:grid;justify-items:center;gap:6px"><sc-for list="{{ tensRows }}" as="row" hint-placeholder-count="3"><div style="display:flex;gap:2px"><sc-for list="{{ row.beads }}" as="bead" hint-placeholder-count="10"><img src="{{ bead.image }}" alt="" style="width:23px;height:23px;object-fit:contain"></sc-for></div></sc-for><sc-if value="{{ hasOnesBeads }}" hint-placeholder-val="{{ true }}"><div style="display:flex;gap:2px"><sc-for list="{{ onesBeads }}" as="bead" hint-placeholder-count="7"><img src="{{ bead.image }}" alt="" style="width:23px;height:23px;object-fit:contain"></sc-for></div></sc-if></div></sc-if>
+          <sc-if value="{{ figSolidImage }}" hint-placeholder-val="{{ false }}"><div style="margin:0 0 20px;display:flex;justify-content:center;padding:16px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff">{{ solidImageEl }}</div></sc-if>
+          <sc-if value="{{ figItemsGrid }}" hint-placeholder-val="{{ false }}"><div style="margin:0 0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:7px;padding:16px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff"><sc-for list="{{ itemsGridList }}" as="item" hint-placeholder-count="8"><img class="math-object-image" src="{{ item.image }}" alt="{{ item.alt }}"></sc-for><sc-for list="{{ itemsGridGroups }}" as="group" hint-placeholder-count="2"><span style="min-width:170px;display:flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:9px;border-radius:16px;background:#fff;border:2px solid #bfe8fb"><strong style="flex-basis:100%;text-align:center">{{ group.label }}</strong><sc-for list="{{ group.items }}" as="item" hint-placeholder-count="6"><img class="math-object-image is-small" src="{{ item.image }}" alt="{{ item.alt }}"></sc-for></span></sc-for></div></sc-if>
+          <sc-if value="{{ figSequenceCards }}" hint-placeholder-val="{{ false }}"><div style="margin:0 0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:16px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff"><sc-for list="{{ sequenceCardList }}" as="card" hint-placeholder-count="5"><span style="display:grid;justify-items:center;gap:4px;padding:9px;border-radius:14px;background:#fff;border:2px solid #ece7ff"><strong style="font-size:11px;color:#7c5cff">{{ card.label }}</strong><img class="math-object-image" src="{{ card.image }}" alt="{{ card.text }}"><small>{{ card.text }}</small></span></sc-for></div></sc-if>
           <sc-if value="{{ figGroups }}" hint-placeholder-val="{{ false }}">
             <div style="margin:0 0 20px;padding:16px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:flex;flex-wrap:wrap;gap:12px"><sc-for list="{{ groups }}" as="group" hint-placeholder-count="4"><span style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px;border-radius:18px;background:#fff;border:2px solid #ffe2ab"><span style="font-size:26px">🐒</span><span style="display:flex;gap:3px;flex-wrap:wrap;max-width:76px;justify-content:center"><sc-for list="{{ group.items }}" as="item" hint-placeholder-count="4"><span style="font-size:18px">{{ item }}</span></sc-for></span></span></sc-for></div>
           </sc-if>
@@ -2355,6 +2361,25 @@
               <sc-for list="{{ shapes }}" as="s" hint-placeholder-count="4">
                 <span style="width:74px;height:74px;background:{{ s.color }};border-radius:{{ s.radius }};clip-path:{{ s.clip }}"></span>
               </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ figCompareBars }}" hint-placeholder-val="{{ false }}">
+            <div class="quiz-visual" style="margin-top:20px;display:flex;justify-content:center;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;overflow:hidden">{{ compareFigEl }}</div>
+          </sc-if>
+
+          <sc-if value="{{ figNumberBond }}" hint-placeholder-val="{{ false }}">
+            <div class="quiz-visual" style="margin-top:20px;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:grid;justify-items:center;gap:12px">
+              <div style="max-width:440px;display:flex;flex-wrap:wrap;justify-content:center;gap:5px;padding:10px 16px;border-radius:18px;background:#fff6e0;border:2px solid #ffd98a"><strong style="flex-basis:100%;text-align:center;color:#a06400">全部</strong><sc-for list="{{ numberBondTotal }}" as="star" hint-placeholder-count="10"><img class="math-object-image is-small" src="{{ star.image }}" alt="星星"></sc-for></div>
+              <div style="width:100%;max-width:520px;display:grid;grid-template-columns:1fr 1fr;gap:18px;position:relative"><span style="position:absolute;left:50%;top:-18px;width:2px;height:22px;background:#7c5cff;transform:translateX(-50%)"></span><div style="min-height:100px;display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:5px;padding:12px;border-radius:18px;background:#fff;border:2px solid #bfe8fb"><strong style="flex-basis:100%;text-align:center;color:#40528a">已知的一部分</strong><sc-for list="{{ numberBondKnown }}" as="star" hint-placeholder-count="5"><img class="math-object-image is-small" src="{{ star.image }}" alt="星星"></sc-for></div><div style="min-height:100px;display:grid;place-items:center;align-content:center;gap:4px;padding:12px;border-radius:18px;background:#fff;border:2px dashed #ff8dbb"><strong style="color:#a93268">另一部分</strong><span style="font-size:44px;font-weight:1000;color:#ff5c92">?</span></div></div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ figTensOnes }}" hint-placeholder-val="{{ false }}">
+            <div class="quiz-visual" style="margin-top:20px;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:grid;justify-items:center;gap:8px">
+              <sc-for list="{{ tensRows }}" as="row" hint-placeholder-count="3"><div style="display:flex;gap:2px;padding:5px 9px;border-radius:99px;background:#fff;border:2px solid #c9dfff"><sc-for list="{{ row.beads }}" as="bead" hint-placeholder-count="10"><img src="{{ bead.image }}" alt="" style="width:27px;height:27px;object-fit:contain"></sc-for></div></sc-for>
+              <sc-if value="{{ hasOnesBeads }}" hint-placeholder-val="{{ true }}"><div style="display:flex;gap:3px;padding:5px 9px;border-radius:99px;background:#fff;border:2px dashed #ffbdd6"><sc-for list="{{ onesBeads }}" as="bead" hint-placeholder-count="7"><img src="{{ bead.image }}" alt="" style="width:27px;height:27px;object-fit:contain"></sc-for></div></sc-if>
+              <strong style="font-size:13px;color:#4a3d7a">每一整排是 10 顆</strong>
             </div>
           </sc-if>
 
@@ -3742,7 +3767,17 @@ function equipProfileItem(profile, item, slotOverride) {
 }
 
 const MATH_UNITS = [
-  { id: "u1", grade: 1, difficulty: 1, icon: "🍎", tint: "#ffe0e6", title: "10 以內的加法", sub: "一年級 · 數與量" },
+  // 一年級上冊核心 1–9：依康軒課本順序排列。每張單元卡使用
+  // 獨立透明圖層；題目中的數線、時鐘與數量則保留可變動的程式圖層。
+  { id: "u101", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-01-numbers-within-10-v1.png", tint: "#e8f2ff", title: "1. 10 以內的數", sub: "認識 1～10、0 與表示數量" },
+  { id: "u102", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-02-compare-v1.png", tint: "#fff6e0", title: "2. 比長短", sub: "長短、高矮、厚薄、直線與曲線" },
+  { id: "u103", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-03-order-v1.png", tint: "#e6f7ee", title: "3. 排順序、比多少", sub: "排數字、第幾個、幾個、比多少" },
+  { id: "u104", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-04-number-bonds-v1.png", tint: "#ffeef6", title: "4. 分與合", sub: "分一分、合一合、10 的分與合" },
+  { id: "u105", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-05-solids-v1.png", tint: "#f1e6ff", title: "5. 方盒、圓罐、球", sub: "堆疊分類、平面圖形與做造型" },
+  { id: "u106", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-06-numbers-within-30-v1.png", tint: "#eafbfd", title: "6. 30 以內的數", sub: "數到 20、數到 30、序數與比大小" },
+  { id: "u1", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-07-addition-v1.png", tint: "#ffe0e6", title: "7. 10 以內的加法", sub: "合起來、0 的加法與加加看" },
+  { id: "u2", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-08-subtraction-v1.png", tint: "#ffeccc", title: "8. 10 以內的減法", sub: "剩下多少、多多少少多少、加加減減" },
+  { id: "u107", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-09-time-v1.png", tint: "#fff0cc", title: "9. 幾點鐘", sub: "先後與長短、整點與半點" },
   { id: "u29", grade: 1, difficulty: 2, icon: "🧩", tint: "#e8f2ff", title: "形狀偵探隊", sub: "一年級 · 平面形狀、立體與積木", kind: "math-game" },
   { id: "u30", grade: 2, difficulty: 2, icon: "⚖️", tint: "#fff0cc", title: "測量實驗室", sub: "二年級 · 時鐘、重量與角度", kind: "math-game" },
   { id: "u31", grade: 1, difficulty: 2, icon: "🧊", tint: "#eafbfd", title: "小一立方體數量", sub: "一年級 · 排、柱、層與數量估計", kind: "math-game" },
@@ -3753,7 +3788,6 @@ const MATH_UNITS = [
   { id: "u36", grade: 1, difficulty: 1, icon: "🪙", tint: "#fff6e0", title: "數數看有多少元", sub: "一年級 · 均一挑戰 · 硬幣與面額" },
   { id: "u37", grade: 2, difficulty: 2, icon: "➕", tint: "#e6f7ee", title: "二位數的加減", sub: "二年級 · 均一挑戰 · 進退位練習" },
   { id: "u38", grade: 1, difficulty: 1, icon: "🃏", tint: "#e8f2ff", title: "記憶翻牌", sub: "一年級 · 數字與數量配對", kind: "memory" },
-  { id: "u2", grade: 1, difficulty: 1, icon: "🧁", tint: "#ffeccc", title: "10 以內的減法", sub: "一年級 · 數與量" },
   { id: "u3", grade: 1, difficulty: 1, icon: "📏", tint: "#dff1ff", title: "20 以內的數與數線", sub: "一年級 · 數與量" },
   { id: "u4", grade: 1, difficulty: 1, icon: "🔷", tint: "#e6ecff", title: "認識平面形狀", sub: "一年級 · 幾何" },
   { id: "u19", grade: 1, difficulty: 1, icon: "🔗", tint: "#e6f7ee", title: "橫式個位數連續加減", sub: "一年級 · 3～5 次運算" },
@@ -4406,6 +4440,9 @@ function mathQuestionHint(question) {
   if (question.hint) return question.hint;
   if (question.fig === "clock") return "先看短針，再看長針。";
   if (["dots", "baskets", "groups"].includes(question.fig)) return "先數第一組，再接著數第二組。";
+  if (question.fig === "compareBars") return "先把起點對齊，再比較另一端。";
+  if (question.fig === "numberBond") return "先看總數，再找兩個部分。";
+  if (question.fig === "tensOnes") return "先數有幾個十，再數有幾個一。";
   if (["shape", "shapeGrid"].includes(question.fig)) return "看看邊、角和形狀的特徵。";
   if (question.fig === "line") return "從起點開始，一格一格數。";
   if (question.fig === "weight") return "比較天平左右兩邊的位置。";
@@ -4422,6 +4459,9 @@ function mathRobotGuidance(question, state) {
   if (question.fig === "columns") return "導航任務：先對齊個位，再逐位計算。";
   if (question.fig === "clock") return "導航任務：短針看小時，長針看分鐘。";
   if (["dots", "baskets", "groups"].includes(question.fig)) return "導航任務：用手指分組點數，別漏掉任何一個。";
+  if (question.fig === "compareBars") return "導航任務：把起點對齊，觀察哪一邊伸得更遠。";
+  if (question.fig === "numberBond") return "導航任務：總數拆成兩部分，已知一部分就找剩下的。";
+  if (question.fig === "tensOnes") return "導航任務：完整一排是十，再接著數零散的個位。";
   if (["shape", "shapeGrid"].includes(question.fig)) return "導航任務：找出邊和角的特徵，再比對答案。";
   return "導航任務：圈出已知條件，再找最符合的答案。";
 }
@@ -4429,6 +4469,8 @@ function mathPresenterHintAudio(question) {
   const base = "audio/math-presenter/v1/";
   if (!question) return base + "hint-generic-v1.mp3";
   if (["dots", "baskets", "groups"].includes(question.fig)) return base + "hint-counting-v1.mp3";
+  if (["numberBond", "tensOnes"].includes(question.fig)) return base + "hint-counting-v1.mp3";
+  if (question.fig === "compareBars") return base + "hint-line-v1.mp3";
   if (question.fig === "clock") return base + "hint-clock-v1.mp3";
   if (["shape", "shapeGrid"].includes(question.fig)) return base + "hint-shape-v1.mp3";
   if (question.fig === "line") return base + "hint-line-v1.mp3";
@@ -7529,12 +7571,125 @@ class Component extends DCLogic {
     const usedKeys = new Set();
     const generate = () => {
       let q;
-      if (unitId === "u1") {
-        const a = r(1, 6), b = r(1, 10 - a);
-        q = { stem: a + " ＋ " + b + " ＝ ？", ans: a + b, fig: "dots", figData: { a, b }, explain: "先數 " + a + " 個，再往後數 " + b + " 個，總共是 " + (a + b) + " 個。" };
+      if (unitId === "u101") {
+        const topic = list.length % 4;
+        const iconPool = [["🍎", "蘋果"], ["⭐", "星星"], ["🌼", "花朵"], ["🐰", "兔子"]];
+        const picked = iconPool[r(0, iconPool.length - 1)];
+        if (topic === 0) {
+          const count = r(1, 5);
+          q = { stem: "圖中有幾個" + picked[1] + "？", ans: count, fig: "itemsGrid", figData: { items: Array.from({ length: count }, () => picked[0]) }, explain: "從左到右一個一個點數，共有 " + count + " 個" + picked[1] + "。", hint: "用手指一個一個點數，不要重複也不要漏掉。" };
+        } else if (topic === 1) {
+          const count = r(6, 10);
+          q = { stem: "圖中有幾個" + picked[1] + "？", ans: count, fig: "itemsGrid", figData: { items: Array.from({ length: count }, () => picked[0]) }, explain: "先數 5 個，再接著往後數，總共有 " + count + " 個" + picked[1] + "。", hint: "數到 5 可以稍停一下，再繼續往後數。" };
+        } else if (topic === 2) {
+          q = { stem: "空籃子裡一個蘋果也沒有，要用哪個數表示？", ans: 0, fig: "solidImage", figData: { image: "images/math-master/v1/objects/basket-v1.png", alt: "沒有放任何物品的空籃子" }, explain: "一個也沒有，就用 0 表示。", opts: shuffle([0, 1, 2, 10]), hint: "0 表示一個也沒有。" };
+        } else {
+          const t = r(1, 10);
+          q = { stem: "數線上的標記指向哪一個數？", ans: t, fig: "line", figData: { max: 10, t }, explain: "從 0 開始依序往右數，標記在 " + t + "。" };
+        }
+      } else if (unitId === "u102") {
+        const mode = ["length", "height", "thickness", "curve"][list.length % 4];
+        const longerBlue = r(0, 1) === 1;
+        if (mode === "curve") {
+          q = { stem: "哪一條是曲線？", ans: "紫色線", fig: "compareBars", figData: { mode, winner: "purple" }, opts: shuffle(["紫色線", "藍色線", "兩條都是直線", "兩條都是曲線"]), explain: "紫色線會彎曲，方向不斷改變，所以是曲線；藍色線是直線。", hint: "直線不彎，曲線會改變方向。" };
+        } else {
+          const labels = mode === "length" ? ["藍色鉛筆", "黃色鉛筆"] : mode === "height" ? ["藍色柱子", "黃色柱子"] : ["藍色書", "黃色書"];
+          const quality = mode === "length" ? "比較長" : mode === "height" ? "比較高" : "比較厚";
+          const ans = longerBlue ? labels[0] : labels[1];
+          q = { stem: "哪一個" + quality + "？", ans, fig: "compareBars", figData: { mode, winner: longerBlue ? "blue" : "yellow" }, opts: shuffle([labels[0], labels[1], "一樣", "不能比較"]), explain: "把起點對齊後，" + ans + "伸得更遠，所以它" + quality + "。", hint: "先把兩個物品的起點對齊，再看另一端。" };
+        }
+      } else if (unitId === "u103") {
+        const topic = list.length % 4;
+        const cards = [
+          { label: "第 1 個", icon: "🐰", text: "兔子" }, { label: "第 2 個", icon: "🐦", text: "小鳥" },
+          { label: "第 3 個", icon: "🐱", text: "小貓" }, { label: "第 4 個", icon: "🐶", text: "小狗" }, { label: "第 5 個", icon: "🐸", text: "青蛙" },
+        ];
+        if (topic === 0) {
+          const place = r(1, 5);
+          q = { stem: "排在第 " + place + " 個的是誰？", ans: cards[place - 1].text, fig: "sequenceCards", figData: { cards }, opts: shuffle(cards.slice(0, 4).map((card) => card.text).concat(place === 5 ? [cards[4].text] : []).slice(0, 4)), explain: "從最前面開始數，第 " + place + " 個是" + cards[place - 1].text + "。", hint: "第幾個要從指定的起點一個一個排著數。" };
+          if (!q.opts.includes(q.ans)) q.opts[r(0, 3)] = q.ans;
+        } else if (topic === 1) {
+          q = { stem: "隊伍裡一共有幾個小動物？", ans: 5, fig: "sequenceCards", figData: { cards }, explain: "把每個小動物都數一次，一共有 5 個。", hint: "『一共有幾個』是在問總數，不是在問第幾個。" };
+        } else if (topic === 2) {
+          const left = r(2, 5), right = r(6, 9);
+          q = { stem: "哪一邊的星星比較多？", ans: "右邊", fig: "itemsGrid", figData: { groups: [{ label: "左邊", items: Array.from({ length: left }, () => "⭐") }, { label: "右邊", items: Array.from({ length: right }, () => "⭐") }] }, opts: shuffle(["左邊", "右邊", "一樣多", "看不出來"]), explain: "左邊有 " + left + " 個，右邊有 " + right + " 個；" + right + " 比 " + left + " 大，所以右邊比較多。", hint: "先分別數出左右兩邊，再比較兩個數。" };
+        } else {
+          const t = r(2, 9);
+          q = { stem: "數線上，" + t + " 的下一個數是多少？", ans: t + 1, fig: "line", figData: { max: 10, t }, explain: t + " 再往右一格是 " + (t + 1) + "。", hint: "數線越往右，數會依序增加。" };
+        }
+      } else if (unitId === "u104") {
+        const total = r(5, 10), known = r(1, total - 1), missing = total - known;
+        q = { stem: total + " 顆星星分成兩部分，一部分有 " + known + " 顆，另一部分有幾顆？", ans: missing, fig: "numberBond", figData: { total, known, missing }, explain: total + " 可以分成 " + known + " 和 " + missing + "，因為 " + known + " ＋ " + missing + " ＝ " + total + "。", hint: "先用總數拿掉已知的一部分，剩下的就是另一部分。" };
+      } else if (unitId === "u105") {
+        const solids = [
+          { name: "方盒", image: "images/math-games/solid-cube.png", alt: "彩色方盒", roll: false, stack: true },
+          { name: "長方盒", image: "images/math-games/solid-cuboid.png", alt: "彩色長方盒", roll: false, stack: true },
+          { name: "圓罐", image: "images/math-games/solid-cylinder.png", alt: "彩色圓罐", roll: true, stack: true },
+          { name: "球", image: "images/math-master/v1/objects/soccer-ball-v1.png", alt: "圓圓的球", roll: true, stack: false },
+        ];
+        const solid = solids[list.length % solids.length];
+        const topic = list.length % 3;
+        if (topic === 0) q = { stem: "圖中的物品屬於哪一類？", ans: solid.name, fig: "solidImage", figData: { image: solid.image, alt: solid.alt }, opts: shuffle(solids.map((item) => item.name)), explain: "看它的面和外形，可以判斷它是" + solid.name + "。", hint: "摸一摸想像它的面：是平平的，還是圓圓的？" };
+        else if (topic === 1) q = { stem: "這個物品放在斜坡上會不會滾動？", ans: solid.roll ? "會滾動" : "不會滾動", fig: "solidImage", figData: { image: solid.image, alt: solid.alt }, opts: shuffle(["會滾動", "不會滾動", "一定會飛起來", "會變扁"]), explain: solid.roll ? solid.name + "有圓圓的面，所以可以滾動。" : solid.name + "接觸地面的是平面，所以不容易滾動。", hint: "圓圓的面容易滾，平平的面容易停住。" };
+        else q = { stem: "這個物品適合一個疊一個嗎？", ans: solid.stack ? "適合堆疊" : "不適合堆疊", fig: "solidImage", figData: { image: solid.image, alt: solid.alt }, opts: shuffle(["適合堆疊", "不適合堆疊", "只能掛起來", "不能碰到桌面"]), explain: solid.stack ? solid.name + "有平平的面，可以穩穩堆疊。" : solid.name + "表面圓圓的，堆起來容易滾走。", hint: "堆疊要找平平、能穩定接觸的面。" };
+      } else if (unitId === "u106") {
+        const topic = list.length % 4;
+        if (topic <= 1) {
+          const value = r(topic === 0 ? 11 : 21, topic === 0 ? 20 : 30);
+          q = { stem: "十顆排成一列，圖中一共有多少顆圓珠？", ans: value, fig: "tensOnes", figData: { value, tens: Math.floor(value / 10), ones: value % 10 }, explain: value + " 有 " + Math.floor(value / 10) + " 個十和 " + (value % 10) + " 個一，所以是 " + value + "。", hint: "先數完整的十，再數剩下的個位。" };
+        } else if (topic === 2) {
+          const value = r(21, 29);
+          q = { stem: "數線上的標記指向哪一個數？", ans: value, fig: "line", figData: { max: 30, t: value }, explain: "從 20 繼續往右數，標記在 " + value + "。", hint: "每往右一格就多 1。" };
+        } else {
+          const a = r(11, 24), b = r(a + 1, 30);
+          const distractors = new Set([a]);
+          [b - 1, b + 1, a - 1, a + 1, 10 + (b % 10)].forEach((value) => {
+            if (value >= 0 && value <= 30 && value !== b) distractors.add(value);
+          });
+          while (distractors.size < 3) {
+            const value = r(10, 30);
+            if (value !== b) distractors.add(value);
+          }
+          q = { stem: a + " 和 " + b + "，哪一個比較大？", ans: b, fig: "tensOnes", figData: { value: b, tens: Math.floor(b / 10), ones: b % 10 }, opts: shuffle([b].concat(Array.from(distractors).slice(0, 3))), explain: "先比十位，再比個位；" + b + " 比 " + a + " 大。", hint: "十位較大的數比較大；十位一樣再比個位。" };
+        }
+      } else if (unitId === "u107") {
+        const topic = list.length % 4;
+        if (topic <= 1) {
+          const h = r(1, 12), m = topic === 0 ? 0 : 30;
+          const timeLabel = (hour, minute) => hour + " 點" + (minute === 0 ? "整" : " 30 分");
+          const label = timeLabel(h, m);
+          const distractors = new Set();
+          [[h % 12 + 1, m], [h, m === 0 ? 30 : 0], [(h + 10) % 12 + 1, 30], [(h + 1) % 12 + 1, 0]].forEach((pair) => {
+            const option = timeLabel(pair[0], pair[1]);
+            if (option !== label) distractors.add(option);
+          });
+          while (distractors.size < 3) {
+            const option = timeLabel(r(1, 12), r(0, 1) === 0 ? 0 : 30);
+            if (option !== label) distractors.add(option);
+          }
+          q = { stem: "時鐘現在是幾點？", ans: label, fig: "clock", figData: { h, m }, explain: m === 0 ? "長針指向 12，短針指向 " + h + "，所以是 " + h + " 點整。" : "長針指向 6 是 30 分，短針走過 " + h + "，所以是 " + label + "。", opts: shuffle([label].concat(Array.from(distractors).slice(0, 3))), hint: "先看短針是幾點，再看長針是整點或半點。" };
+        } else if (topic === 2) {
+          const cards = [{ label: "先", icon: "🌰", text: "播種" }, { label: "後", icon: "🌱", text: "發芽" }, { label: "最後", icon: "🌼", text: "開花" }];
+          q = { stem: "植物成長時，哪一件事最先發生？", ans: "播種", fig: "sequenceCards", figData: { cards }, opts: shuffle(["播種", "發芽", "開花", "結果"]), explain: "先播下種子，接著發芽，長大後才會開花。", hint: "想想事情發生的先後順序。" };
+        } else {
+          q = { stem: "下面哪一件事通常花的時間比較長？", ans: "走路到學校", fig: "itemsGrid", figData: { groups: [{ label: "走路到學校", items: ["🚶", "🎒"] }, { label: "眨一次眼睛", items: ["⭐"] }] }, opts: shuffle(["走路到學校", "眨一次眼睛", "一樣久", "無法比較"]), explain: "走路到學校需要好幾分鐘，眨眼只要很短的時間，所以走路到學校花較久。", hint: "比較兩件事從開始到結束所經過的時間。" };
+        }
+      } else if (unitId === "u1") {
+        const a = r(0, 9), b = r(0, 10 - a);
+        const zeroNote = a === 0 || b === 0 ? "加上 0，數量不會改變。" : "把兩部分合起來。";
+        q = { stem: a + " ＋ " + b + " ＝ ？", ans: a + b, fig: "dots", figData: { a, b }, explain: zeroNote + "所以 " + a + " ＋ " + b + " ＝ " + (a + b) + "。", hint: a === 0 || b === 0 ? "0 表示沒有增加任何一個。" : "先數第一組，再接著數第二組。" };
       } else if (unitId === "u2") {
-        const a = r(4, 10), b = r(1, a - 1);
-        q = { stem: a + " － " + b + " ＝ ？", ans: a - b, fig: "dots", figData: { a: a - b, b }, explain: a + " 個拿走 " + b + " 個，剩下 " + (a - b) + " 個。" };
+        const topic = list.length % 3;
+        if (topic === 0) {
+          const a = r(1, 10), b = r(0, a);
+          q = { stem: a + " － " + b + " ＝ ？", ans: a - b, fig: "dots", figData: { a: a - b, b }, explain: a + " 個拿走 " + b + " 個，剩下 " + (a - b) + " 個。", hint: "從原來的數量拿掉一部分，再數剩下的。" };
+        } else if (topic === 1) {
+          const fewer = r(1, 6), more = r(fewer + 1, 10);
+          q = { stem: "右邊比左邊多幾顆星星？", ans: more - fewer, fig: "itemsGrid", figData: { groups: [{ label: "左邊", items: Array.from({ length: fewer }, () => "⭐") }, { label: "右邊", items: Array.from({ length: more }, () => "⭐") }] }, explain: more + " － " + fewer + " ＝ " + (more - fewer) + "，所以右邊多 " + (more - fewer) + " 顆。", hint: "把兩邊一一配對，沒有配到的就是相差的數量。" };
+        } else {
+          const a = r(1, 6), b = r(1, 10 - a), c = r(0, a + b);
+          q = { stem: a + " ＋ " + b + " － " + c + " ＝ ？", ans: a + b - c, fig: "dots", figData: { a: a + b - c, b: c }, explain: "先算 " + a + " ＋ " + b + " ＝ " + (a + b) + "，再減 " + c + "，答案是 " + (a + b - c) + "。", hint: "加減混合要從左到右一步一步算。" };
+        }
       } else if (unitId === "u3") {
         const t = r(3, 18);
         q = { stem: "紅色三角形指的數字是多少？", ans: t, fig: "line", figData: { max: 20, t }, explain: "從 0 開始一格一格數，三角形在 " + t + " 的位置。" };
@@ -8402,6 +8557,9 @@ class Component extends DCLogic {
         : question.fig === "fraccmp" ? "圖示：比較 " + (question.figData.numA || 1) + "/" + question.figData.a + " 與 " + (question.figData.numB || 1) + "/" + question.figData.b + "。"
         : question.fig === "line" ? "圖示：數線上的三角形位於 " + question.figData.t + "。"
         : question.fig === "clock" ? "圖示：時鐘顯示 " + question.figData.h + " 點 " + String(question.figData.m).padStart(2, "0") + " 分。"
+        : question.fig === "compareBars" ? "圖示：比較兩個物件的長短、高矮、厚薄或線條彎曲。"
+        : question.fig === "numberBond" ? "圖示：總數 " + question.figData.total + "，已知部分 " + question.figData.known + "。"
+        : question.fig === "tensOnes" ? "圖示：" + question.figData.tens + " 個十和 " + question.figData.ones + " 個一。"
         : question.fig === "zhuyin" ? "注音提示：" + question.figData.z + "；語詞：" + question.figData.word + "。"
         : "",
     }));
@@ -11208,8 +11366,8 @@ class Component extends DCLogic {
         const atLimit = !isExperiment && round >= 3;
         const difficulty = Math.max(1, Math.min(3, Number(u.difficulty) || 1));
         const subjectPlanet = { math: "images/home/planets/math-planet-v1.png", chinese: "images/home/planets/chinese-planet-v1.png", english: "images/home/planets/english-planet-v1.png", experiment: "images/home/planets/experiment-planet-v1.png" }[s.subject];
-        const mappedMathArt = s.subject === "math" && MATH_OBJECT_ASSETS[u.icon] ? mathObjectAsset(u.icon).image : "";
-        const iconEl = /^s\d/.test(u.id) ? SCI_ICON_EL(u.icon, 34) : React.createElement("img", { src: mappedMathArt || subjectPlanet || "images/home/planets/experiment-planet-v1.png", alt: "", style: { width: 46, height: 46, objectFit: "contain", filter: "drop-shadow(0 5px 6px rgba(38,50,112,.2))" } });
+        const mappedMathArt = s.subject === "math" ? (u.art || (MATH_OBJECT_ASSETS[u.icon] ? mathObjectAsset(u.icon).image : "")) : "";
+        const iconEl = /^s\d/.test(u.id) ? SCI_ICON_EL(u.icon, 34) : React.createElement("img", { src: mappedMathArt || subjectPlanet || "images/home/planets/experiment-planet-v1.png", alt: "", style: { width: 54, height: 54, objectFit: "contain", filter: "drop-shadow(0 5px 6px rgba(38,50,112,.2))" } });
         return {
           icon: u.icon, iconEl, tint: u.tint, title: u.title, sub: u.sub,
           pct: isLib ? 100 : isExperiment ? 0 : Math.round(round / 3 * 100),
@@ -11361,6 +11519,33 @@ class Component extends DCLogic {
       figClock: !!q && q.fig === "clock",
       figShape: !!q && q.fig === "shape",
       figGroups: !!q && q.fig === "groups",
+      figCompareBars: !!q && q.fig === "compareBars",
+      compareFigEl: q && q.fig === "compareBars" ? (() => {
+        const mode = q.figData.mode;
+        const blueWins = q.figData.winner === "blue";
+        const shell = { width: "min(520px,100%)", minHeight: 180, display: "flex", alignItems: "center", justifyContent: "center", gap: 26 };
+        if (mode === "curve") return React.createElement("svg", { role: "img", "aria-label": "藍色直線與紫色曲線", viewBox: "0 0 460 170", style: { width: "min(500px,100%)", height: 170 } },
+          React.createElement("line", { x1: 45, y1: 48, x2: 415, y2: 48, stroke: "#2f8fff", strokeWidth: 12, strokeLinecap: "round" }),
+          React.createElement("path", { d: "M45 125 C130 48 215 190 300 105 S390 90 415 125", fill: "none", stroke: "#8b5cf6", strokeWidth: 12, strokeLinecap: "round" })
+        );
+        if (mode === "height") return React.createElement("div", { role: "img", "aria-label": "比較兩根柱子的高矮", style: Object.assign({}, shell, { alignItems: "flex-end" }) },
+          [["#2f8fff", blueWins ? 150 : 92, "藍色"], ["#ffc12f", blueWins ? 92 : 150, "黃色"]].map((item) => React.createElement("span", { key: item[2], style: { width: 96, display: "grid", justifyItems: "center", gap: 8 } }, React.createElement("i", { style: { display: "block", width: 58, height: item[1], borderRadius: "24px 24px 12px 12px", background: item[0], boxShadow: "inset 0 3px rgba(255,255,255,.5),0 8px 15px rgba(43,31,87,.14)" } }), React.createElement("strong", { style: { color: "#4a3d7a" } }, item[2])))
+        );
+        if (mode === "thickness") return React.createElement("div", { role: "img", "aria-label": "比較兩本書的厚薄", style: Object.assign({}, shell, { alignItems: "flex-end" }) },
+          [["#2f8fff", blueWins ? 82 : 38, "藍色"], ["#ffc12f", blueWins ? 38 : 82, "黃色"]].map((item) => React.createElement("span", { key: item[2], style: { display: "grid", justifyItems: "center", gap: 8 } }, React.createElement("i", { style: { display: "block", width: 150, height: item[1], borderRadius: 14, border: "6px solid " + item[0], background: "repeating-linear-gradient(0deg,#fff 0 5px,#efe9d8 5px 7px)", boxShadow: "0 8px 15px rgba(43,31,87,.14)" } }), React.createElement("strong", { style: { color: "#4a3d7a" } }, item[2])))
+        );
+        return React.createElement("div", { role: "img", "aria-label": "比較兩枝鉛筆的長短", style: Object.assign({}, shell, { flexDirection: "column", alignItems: "flex-start", paddingLeft: 30 }) },
+          [["#2f8fff", blueWins ? 380 : 250, "藍色"], ["#ffc12f", blueWins ? 250 : 380, "黃色"]].map((item) => React.createElement("span", { key: item[2], style: { display: "flex", alignItems: "center", gap: 10 } }, React.createElement("strong", { style: { width: 42, color: "#4a3d7a" } }, item[2]), React.createElement("i", { style: { display: "block", width: item[1], maxWidth: "72vw", height: 28, borderRadius: "14px 3px 3px 14px", background: item[0], boxShadow: "inset 0 3px rgba(255,255,255,.5),0 6px 10px rgba(43,31,87,.12)" } })))
+        );
+      })() : null,
+      figNumberBond: !!q && q.fig === "numberBond",
+      numberBondTotal: q && q.fig === "numberBond" ? Array.from({ length: q.figData.total }, (_, i) => ({ key: i, image: "images/math-master/v1/objects/star-v1.png" })) : [],
+      numberBondKnown: q && q.fig === "numberBond" ? Array.from({ length: q.figData.known }, (_, i) => ({ key: i, image: "images/math-master/v1/objects/star-v1.png" })) : [],
+      figTensOnes: !!q && q.fig === "tensOnes",
+      tensRows: q && q.fig === "tensOnes" ? Array.from({ length: q.figData.tens }, (_, row) => ({ key: row, beads: Array.from({ length: 10 }, (_, bead) => ({ key: bead, image: ["images/math-master/v1/objects/bead-orange-v1.png", "images/math-master/v1/objects/bead-blue-v1.png", "images/math-master/v1/objects/bead-green-v1.png"][row % 3] })) })) : [],
+      onesBeads: q && q.fig === "tensOnes" ? Array.from({ length: q.figData.ones }, (_, bead) => ({ key: bead, image: "images/math-master/v1/objects/bead-pink-v1.png" })) : [],
+      hasOnesBeads: !!(q && q.fig === "tensOnes" && q.figData.ones > 0),
+      tensOnesValue: q && q.fig === "tensOnes" ? q.figData.value : 0,
       figCoins: !!q && q.fig === "coins",
       coinItems: q && q.fig === "coins" ? q.figData.items.map((coin) => Object.assign({}, coin, { image: mathObjectAsset(coin.icon).image })) : [],
       figShapeGrid: !!q && q.fig === "shapeGrid",
