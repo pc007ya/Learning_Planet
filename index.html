@@ -4476,12 +4476,7 @@ const AVATAR_CHOICES = [
 ];
 const AVATAR_STORE_KEY = "learning-planet.student-avatars.v1";
 const PROFILE_STORE_KEY = "learning-planet.student-profiles.v1";
-const GACHA_SOURCE_SHEETS = [
-  ["吉伊", "chiikawa"], ["小八", "hachiware"], ["兔兔", "usagi"], ["小桃", "momonga"], ["師傅", "rakko"], ["栗子", "kurimanju"], ["獅薩", "shisa"], ["古本", "furuhon"], ["其他角色", "other"],
-];
-const GACHA_SOURCE_SHEET_ID = "17gH9HZKvW_6fMCWYLyqnzMHj40rA7PiwWg6L0GvbFgQ";
-const GACHA_NEW_GOODS_GROUPS = ["0807吉伊劇場版2彈&一般新品", "0807吉伊酸梅超人聯名", "三麗鷗毛絨捏臉臉受注", "吉伊幽靈森林", "MindWave周邊", "Sanrio House夏日限定", "寶可夢百變怪變身"];
-const GACHA_NEW_GOODS_SHEET_ID = "1zA9Y-kgt5QPOZt_r4-H6ZTWFaLmSRjc13dcFZYEp-JY";
+const GACHA_NATIVE_CHARACTERS = ["小兔", "小天", "小蘇", "東東", "布穀", "牟牟", "芬恩", "熊寶", "咪咪", "旺來", "卡拉", "梅"];
 const SPEECH_MUTE_STORE_KEY = "learning-planet.question-speech-muted.v1";
 const AUTO_NEXT_STORE_KEY = "learning-planet.quiz-auto-next.v1";
 const WARDROBE_FIT_STORE_KEY = "learning-planet.wardrobe-fit.v1";
@@ -5622,16 +5617,10 @@ class Component extends DCLogic {
         return { mathGameBank: Object.assign({}, state.mathGameBank, { modules: existing.concat(bank.modules) }) };
       });
     }).catch(() => {});
-    const mergeLocalGachaItems = (items) => {
-      if (!Array.isArray(items) || !items.length) return;
-      this.setState((state) => {
-        const current = Array.isArray(state.gachaBank) ? state.gachaBank : [];
-        const known = new Set(current.map((item) => item.id));
-        return { gachaBank: current.concat(items.filter((item) => !known.has(item.id))) };
-      });
-    };
-    fetch("gacha-collectibles.json").then((r) => r.json()).then((bank) => mergeLocalGachaItems(bank.items)).catch(() => {});
-    fetch("gacha-remote-cache.json").then((r) => r.json()).then((bank) => mergeLocalGachaItems(bank.items)).catch(() => {});
+    fetch("gacha-collectibles.json").then((r) => r.json()).then((bank) => {
+      if (!bank || bank.schemaVersion !== 2 || !Array.isArray(bank.items)) return;
+      this.setState({ gachaBank: bank.items });
+    }).catch(() => {});
     fetch("math-games.json").then((r) => r.json()).then((data) => {
       this.setState({ mathGameBank: data && data.modules ? data.modules : [] });
     }).catch(() => {});
@@ -5663,26 +5652,6 @@ class Component extends DCLogic {
     this.vertPointerMove = (e) => this.handleVertPointerMove(e);
     this.vertPointerUp = (e) => this.handleVertPointerUp(e);
     document.addEventListener("pointerdown", this.vertPointerDown);
-  }
-  loadNewGachaGoods() {
-    fetch("https://docs.google.com/spreadsheets/d/" + GACHA_NEW_GOODS_SHEET_ID + "/gviz/tq?tqx=out:json&sheet=" + encodeURIComponent("最新開團")).then((r) => r.text()).then((text) => {
-      const match = text.match(/\{.*\}/s); if (!match) return;
-      const table = JSON.parse(match[0]).table, headers = table.cols.map((col) => col.label), idx = (name) => headers.indexOf(name);
-      let activeGroup = "";
-      const additions = (table.rows || []).map((row, index) => {
-        const cells = row.c || [], value = (name) => { const i = idx(name); return i >= 0 && cells[i] && cells[i].v != null ? String(cells[i].v).trim() : ""; };
-        if (value("團名")) activeGroup = value("團名");
-        const role = value("角色"), name = value("名稱"), asset = value("圖片"), stock = value("庫存") || String(index + 1);
-        if (GACHA_NEW_GOODS_GROUPS.indexOf(activeGroup) < 0 || name.indexOf("吊娃") < 0 || !asset) return null;
-        const character = role || "其他角色";
-        return { id: "newgoods-" + index + "-" + stock, character, name: character === "其他角色" && role ? role + "・" + name : name, type: "吊娃", rarity: "限定", weight: 2, asset, sourceUrl: value("商品網址"), group: activeGroup };
-      }).filter(Boolean);
-      if (!additions.length) return;
-      this.setState((state) => {
-        const current = Array.isArray(state.gachaBank) ? state.gachaBank : [], known = new Set(current.map((item) => item.id));
-        return { gachaBank: current.concat(additions.filter((item) => !known.has(item.id))) };
-      });
-    }).catch(() => {});
   }
   cloudSafeProfile(profile) {
     const safe = Object.assign({}, profile || {});
@@ -10210,15 +10179,14 @@ class Component extends DCLogic {
     const collectionPages = Math.max(1, Math.ceil(collectionPool.length / collectionPageSize));
     const collectionPage = Math.min(s.collectionPage, collectionPages - 1);
     const collectionVisible = collectionPool.slice(collectionPage * collectionPageSize, (collectionPage + 1) * collectionPageSize);
-    const baseGachaCharacters = ["吉伊", "小八", "兔兔", "小桃", "師傅", "栗子", "獅薩", "古本"];
+    const baseGachaCharacters = GACHA_NATIVE_CHARACTERS;
     const additionalGachaCharacters = Array.from(new Set(gachaItems.map((item) => item.character).filter((character) => character && baseGachaCharacters.indexOf(character) < 0 && character !== "其他角色"))).sort((a, b) => a.localeCompare(b, "zh-Hant"));
     const gachaByCharacter = baseGachaCharacters.concat(additionalGachaCharacters, ["其他角色"]).map((character) => {
       const entries = gachaItems.filter((item) => item.character === character);
       const owned = entries.filter((item) => Number(gachaOwned[item.id] || 0) > 0).length;
-      const palette = { "吉伊": "#d77485", "小八": "#6293b8", "兔兔": "#f9be3c", "小桃": "#838bc2", "師傅": "#ccafa5", "栗子": "#94c973", "獅薩": "#fbaa60", "古本": "#eb9e97", "其他角色": "#45818e" };
-      const iconMap = { "吉伊": "chiikawa", "小八": "hachiware", "兔兔": "usagi", "小桃": "momonga", "師傅": "rakko", "栗子": "kurimanju", "獅薩": "shisa", "古本": "furuhon", "其他角色": "other" };
-      const referenceItem = entries.find((item) => item.type === "吊娃") || entries[0];
-      return { character, owned, total: entries.length, pct: entries.length ? Math.round(owned / entries.length * 100) : 0, color: palette[character] || "#7c5cff", icon: (referenceItem && referenceItem.asset) || ("images/gacha/categories/" + (iconMap[character] || "other") + ".png"), go: () => this.setState({ collectionCharacter: character, collectionPage: 0 }) };
+      const palette = { "小兔": "#5aa9d6", "小天": "#ef8450", "小蘇": "#c39148", "東東": "#2fa4bd", "布穀": "#a8754e", "牟牟": "#e7a63a", "芬恩": "#e77b32", "熊寶": "#9d704e", "咪咪": "#4c78a8", "旺來": "#c9663d", "卡拉": "#38a7a2", "梅": "#d85d78" };
+      const referenceItem = entries[0];
+      return { character, owned, total: entries.length, pct: entries.length ? Math.round(owned / entries.length * 100) : 0, color: palette[character] || "#7c5cff", icon: referenceItem ? referenceItem.asset : "images/gacha/categories/other.png", go: () => this.setState({ collectionCharacter: character, collectionPage: 0 }) };
     }).filter((entry) => entry.total);
     const rarityColors = { "普通": "#22aebc", "稀有": "#7c5cff", "傳說": "#d75c93", "限定": "#e08a13" };
 
@@ -10839,7 +10807,7 @@ class Component extends DCLogic {
         const imageFilter = copies > 0 ? "none" : "grayscale(1) opacity(.13)";
         return { character: item.character, name: item.name, type: item.type, rarity: item.rarity, rarityColor: rarityColors[item.rarity] || "#7c5cff", unlocked: copies > 0, copies, imageFilter, cardBg: copies > 0 ? collectionTone : "#fbfaff", cardBorder: copies > 0 ? (rarityColors[item.rarity] || "#c9bfff") : "#ece7ff", state: copies > 0 ? "已收藏 × " + copies : "尚未抽到", assetImg: React.createElement("img", { src: item.asset, alt: item.character + " " + item.name, style: { width: 132, height: 132, objectFit: "contain", filter: imageFilter, mixBlendMode: "multiply" } }) };
       }),
-      collectionFilters: [{ character: "全部", icon: "images/gacha/categories/chiikawa.png", count: gachaItems.length }].concat(gachaByCharacter.map((item) => ({ character: item.character, icon: item.icon, count: item.total }))).map((item) => ({ character: item.character, count: item.count, go: () => this.setState({ collectionCharacter: item.character, collectionPage: 0 }), bg: s.collectionCharacter === item.character ? "#2b1f57" : "#fff", fg: s.collectionCharacter === item.character ? "#fff" : "#5b3fe0", border: s.collectionCharacter === item.character ? "#2b1f57" : "#ddd5ff", iconImg: React.createElement("img", { src: item.icon, alt: "", style: { width: 23, height: 23, objectFit: "contain", mixBlendMode: "multiply" } }) })),
+      collectionFilters: [{ character: "全部", icon: gachaItems.length ? gachaItems[0].asset : "images/gacha/categories/other.png", count: gachaItems.length }].concat(gachaByCharacter.map((item) => ({ character: item.character, icon: item.icon, count: item.total }))).map((item) => ({ character: item.character, count: item.count, go: () => this.setState({ collectionCharacter: item.character, collectionPage: 0 }), bg: s.collectionCharacter === item.character ? "#2b1f57" : "#fff", fg: s.collectionCharacter === item.character ? "#fff" : "#5b3fe0", border: s.collectionCharacter === item.character ? "#2b1f57" : "#ddd5ff", iconImg: React.createElement("img", { src: item.icon, alt: "", style: { width: 23, height: 23, objectFit: "contain", mixBlendMode: "multiply" } }) })),
       collectionPageLabel: (collectionPage + 1) + " / " + collectionPages + " 頁・顯示 " + collectionPool.length + " 款",
       collectionPrevDisabled: collectionPage <= 0, collectionNextDisabled: collectionPage >= collectionPages - 1,
       collectionPrev: () => this.setState({ collectionPage: Math.max(0, collectionPage - 1) }), collectionNext: () => this.setState({ collectionPage: Math.min(collectionPages - 1, collectionPage + 1) }),

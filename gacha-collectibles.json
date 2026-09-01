@@ -1,28 +1,970 @@
 {
-  "schemaVersion": 1,
-  "series": "吉伊卡哇・寶寶收藏 第一彈",
+  "schemaVersion": 2,
+  "series": "學習星球・原生角色扭蛋全集",
   "source": {
-    "catalog": "https://jiwusales.github.io/jiwusales_chiikawa/",
-    "note": "商品圖與名稱依參考圖鑑的公開資料整理；本遊戲僅使用第一彈 18 款作為學習網站的收藏進度。"
+    "catalog": "local-native-assets",
+    "note": "全數使用本專案自行生成並保存在網站內的原生角色圖片；共 12 位角色、96 款。"
   },
   "items": [
-    { "id": "chiikawa-01", "character": "吉伊", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 28, "asset": "images/gacha/chiikawa-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362685" },
-    { "id": "chiikawa-02", "character": "吉伊", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 12, "asset": "images/gacha/chiikawa-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359159" },
-    { "id": "hachiware-01", "character": "小八", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 28, "asset": "images/gacha/hachiware-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362692" },
-    { "id": "hachiware-02", "character": "小八", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 12, "asset": "images/gacha/hachiware-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359166" },
-    { "id": "usagi-01", "character": "兔兔", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 28, "asset": "images/gacha/usagi-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362708" },
-    { "id": "usagi-02", "character": "兔兔", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 12, "asset": "images/gacha/usagi-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359173" },
-    { "id": "momonga-01", "character": "小桃", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 24, "asset": "images/gacha/momonga-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362715" },
-    { "id": "momonga-02", "character": "小桃", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 10, "asset": "images/gacha/momonga-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359180" },
-    { "id": "rakko-01", "character": "師傅", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 20, "asset": "images/gacha/rakko-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362746" },
-    { "id": "rakko-02", "character": "師傅", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 8, "asset": "images/gacha/rakko-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359210" },
-    { "id": "kurimanju-01", "character": "栗子", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 20, "asset": "images/gacha/kurimanju-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362722" },
-    { "id": "kurimanju-02", "character": "栗子", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 8, "asset": "images/gacha/kurimanju-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359197" },
-    { "id": "shisa-01", "character": "獅薩", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 18, "asset": "images/gacha/shisa-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362739" },
-    { "id": "shisa-02", "character": "獅薩", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 7, "asset": "images/gacha/shisa-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359203" },
-    { "id": "furuhon-01", "character": "古本", "name": "樂園迷你", "type": "吊娃", "rarity": "普通", "weight": 18, "asset": "images/gacha/furuhon-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609362753" },
-    { "id": "furuhon-02", "character": "古本", "name": "樂園毛絨", "type": "吊娃", "rarity": "稀有", "weight": 7, "asset": "images/gacha/furuhon-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609359227" },
-    { "id": "other-01", "character": "其他角色", "name": "甲蟲・基礎二代", "type": "甲蟲", "rarity": "稀有", "weight": 6, "asset": "images/gacha/other-01.png", "sourceUrl": "https://chiikawamarket.jp/products/4571609403227" },
-    { "id": "other-02", "character": "其他角色", "name": "甲蟲・魔法", "type": "甲蟲", "rarity": "傳說", "weight": 4, "asset": "images/gacha/other-02.png", "sourceUrl": "https://chiikawamarket.jp/products/4582662970410" }
+    {
+      "id": "native-xiaotu-01",
+      "character": "小兔",
+      "name": "星光航行兔",
+      "type": "星際探索系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-xiaotu-01.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotu-02",
+      "character": "小兔",
+      "name": "月球跳跳兔",
+      "type": "星際探索系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-xiaotu-02.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotu-03",
+      "character": "小兔",
+      "name": "彩虹氣象兔",
+      "type": "星際探索系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-xiaotu-03.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotu-04",
+      "character": "小兔",
+      "name": "火箭工程兔",
+      "type": "星際探索系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-xiaotu-04.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotu-05",
+      "character": "小兔",
+      "name": "銀河睡衣兔",
+      "type": "星際探索系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-xiaotu-05.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotu-06",
+      "character": "小兔",
+      "name": "彗星郵差兔",
+      "type": "星際探索系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-xiaotu-06.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotu-07",
+      "character": "小兔",
+      "name": "太空農夫兔",
+      "type": "星際探索系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-xiaotu-07.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotu-08",
+      "character": "小兔",
+      "name": "星塵隊長兔",
+      "type": "星際探索系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-xiaotu-08.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotian-01",
+      "character": "小天",
+      "name": "火星先鋒小天",
+      "type": "星際探索系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-xiaotian-01.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotian-02",
+      "character": "小天",
+      "name": "月面工程小天",
+      "type": "星際探索系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-xiaotian-02.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotian-03",
+      "character": "小天",
+      "name": "星雲科學小天",
+      "type": "星際探索系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-xiaotian-03.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotian-04",
+      "character": "小天",
+      "name": "太空救援小天",
+      "type": "星際探索系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-xiaotian-04.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotian-05",
+      "character": "小天",
+      "name": "衛星維修小天",
+      "type": "星際探索系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-xiaotian-05.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotian-06",
+      "character": "小天",
+      "name": "宇宙園丁小天",
+      "type": "星際探索系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-xiaotian-06.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotian-07",
+      "character": "小天",
+      "name": "彗星攝影小天",
+      "type": "星際探索系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-xiaotian-07.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaotian-08",
+      "character": "小天",
+      "name": "銀河指揮小天",
+      "type": "星際探索系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-xiaotian-08.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaosu-01",
+      "character": "小蘇",
+      "name": "雨林嚮導小蘇",
+      "type": "星際探索系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-xiaosu-01.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaosu-02",
+      "character": "小蘇",
+      "name": "沙漠尋寶小蘇",
+      "type": "星際探索系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-xiaosu-02.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaosu-03",
+      "character": "小蘇",
+      "name": "極地探險小蘇",
+      "type": "星際探索系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-xiaosu-03.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaosu-04",
+      "character": "小蘇",
+      "name": "火山研究小蘇",
+      "type": "星際探索系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-xiaosu-04.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaosu-05",
+      "character": "小蘇",
+      "name": "海底考古小蘇",
+      "type": "星際探索系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-xiaosu-05.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaosu-06",
+      "character": "小蘇",
+      "name": "恐龍化石小蘇",
+      "type": "星際探索系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-xiaosu-06.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaosu-07",
+      "character": "小蘇",
+      "name": "星空露營小蘇",
+      "type": "星際探索系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-xiaosu-07.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiaosu-08",
+      "character": "小蘇",
+      "name": "古城解謎小蘇",
+      "type": "星際探索系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-xiaosu-08.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-dongdong-01",
+      "character": "東東",
+      "name": "冰原滑雪東東",
+      "type": "星際探索系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-dongdong-01.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-dongdong-02",
+      "character": "東東",
+      "name": "極光觀測東東",
+      "type": "星際探索系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-dongdong-02.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-dongdong-03",
+      "character": "東東",
+      "name": "雪球冠軍東東",
+      "type": "星際探索系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-dongdong-03.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-dongdong-04",
+      "character": "東東",
+      "name": "冰海船長東東",
+      "type": "星際探索系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-dongdong-04.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-dongdong-05",
+      "character": "東東",
+      "name": "溫泉假期東東",
+      "type": "星際探索系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-dongdong-05.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-dongdong-06",
+      "character": "東東",
+      "name": "冬日郵差東東",
+      "type": "星際探索系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-dongdong-06.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-dongdong-07",
+      "character": "東東",
+      "name": "冰晶魔法東東",
+      "type": "星際探索系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-dongdong-07.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-dongdong-08",
+      "character": "東東",
+      "name": "雪夜樂手東東",
+      "type": "星際探索系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-dongdong-08.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-bugu-01",
+      "character": "布穀",
+      "name": "晨曦學者布穀",
+      "type": "自然夥伴系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-bugu-01.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-bugu-02",
+      "character": "布穀",
+      "name": "星夜觀測布穀",
+      "type": "自然夥伴系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-bugu-02.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-bugu-03",
+      "character": "布穀",
+      "name": "森林郵差布穀",
+      "type": "自然夥伴系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-bugu-03.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-bugu-04",
+      "character": "布穀",
+      "name": "雨天樂手布穀",
+      "type": "自然夥伴系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-bugu-04.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-bugu-05",
+      "character": "布穀",
+      "name": "魔法圖書布穀",
+      "type": "自然夥伴系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-bugu-05.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-bugu-06",
+      "character": "布穀",
+      "name": "花園茶會布穀",
+      "type": "自然夥伴系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-bugu-06.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-bugu-07",
+      "character": "布穀",
+      "name": "楓葉畫家布穀",
+      "type": "自然夥伴系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-bugu-07.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-bugu-08",
+      "character": "布穀",
+      "name": "月光守護布穀",
+      "type": "自然夥伴系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-bugu-08.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-moumou-01",
+      "character": "牟牟",
+      "name": "草原園丁牟牟",
+      "type": "自然夥伴系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-moumou-01.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-moumou-02",
+      "character": "牟牟",
+      "name": "牛奶烘焙牟牟",
+      "type": "自然夥伴系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-moumou-02.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-moumou-03",
+      "character": "牟牟",
+      "name": "豐收農夫牟牟",
+      "type": "自然夥伴系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-moumou-03.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-moumou-04",
+      "character": "牟牟",
+      "name": "花田蜜蜂牟牟",
+      "type": "自然夥伴系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-moumou-04.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-moumou-05",
+      "character": "牟牟",
+      "name": "露營廚師牟牟",
+      "type": "自然夥伴系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-moumou-05.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-moumou-06",
+      "character": "牟牟",
+      "name": "果園採收牟牟",
+      "type": "自然夥伴系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-moumou-06.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-moumou-07",
+      "character": "牟牟",
+      "name": "牧場音樂牟牟",
+      "type": "自然夥伴系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-moumou-07.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-moumou-08",
+      "character": "牟牟",
+      "name": "彩虹慶典牟牟",
+      "type": "自然夥伴系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-moumou-08.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-finn-01",
+      "character": "芬恩",
+      "name": "森林偵探芬恩",
+      "type": "自然夥伴系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-finn-01.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-finn-02",
+      "character": "芬恩",
+      "name": "雪原旅人芬恩",
+      "type": "自然夥伴系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-finn-02.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-finn-03",
+      "character": "芬恩",
+      "name": "秋日郵差芬恩",
+      "type": "自然夥伴系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-finn-03.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-finn-04",
+      "character": "芬恩",
+      "name": "星夜露營芬恩",
+      "type": "自然夥伴系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-finn-04.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-finn-05",
+      "character": "芬恩",
+      "name": "河畔釣手芬恩",
+      "type": "自然夥伴系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-finn-05.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-finn-06",
+      "character": "芬恩",
+      "name": "花園園丁芬恩",
+      "type": "自然夥伴系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-finn-06.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-finn-07",
+      "character": "芬恩",
+      "name": "山林攝影芬恩",
+      "type": "自然夥伴系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-finn-07.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-finn-08",
+      "character": "芬恩",
+      "name": "冒險隊長芬恩",
+      "type": "自然夥伴系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-finn-08.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiongbao-01",
+      "character": "熊寶",
+      "name": "春芽園丁熊寶",
+      "type": "自然夥伴系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-xiongbao-01.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiongbao-02",
+      "character": "熊寶",
+      "name": "蜂蜜烘焙熊寶",
+      "type": "自然夥伴系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-xiongbao-02.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiongbao-03",
+      "character": "熊寶",
+      "name": "雨天散步熊寶",
+      "type": "自然夥伴系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-xiongbao-03.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiongbao-04",
+      "character": "熊寶",
+      "name": "森林木匠熊寶",
+      "type": "自然夥伴系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-xiongbao-04.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiongbao-05",
+      "character": "熊寶",
+      "name": "野餐主廚熊寶",
+      "type": "自然夥伴系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-xiongbao-05.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiongbao-06",
+      "character": "熊寶",
+      "name": "果園採收熊寶",
+      "type": "自然夥伴系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-xiongbao-06.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiongbao-07",
+      "character": "熊寶",
+      "name": "星空露營熊寶",
+      "type": "自然夥伴系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-xiongbao-07.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-xiongbao-08",
+      "character": "熊寶",
+      "name": "豐收隊長熊寶",
+      "type": "自然夥伴系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-xiongbao-08.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mimi-01",
+      "character": "咪咪",
+      "name": "海洋水手咪咪",
+      "type": "世界風情系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-mimi-01.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mimi-02",
+      "character": "咪咪",
+      "name": "星夜船長咪咪",
+      "type": "世界風情系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-mimi-02.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mimi-03",
+      "character": "咪咪",
+      "name": "港口郵差咪咪",
+      "type": "世界風情系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-mimi-03.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mimi-04",
+      "character": "咪咪",
+      "name": "珊瑚潛水咪咪",
+      "type": "世界風情系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-mimi-04.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mimi-05",
+      "character": "咪咪",
+      "name": "燈塔守護咪咪",
+      "type": "世界風情系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-mimi-05.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mimi-06",
+      "character": "咪咪",
+      "name": "海風樂手咪咪",
+      "type": "世界風情系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-mimi-06.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mimi-07",
+      "character": "咪咪",
+      "name": "貝殼收藏咪咪",
+      "type": "世界風情系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-mimi-07.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mimi-08",
+      "character": "咪咪",
+      "name": "藍海司令咪咪",
+      "type": "世界風情系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-mimi-08.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-wanglai-01",
+      "character": "旺來",
+      "name": "赤甲武士旺來",
+      "type": "世界風情系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-wanglai-01.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-wanglai-02",
+      "character": "旺來",
+      "name": "櫻花劍客旺來",
+      "type": "世界風情系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-wanglai-02.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-wanglai-03",
+      "character": "旺來",
+      "name": "忍者疾風旺來",
+      "type": "世界風情系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-wanglai-03.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-wanglai-04",
+      "character": "旺來",
+      "name": "祭典太鼓旺來",
+      "type": "世界風情系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-wanglai-04.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-wanglai-05",
+      "character": "旺來",
+      "name": "城下巡邏旺來",
+      "type": "世界風情系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-wanglai-05.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-wanglai-06",
+      "character": "旺來",
+      "name": "月夜浪人旺來",
+      "type": "世界風情系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-wanglai-06.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-wanglai-07",
+      "character": "旺來",
+      "name": "茶道侍從旺來",
+      "type": "世界風情系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-wanglai-07.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-wanglai-08",
+      "character": "旺來",
+      "name": "黃金將軍旺來",
+      "type": "世界風情系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-wanglai-08.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-kala-01",
+      "character": "卡拉",
+      "name": "椰風假期卡拉",
+      "type": "世界風情系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-kala-01.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-kala-02",
+      "character": "卡拉",
+      "name": "衝浪高手卡拉",
+      "type": "世界風情系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-kala-02.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-kala-03",
+      "character": "卡拉",
+      "name": "夏日冰飲卡拉",
+      "type": "世界風情系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-kala-03.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-kala-04",
+      "character": "卡拉",
+      "name": "海灘救生卡拉",
+      "type": "世界風情系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-kala-04.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-kala-05",
+      "character": "卡拉",
+      "name": "熱帶攝影卡拉",
+      "type": "世界風情系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-kala-05.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-kala-06",
+      "character": "卡拉",
+      "name": "夕陽樂手卡拉",
+      "type": "世界風情系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-kala-06.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-kala-07",
+      "character": "卡拉",
+      "name": "珊瑚探險卡拉",
+      "type": "世界風情系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-kala-07.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-kala-08",
+      "character": "卡拉",
+      "name": "島嶼隊長卡拉",
+      "type": "世界風情系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-kala-08.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mei-01",
+      "character": "梅",
+      "name": "花朝仕女梅",
+      "type": "世界風情系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-mei-01.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mei-02",
+      "character": "梅",
+      "name": "茶香雅客梅",
+      "type": "世界風情系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-mei-02.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mei-03",
+      "character": "梅",
+      "name": "燈籠祈福梅",
+      "type": "世界風情系列",
+      "rarity": "普通",
+      "weight": 24,
+      "asset": "images/gacha-native/native-mei-03.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mei-04",
+      "character": "梅",
+      "name": "書法小師梅",
+      "type": "世界風情系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-mei-04.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mei-05",
+      "character": "梅",
+      "name": "月下舞扇梅",
+      "type": "世界風情系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-mei-05.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mei-06",
+      "character": "梅",
+      "name": "熊貓點心梅",
+      "type": "世界風情系列",
+      "rarity": "稀有",
+      "weight": 12,
+      "asset": "images/gacha-native/native-mei-06.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mei-07",
+      "character": "梅",
+      "name": "竹林琴師梅",
+      "type": "世界風情系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-mei-07.png",
+      "sourceUrl": ""
+    },
+    {
+      "id": "native-mei-08",
+      "character": "梅",
+      "name": "春節福星梅",
+      "type": "世界風情系列",
+      "rarity": "傳說",
+      "weight": 4,
+      "asset": "images/gacha-native/native-mei-08.png",
+      "sourceUrl": ""
+    }
   ]
 }
