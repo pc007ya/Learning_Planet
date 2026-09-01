@@ -301,19 +301,69 @@ exports.setStudentEnabled = onCall(async (request) => {
 exports.reconcileStudentGoogleLinks = onCall(async (request) => {
   requireAdmin(request);
   const studentsSnap = await db.collection('students').get();
-  const references = studentsSnap.docs.map((snap) => ({ uid: snap.id }));
+  const studentDocs = studentsSnap.docs.map((snap) => ({ snap, data: snap.data() || {} }));
+  const references = studentDocs.map(({ snap }) => ({ uid: snap.id }));
   const usersByUid = new Map();
   for (let offset = 0; offset < references.length; offset += 100) {
     const result = await admin.auth().getUsers(references.slice(offset, offset + 100));
     result.users.forEach((user) => usersByUid.set(user.uid, user));
   }
 
-  const repairs = [];
-  studentsSnap.docs.forEach((snap) => {
-    const current = snap.data() || {};
+  // Before account/password login existed, Google binding created a second
+  // Firebase user and saved the learner profile under that Google UID. Match
+  // those legacy records by the exact learning account and transfer only an
+  // unambiguous, Google-only identity to the canonical roster UID.
+  const legacyByAccount = new Map();
+  studentDocs.forEach(({ snap, data }) => {
+    const account = String(data.loginAccount || data.profile?.loginAccount || '').trim().toLowerCase();
     const user = usersByUid.get(snap.id);
-    if (!user) return;
-    const googleProvider = user && user.providerData.find((provider) => provider.providerId === 'google.com');
+    const googleProvider = user?.providerData?.find((provider) => provider.providerId === 'google.com');
+    const isLegacyGoogleOnly = account && !data.username && !data.role && googleProvider
+      && !user.customClaims?.role
+      && user.providerData.every((provider) => provider.providerId === 'google.com');
+    if (!isLegacyGoogleOnly) return;
+    const matches = legacyByAccount.get(account) || [];
+    matches.push({ snap, user, googleProvider });
+    legacyByAccount.set(account, matches);
+  });
+
+  const repairs = [];
+  let migrated = 0;
+  for (const { snap, data: current } of studentDocs) {
+    const user = usersByUid.get(snap.id);
+    if (!user || !current.username) continue;
+    let googleProvider = user.providerData.find((provider) => provider.providerId === 'google.com');
+    const account = String(current.username || '').trim().toLowerCase();
+    const legacyMatches = legacyByAccount.get(account) || [];
+    if (!googleProvider && legacyMatches.length === 1 && legacyMatches[0].snap.id !== snap.id) {
+      const legacy = legacyMatches[0];
+      const providerToLink = {
+        uid: legacy.googleProvider.uid,
+        providerId: 'google.com',
+        email: legacy.googleProvider.email
+      };
+      if (legacy.googleProvider.displayName) providerToLink.displayName = legacy.googleProvider.displayName;
+      if (legacy.googleProvider.photoURL) providerToLink.photoURL = legacy.googleProvider.photoURL;
+      try {
+        await admin.auth().updateUser(legacy.user.uid, { providersToUnlink: ['google.com'] });
+        try {
+          await admin.auth().updateUser(user.uid, { providerToLink });
+        } catch (error) {
+          await admin.auth().updateUser(legacy.user.uid, { providerToLink }).catch(() => {});
+          throw error;
+        }
+        googleProvider = legacy.googleProvider;
+        migrated += 1;
+        repairs.push({ ref: legacy.snap.ref, patch: {
+          enabled: false,
+          legacyGoogleMigratedTo: snap.id,
+          legacyGoogleMigratedAt: admin.firestore.FieldValue.serverTimestamp(),
+          updatedAt: admin.firestore.FieldValue.serverTimestamp()
+        } });
+      } catch (error) {
+        console.error(`Unable to migrate legacy Google identity for ${account}:`, error);
+      }
+    }
     const googleLinked = !!googleProvider;
     const googleEmail = googleProvider?.email || null;
     if (!!current.googleLinked !== googleLinked || (current.googleEmail || null) !== googleEmail) {
@@ -324,13 +374,13 @@ exports.reconcileStudentGoogleLinks = onCall(async (request) => {
         updatedAt: admin.firestore.FieldValue.serverTimestamp()
       } });
     }
-  });
+  }
   for (let offset = 0; offset < repairs.length; offset += 400) {
     const batch = db.batch();
     repairs.slice(offset, offset + 400).forEach((repair) => batch.set(repair.ref, repair.patch, { merge: true }));
     await batch.commit();
   }
-  return { checked: studentsSnap.size, repaired: repairs.length };
+  return { checked: studentsSnap.size, repaired: repairs.length, migrated };
 });
 
 exports.resolveGoogleLinkConflict = onCall(async (request) => {

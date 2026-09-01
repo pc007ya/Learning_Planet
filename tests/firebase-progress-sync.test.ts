@@ -81,6 +81,11 @@ describe('Firebase student progress sync', () => {
     expect(firebaseFunctions).toContain("provider.providerId === 'google.com'");
     expect(firebaseFunctions).toContain('googleLinkCheckedAt: admin.firestore.FieldValue.serverTimestamp()');
     expect(firebaseFunctions).toContain('repairs.slice(offset, offset + 400)');
+    expect(firebaseFunctions).toContain("data.loginAccount || data.profile?.loginAccount");
+    expect(firebaseFunctions).toContain("providersToUnlink: ['google.com']");
+    expect(firebaseFunctions).toContain('updateUser(user.uid, { providerToLink })');
+    expect(firebaseFunctions).toContain('legacyMatches.length === 1');
+    expect(firebaseFunctions).toContain('legacyGoogleMigratedTo: snap.id');
   });
 
   it('keeps students canonical in their own documents instead of the shared roster', () => {
