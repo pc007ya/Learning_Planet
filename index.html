@@ -3769,35 +3769,35 @@ function equipProfileItem(profile, item, slotOverride) {
 const MATH_UNITS = [
   // 一年級上冊核心 1–9：依康軒課本順序排列。每張單元卡使用
   // 獨立透明圖層；題目中的數線、時鐘與數量則保留可變動的程式圖層。
-  { id: "u101", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-01-numbers-within-10-v1.png", tint: "#e8f2ff", title: "1. 10 以內的數", sub: "認識 1～10、0 與表示數量" },
-  { id: "u102", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-02-compare-v1.png", tint: "#fff6e0", title: "2. 比長短", sub: "長短、高矮、厚薄、直線與曲線" },
-  { id: "u103", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-03-order-v1.png", tint: "#e6f7ee", title: "3. 排順序、比多少", sub: "排數字、第幾個、幾個、比多少" },
-  { id: "u104", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-04-number-bonds-v1.png", tint: "#ffeef6", title: "4. 分與合", sub: "分一分、合一合、10 的分與合" },
-  { id: "u105", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-05-solids-v1.png", tint: "#f1e6ff", title: "5. 方盒、圓罐、球", sub: "堆疊分類、平面圖形與做造型" },
-  { id: "u106", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-06-numbers-within-30-v1.png", tint: "#eafbfd", title: "6. 30 以內的數", sub: "數到 20、數到 30、序數與比大小" },
-  { id: "u1", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-07-addition-v1.png", tint: "#ffe0e6", title: "7. 10 以內的加法", sub: "合起來、0 的加法與加加看" },
-  { id: "u2", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-08-subtraction-v1.png", tint: "#ffeccc", title: "8. 10 以內的減法", sub: "剩下多少、多多少少多少、加加減減" },
-  { id: "u107", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v1/unit-09-time-v1.png", tint: "#fff0cc", title: "9. 幾點鐘", sub: "先後與長短、整點與半點" },
-  { id: "u29", grade: 1, difficulty: 2, icon: "🧩", tint: "#e8f2ff", title: "形狀偵探隊", sub: "一年級 · 平面形狀、立體與積木", kind: "math-game" },
+  { id: "u101", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-01-numbers-within-10-v2.png", tint: "#e8f2ff", title: "1. 10 以內的數", sub: "認識 1～10、0 與表示數量" },
+  { id: "u102", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-02-compare-v2.png", tint: "#fff6e0", title: "2. 比長短", sub: "長短、高矮、厚薄、直線與曲線" },
+  { id: "u103", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-03-order-v2.png", tint: "#e6f7ee", title: "3. 排順序、比多少", sub: "排數字、第幾個、幾個、比多少" },
+  { id: "u104", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-04-number-bonds-v2.png", tint: "#ffeef6", title: "4. 分與合", sub: "分一分、合一合、10 的分與合" },
+  { id: "u105", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-05-solids-v2.png", tint: "#f1e6ff", title: "5. 方盒、圓罐、球", sub: "堆疊分類、平面圖形與做造型" },
+  { id: "u106", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-06-numbers-within-30-v2.png", tint: "#eafbfd", title: "6. 30 以內的數", sub: "數到 20、數到 30、序數與比大小" },
+  { id: "u1", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-07-addition-v2.png", tint: "#ffe0e6", title: "7. 10 以內的加法", sub: "合起來、0 的加法與加加看" },
+  { id: "u2", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-08-subtraction-v2.png", tint: "#ffeccc", title: "8. 10 以內的減法", sub: "剩下多少、多多少少多少、加加減減" },
+  { id: "u107", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-09-time-v2.png", tint: "#fff0cc", title: "9. 幾點鐘", sub: "先後與長短、整點與半點" },
+  { id: "u29", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/puzzle-shapes-v2.png", tint: "#e8f2ff", title: "形狀偵探隊", sub: "一年級 · 平面形狀、立體與積木", kind: "math-game" },
   { id: "u30", grade: 2, difficulty: 2, icon: "⚖️", tint: "#fff0cc", title: "測量實驗室", sub: "二年級 · 時鐘、重量與角度", kind: "math-game" },
-  { id: "u31", grade: 1, difficulty: 2, icon: "🧊", tint: "#eafbfd", title: "小一立方體數量", sub: "一年級 · 排、柱、層與數量估計", kind: "math-game" },
+  { id: "u31", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/counting-cubes-v2.png", tint: "#eafbfd", title: "小一立方體數量", sub: "一年級 · 排、柱、層與數量估計", kind: "math-game" },
   { id: "u32", grade: 2, difficulty: 3, icon: "🏗️", tint: "#f1e6ff", title: "小二立方體空間推理", sub: "二年級 · 長寬高與遮擋估計", kind: "math-game" },
-  { id: "u33", grade: 1, difficulty: 2, icon: "🧩", tint: "#fff0cc", title: "圖形觀察與拼圖", sub: "一年級 · 旋轉與方格比對", kind: "math-game" },
-  { id: "u34", grade: 1, difficulty: 1, icon: "🔎", tint: "#e6f7ee", title: "數一數與比多少", sub: "一年級 · 物件分類計數", kind: "math-game" },
-  { id: "u35", grade: 1, difficulty: 2, icon: "🧠", tint: "#ffeef6", title: "順序與位置推理", sub: "一年級 · 先後順序與方位", kind: "math-game" },
-  { id: "u36", grade: 1, difficulty: 1, icon: "🪙", tint: "#fff6e0", title: "數數看有多少元", sub: "一年級 · 均一挑戰 · 硬幣與面額" },
+  { id: "u33", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/puzzle-shapes-v2.png", tint: "#fff0cc", title: "圖形觀察與拼圖", sub: "一年級 · 旋轉與方格比對", kind: "math-game" },
+  { id: "u34", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/counting-magnifier-v2.png", tint: "#e6f7ee", title: "數一數與比多少", sub: "一年級 · 物件分類計數", kind: "math-game" },
+  { id: "u35", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/order-path-v2.png", tint: "#ffeef6", title: "順序與位置推理", sub: "一年級 · 先後順序與方位", kind: "math-game" },
+  { id: "u36", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/coin-stack-v2.png", tint: "#fff6e0", title: "數數看有多少元", sub: "一年級 · 均一挑戰 · 硬幣與面額" },
   { id: "u37", grade: 2, difficulty: 2, icon: "➕", tint: "#e6f7ee", title: "二位數的加減", sub: "二年級 · 均一挑戰 · 進退位練習" },
-  { id: "u38", grade: 1, difficulty: 1, icon: "🃏", tint: "#e8f2ff", title: "記憶翻牌", sub: "一年級 · 數字與數量配對", kind: "memory" },
-  { id: "u3", grade: 1, difficulty: 1, icon: "📏", tint: "#dff1ff", title: "20 以內的數與數線", sub: "一年級 · 數與量" },
-  { id: "u4", grade: 1, difficulty: 1, icon: "🔷", tint: "#e6ecff", title: "認識平面形狀", sub: "一年級 · 幾何" },
-  { id: "u19", grade: 1, difficulty: 1, icon: "🔗", tint: "#e6f7ee", title: "橫式個位數連續加減", sub: "一年級 · 3～5 次運算" },
-  { id: "u14", grade: 1, difficulty: 2, icon: "🌟", tint: "#fff0cc", title: "直式 50 以內加法", sub: "一年級 · 進階加法" },
-  { id: "u15", grade: 1, difficulty: 2, icon: "🚀", tint: "#eafbfd", title: "直式 50 以內減法", sub: "一年級 · 進階減法" },
-  { id: "u16", grade: 1, difficulty: 2, icon: "✖️", tint: "#f1e6ff", title: "個位數的乘法", sub: "一年級 · 乘法入門" },
-  { id: "u17", grade: 1, difficulty: 3, icon: "🍰", tint: "#ffe0ef", title: "認識分數", sub: "一年級 · 分數入門" },
-  { id: "u18", grade: 1, difficulty: 3, icon: "➗", tint: "#e6f7ee", title: "個位數的除法", sub: "一年級 · 除法入門" },
-  { id: "u20", grade: 1, difficulty: 3, icon: "💯", tint: "#ffeccc", title: "直式 99 以內加法", sub: "一年級 · 百以內加法" },
-  { id: "u21", grade: 1, difficulty: 3, icon: "🎯", tint: "#e8f2ff", title: "直式 99 以內減法", sub: "一年級 · 百以內減法" },
+  { id: "u38", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/memory-cards-v2.png", tint: "#e8f2ff", title: "記憶翻牌", sub: "一年級 · 數字與數量配對", kind: "memory" },
+  { id: "u3", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/number-line-v2.png", tint: "#dff1ff", title: "20 以內的數與數線", sub: "一年級 · 數與量" },
+  { id: "u4", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/flat-shapes-v2.png", tint: "#e6ecff", title: "認識平面形狀", sub: "一年級 · 幾何" },
+  { id: "u19", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/calculation-chain-v2.png", tint: "#e6f7ee", title: "橫式個位數連續加減", sub: "一年級 · 3～5 次運算" },
+  { id: "u14", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/addition-within-50-v2.png", tint: "#fff0cc", title: "直式 50 以內加法", sub: "一年級 · 進階加法" },
+  { id: "u15", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/subtraction-within-50-v2.png", tint: "#eafbfd", title: "直式 50 以內減法", sub: "一年級 · 進階減法" },
+  { id: "u16", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/multiplication-array-v2.png", tint: "#f1e6ff", title: "個位數的乘法", sub: "一年級 · 乘法入門" },
+  { id: "u17", grade: 1, difficulty: 3, icon: "", art: "images/math-grade1/v2/fraction-half-v2.png", tint: "#ffe0ef", title: "認識分數", sub: "一年級 · 分數入門" },
+  { id: "u18", grade: 1, difficulty: 3, icon: "", art: "images/math-grade1/v2/division-groups-v2.png", tint: "#e6f7ee", title: "個位數的除法", sub: "一年級 · 除法入門" },
+  { id: "u20", grade: 1, difficulty: 3, icon: "", art: "images/math-grade1/v2/addition-within-99-v2.png", tint: "#ffeccc", title: "直式 99 以內加法", sub: "一年級 · 百以內加法" },
+  { id: "u21", grade: 1, difficulty: 3, icon: "", art: "images/math-grade1/v2/subtraction-within-99-v2.png", tint: "#e8f2ff", title: "直式 99 以內減法", sub: "一年級 · 百以內減法" },
   { id: "u5", grade: 2, icon: "➕", tint: "#e6f7ee", title: "二位數的加減", sub: "二年級 · 數與量" },
   { id: "u13", grade: 2, icon: "🔢", tint: "#e8f2ff", title: "三位數的加減", sub: "二年級 · 直式計算" },
   { id: "u6", grade: 2, icon: "✖️", tint: "#f1e6ff", title: "九九乘法", sub: "二年級 · 數與量" },
@@ -4391,7 +4391,7 @@ const MATH_OBJECT_ASSETS = {
   "🌧️": ["rain-cloud-v1.png", "雨雲"], "🌂": ["umbrella-folded-v1.png", "收起的雨傘"], "☂️": ["umbrella-open-v1.png", "打開的雨傘"], "🚶": ["walking-child-v1.png", "走路的小朋友"],
   "🐱": ["cat-v1.png", "小貓"], "🐶": ["dog-v1.png", "小狗"], "🐻": ["bear-v1.png", "小熊"], "🦊": ["fox-v1.png", "狐狸"], "🐸": ["frog-v1.png", "青蛙"],
   "🎡": ["ferris-wheel-v1.png", "摩天輪"], "🍉": ["watermelon-v1.png", "西瓜"], "💎": ["gemstone-v1.png", "寶石"], "⚖️": ["weight-1kg-v1.png", "砝碼"],
-  "🪙": ["coin-v1.png", "硬幣"], "🧺": ["basket-v1.png", "籃子"],
+  "🪙": ["coin-v2.png", "硬幣"], "🧺": ["basket-v2.png", "籃子"],
 };
 function mathObjectAsset(value) {
   const key = String(value || "").replace(/\uFE0F/g, "");
@@ -7582,7 +7582,7 @@ class Component extends DCLogic {
           const count = r(6, 10);
           q = { stem: "圖中有幾個" + picked[1] + "？", ans: count, fig: "itemsGrid", figData: { items: Array.from({ length: count }, () => picked[0]) }, explain: "先數 5 個，再接著往後數，總共有 " + count + " 個" + picked[1] + "。", hint: "數到 5 可以稍停一下，再繼續往後數。" };
         } else if (topic === 2) {
-          q = { stem: "空籃子裡一個蘋果也沒有，要用哪個數表示？", ans: 0, fig: "solidImage", figData: { image: "images/math-master/v1/objects/basket-v1.png", alt: "沒有放任何物品的空籃子" }, explain: "一個也沒有，就用 0 表示。", opts: shuffle([0, 1, 2, 10]), hint: "0 表示一個也沒有。" };
+          q = { stem: "空籃子裡一個蘋果也沒有，要用哪個數表示？", ans: 0, fig: "solidImage", figData: { image: "images/math-master/v1/objects/basket-v2.png", alt: "沒有放任何物品的完整空籃子" }, explain: "一個也沒有，就用 0 表示。", opts: shuffle([0, 1, 2, 10]), hint: "0 表示一個也沒有。" };
         } else {
           const t = r(1, 10);
           q = { stem: "數線上的標記指向哪一個數？", ans: t, fig: "line", figData: { max: 10, t }, explain: "從 0 開始依序往右數，標記在 " + t + "。" };
