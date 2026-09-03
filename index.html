@@ -5674,7 +5674,10 @@ class Component extends DCLogic {
     fetch("junyi-challenges.json").then((r) => r.json()).then((bank) => {
       if (!bank || bank.schemaVersion !== 1 || !Array.isArray(bank.modules)) return;
       this.setState((state) => {
-        const existing = (state.mathGameBank.modules || []).filter((module) => !bank.modules.some((addition) => addition.id === module.id));
+        const currentModules = Array.isArray(state.mathGameBank)
+          ? state.mathGameBank
+          : (state.mathGameBank.modules || []);
+        const existing = currentModules.filter((module) => !bank.modules.some((addition) => addition.id === module.id));
         return {
           junyiBank: bank.modules,
           mathGameBank: Object.assign({}, state.mathGameBank, { modules: existing.concat(bank.modules) }),
@@ -5684,9 +5687,6 @@ class Component extends DCLogic {
     fetch("gacha-collectibles.json").then((r) => r.json()).then((bank) => {
       if (!bank || bank.schemaVersion !== 2 || !Array.isArray(bank.items)) return;
       this.setState({ gachaBank: bank.items });
-    }).catch(() => {});
-    fetch("math-games.json").then((r) => r.json()).then((data) => {
-      this.setState({ mathGameBank: data && data.modules ? data.modules : [] });
     }).catch(() => {});
     this.timer = setInterval(() => {
       const s = this.state;

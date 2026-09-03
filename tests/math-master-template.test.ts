@@ -90,6 +90,8 @@ describe('Math Master Template', () => {
 
   it('loads challenge modules into their dedicated bank and keeps new visuals legible', () => {
     expect(html).toContain('junyiBank: bank.modules');
+    expect(html).toContain('const currentModules = Array.isArray(state.mathGameBank)');
+    expect(html.match(/fetch\("math-games\.json"\)/g)).toHaveLength(1);
     expect(html).toContain('class="math-sequence-card"');
     expect(html).toContain('class="math-block-stage"');
     expect(html).toContain('width:28px;height:28px');
