@@ -8,8 +8,14 @@
 - Background transparency must be genuine PNG alpha. A rendered gray-and-white checkerboard is a failure.
 - Remove unrelated fragments, isolated residual pixels, and cropped parts before splitting the sheet.
 - Split final icons to individual **720 × 720 transparent PNGs**. Keep every icon centered with consistent perceived scale.
-- Save source sheets under `images/math-grade1/sheets/` and individual versioned assets under `images/math-grade1/v2/`.
+- Save source sheets under the matching grade scope, such as `images/math-grade1/sheets/` or
+  `images/math-grade2-6/sheets/`. Save individual versioned assets under the matching
+  `images/math-gradeN/vN/` directory.
 - Do not overwrite earlier source assets. Update the consuming unit to the new versioned file.
+
+The grade 2–6 audit uses three 4 × 4 sheets. Sheets one and two use all 16 cells;
+sheet three uses cells 1–11 and keeps cells 12–16 fully transparent. Never fill a
+reserved cell with decorative or unrelated art.
 
 ## Question objects
 

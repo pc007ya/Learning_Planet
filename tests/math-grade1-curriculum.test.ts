@@ -24,7 +24,7 @@ function paeth(a: number, b: number, c: number) {
   return pa <= pb && pa <= pc ? a : pb <= pc ? b : c;
 }
 
-function pngAlphaBounds(path: string) {
+function pngAlphaBounds(path: string, region?: { x: number; y: number; width: number; height: number }) {
   const png = readFileSync(path);
   const width = png.readUInt32BE(16), height = png.readUInt32BE(20);
   expect(png[24]).toBe(8);
@@ -57,7 +57,9 @@ function pngAlphaBounds(path: string) {
     }
   }
   let minX = width, minY = height, maxX = -1, maxY = -1;
-  for (let y = 0; y < height; y += 1) for (let x = 0; x < width; x += 1) {
+  const startX = region?.x ?? 0, startY = region?.y ?? 0;
+  const endX = startX + (region?.width ?? width), endY = startY + (region?.height ?? height);
+  for (let y = startY; y < endY; y += 1) for (let x = startX; x < endX; x += 1) {
     if (pixels[y * stride + x * bpp + 3] <= 8) continue;
     minX = Math.min(minX, x); minY = Math.min(minY, y);
     maxX = Math.max(maxX, x); maxY = Math.max(maxY, y);
@@ -127,5 +129,55 @@ describe("grade-one first-semester math curriculum", () => {
     });
     expect(html).toContain('Array.from({ length: 10 }');
     expect(html).toContain('每一整排是 10 顆');
+  });
+});
+
+describe("grade two through six math unit art", () => {
+  it("replaces every existing grade 2–6 emoji card with alpha-safe reusable PNG art", () => {
+    const mathSource = html.slice(html.indexOf("const MATH_UNITS = ["), html.indexOf("const CH_UNITS = ["));
+    const rows = Array.from(mathSource.matchAll(/\{ id: "[^"]+", grade: ([2-6]),[^\n]+\}/g), (match) => ({
+      grade: Number(match[1]),
+      source: match[0],
+    }));
+    const counts = rows.reduce<Record<number, number>>((result, row) => {
+      result[row.grade] = (result[row.grade] || 0) + 1;
+      return result;
+    }, {});
+    expect(counts).toEqual({ 2: 22, 3: 15, 4: 2, 5: 3, 6: 1 });
+
+    const artPaths = new Set<string>();
+    rows.forEach(({ grade, source }) => {
+      expect(source).toContain('icon: ""');
+      const art = source.match(/art: "([^"]+)"/)?.[1];
+      expect(art).toBeTruthy();
+      expect(art).toContain(`images/math-grade${grade}/`);
+      expect(artPaths.has(art!)).toBe(false);
+      artPaths.add(art!);
+      const path = `${root}/${art}`;
+      expect(existsSync(path)).toBe(true);
+      const bounds = pngAlphaBounds(path);
+      expect(bounds.width).toBe(720);
+      expect(bounds.height).toBe(720);
+      expect(bounds.minX).toBeGreaterThanOrEqual(144);
+      expect(bounds.minY).toBeGreaterThanOrEqual(144);
+      expect(bounds.maxX).toBeLessThan(576);
+      expect(bounds.maxY).toBeLessThan(576);
+    });
+    expect(artPaths.size).toBe(43);
+  });
+
+  it("keeps the unused cells in the final 4×4 source sheet transparent", () => {
+    const sheet = `${root}/images/math-grade2-6/sheets/grade2-6-unit-icons-4x4-3-v1.png`;
+    expect(existsSync(sheet)).toBe(true);
+    const png = readFileSync(sheet);
+    expect(png.readUInt32BE(16)).toBe(2048);
+    expect(png.readUInt32BE(20)).toBe(2048);
+    for (let cell = 12; cell <= 16; cell += 1) {
+      const col = (cell - 1) % 4;
+      const row = Math.floor((cell - 1) / 4);
+      const bounds = pngAlphaBounds(sheet, { x: col * 512, y: row * 512, width: 512, height: 512 });
+      expect(bounds.maxX).toBe(-1);
+      expect(bounds.maxY).toBe(-1);
+    }
   });
 });
