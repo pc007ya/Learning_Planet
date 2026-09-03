@@ -88,6 +88,14 @@ describe('Math Master Template', () => {
     expect(html).toContain('beamTilt, counterTilt: -beamTilt');
   });
 
+  it('loads challenge modules into their dedicated bank and keeps new visuals legible', () => {
+    expect(html).toContain('junyiBank: bank.modules');
+    expect(html).toContain('class="math-sequence-card"');
+    expect(html).toContain('class="math-block-stage"');
+    expect(html).toContain('width:28px;height:28px');
+    expect(html).toContain('color:#f4fbff">{{ card.text }}');
+  });
+
   it('uses recorded HsiaoChen presenter lines with type-specific hints', () => {
     const clips = ['welcome', 'ready', 'correct', 'wrong', 'urgent', 'hint-counting', 'hint-clock', 'hint-columns', 'hint-shape', 'hint-line', 'hint-weight', 'hint-generic'];
     for (const clip of clips) {
