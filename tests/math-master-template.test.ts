@@ -78,6 +78,16 @@ describe('Math Master Template', () => {
     expect(html).toContain('background:transparent!important;box-shadow:none!important');
   });
 
+  it('anchors measurement rays at the protractor centre and renders a complete balance', () => {
+    expect(html).toContain('left:50%;bottom:0;width:84px;height:4px;background:#ff6fae');
+    expect(html).toContain('transform:rotate({{ protractorRotate }}deg)');
+    expect(html).toContain('left:50%;bottom:-7px;width:18px;height:18px');
+    expect(html).toContain('width:142px;height:18px;transform:translateX(-50%)');
+    expect(html).toContain('width:17px;height:86px;transform:translateX(-50%)');
+    expect(html).toContain('border-bottom:6px solid #7c5cff');
+    expect(html).toContain('beamTilt, counterTilt: -beamTilt');
+  });
+
   it('uses recorded HsiaoChen presenter lines with type-specific hints', () => {
     const clips = ['welcome', 'ready', 'correct', 'wrong', 'urgent', 'hint-counting', 'hint-clock', 'hint-columns', 'hint-shape', 'hint-line', 'hint-weight', 'hint-generic'];
     for (const clip of clips) {
