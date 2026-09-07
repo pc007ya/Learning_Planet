@@ -58,7 +58,9 @@ export class CubeView {
       if(p.stickers.length>1){const inward=new T.Vector3(...p.position).normalize().negate();const stalk=this.add(new T.CylinderGeometry(.13,.18,.48,12),this.plastic(0x33485a),g);stalk.position.copy(inward).multiplyScalar(.52);stalk.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),inward);
         const shoe=this.add(new T.TorusGeometry(.24,.105,8,20,Math.PI*1.55),this.plastic(0x8da6b5),g);shoe.position.copy(inward).multiplyScalar(.75);shoe.quaternion.setFromUnitVectors(new T.Vector3(0,0,1),inward);
       }
-      for(const sticker of p.stickers){const n=new T.Vector3(...sticker.normal);const tile=this.add(new RoundedBoxGeometry(.79,.79,.042,3,.021),new T.MeshPhysicalMaterial({color:CUBE_COLORS[sticker.color],roughness:.30,clearcoat:.5,metalness:0}),g);tile.position.copy(n).multiplyScalar(.488);tile.quaternion.setFromUnitVectors(new T.Vector3(0,0,1),n);tile.userData.normal=[...sticker.normal];tile.userData.color=sticker.color;}
+      // Color is lesson data: specular highlights must never turn a red/yellow
+      // sticker white. Keep exact swatch colors; the lit plastic supplies depth.
+      for(const sticker of p.stickers){const n=new T.Vector3(...sticker.normal);const tile=this.add(new RoundedBoxGeometry(.79,.79,.042,3,.021),new T.MeshBasicMaterial({color:CUBE_COLORS[sticker.color],toneMapped:false}),g);tile.position.copy(n).multiplyScalar(.488);tile.quaternion.setFromUnitVectors(new T.Vector3(0,0,1),n);tile.userData.normal=[...sticker.normal];tile.userData.color=sticker.color;}
     }
     this.setSpread(this.exploded?1:0);this.draw();
   }

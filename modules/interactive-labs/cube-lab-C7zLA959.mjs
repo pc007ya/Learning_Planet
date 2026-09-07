@@ -1,6 +1,6 @@
-import { C as et, V as d, M as T, T as P, Q as H, S as I, a as w, R as st, P as it, b as ot, W as at, c as rt, D as C, H as nt, d as $, e as ht, f as lt, L as A, E as F, B as Y, g as Z, h as ct, i as dt, G as x, j as ut, k as pt, l as O, m as W, n as mt, o as ft, p as bt } from "./RoundedBoxGeometry-BC8egOwb.mjs";
+import { C as et, V as d, M as T, T as P, Q as H, S as I, a as w, R as st, P as it, b as ot, W as at, c as rt, D as C, H as nt, d as $, e as ht, f as lt, L as A, E as F, B as Y, g as Z, h as ct, i as dt, G as x, j as pt, k as ut, l as O, m as W, n as mt, o as ft, p as bt } from "./RoundedBoxGeometry-CxE3DY8p.mjs";
 import { C as wt } from "./car-art-D34K7c64.mjs";
-const K = { type: "change" }, q = { type: "start" }, B = { type: "end" }, L = new st(), X = new it(), yt = Math.cos(70 * ot.DEG2RAD), u = new d(), f = 2 * Math.PI, c = {
+const K = { type: "change" }, q = { type: "start" }, B = { type: "end" }, L = new st(), X = new it(), yt = Math.cos(70 * ot.DEG2RAD), p = new d(), f = 2 * Math.PI, c = {
   NONE: -1,
   ROTATE: 0,
   DOLLY: 1,
@@ -83,7 +83,7 @@ class _t extends et {
   }
   update(t = null) {
     const e = this.object.position;
-    u.copy(e).sub(this.target), u.applyQuaternion(this._quat), this._spherical.setFromVector3(u), this.autoRotate && this.state === c.NONE && this._rotateLeft(this._getAutoRotationAngle(t)), this.enableDamping ? (this._spherical.theta += this._sphericalDelta.theta * this.dampingFactor, this._spherical.phi += this._sphericalDelta.phi * this.dampingFactor) : (this._spherical.theta += this._sphericalDelta.theta, this._spherical.phi += this._sphericalDelta.phi);
+    p.copy(e).sub(this.target), p.applyQuaternion(this._quat), this._spherical.setFromVector3(p), this.autoRotate && this.state === c.NONE && this._rotateLeft(this._getAutoRotationAngle(t)), this.enableDamping ? (this._spherical.theta += this._sphericalDelta.theta * this.dampingFactor, this._spherical.phi += this._sphericalDelta.phi * this.dampingFactor) : (this._spherical.theta += this._sphericalDelta.theta, this._spherical.phi += this._sphericalDelta.phi);
     let s = this.minAzimuthAngle, i = this.maxAzimuthAngle;
     isFinite(s) && isFinite(i) && (s < -Math.PI ? s += f : s > Math.PI && (s -= f), i < -Math.PI ? i += f : i > Math.PI && (i -= f), s <= i ? this._spherical.theta = Math.max(s, Math.min(i, this._spherical.theta)) : this._spherical.theta = this._spherical.theta > (s + i) / 2 ? Math.max(s, this._spherical.theta) : Math.min(i, this._spherical.theta)), this._spherical.phi = Math.max(this.minPolarAngle, Math.min(this.maxPolarAngle, this._spherical.phi)), this._spherical.makeSafe(), this.enableDamping === !0 ? this.target.addScaledVector(this._panOffset, this.dampingFactor) : this.target.add(this._panOffset), this.target.sub(this.cursor), this.target.clampLength(this.minTargetRadius, this.maxTargetRadius), this.target.add(this.cursor);
     let a = !1;
@@ -93,10 +93,10 @@ class _t extends et {
       const n = this._spherical.radius;
       this._spherical.radius = this._clampDistance(this._spherical.radius * this._scale), a = n != this._spherical.radius;
     }
-    if (u.setFromSpherical(this._spherical), u.applyQuaternion(this._quatInverse), e.copy(this.target).add(u), this.object.lookAt(this.target), this.enableDamping === !0 ? (this._sphericalDelta.theta *= 1 - this.dampingFactor, this._sphericalDelta.phi *= 1 - this.dampingFactor, this._panOffset.multiplyScalar(1 - this.dampingFactor)) : (this._sphericalDelta.set(0, 0, 0), this._panOffset.set(0, 0, 0)), this.zoomToCursor && this._performCursorZoom) {
+    if (p.setFromSpherical(this._spherical), p.applyQuaternion(this._quatInverse), e.copy(this.target).add(p), this.object.lookAt(this.target), this.enableDamping === !0 ? (this._sphericalDelta.theta *= 1 - this.dampingFactor, this._sphericalDelta.phi *= 1 - this.dampingFactor, this._panOffset.multiplyScalar(1 - this.dampingFactor)) : (this._sphericalDelta.set(0, 0, 0), this._panOffset.set(0, 0, 0)), this.zoomToCursor && this._performCursorZoom) {
       let n = null;
       if (this.object.isPerspectiveCamera) {
-        const r = u.length();
+        const r = p.length();
         n = this._clampDistance(r * this._scale);
         const l = r - n;
         this.object.position.addScaledVector(this._dollyDirection, l), this.object.updateMatrixWorld(), a = !!l;
@@ -105,8 +105,8 @@ class _t extends et {
         r.unproject(this.object);
         const l = this.object.zoom;
         this.object.zoom = Math.max(this.minZoom, Math.min(this.maxZoom, this.object.zoom / this._scale)), this.object.updateProjectionMatrix(), a = l !== this.object.zoom;
-        const p = new d(this._mouse.x, this._mouse.y, 0);
-        p.unproject(this.object), this.object.position.sub(p).add(r), this.object.updateMatrixWorld(), n = u.length();
+        const u = new d(this._mouse.x, this._mouse.y, 0);
+        u.unproject(this.object), this.object.position.sub(u).add(r), this.object.updateMatrixWorld(), n = p.length();
       } else
         console.warn("WARNING: OrbitControls.js encountered an unknown camera type - zoom to cursor disabled."), this.zoomToCursor = !1;
       n !== null && (this.screenSpacePanning ? this.target.set(0, 0, -1).transformDirection(this.object.matrix).multiplyScalar(n).add(this.object.position) : (L.origin.copy(this.object.position), L.direction.set(0, 0, -1).transformDirection(this.object.matrix), Math.abs(this.object.up.dot(L.direction)) < yt ? this.object.lookAt(this.target) : (X.setFromNormalAndCoplanarPoint(this.object.up, this.target), L.intersectPlane(X, this.target))));
@@ -130,18 +130,18 @@ class _t extends et {
     this._sphericalDelta.phi -= t;
   }
   _panLeft(t, e) {
-    u.setFromMatrixColumn(e, 0), u.multiplyScalar(-t), this._panOffset.add(u);
+    p.setFromMatrixColumn(e, 0), p.multiplyScalar(-t), this._panOffset.add(p);
   }
   _panUp(t, e) {
-    this.screenSpacePanning === !0 ? u.setFromMatrixColumn(e, 1) : (u.setFromMatrixColumn(e, 0), u.crossVectors(this.object.up, u)), u.multiplyScalar(t), this._panOffset.add(u);
+    this.screenSpacePanning === !0 ? p.setFromMatrixColumn(e, 1) : (p.setFromMatrixColumn(e, 0), p.crossVectors(this.object.up, p)), p.multiplyScalar(t), this._panOffset.add(p);
   }
   // deltaX and deltaY are in pixels; right and down are positive
   _pan(t, e) {
     const s = this.domElement;
     if (this.object.isPerspectiveCamera) {
       const i = this.object.position;
-      u.copy(i).sub(this.target);
-      let a = u.length();
+      p.copy(i).sub(this.target);
+      let a = p.length();
       a *= Math.tan(this.object.fov / 2 * Math.PI / 180), this._panLeft(2 * t * a / s.clientHeight, this.object.matrix), this._panUp(2 * e * a / s.clientHeight, this.object.matrix);
     } else this.object.isOrthographicCamera ? (this._panLeft(t * (this.object.right - this.object.left) / this.object.zoom / s.clientWidth, this.object.matrix), this._panUp(e * (this.object.top - this.object.bottom) / this.object.zoom / s.clientHeight, this.object.matrix)) : (console.warn("WARNING: OrbitControls.js encountered an unknown camera type - pan disabled."), this.enablePan = !1);
   }
@@ -482,7 +482,7 @@ function Ct(o, t) {
 function J(o, t) {
   const { axis: e, side: s, turns: i } = Q(t), a = (-s * i % 4 + 4) % 4, n = (r) => {
     let l = r;
-    for (let p = 0; p < a; p++) l = Ct(l, e);
+    for (let u = 0; u < a; u++) l = Ct(l, e);
     return [...l];
   };
   return o.map((r) => ({
@@ -532,13 +532,13 @@ class jt {
     }, { signal: this.abort.signal }), n.addEventListener("pointerup", (r) => {
       const l = this.down;
       if (this.down = void 0, !l || l.id !== r.pointerId || this.busy || this.exploded) return;
-      const p = r.clientX - l.x, g = r.clientY - l.y;
-      if (Math.hypot(p, g) < 9) {
+      const u = r.clientX - l.x, g = r.clientY - l.y;
+      if (Math.hypot(u, g) < 9) {
         const m = this.pick(r.clientX, r.clientY);
         m && (this.select(m), this.onFace(m));
-      } else if (this.turnMode && Math.hypot(p, g) > 28) {
+      } else if (this.turnMode && Math.hypot(u, g) > 28) {
         const m = this.pick(l.x, l.y) || this.selected;
-        this.select(m), this.onFace(m), this.onDragTurn(m + (Math.abs(p) > Math.abs(g) ? p < 0 ? "'" : "" : g > 0 ? "'" : ""));
+        this.select(m), this.onFace(m), this.onDragTurn(m + (Math.abs(u) > Math.abs(g) ? u < 0 ? "'" : "" : g > 0 ? "'" : ""));
       }
     }, { signal: this.abort.signal }), n.addEventListener("pointercancel", () => {
       this.down = void 0;
@@ -572,14 +572,14 @@ class jt {
   onDragTurn = (t) => {
   };
   plastic(t = 1647926) {
-    return new ut({ color: t, roughness: 0.3, metalness: 0.08 });
+    return new pt({ color: t, roughness: 0.3, metalness: 0.08 });
   }
   add(t, e, s) {
     const i = new $(t, e);
     return i.castShadow = !0, i.receiveShadow = !0, s.add(i), i;
   }
   makeCore() {
-    this.add(new pt(0.38, 24, 16), this.plastic(15725284), this.core);
+    this.add(new ut(0.38, 24, 16), this.plastic(15725284), this.core);
     for (const t of b) {
       const e = new d(...t.normal), s = this.add(new O(0.115, 0.115, 1.24, 16), this.plastic(12044756), this.core);
       s.position.copy(e).multiplyScalar(0.62), s.quaternion.setFromUnitVectors(new d(0, 1, 0), e);
@@ -603,7 +603,7 @@ class jt {
         a.position.copy(s).multiplyScalar(0.75), a.quaternion.setFromUnitVectors(new d(0, 0, 1), s);
       }
       for (const s of t.stickers) {
-        const i = new d(...s.normal), a = this.add(new W(0.79, 0.79, 0.042, 3, 0.021), new ft({ color: N[s.color], roughness: 0.3, clearcoat: 0.5, metalness: 0 }), e);
+        const i = new d(...s.normal), a = this.add(new W(0.79, 0.79, 0.042, 3, 0.021), new ft({ color: N[s.color], toneMapped: !1 }), e);
         a.position.copy(i).multiplyScalar(0.488), a.quaternion.setFromUnitVectors(new d(0, 0, 1), i), a.userData.normal = [...s.normal], a.userData.color = s.color;
       }
     }
@@ -615,7 +615,7 @@ class jt {
     const a = i.intersectObjects([...this.groups.values()], !0).find((r) => r.object.userData.normal);
     if (!a) return;
     const n = a.object.userData.normal;
-    return b.find((r) => r.normal.every((l, p) => l === n[p]))?.id;
+    return b.find((r) => r.normal.every((l, u) => l === n[u]))?.id;
   }
   select(t) {
     this.selected = t;
@@ -753,11 +753,11 @@ class qt {
         v.data.size && this.chunks.push(v.data);
       }, this.recorder.onstop = () => m(new Blob(this.chunks, { type: this.recorder.mimeType })), this.recorder.onerror = () => E(new Error("錄製未完成，請改用 PNG 與分鏡。"));
     });
-    let p = 0;
+    let u = 0;
     const g = (m) => {
       if (!this.stopped) {
-        if (m - p >= 50) {
-          p = m, r.clearRect(0, 0, 960, 640);
+        if (m - u >= 50) {
+          u = m, r.clearRect(0, 0, 960, 640);
           const E = Math.max(960 / a.width, 640 / a.height);
           r.drawImage(a, (960 - a.width * E) / 2, (640 - a.height * E) / 2, a.width * E, a.height * E), i();
           const v = Math.min(960 / t.width, 640 / t.height);
@@ -849,7 +849,7 @@ class zt {
         const s = [...this.colors];
         s[0] = b.map((r) => r.color).reverse().find((r) => !s.includes(r));
         const i = [this.colors, e, s], a = this.chapter % 3, n = i.slice(a).concat(i.slice(0, a));
-        this.answer = String(n.indexOf(this.colors)), this.panel.innerHTML = `${this.header()}<p class="ct-prompt">這一塊，找哪些中心？</p><div class="ct-piece" aria-label="目標零件的顏色">${this.colors.map(M).join("")}</div><div class="ct-choices">${n.map((r, l) => y(`color-${l}`, `${r.map((p) => U[p]).join("、")}色中心`, r.map(M).join(""))).join("")}</div><p class="ct-feedback" role="status">看亮框，配對顏色</p><small>中心像門牌，不會交換位置。</small>`;
+        this.answer = String(n.indexOf(this.colors)), this.panel.innerHTML = `${this.header()}<p class="ct-prompt">這一塊，找哪些中心？</p><div class="ct-piece" aria-label="目標零件的顏色">${this.colors.map(M).join("")}</div><div class="ct-choices">${n.map((r, l) => y(`color-${l}`, `${r.map((u) => U[u]).join("、")}色中心`, r.map(M).join(""))).join("")}</div><p class="ct-feedback" role="status">看亮框，配對顏色</p><small>中心像門牌，不會交換位置。</small>`;
       } else if (this.screen === "moves") {
         const e = t.moves[this.step], s = b.find((a) => a.id === e[0]), i = e.endsWith("'") ? "↶" : "↷";
         this.panel.innerHTML = `${this.header()}<p class="ct-prompt">找這個中心 ${M(s.color)}</p><div class="ct-face-choices">${b.map((a) => y(`face-${a.id}`, `教學：選${a.name}`, M(a.color))).join("")}</div><div class="ct-move-picture" aria-label="${s.name}，${i === "↶" ? "逆" : "順"}時針四分之一圈">${M(s.color)}<b>${i}</b><small>¼ 圈</small></div><div class="ct-direction">${y("left", "教學：逆時針轉一步", "↶")}${y("right", "教學：順時針轉一步", "↷")}</div><p class="ct-feedback" role="status">${this.selected ? "正看這一面，跟箭頭轉" : "先找中心，鏡頭會對正"}</p><small>動作 ${this.step + 1}/${t.moves.length} · 小段完成會檢查</small>`, this.panel.querySelectorAll(".ct-direction button").forEach((a) => a.disabled = !this.selected);

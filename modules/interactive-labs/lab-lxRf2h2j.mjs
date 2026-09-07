@@ -1,5 +1,5 @@
-import { h as q, B as I, j as S, q as B, r as F, d as m, I as O, O as Y, s as W, t as C, u as A, k, n as b, v as j, V as f, w as z, o as V, x as X, F as Z, y as R, m as H, z as _, A as U, p as N, a as D, G as y, l as M, J, K, N as Q, U as tt, X as et, D as st, W as it, Y as at, Z as ot, _ as nt, P as rt } from "./RoundedBoxGeometry-BC8egOwb.mjs";
-import { L as $, F as E, i as ht, b as L, c as lt } from "./car-art-D34K7c64.mjs";
+import { h as q, B as I, j as S, q as B, r as F, d as m, I as O, O as Y, s as W, t as C, u as $, k, n as b, v as j, V as f, w as z, x as V, y as X, F as Z, z as R, m as H, A as _, J as U, p as N, a as D, G as y, l as M, K as J, N as K, U as Q, X as tt, Y as et, D as st, W as it, Z as at, _ as ot, $ as nt, P as rt } from "./RoundedBoxGeometry-CxE3DY8p.mjs";
+import { L as P, F as E, i as ht, b as L, c as lt } from "./car-art-D34K7c64.mjs";
 import { L as ct } from "./experience-BQmBRpyo.mjs";
 class dt extends q {
   constructor() {
@@ -50,9 +50,9 @@ function ut(w) {
     const c = new m(r, l);
     return c.position.set(u, d, h), w.add(c), c;
   }, s = (r, l, u, d, h, c, p = 0) => o(new H(r, l, u, 3, Math.min(r, l, u) * 0.28), e(d), h, c, p), a = new C();
-  a.moveTo(-1.96, -0.22), a.lineTo(-1.754, -0.22), a.absarc(-1.18, -0.3, 0.58, Math.PI - 0.14, 0.14, !0), a.lineTo(0.606, -0.22), a.absarc(1.18, -0.3, 0.58, Math.PI - 0.14, 0.14, !0), a.lineTo(1.96, -0.22), a.bezierCurveTo(2.06, -0.02, 2.02, 0.34, 1.84, 0.48), a.bezierCurveTo(1.39, 0.6, 0.87, 0.57, 0.54, 0.58), a.lineTo(-1.55, 0.58), a.bezierCurveTo(-1.91, 0.56, -2.03, 0.22, -1.96, -0.22), a.closePath(), o(new A(a, { depth: 1.5, bevelEnabled: !0, bevelSize: 0.045, bevelThickness: 0.045, bevelSegments: 3, curveSegments: 32 }), t(), 0, 0, -0.75);
+  a.moveTo(-1.96, -0.22), a.lineTo(-1.754, -0.22), a.absarc(-1.18, -0.3, 0.58, Math.PI - 0.14, 0.14, !0), a.lineTo(0.606, -0.22), a.absarc(1.18, -0.3, 0.58, Math.PI - 0.14, 0.14, !0), a.lineTo(1.96, -0.22), a.bezierCurveTo(2.06, -0.02, 2.02, 0.34, 1.84, 0.48), a.bezierCurveTo(1.39, 0.6, 0.87, 0.57, 0.54, 0.58), a.lineTo(-1.55, 0.58), a.bezierCurveTo(-1.91, 0.56, -2.03, 0.22, -1.96, -0.22), a.closePath(), o(new $(a, { depth: 1.5, bevelEnabled: !0, bevelSize: 0.045, bevelThickness: 0.045, bevelSegments: 3, curveSegments: 32 }), t(), 0, 0, -0.75);
   const i = new C();
-  i.moveTo(-1.43, 0.52), i.lineTo(-1.02, 1.31), i.quadraticCurveTo(-0.96, 1.38, -0.8, 1.38), i.lineTo(0.23, 1.38), i.quadraticCurveTo(0.33, 1.38, 0.4, 1.27), i.lineTo(0.88, 0.55), i.closePath(), o(new A(i, { depth: 1.24, bevelEnabled: !0, bevelSize: 0.045, bevelThickness: 0.04, bevelSegments: 3 }), t(), 0, 0, -0.62);
+  i.moveTo(-1.43, 0.52), i.lineTo(-1.02, 1.31), i.quadraticCurveTo(-0.96, 1.38, -0.8, 1.38), i.lineTo(0.23, 1.38), i.quadraticCurveTo(0.33, 1.38, 0.4, 1.27), i.lineTo(0.88, 0.55), i.closePath(), o(new $(i, { depth: 1.24, bevelEnabled: !0, bevelSize: 0.045, bevelThickness: 0.04, bevelSegments: 3 }), t(), 0, 0, -0.62);
   const n = (r, l = 1255995) => {
     const u = new X();
     u.setAttribute("position", new Z(r.flat(), 3)), u.setIndex([0, 1, 2, 0, 2, 3]), u.computeVertexNormals();
@@ -140,8 +140,8 @@ class mt {
       else if (!c) {
         const p = s.getBoundingClientRect(), g = new N();
         g.setFromCamera(new D((h.clientX - p.left) / p.width * 2 - 1, 1 - (h.clientY - p.top) / p.height * 2), o);
-        const P = g.intersectObject(this.root, !0);
-        for (const G of P) {
+        const A = g.intersectObject(this.root, !0);
+        for (const G of A) {
           let v = G.object;
           for (; v && !v.userData.partId; ) v = v.parent;
           if (v?.userData.partId) {
@@ -220,7 +220,7 @@ class mt {
     }
     l.closePath();
     const u = new J();
-    return u.absarc(0, 0, t * 0.16, 0, Math.PI * 2, !0), l.holes.push(u), this.mesh(new A(l, { depth: 0.12, bevelEnabled: !0, bevelSize: 0.012, bevelThickness: 0.012, bevelSegments: 2 }), n, r, 0, 0, 0, 0.65), this.disk(t * 0.16, 0.21, 14083563, r, 0, 0, 0.05), this.gears.push(r), r;
+    return u.absarc(0, 0, t * 0.16, 0, Math.PI * 2, !0), l.holes.push(u), this.mesh(new $(l, { depth: 0.12, bevelEnabled: !0, bevelSize: 0.012, bevelThickness: 0.012, bevelSegments: 2 }), n, r, 0, 0, 0, 0.65), this.disk(t * 0.16, 0.21, 14083563, r, 0, 0, 0.05), this.gears.push(r), r;
   }
   clock() {
     const t = this.part("case", [0, 0, -0.2], [-2.6, 0.35, -1.1], !0);
@@ -270,8 +270,8 @@ class mt {
       const c = d > 0 ? 0.13 : -0.13;
       this.mesh(new b(0.27, 0.022, 8, 40), 14870763, h, 0, 0, c, 0.8);
       for (let p = 0; p < 5; p++) {
-        const g = p * Math.PI * 2 / 5, P = this.box(0.048, 0.17, 0.035, 14542313, h, Math.sin(g) * 0.165, Math.cos(g) * 0.165, c);
-        P.rotation.z = -g;
+        const g = p * Math.PI * 2 / 5, A = this.box(0.048, 0.17, 0.035, 14542313, h, Math.sin(g) * 0.165, Math.cos(g) * 0.165, c);
+        A.rotation.z = -g;
       }
       this.wheels.push(h);
     }
@@ -341,7 +341,7 @@ class mt {
 class yt {
   constructor(t, e) {
     this.host = t, this.kind = e;
-    const o = $[e];
+    const o = P[e];
     t.innerHTML = `<div class="il-layout"><section class="il-scene-panel"><div class="il-stage" role="img" aria-label="${o.title}互動場景"></div><p class="il-live" role="status" aria-live="polite">${o.objective}</p></section><aside class="il-panel"><p class="il-kicker">EXPERIMENT PLANET · 互動探索</p><h2>${o.title}</h2><p>${o.objective}</p><div class="il-controls"></div><button type="button" data-action="reset">↺ 重置目前操作</button><details><summary>模型說明</summary><p>${e === "buoyancy" ? "淡水、無水流的簡化模型。物件為示意比例，數值是教學樣本，不是所有同類物品的測量值。浮在水面時，浮力和重量平衡；沉底的物體也受到浮力。" : e === "clock" ? "這是指針與齒輪的傳動示意，不是完整鐘錶內部結構。相鄰外齒輪反向轉動；時針与分針由多級齒輪傳動形成 12:1 的轉速關係。石英鐘通常由電池與馬達驅動，機械鐘另有發條或重錘。" : "這是彈簧式回力車的簡化模型：往後拉 → 齒輪使彈簧儲能 → 放手帶動輪軸 → 摩擦使它停下。行駛距離為模型單位，不代表真實車款的公尺數。"}</p></details></aside></div><section class="il-panel il-observations"><h3>觀察紀錄 <span data-count>0 次</span></h3><p>每次只改一個條件，比較結果。紀錄保留於本次實驗，離開後重新開始。</p><ol class="il-log"></ol></section><section class="il-panel il-assessment"><h3>想一想</h3><p>${o.question}</p><div class="il-answers">${o.choices.map((i, n) => `<button type="button" data-answer="${n}">${i}</button>`).join("")}</div><p class="il-feedback" role="status">先完成至少一次操作與觀察，再回答。</p></section>`, this.stage = t.querySelector(".il-stage"), this.status = t.querySelector(".il-live"), this.log = t.querySelector(".il-log");
     const s = document.createElement("p");
     if (s.className = "il-scene-guide", s.textContent = e === "buoyancy" ? "選物品 → 預測 → 放入水中 → 比較浮沉" : e === "clock" ? "左：指針比例 12:1 ｜ 右：外齒輪反向傳動示意" : "向左回拉 → 彈簧儲能 → 放手帶動輪軸", this.stage.append(s), t.querySelector(".il-controls").innerHTML = e === "buoyancy" ? `<label>① 選物品<select data-input="object">${E.map((i, n) => `<option value="${n}">${i.name}</option>`).join("")}</select></label><p data-sample></p><label>② 先預測<select data-input="prediction"><option value="">請選擇</option><option value="float">浮在水面</option><option value="sink">沉到水底</option><option value="unsure">還不確定</option></select></label><button type="button" data-action="run">③ 放入水中</button><p>也可拖動物品，放手入水。可重複測試，猜錯也能學習。</p>` : e === "clock" ? '<label>轉動分針（分鐘）<input data-input="minutes" type="range" min="0" max="720" step="1" value="0"></label><p data-readout>12:00</p><button type="button" data-action="step">分針前進一圈（60 分鐘）</button><button type="button" data-action="run">▶ 播放／暫停</button><button type="button" data-action="record">記錄目前時間</button><p>可拖曳鐘面指針；滑桿與按鈕也能操作。</p>' : '<label>① 向後拉多少<input data-input="pull" type="range" min="10" max="100" step="10" value="50"></label><p data-readout>回拉量 50%</p><label>② 路面<select data-input="surface"><option value="smooth">較平滑</option><option value="rough">較粗糙</option></select></label><button type="button" data-action="run">③ 放手出發</button><p>也可把車向左拖，放手前進。比較同一回拉量在不同路面的結果。</p>', e === "car") {
@@ -417,7 +417,7 @@ class yt {
     const t = E[this.selected];
     if (t.id === "stone" && this.mesh(new ot(0.48), t.color, 0, 0, 0, this.object).scale.set(1.25, 0.8, 0.8), t.id === "key" && (this.mesh(new b(0.25, 0.09, 10, 32), t.color, -0.35, 0.05, 0, this.object), this.box(0.85, 0.12, 0.13, t.color, 0.25, 0.05, 0, this.object), this.box(0.12, 0.25, 0.13, t.color, 0.5, -0.08, 0, this.object), this.box(0.12, 0.2, 0.13, t.color, 0.25, -0.05, 0, this.object)), t.id === "boat") {
       const e = new C();
-      e.moveTo(-0.9, 0.1), e.lineTo(0.9, 0.1), e.lineTo(0.5, -0.35), e.lineTo(-0.5, -0.35), e.closePath(), this.mesh(new A(e, { depth: 0.4, bevelEnabled: !1 }), t.color, 0, 0, -0.2, this.object);
+      e.moveTo(-0.9, 0.1), e.lineTo(0.9, 0.1), e.lineTo(0.5, -0.35), e.lineTo(-0.5, -0.35), e.closePath(), this.mesh(new $(e, { depth: 0.4, bevelEnabled: !1 }), t.color, 0, 0, -0.2, this.object);
       const o = new C();
       o.moveTo(-0.5, 0.1), o.lineTo(0, 0.7), o.lineTo(0.5, 0.1), o.closePath(), this.mesh(new nt(o), 16763523, 0, 0, 0.23, this.object);
     }
@@ -434,11 +434,11 @@ class yt {
     if (e) {
       if (this.kind === "car" && ((e.dataset.carMode || e.dataset.part) && (this.active = !1), e.dataset.road && (this.active = !1, this.rough = e.dataset.road === "rough", this.host.dataset.road = e.dataset.road, this.host.querySelectorAll("[data-road]").forEach((o) => o.setAttribute("aria-pressed", String(o === e))), this.updateCar(), this.status.textContent = this.rough ? "換成石頭路，試試看能跑多遠。" : "換成平路，用相同力量比較看看。"), e.dataset.force && (this.active = !1, this.pull = Number(e.dataset.force), this.mechanism?.setCarMode("test"), this.updateCar())), e.dataset.answer !== void 0) {
         if (this.kind === "car") {
-          const o = Number(e.dataset.answer) === $.car.answer, s = this.answerReady ? o ? "答對了！往後拉車時，能量存在捲簧裡。放手後，捲簧透過齒輪帶動車輪。" : "再想想看！回到實驗，拆開車殼看看捲簧，聽聽它的工作。" : "先回到實驗，完成一次拉車試跑，再來選圖片。";
+          const o = Number(e.dataset.answer) === P.car.answer, s = this.answerReady ? o ? "答對了！往後拉車時，能量存在捲簧裡。放手後，捲簧透過齒輪帶動車輪。" : "再想想看！回到實驗，拆開車殼看看捲簧，聽聽它的工作。" : "先回到實驗，完成一次拉車試跑，再來選圖片。";
           this.host.querySelector(".il-feedback").innerHTML = `<span aria-hidden="true">${this.answerReady ? o ? "✓ ⭐" : "🔎 ↶" : "🚗 ↶"}</span><span class="bp-sr">${s}</span>`, this.host.querySelectorAll("[data-answer]").forEach((a) => a.setAttribute("aria-pressed", String(a === e)));
           return;
         }
-        this.host.querySelector(".il-feedback").textContent = this.answerReady ? Number(e.dataset.answer) === $[this.kind].answer ? "✓ 完成！你已把操作結果和原理解釋連起來。可以再改一個條件試試。" : "再看看觀察紀錄。答錯沒關係，回到實驗找證據後再回答。" : "先操作並完成一次觀察，再用證據回答。";
+        this.host.querySelector(".il-feedback").textContent = this.answerReady ? Number(e.dataset.answer) === P[this.kind].answer ? "✓ 完成！你已把操作結果和原理解釋連起來。可以再改一個條件試試。" : "再看看觀察紀錄。答錯沒關係，回到實驗找證據後再回答。" : "先操作並完成一次觀察，再用證據回答。";
         return;
       }
       e.dataset.action === "reset" && this.reset(), e.dataset.action === "run" && this.run(), e.dataset.action === "step" && (this.minutes += 60, this.updateClock(), this.record(`分針前進一圈：現在 ${this.clockText()}，時針前進一大格。`)), e.dataset.action === "record" && this.record(`觀察時間 ${this.clockText()}；分針累計 ${Math.floor(this.minutes / 60)} 圈，時針累計 ${(this.minutes / 720).toFixed(2)} 圈。`), this.wake();
