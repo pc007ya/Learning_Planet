@@ -1,4 +1,45 @@
 :root { --planet-panel: linear-gradient(145deg,rgba(7,19,48,.92),rgba(23,16,60,.86)); --planet-text: #fff; --planet-border: rgba(126,218,255,.55); }
+/* Clock: one framed workspace, direct switches and collapsible in-scene BOM. */
+.il-shell:has(.il-clock-play) > .il-back { display:none; }
+.il-clock-play .bp-heading { display:flex;align-items:center;gap:10px;padding:8px 12px; }
+.il-clock-play .bp-heading h2 { margin:0;font-size:20px;white-space:nowrap; }
+.il-clock-play .bp-heading .il-mission-nav { margin:0 0 0 auto;gap:6px;flex-wrap:nowrap; }
+.il-shell .il-clock-play .bp-heading button { width:44px;height:44px;min-height:44px;padding:0;display:grid;place-items:center;border-radius:50%;font-size:23px; }
+.il-clock-play .bp-heading img { width:32px;height:32px;object-fit:contain; }
+.il-clock-play .il-voice-state { position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden; }
+.il-clock-play.il-workspace .il-layout { grid-template-columns:1fr;position:relative; }
+.il-clock-play.il-workspace aside.il-panel { position:absolute;z-index:5;bottom:12px;left:80px;right:12px;padding:0;background:transparent;border:0;box-shadow:none;overflow:visible;display:flex;align-items:center;justify-content:flex-end;gap:8px;pointer-events:none; }
+.il-clock-play aside > :is(h2,p),.il-clock-play .il-scene-guide { display:none; }
+.il-clock-play.il-workspace .il-controls { display:flex;align-items:center;gap:8px;pointer-events:auto; }
+.il-clock-play.il-workspace .il-controls button,.il-clock-play.il-workspace [data-action=reset] { width:auto;min-width:44px;height:44px;margin:0;padding:5px 12px;pointer-events:auto;font-size:22px; }
+.il-clock-play .il-controls button span { font-size:14px; }
+.il-clock-play.il-workspace .il-controls [data-readout] { font-size:24px;background:#0b1931dd;border-radius:16px;padding:7px 12px;font-variant-numeric:tabular-nums; }
+.il-clock-play.il-workspace .mech-quick-info { margin:0 auto 0 0;padding:8px 12px;max-width:270px;background:#0b1931cc;pointer-events:auto; }
+.il-clock-play .mech-quick-info strong { font-size:14px; }.il-clock-play.il-workspace .mech-quick-info p { font-size:12px;margin:3px 0; }
+.il-clock-play.il-workspace .il-live { position:absolute;left:12px;bottom:70px;max-width:320px;border-radius:12px;background:#07172cbd;font-size:12px; }
+.il-clock-play .clock-switches { display:flex;align-items:center;gap:8px; }
+.il-clock-play .clock-switches > span { margin-left:auto;font-size:13px; }
+.il-shell .clock-switches button { min-height:44px;border-radius:24px;background:#203652;display:flex;align-items:center;gap:12px; }
+.clock-switches button::after { content:'';width:30px;height:18px;border-radius:20px;background:radial-gradient(circle at 9px 9px,white 6px,transparent 7px),#4d6173; }
+.clock-switches button[aria-checked=true]::after { background:radial-gradient(circle at 21px 9px,white 6px,transparent 7px),#178b91; }
+.il-clock-play .mech-bom { position:absolute;right:10px;top:10px;z-index:7;max-width:340px;color:white;border-radius:20px;background:rgba(7,21,43,.78);border:1px solid #90dfff88;backdrop-filter:blur(10px); }
+.mech-bom > summary { list-style:none;width:44px;height:44px;margin-left:auto;display:grid;place-items:center;font-size:28px;cursor:pointer; }
+.mech-bom > summary::-webkit-details-marker { display:none; }
+.il-clock-play.il-workspace .mech-bom .mech-tray { padding:6px 10px 10px;border:0; }
+.il-clock-play .mech-bom .mech-parts { grid-template-columns:1fr 1fr; }
+.il-clock-play .mech-bom .mech-parts button { background:#143451a8; }
+.il-clock-play .mech-labels { z-index:4; }.il-shell .il-clock-play .mech-labels button { width:44px;height:44px;min-height:44px; }
+.clock-zoom { position:absolute;left:10px;top:10px;z-index:6;display:flex;gap:6px; }
+.il-shell .clock-zoom button { width:44px;height:44px;min-height:44px;padding:0;border-radius:50%;font-size:25px;background:#143451aa; }
+.mech-selection-halo { position:absolute;pointer-events:none;z-index:3;border:2px solid #ffdf8a;border-radius:38%;box-shadow:0 0 12px 5px #ffdf8a80,inset 0 0 12px #ffdf8a66; }
+.il-clock-play[data-car-page=quiz] :is(.mech-toolbar,.il-stage,.il-live,aside.il-panel) { display:none!important; }
+.il-clock-play .il-assessment[hidden] { display:none!important; }
+.il-clock-play[data-car-page=quiz] .il-assessment { flex:1;min-height:0;margin:0;border:0;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:transparent; }
+.il-clock-play .clock-question { display:flex;align-items:center;gap:24px;font-size:36px; }.clock-question svg { width:120px;height:120px; }
+.il-clock-play .il-answers { display:flex;justify-content:center;gap:18px; }.il-clock-play .il-answers button { display:grid;justify-items:center;gap:6px;padding:10px;width:160px; }.il-clock-play .il-answers svg { width:115px;height:115px; }
+.il-clock-play .il-feedback { max-width:600px;font-size:14px; }
+@media(max-height:650px) { .il-clock-play .clock-question svg { width:88px;height:88px; }.il-clock-play .il-answers svg { width:90px;height:90px; }.il-clock-play .il-assessment h3 { margin:0; } }
+@media(max-width:899px) { .il-clock-play .mech-quick-info { display:none; }.il-clock-play .bp-heading { flex-wrap:wrap; }.il-clock-play .il-stage { min-height:440px; } }
 /* Matched generated play worlds; keep the road at the same screen height. */
 .il-car-play .car-race-background,.car-race-background img { position:absolute;inset:0;width:100%;height:100%;pointer-events:none; }
 .car-race-background img { object-fit:fill; }

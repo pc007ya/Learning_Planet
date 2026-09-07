@@ -9,7 +9,7 @@ export const PARTS = {
     ['case','鐘殼','像安全帽，保護裡面的機芯。','轉到背面，找找裝電池的位置。'],
     ['glass','透明鏡片','擋住灰塵，讓我們看得到時間。','拆開後，鏡片在最前面。'],
     ['dial','刻度盤','12 個大刻度，幫我們讀出幾點。','每相鄰兩個數字相差 5 分鐘。'],
-    ['hands','時針與分針','長分針走一圈，短時針走一大格。','試試下面的「前進一小時」。'],
+    ['hands','時針與分針','長分針走一圈，短時針走一大格。','試試下方「+1 時」圖示。'],
     ['gears','傳動齒輪','一顆帶一顆，把轉動傳到指針。','相鄰的外齒輪轉向相反。這裡省略了部分細小齒輪。'],
     ['motor','線圈與馬達','收到電路的節拍，就推動齒輪轉動。','銅色線圈把電能轉成轉動。'],
     ['quartz','石英與電路','像小小節拍器，幫忙維持規律節奏。','石英不是電池；它負責穩定節拍。'],
@@ -59,6 +59,9 @@ export class Mechanism {
   private dragYaw = 0;
   private pullValue = .5;
   private dragPull = .5;
+  private clockRotate = false;
+  private zoom = 1;
+  private halo?: HTMLElement;
 
   constructor(private kind: Kind, private scene: T.Scene, private camera: T.OrthographicCamera, private stage: HTMLElement, private host: HTMLElement, renderer: T.WebGLRenderer | undefined, private wake: () => void, private action: (value: number, release: boolean) => void) {
     this.yaw = kind === 'clock' ? -.25 : -.55;
@@ -73,6 +76,9 @@ export class Mechanism {
     const tools = document.createElement('div'); tools.className = 'mech-toolbar';
     tools.innerHTML = `<div class="mech-modes" role="group" aria-label="模型觀看方式"><button data-view="whole" aria-pressed="true">完整外觀</button><button data-view="xray" aria-pressed="false">透視裡面</button><button data-view="explode" aria-pressed="false">拆開看看</button></div><div class="mech-adjust"><label>轉個方向<input type="range" data-mech-turn min="-75" max="75" value="${Math.round(this.yaw * 180 / Math.PI)}" aria-label="轉動模型視角"></label><label>拆開多少<input type="range" data-mech-explode min="0" max="100" value="0" aria-label="零件拆開程度"></label></div>`;
     stage.before(tools);
+    if (kind === 'clock') {
+      tools.innerHTML = '<div class="clock-switches"><button role="switch" data-clock-rotate aria-checked="false" aria-label="旋轉模型">⟳ 旋轉</button><button role="switch" data-clock-explode aria-checked="false" aria-label="拆卸零件">⚙ 拆卸</button><span>☝ 拖動調時</span></div>';
+    }
     if (kind === 'car') {
       host.classList.add('il-car-play'); host.dataset.carMode = 'rotate';
       tools.innerHTML = `<div class="car-switches" role="group" aria-label="回力車操作模式"><button role="switch" data-car-mode="rotate" aria-checked="true">⟳ 旋轉<i></i></button><button role="switch" data-car-mode="explode" aria-checked="false">⚙ 拆卸<i></i></button><button role="switch" data-car-mode="test" aria-checked="false">🏁 拉力<i></i></button></div>`;
@@ -80,20 +86,36 @@ export class Mechanism {
     const tray = document.createElement('section'); tray.className = 'mech-tray';
     tray.innerHTML = `<div class="mech-tray-title"><strong>點零件，發現小祕密</strong><span data-discovered>0 / 8</span></div><div class="mech-parts">${PARTS[kind].map((p,i)=>`<button data-part="${p[0]}" aria-pressed="false"><span>${i+1}</span>${p[1]}</button>`).join('')}</div><div class="mech-part-info" aria-live="polite"><strong>從外面看，再拆開找找看。</strong><p>點模型上的數字，或點上方的零件名稱。</p></div><details class="mech-parent"><summary>給陪玩的家長</summary><p>先問「你猜這個零件做什麼？」再點名稱一起看。${kind === 'clock' ? '電池 → 石英與電路 → 馬達 → 齒輪 → 指針。' : '手往後拉 → 輪軸與齒輪 → 捲簧儲能 → 放手帶動車輪。'}此模型以常見結構為基礎，省略部分緊固件與細小傳動零件，並非品牌產品的維修拆裝圖。真實拆解請由成人協助，避免小零件與電池被孩子吞食。</p></details>`;
     stage.closest('.il-scene-panel')!.append(tray); this.partInfo = tray.querySelector('.mech-part-info')!;
+    if (kind === 'clock') {
+      const bom = document.createElement('details'); bom.className = 'mech-bom';
+      bom.innerHTML = '<summary aria-label="展開或收起零件表" title="零件">☷</summary>';
+      bom.append(tray); stage.append(bom);
+      bom.addEventListener('toggle',()=>this.wake(),{signal:this.abort.signal});
+      tray.querySelector('strong')!.textContent = '零件';
+      const zoomTools = document.createElement('div'); zoomTools.className = 'clock-zoom';
+      zoomTools.innerHTML = '<button data-clock-zoom="1" aria-label="放大模型">＋</button><button data-clock-zoom="-1" aria-label="縮小模型">−</button><button data-clock-zoom="0" aria-label="還原視角">⌂</button>';
+      stage.append(zoomTools);
+      this.halo = document.createElement('div'); this.halo.className = 'mech-selection-halo'; this.halo.hidden = true; stage.append(this.halo);
+    }
     const quick=document.createElement('div');quick.className='mech-quick-info';quick.setAttribute('aria-live','polite');quick.innerHTML='<strong>當個小小拆解師</strong><p>選「拆開看看」，再點一個零件。</p>';host.querySelector('aside .il-controls')!.before(quick);
     if (kind === 'car') quick.innerHTML = '<strong>選個開關玩玩看</strong><p>轉一轉、拆一拆，再試跑！</p>';
+    if (kind === 'clock') quick.innerHTML = '<strong>☝ 拖動調時</strong><p>⚙ 拆卸 · ☷ 找零件</p>';
     host.addEventListener('click', e => {
       const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button'); if (!b) return;
       if (b.dataset.carMode) this.setCarMode(b.dataset.carMode === this.carMode ? 'idle' : b.dataset.carMode as 'rotate' | 'explode' | 'test');
       if (b.dataset.view) { this.setMode(b.dataset.view as ViewMode); tools.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(el=>el.setAttribute('aria-pressed',String(el===b))); (tools.querySelector('[data-mech-explode]') as HTMLInputElement).value = this.mode === 'explode' ? '100' : '0'; }
       if (b.dataset.part) this.select(b.dataset.part, host);
+      if (b.hasAttribute('data-clock-rotate')) { this.clockRotate = !this.clockRotate; b.setAttribute('aria-checked',String(this.clockRotate)); }
+      if (b.hasAttribute('data-clock-explode')) { const open = this.mode !== 'explode'; this.setMode(open?'explode':'whole'); b.setAttribute('aria-checked',String(open)); }
+      if (b.hasAttribute('data-clock-rotate') || b.hasAttribute('data-clock-explode')) { tools.querySelector('.clock-switches > span')!.textContent=this.clockRotate||this.mode==='explode'?'☝ 拖動旋轉':'☝ 拖動調時'; quick.innerHTML=this.mode==='explode'?'<strong>☷ 找零件</strong><p>點數字，聽聽它的工作。</p>':this.clockRotate?'<strong>☝ 拖動旋轉</strong><p>關閉旋轉，就能調時間。</p>':'<strong>☝ 拖動調時</strong><p>長分針一圈，短時針一格。</p>'; }
+      if (b.hasAttribute('data-clock-zoom')) { const direction=Number(b.dataset.clockZoom); this.zoom=direction?Math.max(.75,Math.min(1.5,this.zoom+direction*.15)):1; if(!direction)this.yaw=-.25; this.wake(); }
     }, {signal:this.abort.signal});
     tools.addEventListener('input',e=>{const input=e.target as HTMLInputElement;if(input.hasAttribute('data-mech-turn'))this.yaw=Number(input.value)*Math.PI/180;else{this.target=Number(input.value)/100;this.mode=this.target ? 'explode':'whole';tools.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.view===this.mode)));this.skins();}this.wake();},{signal:this.abort.signal});
     if (kind === 'clock') this.clock(); else this.car();
     scene.add(this.root); this.skins();
-    stage.addEventListener('pointerdown',e=>{if(e.button || (e.target as HTMLElement).closest('button') || (kind==='car'&&this.carMode==='idle'))return;this.dragYaw=this.yaw;this.dragPull=this.pullValue;this.dragging={x:e.clientX,minutes:this.minutes,moved:false};stage.setPointerCapture(e.pointerId);},{signal:this.abort.signal});
-    stage.addEventListener('pointermove',e=>{if(!this.dragging)return;const d=e.clientX-this.dragging.x;if(Math.abs(d)>5)this.dragging.moved=true;if(!this.dragging.moved)return;if(kind==='car'&&this.carMode!=='test'){this.yaw=this.dragYaw+d*.01;}else if(this.mode!=='whole'){this.yaw=Math.max(-1.3,Math.min(1.3,this.dragYaw+d*.01));}else if(kind==='clock'){this.action(Math.max(0,this.dragging.minutes+d/2),false);}else this.action(Math.max(.1,Math.min(1,this.dragPull-d/180)),false);this.wake();},{signal:this.abort.signal});
-    stage.addEventListener('pointerup',e=>{if(!this.dragging)return;const moved=this.dragging.moved;this.dragging=null;if(stage.hasPointerCapture(e.pointerId))stage.releasePointerCapture(e.pointerId);if(moved&&this.mode==='whole'&&(kind==='clock'||this.carMode==='test'))this.action(-1,true);else if(!moved){const rect=stage.getBoundingClientRect(),ray=new T.Raycaster();ray.setFromCamera(new T.Vector2((e.clientX-rect.left)/rect.width*2-1,1-(e.clientY-rect.top)/rect.height*2),camera);const hits=ray.intersectObject(this.root,true);for(const hit of hits){let obj:T.Object3D|null=hit.object;while(obj&&!obj.userData.partId)obj=obj.parent;if(obj?.userData.partId){this.select(obj.userData.partId,host);break;}}}},{signal:this.abort.signal});
+    stage.addEventListener('pointerdown',e=>{if(e.button || (e.target as HTMLElement).closest('button,details') || (kind==='car'&&this.carMode==='idle'))return;this.dragYaw=this.yaw;this.dragPull=this.pullValue;this.dragging={x:e.clientX,minutes:this.minutes,moved:false};stage.setPointerCapture(e.pointerId);},{signal:this.abort.signal});
+    stage.addEventListener('pointermove',e=>{if(!this.dragging)return;const d=e.clientX-this.dragging.x;if(Math.abs(d)>5)this.dragging.moved=true;if(!this.dragging.moved)return;if((kind==='car'&&this.carMode!=='test')||(kind==='clock'&&this.clockRotate)){this.yaw=this.dragYaw+d*.01;}else if(this.mode!=='whole'){this.yaw=Math.max(-1.3,Math.min(1.3,this.dragYaw+d*.01));}else if(kind==='clock'){this.action(Math.max(0,this.dragging.minutes+d/2),false);}else this.action(Math.max(.1,Math.min(1,this.dragPull-d/180)),false);this.wake();},{signal:this.abort.signal});
+    stage.addEventListener('pointerup',e=>{if(!this.dragging)return;const moved=this.dragging.moved;this.dragging=null;if(stage.hasPointerCapture(e.pointerId))stage.releasePointerCapture(e.pointerId);if(moved&&this.mode==='whole'&&((kind==='clock'&&!this.clockRotate)||this.carMode==='test'))this.action(-1,true);else if(!moved){const rect=stage.getBoundingClientRect(),ray=new T.Raycaster();ray.setFromCamera(new T.Vector2((e.clientX-rect.left)/rect.width*2-1,1-(e.clientY-rect.top)/rect.height*2),camera);const hits=ray.intersectObject(this.root,true);for(const hit of hits){let obj:T.Object3D|null=hit.object;while(obj&&!obj.userData.partId)obj=obj.parent;if(obj?.userData.partId){this.select(obj.userData.partId,host);break;}}}},{signal:this.abort.signal});
     stage.addEventListener('pointercancel',()=>{this.dragging=null;},{signal:this.abort.signal});
   }
   setCarMode(mode: 'idle' | 'rotate' | 'explode' | 'test') {
@@ -164,13 +186,15 @@ export class Mechanism {
     this.parts.forEach(p=>p.group.traverse(n=>{if(n instanceof T.Mesh){const m=n.material as T.MeshStandardMaterial;const glass=p.id==='glass';m.transparent=glass||(this.mode==='xray'&&p.skin);m.opacity=glass?.10:this.mode==='xray'&&p.skin?.13:1;m.depthWrite=!m.transparent;}}));
   }
   private select(id:string,host:HTMLElement) {
-    if(this.mode==='whole'&&!['case','glass','dial','hands','shell','wheels'].includes(id)) {if(this.kind==='car')this.setCarMode('explode');else this.setMode('xray');host.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view==='xray')));}
+    if(this.kind==='car'&&this.mode==='whole'&&!['shell','wheels'].includes(id)) this.setCarMode('explode');
     this.selected=id;this.seen.add(id);const data=PARTS[this.kind].find(p=>p[0]===id)!;
     this.partInfo.innerHTML=`<strong>${data[1]}</strong><p>${data[2]}</p><small>${data[3]}</small>`;
     host.querySelector('.mech-quick-info')!.innerHTML=`<strong>${data[1]}</strong><p>${data[2]}</p>`;
     host.querySelector('[data-discovered]')!.textContent=`${this.seen.size} / 8`;
     host.querySelectorAll<HTMLButtonElement>('[data-part]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.part===id)));
-    this.parts.forEach(p=>p.group.traverse(n=>{if(n instanceof T.Mesh){const m=n.material as T.MeshStandardMaterial;m.emissive.setHex(p.id===id?0x164b59:0);m.emissiveIntensity=p.id===id?.5:0;}}));this.wake();
+    if(this.kind==='clock'&&this.mode==='whole'&&!['case','glass','dial','hands'].includes(id)) host.querySelector('.mech-quick-info')!.innerHTML += '<p>在鐘殼裡，打開「拆卸」找找看。</p>';
+    if(this.kind==='car') this.parts.forEach(p=>p.group.traverse(n=>{if(n instanceof T.Mesh){const m=n.material as T.MeshStandardMaterial;m.emissive.setHex(p.id===id?0x164b59:0);m.emissiveIntensity=p.id===id?.5:0;}}));
+    this.wake();
   }
   setClock(minutes:number) {this.minutes=minutes;this.handMinute.rotation.z=-minutes*Math.PI/30;this.handHour.rotation.z=-minutes*Math.PI/360;this.gears.forEach((g,i)=>g.rotation.z=minutes*.06*(i%2?-1:1)/(i+1));}
   setCar(pull:number,travel=0,running=false) {this.pullValue=pull;this.root.position.x=this.carMode==='test'?-pull*1.8+travel:0;this.wheels.forEach(w=>w.rotation.z=running?-travel/.5:pull*4);if(this.spring)this.spring.scale.setScalar(1-.25*pull);this.gears.forEach((g,i)=>g.rotation.z=(running?travel*4:pull*6)*(i%2?-1:1));}
@@ -178,9 +202,14 @@ export class Mechanism {
     this.amount+=(this.target-this.amount)*Math.min(1,dt*9);if(Math.abs(this.amount-this.target)<.001)this.amount=this.target;
     this.root.rotation.set(this.kind==='car'?(this.carMode==='test'?0:.24):.03,this.yaw,0);
     const w=this.stage.clientWidth,h=this.stage.clientHeight;
-    if(w&&h){const span=this.kind==='clock'?2.6+this.amount*3.3:this.carMode==='test'?5.8:3.3+this.amount*1.4;const halfHeight=Math.max(this.kind==='clock'?2.45+this.amount*.9:2.35+this.amount*.95,span*h/w);const halfWidth=halfHeight*w/h,center=this.kind==='car'?(this.carMode==='test'?-.445+.28*halfHeight:.45):0;this.camera.left=-halfWidth;this.camera.right=halfWidth;this.camera.top=halfHeight+center;this.camera.bottom=-halfHeight+center;this.camera.updateProjectionMatrix();}
+    if(w&&h){const reserve=this.kind==='clock'&&this.stage.querySelector('.mech-bom[open]')?260:0;const span=this.kind==='clock'?2.6+this.amount*3.3:this.carMode==='test'?5.8:3.3+this.amount*1.4;const halfHeight=Math.max(this.kind==='clock'?2.45+this.amount*.9:2.35+this.amount*.95,span*h/Math.max(280,w-reserve))/(this.zoom||1);const halfWidth=halfHeight*w/h,center=this.kind==='car'?(this.carMode==='test'?-.445+.28*halfHeight:.45):0,offset=halfWidth*reserve/w;this.camera.left=-halfWidth+offset;this.camera.right=halfWidth+offset;this.camera.top=halfHeight+center;this.camera.bottom=-halfHeight+center;this.camera.updateProjectionMatrix();}
     this.parts.forEach(p=>{p.group.position.copy(p.home).lerp(p.away,this.amount);if(p.id==='wheels')p.group.children.forEach(w=>{w.position.z=(w.userData.side||1)*(.88+this.amount*.75);});});
     this.root.updateMatrixWorld(true);
+    if(this.halo) {
+      const part=this.parts.find(p=>p.id===this.selected);
+      this.halo.hidden=!part || (this.mode==='whole'&&!['case','glass','dial','hands'].includes(this.selected));
+      if(part){const box=new T.Box3().setFromObject(part.group);const points=[];for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z]){const p=new T.Vector3(x,y,z).project(this.camera);points.push({x:(p.x+1)*w/2,y:(1-p.y)*h/2});}const left=Math.min(...points.map(p=>p.x))-8,top=Math.min(...points.map(p=>p.y))-8;Object.assign(this.halo.style,{left:`${left}px`,top:`${top}px`,width:`${Math.max(...points.map(p=>p.x))-left+8}px`,height:`${Math.max(...points.map(p=>p.y))-top+8}px`});}
+    }
     const occupied: {x:number;y:number}[]=[];
     this.parts.forEach(p=>{
       const pos=p.group.getWorldPosition(new T.Vector3()).project(this.camera),anchor={x:(pos.x+1)*w/2,y:(1-pos.y)*h/2};

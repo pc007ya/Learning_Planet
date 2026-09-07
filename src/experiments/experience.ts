@@ -15,7 +15,7 @@ export class LabExperience {
     const nav = document.createElement('nav'); nav.className = 'il-mission-nav'; nav.setAttribute('aria-label', '實驗小幫手');
     nav.innerHTML = '<button data-helper="voice" aria-pressed="false">🔊 開始語音陪玩</button><button data-helper="replay">🗣 再講一次</button><button data-helper="notes">📒 發現筆記</button><button data-helper="quiz">🌟 小挑戰</button><button data-helper="help">💡 怎麼玩</button><span class="il-voice-state" role="status">點一下，開啟語音</span>';
     host.prepend(nav); this.voiceButton = nav.querySelector('[data-helper="voice"]')!;
-    if (kind === 'buoyancy' || kind === 'car') {
+    if (kind === 'buoyancy' || kind === 'car' || kind === 'clock') {
       const heading = host.querySelector('.bp-heading')!;
       const back = document.createElement('button'); back.className = 'bp-back-icon';
       back.type = 'button'; back.textContent = '←'; back.setAttribute('aria-label', '返回實驗星球'); back.title = '返回實驗星球';
@@ -27,7 +27,7 @@ export class LabExperience {
         button.setAttribute('aria-label', label); button.title = label;
         button.textContent = icons[button.dataset.helper!];
       });
-      if (kind === 'car') {
+      if (kind === 'car' || kind === 'clock') {
         const quiz = nav.querySelector<HTMLButtonElement>('[data-helper="quiz"]')!;
         quiz.innerHTML = `<img src="${CAR_ART}pencil.png" alt="" draggable="false">`; quiz.setAttribute('aria-label', '考題'); quiz.title = '切換考題';
       }
@@ -51,26 +51,26 @@ export class LabExperience {
       button.setAttribute('aria-label', open ? '回到實驗' : '考題');
       button.setAttribute('aria-pressed', String(open));
     };
-    if (kind === 'car') { host.querySelector('.il-scene-panel')!.append(panels[1]); carQuiz(false); }
+    if (kind === 'car' || kind === 'clock') { host.querySelector('.il-scene-panel')!.append(panels[1]); carQuiz(false); }
     const sayCurrent = () => this.say(this.lastText || `${LAB_SPECS[kind].title}。${help.textContent}` , true);
     nav.addEventListener('click', e => {
       const action = (e.target as HTMLElement).closest<HTMLButtonElement>('button')?.dataset.helper;
       if (action === 'voice') {
         this.enabled = !this.enabled;
         this.voiceButton.setAttribute('aria-pressed', String(this.enabled));
-        this.voiceButton.textContent = kind !== 'clock' ? (this.enabled ? '🔊' : '🔇') : (this.enabled ? '🔊 語音陪玩中' : '🔇 語音已關閉');
-        if (kind !== 'clock') {
+        this.voiceButton.textContent = this.enabled ? '🔊' : '🔇';
+        {
           const label = this.enabled ? '關閉語音陪玩' : '開啟語音陪玩';
           this.voiceButton.setAttribute('aria-label', label); this.voiceButton.title = label;
         }
         if (this.enabled) this.say(`嗨，小小探險家！${LAB_SPECS[kind].title}。${LAB_SPECS[kind].objective}。${instructions?.textContent || ''}`);
         else { this.stop(); this.voiceState('語音已關閉'); }
       } else if (action === 'replay') sayCurrent();
-      else if (action === 'quiz' && kind === 'car') {
+      else if (action === 'quiz' && (kind === 'car' || kind === 'clock')) {
         const open = host.dataset.carPage !== 'quiz'; carQuiz(open);
         if (open) this.say(panels[1].textContent || ''); else this.stop();
       } else if (action) {
-        if (kind === 'car') carQuiz(false);
+        if (kind === 'car' || kind === 'clock') carQuiz(false);
         const index = ['notes', 'quiz', 'help'].indexOf(action); if (index < 0) return;
         panels.forEach((panel, i) => panel.toggleAttribute('hidden', i !== index));
         this.dialog.showModal(); this.say(panels[index].textContent || '');

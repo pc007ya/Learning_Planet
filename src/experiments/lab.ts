@@ -52,6 +52,17 @@ export class InteractiveLab {
       const road = document.createElement('div'); road.className = 'car-track'; road.setAttribute('aria-hidden','true'); this.stage.append(road);
       installCarArtwork(host);
     }
+    if (kind === 'clock') {
+      host.classList.add('il-clock-play');
+      const heading = document.createElement('div'); heading.className = 'bp-heading'; heading.innerHTML = '<h2>時鐘工坊</h2>';
+      host.querySelector('.il-scene-panel')!.prepend(heading);
+      host.querySelector('.il-controls')!.innerHTML = `<input type="hidden" data-input="minutes" value="0"><p data-readout>12:00</p><button data-action="step" aria-label="分針前進一圈，時針前進一大格">⟳ <span>+1 時</span></button><button data-action="run" aria-label="播放或暫停指針">▶ / Ⅱ</button><button data-action="record" aria-label="記錄目前時間">📒</button><p>調時時，左右拖動鐘面調整時間。打開旋轉開關，用手轉方向；打開拆卸，點右上零件表找零件。</p>`;
+      const reset = host.querySelector<HTMLButtonElement>('[data-action="reset"]')!; reset.textContent = '↺'; reset.setAttribute('aria-label','重新開始');
+      const clockPicture = (hour: number) => `<svg viewBox="0 0 160 160" role="img" aria-label="${hour}點"><circle cx="80" cy="80" r="70" fill="#fff5db" stroke="#cba85c" stroke-width="7"/>${Array.from({length:12},(_,i)=>`<circle cx="${80+59*Math.sin(i*Math.PI/6)}" cy="${80-59*Math.cos(i*Math.PI/6)}" r="3" fill="#294651"/>`).join('')}<path d="M80 80V25" stroke="#168ba8" stroke-width="6" stroke-linecap="round"/><path d="M80 80L${80+36*Math.sin(hour*Math.PI/6)} ${80-36*Math.cos(hour*Math.PI/6)}" stroke="#a47818" stroke-width="9" stroke-linecap="round"/><circle cx="80" cy="80" r="6" fill="#294651"/></svg>`;
+      host.querySelector('.il-assessment > p')!.innerHTML = `<span class="clock-question">${clockPicture(12)}<span aria-label="分針前進一圈">⟳ → ?</span></span>`;
+      host.querySelector('.il-assessment h3')!.textContent = '分針一圈，時針？';
+      host.querySelector('.il-answers')!.innerHTML = [12,12,1].map((hour,i)=>`<button data-answer="${i}" aria-label="${spec.choices[i]}">${clockPicture(hour).replace('</svg>',i===0?'<path d="M92 38A44 44 0 1 1 69 37M65 29 70 39 59 43" fill="none" stroke="#b07e16" stroke-width="5" stroke-linecap="round"/></svg>':i===2?'<path d="M80 37A43 43 0 0 1 102 43" fill="none" stroke="#b07e16" stroke-width="6"/></svg>':'</svg>')}<span>${i===0?'⟳ 一圈':i===1?'不動':'一大格'}</span></button>`).join('');
+    }
     host.addEventListener('click', this.click, { signal: this.abort.signal });
     host.addEventListener('input', this.input, { signal: this.abort.signal });
     this.camera.position.set(0, 0, 12);
@@ -79,7 +90,6 @@ export class InteractiveLab {
     });
     if (kind !== 'buoyancy') {
       host.querySelector('aside > details > p')!.textContent = kind === 'clock' ? '常見的電池式石英鐘：電池供电，石英與電路提供節拍，馬達和多級齒輪帶動指針。本模型省略部分細小零件，不是維修圖。分針和時針保持 12:1 的轉速關係。' : '彈簧式回力車：回拉讓輪軸、齒輪帶動捲簧儲能，放手後由捲簧驅動車輪。拆解圖省略部分緊固件；行駛距離為教學模型單位，不代表真實車款。';
-      if (kind === 'clock') host.querySelector('.il-controls > p:last-child')!.textContent = '完整外觀：左右拖動模型可調整時間。透視或拆開時：拖動模型可轉視角。';
     }
     this.scene.add(this.object);
     this.reset();
@@ -139,6 +149,7 @@ export class InteractiveLab {
   }
   private click = (event: Event) => {
     const button = (event.target as HTMLElement).closest<HTMLButtonElement>('button'); if (!button) return;
+    if (this.kind === 'clock' && (['quiz','notes','help'].includes(button.dataset.helper || '') || button.hasAttribute('data-clock-rotate') || button.hasAttribute('data-clock-explode') || button.dataset.action === 'step')) { this.active=false; this.updateClock(); }
     if (this.kind === 'car') {
       if (button.dataset.carMode || button.dataset.part) this.active = false;
       if (button.dataset.road) {
@@ -178,7 +189,7 @@ export class InteractiveLab {
     if (this.kind === 'buoyancy') { this.prediction = ''; (this.host.querySelector('[data-input="prediction"]') as HTMLSelectElement).value = ''; this.buildSample(); }
     if (this.kind === 'clock') { this.minutes = 0; this.updateClock(); }
     if (this.kind === 'car') { this.pull = .5; this.mechanism?.setCarMode('rotate'); (this.host.querySelector('[data-input="pull"]') as HTMLInputElement).value = '50'; this.updateCar(); }
-    this.status.textContent = this.kind === 'car' ? '用手左右拖，看看車子的每一面。' : '準備好了，改變條件後開始觀察。'; this.wake();
+    this.status.textContent = this.kind === 'car' ? '用手左右拖，看看車子的每一面。' : this.kind === 'clock' ? '☝ 拖動調時 · ⟳ 前進一小時' : '準備好了，改變條件後開始觀察。'; this.wake();
   }
   private run() {
     if (this.kind === 'buoyancy') {
@@ -187,7 +198,7 @@ export class InteractiveLab {
       const o = FLOAT_OBJECTS[this.selected], result = buoyancy(o.mass, o.volume);
       this.targetY = result.floats ? .15 + .3 - .6 * result.fraction : -2.13;
       this.active = true; this.status.textContent = `正在觀察${o.name}…`;
-    } else if (this.kind === 'clock') { this.active = !this.active; this.status.textContent = this.active ? '加速示範中：分針轉 12 圈，時針轉 1 圈。試試透視，看裡面哪些零件跟著動。' : '已暫停，可以記錄目前時間。'; }
+    } else if (this.kind === 'clock') { this.active = !this.active; this.updateClock(); this.status.textContent = this.active ? '▶ 分針 12 圈 → 時針 1 圈' : 'Ⅱ 暫停 · 📒 記錄'; }
     else { if (this.active) return; this.mechanism?.setCarMode('test'); this.runDistance = carDistance(this.pull, this.rough); this.travel = 0; this.runElapsed = 0; this.object.position.x = -3.2; this.active = true; this.status.textContent = '彈簧釋放能量，透過輪軸帶動車輪前進。'; }
     this.wake();
   }
@@ -196,12 +207,14 @@ export class InteractiveLab {
     if (this.log.children.length > 24) this.log.lastElementChild?.remove();
     this.records++; this.host.querySelector('[data-count]')!.textContent = `${this.records} 次${this.kind === 'buoyancy' ? ` · 已測 ${this.tested.size}/8 種` : ''}`;
     this.answerReady = true;
+    if(this.kind==='clock') this.host.querySelector('.il-feedback')!.textContent='看圖選一個。';
   }
   private clockText() { const m = Math.floor(this.minutes) % 720; return `${Math.floor(m / 60) || 12}:${String(m % 60).padStart(2, '0')}`; }
   private updateClock() {
     this.mechanism?.setClock(this.minutes);
     (this.host.querySelector('[data-input="minutes"]') as HTMLInputElement).value = String(this.minutes % 721);
-    this.host.querySelector('[data-readout]')!.textContent = `${this.clockText()} · 藍色分針／黃色時針`;
+    this.host.querySelector('[data-readout]')!.textContent = this.clockText();
+    const play=this.host.querySelector<HTMLButtonElement>('[data-action="run"]')!; play.textContent=this.active?'Ⅱ':'▶'; play.setAttribute('aria-pressed',String(this.active)); play.setAttribute('aria-label',this.active?'暫停指針':'播放指針');
   }
   private updateCar() {
     this.object.position.set(-1.5 - this.pull * 1.7, -1, .2);
