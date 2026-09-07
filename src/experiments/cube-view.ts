@@ -71,13 +71,18 @@ export class CubeView {
   }
   private animate(duration:number,tick:(t:number)=>void){this.busy=true;return new Promise<void>(resolve=>{this.task={start:performance.now(),duration:matchMedia('(prefers-reduced-motion: reduce)').matches?0:duration,tick,done:()=>{this.busy=false;resolve();}};this.draw();});}
   reset(state=solvedCube()){if(this.busy)return;this.state=state;this.exploded=false;this.sync();this.mode('view');this.home();}
-  home(){this.camera.position.set(6,4.5,7).multiplyScalar(this.exploded?1.5:1);this.controls.target.set(0,0,0);this.controls.update();this.draw();}
+  home(){this.camera.up.set(0,1,0);this.camera.position.set(6,4.5,7).multiplyScalar(this.exploded?1.5:1);this.controls.target.set(0,0,0);this.controls.update();this.draw();}
   zoom(factor:number){this.camera.position.sub(this.controls.target).multiplyScalar(factor).clampLength(this.controls.minDistance,this.controls.maxDistance).add(this.controls.target);this.controls.update();this.draw();}
   focusCore(){this.camera.position.set(6,4.1,7.2);this.controls.target.set(0,0,0);this.controls.update();this.draw();}
   focusPart(kind:'center'|'edge'|'corner'|'core'){
     for(const p of this.state){const g=this.groups.get(p.id)!;g.visible=kind==='core'?p.stickers.length===1:p.stickers.length===({center:1,edge:2,corner:3}[kind]);}this.core.visible=true;this.draw();
   }
   showAll(){this.groups.forEach(g=>g.visible=true);this.core.visible=true;this.draw();}
+  highlight(ids:string[]){
+    for(const [id,g] of this.groups){const old=g.getObjectByName('teacher-glow');if(old){this.dispose(old);g.remove(old);}if(ids.includes(id)){const glow=new T.LineSegments(new T.EdgesGeometry(new T.BoxGeometry(1.02,1.02,1.02)),new T.LineBasicMaterial({color:0xffe788,depthTest:false}));glow.name='teacher-glow';glow.renderOrder=5;g.add(glow);}}this.draw();
+  }
+  faceCamera(face:string){const n=new T.Vector3(...CUBE_FACES.find(f=>f.id===face)!.normal);this.camera.up.set(0,1,0);if(face==='U')this.camera.up.set(0,0,-1);if(face==='D')this.camera.up.set(0,0,1);this.camera.position.copy(n).multiplyScalar(9);this.controls.target.set(0,0,0);this.controls.update();this.draw();}
+  showPiece(id:string){const p=this.state.find(p=>p.id===id);if(!p)return;this.camera.up.set(0,1,0);this.camera.position.fromArray([...p.position]).normalize().multiplyScalar(10);this.controls.target.set(0,0,0);this.controls.update();this.draw();}
   snapshot(){this.renderer.render(this.scene,this.camera);return new Promise<Blob>((resolve,reject)=>this.renderer.domElement.toBlob(b=>b?resolve(b):reject(new Error('Capture failed')),'image/png'));}
   draw=()=>{if(this.frame||this.dead||document.hidden)return;this.frame=requestAnimationFrame(this.render);};
   private render=(now:number)=>{this.frame=0;if(this.dead)return;const task=this.task;if(task){const t=task.duration?Math.min(1,(now-task.start)/task.duration):1;task.tick(t*t*(3-2*t));if(t===1){this.task=undefined;task.done();}else this.draw();}this.renderer.render(this.scene,this.camera);};
