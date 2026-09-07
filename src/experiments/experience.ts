@@ -14,6 +14,19 @@ export class LabExperience {
     const nav = document.createElement('nav'); nav.className = 'il-mission-nav'; nav.setAttribute('aria-label', '實驗小幫手');
     nav.innerHTML = '<button data-helper="voice" aria-pressed="false">🔊 開始語音陪玩</button><button data-helper="replay">🗣 再講一次</button><button data-helper="notes">📒 發現筆記</button><button data-helper="quiz">🌟 小挑戰</button><button data-helper="help">💡 怎麼玩</button><span class="il-voice-state" role="status">點一下，開啟語音</span>';
     host.prepend(nav); this.voiceButton = nav.querySelector('[data-helper="voice"]')!;
+    if (kind === 'buoyancy') {
+      const heading = host.querySelector('.bp-heading')!;
+      const back = document.createElement('button'); back.className = 'bp-back-icon';
+      back.type = 'button'; back.textContent = '←'; back.setAttribute('aria-label', '返回實驗星球'); back.title = '返回實驗星球';
+      back.addEventListener('click', () => host.closest('.il-shell')?.querySelector<HTMLButtonElement>('.il-back')?.click(), { signal: this.abort.signal });
+      heading.prepend(back); heading.append(nav);
+      const icons: Record<string, string> = { voice: '🔊', replay: '↻', notes: '📒', quiz: '🌟', help: '💡' };
+      nav.querySelectorAll<HTMLButtonElement>('button').forEach(button => {
+        const label = button.textContent!.replace(/^\S+\s*/, '');
+        button.setAttribute('aria-label', label); button.title = label;
+        button.textContent = icons[button.dataset.helper!];
+      });
+    }
     this.dialog = document.createElement('dialog'); this.dialog.className = 'il-discovery-dialog'; this.dialog.setAttribute('aria-label', '實驗探索卡');
     this.dialog.innerHTML = '<div class="il-dialog-tools"><button data-dialog-replay type="button">🔊 重聽這張卡</button><button data-dialog-stop type="button">⏸ 停止講解</button><button class="il-dialog-close" type="button">✦ 回去玩</button></div><div data-dialog-body></div>';
     host.append(this.dialog);
@@ -31,7 +44,11 @@ export class LabExperience {
       if (action === 'voice') {
         this.enabled = !this.enabled;
         this.voiceButton.setAttribute('aria-pressed', String(this.enabled));
-        this.voiceButton.textContent = this.enabled ? '🔊 語音陪玩中' : '🔇 語音已關閉';
+        this.voiceButton.textContent = kind === 'buoyancy' ? (this.enabled ? '🔊' : '🔇') : (this.enabled ? '🔊 語音陪玩中' : '🔇 語音已關閉');
+        if (kind === 'buoyancy') {
+          const label = this.enabled ? '關閉語音陪玩' : '開啟語音陪玩';
+          this.voiceButton.setAttribute('aria-label', label); this.voiceButton.title = label;
+        }
         if (this.enabled) this.say(`嗨，小小探險家！${LAB_SPECS[kind].title}。${LAB_SPECS[kind].objective}。${instructions?.textContent || ''}`);
         else { this.stop(); this.voiceState('語音已關閉'); }
       } else if (action === 'replay') sayCurrent();
