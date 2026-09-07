@@ -810,7 +810,7 @@ class zt {
   load() {
     this.panel.innerHTML = `<h3>看顏色，找方法…</h3>${y("exit", "回到自由操作", "←")}`, this.badge.textContent = "正在讀取目前的顏色", this.worker = new Worker(new URL(
       /* @vite-ignore */
-      "" + new URL("assets/cube-teacher.worker-Ci73B8gF.js", import.meta.url).href,
+      "" + new URL("assets/cube-teacher.worker-CZwwxOqN.js", import.meta.url).href,
       import.meta.url
     ), { type: "module" }), this.timer = setTimeout(() => this.fail(), 8e3), this.worker.onerror = () => this.fail(), this.worker.onmessage = (t) => {
       if (clearTimeout(this.timer), this.worker?.terminate(), this.worker = void 0, !this.dead) {

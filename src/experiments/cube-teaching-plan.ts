@@ -36,7 +36,9 @@ export function teachingPlan(input:CubeState):TeachingChapter[]{
    const moves=translate(raw);if(!moves.length)continue;const next=applyCubeMoves(state,moves);
    let targets=next.filter(p=>pieceSolved(p)&&!pieceSolved(state.find(q=>q.id===p.id)!)).map(p=>p.id);
    if(phase==='cross')targets=targets.filter(id=>{const p=next.find(p=>p.id===id)!;return p.stickers.length===2&&p.stickers.some(s=>s.color==='white');});
-   if(phase==='oll'||phase==='pll')targets=state.filter(p=>p.stickers.some(s=>s.color==='yellow')&&!pieceSolved(p)).map(p=>p.id);
+   if(phase==='f2l')targets=targets.filter(id=>!next.find(p=>p.id===id)!.stickers.some(s=>s.color==='yellow'));
+   if(phase==='oll')targets=state.filter(p=>p.stickers.some(s=>s.color==='yellow'&&s.normal[1]!==-1)).map(p=>p.id);
+   if(phase==='pll')targets=state.filter(p=>p.stickers.some(s=>s.color==='yellow')&&!pieceSolved(p)).map(p=>p.id);
    chapters.push({phase,moves,targets,end:faceletString(next),checkedState:next});state=next;
   }
  }
