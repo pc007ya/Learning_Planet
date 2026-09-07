@@ -6,7 +6,8 @@
     "build:earth-orbit": "vite build",
     "typecheck": "tsc --noEmit",
     "test:earth-orbit": "vitest run",
-    "check": "npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit",
+    "build:experiments": "vite build --config vite.experiments.config.ts",
+    "check": "npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit && npm run build:experiments",
     "deploy": "npx -y firebase-tools@latest deploy --only hosting",
     "deploy:all": "npx -y firebase-tools@latest deploy"
   },

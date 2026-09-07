@@ -15,6 +15,8 @@
 <script type="module" src="./src/firebase-config.js"></script>
 <script type="module" src="./auth-v2/firebase-client.js"></script>
 <script type="module" src="./modules/earth-orbit/earth-orbit-v01.js"></script>
+<script type="module" src="./modules/interactive-labs/interactive-labs.js"></script>
+<link rel="stylesheet" href="./styles/interactive-labs.css">
 </head>
 <body>
 <x-dc>
@@ -2126,6 +2128,12 @@
       </div>
     </sc-if>
 
+    <sc-if value="{{ isInteractiveLab }}" hint-placeholder-val="{{ false }}">
+      <section class="il-shell" data-screen-label="星際互動實驗">
+        <button class="il-back" onClick="{{ interactiveLabBack }}">← 返回實驗星球</button>
+        <div data-interactive-lab="{{ interactiveLabKind }}"></div>
+      </section>
+    </sc-if>
     <sc-if value="{{ isMagnet2Lab }}" hint-placeholder-val="{{ false }}">
       <div class="magnet2-shell" data-screen-label="磁鐵原理實驗室 II">
         <section class="magnet2-board {{ magnet2BoardClass }}">
@@ -3908,7 +3916,7 @@ const MM_TOPICS = [
       { id: "drop", icon: "💧", label: "水滴", en: "Water drop", hub: "liquid" },
       { id: "cup", icon: "🥤", label: "杯子裡的水", en: "Water in a cup", hub: "liquid" },
       { id: "steam", icon: "💨", label: "水蒸氣", en: "Water vapor", hub: "gas" },
-      { id: "cloud", icon: "☁️", label: "雲", en: "Cloud", hub: "gas" },
+      { id: "mist-drop", icon: "💧", label: "霧中的小水滴", en: "Tiny water droplets in fog", hub: "liquid" },
     ] },
   { id: "plantFlow", grade: 3, title: "植物開花結果的順序", en: "From flower to seed", center: "植物", hint: "把每件事連到它發生的階段：開花 → 結果實 → 長出種子。",
     hubs: [{ key: "flower", label: "① 開花", en: "Flowering" }, { key: "fruit", label: "② 結果實", en: "Fruiting" }, { key: "seed", label: "③ 長出種子", en: "Seeds" }],
@@ -4180,6 +4188,9 @@ const EXPERIMENT_UNITS = [
   { id: "exp-plant-water", grade: 0, difficulty: 0, icon: "🌱", art: "images/subject-unit-icons/v2/experiment-plant-water-v2.png", tint: "#eef8df", title: "植物怎麼喝水？", sub: "分鏡＋互動實驗 · 土壤、根毛、木質部、氣孔與蒸散", kind: "experiment" },
   { id: "exp-day-night", grade: 0, difficulty: 0, icon: "🌍", art: "images/subject-unit-icons/v2/experiment-day-night-v2.png", tint: "#eaf2ff", title: "白天與黑夜", sub: "分鏡＋互動實驗 · 旋轉地球、判斷臺灣日夜", kind: "experiment" },
   { id: "exp-earth-orbit", grade: 0, difficulty: 0, icon: "🌎", art: "images/subject-unit-icons/v2/experiment-earth-orbit-v2.png", tint: "#e8edff", title: "地球公轉", sub: "3D 互動實驗 · 地球公轉、月球繞行與日照方向", kind: "experiment" },
+  { id: "exp-buoyancy", grade: 0, difficulty: 0, icon: "🌊", art: "images/experiments/buoyancy.svg", tint: "#e8edff", title: "浮力實驗室", sub: "3D 互動 · 8 種生活物品、預測浮沉與觀察紀錄", kind: "experiment" },
+  { id: "exp-clock-mechanism", grade: 0, difficulty: 0, icon: "🕒", art: "images/experiments/clock.svg", tint: "#e8edff", title: "簡單機構：時鐘", sub: "3D 互動 · 轉動指針、齒輪傳動與時間比例", kind: "experiment" },
+  { id: "exp-pullback-car", grade: 0, difficulty: 0, icon: "🚙", art: "images/experiments/car.svg", tint: "#e8edff", title: "簡單機構：回力車", sub: "3D 互動 · 回拉儲能、放手前進與路面比較", kind: "experiment" },
 ];
 function buildEnglishGrammarBank(subjects, verbs, nouns) {
   const bank = [];
@@ -8618,6 +8629,7 @@ class Component extends DCLogic {
     if (id === "exp-plant-water") { this.startPlantWaterLab(); return; }
     if (id === "exp-day-night") { this.startDayNightLab(); return; }
     if (id === "exp-earth-orbit") { this.startEarthOrbitLab(); return; }
+    if (["exp-buoyancy", "exp-clock-mechanism", "exp-pullback-car"].includes(id)) { this.setState({ screen: "interactiveLab", subject: "experiment", unit: id }); return; }
     if (["s7", "s8", "s20", "s21"].indexOf(id) >= 0) { this.startMindmap(id); return; }
     if (id === "c5" || id === "c6") { this.startWriting(id === "c5" ? 1 : 2); return; }
     if (id === "c1" || id === "c3") { this.setState({ screen: "library", unit: id, grade: id === "c1" ? 1 : 2, libUnit: "全部", detailChar: null }); return; }
@@ -9030,9 +9042,9 @@ class Component extends DCLogic {
       a: Object.assign({}, a, { x: Math.max(18, Math.min(82, midX + (aLeft ? -gap : gap))), y: midY }),
       b: Object.assign({}, b, { x: Math.max(18, Math.min(82, midX + (aLeft ? gap : -gap))), y: midY }),
     });
-    const success = predictionCorrect && missionCorrect, tasks = lab.tasks.slice(); if (success) tasks[lab.mission] = true;
+    const success = missionCorrect, tasks = lab.tasks.slice(); if (success) tasks[lab.mission] = true;
     const relationText = relation === "attract" ? "異極相吸，兩塊磁鐵靠在一起！" : "同極相斥，兩塊磁鐵互相推開！";
-    const reaction = success ? "答對了！" + relationText : !predictionCorrect ? "實際結果和預測不同：" + relationText : "觀察正確，但這一關要做出「" + (expected === "attract" ? "吸引" : "排斥") + "」，再旋轉一次試試。";
+    const reaction = success ? (predictionCorrect ? "觀察完成！" : "預測不同也沒關係，請用這次結果修正想法：") + relationText : "這次觀察到：" + relationText + "這一關要做出「" + (expected === "attract" ? "吸引" : "排斥") + "」，再旋轉一次試試。";
     this.setState({ magnet2Lab: Object.assign({}, lab, { magnets, running: true, reaction, tasks }) });
   }
   magnet2Next() {
@@ -10457,7 +10469,7 @@ class Component extends DCLogic {
     const activeAssociationSets = EN_ASSOCIATION_ALL_SETS.filter((set) => associationIds.includes(set.id));
     const activeAssociationGroup = ASSOCIATION_CONCEPT_GROUPS.find((group) => group.id === s.englishAssociationGroupId) || ASSOCIATION_CONCEPT_GROUPS[Number(s.englishAssociationRound || 0) % ASSOCIATION_CONCEPT_GROUPS.length];
 
-    const experimentLabScreens = ["dissolveLab", "magnetLab", "magnet2Lab", "plantWaterLab", "dayNightLab"];
+    const experimentLabScreens = ["dissolveLab", "magnetLab", "magnet2Lab", "plantWaterLab", "dayNightLab", "interactiveLab"];
     const isExperimentLabScreen = experimentLabScreens.includes(s.screen);
     const focusedLearningScreens = ["quiz", "result", "library", "writing", "memory", "video", "mindmap", "englishLibrary", "englishScramble", "englishMatch", "englishChain", "englishGrammar", "englishAssociation", "divLesson", "vertLesson", "geoLesson", "weekly", "weeklyQuiz", "weeklyResult", "shop", "closet"];
     const isFocusedLearningScreen = focusedLearningScreens.includes(s.screen);
@@ -10573,6 +10585,9 @@ class Component extends DCLogic {
       isDissolveLab: s.screen === "dissolveLab",
       isPlantLab: s.screen === "plantWaterLab",
       isDayNightLab: s.screen === "dayNightLab",
+      isInteractiveLab: s.screen === "interactiveLab",
+      interactiveLabKind: s.unit === "exp-buoyancy" ? "buoyancy" : s.unit === "exp-clock-mechanism" ? "clock" : "car",
+      interactiveLabBack: () => this.setState({ screen: "map", subject: "experiment" }),
       earthRotationMode: !s.dayNightLab || s.dayNightLab.mode !== "revolution",
       earthRevolutionMode: !!(s.dayNightLab && s.dayNightLab.mode === "revolution"),
       earthLabTitle: s.dayNightLab && s.dayNightLab.standaloneRevolution ? "地球公轉" : s.dayNightLab && s.dayNightLab.mode === "revolution" ? "地球公轉探索" : "白天與黑夜",
