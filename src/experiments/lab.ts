@@ -1,16 +1,13 @@
 import * as T from 'three';
-import { FLOAT_OBJECTS, LAB_SPECS, buoyancy, clockAngles, carDistance, type LabKind } from './models';
+import { FLOAT_OBJECTS, LAB_SPECS, buoyancy, carDistance, type LabKind } from './models';
+import { Mechanism } from './mechanism';
 
 export class InteractiveLab {
   private renderer?: T.WebGLRenderer;
   private scene = new T.Scene();
   private camera = new T.OrthographicCamera(-5, 5, 3.6, -3.6, 0.1, 100);
   private object = new T.Group();
-  private minute = new T.Group();
-  private hour = new T.Group();
-  private gears: T.Group[] = [];
-  private wheels: T.Mesh[] = [];
-  private spring?: T.Mesh;
+  private mechanism?: Mechanism;
   private abort = new AbortController();
   private resize?: ResizeObserver;
   private frame = 0;
@@ -47,23 +44,32 @@ export class InteractiveLab {
     host.addEventListener('click', this.click, { signal: this.abort.signal });
     host.addEventListener('input', this.input, { signal: this.abort.signal });
     this.camera.position.set(0, 0, 12);
-    this.scene.add(new T.AmbientLight(0xffffff, 2));
-    const light = new T.DirectionalLight(0xffffff, 3); light.position.set(-3, 5, 8); this.scene.add(light);
+    this.scene.add(new T.AmbientLight(0xffffff, kind === 'buoyancy' ? 2 : .45));
+    const light = new T.DirectionalLight(0xffffff, kind === 'buoyancy' ? 3 : 1.4); light.position.set(-3, 5, 8); this.scene.add(light);
     try {
       this.renderer = new T.WebGLRenderer({ alpha: true, antialias: true });
       this.renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
       this.stage.append(this.renderer.domElement);
-      this.stage.addEventListener('pointerdown', this.pointerDown, { signal: this.abort.signal });
-      this.stage.addEventListener('pointermove', this.pointerMove, { signal: this.abort.signal });
-      this.stage.addEventListener('pointerup', this.pointerUp, { signal: this.abort.signal });
-      this.stage.addEventListener('pointercancel', this.pointerCancel, { signal: this.abort.signal });
+      if (kind === 'buoyancy') {
+        this.stage.addEventListener('pointerdown', this.pointerDown, { signal: this.abort.signal });
+        this.stage.addEventListener('pointermove', this.pointerMove, { signal: this.abort.signal });
+        this.stage.addEventListener('pointerup', this.pointerUp, { signal: this.abort.signal });
+        this.stage.addEventListener('pointercancel', this.pointerCancel, { signal: this.abort.signal });
+      }
       this.resize = new ResizeObserver(() => this.resizeScene()); this.resize.observe(this.stage);
     } catch {
       this.stage.innerHTML = '<p class="il-fallback">此裝置無法顯示 3D。仍可使用旁邊的選單與按鈕操作，並閱讀文字觀察結果。</p>';
     }
     if (kind === 'buoyancy') this.buildTank();
-    if (kind === 'clock') this.buildClock();
-    if (kind === 'car') this.buildCar();
+    if (kind !== 'buoyancy') this.mechanism = new Mechanism(kind, this.scene, this.camera, this.stage, host, this.renderer, () => this.wake(), (value, release) => {
+      this.active = false;
+      if (kind === 'clock') { if (!release) this.minutes = value; this.updateClock(); if (release) this.record(`轉動指針到 ${this.clockText()}，分針和時針一起運動。`); }
+      else { if (!release) { this.pull = value; (host.querySelector('[data-input="pull"]') as HTMLInputElement).value = String(Math.round(value * 100)); this.updateCar(); } else this.run(); }
+    });
+    if (kind !== 'buoyancy') {
+      host.querySelector('aside > details > p')!.textContent = kind === 'clock' ? '常見的電池式石英鐘：電池供电，石英與電路提供節拍，馬達和多級齒輪帶動指針。本模型省略部分細小零件，不是維修圖。分針和時針保持 12:1 的轉速關係。' : '彈簧式回力車：回拉讓輪軸、齒輪帶動捲簧儲能，放手後由捲簧驅動車輪。拆解圖省略部分緊固件；行駛距離為教學模型單位，不代表真實車款。';
+      host.querySelector('.il-controls > p:last-child')!.textContent = kind === 'clock' ? '完整外觀：左右拖動模型可調整時間。透視或拆開時：拖動模型可轉視角。' : '完整外觀：向左拖車、放手出發。透視或拆開時：拖動模型可轉視角。';
+    }
     this.scene.add(this.object);
     this.reset();
     document.addEventListener('visibilitychange', () => { this.last = 0; if (!document.hidden) this.wake(); }, { signal: this.abort.signal });
@@ -112,36 +118,6 @@ export class InteractiveLab {
     this.object.position.set(0, 1.4, .4);
     this.host.querySelector('[data-sample]')!.textContent = `${o.note} 教學樣本：${o.mass} g，可排水體積上限 ${o.volume} cm³。`;
   }
-  private gear(x: number, y: number, r: number, teeth: number, color: number) {
-    const group = new T.Group(); group.position.set(x, y, .25); this.scene.add(group);
-    this.mesh(new T.CylinderGeometry(r, r, .12, 40), color, 0, 0, 0, group).rotation.x = Math.PI / 2;
-    for (let i = 0; i < teeth; i++) { const a = i * Math.PI * 2 / teeth; const tooth = this.box(.13, .17, .12, color, Math.sin(a) * r, Math.cos(a) * r, 0, group); tooth.rotation.z = -a; }
-    this.mesh(new T.SphereGeometry(.09), 0xffffff, 0, 0, .12, group);
-    this.gears.push(group); return group;
-  }
-  private buildClock() {
-    this.mesh(new T.CylinderGeometry(1.85, 1.85, .16, 64), 0x21375e, -1.6, .45).rotation.x = Math.PI / 2;
-    this.mesh(new T.TorusGeometry(1.88, .07, 12, 80), 0x76dcff, -1.6, .45, .15);
-    for (let i = 0; i < 12; i++) { const a = i * Math.PI / 6; const tick = this.box(.06, .19, .04, 0xffffff, -1.6 + Math.sin(a) * 1.62, .45 + Math.cos(a) * 1.62, .14); tick.rotation.z = -a; }
-    this.minute.position.set(-1.6, .45, .3); this.hour.position.set(-1.6, .45, .22);
-    this.box(.06, 1.4, .05, 0x85eaff, 0, .6, 0, this.minute); this.box(.11, .95, .05, 0xffcf68, 0, .38, 0, this.hour);
-    this.scene.add(this.minute, this.hour);
-    this.mesh(new T.SphereGeometry(.12), 0xffffff, -1.6, .45, .4);
-    this.gear(1.35, .7, .48, 12, 0x72cfff); this.gear(2.83, .7, .96, 24, 0xfac66a);
-    this.box(4, .05, .1, 0x6ecfed, 0, -2.25);
-  }
-  private buildCar() {
-    this.box(8.7, .12, .5, 0x89b7d5, 0, -1.5);
-    for (let i = 0; i < 9; i++) this.box(.03, .15, .1, 0xffffff, i - 4, -1.65);
-    this.box(1.7, .42, .7, 0x68dded, 0, 0, 0, this.object);
-    const top = this.box(.9, .4, .65, 0xb7edff, -.1, .4, 0, this.object); top.material.transparent = true; top.material.opacity = .35;
-    for (const x of [-.55, .55]) {
-      const wheel = this.mesh(new T.CylinderGeometry(.28, .28, .16, 32), 0x34334f, x, -.3, .45, this.object); wheel.rotation.x = Math.PI / 2; this.wheels.push(wheel);
-      this.box(.06, .42, .04, 0xffffff, 0, 0, .1, wheel);
-    }
-    const points = Array.from({ length: 180 }, (_, i) => { const a = i * .24; const r = .02 + i * .001; return new T.Vector3(Math.cos(a) * r, .12 + Math.sin(a) * r, .42); });
-    this.spring = this.mesh(new T.TubeGeometry(new T.CatmullRomCurve3(points), 180, .018, 5, false), 0xffd266, 0, 0, 0, this.object);
-  }
   private resizeScene() {
     const w = this.stage.clientWidth, h = this.stage.clientHeight;
     if (!w || !h) return;
@@ -183,7 +159,7 @@ export class InteractiveLab {
       const o = FLOAT_OBJECTS[this.selected], result = buoyancy(o.mass, o.volume);
       this.targetY = result.floats ? .15 + .3 - .6 * result.fraction : -2.13;
       this.active = true; this.status.textContent = `正在觀察${o.name}…`;
-    } else if (this.kind === 'clock') { this.active = !this.active; this.status.textContent = this.active ? '加速示範中：藍色分針轉 12 圈，黃色時針轉 1 圈。右側兩齒輪示範反向轉動，不是完整的 12:1 齒輪組。' : '已暫停，可以記錄目前時間。'; }
+    } else if (this.kind === 'clock') { this.active = !this.active; this.status.textContent = this.active ? '加速示範中：分針轉 12 圈，時針轉 1 圈。試試透視，看裡面哪些零件跟著動。' : '已暫停，可以記錄目前時間。'; }
     else { if (this.active) return; this.runDistance = carDistance(this.pull, this.rough); this.travel = 0; this.runElapsed = 0; this.object.position.x = -3.2; this.active = true; this.status.textContent = '彈簧釋放能量，透過輪軸帶動車輪前進。'; }
     this.wake();
   }
@@ -195,14 +171,13 @@ export class InteractiveLab {
   }
   private clockText() { const m = Math.floor(this.minutes) % 720; return `${Math.floor(m / 60) || 12}:${String(m % 60).padStart(2, '0')}`; }
   private updateClock() {
-    const angles = clockAngles(this.minutes); this.minute.rotation.z = angles.minute; this.hour.rotation.z = angles.hour;
-    this.gears[0].rotation.z = angles.minute; this.gears[1].rotation.z = -angles.minute / 2;
+    this.mechanism?.setClock(this.minutes);
     (this.host.querySelector('[data-input="minutes"]') as HTMLInputElement).value = String(this.minutes % 721);
     this.host.querySelector('[data-readout]')!.textContent = `${this.clockText()} · 藍色分針／黃色時針`;
   }
   private updateCar() {
     this.object.position.set(-1.5 - this.pull * 1.7, -1, .2);
-    if (this.spring) this.spring.scale.setScalar(1 - this.pull * .3);
+    this.mechanism?.setCar(this.pull);
     this.host.querySelector('[data-readout]')!.textContent = `回拉量 ${Math.round(this.pull * 100)}% · ${this.rough ? '較粗糙' : '較平滑'}路面`;
   }
   private point(event: PointerEvent) {
@@ -241,12 +216,12 @@ export class InteractiveLab {
     if (this.active && this.kind === 'clock') { this.minutes += dt * 20; this.updateClock(); }
     if (this.active && this.kind === 'car') {
       this.runElapsed += dt; const t = Math.min(1, this.runElapsed / 2.5); this.travel = this.runDistance * (2 * t - t * t); this.object.position.x = -3.2 + this.travel;
-      this.wheels.forEach(w => w.rotation.y = -this.travel / .28);
-      if (this.spring) this.spring.scale.setScalar(1 - this.pull * .3 * (1 - t));
+      this.mechanism?.setCar(this.pull * (1 - t), this.travel, true);
       if (t === 1) { this.active = false; const text = `回拉 ${Math.round(this.pull * 100)}%／${this.rough ? '較粗糙' : '較平滑'}路面：前進 ${this.travel.toFixed(2)} 模型單位後停下。`; this.status.textContent = text; this.record(text); }
     }
+    const transitioning = this.mechanism?.frame(dt);
     this.renderer?.render(this.scene, this.camera);
-    if (this.active) this.wake(); else this.last = 0;
+    if (this.active || transitioning) this.wake(); else this.last = 0;
   };
-  destroy() { this.dead = true; cancelAnimationFrame(this.frame); this.abort.abort(); this.resize?.disconnect(); this.disposeObject(this.scene); this.renderer?.dispose(); this.renderer?.domElement.remove(); }
+  destroy() { this.dead = true; cancelAnimationFrame(this.frame); this.abort.abort(); this.resize?.disconnect(); this.mechanism?.destroy(); this.disposeObject(this.scene); this.renderer?.dispose(); this.renderer?.domElement.remove(); }
 }
