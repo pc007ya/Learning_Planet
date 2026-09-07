@@ -18,11 +18,18 @@ const lessons=[
 export class Mini4wdLab{
   private root:HTMLElement;private view?:Mini4wdView;private voice=new SceneNarration();private abort=new AbortController();
   private page:Page='learn';private previous:Page='learn';private lesson=0;private partPage=0;private selected='battery-a';private installed=completeParts();private started=false;
-  private setup:Setup={...DEFAULT_SETUP};private thumbnails:Record<string,string>={};private exploded=false;private xray=true;private powered=false;private first=false;private sound=false;private reduced=true;private running=false;private recorded=false;private records:RecordRow[]=[];private recordPage=0;private tunePage=0;private quizIndex=0;
+  private setup:Setup={...DEFAULT_SETUP};private thumbnails:Record<string,string>={};private exploded=false;private xray=false;private powered=false;private first=false;private sound=false;private reduced=true;private running=false;private recorded=false;private records:RecordRow[]=[];private recordPage=0;private tunePage=0;private quizIndex=0;
   private drag?:{id:string;x:number;y:number;pid:number;ghost:HTMLImageElement;moved:boolean};private sequence=0;private dead=false;
   constructor(private host:HTMLElement){
     host.innerHTML=`<section class="m4-lab" aria-label="四驅車研究所"><header class="m4-header">${button('back','返回')}<h2>四驅車研究所</h2><nav class="m4-helpers" aria-label="實驗小幫手">${button('voice','語音')}${button('replay','重聽')}${button('notes','紀錄')}${button('quiz','考題')}</nav></header><nav class="m4-nav" aria-label="探索步驟">${[['learn','原理'],['parts','零件'],['build','組裝'],['tune','改裝'],['race','試跑']].map(([id,label])=>button(id,label)).join('')}</nav><div class="m4-layout"><section class="m4-scene"><div class="m4-stage"></div><div class="m4-scene-tag">原創教學車 · 星羽 01</div><div class="m4-view-tools">${button('explode','拆開','explode')}${button('xray','透視','eye')}${button('zoom-in','放大','plus')}${button('zoom-out','縮小','remove')}</div><button class="m4-snap" data-m4="install" hidden aria-label="安裝選取零件">${icon('plus')}<span>裝到車上</span></button><div class="m4-hud" hidden><div><b data-speed>0.0</b><small>km/h · 模擬</small></div><div><b data-lap>0 / 3</b><small>完成圈數</small></div><div><b data-time>0.0</b><small>秒</small></div></div><div class="m4-overlay" hidden></div><div class="m4-countdown" hidden></div><p class="m4-status" role="status" aria-live="polite">電池讓車跑起來</p></section><aside class="m4-tools" aria-label="操作面板"></aside></div></section>`;
     this.root=host.querySelector('.m4-lab')!;
+    const nav=this.root.querySelector('.m4-nav')!;
+    this.root.querySelector('.m4-header')!.insertBefore(nav,this.root.querySelector('.m4-helpers'));
+    nav.querySelector('[data-m4="parts"]')!.remove();
+    const bom=document.createElement('details');bom.className='m4-bom';
+    bom.innerHTML='<summary aria-label="展開或收起零件表">☷</summary><div class="m4-bom-body"></div>';
+    this.root.querySelector('.m4-scene')!.append(bom);
+    this.root.querySelector('[data-m4="quiz"] svg')!.outerHTML='<img class="m4-pencil" src="images/experiments/car-v4/pencil.png" alt="">';
     try{this.view=new Mini4wdView(this.root.querySelector('.m4-stage')!);this.view.configure(this.setup);this.thumbnails=this.view.thumbnails();this.view.onPick=id=>this.select(id);this.view.onUpdate=c=>this.updateRace(c);}catch(e){console.error('Mini 4WD WebGL',e);this.tell('這個裝置未能開啟 3D。請啟用硬體加速，或換支援 WebGL 的瀏覽器。');}
     this.root.addEventListener('click',e=>{const b=(e.target as HTMLElement).closest<HTMLButtonElement>('button');if(!b)return;if(b.dataset.part)this.select(b.dataset.part);else if(b.dataset.choice)this.choose(b.dataset.choice);else if(b.dataset.answer)this.answer(b.dataset.answer);else this.action(b.dataset.m4||'');},{signal:this.abort.signal});
     this.root.addEventListener('pointerdown',e=>this.dragStart(e),{signal:this.abort.signal});this.root.addEventListener('pointermove',e=>this.dragMove(e),{signal:this.abort.signal});this.root.addEventListener('pointerup',e=>this.dragEnd(e),{signal:this.abort.signal});this.root.addEventListener('pointercancel',()=>this.clearDrag(),{signal:this.abort.signal});
@@ -32,7 +39,7 @@ export class Mini4wdLab{
   }
   private tell(text:string,spoken=text){this.root.querySelector('.m4-status')!.textContent=text;this.voice.say(this.page==='learn'&&this.lesson===1?`現在是 ${this.setup.gear} 比一減速。馬達轉 ${this.setup.gear} 圈，輪軸轉一圈。減速比增加，輪端扭力增加，但空載輪速降低。`:spoken);}
   private render(){
-    this.root.dataset.page=this.page;for(const p of ['learn','parts','build','tune','race'])this.root.querySelector(`[data-m4="${p}"]`)!.setAttribute('aria-pressed',String(p===this.page));
+    this.root.dataset.page=this.page;for(const p of ['learn','build','tune','race'])this.root.querySelector(`[data-m4="${p}"]`)!.setAttribute('aria-pressed',String(p===this.page));
     this.root.querySelector<HTMLElement>('.m4-view-tools')!.hidden=['race','notes','quiz'].includes(this.page);
     this.root.querySelector<HTMLElement>('.m4-hud')!.hidden=this.page!=='race';
     this.root.querySelector<HTMLElement>('.m4-snap')!.hidden=this.page!=='build'||this.installed.has(this.selected);
@@ -57,7 +64,14 @@ export class Mini4wdLab{
     }
     if(!this.view)panel.querySelectorAll<HTMLButtonElement>('button').forEach(b=>{if(['run','collision','power'].includes(b.dataset.m4||''))b.disabled=true;});
     for(const key of ['run','collision']){const b=panel.querySelector<HTMLButtonElement>(`[data-m4="${key}"]`);if(b)b.disabled=this.installed.size!==PARTS.length||!this.view||this.running;}
+    this.renderBom();
     this.view?.setParts(this.installed,this.exploded,this.xray,this.selected);
+  }
+  private bomPage=0;
+  private renderBom(){
+    const panel=this.root.querySelector('.m4-bom-body')!;
+    this.root.querySelector<HTMLElement>('.m4-bom')!.hidden=['race','quiz','notes'].includes(this.page);
+    panel.innerHTML=PARTS.slice(this.bomPage*4,this.bomPage*4+4).map(p=>'<button data-part="'+p.id+'" aria-pressed="'+(p.id===this.selected)+'"><b>'+(PARTS.indexOf(p)+1)+'</b><span>'+p.name+'</span></button>').join('')+'<div class="m4-pager">'+button('bom-prev','上一頁零件','prev')+'<span>'+(this.bomPage+1)+'/5</span>'+button('bom-next','下一頁零件','next')+'</div>';
   }
   private renderTune(panel:Element){
     const choices=this.tunePage===0?[
@@ -68,6 +82,7 @@ export class Mini4wdLab{
     panel.innerHTML=`<div class="m4-eyebrow">${this.tunePage===0?'動力與輪胎':'外殼與配重'}</div>${choices.map(([label,items])=>`<fieldset><legend>${label}</legend><div class="m4-choices">${(items as string[][]).map(([v,t])=>{const [key,value]=v.split(':');return `<button data-choice="${v}" aria-pressed="${String(this.setup[key as keyof Setup])===value}">${key==='color'?`<i style="background:${value}"></i>`:''}${t}</button>`;}).join('')}</div></fieldset>`).join('')}<div class="m4-pager">${button('tune-prev','上一頁','prev')}<span>${this.tunePage+1} / 2</span>${button('tune-next','下一頁','next')}</div><p class="m4-small">車色只改外觀。改裝結果以試跑比較。</p>${button('race','去試跑','race')}`;
   }
   private action(id:string){
+    if(id==='bom-prev'||id==='bom-next'){this.bomPage=(this.bomPage+(id==='bom-next'?1:4))%5;this.renderBom();return;}
     if(['learn','parts','build','tune','race','notes','quiz'].includes(id)){this.switchPage(id as Page);return;}
     if(id==='back'){this.stop();this.host.closest('.il-shell')?.querySelector<HTMLButtonElement>('.il-back')?.click();}
     else if(id==='voice'){this.voice.enabled=!this.voice.enabled;this.root.querySelector('[data-m4="voice"]')!.setAttribute('aria-pressed',String(this.voice.enabled));if(this.voice.enabled)this.voice.replay();else this.voice.stop();}
@@ -95,12 +110,12 @@ export class Mini4wdLab{
     if(page===this.page)return;if(page==='notes'||page==='quiz'){if(!['notes','quiz'].includes(this.page))this.previous=this.page;}
     this.stop();this.powered=false;this.voice.stop();this.page=page;
     if(page==='build'&&!this.started){this.started=true;this.installed=new Set(['chassis']);this.selected='motor';this.partPage=0;this.exploded=false;this.xray=false;}
-    if(page==='learn'){this.selected=lessons[this.lesson].part;this.xray=true;}
+    if(page==='learn'){this.selected=lessons[this.lesson].part;}
     if(page==='parts')this.exploded=true;if(page==='tune'||page==='build')this.exploded=false;
     this.view?.setMode(page==='race');this.render();
     const text=page==='build'?'點零件，再點「安裝」。也可以拖到車上。':page==='race'?'三圈試跑。先選鏡頭，再出發！':page==='parts'?'點一個零件，看看它的工作。':page==='tune'?'一次只換一個條件，去試跑比較。':page==='learn'?lessons[this.lesson].text:page==='notes'?'比較同一條賽道的結果。':'看圖，找出答案。';this.tell(text,page==='learn'?lessons[this.lesson].voice:text);if(page==='quiz')this.voice.last=this.root.querySelector('.m4-overlay h3')!.textContent||'';
   }
-  private select(id:string){if(!PARTS.some(p=>p.id===id))return;this.selected=id;this.view?.setParts(this.installed,this.exploded,this.xray,id);this.describePart();this.root.querySelectorAll<HTMLButtonElement>('[data-part]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.part===id)));this.root.querySelector<HTMLElement>('.m4-snap')!.hidden=this.page!=='build'||this.installed.has(id);const p=PARTS.find(p=>p.id===id)!;this.tell(p.name,p.voice);}
+  private select(id:string){if(!PARTS.some(p=>p.id===id))return;this.selected=id;this.bomPage=Math.floor(PARTS.findIndex(p=>p.id===id)/4);this.renderBom();this.view?.setParts(this.installed,this.exploded,this.xray,id);this.describePart();this.root.querySelectorAll<HTMLButtonElement>('[data-part]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.part===id)));this.root.querySelector<HTMLElement>('.m4-snap')!.hidden=this.page!=='build'||this.installed.has(id);const p=PARTS.find(p=>p.id===id)!;this.tell(p.name,p.voice);}
   private describePart(){const p=PARTS.find(p=>p.id===this.selected)!;const el=this.root.querySelector('.m4-part-description');if(el)el.textContent=p.voice;}
   private install(){if(this.page!=='build')return;if(this.installed.has(this.selected)){this.tell('這個零件已經裝好了。');return;}if(!canInstall(this.selected,this.installed)){const missing=PARTS.find(p=>p.id===this.selected)!.needs.filter(id=>!this.installed.has(id)).map(id=>PARTS.find(p=>p.id===id)!.name);this.tell(`先裝好：${missing.join('、')}`);return;}this.installed.add(this.selected);this.tell(this.installed.size===PARTS.length?'完成了！這台就是你要試跑的車。':'喀！裝好了。找下一個零件吧。');this.render();}
   private choose(choice:string){const [key,v]=choice.split(':');const allowed:Record<string,string[]>= {gear:['3.5','4','5'],tire:['grip','hard'],diameter:['26','30'],shell:['arrow','wing'],ballast:['center','rear'],color:['#29c9ff','#ff794f','#b59aff']};if(!allowed[key]?.includes(v))return;this.setup={...this.setup,[key]:key==='gear'||key==='diameter'?Number(v):v};this.view?.configure(this.setup);this.render();this.tell(key==='color'?'換了車色，性能不變。':key==='gear'?'齒比改好了。比較加速與三圈時間。':'設定改好了，去同一條賽道比較。');}
