@@ -1,99 +1,56 @@
-import { h as D, B as N, j as $, q as X, r as Z, d as k, I as U, O as K, s as Q, t as A, u as L, k as E, n as M, v as B, V as v, w as O, x as J, y as tt, F as et, z as G, m as W, A as st, J as at, p as F, a as V, G as w, l as C, K as it, N as ot, U as rt, X as j, Y as nt, Z as ct, D as ht, W as lt, _ as dt, $ as ut, a0 as pt, P as mt } from "./RoundedBoxGeometry-CV-2QMmK.mjs";
-import { L as z, F as P, i as ft, b as R, c as bt } from "./car-art-D34K7c64.mjs";
-import { L as gt } from "./experience-CA49pcS6.mjs";
-class kt extends D {
-  constructor() {
-    super();
-    const t = new N();
-    t.deleteAttribute("uv");
-    const e = new $({ side: X }), s = new $(), o = new Z(16777215, 900, 28, 2);
-    o.position.set(0.418, 16.199, 0.3), this.add(o);
-    const a = new k(t, e);
-    a.position.set(-0.757, 13.219, 0.717), a.scale.set(31.713, 28.305, 28.591), this.add(a);
-    const i = new U(t, s, 6), r = new K();
-    r.position.set(-10.906, 2.009, 1.846), r.rotation.set(0, -0.195, 0), r.scale.set(2.328, 7.905, 4.651), r.updateMatrix(), i.setMatrixAt(0, r.matrix), r.position.set(-5.607, -0.754, -0.758), r.rotation.set(0, 0.994, 0), r.scale.set(1.97, 1.534, 3.955), r.updateMatrix(), i.setMatrixAt(1, r.matrix), r.position.set(6.167, 0.857, 7.803), r.rotation.set(0, 0.561, 0), r.scale.set(3.927, 6.285, 3.687), r.updateMatrix(), i.setMatrixAt(2, r.matrix), r.position.set(-2.017, 0.018, 6.124), r.rotation.set(0, 0.333, 0), r.scale.set(2.002, 4.566, 2.064), r.updateMatrix(), i.setMatrixAt(3, r.matrix), r.position.set(2.291, -0.756, -2.621), r.rotation.set(0, -0.286, 0), r.scale.set(1.546, 1.552, 1.496), r.updateMatrix(), i.setMatrixAt(4, r.matrix), r.position.set(-2.193, -0.369, -5.547), r.rotation.set(0, 0.516, 0), r.scale.set(3.875, 3.487, 2.986), r.updateMatrix(), i.setMatrixAt(5, r.matrix), this.add(i);
-    const n = new k(t, T(50));
-    n.position.set(-16.116, 14.37, 8.208), n.scale.set(0.1, 2.428, 2.739), this.add(n);
-    const d = new k(t, T(50));
-    d.position.set(-16.109, 18.021, -8.207), d.scale.set(0.1, 2.425, 2.751), this.add(d);
-    const h = new k(t, T(17));
-    h.position.set(14.904, 12.198, -1.832), h.scale.set(0.15, 4.265, 6.331), this.add(h);
-    const u = new k(t, T(43));
-    u.position.set(-0.462, 8.89, 14.52), u.scale.set(4.38, 5.441, 0.088), this.add(u);
-    const c = new k(t, T(20));
-    c.position.set(3.235, 11.486, -12.541), c.scale.set(2.5, 2, 0.1), this.add(c);
-    const l = new k(t, T(100));
-    l.position.set(0, 20, 0), l.scale.set(1, 0.1, 1), this.add(l);
-  }
-  /**
-   * Frees internal resources. This method should be called
-   * when the environment is no longer required.
-   */
-  dispose() {
-    const t = /* @__PURE__ */ new Set();
-    this.traverse((e) => {
-      e.isMesh && (t.add(e.geometry), t.add(e.material));
-    });
-    for (const e of t)
-      e.dispose();
-  }
-}
-function T(f) {
-  return new Q({
-    color: 0,
-    emissive: 16777215,
-    emissiveIntensity: f
-  });
-}
-function vt(f) {
-  const t = () => new J({ color: 1478316, metalness: 0.48, roughness: 0.24, clearcoat: 1, clearcoatRoughness: 0.13 }), e = (n, d = 0.2) => new $({ color: n, metalness: d, roughness: 0.3 }), s = (n, d, h = 0, u = 0, c = 0) => {
-    const l = new k(n, d);
+import { x as E, y as A, w as T, T as M, d as H, V as k, c as D, a as y, M as V, B as Y, F as _, D as N, R as B, b as L, e as X, A as Z, h as G, i as O, G as w, C, z as U, J as K, K as Q, N as I, l as J, U as tt, f as et, W as st, S as at, X as it, k as ot, Y as rt, Z as nt, r as ct } from "./RoundedBoxGeometry-Dk2Gjff_.mjs";
+import { L as q, F as $, i as ht, b as j, c as lt } from "./car-art-D34K7c64.mjs";
+import { R as dt } from "./RoomEnvironment-Cu4CyHxx.mjs";
+import { L as ut } from "./experience-CA49pcS6.mjs";
+function pt(f) {
+  const t = () => new V({ color: 1478316, metalness: 0.48, roughness: 0.24, clearcoat: 1, clearcoatRoughness: 0.13 }), e = (r, d = 0.2) => new L({ color: r, metalness: d, roughness: 0.3 }), s = (r, d, h = 0, u = 0, c = 0) => {
+    const l = new y(r, d);
     return l.position.set(h, u, c), f.add(l), l;
-  }, o = (n, d, h, u, c, l, m = 0) => s(new W(n, d, h, 3, Math.min(n, d, h) * 0.28), e(u), c, l, m), a = new A();
-  a.moveTo(-1.96, -0.22), a.lineTo(-1.754, -0.22), a.absarc(-1.18, -0.3, 0.58, Math.PI - 0.14, 0.14, !0), a.lineTo(0.606, -0.22), a.absarc(1.18, -0.3, 0.58, Math.PI - 0.14, 0.14, !0), a.lineTo(1.96, -0.22), a.bezierCurveTo(2.06, -0.02, 2.02, 0.34, 1.84, 0.48), a.bezierCurveTo(1.39, 0.6, 0.87, 0.57, 0.54, 0.58), a.lineTo(-1.55, 0.58), a.bezierCurveTo(-1.91, 0.56, -2.03, 0.22, -1.96, -0.22), a.closePath(), s(new L(a, { depth: 1.5, bevelEnabled: !0, bevelSize: 0.045, bevelThickness: 0.045, bevelSegments: 3, curveSegments: 32 }), t(), 0, 0, -0.75);
-  const i = new A();
-  i.moveTo(-1.43, 0.52), i.lineTo(-1.02, 1.31), i.quadraticCurveTo(-0.96, 1.38, -0.8, 1.38), i.lineTo(0.23, 1.38), i.quadraticCurveTo(0.33, 1.38, 0.4, 1.27), i.lineTo(0.88, 0.55), i.closePath(), s(new L(i, { depth: 1.24, bevelEnabled: !0, bevelSize: 0.045, bevelThickness: 0.04, bevelSegments: 3 }), t(), 0, 0, -0.62);
-  const r = (n, d = 1255995) => {
-    const h = new tt();
-    h.setAttribute("position", new et(n.flat(), 3)), h.setIndex([0, 1, 2, 0, 2, 3]), h.computeVertexNormals();
+  }, o = (r, d, h, u, c, l, m = 0) => s(new B(r, d, h, 3, Math.min(r, d, h) * 0.28), e(u), c, l, m), a = new E();
+  a.moveTo(-1.96, -0.22), a.lineTo(-1.754, -0.22), a.absarc(-1.18, -0.3, 0.58, Math.PI - 0.14, 0.14, !0), a.lineTo(0.606, -0.22), a.absarc(1.18, -0.3, 0.58, Math.PI - 0.14, 0.14, !0), a.lineTo(1.96, -0.22), a.bezierCurveTo(2.06, -0.02, 2.02, 0.34, 1.84, 0.48), a.bezierCurveTo(1.39, 0.6, 0.87, 0.57, 0.54, 0.58), a.lineTo(-1.55, 0.58), a.bezierCurveTo(-1.91, 0.56, -2.03, 0.22, -1.96, -0.22), a.closePath(), s(new A(a, { depth: 1.5, bevelEnabled: !0, bevelSize: 0.045, bevelThickness: 0.045, bevelSegments: 3, curveSegments: 32 }), t(), 0, 0, -0.75);
+  const i = new E();
+  i.moveTo(-1.43, 0.52), i.lineTo(-1.02, 1.31), i.quadraticCurveTo(-0.96, 1.38, -0.8, 1.38), i.lineTo(0.23, 1.38), i.quadraticCurveTo(0.33, 1.38, 0.4, 1.27), i.lineTo(0.88, 0.55), i.closePath(), s(new A(i, { depth: 1.24, bevelEnabled: !0, bevelSize: 0.045, bevelThickness: 0.04, bevelSegments: 3 }), t(), 0, 0, -0.62);
+  const n = (r, d = 1255995) => {
+    const h = new Y();
+    h.setAttribute("position", new _(r.flat(), 3)), h.setIndex([0, 1, 2, 0, 2, 3]), h.computeVertexNormals();
     const u = e(d, 0.35);
-    return u.side = G, u.roughness = 0.16, s(h, u);
+    return u.side = N, u.roughness = 0.16, s(h, u);
   };
-  for (const n of [-1, 1]) {
-    const d = 0.667 * n;
-    r([[-1.29, 0.65, d], [-0.98, 1.27, d], [-0.54, 1.27, d], [-0.54, 0.65, d]]), r([[-0.47, 0.65, d], [-0.47, 1.27, d], [0.26, 1.27, d], [0.72, 0.65, d]]), o(0.055, 0.66, 0.038, 1582382, -0.5, 0.97, d), o(3.16, 0.026, 0.04, 12179163, -0.03, 0.55, 0.801 * n), o(0.27, 0.06, 0.06, 14870505, -0.12, 0.43, 0.815 * n), o(1.08, 0.085, 0.045, 2108725, 0, -0.22, 0.815 * n), s(new E(0.13, 20, 12), e(15855333), 0.67, 0.68, 0.89 * n).scale.set(1.15, 0.8, 0.66);
-    for (const c of [-1.18, 1.18]) s(new M(0.588, 0.045, 8, 36, Math.PI), e(2437690), c, -0.3, 0.805 * n);
-    const u = new B([new v(-0.49, 0.51, 0.802 * n), new v(-0.49, -0.1, 0.802 * n), new v(0.48, -0.1, 0.802 * n), new v(0.64, 0.5, 0.802 * n)]);
-    s(new O(u, 28, 7e-3, 4, !1), e(1466744));
+  for (const r of [-1, 1]) {
+    const d = 0.667 * r;
+    n([[-1.29, 0.65, d], [-0.98, 1.27, d], [-0.54, 1.27, d], [-0.54, 0.65, d]]), n([[-0.47, 0.65, d], [-0.47, 1.27, d], [0.26, 1.27, d], [0.72, 0.65, d]]), o(0.055, 0.66, 0.038, 1582382, -0.5, 0.97, d), o(3.16, 0.026, 0.04, 12179163, -0.03, 0.55, 0.801 * r), o(0.27, 0.06, 0.06, 14870505, -0.12, 0.43, 0.815 * r), o(1.08, 0.085, 0.045, 2108725, 0, -0.22, 0.815 * r), s(new T(0.13, 20, 12), e(15855333), 0.67, 0.68, 0.89 * r).scale.set(1.15, 0.8, 0.66);
+    for (const c of [-1.18, 1.18]) s(new M(0.588, 0.045, 8, 36, Math.PI), e(2437690), c, -0.3, 0.805 * r);
+    const u = new H([new k(-0.49, 0.51, 0.802 * r), new k(-0.49, -0.1, 0.802 * r), new k(0.48, -0.1, 0.802 * r), new k(0.64, 0.5, 0.802 * r)]);
+    s(new D(u, 28, 7e-3, 4, !1), e(1466744));
   }
-  r([[0.9, 0.65, -0.54], [0.9, 0.65, 0.54], [0.46, 1.28, 0.54], [0.46, 1.28, -0.54]]).name = "front-glazing", r([[-1.43, 0.65, 0.53], [-1.43, 0.65, -0.53], [-1.1, 1.28, -0.53], [-1.1, 1.28, 0.53]]).name = "rear-glazing", o(1.6, 0.07, 1.4, 1518902, -0.33, 1.38), o(1.65, 0.15, 1.44, 16249055, -0.33, 1.45);
-  for (const n of [-0.2, 0.2]) o(0.81, 0.015, 0.1, 15855324, 1.2, 0.59, n);
-  for (const n of [-0.5, 0.5]) {
-    const d = s(new E(0.18, 24, 16), e(16774350, 0.45), 1.985, 0.25, n);
+  n([[0.9, 0.65, -0.54], [0.9, 0.65, 0.54], [0.46, 1.28, 0.54], [0.46, 1.28, -0.54]]).name = "front-glazing", n([[-1.43, 0.65, 0.53], [-1.43, 0.65, -0.53], [-1.1, 1.28, -0.53], [-1.1, 1.28, 0.53]]).name = "rear-glazing", o(1.6, 0.07, 1.4, 1518902, -0.33, 1.38), o(1.65, 0.15, 1.44, 16249055, -0.33, 1.45);
+  for (const r of [-0.2, 0.2]) o(0.81, 0.015, 0.1, 15855324, 1.2, 0.59, r);
+  for (const r of [-0.5, 0.5]) {
+    const d = s(new T(0.18, 24, 16), e(16774350, 0.45), 1.985, 0.25, r);
     d.scale.x = 0.27;
-    const h = s(new M(0.185, 0.024, 8, 32), e(14410211, 0.8), 2, 0.25, n);
-    h.rotation.y = Math.PI / 2, s(new E(0.14, 20, 12), e(12329790), -1.98, 0.24, n).scale.set(0.25, 1.3, 0.7);
+    const h = s(new M(0.185, 0.024, 8, 32), e(14410211, 0.8), 2, 0.25, r);
+    h.rotation.y = Math.PI / 2, s(new T(0.14, 20, 12), e(12329790), -1.98, 0.24, r).scale.set(0.25, 1.3, 0.7);
   }
   o(0.075, 0.19, 0.66, 1516590, 2.03, -0.015);
-  for (const n of [-0.055, 0, 0.055]) o(0.084, 0.014, 0.55, 10926013, 2.04, n);
+  for (const r of [-0.055, 0, 0.055]) o(0.084, 0.014, 0.55, 10926013, 2.04, r);
   o(0.14, 0.12, 1.24, 12766673, 1.98, -0.2), o(0.14, 0.12, 1.24, 12766673, -1.98, -0.2);
 }
-function xt(f) {
+function mt(f) {
   const t = Math.max(0, Math.min(60, f));
   return { elapsed: t, minutes: t, done: t >= 60, minuteAngle: -t * Math.PI / 30, hourAngle: -t * Math.PI / 360 };
 }
-function yt(f, t, e) {
-  return xt(f + Math.max(0, t) * e / 60);
+function ft(f, t, e) {
+  return mt(f + Math.max(0, t) * e / 60);
 }
-function Y(f) {
-  const t = I(f).minute;
+function W(f) {
+  const t = z(f).minute;
   return [t, -t / 3, -t / 3, t / 12];
 }
-function I(f) {
+function z(f) {
   const t = f * 2 * Math.PI, e = -t * 12 / 36, s = -e * 12 / 48, o = -s * 12 / 60;
   return { motor: t, first: e, second: s, minute: o };
 }
-const wt = [
+const bt = [
   { teeth: 12, r: 0.12, x: -1.08, y: -0.96, z: -0.42 },
   { teeth: 36, r: 0.36, x: -1.08, y: -0.48, z: -0.42 },
   { teeth: 12, r: 0.12, x: -1.08, y: -0.48, z: -0.2 },
@@ -107,7 +64,7 @@ const wt = [
   minute: "#52c9d7",
   compound: "#fa8dc6",
   hour: "#f2ce6d"
-}, H = [b.motor, b.first, b.first, b.second, b.second, b.minute], q = {
+}, R = [b.motor, b.first, b.first, b.second, b.second, b.minute], P = {
   clock: [
     ["case", "鐘殼", "像安全帽，保護裡面的機芯。", "轉到背面，找找裝電池的位置。"],
     ["glass", "透明鏡片", "擋住灰塵，讓我們看得到時間。", "拆開後，鏡片在最前面。"],
@@ -128,7 +85,7 @@ const wt = [
     ["gears", "傳動齒輪", "連接捲簧與輪軸，傳遞轉動。", "同樣的回拉量，換路面再比較。"],
     ["clutch", "離合機構", "幫忙切換回拉儲能和放手前進。", "這是原理示意，不同車款的離合結構會不同。"]
   ]
-}, Mt = {
+}, gt = {
   case: [-3.3, 0.7, -1.2],
   glass: [3.4, 1.2, 1.8],
   dial: [0, 1.3, 0.8],
@@ -138,17 +95,17 @@ const wt = [
   quartz: [0.4, -2.25, 0.5],
   battery: [-3.8, -2, 0.4]
 };
-class St {
-  constructor(t, e, s, o, a, i, r, n) {
-    if (this.kind = t, this.scene = e, this.camera = s, this.stage = o, this.host = a, this.wake = r, this.action = n, this.yaw = t === "clock" ? -0.25 : -0.55, a.classList.add("il-mechanism"), o.classList.add("mech-stage"), o.setAttribute("role", "group"), i) {
-      const c = new st(i), l = new kt();
-      this.env = c.fromScene(l, 0.04), e.environment = this.env.texture, l.dispose(), c.dispose(), i.toneMapping = at, i.toneMappingExposure = 1.05;
+class kt {
+  constructor(t, e, s, o, a, i, n, r) {
+    if (this.kind = t, this.scene = e, this.camera = s, this.stage = o, this.host = a, this.wake = n, this.action = r, this.yaw = t === "clock" ? -0.25 : -0.55, a.classList.add("il-mechanism"), o.classList.add("mech-stage"), o.setAttribute("role", "group"), i) {
+      const c = new X(i), l = new dt();
+      this.env = c.fromScene(l, 0.04), e.environment = this.env.texture, l.dispose(), c.dispose(), i.toneMapping = Z, i.toneMappingExposure = 1.05;
     }
     this.labelLayer = document.createElement("div"), this.labelLayer.className = "mech-labels", this.labelLayer.innerHTML = '<svg class="mech-leaders" aria-hidden="true"></svg>', o.append(this.labelLayer);
     const d = document.createElement("div");
     d.className = "mech-toolbar", d.innerHTML = `<div class="mech-modes" role="group" aria-label="模型觀看方式"><button data-view="whole" aria-pressed="true">完整外觀</button><button data-view="xray" aria-pressed="false">透視裡面</button><button data-view="explode" aria-pressed="false">拆開看看</button></div><div class="mech-adjust"><label>轉個方向<input type="range" data-mech-turn min="-75" max="75" value="${Math.round(this.yaw * 180 / Math.PI)}" aria-label="轉動模型視角"></label><label>拆開多少<input type="range" data-mech-explode min="0" max="100" value="0" aria-label="零件拆開程度"></label></div>`, o.before(d), t === "clock" && (d.innerHTML = '<div class="clock-switches"><button role="switch" data-clock-rotate aria-checked="false" aria-label="旋轉模型" title="旋轉模型">⟳</button><button role="switch" data-clock-explode aria-checked="false" aria-label="拆卸零件" title="拆卸零件">⚙</button><span hidden>☝ 拖動調時</span></div>', a.querySelector(".bp-heading").append(d.firstElementChild), d.remove()), t === "car" && (a.classList.add("il-car-play"), a.dataset.carMode = "rotate", d.innerHTML = '<div class="car-switches" role="group" aria-label="回力車操作模式"><button role="switch" data-car-mode="rotate" aria-checked="true">⟳ 旋轉<i></i></button><button role="switch" data-car-mode="explode" aria-checked="false">⚙ 拆卸<i></i></button><button role="switch" data-car-mode="test" aria-checked="false">🏁 拉力<i></i></button></div>');
     const h = document.createElement("section");
-    if (h.className = "mech-tray", h.innerHTML = `<div class="mech-tray-title"><strong>點零件，發現小祕密</strong><span data-discovered>0 / 8</span></div><div class="mech-parts">${q[t].map((c, l) => `<button data-part="${c[0]}" aria-pressed="false"><span>${l + 1}</span>${c[1]}</button>`).join("")}</div><div class="mech-part-info" aria-live="polite"><strong>從外面看，再拆開找找看。</strong><p>點模型上的數字，或點上方的零件名稱。</p></div><details class="mech-parent"><summary>給陪玩的家長</summary><p>先問「你猜這個零件做什麼？」再點名稱一起看。${t === "clock" ? "電池 → 石英與電路 → 馬達 → 齒輪 → 指針。" : "手往後拉 → 輪軸與齒輪 → 捲簧儲能 → 放手帶動車輪。"}此模型以常見結構為基礎，省略部分緊固件與細小傳動零件，並非品牌產品的維修拆裝圖。真實拆解請由成人協助，避免小零件與電池被孩子吞食。</p></details>`, o.closest(".il-scene-panel").append(h), this.partInfo = h.querySelector(".mech-part-info"), t === "clock") {
+    if (h.className = "mech-tray", h.innerHTML = `<div class="mech-tray-title"><strong>點零件，發現小祕密</strong><span data-discovered>0 / 8</span></div><div class="mech-parts">${P[t].map((c, l) => `<button data-part="${c[0]}" aria-pressed="false"><span>${l + 1}</span>${c[1]}</button>`).join("")}</div><div class="mech-part-info" aria-live="polite"><strong>從外面看，再拆開找找看。</strong><p>點模型上的數字，或點上方的零件名稱。</p></div><details class="mech-parent"><summary>給陪玩的家長</summary><p>先問「你猜這個零件做什麼？」再點名稱一起看。${t === "clock" ? "電池 → 石英與電路 → 馬達 → 齒輪 → 指針。" : "手往後拉 → 輪軸與齒輪 → 捲簧儲能 → 放手帶動車輪。"}此模型以常見結構為基礎，省略部分緊固件與細小傳動零件，並非品牌產品的維修拆裝圖。真實拆解請由成人協助，避免小零件與電池被孩子吞食。</p></details>`, o.closest(".il-scene-panel").append(h), this.partInfo = h.querySelector(".mech-part-info"), t === "clock") {
       const c = document.createElement("details");
       c.className = "mech-bom", c.innerHTML = '<summary aria-label="展開或收起零件表" title="零件">☷</summary>', c.append(h), o.append(c), c.addEventListener("toggle", () => this.wake(), { signal: this.abort.signal }), h.querySelector("strong").textContent = "零件", h.querySelector(".mech-parent p").textContent = "先問「你猜這個零件做什麼？」再點名称。電池與電路控制馬達，綠色三級輪系減速六十倍帶動長分針，金色兩級輪系再減速十二倍帶動短時針。這是完整教學傳動設計，不是品牌維修圖；未模擬電磁場、齒面碰撞及摩擦。實體拆解須由成人協助。";
       const l = document.createElement("div");
@@ -181,14 +138,14 @@ class St {
       const l = this.dragging.moved;
       if (this.dragging = null, o.hasPointerCapture(c.pointerId) && o.releasePointerCapture(c.pointerId), l && this.mode === "whole" && (t === "clock" && !this.clockRotate || this.carMode === "test")) this.action(-1, !0);
       else if (!l) {
-        const m = o.getBoundingClientRect(), p = new F();
-        p.setFromCamera(new V((c.clientX - m.left) / m.width * 2 - 1, 1 - (c.clientY - m.top) / m.height * 2), s);
+        const m = o.getBoundingClientRect(), p = new G();
+        p.setFromCamera(new O((c.clientX - m.left) / m.width * 2 - 1, 1 - (c.clientY - m.top) / m.height * 2), s);
         const g = p.intersectObject(this.root, !0);
-        for (const x of g) {
-          let y = x.object;
-          for (; y && !y.userData.partId; ) y = y.parent;
-          if (y?.userData.partId) {
-            this.select(y.userData.partId, a);
+        for (const v of g) {
+          let x = v.object;
+          for (; x && !x.userData.partId; ) x = x.parent;
+          if (x?.userData.partId) {
+            this.select(x.userData.partId, a);
             break;
           }
         }
@@ -239,42 +196,42 @@ class St {
     this.kind === "car" && (this.carMode === "test" && t !== "test" && (this.yaw = -0.55), this.dragging = null, this.carMode = t, this.host.dataset.carMode = t, this.setMode(t === "explode" ? "explode" : "whole"), t === "test" && (this.yaw = 0, this.amount = 0), this.root.position.x = t === "test" ? -this.pullValue * 1.8 : 0, this.host.querySelectorAll("[data-car-mode]").forEach((e) => e.setAttribute("aria-checked", String(e.dataset.carMode === t))), this.host.querySelector(".il-live").textContent = t === "test" ? "側面就位！向左拉車，放手出發。" : t === "explode" ? "點零件聽祕密，也能用手轉方向。" : t === "idle" ? "選一個開關，開始探索！" : "用手左右拖，看看車子的每一面。", this.wake());
   }
   material(t, e = 0.1, s = 0.32) {
-    return new $({ color: t, metalness: e, roughness: s });
+    return new L({ color: t, metalness: e, roughness: s });
   }
-  mesh(t, e, s, o = 0, a = 0, i = 0, r = 0.1) {
-    const n = new k(t, this.material(e, r));
-    return n.position.set(o, a, i), s.add(n), n;
+  mesh(t, e, s, o = 0, a = 0, i = 0, n = 0.1) {
+    const r = new y(t, this.material(e, n));
+    return r.position.set(o, a, i), s.add(r), r;
   }
-  box(t, e, s, o, a, i = 0, r = 0, n = 0) {
-    return this.mesh(new W(t, e, s, 3, Math.min(t, e, s) * 0.16), o, a, i, r, n);
+  box(t, e, s, o, a, i = 0, n = 0, r = 0) {
+    return this.mesh(new B(t, e, s, 3, Math.min(t, e, s) * 0.16), o, a, i, n, r);
   }
-  disk(t, e, s, o, a = 0, i = 0, r = 0) {
-    const n = this.mesh(new C(t, t, e, 64), s, o, a, i, r, 0.4);
-    return n.rotation.x = Math.PI / 2, n;
+  disk(t, e, s, o, a = 0, i = 0, n = 0) {
+    const r = this.mesh(new C(t, t, e, 64), s, o, a, i, n, 0.4);
+    return r.rotation.x = Math.PI / 2, r;
   }
   part(t, e, s, o = !1) {
     const a = new w();
     a.position.fromArray(e), a.userData.partId = t, this.root.add(a);
     const i = document.createElement("button");
-    i.type = "button", i.dataset.part = t, i.textContent = String(q[this.kind].findIndex((n) => n[0] === t) + 1), i.setAttribute("aria-label", q[this.kind].find((n) => n[0] === t)[1]), this.labelLayer.append(i);
-    const r = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    return this.labelLayer.querySelector("svg").append(r), this.parts.push({ id: t, group: a, home: new v(...e), away: new v(...this.kind === "clock" ? Mt[t] : s), skin: o, button: i, line: r }), a;
+    i.type = "button", i.dataset.part = t, i.textContent = String(P[this.kind].findIndex((r) => r[0] === t) + 1), i.setAttribute("aria-label", P[this.kind].find((r) => r[0] === t)[1]), this.labelLayer.append(i);
+    const n = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    return this.labelLayer.querySelector("svg").append(n), this.parts.push({ id: t, group: a, home: new k(...e), away: new k(...this.kind === "clock" ? gt[t] : s), skin: o, button: i, line: n }), a;
   }
-  gear(t, e, s, o, a, i, r = 14265434) {
-    const n = new w();
-    n.position.set(o, a, i), s.add(n);
-    const d = new A();
+  gear(t, e, s, o, a, i, n = 14265434) {
+    const r = new w();
+    r.position.set(o, a, i), s.add(r);
+    const d = new E();
     for (let c = 0; c < e * 4; c++) {
       const l = c * Math.PI * 2 / (e * 4), m = t * (c % 4 === 0 || c % 4 === 3 ? 0.9 : 1.05), p = Math.cos(l) * m, g = Math.sin(l) * m;
       c ? d.lineTo(p, g) : d.moveTo(p, g);
     }
     d.closePath();
-    const h = this.kind === "clock" && e >= 36, u = new it();
-    if (u.absarc(0, 0, t * (h ? 0.68 : 0.16), 0, Math.PI * 2, !0), d.holes.push(u), this.mesh(new L(d, { depth: this.kind === "clock" ? 0.05 : 0.12, bevelEnabled: !0, bevelSize: 8e-3, bevelThickness: 8e-3, bevelSegments: 2 }), r, n, 0, 0, 0, 0.65), h) for (let c = 0; c < 3; c++) {
-      const l = c * Math.PI * 2 / 3, m = this.box(0.035, t * 0.62, 0.08, r, n, Math.sin(l) * t * 0.43, Math.cos(l) * t * 0.43, 0.06);
+    const h = this.kind === "clock" && e >= 36, u = new U();
+    if (u.absarc(0, 0, t * (h ? 0.68 : 0.16), 0, Math.PI * 2, !0), d.holes.push(u), this.mesh(new A(d, { depth: this.kind === "clock" ? 0.05 : 0.12, bevelEnabled: !0, bevelSize: 8e-3, bevelThickness: 8e-3, bevelSegments: 2 }), n, r, 0, 0, 0, 0.65), h) for (let c = 0; c < 3; c++) {
+      const l = c * Math.PI * 2 / 3, m = this.box(0.035, t * 0.62, 0.08, n, r, Math.sin(l) * t * 0.43, Math.cos(l) * t * 0.43, 0.06);
       m.rotation.z = -l;
     }
-    return this.disk(t * 0.16, 0.21, 14083563, n, 0, 0, 0.05), this.gears.push(n), n;
+    return this.disk(t * 0.16, 0.21, 14083563, r, 0, 0, 0.05), this.gears.push(r), r;
   }
   clock() {
     const t = this.part("case", [0, 0, -0.2], [-2.6, 0.35, -1.1], !0);
@@ -293,10 +250,10 @@ class St {
       i.fillText(String(p), Math.sin(g) * 372, -Math.cos(g) * 372);
     }
     i.font = "20px system-ui", i.fillText("QUARTZ", 0, 220);
-    const r = new ot(a);
-    r.colorSpace = rt, this.textures.push(r), this.mesh(new j(1.6, 96), 16314847, o, 0, 0, -6e-3);
-    const n = this.mesh(new j(1.6, 96), 16777215, o);
-    n.name = "clock-marks", n.material.map = r, n.material.roughness = 0.7, n.material.side = G;
+    const n = new K(a);
+    n.colorSpace = Q, this.textures.push(n), this.mesh(new I(1.6, 96), 16314847, o, 0, 0, -6e-3);
+    const r = this.mesh(new I(1.6, 96), 16777215, o);
+    r.name = "clock-marks", r.material.map = n, r.material.roughness = 0.7, r.material.side = N;
     const d = this.part("hands", [0, 0, 0.57], [2.6, -0.2, 1.1]);
     d.add(this.handMinute, this.handHour);
     const h = (p) => Number(p.replace("#", "0x"));
@@ -306,13 +263,13 @@ class St {
     const c = this.part("motor", [-1.08, -1.16, 0.04], [-1.5, -1.25, 0.35]);
     this.box(0.5, 0.22, 0.2, 12019250, c);
     for (let p = 0; p < 16; p++) this.mesh(new M(0.12, 0.01, 6, 20), 15049082, c, -0.23 + p * 0.03, 0, 0, 0.8).rotation.y = Math.PI / 2;
-    this.disk(0.16, 0.08, 9870758, c, 0, 0.2, -0.43), wt.forEach((p, g) => {
-      g === 0 ? this.gear(p.r, p.teeth, c, 0, 0.2, -0.38, h(H[g])) : this.gear(p.r, p.teeth, u, p.x, p.y, p.z, h(H[g]));
+    this.disk(0.16, 0.08, 9870758, c, 0, 0.2, -0.43), bt.forEach((p, g) => {
+      g === 0 ? this.gear(p.r, p.teeth, c, 0, 0.2, -0.38, h(R[g])) : this.gear(p.r, p.teeth, u, p.x, p.y, p.z, h(R[g]));
     }), ["馬達12T", "36T＋12T · 同軸", "48T＋12T · 同軸", "60T＋12T · 同軸長針", "40T · 同軸短針"].forEach((p, g) => {
-      const x = document.createElement("span");
-      x.className = "clock-compound-tag clock-drive-tag", x.textContent = p, x.style.borderColor = [b.motor, b.first, b.second, b.minute, b.hour][g], x.style.color = "white", this.stage.append(x), this.driveTags.push(x);
+      const v = document.createElement("span");
+      v.className = "clock-compound-tag clock-drive-tag", v.textContent = p, v.style.borderColor = [b.motor, b.first, b.second, b.minute, b.hour][g], v.style.color = "white", this.stage.append(v), this.driveTags.push(v);
     });
-    for (const [p, g, x, y] of [[-1.08, -0.48, -0.31, 0.28], [-0.72, 0, -0.09, 0.28], [0, 0, 0.1, 0.26]]) this.disk(0.025, y, 13490664, u, p, g, x);
+    for (const [p, g, v, x] of [[-1.08, -0.48, -0.31, 0.28], [-0.72, 0, -0.09, 0.28], [0, 0, 0.1, 0.26]]) this.disk(0.025, x, 13490664, u, p, g, v);
     this.disk(0.025, 0.4, 13490664, u, 0, 0, 0.39), this.mesh(new C(0.045, 0.045, 0.54, 24, 1, !0), 13490664, u, 0, 0, 0.24).rotation.x = Math.PI / 2;
     const l = this.part("quartz", [0.45, -0.75, 0.05], [0.35, -1.5, 0.2]);
     this.box(0.72, 0.46, 0.06, 2980194, l), this.box(0.22, 0.18, 0.07, 2237738, l, -0.08, 0, 0.06), this.box(0.14, 0.3, 0.1, 12895943, l, 0.23, 0, 0.07), this.rotor.position.set(0, 0.2, -0.28), c.add(this.rotor), this.box(0.22, 0.03, 0.025, 16575637, this.rotor), this.box(0.03, 0.22, 0.025, 16575637, this.rotor);
@@ -321,7 +278,7 @@ class St {
   }
   car() {
     const t = this.part("shell", [0, 0.4, 0], [0, 1.9, -0.1], !0);
-    vt(t);
+    pt(t);
     const e = this.part("chassis", [0, 0.25, 0], [0, -1.2, 0]);
     this.box(3.7, 0.16, 1.38, 3883338, e);
     for (const h of [-1.3, 1.3]) for (const u of [-0.52, 0.52])
@@ -342,13 +299,13 @@ class St {
     for (const h of [-1.18, 1.18]) this.disk(0.07, 1.83, 13488855, o, h, 0, 0);
     const a = this.part("housing", [-0.65, 0.5, 0], [-0.95, 0.7, -1.7], !0);
     this.box(1.25, 0.65, 0.8, 14801605, a);
-    const i = this.part("spring", [-0.58, 0.52, 0.1], [-1.8, 0.6, 1.1]), r = Array.from({ length: 300 }, (h, u) => {
+    const i = this.part("spring", [-0.58, 0.52, 0.1], [-1.8, 0.6, 1.1]), n = Array.from({ length: 300 }, (h, u) => {
       const c = u * 0.18, l = 0.035 + u * 1e-3;
-      return new v(Math.cos(c) * l, Math.sin(c) * l, 0);
+      return new k(Math.cos(c) * l, Math.sin(c) * l, 0);
     });
-    this.spring = this.mesh(new O(new B(r), 300, 0.022, 6, !1), 12108750, i, 0, 0, 0, 0.8);
-    const n = this.part("gears", [-0.83, 0.45, 0.36], [0.3, 0.3, 1.2]);
-    this.gear(0.27, 18, n, -0.2, 0, 0), this.gear(0.16, 10, n, 0.22, 0, 0.01), this.gear(0.25, 16, n, 0.6, 0, 0.01);
+    this.spring = this.mesh(new D(new H(n), 300, 0.022, 6, !1), 12108750, i, 0, 0, 0, 0.8);
+    const r = this.part("gears", [-0.83, 0.45, 0.36], [0.3, 0.3, 1.2]);
+    this.gear(0.27, 18, r, -0.2, 0, 0), this.gear(0.16, 10, r, 0.22, 0, 0.01), this.gear(0.25, 16, r, 0.6, 0, 0.01);
     const d = this.part("clutch", [-1.18, 0.2, 0.45], [1.8, 0.35, 1.1]);
     this.gear(0.2, 10, d, 0, 0, 0, 15848854), this.box(0.24, 0.07, 0.08, 12041153, d, 0.25, 0.05, 0.15);
   }
@@ -357,29 +314,29 @@ class St {
   }
   skins() {
     this.parts.forEach((t) => t.group.traverse((e) => {
-      if (e instanceof k) {
+      if (e instanceof y) {
         const s = e.material, o = t.id === "glass";
         s.transparent = o || this.mode === "xray" && t.skin, s.opacity = o ? 0.1 : this.mode === "xray" && t.skin ? 0.13 : 1, s.depthWrite = !s.transparent;
       }
     })), this.clockPeek && this.parts.filter((t) => t.skin).forEach((t) => t.group.traverse((e) => {
-      if (e instanceof k) {
+      if (e instanceof y) {
         const s = e.material;
         s.transparent = !0, s.opacity = t.id === "case" ? 0.08 : 0, s.depthWrite = !1;
       }
     })), this.parts.forEach((t) => t.group.traverse((e) => {
-      if (e instanceof k && e.name === "clock-marks") {
+      if (e instanceof y && e.name === "clock-marks") {
         const s = e.material;
         s.transparent = !0, s.opacity = 1, s.depthWrite = !1, this.clockPeek ? (s.emissive.setHex(16777215), s.emissiveMap = s.map, s.emissiveIntensity = 3) : (s.emissive.setHex(0), s.emissiveIntensity = 0);
       }
     })), this.parts.forEach((t) => t.group.traverse((e) => {
-      e instanceof k && (e.material.needsUpdate = !0);
+      e instanceof y && (e.material.needsUpdate = !0);
     }));
   }
   select(t, e) {
     this.kind === "car" && this.mode === "whole" && !["shell", "wheels"].includes(t) && this.setCarMode("explode"), this.selected = t, this.seen.add(t);
-    const s = q[this.kind].find((o) => o[0] === t);
+    const s = P[this.kind].find((o) => o[0] === t);
     this.partInfo.innerHTML = `<strong>${s[1]}</strong><p>${s[2]}</p><small>${s[3]}</small>`, e.querySelector(".mech-quick-info").innerHTML = `<strong>${s[1]}</strong><p>${s[2]}</p>`, e.querySelector("[data-discovered]").textContent = `${this.seen.size} / 8`, e.querySelectorAll("[data-part]").forEach((o) => o.setAttribute("aria-pressed", String(o.dataset.part === t))), this.kind === "clock" && this.mode === "whole" && !["case", "glass", "dial", "hands"].includes(t) && (e.querySelector(".mech-quick-info").innerHTML += "<p>在鐘殼裡，打開「拆卸」找找看。</p>"), this.kind === "car" && this.parts.forEach((o) => o.group.traverse((a) => {
-      if (a instanceof k) {
+      if (a instanceof y) {
         const i = a.material;
         i.emissive.setHex(o.id === t ? 1461081 : 0), i.emissiveIntensity = o.id === t ? 0.5 : 0;
       }
@@ -387,7 +344,7 @@ class St {
   }
   setClock(t) {
     this.minutes = t;
-    const e = Y(t), s = I(t);
+    const e = W(t), s = z(t);
     this.handMinute.rotation.z = e[0], this.handHour.rotation.z = e[3];
     const o = [...e, s.motor, s.first, s.first, s.second, s.second, s.minute];
     this.gears.forEach((a, i) => a.rotation.z = o[i]), this.rotor.rotation.z = s.motor;
@@ -412,7 +369,7 @@ class St {
     this.amount += (this.target - this.amount) * Math.min(1, t * 9), Math.abs(this.amount - this.target) < 1e-3 && (this.amount = this.target), this.root.rotation.set(this.kind === "car" ? this.carMode === "test" ? 0 : 0.24 : 0.03, this.yaw, 0);
     const e = this.stage.clientWidth, s = this.stage.clientHeight;
     if (e && s) {
-      const a = this.kind === "clock" && this.stage.querySelector(".mech-bom[open]") ? 260 : 0, i = this.kind === "clock" ? this.stage.querySelector(".clock-transmission[open]") : null, r = i ? i.offsetWidth + 20 : 0, n = this.kind === "clock" ? 2.6 + this.amount * 3.3 : this.carMode === "test" ? 5.8 : 3.3 + this.amount * 1.4, d = Math.max(this.kind === "clock" ? 2.45 + this.amount * 0.9 : 2.35 + this.amount * 0.95, n * s / Math.max(280, e - a - r)) / (this.zoom || 1), h = d * e / s, u = this.kind === "car" ? this.carMode === "test" ? -0.445 + 0.28 * d : 0.45 : 0, c = h * (a - r) / e;
+      const a = this.kind === "clock" && this.stage.querySelector(".mech-bom[open]") ? 260 : 0, i = this.kind === "clock" ? this.stage.querySelector(".clock-transmission[open]") : null, n = i ? i.offsetWidth + 20 : 0, r = this.kind === "clock" ? 2.6 + this.amount * 3.3 : this.carMode === "test" ? 5.8 : 3.3 + this.amount * 1.4, d = Math.max(this.kind === "clock" ? 2.45 + this.amount * 0.9 : 2.35 + this.amount * 0.95, r * s / Math.max(280, e - a - n)) / (this.zoom || 1), h = d * e / s, u = this.kind === "car" ? this.carMode === "test" ? -0.445 + 0.28 * d : 0.45 : 0, c = h * (a - n) / e;
       this.camera.left = -h + c, this.camera.right = h + c, this.camera.top = d + u, this.camera.bottom = -d + u, this.camera.updateProjectionMatrix();
     }
     if (this.parts.forEach((a) => {
@@ -421,90 +378,90 @@ class St {
       });
     }), this.root.updateMatrixWorld(!0), this.driveTags?.forEach((a, i) => {
       a.hidden = !this.clockPeek && this.mode !== "explode";
-      const r = this.gears[[4, 5, 7, 9, 3][i]].getWorldPosition(new v()).project(this.camera), n = [[-25, 18], [-105, -22], [-105, -35], [15, -75], [15, 65]];
-      a.style.left = `${(r.x + 1) * e / 2 + n[i][0]}px`, a.style.top = `${(1 - r.y) * s / 2 + n[i][1]}px`;
+      const n = this.gears[[4, 5, 7, 9, 3][i]].getWorldPosition(new k()).project(this.camera), r = [[-25, 18], [-105, -22], [-105, -35], [15, -75], [15, 65]];
+      a.style.left = `${(n.x + 1) * e / 2 + r[i][0]}px`, a.style.top = `${(1 - n.y) * s / 2 + r[i][1]}px`;
     }), this.compoundTag) {
       this.compoundTag.hidden = !this.clockPeek && this.mode !== "explode";
-      const a = this.gears[2].getWorldPosition(new v()).project(this.camera);
+      const a = this.gears[2].getWorldPosition(new k()).project(this.camera);
       this.compoundTag.style.left = `${(a.x + 1) * e / 2 + 14}px`, this.compoundTag.style.top = `${(1 - a.y) * s / 2 + 14}px`;
     }
     if (this.halo) {
       const a = this.parts.find((i) => i.id === this.selected);
       if (this.halo.hidden = !a || this.mode === "whole" && !["case", "glass", "dial", "hands"].includes(this.selected), a) {
-        const i = new nt().setFromObject(a.group), r = [];
+        const i = new J().setFromObject(a.group), n = [];
         for (const h of [i.min.x, i.max.x]) for (const u of [i.min.y, i.max.y]) for (const c of [i.min.z, i.max.z]) {
-          const l = new v(h, u, c).project(this.camera);
-          r.push({ x: (l.x + 1) * e / 2, y: (1 - l.y) * s / 2 });
+          const l = new k(h, u, c).project(this.camera);
+          n.push({ x: (l.x + 1) * e / 2, y: (1 - l.y) * s / 2 });
         }
-        const n = Math.min(...r.map((h) => h.x)) - 8, d = Math.min(...r.map((h) => h.y)) - 8;
-        Object.assign(this.halo.style, { left: `${n}px`, top: `${d}px`, width: `${Math.max(...r.map((h) => h.x)) - n + 8}px`, height: `${Math.max(...r.map((h) => h.y)) - d + 8}px` });
+        const r = Math.min(...n.map((h) => h.x)) - 8, d = Math.min(...n.map((h) => h.y)) - 8;
+        Object.assign(this.halo.style, { left: `${r}px`, top: `${d}px`, width: `${Math.max(...n.map((h) => h.x)) - r + 8}px`, height: `${Math.max(...n.map((h) => h.y)) - d + 8}px` });
       }
     }
     const o = [];
     return this.parts.forEach((a) => {
-      const i = a.group.getWorldPosition(new v()).project(this.camera), r = { x: (i.x + 1) * e / 2, y: (1 - i.y) * s / 2 }, d = [[0, 0], [40, 0], [-40, 0], [0, 40], [0, -40], [40, 40], [-40, -40], [60, -40], [-60, 40], [0, 80]].map(([h, u]) => ({ x: Math.max(20, Math.min(e - 20, r.x + h)), y: Math.max(20, Math.min(s - 20, r.y + u)) })).find((h) => o.every((u) => Math.hypot(u.x - h.x, u.y - h.y) > 37)) || r;
-      a.button.hidden = this.mode !== "explode" && a.id !== this.selected, a.button.hidden || o.push(d), a.button.style.left = `${d.x}px`, a.button.style.top = `${d.y}px`, a.button.classList.toggle("selected", a.id === this.selected), a.line.setAttribute("x1", String(r.x)), a.line.setAttribute("y1", String(r.y)), a.line.setAttribute("x2", String(d.x)), a.line.setAttribute("y2", String(d.y)), a.line.style.display = a.button.hidden ? "none" : "";
+      const i = a.group.getWorldPosition(new k()).project(this.camera), n = { x: (i.x + 1) * e / 2, y: (1 - i.y) * s / 2 }, d = [[0, 0], [40, 0], [-40, 0], [0, 40], [0, -40], [40, 40], [-40, -40], [60, -40], [-60, 40], [0, 80]].map(([h, u]) => ({ x: Math.max(20, Math.min(e - 20, n.x + h)), y: Math.max(20, Math.min(s - 20, n.y + u)) })).find((h) => o.every((u) => Math.hypot(u.x - h.x, u.y - h.y) > 37)) || n;
+      a.button.hidden = this.mode !== "explode" && a.id !== this.selected, a.button.hidden || o.push(d), a.button.style.left = `${d.x}px`, a.button.style.top = `${d.y}px`, a.button.classList.toggle("selected", a.id === this.selected), a.line.setAttribute("x1", String(n.x)), a.line.setAttribute("y1", String(n.y)), a.line.setAttribute("x2", String(d.x)), a.line.setAttribute("y2", String(d.y)), a.line.style.display = a.button.hidden ? "none" : "";
     }), this.amount !== this.target;
   }
   destroy() {
     this.abort.abort(), this.textures.forEach((t) => t.dispose()), this.env?.dispose(), this.scene.environment = null;
   }
 }
-function Ct(f) {
-  const t = Y(f);
+function vt(f) {
+  const t = W(f);
   return { minute: Math.abs(t[0]) / (2 * Math.PI), compound: Math.abs(t[1]) / (2 * Math.PI), hour: Math.abs(t[3]) / (2 * Math.PI) };
 }
-const _ = (f) => f >= 0.999999 ? String(Math.round(f)) : `1/${Math.round(1 / f)}`;
-function Tt(f) {
-  return Object.values(Ct(f)).map(_);
+const F = (f) => f >= 0.999999 ? String(Math.round(f)) : `1/${Math.round(1 / f)}`;
+function yt(f) {
+  return Object.values(vt(f)).map(F);
 }
-function Et(f) {
-  return Object.values(I(f)).map((t) => _(Math.abs(t) / (2 * Math.PI)));
+function xt(f) {
+  return Object.values(z(f)).map((t) => F(Math.abs(t) / (2 * Math.PI)));
 }
-const $t = (f, t) => `<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17" fill="${f}" stroke="${f}" stroke-width="8" stroke-dasharray="5 4"/><circle cx="24" cy="24" r="7" fill="#102740"/><text x="24" y="28" text-anchor="middle" fill="white" font-size="11">${t}</text></svg>`, S = (f, t, e, s, o) => `<div class="ct-row">${$t(f, t)}<div>${e}<strong ${o}>${s} RPM</strong></div></div>`, At = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="9" width="20" height="15" rx="5" fill="#d49364" stroke="#fff"/><path d="M24 16h5M9 10v13m4-13v13m4-13v13" stroke="#ffe6a2" stroke-width="2"/><path d="M9 26h12" stroke="white" stroke-width="2"/></svg>', Pt = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="#122c49" stroke="#fff" stroke-width="2"/><path d="M16 16V6" stroke="#72e8f6" stroke-width="3" stroke-linecap="round"/><path d="M16 16l6 4" stroke="#ffe09b" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="16" r="2" fill="white"/></svg>';
-function qt() {
-  return `<details class="clock-transmission" open><summary aria-label="收折或展開轉速圖解">⚙ 轉速圖解 <span>⌃</span></summary><div class="ct-body"><div class="ct-tools"><button data-rpm-speed="1" aria-label="正常速度播放" title="正常速度播放" aria-pressed="false">1×</button><button data-rpm-speed="60" aria-label="60倍速播放" title="60倍速播放" aria-pressed="true">60×</button><button data-drive-page="motor" aria-label="馬達輪系" title="馬達輪系" aria-pressed="true">${At}</button><button data-drive-page="hands" aria-label="指針輪系" title="指針輪系" aria-pressed="false">${Pt}</button><button data-rpm-read aria-label="朗讀轉速圖解" title="朗讀">🔊</button></div><div data-drive-section="motor">${S(b.motor, "12", "↺ 馬達 · 12T", "60", "data-drive-rpm")}<div class="ct-link">↓ 慢 3 倍</div>${S(b.first, "36", "↻ 36T／同軸12T", "20", "data-drive-rpm")}<div class="ct-link">↓ 再慢 4 倍</div>${S(b.second, "48", "↺ 48T／同軸12T", "5", "data-drive-rpm")}<div class="ct-link">↓ 再慢 5 倍</div>${S(b.minute, "60", "↻ 60T／同軸12T · 長針", "1", "data-drive-rpm")}</div><div data-drive-section="hands" hidden>${S(b.minute, "12", "↻ 長分針 · 12T", "1", "data-rpm")}<div class="ct-link">↓ 慢 3 倍 · 反方向</div>${S(b.compound, "36", "↺ 36T／同軸10T", "1/3", "data-rpm")}<div class="ct-link">↓ 再慢 4 倍 · 反方向</div>${S(b.hour, "40", "↻ 短時針 · 40T", "1/12", "data-rpm")}</div><footer>馬達 60 圈＝長針 1 圈<small>長針 12 圈＝短針 1 圈<br>1× 正常走；60× 一分鐘看完一小時。<br>同色＝同軸一起轉；長短針各有獨立軸。<br>RPM＝每分鐘圈數 · 教學輪系，非品牌機芯。</small><span class="ct-progress"><span data-demo-speed>60×</span> · 已走 <span data-demo-seconds>0分00秒</span> / 1小時</span></footer></div></details>`;
+const wt = (f, t) => `<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17" fill="${f}" stroke="${f}" stroke-width="8" stroke-dasharray="5 4"/><circle cx="24" cy="24" r="7" fill="#102740"/><text x="24" y="28" text-anchor="middle" fill="white" font-size="11">${t}</text></svg>`, S = (f, t, e, s, o) => `<div class="ct-row">${wt(f, t)}<div>${e}<strong ${o}>${s} RPM</strong></div></div>`, Mt = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="9" width="20" height="15" rx="5" fill="#d49364" stroke="#fff"/><path d="M24 16h5M9 10v13m4-13v13m4-13v13" stroke="#ffe6a2" stroke-width="2"/><path d="M9 26h12" stroke="white" stroke-width="2"/></svg>', St = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="#122c49" stroke="#fff" stroke-width="2"/><path d="M16 16V6" stroke="#72e8f6" stroke-width="3" stroke-linecap="round"/><path d="M16 16l6 4" stroke="#ffe09b" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="16" r="2" fill="white"/></svg>';
+function Ct() {
+  return `<details class="clock-transmission" open><summary aria-label="收折或展開轉速圖解">⚙ 轉速圖解 <span>⌃</span></summary><div class="ct-body"><div class="ct-tools"><button data-rpm-speed="1" aria-label="正常速度播放" title="正常速度播放" aria-pressed="false">1×</button><button data-rpm-speed="60" aria-label="60倍速播放" title="60倍速播放" aria-pressed="true">60×</button><button data-drive-page="motor" aria-label="馬達輪系" title="馬達輪系" aria-pressed="true">${Mt}</button><button data-drive-page="hands" aria-label="指針輪系" title="指針輪系" aria-pressed="false">${St}</button><button data-rpm-read aria-label="朗讀轉速圖解" title="朗讀">🔊</button></div><div data-drive-section="motor">${S(b.motor, "12", "↺ 馬達 · 12T", "60", "data-drive-rpm")}<div class="ct-link">↓ 慢 3 倍</div>${S(b.first, "36", "↻ 36T／同軸12T", "20", "data-drive-rpm")}<div class="ct-link">↓ 再慢 4 倍</div>${S(b.second, "48", "↺ 48T／同軸12T", "5", "data-drive-rpm")}<div class="ct-link">↓ 再慢 5 倍</div>${S(b.minute, "60", "↻ 60T／同軸12T · 長針", "1", "data-drive-rpm")}</div><div data-drive-section="hands" hidden>${S(b.minute, "12", "↻ 長分針 · 12T", "1", "data-rpm")}<div class="ct-link">↓ 慢 3 倍 · 反方向</div>${S(b.compound, "36", "↺ 36T／同軸10T", "1/3", "data-rpm")}<div class="ct-link">↓ 再慢 4 倍 · 反方向</div>${S(b.hour, "40", "↻ 短時針 · 40T", "1/12", "data-rpm")}</div><footer>馬達 60 圈＝長針 1 圈<small>長針 12 圈＝短針 1 圈<br>1× 正常走；60× 一分鐘看完一小時。<br>同色＝同軸一起轉；長短針各有獨立軸。<br>RPM＝每分鐘圈數 · 教學輪系，非品牌機芯。</small><span class="ct-progress"><span data-demo-speed>60×</span> · 已走 <span data-demo-seconds>0分00秒</span> / 1小時</span></footer></div></details>`;
 }
-class jt {
+class At {
   constructor(t, e) {
     this.host = t, this.kind = e;
-    const s = z[e];
-    t.innerHTML = `<div class="il-layout"><section class="il-scene-panel"><div class="il-stage" role="img" aria-label="${s.title}互動場景"></div><p class="il-live" role="status" aria-live="polite">${s.objective}</p></section><aside class="il-panel"><p class="il-kicker">EXPERIMENT PLANET · 互動探索</p><h2>${s.title}</h2><p>${s.objective}</p><div class="il-controls"></div><button type="button" data-action="reset">↺ 重置目前操作</button><details><summary>模型說明</summary><p>${e === "buoyancy" ? "淡水、無水流的簡化模型。物件為示意比例，數值是教學樣本，不是所有同類物品的測量值。浮在水面時，浮力和重量平衡；沉底的物體也受到浮力。" : e === "clock" ? "這是指針與齒輪的傳動示意，不是完整鐘錶內部結構。相鄰外齒輪反向轉動；時針与分針由多級齒輪傳動形成 12:1 的轉速關係。石英鐘通常由電池與馬達驅動，機械鐘另有發條或重錘。" : "這是彈簧式回力車的簡化模型：往後拉 → 齒輪使彈簧儲能 → 放手帶動輪軸 → 摩擦使它停下。行駛距離為模型單位，不代表真實車款的公尺數。"}</p></details></aside></div><section class="il-panel il-observations"><h3>觀察紀錄 <span data-count>0 次</span></h3><p>每次只改一個條件，比較結果。紀錄保留於本次實驗，離開後重新開始。</p><ol class="il-log"></ol></section><section class="il-panel il-assessment"><h3>想一想</h3><p>${s.question}</p><div class="il-answers">${s.choices.map((i, r) => `<button type="button" data-answer="${r}">${i}</button>`).join("")}</div><p class="il-feedback" role="status">先完成至少一次操作與觀察，再回答。</p></section>`, this.stage = t.querySelector(".il-stage"), this.status = t.querySelector(".il-live"), this.log = t.querySelector(".il-log");
+    const s = q[e];
+    t.innerHTML = `<div class="il-layout"><section class="il-scene-panel"><div class="il-stage" role="img" aria-label="${s.title}互動場景"></div><p class="il-live" role="status" aria-live="polite">${s.objective}</p></section><aside class="il-panel"><p class="il-kicker">EXPERIMENT PLANET · 互動探索</p><h2>${s.title}</h2><p>${s.objective}</p><div class="il-controls"></div><button type="button" data-action="reset">↺ 重置目前操作</button><details><summary>模型說明</summary><p>${e === "buoyancy" ? "淡水、無水流的簡化模型。物件為示意比例，數值是教學樣本，不是所有同類物品的測量值。浮在水面時，浮力和重量平衡；沉底的物體也受到浮力。" : e === "clock" ? "這是指針與齒輪的傳動示意，不是完整鐘錶內部結構。相鄰外齒輪反向轉動；時針与分針由多級齒輪傳動形成 12:1 的轉速關係。石英鐘通常由電池與馬達驅動，機械鐘另有發條或重錘。" : "這是彈簧式回力車的簡化模型：往後拉 → 齒輪使彈簧儲能 → 放手帶動輪軸 → 摩擦使它停下。行駛距離為模型單位，不代表真實車款的公尺數。"}</p></details></aside></div><section class="il-panel il-observations"><h3>觀察紀錄 <span data-count>0 次</span></h3><p>每次只改一個條件，比較結果。紀錄保留於本次實驗，離開後重新開始。</p><ol class="il-log"></ol></section><section class="il-panel il-assessment"><h3>想一想</h3><p>${s.question}</p><div class="il-answers">${s.choices.map((i, n) => `<button type="button" data-answer="${n}">${i}</button>`).join("")}</div><p class="il-feedback" role="status">先完成至少一次操作與觀察，再回答。</p></section>`, this.stage = t.querySelector(".il-stage"), this.status = t.querySelector(".il-live"), this.log = t.querySelector(".il-log");
     const o = document.createElement("p");
-    if (o.className = "il-scene-guide", o.textContent = e === "buoyancy" ? "選物品 → 預測 → 放入水中 → 比較浮沉" : e === "clock" ? "左：指針比例 12:1 ｜ 右：外齒輪反向傳動示意" : "向左回拉 → 彈簧儲能 → 放手帶動輪軸", this.stage.append(o), t.querySelector(".il-controls").innerHTML = e === "buoyancy" ? `<label>① 選物品<select data-input="object">${P.map((i, r) => `<option value="${r}">${i.name}</option>`).join("")}</select></label><p data-sample></p><label>② 先預測<select data-input="prediction"><option value="">請選擇</option><option value="float">浮在水面</option><option value="sink">沉到水底</option><option value="unsure">還不確定</option></select></label><button type="button" data-action="run">③ 放入水中</button><p>也可拖動物品，放手入水。可重複測試，猜錯也能學習。</p>` : e === "clock" ? '<label>轉動分針（分鐘）<input data-input="minutes" type="range" min="0" max="720" step="1" value="0"></label><p data-readout>12:00</p><button type="button" data-action="step">分針前進一圈（60 分鐘）</button><button type="button" data-action="run">▶ 播放／暫停</button><button type="button" data-action="record">記錄目前時間</button><p>可拖曳鐘面指針；滑桿與按鈕也能操作。</p>' : '<label>① 向後拉多少<input data-input="pull" type="range" min="10" max="100" step="10" value="50"></label><p data-readout>回拉量 50%</p><label>② 路面<select data-input="surface"><option value="smooth">較平滑</option><option value="rough">較粗糙</option></select></label><button type="button" data-action="run">③ 放手出發</button><p>也可把車向左拖，放手前進。比較同一回拉量在不同路面的結果。</p>', e === "car") {
+    if (o.className = "il-scene-guide", o.textContent = e === "buoyancy" ? "選物品 → 預測 → 放入水中 → 比較浮沉" : e === "clock" ? "左：指針比例 12:1 ｜ 右：外齒輪反向傳動示意" : "向左回拉 → 彈簧儲能 → 放手帶動輪軸", this.stage.append(o), t.querySelector(".il-controls").innerHTML = e === "buoyancy" ? `<label>① 選物品<select data-input="object">${$.map((i, n) => `<option value="${n}">${i.name}</option>`).join("")}</select></label><p data-sample></p><label>② 先預測<select data-input="prediction"><option value="">請選擇</option><option value="float">浮在水面</option><option value="sink">沉到水底</option><option value="unsure">還不確定</option></select></label><button type="button" data-action="run">③ 放入水中</button><p>也可拖動物品，放手入水。可重複測試，猜錯也能學習。</p>` : e === "clock" ? '<label>轉動分針（分鐘）<input data-input="minutes" type="range" min="0" max="720" step="1" value="0"></label><p data-readout>12:00</p><button type="button" data-action="step">分針前進一圈（60 分鐘）</button><button type="button" data-action="run">▶ 播放／暫停</button><button type="button" data-action="record">記錄目前時間</button><p>可拖曳鐘面指針；滑桿與按鈕也能操作。</p>' : '<label>① 向後拉多少<input data-input="pull" type="range" min="10" max="100" step="10" value="50"></label><p data-readout>回拉量 50%</p><label>② 路面<select data-input="surface"><option value="smooth">較平滑</option><option value="rough">較粗糙</option></select></label><button type="button" data-action="run">③ 放手出發</button><p>也可把車向左拖，放手前進。比較同一回拉量在不同路面的結果。</p>', e === "car") {
       const i = document.createElement("div");
       i.className = "bp-heading", i.innerHTML = "<h2>回力車工坊</h2>", t.querySelector(".il-scene-panel").prepend(i), t.dataset.road = "smooth", t.querySelector(".il-controls").innerHTML = '<input type="hidden" data-input="pull" value="50"><div class="car-roads" role="group" aria-label="選擇路面"><button data-road="smooth" aria-pressed="true" aria-label="平路"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M8 55 30 5h40l22 50" fill="#547990"/><path d="M50 12v9m0 8v9m0 8v8" stroke="#fff3bb" stroke-width="4"/></svg><span>平路</span></button><button data-road="rough" aria-pressed="false" aria-label="石頭路"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M8 55 30 5h40l22 50" fill="#675852"/><g fill="#d1b99a" stroke="#8c7664"><path d="m25 37 8-8 12 5-3 11-15 2Z"/><path d="m56 17 8-5 9 7-5 8-12-2Z"/><path d="m52 43 8-10 16 5 3 14-21 3Z"/><path d="m38 15 8-7 6 8-4 9-12-1Z"/></g></svg><span>石頭路</span></button></div><p data-readout>回拉量 50%</p><div class="car-force" role="group" aria-label="回拉力量"><button data-force=".25" aria-label="小力回拉">●</button><button data-force=".5" aria-label="中力回拉">●●</button><button data-force="1" aria-label="大力回拉">●●●</button></div><button data-action="run">🏁 出發</button><p>打開旋轉，用手拖動。打開拆卸，點零件。打開拉力，鏡頭自動轉側面、拉遠；向左拉車，放手出發。也可點圓點選力量，再點出發。</p>';
-      const r = document.createElement("div");
-      r.className = "car-track", r.setAttribute("aria-hidden", "true"), this.stage.append(r), ft(t);
+      const n = document.createElement("div");
+      n.className = "car-track", n.setAttribute("aria-hidden", "true"), this.stage.append(n), ht(t);
     }
     if (e === "clock") {
       t.classList.add("il-clock-play");
       const i = document.createElement("div");
       i.className = "bp-heading", i.innerHTML = "<h2>時鐘工坊</h2>", t.querySelector(".il-scene-panel").prepend(i), t.querySelector(".il-controls").innerHTML = '<input type="hidden" data-input="minutes" value="0"><p data-readout>12:00</p><button data-action="step" aria-label="分針前進一圈，時針前進一大格">⟳ <span>+1 時</span></button><button data-action="run" aria-label="播放或暫停指針">▶ / Ⅱ</button><button data-action="record" aria-label="記錄目前時間">📒</button><p>調時時，左右拖動鐘面調整時間。打開旋轉開關，用手轉方向；打開拆卸，點右上零件表找零件。</p>';
-      const r = t.querySelector('[data-action="reset"]');
-      r.textContent = "↺", r.setAttribute("aria-label", "重新開始"), t.querySelector('[data-action="run"]').insertAdjacentHTML("afterend", '<button data-action="peek" aria-label="透視刻度盤" title="透視刻度盤" aria-pressed="false"><svg viewBox="0 0 32 24" width="32" height="24" aria-hidden="true"><path d="M2 12Q16-5 30 12Q16 29 2 12Z" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="12" r="5" fill="currentColor"/></svg></button>'), this.stage.insertAdjacentHTML("beforeend", qt()), this.stage.querySelector(".clock-transmission").addEventListener("toggle", () => this.wake(), { signal: this.abort.signal });
-      const n = (d) => `<svg viewBox="0 0 160 160" role="img" aria-label="${d}點"><circle cx="80" cy="80" r="70" fill="#fff5db" stroke="#cba85c" stroke-width="7"/>${Array.from({ length: 12 }, (h, u) => `<circle cx="${80 + 59 * Math.sin(u * Math.PI / 6)}" cy="${80 - 59 * Math.cos(u * Math.PI / 6)}" r="3" fill="#294651"/>`).join("")}<path d="M80 80V25" stroke="#168ba8" stroke-width="6" stroke-linecap="round"/><path d="M80 80L${80 + 36 * Math.sin(d * Math.PI / 6)} ${80 - 36 * Math.cos(d * Math.PI / 6)}" stroke="#a47818" stroke-width="9" stroke-linecap="round"/><circle cx="80" cy="80" r="6" fill="#294651"/></svg>`;
-      t.querySelector(".il-assessment > p").innerHTML = `<span class="clock-question">${n(12)}<span aria-label="分針前進一圈">⟳ → ?</span></span>`, t.querySelector(".il-assessment h3").textContent = "分針一圈，時針？", t.querySelector(".il-answers").innerHTML = [12, 12, 1].map((d, h) => `<button data-answer="${h}" aria-label="${s.choices[h]}">${n(d).replace("</svg>", h === 0 ? '<path d="M92 38A44 44 0 1 1 69 37M65 29 70 39 59 43" fill="none" stroke="#b07e16" stroke-width="5" stroke-linecap="round"/></svg>' : h === 2 ? '<path d="M80 37A43 43 0 0 1 102 43" fill="none" stroke="#b07e16" stroke-width="6"/></svg>' : "</svg>")}<span>${h === 0 ? "⟳ 一圈" : h === 1 ? "不動" : "一大格"}</span></button>`).join("");
+      const n = t.querySelector('[data-action="reset"]');
+      n.textContent = "↺", n.setAttribute("aria-label", "重新開始"), t.querySelector('[data-action="run"]').insertAdjacentHTML("afterend", '<button data-action="peek" aria-label="透視刻度盤" title="透視刻度盤" aria-pressed="false"><svg viewBox="0 0 32 24" width="32" height="24" aria-hidden="true"><path d="M2 12Q16-5 30 12Q16 29 2 12Z" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="12" r="5" fill="currentColor"/></svg></button>'), this.stage.insertAdjacentHTML("beforeend", Ct()), this.stage.querySelector(".clock-transmission").addEventListener("toggle", () => this.wake(), { signal: this.abort.signal });
+      const r = (d) => `<svg viewBox="0 0 160 160" role="img" aria-label="${d}點"><circle cx="80" cy="80" r="70" fill="#fff5db" stroke="#cba85c" stroke-width="7"/>${Array.from({ length: 12 }, (h, u) => `<circle cx="${80 + 59 * Math.sin(u * Math.PI / 6)}" cy="${80 - 59 * Math.cos(u * Math.PI / 6)}" r="3" fill="#294651"/>`).join("")}<path d="M80 80V25" stroke="#168ba8" stroke-width="6" stroke-linecap="round"/><path d="M80 80L${80 + 36 * Math.sin(d * Math.PI / 6)} ${80 - 36 * Math.cos(d * Math.PI / 6)}" stroke="#a47818" stroke-width="9" stroke-linecap="round"/><circle cx="80" cy="80" r="6" fill="#294651"/></svg>`;
+      t.querySelector(".il-assessment > p").innerHTML = `<span class="clock-question">${r(12)}<span aria-label="分針前進一圈">⟳ → ?</span></span>`, t.querySelector(".il-assessment h3").textContent = "分針一圈，時針？", t.querySelector(".il-answers").innerHTML = [12, 12, 1].map((d, h) => `<button data-answer="${h}" aria-label="${s.choices[h]}">${r(d).replace("</svg>", h === 0 ? '<path d="M92 38A44 44 0 1 1 69 37M65 29 70 39 59 43" fill="none" stroke="#b07e16" stroke-width="5" stroke-linecap="round"/></svg>' : h === 2 ? '<path d="M80 37A43 43 0 0 1 102 43" fill="none" stroke="#b07e16" stroke-width="6"/></svg>' : "</svg>")}<span>${h === 0 ? "⟳ 一圈" : h === 1 ? "不動" : "一大格"}</span></button>`).join("");
     }
-    t.addEventListener("click", this.click, { signal: this.abort.signal }), t.addEventListener("input", this.input, { signal: this.abort.signal }), this.camera.position.set(0, 0, 12), this.scene.add(new ct(16777215, e === "buoyancy" ? 2 : 0.45));
-    const a = new ht(16777215, e === "buoyancy" ? 3 : 1.4);
+    t.addEventListener("click", this.click, { signal: this.abort.signal }), t.addEventListener("input", this.input, { signal: this.abort.signal }), this.camera.position.set(0, 0, 12), this.scene.add(new tt(16777215, e === "buoyancy" ? 2 : 0.45));
+    const a = new et(16777215, e === "buoyancy" ? 3 : 1.4);
     a.position.set(-3, 5, 8), this.scene.add(a);
     try {
-      this.renderer = new lt({ alpha: !0, antialias: !0 }), this.renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5)), this.stage.append(this.renderer.domElement), e === "buoyancy" && (this.stage.addEventListener("pointerdown", this.pointerDown, { signal: this.abort.signal }), this.stage.addEventListener("pointermove", this.pointerMove, { signal: this.abort.signal }), this.stage.addEventListener("pointerup", this.pointerUp, { signal: this.abort.signal }), this.stage.addEventListener("pointercancel", this.pointerCancel, { signal: this.abort.signal })), this.resize = new ResizeObserver(() => this.resizeScene()), this.resize.observe(this.stage);
+      this.renderer = new st({ alpha: !0, antialias: !0 }), this.renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5)), this.stage.append(this.renderer.domElement), e === "buoyancy" && (this.stage.addEventListener("pointerdown", this.pointerDown, { signal: this.abort.signal }), this.stage.addEventListener("pointermove", this.pointerMove, { signal: this.abort.signal }), this.stage.addEventListener("pointerup", this.pointerUp, { signal: this.abort.signal }), this.stage.addEventListener("pointercancel", this.pointerCancel, { signal: this.abort.signal })), this.resize = new ResizeObserver(() => this.resizeScene()), this.resize.observe(this.stage);
     } catch {
       this.stage.innerHTML = '<p class="il-fallback">此裝置無法顯示 3D。仍可使用旁邊的選單與按鈕操作，並閱讀文字觀察結果。</p>';
     }
-    e === "buoyancy" && this.buildTank(), e !== "buoyancy" && (this.mechanism = new St(e, this.scene, this.camera, this.stage, t, this.renderer, () => this.wake(), (i, r) => {
-      this.active = !1, e === "clock" ? (this.demoStarted = !1, this.mechanism?.setClockDemo(!1), r || (this.minutes = i), this.updateClock(), r && this.record(`轉動指針到 ${this.clockText()}，分針和時針一起運動。`)) : r ? this.run() : (this.pull = i, t.querySelector('[data-input="pull"]').value = String(Math.round(i * 100)), this.updateCar());
-    })), e !== "buoyancy" && (t.querySelector("aside > details > p").textContent = e === "clock" ? "常見的電池式石英鐘：電池供电，石英與電路提供節拍，馬達和多級齒輪帶動指針。本模型省略部分細小零件，不是維修圖。分針和時針保持 12:1 的轉速關係。" : "彈簧式回力車：回拉讓輪軸、齒輪帶動捲簧儲能，放手後由捲簧驅動車輪。拆解圖省略部分緊固件；行駛距離為教學模型單位，不代表真實車款。"), this.scene.add(this.object), this.reset(), this.experience = new gt(t, e), document.addEventListener("visibilitychange", () => {
+    e === "buoyancy" && this.buildTank(), e !== "buoyancy" && (this.mechanism = new kt(e, this.scene, this.camera, this.stage, t, this.renderer, () => this.wake(), (i, n) => {
+      this.active = !1, e === "clock" ? (this.demoStarted = !1, this.mechanism?.setClockDemo(!1), n || (this.minutes = i), this.updateClock(), n && this.record(`轉動指針到 ${this.clockText()}，分針和時針一起運動。`)) : n ? this.run() : (this.pull = i, t.querySelector('[data-input="pull"]').value = String(Math.round(i * 100)), this.updateCar());
+    })), e !== "buoyancy" && (t.querySelector("aside > details > p").textContent = e === "clock" ? "常見的電池式石英鐘：電池供电，石英與電路提供節拍，馬達和多級齒輪帶動指針。本模型省略部分細小零件，不是維修圖。分針和時針保持 12:1 的轉速關係。" : "彈簧式回力車：回拉讓輪軸、齒輪帶動捲簧儲能，放手後由捲簧驅動車輪。拆解圖省略部分緊固件；行駛距離為教學模型單位，不代表真實車款。"), this.scene.add(this.object), this.reset(), this.experience = new ut(t, e), document.addEventListener("visibilitychange", () => {
       this.last = 0, document.hidden || this.wake();
     }, { signal: this.abort.signal }), this.wake();
   }
   host;
   kind;
   renderer;
-  scene = new D();
-  camera = new dt(-5, 5, 3.6, -3.6, 0.1, 100);
+  scene = new at();
+  camera = new it(-5, 5, 3.6, -3.6, 0.1, 100);
   object = new w();
   mechanism;
   experience;
@@ -535,11 +492,11 @@ class jt {
   log;
   answerReady = !1;
   mesh(t, e, s = 0, o = 0, a = 0, i = this.scene) {
-    const r = new k(t, new $({ color: e, roughness: 0.55, metalness: 0.12 }));
-    return r.position.set(s, o, a), i.add(r), r;
+    const n = new y(t, new L({ color: e, roughness: 0.55, metalness: 0.12 }));
+    return n.position.set(s, o, a), i.add(n), n;
   }
-  box(t, e, s, o, a, i, r = 0, n) {
-    return this.mesh(new N(t, e, s), o, a, i, r, n);
+  box(t, e, s, o, a, i, n = 0, r) {
+    return this.mesh(new ot(t, e, s), o, a, i, n, r);
   }
   buildTank() {
     this.box(8.1, 0.12, 0.4, 9233663, 0, -2.65), this.box(0.12, 4.8, 0.4, 9233663, -4, -0.3), this.box(0.12, 4.8, 0.4, 9233663, 4, -0.3);
@@ -549,21 +506,21 @@ class jt {
   }
   disposeObject(t) {
     t.traverse((e) => {
-      e instanceof k && (e.geometry.dispose(), (Array.isArray(e.material) ? e.material : [e.material]).forEach((o) => o.dispose()));
+      e instanceof y && (e.geometry.dispose(), (Array.isArray(e.material) ? e.material : [e.material]).forEach((o) => o.dispose()));
     });
   }
   buildSample() {
     this.disposeObject(this.object), this.object.clear();
-    const t = P[this.selected];
-    if (t.id === "stone" && this.mesh(new ut(0.48), t.color, 0, 0, 0, this.object).scale.set(1.25, 0.8, 0.8), t.id === "key" && (this.mesh(new M(0.25, 0.09, 10, 32), t.color, -0.35, 0.05, 0, this.object), this.box(0.85, 0.12, 0.13, t.color, 0.25, 0.05, 0, this.object), this.box(0.12, 0.25, 0.13, t.color, 0.5, -0.08, 0, this.object), this.box(0.12, 0.2, 0.13, t.color, 0.25, -0.05, 0, this.object)), t.id === "boat") {
-      const e = new A();
-      e.moveTo(-0.9, 0.1), e.lineTo(0.9, 0.1), e.lineTo(0.5, -0.35), e.lineTo(-0.5, -0.35), e.closePath(), this.mesh(new L(e, { depth: 0.4, bevelEnabled: !1 }), t.color, 0, 0, -0.2, this.object);
-      const s = new A();
-      s.moveTo(-0.5, 0.1), s.lineTo(0, 0.7), s.lineTo(0.5, 0.1), s.closePath(), this.mesh(new pt(s), 16763523, 0, 0, 0.23, this.object);
+    const t = $[this.selected];
+    if (t.id === "stone" && this.mesh(new rt(0.48), t.color, 0, 0, 0, this.object).scale.set(1.25, 0.8, 0.8), t.id === "key" && (this.mesh(new M(0.25, 0.09, 10, 32), t.color, -0.35, 0.05, 0, this.object), this.box(0.85, 0.12, 0.13, t.color, 0.25, 0.05, 0, this.object), this.box(0.12, 0.25, 0.13, t.color, 0.5, -0.08, 0, this.object), this.box(0.12, 0.2, 0.13, t.color, 0.25, -0.05, 0, this.object)), t.id === "boat") {
+      const e = new E();
+      e.moveTo(-0.9, 0.1), e.lineTo(0.9, 0.1), e.lineTo(0.5, -0.35), e.lineTo(-0.5, -0.35), e.closePath(), this.mesh(new A(e, { depth: 0.4, bevelEnabled: !1 }), t.color, 0, 0, -0.2, this.object);
+      const s = new E();
+      s.moveTo(-0.5, 0.1), s.lineTo(0, 0.7), s.lineTo(0.5, 0.1), s.closePath(), this.mesh(new nt(s), 16763523, 0, 0, 0.23, this.object);
     }
     if (t.id === "ball")
-      for (let e = 0; e < 6; e++) this.mesh(new E(0.7, 12, 24, e * Math.PI / 3, Math.PI / 3), [16741007, 16777215, 6015987, 16777215, 16766045, 16777215][e], 0, 0, 0, this.object);
-    t.id === "wood" && this.box(1.1, 0.65, 0.5, t.color, 0, 0, 0, this.object), t.id === "cork" && (this.mesh(new C(0.25, 0.25, 0.7, 24), t.color, 0, 0, 0, this.object).rotation.z = Math.PI / 2), t.id === "coin" && (this.mesh(new C(0.35, 0.35, 0.08, 32), t.color, 0, 0, 0, this.object).rotation.x = Math.PI / 2), t.id === "marble" && this.mesh(new E(0.32, 24, 16), t.color, 0, 0, 0, this.object), this.object.position.set(0, 1.4, 0.4), this.host.querySelector("[data-sample]").textContent = `${t.note} 教學樣本：${t.mass} g，可排水體積上限 ${t.volume} cm³。`;
+      for (let e = 0; e < 6; e++) this.mesh(new T(0.7, 12, 24, e * Math.PI / 3, Math.PI / 3), [16741007, 16777215, 6015987, 16777215, 16766045, 16777215][e], 0, 0, 0, this.object);
+    t.id === "wood" && this.box(1.1, 0.65, 0.5, t.color, 0, 0, 0, this.object), t.id === "cork" && (this.mesh(new C(0.25, 0.25, 0.7, 24), t.color, 0, 0, 0, this.object).rotation.z = Math.PI / 2), t.id === "coin" && (this.mesh(new C(0.35, 0.35, 0.08, 32), t.color, 0, 0, 0, this.object).rotation.x = Math.PI / 2), t.id === "marble" && this.mesh(new T(0.32, 24, 16), t.color, 0, 0, 0, this.object), this.object.position.set(0, 1.4, 0.4), this.host.querySelector("[data-sample]").textContent = `${t.note} 教學樣本：${t.mass} g，可排水體積上限 ${t.volume} cm³。`;
   }
   resizeScene() {
     const t = this.stage.clientWidth, e = this.stage.clientHeight;
@@ -587,11 +544,11 @@ class jt {
       }
       if (this.kind === "clock" && (["quiz", "notes", "help"].includes(e.dataset.helper || "") || e.hasAttribute("data-clock-rotate") || e.hasAttribute("data-clock-explode") || e.dataset.action === "step") && (this.active = !1, this.updateClock()), this.kind === "clock" && (e.hasAttribute("data-clock-rotate") || e.hasAttribute("data-clock-explode") || e.dataset.action === "step") && (this.demoStarted = !1, this.mechanism?.setClockDemo(!1)), this.kind === "car" && ((e.dataset.carMode || e.dataset.part) && (this.active = !1), e.dataset.road && (this.active = !1, this.rough = e.dataset.road === "rough", this.host.dataset.road = e.dataset.road, this.host.querySelectorAll("[data-road]").forEach((s) => s.setAttribute("aria-pressed", String(s === e))), this.updateCar(), this.status.textContent = this.rough ? "換成石頭路，試試看能跑多遠。" : "換成平路，用相同力量比較看看。"), e.dataset.force && (this.active = !1, this.pull = Number(e.dataset.force), this.mechanism?.setCarMode("test"), this.updateCar())), e.dataset.answer !== void 0) {
         if (this.kind === "car") {
-          const s = Number(e.dataset.answer) === z.car.answer, o = this.answerReady ? s ? "答對了！往後拉車時，能量存在捲簧裡。放手後，捲簧透過齒輪帶動車輪。" : "再想想看！回到實驗，拆開車殼看看捲簧，聽聽它的工作。" : "先回到實驗，完成一次拉車試跑，再來選圖片。";
+          const s = Number(e.dataset.answer) === q.car.answer, o = this.answerReady ? s ? "答對了！往後拉車時，能量存在捲簧裡。放手後，捲簧透過齒輪帶動車輪。" : "再想想看！回到實驗，拆開車殼看看捲簧，聽聽它的工作。" : "先回到實驗，完成一次拉車試跑，再來選圖片。";
           this.host.querySelector(".il-feedback").innerHTML = `<span aria-hidden="true">${this.answerReady ? s ? "✓ ⭐" : "🔎 ↶" : "🚗 ↶"}</span><span class="bp-sr">${o}</span>`, this.host.querySelectorAll("[data-answer]").forEach((a) => a.setAttribute("aria-pressed", String(a === e)));
           return;
         }
-        this.host.querySelector(".il-feedback").textContent = this.answerReady ? Number(e.dataset.answer) === z[this.kind].answer ? "✓ 完成！你已把操作結果和原理解釋連起來。可以再改一個條件試試。" : "再看看觀察紀錄。答錯沒關係，回到實驗找證據後再回答。" : "先操作並完成一次觀察，再用證據回答。";
+        this.host.querySelector(".il-feedback").textContent = this.answerReady ? Number(e.dataset.answer) === q[this.kind].answer ? "✓ 完成！你已把操作結果和原理解釋連起來。可以再改一個條件試試。" : "再看看觀察紀錄。答錯沒關係，回到實驗找證據後再回答。" : "先操作並完成一次觀察，再用證據回答。";
         return;
       }
       e.dataset.action === "reset" && this.reset(), e.dataset.action === "run" && this.run(), e.dataset.action === "step" && (this.minutes += 60, this.updateClock(), this.record(`分針前進一圈：現在 ${this.clockText()}，時針前進一大格。`)), e.dataset.action === "record" && this.record(`觀察時間 ${this.clockText()}；分針累計 ${Math.floor(this.minutes / 60)} 圈，時針累計 ${(this.minutes / 720).toFixed(2)} 圈。`), this.wake();
@@ -611,13 +568,13 @@ class jt {
         this.status.textContent = "請先選擇浮、沉或還不確定，再放入水中。";
         return;
       }
-      const t = P[this.selected], e = R(t.mass, t.volume);
+      const t = $[this.selected], e = j(t.mass, t.volume);
       this.targetY = e.floats ? 0.15 + 0.3 - 0.6 * e.fraction : -2.13, this.active = !0, this.status.textContent = `正在觀察${t.name}…`;
     } else if (this.kind === "clock")
       (!this.demoStarted || this.demoElapsed >= 60) && (this.demoElapsed = 0, this.demoStarted = !0, this.demoCue = -1, this.minutes = 0), this.active = !this.active, this.last = 0, this.mechanism?.setClockDemo(!0), this.updateClock(), this.status.textContent = this.active ? this.clockSpeed === 60 ? "60 倍速：一分鐘看完一小時。" : "正常速度：一秒走一秒。" : "Ⅱ 暫停";
     else {
       if (this.active) return;
-      this.mechanism?.setCarMode("test"), this.runDistance = bt(this.pull, this.rough), this.travel = 0, this.runElapsed = 0, this.object.position.x = -3.2, this.active = !0, this.status.textContent = "彈簧釋放能量，透過輪軸帶動車輪前進。";
+      this.mechanism?.setCarMode("test"), this.runDistance = lt(this.pull, this.rough), this.travel = 0, this.runElapsed = 0, this.object.position.x = -3.2, this.active = !0, this.status.textContent = "彈簧釋放能量，透過輪軸帶動車輪前進。";
     }
     this.wake();
   }
@@ -630,7 +587,7 @@ class jt {
     return `${Math.floor(t / 60) || 12}:${String(t % 60).padStart(2, "0")}${this.clockSpeed === 1 ? ":" + String(Math.floor(this.minutes * 60) % 60).padStart(2, "0") : ""}`;
   }
   updateClockSpeed() {
-    const t = this.clockSpeed, e = Tt(t), s = Et(t);
+    const t = this.clockSpeed, e = yt(t), s = xt(t);
     this.host.querySelectorAll("[data-rpm-speed]").forEach((o) => o.setAttribute("aria-pressed", String(Number(o.dataset.rpmSpeed) === t))), this.host.querySelectorAll("[data-rpm]").forEach((o, a) => o.textContent = e[a] + " RPM"), this.host.querySelectorAll("[data-drive-rpm]").forEach((o, a) => o.textContent = s[a] + " RPM"), this.host.querySelector("[data-demo-speed]").textContent = `${t}×`;
   }
   updateClock() {
@@ -643,17 +600,17 @@ class jt {
     s.getAttribute("aria-pressed") !== a && s.setAttribute("aria-pressed", a);
     const i = this.active ? "暫停時鐘" : this.demoStarted && this.demoElapsed < 60 ? "繼續時鐘" : "播放時鐘";
     s.getAttribute("aria-label") !== i && s.setAttribute("aria-label", i);
-    const r = this.host.querySelector("[data-demo-seconds]"), n = `${Math.floor(this.demoElapsed)}分${String(Math.floor(this.demoElapsed * 60) % 60).padStart(2, "0")}秒`;
-    r.textContent !== n && (r.textContent = n);
+    const n = this.host.querySelector("[data-demo-seconds]"), r = `${Math.floor(this.demoElapsed)}分${String(Math.floor(this.demoElapsed * 60) % 60).padStart(2, "0")}秒`;
+    n.textContent !== r && (n.textContent = r);
   }
   updateCar() {
     this.object.position.set(-1.5 - this.pull * 1.7, -1, 0.2), this.mechanism?.setCar(this.pull), this.host.querySelector("[data-readout]").textContent = `回拉量 ${Math.round(this.pull * 100)}% · ${this.rough ? "較粗糙" : "較平滑"}路面`, this.host.querySelectorAll("[data-force]").forEach((t) => t.setAttribute("aria-pressed", String(Number(t.dataset.force) === this.pull)));
   }
   point(t) {
-    const e = this.stage.getBoundingClientRect(), s = new F();
-    s.setFromCamera(new V((t.clientX - e.left) / e.width * 2 - 1, 1 - (t.clientY - e.top) / e.height * 2), this.camera);
-    const o = new v();
-    return s.ray.intersectPlane(new mt(new v(0, 0, 1), 0), o), o;
+    const e = this.stage.getBoundingClientRect(), s = new G();
+    s.setFromCamera(new O((t.clientX - e.left) / e.width * 2 - 1, 1 - (t.clientY - e.top) / e.height * 2), this.camera);
+    const o = new k();
+    return s.ray.intersectPlane(new ct(new k(0, 0, 1), 0), o), o;
   }
   pointerDown = (t) => {
     if (t.button !== 0) return;
@@ -693,13 +650,13 @@ class jt {
     const e = this.last ? Math.max(0, (t - this.last) / 1e3) : 0, s = Math.min(0.05, e || 0.016);
     if (this.last = t, this.active && this.kind === "buoyancy" && (this.object.position.y += (this.targetY - this.object.position.y) * Math.min(1, s * 3), Math.abs(this.object.position.y - this.targetY) < 0.015)) {
       this.active = !1;
-      const a = P[this.selected], i = R(a.mass, a.volume);
+      const a = $[this.selected], i = j(a.mass, a.volume);
       this.tested.add(a.id);
-      const r = `${a.name}：${i.floats ? "浮在水面" : "沉到水底"}。${i.floats ? "漂浮時浮力與重量平衡。" : "最大浮力仍小於重量；沉底後還有水底的支持力。"}`;
-      this.status.textContent = r, this.record(`預測：${this.prediction === "float" ? "浮" : this.prediction === "sink" ? "沉" : "不確定"} → ${r}`);
+      const n = `${a.name}：${i.floats ? "浮在水面" : "沉到水底"}。${i.floats ? "漂浮時浮力與重量平衡。" : "最大浮力仍小於重量；沉底後還有水底的支持力。"}`;
+      this.status.textContent = n, this.record(`預測：${this.prediction === "float" ? "浮" : this.prediction === "sink" ? "沉" : "不確定"} → ${n}`);
     }
     if (this.active && this.kind === "clock") {
-      const a = yt(this.demoElapsed, e, this.clockSpeed);
+      const a = ft(this.demoElapsed, e, this.clockSpeed);
       this.demoElapsed = a.elapsed, this.minutes = a.minutes;
       const i = Math.min(3, Math.floor(a.elapsed / 20));
       i !== this.demoCue && (this.demoCue = i, this.host.querySelector(".mech-quick-info").innerHTML = ["<strong>馬達 → 齒輪</strong><p>跟著不同顏色的齒輪看，馬達經三段減速，帶動長分針。</p>", "<strong>分針正在走</strong><p>先慢三倍，再慢四倍，再慢五倍。馬達六十圈，長分針一圈。</p>", "<strong>看看短時針</strong><p>後段齒輪再減速十二倍，帶動短時針。</p>", "<strong>✓ 一小時！</strong><p>分針一圈，時針一大格。</p>"][i]), a.done && (this.active = !1, this.record("一小時示範完成：分針轉一圈，時針轉 30 度，前進一大格。"), this.status.textContent = "✓ 已走 1 小時"), this.updateClock();
@@ -721,5 +678,5 @@ class jt {
   }
 }
 export {
-  jt as InteractiveLab
+  At as InteractiveLab
 };

@@ -1,6 +1,7 @@
-import { C as ot, V as d, M as P, T as k, Q as Y, S as Z, a as w, R as at, P as rt, b as nt, W as ht, c as lt, D as O, H as ct, d as j, e as dt, f as ut, L as q, E as B, B as K, g as W, h as pt, i as mt, G as R, j as ft, k as bt, l as U, m as V, n as wt, o as yt, p as gt } from "./RoundedBoxGeometry-CV-2QMmK.mjs";
-import { C as vt } from "./car-art-D34K7c64.mjs";
-const X = { type: "change" }, F = { type: "start" }, J = { type: "end" }, T = new at(), G = new rt(), _t = Math.cos(70 * nt.DEG2RAD), u = new d(), f = 2 * Math.PI, c = {
+import { m as ot, V as d, n as k, o as P, Q as Y, p as Z, i as w, q as at, r as rt, s as nt, W as ht, P as lt, f as O, H as ct, a as j, t as dt, u as ut, L as q, E as K, k as B, v as W, S as pt, j as mt, G as R, b as ft, w as bt, C as U, R as X, T as wt, g as yt, h as gt } from "./RoundedBoxGeometry-Dk2Gjff_.mjs";
+import { S as vt } from "./narration-DCI2AWPz.mjs";
+import { C as _t } from "./car-art-D34K7c64.mjs";
+const V = { type: "change" }, F = { type: "start" }, J = { type: "end" }, L = new at(), G = new rt(), St = Math.cos(70 * nt.DEG2RAD), u = new d(), f = 2 * Math.PI, c = {
   NONE: -1,
   ROTATE: 0,
   DOLLY: 1,
@@ -10,7 +11,7 @@ const X = { type: "change" }, F = { type: "start" }, J = { type: "end" }, T = ne
   TOUCH_DOLLY_PAN: 5,
   TOUCH_DOLLY_ROTATE: 6
 }, z = 1e-6;
-class St extends ot {
+class Mt extends ot {
   /**
    * Constructs a new controls instance.
    *
@@ -18,7 +19,7 @@ class St extends ot {
    * @param {?HTMLDOMElement} domElement - The HTML element used for event listeners.
    */
   constructor(t, e = null) {
-    super(t, e), this.state = c.NONE, this.target = new d(), this.cursor = new d(), this.minDistance = 0, this.maxDistance = 1 / 0, this.minZoom = 0, this.maxZoom = 1 / 0, this.minTargetRadius = 0, this.maxTargetRadius = 1 / 0, this.minPolarAngle = 0, this.maxPolarAngle = Math.PI, this.minAzimuthAngle = -1 / 0, this.maxAzimuthAngle = 1 / 0, this.enableDamping = !1, this.dampingFactor = 0.05, this.enableZoom = !0, this.zoomSpeed = 1, this.enableRotate = !0, this.rotateSpeed = 1, this.keyRotateSpeed = 1, this.enablePan = !0, this.panSpeed = 1, this.screenSpacePanning = !0, this.keyPanSpeed = 7, this.zoomToCursor = !1, this.autoRotate = !1, this.autoRotateSpeed = 2, this.keys = { LEFT: "ArrowLeft", UP: "ArrowUp", RIGHT: "ArrowRight", BOTTOM: "ArrowDown" }, this.mouseButtons = { LEFT: P.ROTATE, MIDDLE: P.DOLLY, RIGHT: P.PAN }, this.touches = { ONE: k.ROTATE, TWO: k.DOLLY_PAN }, this.target0 = this.target.clone(), this.position0 = this.object.position.clone(), this.zoom0 = this.object.zoom, this._domElementKeyEvents = null, this._lastPosition = new d(), this._lastQuaternion = new Y(), this._lastTargetPosition = new d(), this._quat = new Y().setFromUnitVectors(t.up, new d(0, 1, 0)), this._quatInverse = this._quat.clone().invert(), this._spherical = new Z(), this._sphericalDelta = new Z(), this._scale = 1, this._panOffset = new d(), this._rotateStart = new w(), this._rotateEnd = new w(), this._rotateDelta = new w(), this._panStart = new w(), this._panEnd = new w(), this._panDelta = new w(), this._dollyStart = new w(), this._dollyEnd = new w(), this._dollyDelta = new w(), this._dollyDirection = new d(), this._mouse = new w(), this._performCursorZoom = !1, this._pointers = [], this._pointerPositions = {}, this._controlActive = !1, this._onPointerMove = Et.bind(this), this._onPointerDown = Mt.bind(this), this._onPointerUp = $t.bind(this), this._onContextMenu = Lt.bind(this), this._onMouseWheel = xt.bind(this), this._onKeyDown = Rt.bind(this), this._onTouchStart = Tt.bind(this), this._onTouchMove = Dt.bind(this), this._onMouseDown = kt.bind(this), this._onMouseMove = Pt.bind(this), this._interceptControlDown = Ct.bind(this), this._interceptControlUp = At.bind(this), this.domElement !== null && this.connect(this.domElement), this.update();
+    super(t, e), this.state = c.NONE, this.target = new d(), this.cursor = new d(), this.minDistance = 0, this.maxDistance = 1 / 0, this.minZoom = 0, this.maxZoom = 1 / 0, this.minTargetRadius = 0, this.maxTargetRadius = 1 / 0, this.minPolarAngle = 0, this.maxPolarAngle = Math.PI, this.minAzimuthAngle = -1 / 0, this.maxAzimuthAngle = 1 / 0, this.enableDamping = !1, this.dampingFactor = 0.05, this.enableZoom = !0, this.zoomSpeed = 1, this.enableRotate = !0, this.rotateSpeed = 1, this.keyRotateSpeed = 1, this.enablePan = !0, this.panSpeed = 1, this.screenSpacePanning = !0, this.keyPanSpeed = 7, this.zoomToCursor = !1, this.autoRotate = !1, this.autoRotateSpeed = 2, this.keys = { LEFT: "ArrowLeft", UP: "ArrowUp", RIGHT: "ArrowRight", BOTTOM: "ArrowDown" }, this.mouseButtons = { LEFT: k.ROTATE, MIDDLE: k.DOLLY, RIGHT: k.PAN }, this.touches = { ONE: P.ROTATE, TWO: P.DOLLY_PAN }, this.target0 = this.target.clone(), this.position0 = this.object.position.clone(), this.zoom0 = this.object.zoom, this._domElementKeyEvents = null, this._lastPosition = new d(), this._lastQuaternion = new Y(), this._lastTargetPosition = new d(), this._quat = new Y().setFromUnitVectors(t.up, new d(0, 1, 0)), this._quatInverse = this._quat.clone().invert(), this._spherical = new Z(), this._sphericalDelta = new Z(), this._scale = 1, this._panOffset = new d(), this._rotateStart = new w(), this._rotateEnd = new w(), this._rotateDelta = new w(), this._panStart = new w(), this._panEnd = new w(), this._panDelta = new w(), this._dollyStart = new w(), this._dollyEnd = new w(), this._dollyDelta = new w(), this._dollyDirection = new d(), this._mouse = new w(), this._performCursorZoom = !1, this._pointers = [], this._pointerPositions = {}, this._controlActive = !1, this._onPointerMove = $t.bind(this), this._onPointerDown = Et.bind(this), this._onPointerUp = Pt.bind(this), this._onContextMenu = Ct.bind(this), this._onMouseWheel = Rt.bind(this), this._onKeyDown = Lt.bind(this), this._onTouchStart = Dt.bind(this), this._onTouchMove = Tt.bind(this), this._onMouseDown = kt.bind(this), this._onMouseMove = xt.bind(this), this._interceptControlDown = At.bind(this), this._interceptControlUp = Ot.bind(this), this.domElement !== null && this.connect(this.domElement), this.update();
   }
   connect(t) {
     super.connect(t), this.domElement.addEventListener("pointerdown", this._onPointerDown), this.domElement.addEventListener("pointercancel", this._onPointerUp), this.domElement.addEventListener("contextmenu", this._onContextMenu), this.domElement.addEventListener("wheel", this._onMouseWheel, { passive: !1 }), this.domElement.getRootNode().addEventListener("keydown", this._interceptControlDown, { passive: !0, capture: !0 }), this.domElement.style.touchAction = "none";
@@ -79,7 +80,7 @@ class St extends ot {
    * was called, or the initial state.
    */
   reset() {
-    this.target.copy(this.target0), this.object.position.copy(this.position0), this.object.zoom = this.zoom0, this.object.updateProjectionMatrix(), this.dispatchEvent(X), this.update(), this.state = c.NONE;
+    this.target.copy(this.target0), this.object.position.copy(this.position0), this.object.zoom = this.zoom0, this.object.updateProjectionMatrix(), this.dispatchEvent(V), this.update(), this.state = c.NONE;
   }
   update(t = null) {
     const e = this.object.position;
@@ -109,12 +110,12 @@ class St extends ot {
         p.unproject(this.object), this.object.position.sub(p).add(r), this.object.updateMatrixWorld(), n = u.length();
       } else
         console.warn("WARNING: OrbitControls.js encountered an unknown camera type - zoom to cursor disabled."), this.zoomToCursor = !1;
-      n !== null && (this.screenSpacePanning ? this.target.set(0, 0, -1).transformDirection(this.object.matrix).multiplyScalar(n).add(this.object.position) : (T.origin.copy(this.object.position), T.direction.set(0, 0, -1).transformDirection(this.object.matrix), Math.abs(this.object.up.dot(T.direction)) < _t ? this.object.lookAt(this.target) : (G.setFromNormalAndCoplanarPoint(this.object.up, this.target), T.intersectPlane(G, this.target))));
+      n !== null && (this.screenSpacePanning ? this.target.set(0, 0, -1).transformDirection(this.object.matrix).multiplyScalar(n).add(this.object.position) : (L.origin.copy(this.object.position), L.direction.set(0, 0, -1).transformDirection(this.object.matrix), Math.abs(this.object.up.dot(L.direction)) < St ? this.object.lookAt(this.target) : (G.setFromNormalAndCoplanarPoint(this.object.up, this.target), L.intersectPlane(G, this.target))));
     } else if (this.object.isOrthographicCamera) {
       const n = this.object.zoom;
       this.object.zoom = Math.max(this.minZoom, Math.min(this.maxZoom, this.object.zoom / this._scale)), n !== this.object.zoom && (this.object.updateProjectionMatrix(), a = !0);
     }
-    return this._scale = 1, this._performCursorZoom = !1, a || this._lastPosition.distanceToSquared(this.object.position) > z || 8 * (1 - this._lastQuaternion.dot(this.object.quaternion)) > z || this._lastTargetPosition.distanceToSquared(this.target) > z ? (this.dispatchEvent(X), this._lastPosition.copy(this.object.position), this._lastQuaternion.copy(this.object.quaternion), this._lastTargetPosition.copy(this.target), !0) : !1;
+    return this._scale = 1, this._performCursorZoom = !1, a || this._lastPosition.distanceToSquared(this.object.position) > z || 8 * (1 - this._lastQuaternion.dot(this.object.quaternion)) > z || this._lastTargetPosition.distanceToSquared(this.target) > z ? (this.dispatchEvent(V), this._lastPosition.copy(this.object.position), this._lastQuaternion.copy(this.object.quaternion), this._lastTargetPosition.copy(this.target), !0) : !1;
   }
   _getAutoRotationAngle(t) {
     return t !== null ? f / 60 * this.autoRotateSpeed * t : f / 60 / 60 * this.autoRotateSpeed;
@@ -306,13 +307,13 @@ class St extends ot {
     return t.ctrlKey && !this._controlActive && (s.deltaY *= 10), s;
   }
 }
-function Mt(o) {
+function Et(o) {
   this.enabled !== !1 && (this._pointers.length === 0 && (this.domElement.setPointerCapture(o.pointerId), this.domElement.addEventListener("pointermove", this._onPointerMove), this.domElement.addEventListener("pointerup", this._onPointerUp)), !this._isTrackingPointer(o) && (this._addPointer(o), o.pointerType === "touch" ? this._onTouchStart(o) : this._onMouseDown(o)));
 }
-function Et(o) {
+function $t(o) {
   this.enabled !== !1 && (o.pointerType === "touch" ? this._onTouchMove(o) : this._onMouseMove(o));
 }
-function $t(o) {
+function Pt(o) {
   switch (this._removePointer(o), this._pointers.length) {
     case 0:
       this.domElement.releasePointerCapture(o.pointerId), this.domElement.removeEventListener("pointermove", this._onPointerMove), this.domElement.removeEventListener("pointerup", this._onPointerUp), this.dispatchEvent(J), this.state = c.NONE;
@@ -339,11 +340,11 @@ function kt(o) {
       t = -1;
   }
   switch (t) {
-    case P.DOLLY:
+    case k.DOLLY:
       if (this.enableZoom === !1) return;
       this._handleMouseDownDolly(o), this.state = c.DOLLY;
       break;
-    case P.ROTATE:
+    case k.ROTATE:
       if (o.ctrlKey || o.metaKey || o.shiftKey) {
         if (this.enablePan === !1) return;
         this._handleMouseDownPan(o), this.state = c.PAN;
@@ -352,7 +353,7 @@ function kt(o) {
         this._handleMouseDownRotate(o), this.state = c.ROTATE;
       }
       break;
-    case P.PAN:
+    case k.PAN:
       if (o.ctrlKey || o.metaKey || o.shiftKey) {
         if (this.enableRotate === !1) return;
         this._handleMouseDownRotate(o), this.state = c.ROTATE;
@@ -366,7 +367,7 @@ function kt(o) {
   }
   this.state !== c.NONE && this.dispatchEvent(F);
 }
-function Pt(o) {
+function xt(o) {
   switch (this.state) {
     case c.ROTATE:
       if (this.enableRotate === !1) return;
@@ -382,21 +383,21 @@ function Pt(o) {
       break;
   }
 }
-function xt(o) {
+function Rt(o) {
   this.enabled === !1 || this.enableZoom === !1 || this.state !== c.NONE || (o.preventDefault(), this.dispatchEvent(F), this._handleMouseWheel(this._customWheelEvent(o)), this.dispatchEvent(J));
 }
-function Rt(o) {
+function Lt(o) {
   this.enabled !== !1 && this._handleKeyDown(o);
 }
-function Tt(o) {
+function Dt(o) {
   switch (this._trackPointer(o), this._pointers.length) {
     case 1:
       switch (this.touches.ONE) {
-        case k.ROTATE:
+        case P.ROTATE:
           if (this.enableRotate === !1) return;
           this._handleTouchStartRotate(o), this.state = c.TOUCH_ROTATE;
           break;
-        case k.PAN:
+        case P.PAN:
           if (this.enablePan === !1) return;
           this._handleTouchStartPan(o), this.state = c.TOUCH_PAN;
           break;
@@ -406,11 +407,11 @@ function Tt(o) {
       break;
     case 2:
       switch (this.touches.TWO) {
-        case k.DOLLY_PAN:
+        case P.DOLLY_PAN:
           if (this.enableZoom === !1 && this.enablePan === !1) return;
           this._handleTouchStartDollyPan(o), this.state = c.TOUCH_DOLLY_PAN;
           break;
-        case k.DOLLY_ROTATE:
+        case P.DOLLY_ROTATE:
           if (this.enableZoom === !1 && this.enableRotate === !1) return;
           this._handleTouchStartDollyRotate(o), this.state = c.TOUCH_DOLLY_ROTATE;
           break;
@@ -423,7 +424,7 @@ function Tt(o) {
   }
   this.state !== c.NONE && this.dispatchEvent(F);
 }
-function Dt(o) {
+function Tt(o) {
   switch (this._trackPointer(o), this.state) {
     case c.TOUCH_ROTATE:
       if (this.enableRotate === !1) return;
@@ -445,13 +446,13 @@ function Dt(o) {
       this.state = c.NONE;
   }
 }
-function Lt(o) {
+function Ct(o) {
   this.enabled !== !1 && o.preventDefault();
 }
-function Ct(o) {
+function At(o) {
   o.key === "Control" && (this._controlActive = !0, this.domElement.getRootNode().addEventListener("keyup", this._interceptControlUp, { passive: !0, capture: !0 }));
 }
-function At(o) {
+function Ot(o) {
   o.key === "Control" && (this._controlActive = !1, this.domElement.getRootNode().removeEventListener("keyup", this._interceptControlUp, { passive: !0, capture: !0 }));
 }
 const A = {
@@ -475,14 +476,14 @@ function et(o) {
   if (!/^[RLUDFB](?:2|')?$/.test(o)) throw new Error(`Unsupported cube move: ${o}`);
   return { ...A[o[0]], turns: o.endsWith("2") ? 2 : o.endsWith("'") ? -1 : 1 };
 }
-function Ot(o, t) {
+function jt(o, t) {
   const [e, s, i] = o;
   return (t === 0 ? [e, -i, s] : t === 1 ? [i, s, -e] : [-s, e, i]).map((n) => n === 0 ? 0 : n);
 }
 function st(o, t) {
   const { axis: e, side: s, turns: i } = et(t), a = (-s * i % 4 + 4) % 4, n = (r) => {
     let l = r;
-    for (let p = 0; p < a; p++) l = Ot(l, e);
+    for (let p = 0; p < a; p++) l = jt(l, e);
     return [...l];
   };
   return o.map((r) => ({
@@ -494,7 +495,7 @@ function st(o, t) {
 function Q(o, t) {
   return t.reduce(st, o);
 }
-function jt(o) {
+function qt(o) {
   return [...o].reverse().map((t) => (et(t), t.endsWith("2") ? t : t.endsWith("'") ? t[0] : `${t}'`));
 }
 function it(o) {
@@ -503,14 +504,14 @@ function it(o) {
     return tt(e.normal, H(s.axis, s.side));
   }));
 }
-function qt(o) {
+function Ut(o) {
   return o.filter((t) => t.stickers.length === 2 && t.stickers.some((e) => e.color === "white") && t.stickers.every((e) => {
     const s = Object.values(A).find((i) => i.color === e.color);
     return tt(e.normal, H(s.axis, s.side));
   })).length;
 }
-const I = { white: 16775654, yellow: 16766269, red: 15811413, orange: 16747312, green: 1489285, blue: 2524911 }, b = [{ id: "U", color: "white", name: "白色上面", normal: [0, 1, 0] }, { id: "F", color: "green", name: "綠色前面", normal: [0, 0, 1] }, { id: "R", color: "red", name: "紅色右面", normal: [1, 0, 0] }, { id: "B", color: "blue", name: "藍色後面", normal: [0, 0, -1] }, { id: "L", color: "orange", name: "橘色左面", normal: [-1, 0, 0] }, { id: "D", color: "yellow", name: "黃色底面", normal: [0, -1, 0] }], Ut = { R: [0, 1], L: [0, -1], U: [1, 1], D: [1, -1], F: [2, 1], B: [2, -1] };
-class zt {
+const I = { white: 16775654, yellow: 16766269, red: 15811413, orange: 16747312, green: 1489285, blue: 2524911 }, b = [{ id: "U", color: "white", name: "白色上面", normal: [0, 1, 0] }, { id: "F", color: "green", name: "綠色前面", normal: [0, 0, 1] }, { id: "R", color: "red", name: "紅色右面", normal: [1, 0, 0] }, { id: "B", color: "blue", name: "藍色後面", normal: [0, 0, -1] }, { id: "L", color: "orange", name: "橘色左面", normal: [-1, 0, 0] }, { id: "D", color: "yellow", name: "黃色底面", normal: [0, -1, 0] }], zt = { R: [0, 1], L: [0, -1], U: [1, 1], D: [1, -1], F: [2, 1], B: [2, -1] };
+class Nt {
   constructor(t) {
     this.stage = t, this.renderer = new ht({ alpha: !0, antialias: !0 }), this.renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5)), this.renderer.setClearColor(0, 0), this.renderer.shadowMap.enabled = !0, this.renderer.shadowMap.type = lt, this.renderer.domElement.setAttribute("aria-label", "可轉動與縮放的魔術方塊"), t.append(this.renderer.domElement), this.camera.position.set(6, 4.5, 7), this.scene.add(this.root);
     const e = new O(16777215, 2);
@@ -520,7 +521,7 @@ class zt {
     const i = new O(7068159, 1.2);
     i.position.set(5, 2, -3), this.scene.add(i);
     const a = new j(new dt(40, 40), new ut({ opacity: 0.2 }));
-    this.floor = a, a.rotation.x = -Math.PI / 2, a.position.y = -1.49, a.receiveShadow = !0, this.scene.add(a), this.makeCore(), this.root.add(this.core), this.halo = new q(new B(new K(2.98, 2.98, 0.035)), new W({ color: 16772242, transparent: !0, opacity: 0.9 })), this.root.add(this.halo), this.controls = new St(this.camera, this.renderer.domElement), this.controls.enablePan = !1, this.controls.enableDamping = !1, this.controls.minDistance = 5.8, this.controls.maxDistance = 16, this.controls.minPolarAngle = 0.04, this.controls.maxPolarAngle = Math.PI - 0.04, this.controls.addEventListener("change", this.draw), this.controls.addEventListener("start", () => {
+    this.floor = a, a.rotation.x = -Math.PI / 2, a.position.y = -1.49, a.receiveShadow = !0, this.scene.add(a), this.makeCore(), this.root.add(this.core), this.halo = new q(new K(new B(2.98, 2.98, 0.035)), new W({ color: 16772242, transparent: !0, opacity: 0.9 })), this.root.add(this.halo), this.controls = new Mt(this.camera, this.renderer.domElement), this.controls.enablePan = !1, this.controls.enableDamping = !1, this.controls.minDistance = 5.8, this.controls.maxDistance = 16, this.controls.minPolarAngle = 0.04, this.controls.maxPolarAngle = Math.PI - 0.04, this.controls.addEventListener("change", this.draw), this.controls.addEventListener("start", () => {
       this.task && !this.busy && (this.task = void 0);
     }), this.resize = new ResizeObserver(() => {
       const r = t.clientWidth, l = t.clientHeight;
@@ -596,14 +597,14 @@ class zt {
     this.clearPieces();
     for (const t of this.state) {
       const e = new R();
-      if (e.position.fromArray([...t.position]), e.userData.piece = t.id, this.groups.set(t.id, e), this.root.add(e), this.add(new V(0.95, 0.95, 0.95, 3, 0.075), this.plastic(), e), t.stickers.length > 1) {
+      if (e.position.fromArray([...t.position]), e.userData.piece = t.id, this.groups.set(t.id, e), this.root.add(e), this.add(new X(0.95, 0.95, 0.95, 3, 0.075), this.plastic(), e), t.stickers.length > 1) {
         const s = new d(...t.position).normalize().negate(), i = this.add(new U(0.13, 0.18, 0.48, 12), this.plastic(3360858), e);
         i.position.copy(s).multiplyScalar(0.52), i.quaternion.setFromUnitVectors(new d(0, 1, 0), s);
         const a = this.add(new wt(0.24, 0.105, 8, 20, Math.PI * 1.55), this.plastic(9283253), e);
         a.position.copy(s).multiplyScalar(0.75), a.quaternion.setFromUnitVectors(new d(0, 0, 1), s);
       }
       for (const s of t.stickers) {
-        const i = new d(...s.normal), a = this.add(new V(0.79, 0.79, 0.042, 3, 0.021), new yt({ color: I[s.color], toneMapped: !1 }), e);
+        const i = new d(...s.normal), a = this.add(new X(0.79, 0.79, 0.042, 3, 0.021), new yt({ color: I[s.color], toneMapped: !1 }), e);
         a.position.copy(i).multiplyScalar(0.488), a.quaternion.setFromUnitVectors(new d(0, 0, 1), i), a.userData.normal = [...s.normal], a.userData.color = s.color;
       }
     }
@@ -635,7 +636,7 @@ class zt {
   }
   async move(t) {
     if (this.busy || this.exploded) return !1;
-    const [e, s] = Ut[t[0]], i = new R();
+    const [e, s] = zt[t[0]], i = new R();
     this.root.add(i);
     const a = this.state.filter((r) => r.position[e] === s).map((r) => this.groups.get(r.id));
     a.forEach((r) => i.attach(r));
@@ -677,7 +678,7 @@ class zt {
     for (const [e, s] of this.groups) {
       const i = s.getObjectByName("teacher-glow");
       if (i && (this.dispose(i), s.remove(i)), t.includes(e)) {
-        const a = new q(new B(new K(1.02, 1.02, 1.02)), new W({ color: 16770952, depthTest: !1 }));
+        const a = new q(new K(new B(1.02, 1.02, 1.02)), new W({ color: 16770952, depthTest: !1 }));
         a.name = "teacher-glow", a.renderOrder = 5, s.add(a);
       }
     }
@@ -713,23 +714,6 @@ class zt {
   }
   destroy() {
     this.dead = !0, this.frame && cancelAnimationFrame(this.frame), this.task?.done(), this.task = void 0, this.abort.abort(), this.resize.disconnect(), this.controls.dispose(), this.dispose(this.scene), this.renderer.dispose(), this.renderer.domElement.remove();
-  }
-}
-class Nt {
-  enabled = !1;
-  last = "用手轉動方塊，看看六個顏色。點拆解，一起找出裡面的祕密！";
-  utterance;
-  say(t, e = !1) {
-    if (this.last = t, !this.enabled && !e || !("speechSynthesis" in window)) return;
-    this.stop();
-    const s = new SpeechSynthesisUtterance(t);
-    this.utterance = s, s.lang = "zh-TW", s.rate = 0.88, s.voice = speechSynthesis.getVoices().find((i) => /^zh[-_]TW$/i.test(i.lang)) || speechSynthesis.getVoices().find((i) => /^zh/i.test(i.lang)) || null, speechSynthesis.speak(s);
-  }
-  replay() {
-    this.say(this.last, !0);
-  }
-  stop() {
-    this.utterance && "speechSynthesis" in window && speechSynthesis.cancel(), this.utterance = void 0;
   }
 }
 class Ft {
@@ -925,7 +909,7 @@ const v = "modules/interactive-labs/book-v1/", It = { white: "#fff9e6", yellow: 
   { id: "last-places", title: "同色面不等於全完成", cue: "翻面方向對 · 還要對位置", goal: "側邊每一排都接上中心", narration: "黃色面同色，不代表每塊都回家了。再比較四周側色與中心。這個例子交換最後的邊塊；如果角塊也沒對齊，還要另外處理角塊位置。回到教我還原，可依你目前的方塊繼續。", view: "yellow", moves: ["R", "D'", "R", "D", "R", "D", "R", "D'", "R'", "D'", "R", "R"], focus: "all" },
   { id: "four-moves", title: "把長動作拆小段", cue: "R → U → R′ → U′", goal: "比較小段前後的變化", narration: "R 是紅色右面，U 是白色上面。沒有撇號是正看該面順轉，有撇號就是反轉。這四步是一種動作練習，不是萬用解法。這裡的起始狀態特別安排過，所以一小段後會回到同色。", view: "white", moves: ["R", "U", "R'", "U'"], focus: "all" }
 ], x = (o, t, e) => `<button type="button" data-book="${o}" aria-label="${t}" title="${t}">${e}</button>`, Yt = { R: { color: "red", name: "紅色面" }, L: { color: "orange", name: "橘色面" }, U: { color: "white", name: "白色面" }, D: { color: "yellow", name: "黃色面" }, F: { color: "green", name: "綠色面" }, B: { color: "blue", name: "藍色面" } }, Zt = '<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 10Q11 4 4 8V32Q12 28 20 34Q28 28 36 32V8Q29 4 20 10Z" fill="#fff3ce" stroke="#80ddeb" stroke-width="2" stroke-linejoin="round"/><path d="M20 10V34M9 14L16 16M9 20L16 22M25 16L31 14M25 22L31 20" fill="none" stroke="#325780" stroke-width="2" stroke-linecap="round"/></svg>';
-class Bt {
+class Kt {
   constructor(t, e) {
     this.root = t, this.voice = e, this.element.className = "cube-book", this.element.hidden = !0, this.element.setAttribute("aria-label", "方塊圖解教學書"), t.append(this.element), this.element.addEventListener("click", (s) => {
       const i = s.target.closest("[data-book]");
@@ -1002,7 +986,7 @@ class Bt {
     this.stop(), this.abort.abort(), this.element.remove();
   }
 }
-const h = (o, t, e) => `<button type="button" data-cube="${o}" aria-label="${e}" title="${e}">${t}</button>`, M = [["core", "核心", "6 根軸連著中心，讓各層有旋轉的方向。這是簡化結構示意，不是特定品牌的工程圖。"], ["center", "中心塊", "一種顏色，共 6 塊。中心決定每面的顏色，彼此的位置不會交換。"], ["edge", "邊塊", "兩種顏色，共 12 塊。內側的腳部幫助扣住相鄰零件。"], ["corner", "角塊", "三種顏色，共 8 塊。角塊和邊塊的內側形狀配合，轉動時一起滑動。"]], L = [
+const h = (o, t, e) => `<button type="button" data-cube="${o}" aria-label="${e}" title="${e}">${t}</button>`, M = [["core", "核心", "6 根軸連著中心，讓各層有旋轉的方向。這是簡化結構示意，不是特定品牌的工程圖。"], ["center", "中心塊", "一種顏色，共 6 塊。中心決定每面的顏色，彼此的位置不會交換。"], ["edge", "邊塊", "兩種顏色，共 12 塊。內側的腳部幫助扣住相鄰零件。"], ["corner", "角塊", "三種顏色，共 8 塊。角塊和邊塊的內側形狀配合，轉動時一起滑動。"]], T = [
   { id: "overview", label: "看全貌", voice: "這顆彩色方塊，為什麼轉來轉去都不會散開呢？" },
   { id: "turn", label: "轉一層", voice: "看！右面這一層一起轉，顏色就換了位置。" },
   { id: "explode", label: "拆開看", voice: "拆開看看！裡面有核心，六根軸連著六個中心。" },
@@ -1014,10 +998,10 @@ const h = (o, t, e) => `<button type="button" data-cube="${o}" aria-label="${e}"
 class Vt {
   constructor(t) {
     this.host = t, t.innerHTML = `<section class="cube-lab" aria-label="魔術方塊工坊">
-      <header class="cube-heading">${h("back", "←", "返回實驗星球")}<h2>方塊工坊</h2><div class="cube-header-tools">${h("voice", "🔇", "開啟語音")}${h("replay", "↻", "重聽")}${h("quiz", `<img src="${vt}pencil.png" alt="">`, "考題")}${h("help", "?", "機構、公式與素材")}</div></header>
+      <header class="cube-heading">${h("back", "←", "返回實驗星球")}<h2>方塊工坊</h2><div class="cube-header-tools">${h("voice", "🔇", "開啟語音")}${h("replay", "↻", "重聽")}${h("quiz", `<img src="${_t}pencil.png" alt="">`, "考題")}${h("help", "?", "機構、公式與素材")}</div></header>
       <div class="cube-layout"><section class="cube-scene" aria-label="3D 實驗場景"><div class="cube-stage"></div><div class="cube-badge" role="status">用手轉轉看</div><div class="cube-camera">${h("zoom-in", "＋", "放大")}${h("zoom-out", "−", "縮小")}${h("home", "⌂", "正面三面視角")}</div><div class="cube-quiz" hidden></div></section>
       <aside class="cube-tools"><div class="cube-play-tools"><div class="cube-modes">${h("view", "⤢<small>轉視角</small>", "轉視角模式")}${h("turn", "↶<small>轉一層</small>", "转一層模式")}${h("inspect", "◇<small>拆解</small>", "拆解開關")}</div><div class="cube-face-grid">${b.map((e) => `<button data-face="${e.id}" aria-label="選${e.name}" title="${e.name}" style="--face:#${I[e.color].toString(16).padStart(6, "0")}"><i></i><small>${e.id}</small></button>`).join("")}</div><div class="cube-arrows">${h("ccw", "↶", "選取面逆時針轉四分之一圈")}${h("cw", "↷", "選取面順時針轉四分之一圈")}</div><div class="cube-part-grid" hidden>${M.map((e, s) => h(e[0], `${s + 1}<small>${e[1]}</small>`, e[1])).join("")}${h("all", "◈<small>全部</small>", "顯示全部零件")}</div><p class="cube-explanation">選一個面，再轉轉看</p><div class="cube-bottom-tools">${h("shuffle", "⤨", "打亂")}${h("undo", "↩", "退一步")}${h("reset", "⟲", "重新開始")}${h("demo", "▶", "分鏡導覽")}</div></div><div class="cube-help-tools" hidden><div class="cube-help-tabs">${h("mechanism", "◇", "機構")}${h("formula", "R′", "公式")}${h("hint", "💡", "還原提示")}${h("assets", "▧", "影片素材")}</div><div class="cube-help-content"></div></div><div class="cube-shot-nav" hidden>${h("previous", "‹", "上一鏡")}<span data-shot></span>${h("next", "›", "下一鏡")}${h("stop-demo", "■", "結束導覽")}</div></aside></div>
-    </section>`, this.root = t.querySelector(".cube-lab"), this.status = this.root.querySelector(".cube-badge"), this.explanation = this.root.querySelector(".cube-explanation"), this.root.querySelector("h2").insertAdjacentHTML("afterend", h("book", Zt, "圖解教學書")), this.book = new Bt(this.root, this.voice), this.view = new zt(this.root.querySelector(".cube-stage")), this.view.onFace = (e) => {
+    </section>`, this.root = t.querySelector(".cube-lab"), this.status = this.root.querySelector(".cube-badge"), this.explanation = this.root.querySelector(".cube-explanation"), this.root.querySelector("h2").insertAdjacentHTML("afterend", h("book", Zt, "圖解教學書")), this.book = new Kt(this.root, this.voice), this.view = new Nt(this.root.querySelector(".cube-stage")), this.view.onFace = (e) => {
       this.teacher || (this.face = e, this.update());
     }, this.view.onDragTurn = (e) => {
       this.teacher || this.turn(e);
@@ -1040,7 +1024,7 @@ class Vt {
   }
   host;
   view;
-  voice = new Nt();
+  voice = new vt();
   abort = new AbortController();
   history = [];
   face = "F";
@@ -1066,7 +1050,7 @@ class Vt {
   update() {
     this.view.select(this.face), this.root.querySelectorAll("[data-face]").forEach((t) => t.setAttribute("aria-pressed", String(t.dataset.face === this.face)));
     for (const t of ["view", "turn", "inspect"]) this.root.querySelector(`[data-cube=${t}]`).setAttribute("aria-pressed", String(t === this.mode));
-    this.root.querySelector(".cube-part-grid").hidden = this.mode !== "inspect", this.root.querySelector(".cube-face-grid").hidden = this.mode === "inspect", this.root.querySelector(".cube-arrows").hidden = this.mode === "inspect", this.root.querySelector("[data-cube=undo]").disabled = !this.history.length, this.status.textContent = this.mode === "inspect" ? "結構示意 · 拖動看背面" : it(this.view.state) ? "六面完成 ✦" : `白十字對齊 ${qt(this.view.state)} / 4`;
+    this.root.querySelector(".cube-part-grid").hidden = this.mode !== "inspect", this.root.querySelector(".cube-face-grid").hidden = this.mode === "inspect", this.root.querySelector(".cube-arrows").hidden = this.mode === "inspect", this.root.querySelector("[data-cube=undo]").disabled = !this.history.length, this.status.textContent = this.mode === "inspect" ? "結構示意 · 拖動看背面" : it(this.view.state) ? "六面完成 ✦" : `白十字對齊 ${Ut(this.view.state)} / 4`;
   }
   async setMode(t) {
     this.view.busy || (this.mode = t, this.view.showAll(), this.view.exploded !== (t === "inspect") && await this.view.inspect(t === "inspect"), this.view.mode(t), this.update());
@@ -1135,7 +1119,7 @@ class Vt {
             await this.turn(this.face + (t === "ccw" ? "'" : ""));
           else if (t === "undo") {
             const e = this.history.at(-1);
-            e && !this.view.exploded && (await this.turn(jt([e])[0], !1), this.history.pop(), this.update());
+            e && !this.view.exploded && (await this.turn(qt([e])[0], !1), this.history.pop(), this.update());
           } else if (t === "reset")
             this.sequence++, this.view.reset(), this.history = [], this.mode = "view", this.update(), this.tell("重新開始！六面的顏色都回來了。");
           else if (t === "shuffle") {
@@ -1153,7 +1137,7 @@ class Vt {
           else if (t === "demo")
             this.savedHistory = [...this.history], this.shot = 0, this.root.querySelector(".cube-shot-nav").hidden = !1, await this.showShot();
           else if (t === "previous" || t === "next")
-            this.shot = Math.max(0, Math.min(L.length - 1, this.shot + (t === "next" ? 1 : -1))), await this.showShot();
+            this.shot = Math.max(0, Math.min(T.length - 1, this.shot + (t === "next" ? 1 : -1))), await this.showShot();
           else if (t === "stop-demo")
             this.shot = -1, this.root.querySelector(".cube-shot-nav").hidden = !0, this.view.reset(Q(C(), this.savedHistory)), this.history = [...this.savedHistory], this.mode = "view", this.update();
           else if (t === "formula-play") {
@@ -1171,8 +1155,8 @@ class Vt {
   }
   async showShot() {
     this.view.reset(), this.history = [], this.mode = "view";
-    const t = L[this.shot];
-    this.root.querySelector("[data-shot]").textContent = `${this.shot + 1}/${L.length}`, t.id === "turn" ? await this.turn("R") : ["explode", "core", "edge", "corner"].includes(t.id) && (await this.setMode("inspect"), t.id !== "explode" && (this.view.focusPart(t.id), t.id === "core" && this.view.focusCore())), this.update(), this.tell(t.voice, t.label), this.status.textContent = t.label;
+    const t = T[this.shot];
+    this.root.querySelector("[data-shot]").textContent = `${this.shot + 1}/${T.length}`, t.id === "turn" ? await this.turn("R") : ["explode", "core", "edge", "corner"].includes(t.id) && (await this.setMode("inspect"), t.id !== "explode" && (this.view.focusPart(t.id), t.id === "core" && this.view.focusCore())), this.update(), this.tell(t.voice, t.label), this.status.textContent = t.label;
   }
   help(t) {
     const e = this.root.querySelector(".cube-help-content");
@@ -1186,7 +1170,7 @@ class Vt {
     s.innerHTML = "<h3>正在錄製…</h3><p>約 30 秒，請留在這一頁。</p><small>無聲示範 · 配音腳本另附</small>";
     try {
       await this.recorder.start(this.view.renderer.domElement, "images/experiments/shared-classroom/v1/classroom.png", () => this.status.textContent || "", () => this.view.renderer.render(this.view.scene, this.view.camera));
-      for (let a = 0; a < L.length && !this.dead && e === this.sequence; a++)
+      for (let a = 0; a < T.length && !this.dead && e === this.sequence; a++)
         this.shot = a, await this.showShot(), await new Promise((n) => setTimeout(n, 3200));
       const i = await this.recorder.finish();
       if (this.dead) return;

@@ -6,9 +6,9 @@ function sync() {
   document.querySelectorAll<HTMLElement>('[data-interactive-lab]').forEach(host => {
     if (mounted.has(host) || pending.has(host)) return;
     const kind = host.dataset.interactiveLab;
-    if (!['buoyancy', 'clock', 'car', 'cube'].includes(kind || '')) return;
+    if (!['buoyancy', 'clock', 'car', 'cube', 'mini4wd'].includes(kind || '')) return;
     pending.add(host);
-    const loader = kind === 'cube' ? import('./cube-lab').then(({CubeLab})=>()=>new CubeLab(host)) : kind === 'buoyancy' ? import('./buoyancy-play').then(({ BuoyancyPlay }) => () => new BuoyancyPlay(host)) : import('./lab').then(({ InteractiveLab }) => () => new InteractiveLab(host, kind as LabKind));
+    const loader = kind === 'mini4wd' ? import('./mini4wd-lab').then(({Mini4wdLab})=>()=>new Mini4wdLab(host)) : kind === 'cube' ? import('./cube-lab').then(({CubeLab})=>()=>new CubeLab(host)) : kind === 'buoyancy' ? import('./buoyancy-play').then(({ BuoyancyPlay }) => () => new BuoyancyPlay(host)) : import('./lab').then(({ InteractiveLab }) => () => new InteractiveLab(host, kind as LabKind));
     void loader.then(create => {
       if (host.isConnected) mounted.set(host, create());
       pending.delete(host);
