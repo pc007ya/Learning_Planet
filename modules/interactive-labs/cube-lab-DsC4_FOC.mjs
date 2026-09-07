@@ -1,6 +1,6 @@
-import { C as et, V as d, M as T, T as P, Q as N, S as H, a as b, R as st, P as it, b as ot, W as at, c as rt, H as nt, D as I, d as C, e as ht, f as lt, L as $, E as F, B as Y, g as Z, h as ct, i as dt, G as x, j as ut, k as pt, l as A, m as W, n as mt, o as ft, p as bt } from "./RoundedBoxGeometry-BC8egOwb.mjs";
+import { C as et, V as d, M as T, T as P, Q as H, S as I, a as w, R as st, P as it, b as ot, W as at, c as rt, D as C, H as nt, d as $, e as ht, f as lt, L as A, E as F, B as Y, g as Z, h as ct, i as dt, G as x, j as ut, k as pt, l as O, m as W, n as mt, o as ft, p as bt } from "./RoundedBoxGeometry-BC8egOwb.mjs";
 import { C as wt } from "./car-art-D34K7c64.mjs";
-const K = { type: "change" }, U = { type: "start" }, B = { type: "end" }, L = new st(), X = new it(), yt = Math.cos(70 * ot.DEG2RAD), u = new d(), m = 2 * Math.PI, l = {
+const K = { type: "change" }, q = { type: "start" }, B = { type: "end" }, L = new st(), X = new it(), yt = Math.cos(70 * ot.DEG2RAD), u = new d(), f = 2 * Math.PI, c = {
   NONE: -1,
   ROTATE: 0,
   DOLLY: 1,
@@ -9,7 +9,7 @@ const K = { type: "change" }, U = { type: "start" }, B = { type: "end" }, L = ne
   TOUCH_PAN: 4,
   TOUCH_DOLLY_PAN: 5,
   TOUCH_DOLLY_ROTATE: 6
-}, O = 1e-6;
+}, j = 1e-6;
 class _t extends et {
   /**
    * Constructs a new controls instance.
@@ -18,7 +18,7 @@ class _t extends et {
    * @param {?HTMLDOMElement} domElement - The HTML element used for event listeners.
    */
   constructor(t, e = null) {
-    super(t, e), this.state = l.NONE, this.target = new d(), this.cursor = new d(), this.minDistance = 0, this.maxDistance = 1 / 0, this.minZoom = 0, this.maxZoom = 1 / 0, this.minTargetRadius = 0, this.maxTargetRadius = 1 / 0, this.minPolarAngle = 0, this.maxPolarAngle = Math.PI, this.minAzimuthAngle = -1 / 0, this.maxAzimuthAngle = 1 / 0, this.enableDamping = !1, this.dampingFactor = 0.05, this.enableZoom = !0, this.zoomSpeed = 1, this.enableRotate = !0, this.rotateSpeed = 1, this.keyRotateSpeed = 1, this.enablePan = !0, this.panSpeed = 1, this.screenSpacePanning = !0, this.keyPanSpeed = 7, this.zoomToCursor = !1, this.autoRotate = !1, this.autoRotateSpeed = 2, this.keys = { LEFT: "ArrowLeft", UP: "ArrowUp", RIGHT: "ArrowRight", BOTTOM: "ArrowDown" }, this.mouseButtons = { LEFT: T.ROTATE, MIDDLE: T.DOLLY, RIGHT: T.PAN }, this.touches = { ONE: P.ROTATE, TWO: P.DOLLY_PAN }, this.target0 = this.target.clone(), this.position0 = this.object.position.clone(), this.zoom0 = this.object.zoom, this._domElementKeyEvents = null, this._lastPosition = new d(), this._lastQuaternion = new N(), this._lastTargetPosition = new d(), this._quat = new N().setFromUnitVectors(t.up, new d(0, 1, 0)), this._quatInverse = this._quat.clone().invert(), this._spherical = new H(), this._sphericalDelta = new H(), this._scale = 1, this._panOffset = new d(), this._rotateStart = new b(), this._rotateEnd = new b(), this._rotateDelta = new b(), this._panStart = new b(), this._panEnd = new b(), this._panDelta = new b(), this._dollyStart = new b(), this._dollyEnd = new b(), this._dollyDelta = new b(), this._dollyDirection = new d(), this._mouse = new b(), this._performCursorZoom = !1, this._pointers = [], this._pointerPositions = {}, this._controlActive = !1, this._onPointerMove = vt.bind(this), this._onPointerDown = gt.bind(this), this._onPointerUp = St.bind(this), this._onContextMenu = Dt.bind(this), this._onMouseWheel = Pt.bind(this), this._onKeyDown = Tt.bind(this), this._onTouchStart = xt.bind(this), this._onTouchMove = Lt.bind(this), this._onMouseDown = Et.bind(this), this._onMouseMove = Mt.bind(this), this._interceptControlDown = kt.bind(this), this._interceptControlUp = Rt.bind(this), this.domElement !== null && this.connect(this.domElement), this.update();
+    super(t, e), this.state = c.NONE, this.target = new d(), this.cursor = new d(), this.minDistance = 0, this.maxDistance = 1 / 0, this.minZoom = 0, this.maxZoom = 1 / 0, this.minTargetRadius = 0, this.maxTargetRadius = 1 / 0, this.minPolarAngle = 0, this.maxPolarAngle = Math.PI, this.minAzimuthAngle = -1 / 0, this.maxAzimuthAngle = 1 / 0, this.enableDamping = !1, this.dampingFactor = 0.05, this.enableZoom = !0, this.zoomSpeed = 1, this.enableRotate = !0, this.rotateSpeed = 1, this.keyRotateSpeed = 1, this.enablePan = !0, this.panSpeed = 1, this.screenSpacePanning = !0, this.keyPanSpeed = 7, this.zoomToCursor = !1, this.autoRotate = !1, this.autoRotateSpeed = 2, this.keys = { LEFT: "ArrowLeft", UP: "ArrowUp", RIGHT: "ArrowRight", BOTTOM: "ArrowDown" }, this.mouseButtons = { LEFT: T.ROTATE, MIDDLE: T.DOLLY, RIGHT: T.PAN }, this.touches = { ONE: P.ROTATE, TWO: P.DOLLY_PAN }, this.target0 = this.target.clone(), this.position0 = this.object.position.clone(), this.zoom0 = this.object.zoom, this._domElementKeyEvents = null, this._lastPosition = new d(), this._lastQuaternion = new H(), this._lastTargetPosition = new d(), this._quat = new H().setFromUnitVectors(t.up, new d(0, 1, 0)), this._quatInverse = this._quat.clone().invert(), this._spherical = new I(), this._sphericalDelta = new I(), this._scale = 1, this._panOffset = new d(), this._rotateStart = new w(), this._rotateEnd = new w(), this._rotateDelta = new w(), this._panStart = new w(), this._panEnd = new w(), this._panDelta = new w(), this._dollyStart = new w(), this._dollyEnd = new w(), this._dollyDelta = new w(), this._dollyDirection = new d(), this._mouse = new w(), this._performCursorZoom = !1, this._pointers = [], this._pointerPositions = {}, this._controlActive = !1, this._onPointerMove = vt.bind(this), this._onPointerDown = gt.bind(this), this._onPointerUp = St.bind(this), this._onContextMenu = Dt.bind(this), this._onMouseWheel = Pt.bind(this), this._onKeyDown = Tt.bind(this), this._onTouchStart = xt.bind(this), this._onTouchMove = Lt.bind(this), this._onMouseDown = Et.bind(this), this._onMouseMove = Mt.bind(this), this._interceptControlDown = kt.bind(this), this._interceptControlUp = Rt.bind(this), this.domElement !== null && this.connect(this.domElement), this.update();
   }
   connect(t) {
     super.connect(t), this.domElement.addEventListener("pointerdown", this._onPointerDown), this.domElement.addEventListener("pointercancel", this._onPointerUp), this.domElement.addEventListener("contextmenu", this._onContextMenu), this.domElement.addEventListener("wheel", this._onMouseWheel, { passive: !1 }), this.domElement.getRootNode().addEventListener("keydown", this._interceptControlDown, { passive: !0, capture: !0 }), this.domElement.style.touchAction = "none";
@@ -79,13 +79,13 @@ class _t extends et {
    * was called, or the initial state.
    */
   reset() {
-    this.target.copy(this.target0), this.object.position.copy(this.position0), this.object.zoom = this.zoom0, this.object.updateProjectionMatrix(), this.dispatchEvent(K), this.update(), this.state = l.NONE;
+    this.target.copy(this.target0), this.object.position.copy(this.position0), this.object.zoom = this.zoom0, this.object.updateProjectionMatrix(), this.dispatchEvent(K), this.update(), this.state = c.NONE;
   }
   update(t = null) {
     const e = this.object.position;
-    u.copy(e).sub(this.target), u.applyQuaternion(this._quat), this._spherical.setFromVector3(u), this.autoRotate && this.state === l.NONE && this._rotateLeft(this._getAutoRotationAngle(t)), this.enableDamping ? (this._spherical.theta += this._sphericalDelta.theta * this.dampingFactor, this._spherical.phi += this._sphericalDelta.phi * this.dampingFactor) : (this._spherical.theta += this._sphericalDelta.theta, this._spherical.phi += this._sphericalDelta.phi);
+    u.copy(e).sub(this.target), u.applyQuaternion(this._quat), this._spherical.setFromVector3(u), this.autoRotate && this.state === c.NONE && this._rotateLeft(this._getAutoRotationAngle(t)), this.enableDamping ? (this._spherical.theta += this._sphericalDelta.theta * this.dampingFactor, this._spherical.phi += this._sphericalDelta.phi * this.dampingFactor) : (this._spherical.theta += this._sphericalDelta.theta, this._spherical.phi += this._sphericalDelta.phi);
     let s = this.minAzimuthAngle, i = this.maxAzimuthAngle;
-    isFinite(s) && isFinite(i) && (s < -Math.PI ? s += m : s > Math.PI && (s -= m), i < -Math.PI ? i += m : i > Math.PI && (i -= m), s <= i ? this._spherical.theta = Math.max(s, Math.min(i, this._spherical.theta)) : this._spherical.theta = this._spherical.theta > (s + i) / 2 ? Math.max(s, this._spherical.theta) : Math.min(i, this._spherical.theta)), this._spherical.phi = Math.max(this.minPolarAngle, Math.min(this.maxPolarAngle, this._spherical.phi)), this._spherical.makeSafe(), this.enableDamping === !0 ? this.target.addScaledVector(this._panOffset, this.dampingFactor) : this.target.add(this._panOffset), this.target.sub(this.cursor), this.target.clampLength(this.minTargetRadius, this.maxTargetRadius), this.target.add(this.cursor);
+    isFinite(s) && isFinite(i) && (s < -Math.PI ? s += f : s > Math.PI && (s -= f), i < -Math.PI ? i += f : i > Math.PI && (i -= f), s <= i ? this._spherical.theta = Math.max(s, Math.min(i, this._spherical.theta)) : this._spherical.theta = this._spherical.theta > (s + i) / 2 ? Math.max(s, this._spherical.theta) : Math.min(i, this._spherical.theta)), this._spherical.phi = Math.max(this.minPolarAngle, Math.min(this.maxPolarAngle, this._spherical.phi)), this._spherical.makeSafe(), this.enableDamping === !0 ? this.target.addScaledVector(this._panOffset, this.dampingFactor) : this.target.add(this._panOffset), this.target.sub(this.cursor), this.target.clampLength(this.minTargetRadius, this.maxTargetRadius), this.target.add(this.cursor);
     let a = !1;
     if (this.zoomToCursor && this._performCursorZoom || this.object.isOrthographicCamera)
       this._spherical.radius = this._clampDistance(this._spherical.radius);
@@ -98,13 +98,13 @@ class _t extends et {
       if (this.object.isPerspectiveCamera) {
         const r = u.length();
         n = this._clampDistance(r * this._scale);
-        const c = r - n;
-        this.object.position.addScaledVector(this._dollyDirection, c), this.object.updateMatrixWorld(), a = !!c;
+        const l = r - n;
+        this.object.position.addScaledVector(this._dollyDirection, l), this.object.updateMatrixWorld(), a = !!l;
       } else if (this.object.isOrthographicCamera) {
         const r = new d(this._mouse.x, this._mouse.y, 0);
         r.unproject(this.object);
-        const c = this.object.zoom;
-        this.object.zoom = Math.max(this.minZoom, Math.min(this.maxZoom, this.object.zoom / this._scale)), this.object.updateProjectionMatrix(), a = c !== this.object.zoom;
+        const l = this.object.zoom;
+        this.object.zoom = Math.max(this.minZoom, Math.min(this.maxZoom, this.object.zoom / this._scale)), this.object.updateProjectionMatrix(), a = l !== this.object.zoom;
         const p = new d(this._mouse.x, this._mouse.y, 0);
         p.unproject(this.object), this.object.position.sub(p).add(r), this.object.updateMatrixWorld(), n = u.length();
       } else
@@ -114,10 +114,10 @@ class _t extends et {
       const n = this.object.zoom;
       this.object.zoom = Math.max(this.minZoom, Math.min(this.maxZoom, this.object.zoom / this._scale)), n !== this.object.zoom && (this.object.updateProjectionMatrix(), a = !0);
     }
-    return this._scale = 1, this._performCursorZoom = !1, a || this._lastPosition.distanceToSquared(this.object.position) > O || 8 * (1 - this._lastQuaternion.dot(this.object.quaternion)) > O || this._lastTargetPosition.distanceToSquared(this.target) > O ? (this.dispatchEvent(K), this._lastPosition.copy(this.object.position), this._lastQuaternion.copy(this.object.quaternion), this._lastTargetPosition.copy(this.target), !0) : !1;
+    return this._scale = 1, this._performCursorZoom = !1, a || this._lastPosition.distanceToSquared(this.object.position) > j || 8 * (1 - this._lastQuaternion.dot(this.object.quaternion)) > j || this._lastTargetPosition.distanceToSquared(this.target) > j ? (this.dispatchEvent(K), this._lastPosition.copy(this.object.position), this._lastQuaternion.copy(this.object.quaternion), this._lastTargetPosition.copy(this.target), !0) : !1;
   }
   _getAutoRotationAngle(t) {
-    return t !== null ? m / 60 * this.autoRotateSpeed * t : m / 60 / 60 * this.autoRotateSpeed;
+    return t !== null ? f / 60 * this.autoRotateSpeed * t : f / 60 / 60 * this.autoRotateSpeed;
   }
   _getZoomScale(t) {
     const e = Math.abs(t * 0.01);
@@ -176,7 +176,7 @@ class _t extends et {
   _handleMouseMoveRotate(t) {
     this._rotateEnd.set(t.clientX, t.clientY), this._rotateDelta.subVectors(this._rotateEnd, this._rotateStart).multiplyScalar(this.rotateSpeed);
     const e = this.domElement;
-    this._rotateLeft(m * this._rotateDelta.x / e.clientHeight), this._rotateUp(m * this._rotateDelta.y / e.clientHeight), this._rotateStart.copy(this._rotateEnd), this.update();
+    this._rotateLeft(f * this._rotateDelta.x / e.clientHeight), this._rotateUp(f * this._rotateDelta.y / e.clientHeight), this._rotateStart.copy(this._rotateEnd), this.update();
   }
   _handleMouseMoveDolly(t) {
     this._dollyEnd.set(t.clientX, t.clientY), this._dollyDelta.subVectors(this._dollyEnd, this._dollyStart), this._dollyDelta.y > 0 ? this._dollyOut(this._getZoomScale(this._dollyDelta.y)) : this._dollyDelta.y < 0 && this._dollyIn(this._getZoomScale(this._dollyDelta.y)), this._dollyStart.copy(this._dollyEnd), this.update();
@@ -191,16 +191,16 @@ class _t extends et {
     let e = !1;
     switch (t.code) {
       case this.keys.UP:
-        t.ctrlKey || t.metaKey || t.shiftKey ? this.enableRotate && this._rotateUp(m * this.keyRotateSpeed / this.domElement.clientHeight) : this.enablePan && this._pan(0, this.keyPanSpeed), e = !0;
+        t.ctrlKey || t.metaKey || t.shiftKey ? this.enableRotate && this._rotateUp(f * this.keyRotateSpeed / this.domElement.clientHeight) : this.enablePan && this._pan(0, this.keyPanSpeed), e = !0;
         break;
       case this.keys.BOTTOM:
-        t.ctrlKey || t.metaKey || t.shiftKey ? this.enableRotate && this._rotateUp(-m * this.keyRotateSpeed / this.domElement.clientHeight) : this.enablePan && this._pan(0, -this.keyPanSpeed), e = !0;
+        t.ctrlKey || t.metaKey || t.shiftKey ? this.enableRotate && this._rotateUp(-f * this.keyRotateSpeed / this.domElement.clientHeight) : this.enablePan && this._pan(0, -this.keyPanSpeed), e = !0;
         break;
       case this.keys.LEFT:
-        t.ctrlKey || t.metaKey || t.shiftKey ? this.enableRotate && this._rotateLeft(m * this.keyRotateSpeed / this.domElement.clientHeight) : this.enablePan && this._pan(this.keyPanSpeed, 0), e = !0;
+        t.ctrlKey || t.metaKey || t.shiftKey ? this.enableRotate && this._rotateLeft(f * this.keyRotateSpeed / this.domElement.clientHeight) : this.enablePan && this._pan(this.keyPanSpeed, 0), e = !0;
         break;
       case this.keys.RIGHT:
-        t.ctrlKey || t.metaKey || t.shiftKey ? this.enableRotate && this._rotateLeft(-m * this.keyRotateSpeed / this.domElement.clientHeight) : this.enablePan && this._pan(-this.keyPanSpeed, 0), e = !0;
+        t.ctrlKey || t.metaKey || t.shiftKey ? this.enableRotate && this._rotateLeft(-f * this.keyRotateSpeed / this.domElement.clientHeight) : this.enablePan && this._pan(-this.keyPanSpeed, 0), e = !0;
         break;
     }
     e && (t.preventDefault(), this.update());
@@ -240,7 +240,7 @@ class _t extends et {
     }
     this._rotateDelta.subVectors(this._rotateEnd, this._rotateStart).multiplyScalar(this.rotateSpeed);
     const e = this.domElement;
-    this._rotateLeft(m * this._rotateDelta.x / e.clientHeight), this._rotateUp(m * this._rotateDelta.y / e.clientHeight), this._rotateStart.copy(this._rotateEnd);
+    this._rotateLeft(f * this._rotateDelta.x / e.clientHeight), this._rotateUp(f * this._rotateDelta.y / e.clientHeight), this._rotateStart.copy(this._rotateEnd);
   }
   _handleTouchMovePan(t) {
     if (this._pointers.length === 1)
@@ -282,7 +282,7 @@ class _t extends et {
   }
   _trackPointer(t) {
     let e = this._pointerPositions[t.pointerId];
-    e === void 0 && (e = new b(), this._pointerPositions[t.pointerId] = e), e.set(t.pageX, t.pageY);
+    e === void 0 && (e = new w(), this._pointerPositions[t.pointerId] = e), e.set(t.pageX, t.pageY);
   }
   _getSecondPointerPosition(t) {
     const e = t.pointerId === this._pointers[0] ? this._pointers[1] : this._pointers[0];
@@ -315,7 +315,7 @@ function vt(o) {
 function St(o) {
   switch (this._removePointer(o), this._pointers.length) {
     case 0:
-      this.domElement.releasePointerCapture(o.pointerId), this.domElement.removeEventListener("pointermove", this._onPointerMove), this.domElement.removeEventListener("pointerup", this._onPointerUp), this.dispatchEvent(B), this.state = l.NONE;
+      this.domElement.releasePointerCapture(o.pointerId), this.domElement.removeEventListener("pointermove", this._onPointerMove), this.domElement.removeEventListener("pointerup", this._onPointerUp), this.dispatchEvent(B), this.state = c.NONE;
       break;
     case 1:
       const t = this._pointers[0], e = this._pointerPositions[t];
@@ -341,49 +341,49 @@ function Et(o) {
   switch (t) {
     case T.DOLLY:
       if (this.enableZoom === !1) return;
-      this._handleMouseDownDolly(o), this.state = l.DOLLY;
+      this._handleMouseDownDolly(o), this.state = c.DOLLY;
       break;
     case T.ROTATE:
       if (o.ctrlKey || o.metaKey || o.shiftKey) {
         if (this.enablePan === !1) return;
-        this._handleMouseDownPan(o), this.state = l.PAN;
+        this._handleMouseDownPan(o), this.state = c.PAN;
       } else {
         if (this.enableRotate === !1) return;
-        this._handleMouseDownRotate(o), this.state = l.ROTATE;
+        this._handleMouseDownRotate(o), this.state = c.ROTATE;
       }
       break;
     case T.PAN:
       if (o.ctrlKey || o.metaKey || o.shiftKey) {
         if (this.enableRotate === !1) return;
-        this._handleMouseDownRotate(o), this.state = l.ROTATE;
+        this._handleMouseDownRotate(o), this.state = c.ROTATE;
       } else {
         if (this.enablePan === !1) return;
-        this._handleMouseDownPan(o), this.state = l.PAN;
+        this._handleMouseDownPan(o), this.state = c.PAN;
       }
       break;
     default:
-      this.state = l.NONE;
+      this.state = c.NONE;
   }
-  this.state !== l.NONE && this.dispatchEvent(U);
+  this.state !== c.NONE && this.dispatchEvent(q);
 }
 function Mt(o) {
   switch (this.state) {
-    case l.ROTATE:
+    case c.ROTATE:
       if (this.enableRotate === !1) return;
       this._handleMouseMoveRotate(o);
       break;
-    case l.DOLLY:
+    case c.DOLLY:
       if (this.enableZoom === !1) return;
       this._handleMouseMoveDolly(o);
       break;
-    case l.PAN:
+    case c.PAN:
       if (this.enablePan === !1) return;
       this._handleMouseMovePan(o);
       break;
   }
 }
 function Pt(o) {
-  this.enabled === !1 || this.enableZoom === !1 || this.state !== l.NONE || (o.preventDefault(), this.dispatchEvent(U), this._handleMouseWheel(this._customWheelEvent(o)), this.dispatchEvent(B));
+  this.enabled === !1 || this.enableZoom === !1 || this.state !== c.NONE || (o.preventDefault(), this.dispatchEvent(q), this._handleMouseWheel(this._customWheelEvent(o)), this.dispatchEvent(B));
 }
 function Tt(o) {
   this.enabled !== !1 && this._handleKeyDown(o);
@@ -394,55 +394,55 @@ function xt(o) {
       switch (this.touches.ONE) {
         case P.ROTATE:
           if (this.enableRotate === !1) return;
-          this._handleTouchStartRotate(o), this.state = l.TOUCH_ROTATE;
+          this._handleTouchStartRotate(o), this.state = c.TOUCH_ROTATE;
           break;
         case P.PAN:
           if (this.enablePan === !1) return;
-          this._handleTouchStartPan(o), this.state = l.TOUCH_PAN;
+          this._handleTouchStartPan(o), this.state = c.TOUCH_PAN;
           break;
         default:
-          this.state = l.NONE;
+          this.state = c.NONE;
       }
       break;
     case 2:
       switch (this.touches.TWO) {
         case P.DOLLY_PAN:
           if (this.enableZoom === !1 && this.enablePan === !1) return;
-          this._handleTouchStartDollyPan(o), this.state = l.TOUCH_DOLLY_PAN;
+          this._handleTouchStartDollyPan(o), this.state = c.TOUCH_DOLLY_PAN;
           break;
         case P.DOLLY_ROTATE:
           if (this.enableZoom === !1 && this.enableRotate === !1) return;
-          this._handleTouchStartDollyRotate(o), this.state = l.TOUCH_DOLLY_ROTATE;
+          this._handleTouchStartDollyRotate(o), this.state = c.TOUCH_DOLLY_ROTATE;
           break;
         default:
-          this.state = l.NONE;
+          this.state = c.NONE;
       }
       break;
     default:
-      this.state = l.NONE;
+      this.state = c.NONE;
   }
-  this.state !== l.NONE && this.dispatchEvent(U);
+  this.state !== c.NONE && this.dispatchEvent(q);
 }
 function Lt(o) {
   switch (this._trackPointer(o), this.state) {
-    case l.TOUCH_ROTATE:
+    case c.TOUCH_ROTATE:
       if (this.enableRotate === !1) return;
       this._handleTouchMoveRotate(o), this.update();
       break;
-    case l.TOUCH_PAN:
+    case c.TOUCH_PAN:
       if (this.enablePan === !1) return;
       this._handleTouchMovePan(o), this.update();
       break;
-    case l.TOUCH_DOLLY_PAN:
+    case c.TOUCH_DOLLY_PAN:
       if (this.enableZoom === !1 && this.enablePan === !1) return;
       this._handleTouchMoveDollyPan(o), this.update();
       break;
-    case l.TOUCH_DOLLY_ROTATE:
+    case c.TOUCH_DOLLY_ROTATE:
       if (this.enableZoom === !1 && this.enableRotate === !1) return;
       this._handleTouchMoveDollyRotate(o), this.update();
       break;
     default:
-      this.state = l.NONE;
+      this.state = c.NONE;
   }
 }
 function Dt(o) {
@@ -461,12 +461,12 @@ const R = {
   D: { axis: 1, side: -1, color: "yellow" },
   F: { axis: 2, side: 1, color: "green" },
   B: { axis: 2, side: -1, color: "blue" }
-}, q = (o, t) => [o === 0 ? t : 0, o === 1 ? t : 0, o === 2 ? t : 0], G = (o, t) => o.every((e, s) => e === t[s]);
+}, z = (o, t) => [o === 0 ? t : 0, o === 1 ? t : 0, o === 2 ? t : 0], G = (o, t) => o.every((e, s) => e === t[s]);
 function k() {
   const o = [];
   for (let t = -1; t <= 1; t++) for (let e = -1; e <= 1; e++) for (let s = -1; s <= 1; s++) {
     if (t === 0 && e === 0 && s === 0) continue;
-    const i = [t, e, s], a = Object.values(R).filter((n) => i[n.axis] === n.side).map((n) => ({ color: n.color, normal: q(n.axis, n.side) }));
+    const i = [t, e, s], a = Object.values(R).filter((n) => i[n.axis] === n.side).map((n) => ({ color: n.color, normal: z(n.axis, n.side) }));
     o.push({ id: `${t},${e},${s}`, position: i, stickers: a });
   }
   return o;
@@ -481,14 +481,14 @@ function Ct(o, t) {
 }
 function J(o, t) {
   const { axis: e, side: s, turns: i } = Q(t), a = (-s * i % 4 + 4) % 4, n = (r) => {
-    let c = r;
-    for (let p = 0; p < a; p++) c = Ct(c, e);
-    return [...c];
+    let l = r;
+    for (let p = 0; p < a; p++) l = Ct(l, e);
+    return [...l];
   };
   return o.map((r) => ({
     id: r.id,
     position: r.position[e] === s ? n(r.position) : [...r.position],
-    stickers: r.stickers.map((c) => ({ color: c.color, normal: r.position[e] === s ? n(c.normal) : [...c.normal] }))
+    stickers: r.stickers.map((l) => ({ color: l.color, normal: r.position[e] === s ? n(l.normal) : [...l.normal] }))
   }));
 }
 function V(o, t) {
@@ -500,45 +500,47 @@ function $t(o) {
 function tt(o) {
   return o.length === 26 && o.every((t) => t.stickers.every((e) => {
     const s = Object.values(R).find((i) => i.color === e.color);
-    return G(e.normal, q(s.axis, s.side));
+    return G(e.normal, z(s.axis, s.side));
   }));
 }
 function At(o) {
   return o.filter((t) => t.stickers.length === 2 && t.stickers.some((e) => e.color === "white") && t.stickers.every((e) => {
     const s = Object.values(R).find((i) => i.color === e.color);
-    return G(e.normal, q(s.axis, s.side));
+    return G(e.normal, z(s.axis, s.side));
   })).length;
 }
-const z = { white: 16775654, yellow: 16766269, red: 15811413, orange: 16747312, green: 1489285, blue: 2524911 }, f = [{ id: "U", color: "white", name: "白色上面", normal: [0, 1, 0] }, { id: "F", color: "green", name: "綠色前面", normal: [0, 0, 1] }, { id: "R", color: "red", name: "紅色右面", normal: [1, 0, 0] }, { id: "B", color: "blue", name: "藍色後面", normal: [0, 0, -1] }, { id: "L", color: "orange", name: "橘色左面", normal: [-1, 0, 0] }, { id: "D", color: "yellow", name: "黃色底面", normal: [0, -1, 0] }], Ot = { R: [0, 1], L: [0, -1], U: [1, 1], D: [1, -1], F: [2, 1], B: [2, -1] };
+const N = { white: 16775654, yellow: 16766269, red: 15811413, orange: 16747312, green: 1489285, blue: 2524911 }, b = [{ id: "U", color: "white", name: "白色上面", normal: [0, 1, 0] }, { id: "F", color: "green", name: "綠色前面", normal: [0, 0, 1] }, { id: "R", color: "red", name: "紅色右面", normal: [1, 0, 0] }, { id: "B", color: "blue", name: "藍色後面", normal: [0, 0, -1] }, { id: "L", color: "orange", name: "橘色左面", normal: [-1, 0, 0] }, { id: "D", color: "yellow", name: "黃色底面", normal: [0, -1, 0] }], Ot = { R: [0, 1], L: [0, -1], U: [1, 1], D: [1, -1], F: [2, 1], B: [2, -1] };
 class jt {
   constructor(t) {
-    this.stage = t, this.renderer = new at({ alpha: !0, antialias: !0 }), this.renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5)), this.renderer.setClearColor(0, 0), this.renderer.shadowMap.enabled = !0, this.renderer.shadowMap.type = rt, this.renderer.domElement.setAttribute("aria-label", "可轉動與縮放的魔術方塊"), t.append(this.renderer.domElement), this.camera.position.set(6, 4.5, 7), this.scene.add(this.root), this.scene.add(new nt(15923455, 3819627, 2));
-    const e = new I(16774106, 3);
-    e.position.set(-4, 7, 8), e.castShadow = !0, e.shadow.mapSize.set(1024, 1024), e.shadow.camera.left = -5, e.shadow.camera.right = 5, e.shadow.camera.top = 5, e.shadow.camera.bottom = -5, e.shadow.bias = -2e-3, this.scene.add(e);
-    const s = new I(7068159, 1.2);
-    s.position.set(5, 2, -3), this.scene.add(s);
-    const i = new C(new ht(40, 40), new lt({ opacity: 0.2 }));
-    this.floor = i, i.rotation.x = -Math.PI / 2, i.position.y = -1.49, i.receiveShadow = !0, this.scene.add(i), this.makeCore(), this.root.add(this.core), this.halo = new $(new F(new Y(2.98, 2.98, 0.035)), new Z({ color: 16772242, transparent: !0, opacity: 0.9 })), this.root.add(this.halo), this.controls = new _t(this.camera, this.renderer.domElement), this.controls.enablePan = !1, this.controls.enableDamping = !1, this.controls.minDistance = 5.8, this.controls.maxDistance = 16, this.controls.minPolarAngle = 0.04, this.controls.maxPolarAngle = Math.PI - 0.04, this.controls.addEventListener("change", this.draw), this.controls.addEventListener("start", () => {
+    this.stage = t, this.renderer = new at({ alpha: !0, antialias: !0 }), this.renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5)), this.renderer.setClearColor(0, 0), this.renderer.shadowMap.enabled = !0, this.renderer.shadowMap.type = rt, this.renderer.domElement.setAttribute("aria-label", "可轉動與縮放的魔術方塊"), t.append(this.renderer.domElement), this.camera.position.set(6, 4.5, 7), this.scene.add(this.root);
+    const e = new C(16777215, 2);
+    e.position.set(0, 1, 0), this.camera.add(e), this.scene.add(this.camera), this.scene.add(new nt(15923455, 3819627, 2));
+    const s = new C(16774106, 3);
+    s.position.set(-4, 7, 8), s.castShadow = !0, s.shadow.mapSize.set(1024, 1024), s.shadow.camera.left = -5, s.shadow.camera.right = 5, s.shadow.camera.top = 5, s.shadow.camera.bottom = -5, s.shadow.bias = -2e-3, this.scene.add(s);
+    const i = new C(7068159, 1.2);
+    i.position.set(5, 2, -3), this.scene.add(i);
+    const a = new $(new ht(40, 40), new lt({ opacity: 0.2 }));
+    this.floor = a, a.rotation.x = -Math.PI / 2, a.position.y = -1.49, a.receiveShadow = !0, this.scene.add(a), this.makeCore(), this.root.add(this.core), this.halo = new A(new F(new Y(2.98, 2.98, 0.035)), new Z({ color: 16772242, transparent: !0, opacity: 0.9 })), this.root.add(this.halo), this.controls = new _t(this.camera, this.renderer.domElement), this.controls.enablePan = !1, this.controls.enableDamping = !1, this.controls.minDistance = 5.8, this.controls.maxDistance = 16, this.controls.minPolarAngle = 0.04, this.controls.maxPolarAngle = Math.PI - 0.04, this.controls.addEventListener("change", this.draw), this.controls.addEventListener("start", () => {
       this.task && !this.busy && (this.task = void 0);
     }), this.resize = new ResizeObserver(() => {
-      const n = t.clientWidth, r = t.clientHeight;
-      n && r && (this.camera.aspect = n / r, this.camera.updateProjectionMatrix(), this.renderer.setSize(n, r, !1), this.draw());
+      const r = t.clientWidth, l = t.clientHeight;
+      r && l && (this.camera.aspect = r / l, this.camera.updateProjectionMatrix(), this.renderer.setSize(r, l, !1), this.draw());
     }), this.resize.observe(t);
-    const a = this.renderer.domElement;
-    a.addEventListener("pointerdown", (n) => {
-      n.isPrimary && (this.down = { x: n.clientX, y: n.clientY, time: performance.now(), id: n.pointerId });
-    }, { signal: this.abort.signal }), a.addEventListener("pointerup", (n) => {
-      const r = this.down;
-      if (this.down = void 0, !r || r.id !== n.pointerId || this.busy || this.exploded) return;
-      const c = n.clientX - r.x, p = n.clientY - r.y;
-      if (Math.hypot(c, p) < 9) {
-        const w = this.pick(n.clientX, n.clientY);
-        w && (this.select(w), this.onFace(w));
-      } else if (this.turnMode && Math.hypot(c, p) > 28) {
-        const w = this.pick(r.x, r.y) || this.selected;
-        this.select(w), this.onFace(w), this.onDragTurn(w + (Math.abs(c) > Math.abs(p) ? c < 0 ? "'" : "" : p > 0 ? "'" : ""));
+    const n = this.renderer.domElement;
+    n.addEventListener("pointerdown", (r) => {
+      r.isPrimary && (this.down = { x: r.clientX, y: r.clientY, time: performance.now(), id: r.pointerId });
+    }, { signal: this.abort.signal }), n.addEventListener("pointerup", (r) => {
+      const l = this.down;
+      if (this.down = void 0, !l || l.id !== r.pointerId || this.busy || this.exploded) return;
+      const p = r.clientX - l.x, g = r.clientY - l.y;
+      if (Math.hypot(p, g) < 9) {
+        const m = this.pick(r.clientX, r.clientY);
+        m && (this.select(m), this.onFace(m));
+      } else if (this.turnMode && Math.hypot(p, g) > 28) {
+        const m = this.pick(l.x, l.y) || this.selected;
+        this.select(m), this.onFace(m), this.onDragTurn(m + (Math.abs(p) > Math.abs(g) ? p < 0 ? "'" : "" : g > 0 ? "'" : ""));
       }
-    }, { signal: this.abort.signal }), a.addEventListener("pointercancel", () => {
+    }, { signal: this.abort.signal }), n.addEventListener("pointercancel", () => {
       this.down = void 0;
     }, { signal: this.abort.signal }), this.sync(), this.select("F"), document.addEventListener("visibilitychange", () => {
       document.hidden ? (cancelAnimationFrame(this.frame), this.frame = 0) : this.draw();
@@ -573,15 +575,15 @@ class jt {
     return new ut({ color: t, roughness: 0.3, metalness: 0.08 });
   }
   add(t, e, s) {
-    const i = new C(t, e);
+    const i = new $(t, e);
     return i.castShadow = !0, i.receiveShadow = !0, s.add(i), i;
   }
   makeCore() {
     this.add(new pt(0.38, 24, 16), this.plastic(15725284), this.core);
-    for (const t of f) {
-      const e = new d(...t.normal), s = this.add(new A(0.115, 0.115, 1.24, 16), this.plastic(12044756), this.core);
+    for (const t of b) {
+      const e = new d(...t.normal), s = this.add(new O(0.115, 0.115, 1.24, 16), this.plastic(12044756), this.core);
       s.position.copy(e).multiplyScalar(0.62), s.quaternion.setFromUnitVectors(new d(0, 1, 0), e);
-      const i = this.add(new A(0.22, 0.22, 0.18, 20), this.plastic(15067614), this.core);
+      const i = this.add(new O(0.22, 0.22, 0.18, 20), this.plastic(15067614), this.core);
       i.position.copy(e).multiplyScalar(0.48), i.quaternion.copy(s.quaternion);
     }
   }
@@ -595,13 +597,13 @@ class jt {
     for (const t of this.state) {
       const e = new x();
       if (e.position.fromArray([...t.position]), e.userData.piece = t.id, this.groups.set(t.id, e), this.root.add(e), this.add(new W(0.95, 0.95, 0.95, 3, 0.075), this.plastic(), e), t.stickers.length > 1) {
-        const s = new d(...t.position).normalize().negate(), i = this.add(new A(0.13, 0.18, 0.48, 12), this.plastic(3360858), e);
+        const s = new d(...t.position).normalize().negate(), i = this.add(new O(0.13, 0.18, 0.48, 12), this.plastic(3360858), e);
         i.position.copy(s).multiplyScalar(0.52), i.quaternion.setFromUnitVectors(new d(0, 1, 0), s);
         const a = this.add(new mt(0.24, 0.105, 8, 20, Math.PI * 1.55), this.plastic(9283253), e);
         a.position.copy(s).multiplyScalar(0.75), a.quaternion.setFromUnitVectors(new d(0, 0, 1), s);
       }
       for (const s of t.stickers) {
-        const i = new d(...s.normal), a = this.add(new W(0.79, 0.79, 0.042, 3, 0.021), new ft({ color: z[s.color], roughness: 0.3, clearcoat: 0.5, metalness: 0 }), e);
+        const i = new d(...s.normal), a = this.add(new W(0.79, 0.79, 0.042, 3, 0.021), new ft({ color: N[s.color], roughness: 0.3, clearcoat: 0.5, metalness: 0 }), e);
         a.position.copy(i).multiplyScalar(0.488), a.quaternion.setFromUnitVectors(new d(0, 0, 1), i), a.userData.normal = [...s.normal], a.userData.color = s.color;
       }
     }
@@ -609,15 +611,15 @@ class jt {
   }
   pick(t, e) {
     const s = this.renderer.domElement.getBoundingClientRect(), i = new bt();
-    i.setFromCamera(new b((t - s.left) / s.width * 2 - 1, 1 - (e - s.top) / s.height * 2), this.camera);
+    i.setFromCamera(new w((t - s.left) / s.width * 2 - 1, 1 - (e - s.top) / s.height * 2), this.camera);
     const a = i.intersectObjects([...this.groups.values()], !0).find((r) => r.object.userData.normal);
     if (!a) return;
     const n = a.object.userData.normal;
-    return f.find((r) => r.normal.every((c, p) => c === n[p]))?.id;
+    return b.find((r) => r.normal.every((l, p) => l === n[p]))?.id;
   }
   select(t) {
     this.selected = t;
-    const e = f.find((i) => i.id === t), s = new d(...e.normal);
+    const e = b.find((i) => i.id === t), s = new d(...e.normal);
     this.halo.position.copy(s).multiplyScalar(1.53), this.halo.quaternion.setFromUnitVectors(new d(0, 0, 1), s), this.halo.visible = this.turnMode && !this.exploded, this.draw();
   }
   mode(t) {
@@ -675,14 +677,14 @@ class jt {
     for (const [e, s] of this.groups) {
       const i = s.getObjectByName("teacher-glow");
       if (i && (this.dispose(i), s.remove(i)), t.includes(e)) {
-        const a = new $(new F(new Y(1.02, 1.02, 1.02)), new Z({ color: 16770952, depthTest: !1 }));
+        const a = new A(new F(new Y(1.02, 1.02, 1.02)), new Z({ color: 16770952, depthTest: !1 }));
         a.name = "teacher-glow", a.renderOrder = 5, s.add(a);
       }
     }
     this.draw();
   }
   faceCamera(t) {
-    const e = new d(...f.find((s) => s.id === t).normal);
+    const e = new d(...b.find((s) => s.id === t).normal);
     this.camera.up.set(0, 1, 0), t === "U" && this.camera.up.set(0, 0, -1), t === "D" && this.camera.up.set(0, 0, 1), this.camera.position.copy(e).multiplyScalar(9), this.controls.target.set(0, 0, 0), this.controls.update(), this.draw();
   }
   showPiece(t) {
@@ -706,7 +708,7 @@ class jt {
   };
   dispose(t) {
     t.traverse((e) => {
-      (e instanceof C || e instanceof $) && (e.geometry.dispose(), (Array.isArray(e.material) ? e.material : [e.material]).forEach((s) => s.dispose()));
+      (e instanceof $ || e instanceof A) && (e.geometry.dispose(), (Array.isArray(e.material) ? e.material : [e.material]).forEach((s) => s.dispose()));
     });
   }
   destroy() {
@@ -745,26 +747,26 @@ class qt {
     n.width = 960, n.height = 640;
     const r = n.getContext("2d");
     this.stream = n.captureStream(20);
-    const c = ["video/webm;codecs=vp8", "video/mp4", "video/webm"].find((S) => MediaRecorder.isTypeSupported(S));
-    this.recorder = new MediaRecorder(this.stream, c ? { mimeType: c, videoBitsPerSecond: 22e5 } : void 0), this.result = new Promise((S, E) => {
-      this.recorder.ondataavailable = (g) => {
-        g.data.size && this.chunks.push(g.data);
-      }, this.recorder.onstop = () => S(new Blob(this.chunks, { type: this.recorder.mimeType })), this.recorder.onerror = () => E(new Error("錄製未完成，請改用 PNG 與分鏡。"));
+    const l = ["video/webm;codecs=vp8", "video/mp4", "video/webm"].find((m) => MediaRecorder.isTypeSupported(m));
+    this.recorder = new MediaRecorder(this.stream, l ? { mimeType: l, videoBitsPerSecond: 22e5 } : void 0), this.result = new Promise((m, E) => {
+      this.recorder.ondataavailable = (v) => {
+        v.data.size && this.chunks.push(v.data);
+      }, this.recorder.onstop = () => m(new Blob(this.chunks, { type: this.recorder.mimeType })), this.recorder.onerror = () => E(new Error("錄製未完成，請改用 PNG 與分鏡。"));
     });
     let p = 0;
-    const w = (S) => {
+    const g = (m) => {
       if (!this.stopped) {
-        if (S - p >= 50) {
-          p = S, r.clearRect(0, 0, 960, 640);
+        if (m - p >= 50) {
+          p = m, r.clearRect(0, 0, 960, 640);
           const E = Math.max(960 / a.width, 640 / a.height);
           r.drawImage(a, (960 - a.width * E) / 2, (640 - a.height * E) / 2, a.width * E, a.height * E), i();
-          const g = Math.min(960 / t.width, 640 / t.height);
-          r.drawImage(t, (960 - t.width * g) / 2, (640 - t.height * g) / 2, t.width * g, t.height * g), r.fillStyle = "#08172dd9", r.fillRect(200, 18, 560, 52), r.fillStyle = "white", r.font = "bold 25px sans-serif", r.textAlign = "center", r.fillText(s(), 480, 53);
+          const v = Math.min(960 / t.width, 640 / t.height);
+          r.drawImage(t, (960 - t.width * v) / 2, (640 - t.height * v) / 2, t.width * v, t.height * v), r.fillStyle = "#08172dd9", r.fillRect(200, 18, 560, 52), r.fillStyle = "white", r.font = "bold 25px sans-serif", r.textAlign = "center", r.fillText(s(), 480, 53);
         }
-        this.frame = requestAnimationFrame(w);
+        this.frame = requestAnimationFrame(g);
       }
     };
-    this.recorder.start(), this.frame = requestAnimationFrame(w);
+    this.recorder.start(), this.frame = requestAnimationFrame(g);
   }
   async finish() {
     return this.stopped = !0, cancelAnimationFrame(this.frame), this.recorder?.state === "recording" && this.recorder.stop(), this.stream?.getTracks().forEach((t) => t.stop()), this.result;
@@ -773,12 +775,12 @@ class qt {
     this.finish();
   }
 }
-const j = { white: "白", yellow: "黃", red: "紅", orange: "橘", green: "綠", blue: "藍" }, M = (o) => `<i class="ct-swatch" style="background:#${z[o].toString(16)}" aria-label="${j[o]}色"></i>`, _ = { cross: ["白十字", "白色旁的顏色，也要對齊中心。", "找兩色邊塊，把白色送到白中心旁，另一色對齊同色中心。只有白色拼成十字，還不算完成。"], f2l: ["角邊配對", "角塊和邊塊，找到同色的家。", "看三色角塊和兩色邊塊，共有的兩個顏色是一對。把這一對送回同色中心之間，完成白色這側的兩層。"], oll: ["黃色朝外", "先讓黃色，都朝向黃中心。", "前兩層好了。現在看黃色朝哪邊：先讓黃色都朝向黃色中心，側邊顏色還不一定排好。"], pll: ["最後歸位", "顏色方向對了，再換回正確位置。", "黃色面已經好了。比較側邊與中心的顏色，把邊塊和角塊換到自己的家。這段完成後，六面會全部同色。"] }, y = (o, t, e = t) => `<button type="button" data-teach="${o}" aria-label="${t}" title="${t}">${e}</button>`;
+const U = { white: "白", yellow: "黃", red: "紅", orange: "橘", green: "綠", blue: "藍" }, M = (o) => `<i class="ct-swatch" style="background:#${N[o].toString(16)}" aria-label="${U[o]}色"></i>`, _ = { cross: ["白十字", "白色旁的顏色，也要對齊中心。", "找兩色邊塊，把白色送到白中心旁，另一色對齊同色中心。只有白色拼成十字，還不算完成。"], f2l: ["角邊配對", "角塊和邊塊，找到同色的家。", "看三色角塊和兩色邊塊，共有的兩個顏色是一對。把這一對送回同色中心之間，完成白色這側的兩層。"], oll: ["黃色朝外", "先讓黃色，都朝向黃中心。", "前兩層好了。現在看黃色朝哪邊：先讓黃色都朝向黃色中心，側邊顏色還不一定排好。"], pll: ["最後歸位", "顏色方向對了，再換回正確位置。", "黃色面已經好了。比較側邊與中心的顏色，把邊塊和角塊換到自己的家。這段完成後，六面會全部同色。"] }, y = (o, t, e = t) => `<button type="button" data-teach="${o}" aria-label="${t}" title="${t}">${e}</button>`;
 class zt {
   constructor(t, e, s, i, a, n) {
     this.panel = t, this.view = e, this.voice = s, this.badge = i, this.moved = a, this.exit = n, t.addEventListener("click", (r) => {
-      const c = r.target.closest("[data-teach]");
-      c && this.action(c.dataset.teach);
+      const l = r.target.closest("[data-teach]");
+      l && this.action(l.dataset.teach);
     }, { signal: this.abort.signal }), this.load();
   }
   panel;
@@ -828,7 +830,7 @@ class zt {
   }
   startChapter() {
     if (this.step = 0, this.selected = !1, !this.current) {
-      this.screen = "done", this.view.highlight([]), this.view.home(), this.badge.textContent = tt(this.view.state) ? "六面完成！你做到了 ✦" : "再觀察一次", this.panel.innerHTML = `<h3>🌟 六面同色</h3><div class="ct-finish">${f.map((e) => M(e.color)).join("")}</div><p>中心定顏色<br>邊塊 2 色 · 角塊 3 色</p>${y("exit", "自己再試一次", "↶ 自己試")}`, this.say("你完成了！記得，中心決定顏色，邊塊找兩色的家，角塊找三色的家。可以回去打亂，再試一次。");
+      this.screen = "done", this.view.highlight([]), this.view.home(), this.badge.textContent = tt(this.view.state) ? "六面完成！你做到了 ✦" : "再觀察一次", this.panel.innerHTML = `<h3>🌟 六面同色</h3><div class="ct-finish">${b.map((e) => M(e.color)).join("")}</div><p>中心定顏色<br>邊塊 2 色 · 角塊 3 色</p>${y("exit", "自己再試一次", "↶ 自己試")}`, this.say("你完成了！記得，中心決定顏色，邊塊找兩色的家，角塊找三色的家。可以回去打亂，再試一次。");
       return;
     }
     this.screen = "colors";
@@ -843,14 +845,14 @@ class zt {
     if (t)
       if (this.badge.textContent = `${_[t.phase][0]} · 小段 ${this.chapter + 1}/${this.chapters.length}`, this.screen === "colors") {
         const e = [...this.colors];
-        e[e.length - 1] = f.map((r) => r.color).find((r) => !e.includes(r));
+        e[e.length - 1] = b.map((r) => r.color).find((r) => !e.includes(r));
         const s = [...this.colors];
-        s[0] = f.map((r) => r.color).reverse().find((r) => !s.includes(r));
+        s[0] = b.map((r) => r.color).reverse().find((r) => !s.includes(r));
         const i = [this.colors, e, s], a = this.chapter % 3, n = i.slice(a).concat(i.slice(0, a));
-        this.answer = String(n.indexOf(this.colors)), this.panel.innerHTML = `${this.header()}<p class="ct-prompt">這一塊，找哪些中心？</p><div class="ct-piece" aria-label="目標零件的顏色">${this.colors.map(M).join("")}</div><div class="ct-choices">${n.map((r, c) => y(`color-${c}`, `${r.map((p) => j[p]).join("、")}色中心`, r.map(M).join(""))).join("")}</div><p class="ct-feedback" role="status">看亮框，配對顏色</p><small>中心像門牌，不會交換位置。</small>`;
+        this.answer = String(n.indexOf(this.colors)), this.panel.innerHTML = `${this.header()}<p class="ct-prompt">這一塊，找哪些中心？</p><div class="ct-piece" aria-label="目標零件的顏色">${this.colors.map(M).join("")}</div><div class="ct-choices">${n.map((r, l) => y(`color-${l}`, `${r.map((p) => U[p]).join("、")}色中心`, r.map(M).join(""))).join("")}</div><p class="ct-feedback" role="status">看亮框，配對顏色</p><small>中心像門牌，不會交換位置。</small>`;
       } else if (this.screen === "moves") {
-        const e = t.moves[this.step], s = f.find((a) => a.id === e[0]), i = e.endsWith("'") ? "↶" : "↷";
-        this.panel.innerHTML = `${this.header()}<p class="ct-prompt">找這個中心 ${M(s.color)}</p><div class="ct-face-choices">${f.map((a) => y(`face-${a.id}`, `教學：選${a.name}`, M(a.color))).join("")}</div><div class="ct-move-picture" aria-label="${s.name}，${i === "↶" ? "逆" : "順"}時針四分之一圈">${M(s.color)}<b>${i}</b><small>¼ 圈</small></div><div class="ct-direction">${y("left", "教學：逆時針轉一步", "↶")}${y("right", "教學：順時針轉一步", "↷")}</div><p class="ct-feedback" role="status">${this.selected ? "正看這一面，跟箭頭轉" : "先找中心，鏡頭會對正"}</p><small>動作 ${this.step + 1}/${t.moves.length} · 小段完成會檢查</small>`, this.panel.querySelectorAll(".ct-direction button").forEach((a) => a.disabled = !this.selected);
+        const e = t.moves[this.step], s = b.find((a) => a.id === e[0]), i = e.endsWith("'") ? "↶" : "↷";
+        this.panel.innerHTML = `${this.header()}<p class="ct-prompt">找這個中心 ${M(s.color)}</p><div class="ct-face-choices">${b.map((a) => y(`face-${a.id}`, `教學：選${a.name}`, M(a.color))).join("")}</div><div class="ct-move-picture" aria-label="${s.name}，${i === "↶" ? "逆" : "順"}時針四分之一圈">${M(s.color)}<b>${i}</b><small>¼ 圈</small></div><div class="ct-direction">${y("left", "教學：逆時針轉一步", "↶")}${y("right", "教學：順時針轉一步", "↷")}</div><p class="ct-feedback" role="status">${this.selected ? "正看這一面，跟箭頭轉" : "先找中心，鏡頭會對正"}</p><small>動作 ${this.step + 1}/${t.moves.length} · 小段完成會檢查</small>`, this.panel.querySelectorAll(".ct-direction button").forEach((a) => a.disabled = !this.selected);
       } else this.screen === "check" && (this.panel.innerHTML = `${this.header()}<div class="ct-check">✦</div><h3>這一小段完成！</h3><p>${_[t.phase][1]}</p>${y("continue", "繼續下一小段", "→ 繼續")}<small>可以用手轉視角，看看亮框。</small>`);
   }
   feedback(t) {
@@ -872,7 +874,7 @@ class zt {
         this.feedback("再看看，亮框有哪幾個顏色？");
         return;
       }
-      this.screen = "moves", this.render(), this.say(`對了，${this.colors.map((i) => j[i]).join("、")}色中心是它的家。現在照色卡找中心，再跟著箭頭轉。這一小段中間會暫時借位，完成後再檢查。`);
+      this.screen = "moves", this.render(), this.say(`對了，${this.colors.map((i) => U[i]).join("、")}色中心是它的家。現在照色卡找中心，再跟著箭頭轉。這一小段中間會暫時借位，完成後再檢查。`);
       return;
     }
     if (this.screen === "check" && t === "continue") {
@@ -886,7 +888,7 @@ class zt {
         this.feedback("找和提示色卡一樣的中心喔。");
         return;
       }
-      this.selected = !0, this.view.faceCamera(e[0]), this.view.controls.enableRotate = !1, this.view.highlight([...this.current.targets, f.find((i) => i.id === e[0]).normal.join(",")]), this.render(), this.say("找對中心了！鏡頭正看這一面，跟著大箭頭轉四分之一圈。");
+      this.selected = !0, this.view.faceCamera(e[0]), this.view.controls.enableRotate = !1, this.view.highlight([...this.current.targets, b.find((i) => i.id === e[0]).normal.join(",")]), this.render(), this.say("找對中心了！鏡頭正看這一面，跟著大箭頭轉四分之一圈。");
       return;
     }
     if (!["left", "right"].includes(t) || !this.selected) return;
@@ -912,13 +914,13 @@ class zt {
     this.dead = !0, clearTimeout(this.timer), this.worker?.terminate(), this.abort.abort(), this.view.highlight([]), this.view.controls.enableRotate = !0, this.view.camera.up.set(0, 1, 0), this.view.home(), this.panel.remove();
   }
 }
-const h = (o, t, e) => `<button type="button" data-cube="${o}" aria-label="${e}" title="${e}">${t}</button>`, v = [["core", "核心", "6 根軸連著中心，讓各層有旋轉的方向。這是簡化結構示意，不是特定品牌的工程圖。"], ["center", "中心塊", "一種顏色，共 6 塊。中心決定每面的顏色，彼此的位置不會交換。"], ["edge", "邊塊", "兩種顏色，共 12 塊。內側的腳部幫助扣住相鄰零件。"], ["corner", "角塊", "三種顏色，共 8 塊。角塊和邊塊的內側形狀配合，轉動時一起滑動。"]], D = [
+const h = (o, t, e) => `<button type="button" data-cube="${o}" aria-label="${e}" title="${e}">${t}</button>`, S = [["core", "核心", "6 根軸連著中心，讓各層有旋轉的方向。這是簡化結構示意，不是特定品牌的工程圖。"], ["center", "中心塊", "一種顏色，共 6 塊。中心決定每面的顏色，彼此的位置不會交換。"], ["edge", "邊塊", "兩種顏色，共 12 塊。內側的腳部幫助扣住相鄰零件。"], ["corner", "角塊", "三種顏色，共 8 塊。角塊和邊塊的內側形狀配合，轉動時一起滑動。"]], D = [
   { id: "overview", label: "看全貌", voice: "這顆彩色方塊，為什麼轉來轉去都不會散開呢？" },
   { id: "turn", label: "轉一層", voice: "看！右面這一層一起轉，顏色就換了位置。" },
   { id: "explode", label: "拆開看", voice: "拆開看看！裡面有核心，六根軸連著六個中心。" },
-  { id: "core", label: "找核心", voice: v[0][2] },
-  { id: "edge", label: "找邊塊", voice: v[2][2] },
-  { id: "corner", label: "找角塊", voice: v[3][2] },
+  { id: "core", label: "找核心", voice: S[0][2] },
+  { id: "edge", label: "找邊塊", voice: S[2][2] },
+  { id: "corner", label: "找角塊", voice: S[3][2] },
   { id: "assemble", label: "合起來", voice: "再合起來。你也可以轉動、縮放，從不同方向找出方塊的小祕密！" }
 ];
 class It {
@@ -926,7 +928,7 @@ class It {
     this.host = t, t.innerHTML = `<section class="cube-lab" aria-label="魔術方塊工坊">
       <header class="cube-heading">${h("back", "←", "返回實驗星球")}<h2>方塊工坊</h2><div class="cube-header-tools">${h("voice", "🔇", "開啟語音")}${h("replay", "↻", "重聽")}${h("quiz", `<img src="${wt}pencil.png" alt="">`, "考題")}${h("help", "?", "機構、公式與素材")}</div></header>
       <div class="cube-layout"><section class="cube-scene" aria-label="3D 實驗場景"><div class="cube-stage"></div><div class="cube-badge" role="status">用手轉轉看</div><div class="cube-camera">${h("zoom-in", "＋", "放大")}${h("zoom-out", "−", "縮小")}${h("home", "⌂", "正面三面視角")}</div><div class="cube-quiz" hidden></div></section>
-      <aside class="cube-tools"><div class="cube-play-tools"><div class="cube-modes">${h("view", "⤢<small>轉視角</small>", "轉視角模式")}${h("turn", "↶<small>轉一層</small>", "转一層模式")}${h("inspect", "◇<small>拆解</small>", "拆解開關")}</div><div class="cube-face-grid">${f.map((e) => `<button data-face="${e.id}" aria-label="選${e.name}" title="${e.name}" style="--face:#${z[e.color].toString(16).padStart(6, "0")}"><i></i><small>${e.id}</small></button>`).join("")}</div><div class="cube-arrows">${h("ccw", "↶", "選取面逆時針轉四分之一圈")}${h("cw", "↷", "選取面順時針轉四分之一圈")}</div><div class="cube-part-grid" hidden>${v.map((e, s) => h(e[0], `${s + 1}<small>${e[1]}</small>`, e[1])).join("")}${h("all", "◈<small>全部</small>", "顯示全部零件")}</div><p class="cube-explanation">選一個面，再轉轉看</p><div class="cube-bottom-tools">${h("shuffle", "⤨", "打亂")}${h("undo", "↩", "退一步")}${h("reset", "⟲", "重新開始")}${h("demo", "▶", "分鏡導覽")}</div></div><div class="cube-help-tools" hidden><div class="cube-help-tabs">${h("mechanism", "◇", "機構")}${h("formula", "R′", "公式")}${h("hint", "💡", "還原提示")}${h("assets", "▧", "影片素材")}</div><div class="cube-help-content"></div></div><div class="cube-shot-nav" hidden>${h("previous", "‹", "上一鏡")}<span data-shot></span>${h("next", "›", "下一鏡")}${h("stop-demo", "■", "結束導覽")}</div></aside></div>
+      <aside class="cube-tools"><div class="cube-play-tools"><div class="cube-modes">${h("view", "⤢<small>轉視角</small>", "轉視角模式")}${h("turn", "↶<small>轉一層</small>", "转一層模式")}${h("inspect", "◇<small>拆解</small>", "拆解開關")}</div><div class="cube-face-grid">${b.map((e) => `<button data-face="${e.id}" aria-label="選${e.name}" title="${e.name}" style="--face:#${N[e.color].toString(16).padStart(6, "0")}"><i></i><small>${e.id}</small></button>`).join("")}</div><div class="cube-arrows">${h("ccw", "↶", "選取面逆時針轉四分之一圈")}${h("cw", "↷", "選取面順時針轉四分之一圈")}</div><div class="cube-part-grid" hidden>${S.map((e, s) => h(e[0], `${s + 1}<small>${e[1]}</small>`, e[1])).join("")}${h("all", "◈<small>全部</small>", "顯示全部零件")}</div><p class="cube-explanation">選一個面，再轉轉看</p><div class="cube-bottom-tools">${h("shuffle", "⤨", "打亂")}${h("undo", "↩", "退一步")}${h("reset", "⟲", "重新開始")}${h("demo", "▶", "分鏡導覽")}</div></div><div class="cube-help-tools" hidden><div class="cube-help-tabs">${h("mechanism", "◇", "機構")}${h("formula", "R′", "公式")}${h("hint", "💡", "還原提示")}${h("assets", "▧", "影片素材")}</div><div class="cube-help-content"></div></div><div class="cube-shot-nav" hidden>${h("previous", "‹", "上一鏡")}<span data-shot></span>${h("next", "›", "下一鏡")}${h("stop-demo", "■", "結束導覽")}</div></aside></div>
     </section>`, this.root = t.querySelector(".cube-lab"), this.status = this.root.querySelector(".cube-badge"), this.explanation = this.root.querySelector(".cube-explanation"), this.view = new jt(this.root.querySelector(".cube-stage")), this.view.onFace = (e) => {
       this.teacher || (this.face = e, this.update());
     }, this.view.onDragTurn = (e) => {
@@ -935,7 +937,7 @@ class It {
       const s = e.target.closest("button");
       if (s) {
         if (s.dataset.face) {
-          this.face = s.dataset.face, this.setMode("turn"), this.update(), this.tell(`${f.find((i) => i.id === this.face).name}。箭頭以正看這一面為準。`);
+          this.face = s.dataset.face, this.setMode("turn"), this.update(), this.tell(`${b.find((i) => i.id === this.face).name}。箭頭以正看這一面為準。`);
           return;
         }
         if (s.dataset.answer) {
@@ -1046,11 +1048,11 @@ class It {
           await this.setMode("turn");
           const e = ++this.sequence;
           for (let s = 0; s < 8 && !this.dead && e === this.sequence; s++)
-            await this.turn(f[Math.floor(Math.random() * 6)].id + (Math.random() < 0.5 ? "'" : ""));
+            await this.turn(b[Math.floor(Math.random() * 6)].id + (Math.random() < 0.5 ? "'" : ""));
           this.tell("換你挑戰！點教我還原，先認顏色，再一步一步學解法。", "打亂完成 · 換你試試");
-        } else if (v.some((e) => e[0] === t)) {
+        } else if (S.some((e) => e[0] === t)) {
           this.view.exploded || await this.setMode("inspect");
-          const e = v.find((s) => s[0] === t);
+          const e = S.find((s) => s[0] === t);
           this.view.focusPart(e[0]), e[0] === "core" ? this.view.focusCore() : this.view.home(), this.tell(e[2], e[1]);
         } else if (t === "all")
           this.view.showAll(), this.view.home();
@@ -1079,7 +1081,7 @@ class It {
   }
   help(t) {
     const e = this.root.querySelector(".cube-help-content");
-    this.root.querySelectorAll("[data-cube=mechanism],[data-cube=formula],[data-cube=hint],[data-cube=assets]").forEach((s) => s.setAttribute("aria-pressed", String(s.dataset.cube === t))), t === "mechanism" && (e.innerHTML = `<h3>裡面的小祕密</h3><div class="cube-part-grid">${v.map((s, i) => h(s[0], `${i + 1}<small>${s[1]}</small>`, s[1])).join("")}</div>${h("inspect", "◇ 拆開", "拆解開關")}<p class="cube-part-caption">簡化結構示意</p>`, this.tell("先拆開，再選核心、中心塊、邊塊或角塊，就可以分開觀察。")), t === "formula" && (e.innerHTML = `<h3>跟著轉一次</h3><div class="cube-formula">R → U<br>R′ → U′</div>${h("formula-play", "▶", "播放四步公式")}<p>正看該面：↷ 順轉<br>′ 反轉 · 2 半圈</p><small>這是動作練習，不是万能解法。</small>`, this.tell("R 是右面，U 是上面。正看那一面，順時針轉四分之一圈；多一撇是反方向。順序不同，結果也不同。")), t === "hint" && (e.innerHTML = `<h3>看顏色，學解法</h3>${h("teach", "💡 教我還原", "教我還原")}<p>白十字 → 角邊配對<br>黃色朝外 → 最後歸位</p><small>依目前顏色安排，不是倒放紀錄。</small>`, this.tell("看現在的顏色，找到每一塊的家。從白十字开始，一小段一小段學，不用先背長公式。")), t === "assets" && (e.innerHTML = `<h3>共用素材</h3>${h("capture", "▧ 物件圖", "匯出透明物件圖")}${h("demo", "▶ 分鏡", "分鏡導覽")}${h("record", "● 示範影片", "錄製無聲示範影片")}<a href="data/experiments/cube-mechanism-v1/playback.json" download>分鏡與語音腳本</a><a href="images/experiments/shared-classroom/v1/classroom.png" download>教室底圖</a><small>影片不含裝置語音，配音腳本另附。</small>`, this.tell("教室底圖、透明物件圖、分鏡和語音腳本，可以分開使用。"));
+    this.root.querySelectorAll("[data-cube=mechanism],[data-cube=formula],[data-cube=hint],[data-cube=assets]").forEach((s) => s.setAttribute("aria-pressed", String(s.dataset.cube === t))), t === "mechanism" && (e.innerHTML = `<h3>裡面的小祕密</h3><div class="cube-part-grid">${S.map((s, i) => h(s[0], `${i + 1}<small>${s[1]}</small>`, s[1])).join("")}</div>${h("inspect", "◇ 拆開", "拆解開關")}<p class="cube-part-caption">簡化結構示意</p>`, this.tell("先拆開，再選核心、中心塊、邊塊或角塊，就可以分開觀察。")), t === "formula" && (e.innerHTML = `<h3>跟著轉一次</h3><div class="cube-formula">R → U<br>R′ → U′</div>${h("formula-play", "▶", "播放四步公式")}<p>正看該面：↷ 順轉<br>′ 反轉 · 2 半圈</p><small>這是動作練習，不是万能解法。</small>`, this.tell("R 是右面，U 是上面。正看那一面，順時針轉四分之一圈；多一撇是反方向。順序不同，結果也不同。")), t === "hint" && (e.innerHTML = `<h3>看顏色，學解法</h3>${h("teach", "💡 教我還原", "教我還原")}<p>白十字 → 角邊配對<br>黃色朝外 → 最後歸位</p><small>依目前顏色安排，不是倒放紀錄。</small>`, this.tell("看現在的顏色，找到每一塊的家。從白十字开始，一小段一小段學，不用先背長公式。")), t === "assets" && (e.innerHTML = `<h3>共用素材</h3>${h("capture", "▧ 物件圖", "匯出透明物件圖")}${h("demo", "▶ 分鏡", "分鏡導覽")}${h("record", "● 示範影片", "錄製無聲示範影片")}<a href="data/experiments/cube-mechanism-v1/playback.json" download>分鏡與語音腳本</a><a href="images/experiments/shared-classroom/v1/classroom.png" download>教室底圖</a><small>影片不含裝置語音，配音腳本另附。</small>`, this.tell("教室底圖、透明物件圖、分鏡和語音腳本，可以分開使用。"));
   }
   async record() {
     this.recording = !0;

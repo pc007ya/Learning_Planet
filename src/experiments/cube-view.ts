@@ -19,6 +19,8 @@ export class CubeView {
     this.renderer.setClearColor(0x000000,0);this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=T.PCFSoftShadowMap;
     this.renderer.domElement.setAttribute('aria-label','可轉動與縮放的魔術方塊');stage.append(this.renderer.domElement);
     this.camera.position.set(6,4.5,7);this.scene.add(this.root);
+    // A camera-side fill keeps underside/back stickers readable for color lessons.
+    const readingLight=new T.DirectionalLight(0xffffff,2);readingLight.position.set(0,1,0);this.camera.add(readingLight);this.scene.add(this.camera);
     this.scene.add(new T.HemisphereLight(0xf2f8ff,0x3a486b,2));
     const key=new T.DirectionalLight(0xfff3da,3);key.position.set(-4,7,8);key.castShadow=true;key.shadow.mapSize.set(1024,1024);key.shadow.camera.left=-5;key.shadow.camera.right=5;key.shadow.camera.top=5;key.shadow.camera.bottom=-5;key.shadow.bias=-.002;this.scene.add(key);
     const fill=new T.DirectionalLight(0x6bd9ff,1.2);fill.position.set(5,2,-3);this.scene.add(fill);
