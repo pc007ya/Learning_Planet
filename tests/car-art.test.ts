@@ -26,6 +26,8 @@ describe('original car artwork and illustrated questions', () => {
     expect(shell.children.length).toBeGreaterThan(30);
     expect(shell.children.some(child => (child as T.Mesh).material instanceof T.MeshPhysicalMaterial)).toBe(true);
     expect(shell.children.filter(child => (child as T.Mesh).geometry.type === 'BufferGeometry')).toHaveLength(6);
+    const front = shell.getObjectByName('front-glazing') as T.Mesh;
+    expect(new T.Box3().setFromObject(front).min.x).toBeGreaterThan(.44);
     shell.traverse(child => { if (child instanceof T.Mesh) { child.geometry.dispose(); (child.material as T.Material).dispose(); } });
   });
   it('offers picture choices, screen-reader labels and explicit question narration', () => {

@@ -28,6 +28,7 @@ describe('child-friendly car modes', () => {
     const { model } = setup(); model.setCarMode('test'); model.setCar(1, 3.6, true);
     expect(model.root.position.x).toBeCloseTo(1.8);
     model.setCarMode('rotate'); expect(model.mode).toBe('whole'); expect(model.root.position.x).toBe(0);
+    expect(model.yaw).toBe(-.55);
   });
   it('can turn every mode off without leaving an exploded model', () => {
     const { model, host } = setup(); model.setCarMode('explode'); model.setCarMode('idle');

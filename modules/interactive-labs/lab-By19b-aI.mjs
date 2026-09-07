@@ -22117,7 +22117,7 @@ function zm(i) {
     const u = new Da([new C(-0.49, 0.51, 0.802 * c), new C(-0.49, -0.1, 0.802 * c), new C(0.48, -0.1, 0.802 * c), new C(0.64, 0.5, 0.802 * c)]);
     n(new Ds(u, 28, 7e-3, 4, !1), e(1466744));
   }
-  o([[0.8, 0.65, -0.54], [0.8, 0.65, 0.54], [0.34, 1.28, 0.54], [0.34, 1.28, -0.54]]), o([[-1.34, 0.65, 0.53], [-1.34, 0.65, -0.53], [-1, 1.28, -0.53], [-1, 1.28, 0.53]]), s(1.6, 0.07, 1.4, 1518902, -0.33, 1.38), s(1.65, 0.15, 1.44, 16249055, -0.33, 1.45);
+  o([[0.9, 0.65, -0.54], [0.9, 0.65, 0.54], [0.46, 1.28, 0.54], [0.46, 1.28, -0.54]]).name = "front-glazing", o([[-1.43, 0.65, 0.53], [-1.43, 0.65, -0.53], [-1.1, 1.28, -0.53], [-1.1, 1.28, 0.53]]).name = "rear-glazing", s(1.6, 0.07, 1.4, 1518902, -0.33, 1.38), s(1.65, 0.15, 1.44, 16249055, -0.33, 1.45);
   for (const c of [-0.2, 0.2]) s(0.81, 0.015, 0.1, 15855324, 1.2, 0.59, c);
   for (const c of [-0.5, 0.5]) {
     const l = n(new On(0.18, 24, 16), e(16774350, 0.45), 1.985, 0.25, c);
@@ -22237,7 +22237,7 @@ class km {
   pullValue = 0.5;
   dragPull = 0.5;
   setCarMode(t) {
-    this.kind === "car" && (this.dragging = null, this.carMode = t, this.host.dataset.carMode = t, this.setMode(t === "explode" ? "explode" : "whole"), t === "test" && (this.yaw = 0, this.amount = 0), this.root.position.x = t === "test" ? -this.pullValue * 1.8 : 0, this.host.querySelectorAll("[data-car-mode]").forEach((e) => e.setAttribute("aria-checked", String(e.dataset.carMode === t))), this.host.querySelector(".il-live").textContent = t === "test" ? "側面就位！向左拉車，放手出發。" : t === "explode" ? "點零件聽祕密，也能用手轉方向。" : t === "idle" ? "選一個開關，開始探索！" : "用手左右拖，看看車子的每一面。", this.wake());
+    this.kind === "car" && (this.carMode === "test" && t !== "test" && (this.yaw = -0.55), this.dragging = null, this.carMode = t, this.host.dataset.carMode = t, this.setMode(t === "explode" ? "explode" : "whole"), t === "test" && (this.yaw = 0, this.amount = 0), this.root.position.x = t === "test" ? -this.pullValue * 1.8 : 0, this.host.querySelectorAll("[data-car-mode]").forEach((e) => e.setAttribute("aria-checked", String(e.dataset.carMode === t))), this.host.querySelector(".il-live").textContent = t === "test" ? "側面就位！向左拉車，放手出發。" : t === "explode" ? "點零件聽祕密，也能用手轉方向。" : t === "idle" ? "選一個開關，開始探索！" : "用手左右拖，看看車子的每一面。", this.wake());
   }
   material(t, e = 0.1, n = 0.32) {
     return new gi({ color: t, metalness: e, roughness: n });

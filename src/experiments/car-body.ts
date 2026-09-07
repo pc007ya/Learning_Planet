@@ -40,8 +40,9 @@ export function buildCarBody(shell: T.Group) {
     add(new T.TubeGeometry(seam,28,.007,4,false),material(0x166178));
   }
   // Front and rear glazing have their own tilted planes, not a side-window sticker.
-  patch([[.80,.65,-.54],[.80,.65,.54],[.34,1.28,.54],[.34,1.28,-.54]]);
-  patch([[-1.34,.65,.53],[-1.34,.65,-.53],[-1.00,1.28,-.53],[-1.00,1.28,.53]]);
+  // Keep glazing outside the beveled cabin surface so the paint cannot hide it.
+  patch([[.90,.65,-.54],[.90,.65,.54],[.46,1.28,.54],[.46,1.28,-.54]]).name='front-glazing';
+  patch([[-1.43,.65,.53],[-1.43,.65,-.53],[-1.10,1.28,-.53],[-1.10,1.28,.53]]).name='rear-glazing';
   box(1.60,.07,1.40,0x172d36,-.33,1.38);
   box(1.65,.15,1.44,0xf7f0df,-.33,1.45);
   for (const z of [-.20,.20]) box(.81,.015,.10,0xf1eedc,1.20,.59,z);

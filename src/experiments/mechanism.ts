@@ -98,6 +98,7 @@ export class Mechanism {
   }
   setCarMode(mode: 'idle' | 'rotate' | 'explode' | 'test') {
     if (this.kind !== 'car') return;
+    if (this.carMode === 'test' && mode !== 'test') this.yaw = -.55;
     this.dragging = null; this.carMode = mode; this.host.dataset.carMode = mode;
     this.setMode(mode === 'explode' ? 'explode' : 'whole');
     if (mode === 'test') { this.yaw = 0; this.amount = 0; }
