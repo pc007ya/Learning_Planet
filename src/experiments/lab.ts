@@ -285,7 +285,7 @@ export class InteractiveLab {
     if (this.active && this.kind === 'clock') {
       const demo=advanceClockDemo(this.demoElapsed,realDt,this.clockSpeed);this.demoElapsed=demo.elapsed;this.minutes=demo.minutes;
       const cue=Math.min(3,Math.floor(demo.elapsed/20));
-      if(cue!==this.demoCue){this.demoCue=cue;this.host.querySelector('.mech-quick-info')!.innerHTML=['<strong>馬達 → 齒輪</strong><p>跟著綠色齒輪看，馬達經三段減速，帶動長分針。</p>','<strong>分針正在走</strong><p>先慢三倍，再慢四倍，再慢五倍。馬達六十圈，長分針一圈。</p>','<strong>看看短時針</strong><p>金色齒輪再減速十二倍，帶動短時針。</p>','<strong>✓ 一小時！</strong><p>分針一圈，時針一大格。</p>'][cue];}
+      if(cue!==this.demoCue){this.demoCue=cue;this.host.querySelector('.mech-quick-info')!.innerHTML=['<strong>馬達 → 齒輪</strong><p>跟著不同顏色的齒輪看，馬達經三段減速，帶動長分針。</p>','<strong>分針正在走</strong><p>先慢三倍，再慢四倍，再慢五倍。馬達六十圈，長分針一圈。</p>','<strong>看看短時針</strong><p>後段齒輪再減速十二倍，帶動短時針。</p>','<strong>✓ 一小時！</strong><p>分針一圈，時針一大格。</p>'][cue];}
       if(demo.done){this.active=false;this.record('一小時示範完成：分針轉一圈，時針轉 30 度，前進一大格。');this.status.textContent='✓ 已走 1 小時';}
       this.updateClock();
     }

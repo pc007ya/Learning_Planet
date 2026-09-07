@@ -3,6 +3,7 @@ import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.j
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { buildCarBody } from './car-body';
 import { clockTrain,clockDrive,CLOCK_DRIVE_GEARS } from './clock-demo';
+import { CLOCK_AXES, DRIVE_AXIS_COLORS } from './clock-axes';
 
 export type ViewMode = 'whole' | 'xray' | 'explode';
 export const PARTS = {
@@ -11,7 +12,7 @@ export const PARTS = {
     ['glass','透明鏡片','擋住灰塵，讓我們看得到時間。','拆開後，鏡片在最前面。'],
     ['dial','刻度盤','12 個大刻度，幫我們讀出幾點。','每相鄰兩個數字相差 5 分鐘。'],
     ['hands','時針與分針','長分針走一圈，短時針走一大格。','試試下方「+1 時」圖示。'],
-    ['gears','傳動齒輪','馬達經三段減速帶動分針，再經兩段減速帶動時針。','綠色輪系減速 60 倍；金色輪系再減速 12 倍。各級齒輪與同軸連接完整，為教學設計而非品牌機芯。'],
+    ['gears','傳動齒輪','馬達經三段減速帶動分針，再經兩段減速帶動時針。','前段減速 60 倍；後段再減速 12 倍。同色同軸一起轉；長短針各自轉動。各級齒輪與同軸連接完整，為教學設計而非品牌機芯。'],
     ['motor','線圈與馬達','收到電路的節拍，就推動齒輪轉動。','銅色線圈把電能轉成轉動。'],
     ['quartz','石英與電路','像小小節拍器，幫忙維持規律節奏。','石英不是電池；它負責穩定節拍。'],
     ['battery','電池','供應石英鐘需要的電能。','這是電池式石英鐘，不是上發條的機械鐘。'],
@@ -171,18 +172,19 @@ export class Mechanism {
     this.mesh(new T.CircleGeometry(1.6,96),0xf8f1df,dial,0,0,-.006);
     const face=this.mesh(new T.CircleGeometry(1.6,96),0xffffff,dial);face.name='clock-marks';face.material.map=texture;face.material.roughness=.7;face.material.side=T.DoubleSide;
     const hands=this.part('hands',[0,0,.57],[2.6,-.2,1.1]);hands.add(this.handMinute,this.handHour);
-    this.box(.075,1.31,.04,0x158ea0,this.handMinute,0,.55,.07);this.box(.13,.92,.05,0xb18435,this.handHour,0,.34,.02);this.disk(.10,.12,0xe5bd65,hands,0,0,.13);
+    const color=(hex:string)=>Number(hex.replace('#','0x'));
+    this.box(.075,1.31,.04,color(CLOCK_AXES.minute),this.handMinute,0,.55,.07);this.box(.13,.92,.05,color(CLOCK_AXES.hour),this.handHour,0,.34,.02);this.disk(.10,.12,0xe5bd65,hands,0,0,.13);
     const gears=this.part('gears',[0,0,.08],[.05,.5,.1]);
-    this.gear(.20,12,gears,0,0,.19,0x21c0db);
-    this.gear(.60,36,gears,.8,0,.19,0xe8c271);
-    this.gear(.16,10,gears,.8,0,-.04,0xe8c271);
-    this.compoundTag=document.createElement('span');this.compoundTag.className='clock-compound-tag';this.compoundTag.textContent='10T · 同軸';this.stage.append(this.compoundTag);
-    this.gear(.64,40,gears,0,0,-.04,0xe6a947);
+    this.gear(.20,12,gears,0,0,.19,color(CLOCK_AXES.minute));
+    this.gear(.60,36,gears,.8,0,.19,color(CLOCK_AXES.compound));
+    this.gear(.16,10,gears,.8,0,-.04,color(CLOCK_AXES.compound));
+    this.compoundTag=document.createElement('span');this.compoundTag.className='clock-compound-tag';this.compoundTag.textContent='36T＋10T · 同軸';this.compoundTag.style.borderColor=CLOCK_AXES.compound;this.stage.append(this.compoundTag);
+    this.gear(.64,40,gears,0,0,-.04,color(CLOCK_AXES.hour));
     this.disk(.055,.45,0xcdd9e8,gears,.8,0,.1);
     const motor=this.part('motor',[-1.08,-1.16,.04],[-1.5,-1.25,.35]);this.box(.50,.22,.20,0xb76632,motor);for(let i=0;i<16;i++)this.mesh(new T.TorusGeometry(.12,.01,6,20),0xe5a17a,motor,-.23+i*.03,0,0,.8).rotation.y=Math.PI/2;this.disk(.16,.08,0x969da6,motor,0,.20,-.43);
     // The motor pinion belongs to the motor in the BOM and during disassembly.
-    CLOCK_DRIVE_GEARS.forEach((s,i)=>{if(i===0)this.gear(s.r,s.teeth,motor,0,.20,-.38,0x77efbd);else this.gear(s.r,s.teeth,gears,s.x,s.y,s.z,0x77efbd);});
-    for(const label of ['馬達12T','36T','48T','60T']){const tag=document.createElement('span');tag.className='clock-compound-tag clock-drive-tag';tag.textContent=label;this.stage.append(tag);this.driveTags.push(tag);}
+    CLOCK_DRIVE_GEARS.forEach((s,i)=>{if(i===0)this.gear(s.r,s.teeth,motor,0,.20,-.38,color(DRIVE_AXIS_COLORS[i]));else this.gear(s.r,s.teeth,gears,s.x,s.y,s.z,color(DRIVE_AXIS_COLORS[i]));});
+    ['馬達12T','36T＋12T · 同軸','48T＋12T · 同軸','60T＋12T · 同軸長針','40T · 同軸短針'].forEach((label,i)=>{const tag=document.createElement('span');tag.className='clock-compound-tag clock-drive-tag';tag.textContent=label;tag.style.borderColor=[CLOCK_AXES.motor,CLOCK_AXES.first,CLOCK_AXES.second,CLOCK_AXES.minute,CLOCK_AXES.hour][i];tag.style.color='white';this.stage.append(tag);this.driveTags.push(tag);});
     // Coaxial shafts join each large gear to its next-stage pinion, and the 60T to the minute shaft.
     for(const [x,y,z,d] of [[-1.08,-.48,-.31,.28],[-.72,0,-.09,.28],[0,0,.10,.26]])this.disk(.025,d,0xcdd9e8,gears,x,y,z);
     this.disk(.025,.40,0xcdd9e8,gears,0,0,.39); // minute spindle reaches the long hand
@@ -243,7 +245,7 @@ export class Mechanism {
     if(w&&h){const reserve=this.kind==='clock'&&this.stage.querySelector('.mech-bom[open]')?260:0;const leftPanel=this.kind==='clock'?this.stage.querySelector<HTMLElement>('.clock-transmission[open]'):null;const leftReserve=leftPanel?leftPanel.offsetWidth+20:0;const span=this.kind==='clock'?2.6+this.amount*3.3:this.carMode==='test'?5.8:3.3+this.amount*1.4;const halfHeight=Math.max(this.kind==='clock'?2.45+this.amount*.9:2.35+this.amount*.95,span*h/Math.max(280,w-reserve-leftReserve))/(this.zoom||1);const halfWidth=halfHeight*w/h,center=this.kind==='car'?(this.carMode==='test'?-.445+.28*halfHeight:.45):0,offset=halfWidth*(reserve-leftReserve)/w;this.camera.left=-halfWidth+offset;this.camera.right=halfWidth+offset;this.camera.top=halfHeight+center;this.camera.bottom=-halfHeight+center;this.camera.updateProjectionMatrix();}
     this.parts.forEach(p=>{p.group.position.copy(p.home).lerp(p.away,this.amount);if(p.id==='wheels')p.group.children.forEach(w=>{w.position.z=(w.userData.side||1)*(.88+this.amount*.75);});});
     this.root.updateMatrixWorld(true);
-    this.driveTags?.forEach((tag,i)=>{tag.hidden=!this.clockPeek&&this.mode!=='explode';const p=this.gears[[4,5,7,9][i]].getWorldPosition(new T.Vector3()).project(this.camera);const offsets=[[-25,18],[-55,-22],[-55,-35],[15,-48]];tag.style.left=`${(p.x+1)*w/2+offsets[i][0]}px`;tag.style.top=`${(1-p.y)*h/2+offsets[i][1]}px`;});
+    this.driveTags?.forEach((tag,i)=>{tag.hidden=!this.clockPeek&&this.mode!=='explode';const p=this.gears[[4,5,7,9,3][i]].getWorldPosition(new T.Vector3()).project(this.camera);const offsets=[[-25,18],[-105,-22],[-105,-35],[15,-75],[15,65]];tag.style.left=`${(p.x+1)*w/2+offsets[i][0]}px`;tag.style.top=`${(1-p.y)*h/2+offsets[i][1]}px`;});
     if(this.compoundTag){this.compoundTag.hidden=!this.clockPeek&&this.mode!=='explode';const p=this.gears[2].getWorldPosition(new T.Vector3()).project(this.camera);this.compoundTag.style.left=`${(p.x+1)*w/2+14}px`;this.compoundTag.style.top=`${(1-p.y)*h/2+14}px`;}
     if(this.halo) {
       const part=this.parts.find(p=>p.id===this.selected);

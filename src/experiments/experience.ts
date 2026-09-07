@@ -82,7 +82,7 @@ export class LabExperience {
     this.dialog.addEventListener('close', () => this.stop(), { signal: this.abort.signal });
     host.addEventListener('click', e => {
       const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button');
-      if (kind === 'clock' && b?.hasAttribute('data-rpm-read')) this.say('十字標記是馬達轉子。跟著綠色齒輪看：馬達十二齒帶三十六齒，慢三倍；同軸十二齒再帶四十八齒，慢四倍；再由同軸十二齒帶六十齒，慢五倍。六十齒的軸接著長分針，所以馬達六十圈，長分針一圈。接著看金色輪系：藍色十二齒帶三十六齒，同軸十齒帶四十齒，再慢十二倍，帶動短時針。RPM 是每分鐘轉幾圈。這是完整的教學傳動設計，不是特定品牌機芯。',true);
+      if (kind === 'clock' && b?.hasAttribute('data-rpm-read')) this.say('十字標記是馬達轉子。同色齒輪同軸一起轉。跟著齒輪看：馬達十二齒帶三十六齒，慢三倍；同軸十二齒再帶四十八齒，慢四倍；再由同軸十二齒帶六十齒，慢五倍。六十齒的軸接著長分針，所以馬達六十圈，長分針一圈。接著看指針輪系：藍色十二齒帶三十六齒，同軸十齒帶四十齒，再慢十二倍，帶動短時針。RPM 是每分鐘轉幾圈。這是完整的教學傳動設計，不是特定品牌機芯。',true);
       if (kind === 'car' && b?.hasAttribute('data-car-read')) this.say(`${LAB_SPECS.car.question}。點選圖片：彈簧、車子的顏色，還是空氣？`, true);
       if (b?.dataset.view) this.say(b.dataset.view === 'whole' ? '合起來！看看完整的外觀，也可以拖動模型來操作。' : b.dataset.view === 'xray' ? '透視眼開啟！外殼變透明了，點零件聽聽它的工作。' : '零件出任務！拆開後，點數字或零件名稱，一起找出它的小祕密。');
       if (b?.dataset.action === 'reset') this.say('重新準備好了！試著只改一個條件，再觀察一次。');

@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 
 describe('compact clock workspace', () => {
   it('puts icon switches in the heading and exposes the hidden coaxial pinion',()=>{
-    const code=readFileSync('src/experiments/mechanism.ts','utf8');expect(code).toContain("host.querySelector('.bp-heading')!.append(tools.firstElementChild!);tools.remove()");expect(code).toContain("this.kind==='clock'&&teeth>=36");expect(code).toContain('10T · 同軸');
+    const code=readFileSync('src/experiments/mechanism.ts','utf8');expect(code).toContain("host.querySelector('.bp-heading')!.append(tools.firstElementChild!);tools.remove()");expect(code).toContain("this.kind==='clock'&&teeth>=36");expect(code).toContain('36T＋10T · 同軸');
   });
   it('reserves space for an open BOM without moving the model parts', () => {
     let open=false;
