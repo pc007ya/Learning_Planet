@@ -67,7 +67,7 @@ body:has(.il-shell) { background:linear-gradient(135deg,rgba(3,9,30,.85),rgba(14
 .il-voice-state { font-size:12px; }
 .il-discovery-dialog { color:white;background:linear-gradient(145deg,#0b234bed,#251c4cf5);border:1px solid #93defa;border-radius:28px;width:min(650px,85vw);max-height:80svh;padding:22px;box-shadow:0 24px 80px #0009; }
 .il-discovery-dialog::backdrop { background:#010817a6;backdrop-filter:blur(8px); }
-.il-discovery-dialog [hidden] { display:none!important; }.il-dialog-close { display:block;margin:0 0 18px auto; }
+.il-discovery-dialog [hidden] { display:none!important; }.il-dialog-tools { display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px; }.il-dialog-close { margin-left:auto; }
 .il-discovery-dialog .il-panel { margin:0;padding:12px;border:0;background:transparent;box-shadow:none; }
 .il-discovery-dialog details { margin:16px 0; }.il-discovery-dialog summary { min-height:44px;cursor:pointer; }
 @media(min-width:900px) and (min-height:600px) and (orientation:landscape) {

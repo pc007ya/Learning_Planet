@@ -15,7 +15,7 @@ export class LabExperience {
     nav.innerHTML = '<button data-helper="voice" aria-pressed="false">🔊 開始語音陪玩</button><button data-helper="replay">🗣 再講一次</button><button data-helper="notes">📒 發現筆記</button><button data-helper="quiz">🌟 小挑戰</button><button data-helper="help">💡 怎麼玩</button><span class="il-voice-state" role="status">點一下，開啟語音</span>';
     host.prepend(nav); this.voiceButton = nav.querySelector('[data-helper="voice"]')!;
     this.dialog = document.createElement('dialog'); this.dialog.className = 'il-discovery-dialog'; this.dialog.setAttribute('aria-label', '實驗探索卡');
-    this.dialog.innerHTML = '<button class="il-dialog-close" type="button">✦ 回去玩</button><div data-dialog-body></div>';
+    this.dialog.innerHTML = '<div class="il-dialog-tools"><button data-dialog-replay type="button">🔊 重聽這張卡</button><button data-dialog-stop type="button">⏸ 停止講解</button><button class="il-dialog-close" type="button">✦ 回去玩</button></div><div data-dialog-body></div>';
     host.append(this.dialog);
     const help = document.createElement('section'); help.className = 'il-help';
     help.innerHTML = `<h3>一起來探索！</h3><p>${LAB_SPECS[kind].objective}</p>`;
@@ -41,7 +41,9 @@ export class LabExperience {
         this.dialog.showModal(); this.say(panels[index].textContent || '');
       }
     }, { signal: this.abort.signal });
-    this.dialog.querySelector('button')!.addEventListener('click', () => this.dialog.close(), { signal: this.abort.signal });
+    this.dialog.querySelector('.il-dialog-close')!.addEventListener('click', () => this.dialog.close(), { signal: this.abort.signal });
+    this.dialog.querySelector('[data-dialog-replay]')!.addEventListener('click', () => this.say(panels.find(p => !p.hasAttribute('hidden'))?.textContent || '', true), { signal: this.abort.signal });
+    this.dialog.querySelector('[data-dialog-stop]')!.addEventListener('click', () => { this.stop(); this.voiceState('講解已停止'); }, { signal: this.abort.signal });
     this.dialog.addEventListener('close', () => this.stop(), { signal: this.abort.signal });
     host.addEventListener('click', e => {
       const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button');

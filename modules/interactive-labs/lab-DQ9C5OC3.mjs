@@ -22263,7 +22263,7 @@ class nf {
   constructor(t, e) {
     this.host = t, t.classList.add("il-workspace");
     const n = document.createElement("nav");
-    n.className = "il-mission-nav", n.setAttribute("aria-label", "實驗小幫手"), n.innerHTML = '<button data-helper="voice" aria-pressed="false">🔊 開始語音陪玩</button><button data-helper="replay">🗣 再講一次</button><button data-helper="notes">📒 發現筆記</button><button data-helper="quiz">🌟 小挑戰</button><button data-helper="help">💡 怎麼玩</button><span class="il-voice-state" role="status">點一下，開啟語音</span>', t.prepend(n), this.voiceButton = n.querySelector('[data-helper="voice"]'), this.dialog = document.createElement("dialog"), this.dialog.className = "il-discovery-dialog", this.dialog.setAttribute("aria-label", "實驗探索卡"), this.dialog.innerHTML = '<button class="il-dialog-close" type="button">✦ 回去玩</button><div data-dialog-body></div>', t.append(this.dialog);
+    n.className = "il-mission-nav", n.setAttribute("aria-label", "實驗小幫手"), n.innerHTML = '<button data-helper="voice" aria-pressed="false">🔊 開始語音陪玩</button><button data-helper="replay">🗣 再講一次</button><button data-helper="notes">📒 發現筆記</button><button data-helper="quiz">🌟 小挑戰</button><button data-helper="help">💡 怎麼玩</button><span class="il-voice-state" role="status">點一下，開啟語音</span>', t.prepend(n), this.voiceButton = n.querySelector('[data-helper="voice"]'), this.dialog = document.createElement("dialog"), this.dialog.className = "il-discovery-dialog", this.dialog.setAttribute("aria-label", "實驗探索卡"), this.dialog.innerHTML = '<div class="il-dialog-tools"><button data-dialog-replay type="button">🔊 重聽這張卡</button><button data-dialog-stop type="button">⏸ 停止講解</button><button class="il-dialog-close" type="button">✦ 回去玩</button></div><div data-dialog-body></div>', t.append(this.dialog);
     const s = document.createElement("section");
     s.className = "il-help", s.innerHTML = `<h3>一起來探索！</h3><p>${Vn[e].objective}</p>`;
     const r = t.querySelector(".il-controls > p:last-child");
@@ -22289,7 +22289,9 @@ class nf {
         if (f < 0) return;
         l.forEach((g, v) => g.toggleAttribute("hidden", v !== f)), this.dialog.showModal(), this.say(l[f].textContent || "");
       }
-    }, { signal: this.abort.signal }), this.dialog.querySelector("button").addEventListener("click", () => this.dialog.close(), { signal: this.abort.signal }), this.dialog.addEventListener("close", () => this.stop(), { signal: this.abort.signal }), t.addEventListener("click", (h) => {
+    }, { signal: this.abort.signal }), this.dialog.querySelector(".il-dialog-close").addEventListener("click", () => this.dialog.close(), { signal: this.abort.signal }), this.dialog.querySelector("[data-dialog-replay]").addEventListener("click", () => this.say(l.find((h) => !h.hasAttribute("hidden"))?.textContent || "", !0), { signal: this.abort.signal }), this.dialog.querySelector("[data-dialog-stop]").addEventListener("click", () => {
+      this.stop(), this.voiceState("講解已停止");
+    }, { signal: this.abort.signal }), this.dialog.addEventListener("close", () => this.stop(), { signal: this.abort.signal }), t.addEventListener("click", (h) => {
       const d = h.target.closest("button");
       d?.dataset.view && this.say(d.dataset.view === "whole" ? "合起來！看看完整的外觀，也可以拖動模型來操作。" : d.dataset.view === "xray" ? "透視眼開啟！外殼變透明了，點零件聽聽它的工作。" : "零件出任務！拆開後，點數字或零件名稱，一起找出它的小祕密。"), d?.dataset.action === "reset" && this.say("重新準備好了！試著只改一個條件，再觀察一次。");
     }, { signal: this.abort.signal }), t.addEventListener("change", (h) => {
