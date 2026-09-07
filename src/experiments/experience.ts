@@ -82,6 +82,7 @@ export class LabExperience {
     this.dialog.addEventListener('close', () => this.stop(), { signal: this.abort.signal });
     host.addEventListener('click', e => {
       const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button');
+      if (kind === 'clock' && b?.hasAttribute('data-rpm-read')) this.say('馬達先經過減速輪系，帶動長分針。十二齒帶動三十六齒，慢三倍。三十六齒和十齒在同一根軸上，一起轉。十齒再帶動四十齒，又慢四倍。所以長分針轉十二圈，短時針才轉一圈。RPM 是每分鐘轉幾圈。正常和六十倍按鈕只切換轉速說明，不會改變播放速度。馬達是动画示意，實際轉速依機芯而定。',true);
       if (kind === 'car' && b?.hasAttribute('data-car-read')) this.say(`${LAB_SPECS.car.question}。點選圖片：彈簧、車子的顏色，還是空氣？`, true);
       if (b?.dataset.view) this.say(b.dataset.view === 'whole' ? '合起來！看看完整的外觀，也可以拖動模型來操作。' : b.dataset.view === 'xray' ? '透視眼開啟！外殼變透明了，點零件聽聽它的工作。' : '零件出任務！拆開後，點數字或零件名稱，一起找出它的小祕密。');
       if (b?.dataset.action === 'reset') this.say('重新準備好了！試著只改一個條件，再觀察一次。');

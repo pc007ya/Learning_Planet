@@ -213,7 +213,7 @@ export class Mechanism {
   setClock(minutes:number) {this.minutes=minutes;const angles=clockTrain(minutes);this.handMinute.rotation.z=angles[0];this.handHour.rotation.z=angles[3];this.gears.forEach((g,i)=>g.rotation.z=angles[i]);this.rotor.rotation.z=minutes*Math.PI*2;}
   setClockDemo(on:boolean) {
     this.host.dataset.clockDemo=String(on);
-    if(on){this.setMode('whole');this.amount=0;this.yaw=0;this.zoom=1;this.clockRotate=false;this.selected='';this.host.querySelectorAll('[data-clock-rotate],[data-clock-explode]').forEach(b=>b.setAttribute('aria-checked','false'));this.host.querySelectorAll('[data-part]').forEach(b=>b.setAttribute('aria-pressed','false'));const bom=this.stage.querySelector('details');if(bom)bom.open=false;}
+    if(on){this.setMode('whole');this.amount=0;this.yaw=0;this.zoom=1;this.clockRotate=false;this.selected='';this.host.querySelectorAll('[data-clock-rotate],[data-clock-explode]').forEach(b=>b.setAttribute('aria-checked','false'));this.host.querySelectorAll('[data-part]').forEach(b=>b.setAttribute('aria-pressed','false'));const bom=this.stage.querySelector<HTMLDetailsElement>('.mech-bom');if(bom)bom.open=false;}
     if(on)this.setClockPeek(true);else{this.skins();this.wake();}
   }
   setClockPeek(on:boolean) {
@@ -226,7 +226,7 @@ export class Mechanism {
     this.amount+=(this.target-this.amount)*Math.min(1,dt*9);if(Math.abs(this.amount-this.target)<.001)this.amount=this.target;
     this.root.rotation.set(this.kind==='car'?(this.carMode==='test'?0:.24):.03,this.yaw,0);
     const w=this.stage.clientWidth,h=this.stage.clientHeight;
-    if(w&&h){const reserve=this.kind==='clock'&&this.stage.querySelector('.mech-bom[open]')?260:0;const span=this.kind==='clock'?2.6+this.amount*3.3:this.carMode==='test'?5.8:3.3+this.amount*1.4;const halfHeight=Math.max(this.kind==='clock'?2.45+this.amount*.9:2.35+this.amount*.95,span*h/Math.max(280,w-reserve))/(this.zoom||1);const halfWidth=halfHeight*w/h,center=this.kind==='car'?(this.carMode==='test'?-.445+.28*halfHeight:.45):0,offset=halfWidth*reserve/w;this.camera.left=-halfWidth+offset;this.camera.right=halfWidth+offset;this.camera.top=halfHeight+center;this.camera.bottom=-halfHeight+center;this.camera.updateProjectionMatrix();}
+    if(w&&h){const reserve=this.kind==='clock'&&this.stage.querySelector('.mech-bom[open]')?260:0;const leftPanel=this.kind==='clock'?this.stage.querySelector<HTMLElement>('.clock-transmission[open]'):null;const leftReserve=leftPanel?leftPanel.offsetWidth+20:0;const span=this.kind==='clock'?2.6+this.amount*3.3:this.carMode==='test'?5.8:3.3+this.amount*1.4;const halfHeight=Math.max(this.kind==='clock'?2.45+this.amount*.9:2.35+this.amount*.95,span*h/Math.max(280,w-reserve-leftReserve))/(this.zoom||1);const halfWidth=halfHeight*w/h,center=this.kind==='car'?(this.carMode==='test'?-.445+.28*halfHeight:.45):0,offset=halfWidth*(reserve-leftReserve)/w;this.camera.left=-halfWidth+offset;this.camera.right=halfWidth+offset;this.camera.top=halfHeight+center;this.camera.bottom=-halfHeight+center;this.camera.updateProjectionMatrix();}
     this.parts.forEach(p=>{p.group.position.copy(p.home).lerp(p.away,this.amount);if(p.id==='wheels')p.group.children.forEach(w=>{w.position.z=(w.userData.side||1)*(.88+this.amount*.75);});});
     this.root.updateMatrixWorld(true);
     if(this.halo) {

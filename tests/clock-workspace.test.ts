@@ -8,7 +8,7 @@ describe('compact clock workspace', () => {
     let open=false;
     const root=new T.Group();
     const model=Object.assign(Object.create(Mechanism.prototype),{kind:'clock',root,parts:[],
-      camera:new T.OrthographicCamera(),stage:{clientWidth:994,clientHeight:450,querySelector:()=>open?{}:null},
+      camera:new T.OrthographicCamera(),stage:{clientWidth:994,clientHeight:450,querySelector:(selector:string)=>selector==='.mech-bom[open]'&&open?{}:null},
       amount:1,target:1,yaw:-.25,zoom:1,wake:vi.fn()});
     model.frame(.016); const before=model.camera.right;
     open=true; model.frame(.016);
