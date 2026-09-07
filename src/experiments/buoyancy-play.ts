@@ -49,6 +49,7 @@ export class BuoyancyPlay {
   private predict(floats: boolean) {
     if (this.busy) return;
     this.prediction = floats;
+    this.host.querySelector('[data-prompt]')!.textContent = `${FLOAT_OBJECTS[this.selected].name}會浮起來嗎？`;
     this.host.querySelectorAll<HTMLButtonElement>('[data-predict]').forEach(b => b.setAttribute('aria-pressed',String((b.dataset.predict === 'float') === floats)));
     this.announce(`你猜${floats ? '會浮' : '會沉'}。把${FLOAT_OBJECTS[this.selected].name}拖進水池試試看！`);
     if (this.pendingDrop !== null) this.drop(this.pendingDrop);

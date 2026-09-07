@@ -31,7 +31,7 @@ class g {
     this.sample.src = `${n}${e.id}.png`, this.sample.alt = e.name, this.sample.classList.remove("is-moving"), this.sample.style.left = "50%", this.sample.style.top = "24%", this.host.querySelector("[data-prompt]").textContent = `${e.name}會浮起來嗎？`, this.host.querySelector(".bp-result").textContent = "", this.host.querySelectorAll("[data-object]").forEach((s) => s.setAttribute("aria-pressed", String(Number(s.dataset.object) === t))), this.host.querySelectorAll("[data-predict]").forEach((s) => s.setAttribute("aria-pressed", "false")), this.announce(`${e.name}。你猜它會浮起來嗎？點圈圈猜會浮，點叉叉猜會沉。`);
   }
   predict(t) {
-    this.busy || (this.prediction = t, this.host.querySelectorAll("[data-predict]").forEach((e) => e.setAttribute("aria-pressed", String(e.dataset.predict === "float" === t))), this.announce(`你猜${t ? "會浮" : "會沉"}。把${r[this.selected].name}拖進水池試試看！`), this.pendingDrop !== null && this.drop(this.pendingDrop));
+    this.busy || (this.prediction = t, this.host.querySelector("[data-prompt]").textContent = `${r[this.selected].name}會浮起來嗎？`, this.host.querySelectorAll("[data-predict]").forEach((e) => e.setAttribute("aria-pressed", String(e.dataset.predict === "float" === t))), this.announce(`你猜${t ? "會浮" : "會沉"}。把${r[this.selected].name}拖進水池試試看！`), this.pendingDrop !== null && this.drop(this.pendingDrop));
   }
   drop(t = 0.5) {
     if (this.busy) return;

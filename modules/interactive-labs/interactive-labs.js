@@ -5,7 +5,7 @@ function a() {
     if (c.has(e) || r.has(e)) return;
     const t = e.dataset.interactiveLab;
     if (!["buoyancy", "clock", "car"].includes(t || "")) return;
-    r.add(e), (t === "buoyancy" ? import("./buoyancy-play-DPVW_Tjs.mjs").then(({ BuoyancyPlay: n }) => () => new n(e)) : import("./lab-D47pZqUY.mjs").then(({ InteractiveLab: n }) => () => new n(e, t))).then((n) => {
+    r.add(e), (t === "buoyancy" ? import("./buoyancy-play-BzIB2ld3.mjs").then(({ BuoyancyPlay: n }) => () => new n(e)) : import("./lab-D47pZqUY.mjs").then(({ InteractiveLab: n }) => () => new n(e, t))).then((n) => {
       e.isConnected && c.set(e, n()), r.delete(e);
     }).catch((n) => {
       console.error("Interactive lab failed", n), e.textContent = "實驗載入失敗，請返回後重試。", r.delete(e);
