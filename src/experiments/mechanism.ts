@@ -65,6 +65,7 @@ export class Mechanism {
   private halo?: HTMLElement;
   private clockPeek = false;
   private rotor = new T.Group();
+  private compoundTag?: HTMLElement;
 
   constructor(private kind: Kind, private scene: T.Scene, private camera: T.OrthographicCamera, private stage: HTMLElement, private host: HTMLElement, renderer: T.WebGLRenderer | undefined, private wake: () => void, private action: (value: number, release: boolean) => void) {
     this.yaw = kind === 'clock' ? -.25 : -.55;
@@ -80,7 +81,8 @@ export class Mechanism {
     tools.innerHTML = `<div class="mech-modes" role="group" aria-label="模型觀看方式"><button data-view="whole" aria-pressed="true">完整外觀</button><button data-view="xray" aria-pressed="false">透視裡面</button><button data-view="explode" aria-pressed="false">拆開看看</button></div><div class="mech-adjust"><label>轉個方向<input type="range" data-mech-turn min="-75" max="75" value="${Math.round(this.yaw * 180 / Math.PI)}" aria-label="轉動模型視角"></label><label>拆開多少<input type="range" data-mech-explode min="0" max="100" value="0" aria-label="零件拆開程度"></label></div>`;
     stage.before(tools);
     if (kind === 'clock') {
-      tools.innerHTML = '<div class="clock-switches"><button role="switch" data-clock-rotate aria-checked="false" aria-label="旋轉模型">⟳ 旋轉</button><button role="switch" data-clock-explode aria-checked="false" aria-label="拆卸零件">⚙ 拆卸</button><span>☝ 拖動調時</span></div>';
+      tools.innerHTML = '<div class="clock-switches"><button role="switch" data-clock-rotate aria-checked="false" aria-label="旋轉模型" title="旋轉模型">⟳</button><button role="switch" data-clock-explode aria-checked="false" aria-label="拆卸零件" title="拆卸零件">⚙</button><span hidden>☝ 拖動調時</span></div>';
+      host.querySelector('.bp-heading')!.append(tools.firstElementChild!);tools.remove();
     }
     if (kind === 'car') {
       host.classList.add('il-car-play'); host.dataset.carMode = 'rotate';
@@ -110,7 +112,7 @@ export class Mechanism {
       if (b.dataset.part) this.select(b.dataset.part, host);
       if (b.hasAttribute('data-clock-rotate')) { this.clockRotate = !this.clockRotate; b.setAttribute('aria-checked',String(this.clockRotate)); }
       if (b.hasAttribute('data-clock-explode')) { const open = this.mode !== 'explode'; this.setMode(open?'explode':'whole'); b.setAttribute('aria-checked',String(open)); }
-      if (b.hasAttribute('data-clock-rotate') || b.hasAttribute('data-clock-explode')) { tools.querySelector('.clock-switches > span')!.textContent=this.clockRotate||this.mode==='explode'?'☝ 拖動旋轉':'☝ 拖動調時'; quick.innerHTML=this.mode==='explode'?'<strong>☷ 找零件</strong><p>點數字，聽聽它的工作。</p>':this.clockRotate?'<strong>☝ 拖動旋轉</strong><p>關閉旋轉，就能調時間。</p>':'<strong>☝ 拖動調時</strong><p>長分針一圈，短時針一格。</p>'; }
+      if (b.hasAttribute('data-clock-rotate') || b.hasAttribute('data-clock-explode')) { host.querySelector('.clock-switches > span')!.textContent=this.clockRotate||this.mode==='explode'?'☝ 拖動旋轉':'☝ 拖動調時'; quick.innerHTML=this.mode==='explode'?'<strong>☷ 找零件</strong><p>點數字，聽聽它的工作。</p>':this.clockRotate?'<strong>☝ 拖動旋轉</strong><p>關閉旋轉，就能調時間。</p>':'<strong>☝ 拖動調時</strong><p>長分針一圈，短時針一格。</p>'; }
       if (b.hasAttribute('data-clock-zoom')) { const direction=Number(b.dataset.clockZoom); this.zoom=direction?Math.max(.75,Math.min(1.5,this.zoom+direction*.15)):1; if(!direction)this.yaw=-.25; this.wake(); }
     }, {signal:this.abort.signal});
     tools.addEventListener('input',e=>{const input=e.target as HTMLInputElement;if(input.hasAttribute('data-mech-turn'))this.yaw=Number(input.value)*Math.PI/180;else{this.target=Number(input.value)/100;this.mode=this.target ? 'explode':'whole';tools.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.view===this.mode)));this.skins();}this.wake();},{signal:this.abort.signal});
@@ -145,8 +147,10 @@ export class Mechanism {
   private gear(r:number,teeth:number,p:T.Object3D,x:number,y:number,z:number,c=0xd9ac5a) {
     const g=new T.Group();g.position.set(x,y,z);p.add(g);const shape=new T.Shape();
     for(let i=0;i<teeth*4;i++){const a=i*Math.PI*2/(teeth*4),radius=r*(i%4===0||i%4===3? .9:1.05);const px=Math.cos(a)*radius,py=Math.sin(a)*radius;if(!i)shape.moveTo(px,py);else shape.lineTo(px,py);}shape.closePath();
-    const hole=new T.Path();hole.absarc(0,0,r*.16,0,Math.PI*2,true);shape.holes.push(hole);
+    const windowed=this.kind==='clock'&&teeth===36;
+    const hole=new T.Path();hole.absarc(0,0,r*(windowed?.68:.16),0,Math.PI*2,true);shape.holes.push(hole);
     this.mesh(new T.ExtrudeGeometry(shape,{depth:.12,bevelEnabled:true,bevelSize:.012,bevelThickness:.012,bevelSegments:2}),c,g,0,0,0,.65);
+    if(windowed)for(let i=0;i<3;i++){const a=i*Math.PI*2/3;const spoke=this.box(.035,r*.62,.08,c,g,Math.sin(a)*r*.43,Math.cos(a)*r*.43,.06);spoke.rotation.z=-a;}
     this.disk(r*.16,.21,0xd6e5eb,g,0,0,.05);this.gears.push(g);return g;
   }
   private clock() {
@@ -170,6 +174,7 @@ export class Mechanism {
     this.gear(.20,12,gears,0,0,.19,0x21c0db);
     this.gear(.60,36,gears,.8,0,.19,0xe8c271);
     this.gear(.16,10,gears,.8,0,-.04,0xe8c271);
+    this.compoundTag=document.createElement('span');this.compoundTag.className='clock-compound-tag';this.compoundTag.textContent='10T · 同軸';this.stage.append(this.compoundTag);
     this.gear(.64,40,gears,0,0,-.04,0xe6a947);
     this.disk(.055,.45,0xcdd9e8,gears,.8,0,.1);
     const motor=this.part('motor',[-.55,-.7,.04],[-1.5,-1.25,.35]);this.box(.65,.3,.3,0xb76632,motor);for(let i=0;i<16;i++)this.mesh(new T.TorusGeometry(.16,.013,6,20),0xe5a17a,motor,-.28+i*.036,0,.08,.8).rotation.y=Math.PI/2;this.disk(.19,.15,0x969da6,motor,.4,0,.05);
@@ -229,6 +234,7 @@ export class Mechanism {
     if(w&&h){const reserve=this.kind==='clock'&&this.stage.querySelector('.mech-bom[open]')?260:0;const leftPanel=this.kind==='clock'?this.stage.querySelector<HTMLElement>('.clock-transmission[open]'):null;const leftReserve=leftPanel?leftPanel.offsetWidth+20:0;const span=this.kind==='clock'?2.6+this.amount*3.3:this.carMode==='test'?5.8:3.3+this.amount*1.4;const halfHeight=Math.max(this.kind==='clock'?2.45+this.amount*.9:2.35+this.amount*.95,span*h/Math.max(280,w-reserve-leftReserve))/(this.zoom||1);const halfWidth=halfHeight*w/h,center=this.kind==='car'?(this.carMode==='test'?-.445+.28*halfHeight:.45):0,offset=halfWidth*(reserve-leftReserve)/w;this.camera.left=-halfWidth+offset;this.camera.right=halfWidth+offset;this.camera.top=halfHeight+center;this.camera.bottom=-halfHeight+center;this.camera.updateProjectionMatrix();}
     this.parts.forEach(p=>{p.group.position.copy(p.home).lerp(p.away,this.amount);if(p.id==='wheels')p.group.children.forEach(w=>{w.position.z=(w.userData.side||1)*(.88+this.amount*.75);});});
     this.root.updateMatrixWorld(true);
+    if(this.compoundTag){this.compoundTag.hidden=!this.clockPeek&&this.mode!=='explode';const p=this.gears[2].getWorldPosition(new T.Vector3()).project(this.camera);this.compoundTag.style.left=`${(p.x+1)*w/2+14}px`;this.compoundTag.style.top=`${(1-p.y)*h/2+14}px`;}
     if(this.halo) {
       const part=this.parts.find(p=>p.id===this.selected);
       this.halo.hidden=!part || (this.mode==='whole'&&!['case','glass','dial','hands'].includes(this.selected));

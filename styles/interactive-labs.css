@@ -1,4 +1,11 @@
 :root { --planet-panel: linear-gradient(145deg,rgba(7,19,48,.92),rgba(23,16,60,.86)); --planet-text: #fff; --planet-border: rgba(126,218,255,.55); }
+.il-clock-play.il-workspace .mech-quick-info { position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:0!important;overflow:hidden!important;clip-path:inset(50%)!important;pointer-events:none!important; }
+.il-clock-play .bp-heading .clock-switches { gap:6px; }
+.il-clock-play .bp-heading .clock-switches button::after { display:none; }
+.il-clock-play .bp-heading .clock-switches button { opacity:.65;background:#17304d;border:1px solid #91daf177; }
+.il-clock-play .bp-heading .clock-switches button[aria-checked=true] { opacity:1;background:#137e94;outline:2px solid #ffe09b;box-shadow:0 0 12px #69eaff88; }
+.il-clock-play .clock-switches > span[hidden] { display:none; }
+.clock-compound-tag { position:absolute;z-index:3;color:white;font-size:12px;padding:3px 7px;border-radius:9px;background:#132741bb;border:1px solid #ffe39a88;pointer-events:none; }.clock-compound-tag[hidden] { display:none; }
 /* Clock: one framed workspace, direct switches and collapsible in-scene BOM. */
 .il-clock-play [data-action=peek] { color:white;display:grid;place-items:center; }
 .il-clock-play [data-action=peek][aria-pressed=true] { outline:3px solid #ffe19a;background:#147a89; }

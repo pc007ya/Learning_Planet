@@ -5,7 +5,7 @@ function a() {
     if (c.has(e) || r.has(e)) return;
     const t = e.dataset.interactiveLab;
     if (!["buoyancy", "clock", "car", "cube"].includes(t || "")) return;
-    r.add(e), (t === "cube" ? import("./cube-lab-y8-zEga7.mjs").then(({ CubeLab: n }) => () => new n(e)) : t === "buoyancy" ? import("./buoyancy-play-BLi_0D9X.mjs").then(({ BuoyancyPlay: n }) => () => new n(e)) : import("./lab-h2yj4ji4.mjs").then(({ InteractiveLab: n }) => () => new n(e, t))).then((n) => {
+    r.add(e), (t === "cube" ? import("./cube-lab-y8-zEga7.mjs").then(({ CubeLab: n }) => () => new n(e)) : t === "buoyancy" ? import("./buoyancy-play-BLi_0D9X.mjs").then(({ BuoyancyPlay: n }) => () => new n(e)) : import("./lab-Bw8NktD8.mjs").then(({ InteractiveLab: n }) => () => new n(e, t))).then((n) => {
       e.isConnected && c.set(e, n()), r.delete(e);
     }).catch((n) => {
       console.error("Interactive lab failed", n), e.textContent = "實驗載入失敗，請返回後重試。", r.delete(e);
