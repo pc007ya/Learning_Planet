@@ -2,7 +2,7 @@ import * as T from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { buildCarBody } from './car-body';
-import { clockTrain } from './clock-demo';
+import { clockTrain,clockDrive,CLOCK_DRIVE_GEARS } from './clock-demo';
 
 export type ViewMode = 'whole' | 'xray' | 'explode';
 export const PARTS = {
@@ -11,7 +11,7 @@ export const PARTS = {
     ['glass','透明鏡片','擋住灰塵，讓我們看得到時間。','拆開後，鏡片在最前面。'],
     ['dial','刻度盤','12 個大刻度，幫我們讀出幾點。','每相鄰兩個數字相差 5 分鐘。'],
     ['hands','時針與分針','長分針走一圈，短時針走一大格。','試試下方「+1 時」圖示。'],
-    ['gears','傳動齒輪','一顆帶一顆，把轉動傳到指針。','相鄰的外齒輪轉向相反。這裡省略了部分細小齒輪。'],
+    ['gears','傳動齒輪','馬達經三段減速帶動分針，再經兩段減速帶動時針。','綠色輪系減速 60 倍；金色輪系再減速 12 倍。各級齒輪與同軸連接完整，為教學設計而非品牌機芯。'],
     ['motor','線圈與馬達','收到電路的節拍，就推動齒輪轉動。','銅色線圈把電能轉成轉動。'],
     ['quartz','石英與電路','像小小節拍器，幫忙維持規律節奏。','石英不是電池；它負責穩定節拍。'],
     ['battery','電池','供應石英鐘需要的電能。','這是電池式石英鐘，不是上發條的機械鐘。'],
@@ -66,6 +66,7 @@ export class Mechanism {
   private clockPeek = false;
   private rotor = new T.Group();
   private compoundTag?: HTMLElement;
+  private driveTags: HTMLElement[] = [];
 
   constructor(private kind: Kind, private scene: T.Scene, private camera: T.OrthographicCamera, private stage: HTMLElement, private host: HTMLElement, renderer: T.WebGLRenderer | undefined, private wake: () => void, private action: (value: number, release: boolean) => void) {
     this.yaw = kind === 'clock' ? -.25 : -.55;
@@ -97,6 +98,7 @@ export class Mechanism {
       bom.append(tray); stage.append(bom);
       bom.addEventListener('toggle',()=>this.wake(),{signal:this.abort.signal});
       tray.querySelector('strong')!.textContent = '零件';
+      tray.querySelector('.mech-parent p')!.textContent='先問「你猜這個零件做什麼？」再點名称。電池與電路控制馬達，綠色三級輪系減速六十倍帶動長分針，金色兩級輪系再減速十二倍帶動短時針。這是完整教學傳動設計，不是品牌維修圖；未模擬電磁場、齒面碰撞及摩擦。實體拆解須由成人協助。';
       const zoomTools = document.createElement('div'); zoomTools.className = 'clock-zoom';
       zoomTools.innerHTML = '<button data-clock-zoom="1" aria-label="放大模型">＋</button><button data-clock-zoom="-1" aria-label="縮小模型">−</button><button data-clock-zoom="0" aria-label="還原視角">⌂</button>';
       stage.append(zoomTools);
@@ -147,9 +149,9 @@ export class Mechanism {
   private gear(r:number,teeth:number,p:T.Object3D,x:number,y:number,z:number,c=0xd9ac5a) {
     const g=new T.Group();g.position.set(x,y,z);p.add(g);const shape=new T.Shape();
     for(let i=0;i<teeth*4;i++){const a=i*Math.PI*2/(teeth*4),radius=r*(i%4===0||i%4===3? .9:1.05);const px=Math.cos(a)*radius,py=Math.sin(a)*radius;if(!i)shape.moveTo(px,py);else shape.lineTo(px,py);}shape.closePath();
-    const windowed=this.kind==='clock'&&teeth===36;
+    const windowed=this.kind==='clock'&&teeth>=36;
     const hole=new T.Path();hole.absarc(0,0,r*(windowed?.68:.16),0,Math.PI*2,true);shape.holes.push(hole);
-    this.mesh(new T.ExtrudeGeometry(shape,{depth:.12,bevelEnabled:true,bevelSize:.012,bevelThickness:.012,bevelSegments:2}),c,g,0,0,0,.65);
+    this.mesh(new T.ExtrudeGeometry(shape,{depth:this.kind==='clock'?.05:.12,bevelEnabled:true,bevelSize:.008,bevelThickness:.008,bevelSegments:2}),c,g,0,0,0,.65);
     if(windowed)for(let i=0;i<3;i++){const a=i*Math.PI*2/3;const spoke=this.box(.035,r*.62,.08,c,g,Math.sin(a)*r*.43,Math.cos(a)*r*.43,.06);spoke.rotation.z=-a;}
     this.disk(r*.16,.21,0xd6e5eb,g,0,0,.05);this.gears.push(g);return g;
   }
@@ -177,10 +179,17 @@ export class Mechanism {
     this.compoundTag=document.createElement('span');this.compoundTag.className='clock-compound-tag';this.compoundTag.textContent='10T · 同軸';this.stage.append(this.compoundTag);
     this.gear(.64,40,gears,0,0,-.04,0xe6a947);
     this.disk(.055,.45,0xcdd9e8,gears,.8,0,.1);
-    const motor=this.part('motor',[-.55,-.7,.04],[-1.5,-1.25,.35]);this.box(.65,.3,.3,0xb76632,motor);for(let i=0;i<16;i++)this.mesh(new T.TorusGeometry(.16,.013,6,20),0xe5a17a,motor,-.28+i*.036,0,.08,.8).rotation.y=Math.PI/2;this.disk(.19,.15,0x969da6,motor,.4,0,.05);
+    const motor=this.part('motor',[-1.08,-1.16,.04],[-1.5,-1.25,.35]);this.box(.50,.22,.20,0xb76632,motor);for(let i=0;i<16;i++)this.mesh(new T.TorusGeometry(.12,.01,6,20),0xe5a17a,motor,-.23+i*.03,0,0,.8).rotation.y=Math.PI/2;this.disk(.16,.08,0x969da6,motor,0,.20,-.43);
+    // The motor pinion belongs to the motor in the BOM and during disassembly.
+    CLOCK_DRIVE_GEARS.forEach((s,i)=>{if(i===0)this.gear(s.r,s.teeth,motor,0,.20,-.38,0x77efbd);else this.gear(s.r,s.teeth,gears,s.x,s.y,s.z,0x77efbd);});
+    for(const label of ['馬達12T','36T','48T','60T']){const tag=document.createElement('span');tag.className='clock-compound-tag clock-drive-tag';tag.textContent=label;this.stage.append(tag);this.driveTags.push(tag);}
+    // Coaxial shafts join each large gear to its next-stage pinion, and the 60T to the minute shaft.
+    for(const [x,y,z,d] of [[-1.08,-.48,-.31,.28],[-.72,0,-.09,.28],[0,0,.10,.26]])this.disk(.025,d,0xcdd9e8,gears,x,y,z);
+    this.disk(.025,.40,0xcdd9e8,gears,0,0,.39); // minute spindle reaches the long hand
+    this.mesh(new T.CylinderGeometry(.045,.045,.54,24,1,true),0xcdd9e8,gears,0,0,.24).rotation.x=Math.PI/2; // hollow hour sleeve
     const pcb=this.part('quartz',[.45,-.75,.05],[.35,-1.5,.2]);this.box(.72,.46,.06,0x2d7962,pcb);this.box(.22,.18,.07,0x22252a,pcb,-.08,0,.06);this.box(.14,.30,.1,0xc4c6c7,pcb,.23,0,.07);
-    this.rotor.position.set(.4,0,.18);motor.add(this.rotor);
-    this.box(.28,.045,.06,0xfcec95,this.rotor);this.box(.045,.28,.06,0xfcec95,this.rotor);
+    this.rotor.position.set(0,.20,-.28);motor.add(this.rotor);
+    this.box(.22,.03,.025,0xfcec95,this.rotor);this.box(.03,.22,.025,0xfcec95,this.rotor);
     const battery=this.part('battery',[0,-1.25,-.48],[-2.6,-1.6,-.1]);this.mesh(new T.CylinderGeometry(.19,.19,1.25,32),0xcbbb80,battery,0,0,0,.6).rotation.z=Math.PI/2;this.mesh(new T.CylinderGeometry(.2,.2,.27,32),0x242e40,battery,.47,0,0).rotation.z=Math.PI/2;this.mesh(new T.CylinderGeometry(.09,.09,.05,16),0xd9dfe4,battery,-.65,0,0,.8).rotation.z=Math.PI/2;
   }
   private car() {
@@ -215,7 +224,7 @@ export class Mechanism {
     if(this.kind==='car') this.parts.forEach(p=>p.group.traverse(n=>{if(n instanceof T.Mesh){const m=n.material as T.MeshStandardMaterial;m.emissive.setHex(p.id===id?0x164b59:0);m.emissiveIntensity=p.id===id?.5:0;}}));
     this.wake();
   }
-  setClock(minutes:number) {this.minutes=minutes;const angles=clockTrain(minutes);this.handMinute.rotation.z=angles[0];this.handHour.rotation.z=angles[3];this.gears.forEach((g,i)=>g.rotation.z=angles[i]);this.rotor.rotation.z=minutes*Math.PI*2;}
+  setClock(minutes:number) {this.minutes=minutes;const angles=clockTrain(minutes),drive=clockDrive(minutes);this.handMinute.rotation.z=angles[0];this.handHour.rotation.z=angles[3];const all=[...angles,drive.motor,drive.first,drive.first,drive.second,drive.second,drive.minute];this.gears.forEach((g,i)=>g.rotation.z=all[i]);this.rotor.rotation.z=drive.motor;}
   setClockDemo(on:boolean) {
     this.host.dataset.clockDemo=String(on);
     if(on){this.setMode('whole');this.amount=0;this.yaw=0;this.zoom=1;this.clockRotate=false;this.selected='';this.host.querySelectorAll('[data-clock-rotate],[data-clock-explode]').forEach(b=>b.setAttribute('aria-checked','false'));this.host.querySelectorAll('[data-part]').forEach(b=>b.setAttribute('aria-pressed','false'));const bom=this.stage.querySelector<HTMLDetailsElement>('.mech-bom');if(bom)bom.open=false;}
@@ -234,6 +243,7 @@ export class Mechanism {
     if(w&&h){const reserve=this.kind==='clock'&&this.stage.querySelector('.mech-bom[open]')?260:0;const leftPanel=this.kind==='clock'?this.stage.querySelector<HTMLElement>('.clock-transmission[open]'):null;const leftReserve=leftPanel?leftPanel.offsetWidth+20:0;const span=this.kind==='clock'?2.6+this.amount*3.3:this.carMode==='test'?5.8:3.3+this.amount*1.4;const halfHeight=Math.max(this.kind==='clock'?2.45+this.amount*.9:2.35+this.amount*.95,span*h/Math.max(280,w-reserve-leftReserve))/(this.zoom||1);const halfWidth=halfHeight*w/h,center=this.kind==='car'?(this.carMode==='test'?-.445+.28*halfHeight:.45):0,offset=halfWidth*(reserve-leftReserve)/w;this.camera.left=-halfWidth+offset;this.camera.right=halfWidth+offset;this.camera.top=halfHeight+center;this.camera.bottom=-halfHeight+center;this.camera.updateProjectionMatrix();}
     this.parts.forEach(p=>{p.group.position.copy(p.home).lerp(p.away,this.amount);if(p.id==='wheels')p.group.children.forEach(w=>{w.position.z=(w.userData.side||1)*(.88+this.amount*.75);});});
     this.root.updateMatrixWorld(true);
+    this.driveTags?.forEach((tag,i)=>{tag.hidden=!this.clockPeek&&this.mode!=='explode';const p=this.gears[[4,5,7,9][i]].getWorldPosition(new T.Vector3()).project(this.camera);const offsets=[[-25,18],[-55,-22],[-55,-35],[15,-48]];tag.style.left=`${(p.x+1)*w/2+offsets[i][0]}px`;tag.style.top=`${(1-p.y)*h/2+offsets[i][1]}px`;});
     if(this.compoundTag){this.compoundTag.hidden=!this.clockPeek&&this.mode!=='explode';const p=this.gears[2].getWorldPosition(new T.Vector3()).project(this.camera);this.compoundTag.style.left=`${(p.x+1)*w/2+14}px`;this.compoundTag.style.top=`${(1-p.y)*h/2+14}px`;}
     if(this.halo) {
       const part=this.parts.find(p=>p.id===this.selected);

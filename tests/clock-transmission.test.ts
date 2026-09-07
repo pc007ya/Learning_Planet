@@ -7,7 +7,7 @@ it('matches the animated 12:1 hand relationship at both reference speeds',()=>{
   expect(clockRPMLabels(60)).toEqual(['1','1/3','1/12']);
 });
 it('labels the omitted motor reduction and exposes collapse, resize and narration',()=>{
-  const html=clockTransmission();for(const token of ['details','data-rpm-size','data-rpm-read','依機芯而定','前段減速省略','data-demo-seconds'])expect(html).toContain(token);
+  const html=clockTransmission();for(const token of ['details','data-rpm-size','data-rpm-read','非品牌機芯','data-drive-section','data-demo-seconds'])expect(html).toContain(token);
 });
 it('does not close the transmission explanation when demonstration starts',()=>{
   const code=readFileSync('src/experiments/mechanism.ts','utf8');expect(code).toContain("querySelector<HTMLDetailsElement>('.mech-bom')");expect(code).not.toContain("const bom=this.stage.querySelector('details')");
