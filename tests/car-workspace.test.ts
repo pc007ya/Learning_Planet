@@ -41,6 +41,12 @@ describe('child-friendly car modes', () => {
     expect(code).toContain("this.carMode!=='test'");
     expect(lab).toContain('data-road="smooth"'); expect(lab).toContain('data-road="rough"');
     expect(lab).toContain('<input type="hidden" data-input="pull"');
-    expect(experience).toContain("quiz.textContent = '考題'");
+    expect(experience).toContain('pencil.png');
+    expect(experience).toContain('data-car-read');
+  });
+  it('anchors the wheel contact to the generated road in side view', () => {
+    const { model } = setup(); model.setCarMode('test'); model.frame(.016);
+    const contact = new T.Vector3(0,-.445,0).project(model.camera);
+    expect((1-contact.y)/2).toBeCloseTo(.64);
   });
 });

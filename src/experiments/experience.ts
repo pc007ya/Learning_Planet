@@ -1,4 +1,5 @@
 import { LAB_SPECS, type LabKind } from './models';
+import { CAR_ART } from './car-art';
 
 /** Shared tablet workspace and opt-in device narration. No remote audio requests. */
 export class LabExperience {
@@ -28,7 +29,7 @@ export class LabExperience {
       });
       if (kind === 'car') {
         const quiz = nav.querySelector<HTMLButtonElement>('[data-helper="quiz"]')!;
-        quiz.textContent = '考題'; quiz.setAttribute('aria-label', '考題'); quiz.title = '切換考題';
+        quiz.innerHTML = `<img src="${CAR_ART}pencil.png" alt="" draggable="false">`; quiz.setAttribute('aria-label', '考題'); quiz.title = '切換考題';
       }
     }
     this.dialog = document.createElement('dialog'); this.dialog.className = 'il-discovery-dialog'; this.dialog.setAttribute('aria-label', '實驗探索卡');
@@ -46,7 +47,7 @@ export class LabExperience {
       host.dataset.carPage = open ? 'quiz' : 'experiment';
       panels[1].toggleAttribute('hidden', !open);
       const button = nav.querySelector<HTMLButtonElement>('[data-helper="quiz"]')!;
-      button.textContent = open ? '實驗' : '考題';
+      button.innerHTML = open ? '↶' : `<img src="${CAR_ART}pencil.png" alt="" draggable="false">`;
       button.setAttribute('aria-label', open ? '回到實驗' : '考題');
       button.setAttribute('aria-pressed', String(open));
     };
@@ -81,6 +82,7 @@ export class LabExperience {
     this.dialog.addEventListener('close', () => this.stop(), { signal: this.abort.signal });
     host.addEventListener('click', e => {
       const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button');
+      if (kind === 'car' && b?.hasAttribute('data-car-read')) this.say(`${LAB_SPECS.car.question}。點選圖片：彈簧、車子的顏色，還是空氣？`, true);
       if (b?.dataset.view) this.say(b.dataset.view === 'whole' ? '合起來！看看完整的外觀，也可以拖動模型來操作。' : b.dataset.view === 'xray' ? '透視眼開啟！外殼變透明了，點零件聽聽它的工作。' : '零件出任務！拆開後，點數字或零件名稱，一起找出它的小祕密。');
       if (b?.dataset.action === 'reset') this.say('重新準備好了！試著只改一個條件，再觀察一次。');
     }, { signal: this.abort.signal });

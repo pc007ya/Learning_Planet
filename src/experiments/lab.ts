@@ -2,6 +2,7 @@ import * as T from 'three';
 import { FLOAT_OBJECTS, LAB_SPECS, buoyancy, carDistance, type LabKind } from './models';
 import { Mechanism } from './mechanism';
 import { LabExperience } from './experience';
+import { installCarArtwork } from './car-art';
 
 export class InteractiveLab {
   private renderer?: T.WebGLRenderer;
@@ -49,6 +50,7 @@ export class InteractiveLab {
       host.dataset.road = 'smooth';
       host.querySelector('.il-controls')!.innerHTML = `<input type="hidden" data-input="pull" value="50"><div class="car-roads" role="group" aria-label="選擇路面"><button data-road="smooth" aria-pressed="true" aria-label="平路"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M8 55 30 5h40l22 50" fill="#547990"/><path d="M50 12v9m0 8v9m0 8v8" stroke="#fff3bb" stroke-width="4"/></svg><span>平路</span></button><button data-road="rough" aria-pressed="false" aria-label="石頭路"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M8 55 30 5h40l22 50" fill="#675852"/><g fill="#d1b99a" stroke="#8c7664"><path d="m25 37 8-8 12 5-3 11-15 2Z"/><path d="m56 17 8-5 9 7-5 8-12-2Z"/><path d="m52 43 8-10 16 5 3 14-21 3Z"/><path d="m38 15 8-7 6 8-4 9-12-1Z"/></g></svg><span>石頭路</span></button></div><p data-readout>回拉量 50%</p><div class="car-force" role="group" aria-label="回拉力量"><button data-force=".25" aria-label="小力回拉">●</button><button data-force=".5" aria-label="中力回拉">●●</button><button data-force="1" aria-label="大力回拉">●●●</button></div><button data-action="run">🏁 出發</button><p>打開旋轉，用手拖動。打開拆卸，點零件。打開拉力，鏡頭自動轉側面、拉遠；向左拉車，放手出發。也可點圓點選力量，再點出發。</p>`;
       const road = document.createElement('div'); road.className = 'car-track'; road.setAttribute('aria-hidden','true'); this.stage.append(road);
+      installCarArtwork(host);
     }
     host.addEventListener('click', this.click, { signal: this.abort.signal });
     host.addEventListener('input', this.input, { signal: this.abort.signal });
@@ -147,6 +149,13 @@ export class InteractiveLab {
       if (button.dataset.force) { this.active = false; this.pull = Number(button.dataset.force); this.mechanism?.setCarMode('test'); this.updateCar(); }
     }
     if (button.dataset.answer !== undefined) {
+      if (this.kind === 'car') {
+        const correct=Number(button.dataset.answer)===LAB_SPECS.car.answer;
+        const message=!this.answerReady?'先回到實驗，完成一次拉車試跑，再來選圖片。':correct?'答對了！往後拉車時，能量存在捲簧裡。放手後，捲簧透過齒輪帶動車輪。':'再想想看！回到實驗，拆開車殼看看捲簧，聽聽它的工作。';
+        this.host.querySelector('.il-feedback')!.innerHTML=`<span aria-hidden="true">${!this.answerReady?'🚗 ↶':correct?'✓ ⭐':'🔎 ↶'}</span><span class="bp-sr">${message}</span>`;
+        this.host.querySelectorAll<HTMLButtonElement>('[data-answer]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+        return;
+      }
       this.host.querySelector('.il-feedback')!.textContent = !this.answerReady ? '先操作並完成一次觀察，再用證據回答。' : Number(button.dataset.answer) === LAB_SPECS[this.kind].answer ? '✓ 完成！你已把操作結果和原理解釋連起來。可以再改一個條件試試。' : '再看看觀察紀錄。答錯沒關係，回到實驗找證據後再回答。'; return;
     }
     if (button.dataset.action === 'reset') this.reset();

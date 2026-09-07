@@ -1,6 +1,7 @@
 import * as T from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { buildCarBody } from './car-body';
 
 export type ViewMode = 'whole' | 'xray' | 'explode';
 export const PARTS = {
@@ -145,14 +146,11 @@ export class Mechanism {
   }
   private car() {
     const shell=this.part('shell',[0,.40,0],[0,1.9,-.1],true);
-    const profile=new T.Shape();profile.moveTo(-1.85,0);profile.lineTo(1.85,0);profile.quadraticCurveTo(2,.2,1.7,.48);profile.lineTo(.83,.67);profile.lineTo(.38,1.25);profile.quadraticCurveTo(.25,1.36,-.1,1.36);profile.lineTo(-.83,1.28);profile.lineTo(-1.23,.67);profile.lineTo(-1.72,.55);profile.quadraticCurveTo(-1.95,.4,-1.85,0);
-    this.mesh(new T.ExtrudeGeometry(profile,{depth:1.28,bevelEnabled:true,bevelSize:.10,bevelThickness:.10,bevelSegments:4,curveSegments:24}),0x2fa9bb,shell,0,0,-.64,.45);
-    for(const z of [-.755,.755]) {const window=this.box(1.25,.48,.025,0x173b50,shell,-.31,.92,z);window.rotation.z=-.02;this.box(.055,.6,.04,0xaad0d5,shell,-.2,.9,z);this.box(.33,.055,.035,0xc8dfe1,shell,-.42,.42,z);}
-    this.box(.12,.24,.95,0xffe7a0,shell,1.86,.23);this.box(.12,.22,.94,0xff595c,shell,-1.91,.23);
+    buildCarBody(shell);
     const chassis=this.part('chassis',[0,.25,0],[0,-1.2,0]);this.box(3.7,.16,1.38,0x3b414a,chassis);
     for(const x of [-1.3,1.3])for(const z of [-.52,.52]){this.disk(.075,.09,0xd7dade,chassis,x,.05,z).rotation.x=0;}
     const wheels=this.part('wheels',[0,0,0],[0,-.35,0]);
-    for(const x of [-1.18,1.18])for(const z of [-.88,.88]){const w=new T.Group();w.position.set(x,.06,z);w.userData.side=z<0?-1:1;wheels.add(w);this.mesh(new T.TorusGeometry(.36,.145,16,48),0x22282d,w).scale.z=1.2;this.disk(.30,.19,0xadb8c4,w);this.disk(.12,.23,0x527c9b,w);for(let i=0;i<5;i++){const a=i*Math.PI*2/5;const spoke=this.box(.065,.42,.03,0xe3e9eb,w,Math.sin(a)*.07,Math.cos(a)*.07,z>0?.13:-.13);spoke.rotation.z=-a;}this.wheels.push(w);}
+    for(const x of [-1.18,1.18])for(const z of [-.88,.88]){const w=new T.Group();w.position.set(x,.06,z);w.userData.side=z<0?-1:1;wheels.add(w);this.mesh(new T.TorusGeometry(.36,.145,16,48),0x20262b,w).scale.z=1.2;this.disk(.28,.19,0xb9c5cd,w);this.disk(.235,.20,0x25343e,w);this.disk(.09,.25,0xcbd8de,w);const face=z>0?.13:-.13;this.mesh(new T.TorusGeometry(.27,.022,8,40),0xe2e8eb,w,0,0,face,.8);for(let i=0;i<5;i++){const a=i*Math.PI*2/5;const spoke=this.box(.048,.17,.035,0xdde5e9,w,Math.sin(a)*.165,Math.cos(a)*.165,face);spoke.rotation.z=-a;}this.wheels.push(w);}
     const axles=this.part('axles',[0,.07,0],[0,-.58,0]);for(const x of [-1.18,1.18])this.disk(.07,1.83,0xcdd2d7,axles,x,0,0);
     const housing=this.part('housing',[-.65,.5,0],[-.95,.7,-1.7],true);this.box(1.25,.65,.8,0xe1dac5,housing);
     const spring=this.part('spring',[-.58,.52,.1],[-1.8,.6,1.1]);
@@ -179,7 +177,7 @@ export class Mechanism {
     this.amount+=(this.target-this.amount)*Math.min(1,dt*9);if(Math.abs(this.amount-this.target)<.001)this.amount=this.target;
     this.root.rotation.set(this.kind==='car'?(this.carMode==='test'?0:.24):.03,this.yaw,0);
     const w=this.stage.clientWidth,h=this.stage.clientHeight;
-    if(w&&h){const span=this.kind==='clock'?2.6+this.amount*3.3:this.carMode==='test'?5.8:3.3+this.amount*1.4;const halfHeight=Math.max(this.kind==='clock'?2.45+this.amount*.9:2.35+this.amount*.95,span*h/w);const halfWidth=halfHeight*w/h,center=this.kind==='car'?.45:0;this.camera.left=-halfWidth;this.camera.right=halfWidth;this.camera.top=halfHeight+center;this.camera.bottom=-halfHeight+center;this.camera.updateProjectionMatrix();}
+    if(w&&h){const span=this.kind==='clock'?2.6+this.amount*3.3:this.carMode==='test'?5.8:3.3+this.amount*1.4;const halfHeight=Math.max(this.kind==='clock'?2.45+this.amount*.9:2.35+this.amount*.95,span*h/w);const halfWidth=halfHeight*w/h,center=this.kind==='car'?(this.carMode==='test'?-.445+.28*halfHeight:.45):0;this.camera.left=-halfWidth;this.camera.right=halfWidth;this.camera.top=halfHeight+center;this.camera.bottom=-halfHeight+center;this.camera.updateProjectionMatrix();}
     this.parts.forEach(p=>{p.group.position.copy(p.home).lerp(p.away,this.amount);if(p.id==='wheels')p.group.children.forEach(w=>{w.position.z=(w.userData.side||1)*(.88+this.amount*.75);});});
     this.root.updateMatrixWorld(true);
     const occupied: {x:number;y:number}[]=[];
