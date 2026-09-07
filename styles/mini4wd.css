@@ -12,3 +12,6 @@
 .m4-lab{max-width:100%}.m4-pager .m4-find-next{width:auto;font-size:14px;padding:6px 10px}.m4-part-grid button{position:relative}.m4-part-grid small{position:absolute;right:5px;top:3px;background:#102643ba;border-radius:5px;padding:0 3px}.m4-lab .m4-part-description{font-size:14px;line-height:1.4}
 @media(max-height:680px) and (min-width:761px){.m4-part-grid img{height:36px}.m4-part-grid button{min-height:63px}.m4-tools{gap:6px}.m4-part-description{min-height:36px}}
 @media(min-width:761px){.il-shell:has(.m4-lab){min-height:0}.il-shell .m4-lab h2{font-size:20px;margin:0}.il-shell .m4-lab p{line-height:1.45}}
+
+/* Keep standalone viewport within its border box; no broken thumbnails without WebGL. */
+.m4-lab{box-sizing:border-box}.m4-lab img[src=""]{visibility:hidden}
