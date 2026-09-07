@@ -62,7 +62,7 @@ export class LabExperience {
         const el = host.querySelector(selector);
         if (el && records.some(r => el === r.target || el.contains(r.target))) {
           if (selector === '.il-live' && el.textContent?.startsWith('準備好了')) continue;
-          this.say(selector === '.il-log' ? el.lastElementChild?.textContent || '' : el.textContent || ''); break;
+          this.say(selector === '.il-log' ? el.firstElementChild?.textContent || '' : el.textContent || ''); break;
         }
       }
     });
