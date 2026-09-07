@@ -15,3 +15,4 @@
 
 /* Keep standalone viewport within its border box; no broken thumbnails without WebGL. */
 .m4-lab{box-sizing:border-box}.m4-lab img[src=""]{visibility:hidden}
+.m4-tools{min-height:0}.m4-race-map{position:relative;flex:1 1 45px}.m4-race-map svg{position:absolute;inset:0}
