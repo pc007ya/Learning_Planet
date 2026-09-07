@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "0.1-draft",
+  "id": "solar-classroom-v1",
+  "title": "教室裡的太陽系",
+  "status": "draft-not-executable",
+  "rendererStatus": "not-implemented",
+  "assetManifest": "asset_manifest.json",
+  "teacherScript": "teacher_script.json",
+  "audience": {"ageRange": [7, 9], "locale": "zh-TW"},
+  "style": {"theme": "interstellar-classroom", "textColor": "white", "panels": "dark-translucent", "materials": ["warm-wood", "soft-teal", "warm-gold", "tactile-toy"]},
+  "interface": {"navigation": "in-frame-icons", "questionIcon": "ui.pencil", "dropdowns": false, "verticalPageScroll": false, "overflowStrategy": "tabs-and-pagination", "voice": true},
+  "layers": [
+    {"id": "classroomRoot", "role": "environment", "assetIds": ["room.wall", "room.furniture"], "interactive": false},
+    {"id": "solarRoot", "role": "interactive-model", "assetIds": ["body.sun", "body.mercury", "body.venus", "body.earth", "body.mars", "body.jupiter", "body.saturn", "body.uranus", "body.neptune", "saturn.rings"], "interactive": true},
+    {"id": "cameraRig", "role": "camera"},
+    {"id": "ui", "role": "accessible-controls", "assetIds": ["ui.pencil"]}
+  ],
+  "scaleModes": {
+    "explore": {"distance": "compressed", "diameter": "illustrative", "notice": "大小與距離為教學示意"},
+    "diameter-comparison": {"distance": "not-applicable", "diameter": "shared-linear-scale", "excludeRings": true, "scienceDatasetStatus": "needs-review"}
+  },
+  "shots": [
+    {"id": "classroom-wide", "view": "classroom", "focus": "solarRoot", "cameraIntent": "wide-room-view", "scaleMode": "explore", "simulation": "paused"},
+    {"id": "approach-solar", "view": "classroom-to-model", "focus": "solarRoot", "cameraIntent": "dolly-in-to-table-model", "durationHintSeconds": 10, "scaleMode": "explore", "simulation": "illustrated-orbits", "transition": {"easing": "ease-in-out", "reducedMotion": "cut", "skippable": true}},
+    {"id": "earth-close", "view": "planet-closeup", "focus": "body.earth", "cameraIntent": "fit-object-with-margin", "scaleMode": "explore", "simulation": "paused"},
+    {"id": "earth-jupiter-size", "view": "comparison", "focus": ["body.earth", "body.jupiter"], "cameraIntent": "fit-pair-with-margin", "scaleMode": "diameter-comparison", "simulation": "paused"},
+    {"id": "picture-question", "view": "question", "questionId": "larger-earth-jupiter", "focus": ["body.earth", "body.jupiter"], "scaleMode": "diameter-comparison", "simulation": "paused"},
+    {"id": "return-classroom", "view": "classroom", "focus": "solarRoot", "cameraIntent": "return-to-wide-room", "scaleMode": "explore", "preserveExploration": true, "simulation": "paused"}
+  ],
+  "questions": [{"id": "larger-earth-jupiter", "presentation": "picture-choice", "voicePrompt": "地球和木星，哪一顆比較大？點一下它的圖片。", "choiceAssetIds": ["body.earth", "body.jupiter"], "correctAssetId": "body.jupiter", "sourceShotId": "earth-jupiter-size", "status": "draft"}],
+  "exportContract": {"status": "not-implemented", "outputs": ["scene-png", "transparent-object-png", "teacher-script-json"], "capture": "render-same-approved-scene", "state": "fixed-time-and-seed", "requiredMetadata": ["sceneVersion", "assetVersions", "shotId", "scaleMode", "time", "seed"], "videoEncodingIncluded": false}
+}

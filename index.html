@@ -15,8 +15,8 @@
 <script type="module" src="./src/firebase-config.js"></script>
 <script type="module" src="./auth-v2/firebase-client.js"></script>
 <script type="module" src="./modules/earth-orbit/earth-orbit-v01.js"></script>
-<script type="module" src="./modules/interactive-labs/interactive-labs.js?v=20260907-car-race-art2"></script>
-<link rel="stylesheet" href="./styles/interactive-labs.css?v=20260907-car-race-art2">
+<script type="module" src="./modules/interactive-labs/interactive-labs.js?v=20260907-cube-workshop-v1"></script>
+<link rel="stylesheet" href="./styles/interactive-labs.css?v=20260907-cube-workshop-v1">
 </head>
 <body>
 <x-dc>
@@ -4191,6 +4191,7 @@ const EXPERIMENT_UNITS = [
   { id: "exp-buoyancy", grade: 0, difficulty: 0, icon: "🌊", art: "images/experiments/buoyancy.svg", tint: "#e8edff", title: "浮力實驗室", sub: "圖卡拖曳 · 8 種寶物、○ × 猜浮沉", kind: "experiment" },
   { id: "exp-clock-mechanism", grade: 0, difficulty: 0, icon: "🕒", art: "images/experiments/clock.svg", tint: "#e8edff", title: "簡單機構：時鐘", sub: "3D 互動 · 轉動指針、齒輪傳動與時間比例", kind: "experiment" },
   { id: "exp-pullback-car", grade: 0, difficulty: 0, icon: "🚙", art: "images/experiments/car.svg", tint: "#e8edff", title: "簡單機構：回力車", sub: "3D 互動 · 回拉儲能、放手前進與路面比較", kind: "experiment" },
+  { id: "exp-cube-mechanism", grade: 0, difficulty: 0, icon: "◈", art: "images/experiments/cube.svg", tint: "#e8edff", title: "魔術方塊工坊", sub: "3D 互動 · 轉動六面、拆解機構與看圖挑戰", kind: "experiment" },
 ];
 function buildEnglishGrammarBank(subjects, verbs, nouns) {
   const bank = [];
@@ -8629,7 +8630,7 @@ class Component extends DCLogic {
     if (id === "exp-plant-water") { this.startPlantWaterLab(); return; }
     if (id === "exp-day-night") { this.startDayNightLab(); return; }
     if (id === "exp-earth-orbit") { this.startEarthOrbitLab(); return; }
-    if (["exp-buoyancy", "exp-clock-mechanism", "exp-pullback-car"].includes(id)) { this.setState({ screen: "interactiveLab", subject: "experiment", unit: id }); return; }
+    if (["exp-buoyancy", "exp-clock-mechanism", "exp-pullback-car", "exp-cube-mechanism"].includes(id)) { this.setState({ screen: "interactiveLab", subject: "experiment", unit: id }); return; }
     if (["s7", "s8", "s20", "s21"].indexOf(id) >= 0) { this.startMindmap(id); return; }
     if (id === "c5" || id === "c6") { this.startWriting(id === "c5" ? 1 : 2); return; }
     if (id === "c1" || id === "c3") { this.setState({ screen: "library", unit: id, grade: id === "c1" ? 1 : 2, libUnit: "全部", detailChar: null }); return; }
@@ -10586,7 +10587,7 @@ class Component extends DCLogic {
       isPlantLab: s.screen === "plantWaterLab",
       isDayNightLab: s.screen === "dayNightLab",
       isInteractiveLab: s.screen === "interactiveLab",
-      interactiveLabKind: s.unit === "exp-buoyancy" ? "buoyancy" : s.unit === "exp-clock-mechanism" ? "clock" : "car",
+      interactiveLabKind: s.unit === "exp-cube-mechanism" ? "cube" : s.unit === "exp-buoyancy" ? "buoyancy" : s.unit === "exp-clock-mechanism" ? "clock" : "car",
       interactiveLabBack: () => this.setState({ screen: "map", subject: "experiment" }),
       earthRotationMode: !s.dayNightLab || s.dayNightLab.mode !== "revolution",
       earthRevolutionMode: !!(s.dayNightLab && s.dayNightLab.mode === "revolution"),

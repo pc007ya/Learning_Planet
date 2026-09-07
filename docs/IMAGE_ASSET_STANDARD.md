@@ -1,5 +1,10 @@
 # Learning Planet image asset standard
 
+For new or revised experiment modules, also read `EXPERIMENT_MODULE_STANDARD.md`.
+Experiment backgrounds and interactive objects must remain separate. The 4 × 4
+unit-icon sheet workflow below is not mandatory for experiment assets; prefer
+independent complete objects and reject cropped neighboring fragments.
+
 ## Reusable unit icons
 
 - Generate source art as one exact **4 × 4 sprite sheet** in row-major order.

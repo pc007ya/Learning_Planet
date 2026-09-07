@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "0.1-draft",
+  "id": "cube-mechanism-v1",
+  "title": "魔術方塊工坊",
+  "status": "draft-not-executable",
+  "rendererStatus": "not-implemented",
+  "stateCore": "src/experiments/cube-state.ts",
+  "assetManifest": "asset_manifest.json",
+  "teacherScript": "teacher_script.json",
+  "audience": {"ageRange": [7, 9], "locale": "zh-TW"},
+  "style": {"theme": "interstellar-classroom", "panels": "dark-translucent", "text": "white"},
+  "cube": {"kind": "classic-3x3", "centers": 6, "edges": 12, "corners": 8, "facelets": 54, "faceColors": {"U": "white", "D": "yellow", "F": "green", "B": "blue", "R": "red", "L": "orange"}, "stateImport": false, "allowedMoves": ["R", "L", "U", "D", "F", "B"], "suffixes": ["", "'", "2"], "cameraIndependent": true},
+  "interface": {"defaultView": "top-front-right", "viewRotation": "trackball-xyz", "zoom": ["pinch", "plus-minus-buttons"], "modeChoice": "icon-toggle", "modes": ["view", "turn", "inspect"], "faceTurnInput": ["select-face-and-arrow", "face-drag"], "snapDegrees": 90, "dropdowns": false, "verticalPageScroll": false, "overflowStrategy": "tabs-and-pagination", "advancedVisibleInitially": false, "advancedEntry": "ui.question-mark", "questionEntry": "ui.pencil", "voice": true, "preserveStateAcrossPanels": true},
+  "assets": ["room.classroom", "cube.shell-pieces", "cube.core", "cube.center-stems", "cube.edge-feet", "cube.corner-feet", "cube.facelets", "ui.question-mark", "ui.pencil", "ui.turn-arrows"],
+  "fixtures": {
+    "solved": {"from": "solved", "moves": []},
+    "r-quarter": {"from": "solved", "moves": ["R"]},
+    "white-top-mismatch": {"from": "solved", "moves": ["U"]},
+    "practice": {"from": "solved", "moves": ["R", "U", "F2", "L'", "D"]},
+    "formula-demo": {"from": "solved", "moves": ["R", "U", "R'", "U'"]}
+  },
+  "shots": [
+    {"id": "three-faces", "fixture": "solved", "camera": "top-front-right", "display": "whole"},
+    {"id": "look-around", "fixture": "solved", "camera": "orbit-to-back-and-bottom", "display": "whole"},
+    {"id": "turn-r", "fixture": "solved", "camera": "top-front-right", "display": "whole", "motion": {"moves": ["R"], "secondsPerMove": 2}},
+    {"id": "core-reveal", "fixture": "solved", "camera": "core-closeup", "display": "exploded", "highlight": ["cube.core", "cube.center-stems"]},
+    {"id": "piece-lock", "fixture": "solved", "camera": "inner-feet-closeup", "display": "cutaway", "highlight": ["cube.edge-feet", "cube.corner-feet"], "modelReviewRequired": true},
+    {"id": "mechanism-turn", "fixture": "solved", "camera": "top-front-right", "display": "cutaway", "motion": {"moves": ["R"], "secondsPerMove": 3}},
+    {"id": "cross-compare", "fixtures": ["solved", "white-top-mismatch"], "camera": "top-front-right", "display": "picture-pair"},
+    {"id": "free-play", "fixture": "practice", "camera": "top-front-right", "display": "whole"},
+    {"id": "notation", "fixture": "solved", "camera": "right-face-reference", "display": "whole", "gate": "question-mark", "motion": {"moves": ["R", "R'"], "secondsPerMove": 2}},
+    {"id": "order-matters", "fixture": "solved", "camera": "top-front-right", "display": "comparison", "gate": "question-mark", "compareMoves": [["R", "U"], ["U", "R"]]},
+    {"id": "next-step", "fixture": "white-top-mismatch", "camera": "top-front-right", "display": "guided", "gate": "question-mark", "motion": {"moves": ["U'"], "secondsPerMove": 2}, "hint": "對齊白邊的側色與中心色；此鏡頭僅針對指定練習狀態。"}
+  ],
+  "solver": {"implemented": ["known-history-inverse", "matched-white-cross-count"], "planned": ["reviewed-beginner-case-hints"], "generalSolverAvailable": false, "optimalityClaim": false},
+  "exports": {"status": "not-implemented", "types": ["scene-png", "transparent-object-png", "storyboard", "teacher-script-json"], "source": "same-approved-meshes-and-state", "videoStatus": "not-rendered"}
+}

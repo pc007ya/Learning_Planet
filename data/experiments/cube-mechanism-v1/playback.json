@@ -1,0 +1,25 @@
+{
+  "schemaVersion":"1.0",
+  "id":"cube-mechanism-v1",
+  "status":"interactive-storyboard-and-silent-demo-video",
+  "demoVideo":"data/experiments/cube-mechanism-v1/cube-demonstration.webm",
+  "demoTiming":"3.2 seconds hold per shot plus transition animations; narration duration hints below are for an edited voiceover version, not the silent export",
+  "locale":"zh-TW",
+  "background":"images/experiments/shared-classroom/v1/classroom.png",
+  "objects":"Original live Three.js meshes: core, 6 centers, 12 edges, 8 corners",
+  "export":"Transparent object PNG from the current scene; background exported separately",
+  "playback":"User-paced shots, opt-in zh-TW device narration. Recording durations must be adjusted to chosen voice.",
+  "shots":[
+    {"id":"overview","durationHintSeconds":8,"camera":"three-face","action":"assembled","narration":"這顆彩色方塊，為什麼轉來轉去都不會散開呢？"},
+    {"id":"turn","durationHintSeconds":8,"camera":"three-face","action":"R","narration":"看！右面這一層一起轉，顏色就換了位置。"},
+    {"id":"explode","durationHintSeconds":10,"camera":"three-face","action":"explode","narration":"拆開看看！裡面有核心，六根軸連著六個中心。"},
+    {"id":"core","durationHintSeconds":10,"camera":"core-close","action":"isolate-core-centers","narration":"六根軸連著中心，讓各層有旋轉的方向。這是簡化結構示意，不是特定品牌的工程圖。"},
+    {"id":"edge","durationHintSeconds":10,"camera":"part-close","action":"isolate-edges","narration":"兩種顏色，共十二塊。內側的腳部幫助扣住相鄰零件。"},
+    {"id":"corner","durationHintSeconds":10,"camera":"part-close","action":"isolate-corners","narration":"三種顏色，共八塊。角塊和邊塊的內側形狀配合，轉動時一起滑動。"},
+    {"id":"assemble","durationHintSeconds":8,"camera":"three-face","action":"assembled","narration":"再合起來。你也可以轉動、縮放，從不同方向找出方塊的小祕密！"}
+  ],
+  "quiz":{"prompt":"哪個是邊塊？","pictureChoices":["one-color-piece","two-color-piece","three-color-piece"],"answer":"two-color-piece"},
+  "advanced":{"gate":"question-mark","notation":"WCA face moves, clockwise viewed from outside selected face","practice":["R","U","R'","U'"],"hint":"Reverse only this session's recorded moves; not an optimal or imported-state solver"},
+  "limits":["Schematic classic 3x3 mechanism, no accurate collision or engineering dimensions","No arbitrary imported-state solver","WebM demo is silent; no prerecorded voice or MP4 included"],
+  "references":["https://www.youtube.com/watch?v=u2qs-l0vgGw","https://www.youtube.com/watch?v=jvhdNuiyNOI","https://www.youtube.com/watch?v=bgcScY7CiMs","https://www.worldcubeassociation.org/regulations/#12a","https://www.rubiks.com/solution-guides"]
+}

@@ -87,6 +87,47 @@ body:has(.il-shell) { background:linear-gradient(135deg,rgba(3,9,30,.85),rgba(14
 .sc-host > div:has(.il-shell) { background:transparent!important; }
 .lab-focus:has(.il-shell)::after { content:none!important; }
 .il-shell { max-width:1200px;margin:18px auto;padding:18px;color:var(--planet-text); }
+/* Scene-driven cube: one landscape workspace, independent live 3D objects. */
+.il-shell:has(.cube-lab) { max-width:none;margin:0;padding:12px;height:100svh;box-sizing:border-box; }
+.il-shell:has(.cube-lab)>.il-back { display:none; }
+.il-shell [data-interactive-lab=cube] { height:100%;min-height:0; }
+.cube-lab { height:100%;display:flex;flex-direction:column;gap:10px;color:#fff; }
+.cube-lab [hidden] { display:none!important; }
+.cube-heading { display:flex;align-items:center;gap:12px;flex:none;min-height:58px;padding:6px 10px;border:1px solid #94e8ff88;border-radius:25px;background:#07132bbb;backdrop-filter:blur(10px); }
+.il-shell .cube-heading h2 { margin:0;font-size:23px;white-space:nowrap; }
+.cube-header-tools { display:flex;gap:8px;margin-left:auto; }
+.il-shell .cube-heading button,.il-shell .cube-camera button { min-width:44px;width:44px;height:44px;padding:0;border-radius:50%;font-size:25px; }
+.cube-heading img { width:32px;height:32px;object-fit:contain; }
+.cube-layout { flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:12px; }
+.cube-scene { min-height:0;position:relative;border:1px solid #83def89c;border-radius:28px;background:#091321 url('../images/experiments/shared-classroom/v1/classroom.png') center/cover; }
+.cube-stage { position:absolute;inset:0;border-radius:inherit; }
+.cube-stage canvas { width:100%;height:100%;display:block;touch-action:none;border-radius:inherit; }
+.cube-badge { position:absolute;left:50%;top:14px;transform:translateX(-50%);border-radius:20px;background:#071526c9;padding:8px 15px;white-space:nowrap;font-size:15px;font-weight:800;pointer-events:none; }
+.cube-camera { position:absolute;bottom:14px;left:14px;display:flex;gap:8px; }
+.cube-tools { min-height:0;padding:12px;border:1px solid #93daff77;border-radius:26px;background:linear-gradient(145deg,#07172bd9,#1e1536b5);backdrop-filter:blur(12px);display:flex;flex-direction:column;gap:8px; }
+.cube-play-tools { display:flex;flex-direction:column;gap:12px;flex:1;min-height:0; }
+.il-shell .cube-lab button { border:1px solid #b7edff66;box-shadow:inset 0 2px 0 #ffffff22,0 3px 0 #05172e;background:linear-gradient(145deg,#246d84c9,#354b79cc);color:white;border-radius:18px; }
+.il-shell .cube-lab button[aria-pressed=true] { outline:2px solid #ffe39b;outline-offset:1px;background:linear-gradient(130deg,#327e88,#635d8b); }
+.il-shell .cube-lab button:disabled { opacity:.45;cursor:default; }
+.cube-modes { display:grid;grid-template-columns:repeat(3,1fr);gap:7px; }
+.il-shell .cube-modes button { padding:6px 2px;font-size:25px;min-height:64px; }
+.cube-lab small { display:block;font-size:12px;line-height:1.5;color:#fff; }
+.cube-face-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:6px 0; }
+.il-shell .cube-face-grid button { padding:8px;display:flex;gap:5px;align-items:center;justify-content:center;min-height:52px; }
+.cube-face-grid i { display:block;width:25px;height:25px;background:var(--face);border:2px solid #ffffff66;border-radius:7px;box-shadow:inset 0 2px 3px #fff5; }
+.cube-face-grid small { font-weight:900; }
+.cube-arrows { display:flex;gap:10px; }.il-shell .cube-arrows button { flex:1;font-size:36px;padding:0;min-height:64px; }
+.cube-part-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:8px; }.il-shell .cube-part-grid button { min-height:56px;padding:6px;font-size:22px; }
+.il-shell .cube-explanation { font-size:14px;line-height:1.5;margin:0;padding:8px;text-align:center;min-height:40px; }
+.cube-bottom-tools { display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:auto; }.il-shell .cube-bottom-tools button { min-width:44px;padding:4px;font-size:25px; }
+.cube-shot-nav { display:flex;gap:5px;align-items:center;justify-content:space-between; }.il-shell .cube-shot-nav button { min-width:44px;padding:4px;font-size:23px; }.cube-shot-nav span { font-size:13px; }
+.cube-help-tabs { display:flex;gap:6px; }.il-shell .cube-help-tabs button { flex:1;min-width:44px;padding:4px; }
+.cube-help-content { padding:14px 0;display:flex;flex-direction:column;gap:12px; }.il-shell .cube-help-content h3 { font-size:18px;margin:0; }.il-shell .cube-help-content p { margin:0;line-height:1.5;font-size:14px; }
+.cube-formula { font-size:30px;text-align:center;line-height:1.7;color:#fff3bd; }.cube-help-content a { color:#a3f2ff;padding:8px 4px;min-height:44px;box-sizing:border-box; }.cube-export { max-width:100%;max-height:200px;object-fit:contain; }
+.cube-quiz { position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:25px;background:#09182ded;border-radius:inherit;padding:20px;box-sizing:border-box; }
+.cube-picture-answers { display:flex;width:100%;gap:15px;justify-content:center; }.il-shell .cube-picture-answers button { width:30%;max-width:200px;padding:15px; }.cube-picture-answers svg { width:100%;max-height:180px; }.cube-answer-result { min-height:35px;font-size:24px;color:#ffefab; }
+@media (min-width:900px) and (max-height:650px) { .cube-heading { min-height:48px;padding:4px 8px; }.cube-play-tools { gap:8px; }.il-shell .cube-modes button { min-height:54px; }.cube-face-grid { gap:6px;padding:2px 0; }.il-shell .cube-face-grid button { min-height:48px; }.il-shell .cube-arrows button { min-height:54px; }.cube-help-content { gap:8px;padding:10px 0; }.cube-explanation { padding:4px!important; }.cube-export { max-height:140px; } }
+@media (max-width:700px) { .cube-layout { grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(260px,1fr) auto; }.cube-play-tools { display:grid;grid-template-columns:1fr 1fr;gap:8px; }.cube-face-grid { grid-template-columns:repeat(6,1fr);grid-column:1/-1; }.cube-bottom-tools { grid-column:2;grid-row:1;align-self:center; }.cube-arrows { grid-column:2;grid-row:3; }.cube-modes { grid-column:1;grid-row:1; }.cube-explanation { grid-column:1;grid-row:3; }.cube-tools { padding:8px; }.il-shell .cube-heading h2 { font-size:18px; }.cube-heading { gap:5px;padding:5px; }.cube-header-tools { gap:4px; }.il-shell:has(.cube-lab) { min-height:750px; }.cube-help-content { display:grid;grid-template-columns:1fr 1fr; }.cube-help-content h3 { grid-column:1/-1; } }
 .il-layout { display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:18px;align-items:start; }
 .il-panel,.il-scene-panel { background:var(--planet-panel);border:1px solid var(--planet-border);border-radius:24px;padding:22px;backdrop-filter:blur(16px);box-shadow:0 16px 40px #0004;color:#fff; }
 .il-scene-panel { padding:0;overflow:hidden; }

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "0.1-draft",
+  "id": "cube-mechanism-teacher-v1",
+  "sceneId": "cube-mechanism-v1",
+  "status": "draft-needs-model-and-timing-review",
+  "locale": "zh-TW",
+  "timing": "editorial-estimates-adjust-after-voice",
+  "videos": [
+    {"id": "mechanism-intro", "durationHintSeconds": 90, "gate": "normal", "beats": [
+      {"shotId": "three-faces", "startSeconds": 0, "durationSeconds": 8, "narration": "這顆彩色方塊，為什麼轉來轉去都不會散開呢？"},
+      {"shotId": "look-around", "startSeconds": 8, "durationSeconds": 10, "narration": "先轉個方向看看。上面、前面、旁邊，還有背面和底面，都有顏色喔！", "interaction": "rotate-view-and-zoom"},
+      {"shotId": "turn-r", "startSeconds": 18, "durationSeconds": 10, "narration": "現在轉這一層。看！同一層的小塊一起轉，顏色就換了位置。", "interaction": "face-turn"},
+      {"shotId": "core-reveal", "startSeconds": 28, "durationSeconds": 14, "narration": "打開看看！裡面有一個核心，連著六個中心。中心之間的位置，不會因為轉動一層就互相交換。", "teachingNote": "中心可繞自己的軸旋轉，不講成全部鎖死。"},
+      {"shotId": "piece-lock", "startSeconds": 42, "durationSeconds": 14, "narration": "有兩個顏色的是邊塊，三個顏色的是角塊。它們裡面的形狀互相扣住，就不容易散開。", "teachingNote": "必須展示核准的內側腳部，不以純方塊替代卡扣機構。"},
+      {"shotId": "mechanism-turn", "startSeconds": 56, "durationSeconds": 12, "narration": "慢慢轉一次！外面整層在轉，裡面的結構也配合著滑動。看懂這個小祕密了嗎？"},
+      {"shotId": "cross-compare", "startSeconds": 68, "durationSeconds": 14, "narration": "兩個都有白色十字，哪一個連旁邊的顏色也對上中心了？點圖片猜猜看！", "interaction": "picture-choice", "videoDemonstration": "pause-before-highlighting-matched-cross"},
+      {"shotId": "free-play", "startSeconds": 82, "durationSeconds": 8, "narration": "換你玩玩看！想學更多小祕訣，再點問號就可以了。", "interaction": "free-play"}
+    ]},
+    {"id": "formula-mini-lesson", "durationHintSeconds": 30, "gate": "question-mark-only", "beats": [
+      {"shotId": "notation", "startSeconds": 0, "durationSeconds": 10, "narration": "這個符號是轉右面。正看右面時，順時針轉四分之一圈；多一撇，就往反方向轉。", "labels": ["R", "R'"]},
+      {"shotId": "order-matters", "startSeconds": 10, "durationSeconds": 10, "narration": "先右再上，和先上再右，結果不一樣！所以做公式時，順序很重要。"},
+      {"shotId": "next-step", "startSeconds": 20, "durationSeconds": 10, "narration": "先看中心，再看白色邊塊旁邊的顏色。讓它們對齊，再繼續下一步。", "teachingNote": "此步只適用於這個預設示範；自由狀態必須重新判讀。"}
+    ]}
+  ]
+}

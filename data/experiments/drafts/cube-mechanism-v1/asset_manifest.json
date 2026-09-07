@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "0.1-draft",
+  "id": "cube-mechanism-assets-v1",
+  "status": "draft",
+  "pathBase": "project-root",
+  "referenceOnly": ["https://www.youtube.com/watch?v=bgcScY7CiMs", "https://www.rubiks.com/solution-guides"],
+  "assets": [
+    {"id": "room.classroom", "kind": "shared-environment", "status": "needs-art", "path": null, "sharedWith": "solar-classroom-v1", "brief": "沿用核准的星際教室，背景不含方塊或按鈕。"},
+    {"id": "cube.shell-pieces", "kind": "original-meshes", "status": "needs-model", "path": null, "brief": "圓潤黑色塑膠外殼，6 中心／12 邊／8 角，零件身份穩定。"},
+    {"id": "cube.core", "kind": "original-mesh", "status": "needs-model-review", "path": null, "brief": "傳統 3×3 多方向中心核心，非磁力競速版本。"},
+    {"id": "cube.center-stems", "kind": "original-meshes", "status": "needs-model-review", "path": null, "brief": "中心與核心的連接及旋轉支承示意。"},
+    {"id": "cube.edge-feet", "kind": "original-meshes", "status": "needs-model-review", "path": null, "brief": "邊塊內側卡扣／導向曲面，近景可辨識。"},
+    {"id": "cube.corner-feet", "kind": "original-meshes", "status": "needs-model-review", "path": null, "brief": "角塊內側腳部與相鄰結構的扣合，近景可辨識。"},
+    {"id": "cube.facelets", "kind": "geometry-materials", "status": "needs-renderer", "path": null, "brief": "54 個獨立色片，六色配置依 scene，不由生成圖猜測。"},
+    {"id": "ui.question-mark", "kind": "code-native-icon", "status": "needs-ui", "path": null, "brief": "圓形問號小圖示，44px 以上命中區，可讀名稱為更多解說。"},
+    {"id": "ui.pencil", "kind": "transparent-icon", "status": "reuse-candidate", "path": "images/experiments/car-v4/pencil.png", "generationRecord": "docs/CAR_ART_V4.md"},
+    {"id": "ui.turn-arrows", "kind": "code-native-overlay", "status": "needs-ui", "path": null, "brief": "貼合選定面且有清楚方向的立體弧形箭頭。"}
+  ],
+  "captureRequests": [
+    {"id": "hero", "shotId": "three-faces", "format": "png", "status": "pending-render"},
+    {"id": "core", "shotId": "core-reveal", "format": "transparent-png", "status": "pending-render"},
+    {"id": "edge-and-corner", "shotId": "piece-lock", "format": "transparent-png", "status": "pending-render"},
+    {"id": "question-cross", "shotId": "cross-compare", "format": "png", "status": "pending-render"}
+  ],
+  "audio": {"status": "needs-approved-narration", "locale": "zh-TW", "source": "teacher_script.json", "note": "尚無配音或影片檔；不能把瀏覽器即時朗讀視為已匯出音軌。"}
+}

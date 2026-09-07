@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "0.1-draft",
+  "id": "solar-classroom-teacher-v1",
+  "sceneId": "solar-classroom-v1",
+  "status": "draft-needs-teaching-and-timing-review",
+  "locale": "zh-TW",
+  "timing": "editorial-estimates-adjust-after-narration",
+  "interactiveMode": "wait-for-child-at-prompts",
+  "videoMode": "scripted-demonstration-not-student-response",
+  "beats": [
+    {"id": "welcome", "shotId": "classroom-wide", "startSeconds": 0, "durationSeconds": 8, "narration": "今天，教室裡藏著一個小宇宙！你找到桌上的太陽系了嗎？", "interaction": "tap-model"},
+    {"id": "approach", "shotId": "approach-solar", "startSeconds": 8, "durationSeconds": 10, "narration": "靠近看看！太陽在中間，八顆行星沿著各自的軌道繞著它轉。", "teachingNote": "說明大小與距離經過調整，畫面不是實際比例。"},
+    {"id": "our-home", "shotId": "earth-close", "startSeconds": 18, "durationSeconds": 12, "narration": "找到藍色的地球了！這是我們的家。用手轉一轉，換個方向看。", "interaction": "rotate-view", "videoDemonstration": "slow-orbit-camera"},
+    {"id": "compare", "shotId": "earth-jupiter-size", "startSeconds": 30, "durationSeconds": 14, "narration": "地球和木星，哪一顆比較大？先猜猜，再看看它們並排的樣子。", "teachingNote": "使用共用的直徑比例；不把距離也假裝成相同比例。"},
+    {"id": "try", "shotId": "picture-question", "startSeconds": 44, "durationSeconds": 10, "narration": "換你試試看！點一下比較大的那顆星球。", "questionId": "larger-earth-jupiter", "videoDemonstration": "pause-then-highlight-jupiter", "interaction": "picture-choice"},
+    {"id": "return", "shotId": "return-classroom", "startSeconds": 54, "durationSeconds": 6, "narration": "做得好！你可以再選一顆星球，繼續探索。", "interaction": "free-explore"}
+  ]
+}

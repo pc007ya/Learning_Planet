@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "0.1-draft",
+  "id": "solar-classroom-assets-v1",
+  "status": "draft",
+  "pathBase": "project-root",
+  "policy": {"environmentSeparateFromObjects": true, "rejectFragments": true, "fallback": "verified-reference-or-licensed-asset", "reviewBeforePublish": true},
+  "assets": [
+    {"id": "room.wall", "kind": "environment-texture", "status": "needs-art", "path": null, "brief": "深藍星際教室遠牆與窗景，暖木與青金點綴；不含桌上太陽系、不含文字按鈕"},
+    {"id": "room.furniture", "kind": "mesh-group", "status": "needs-model", "path": null, "brief": "獨立圓潤木桌與近景家具，支持鏡頭靠近的視差"},
+    {"id": "body.sun", "kind": "mesh-and-material", "status": "needs-art", "path": null},
+    {"id": "body.mercury", "kind": "mesh-and-material", "status": "needs-art", "path": null},
+    {"id": "body.venus", "kind": "mesh-and-material", "status": "needs-art", "path": null},
+    {"id": "body.earth", "kind": "sphere-surface-texture", "status": "reuse-candidate", "path": "images/science/earth-orbit/v0.1/bodies/earth-surface-equirect-v02.png", "review": "確認近景解析度、經緯貼合與新畫風一致性"},
+    {"id": "body.mars", "kind": "mesh-and-material", "status": "needs-art", "path": null},
+    {"id": "body.jupiter", "kind": "mesh-and-material", "status": "needs-art", "path": null},
+    {"id": "body.saturn", "kind": "mesh-and-material", "status": "needs-art", "path": null},
+    {"id": "saturn.rings", "kind": "ring-mesh-and-material", "status": "needs-art", "path": null, "separateFromPlanetDiameter": true},
+    {"id": "body.uranus", "kind": "mesh-and-material", "status": "needs-art", "path": null},
+    {"id": "body.neptune", "kind": "mesh-and-material", "status": "needs-art", "path": null},
+    {"id": "ui.pencil", "kind": "transparent-icon", "status": "reuse-candidate", "path": "images/experiments/car-v4/pencil.png", "generationRecord": "docs/CAR_ART_V4.md"}
+  ]
+}
