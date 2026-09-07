@@ -3,6 +3,7 @@ import { FLOAT_OBJECTS, LAB_SPECS, buoyancy, carDistance, type LabKind } from '.
 import { Mechanism } from './mechanism';
 import { LabExperience } from './experience';
 import { installCarArtwork } from './car-art';
+import { clockDemo } from './clock-demo';
 
 export class InteractiveLab {
   private renderer?: T.WebGLRenderer;
@@ -22,6 +23,9 @@ export class InteractiveLab {
   private prediction = '';
   private targetY = 0;
   private minutes = 0;
+  private demoElapsed = 0;
+  private demoStarted = false;
+  private demoCue = -1;
   private pull = 0.5;
   private rough = false;
   private travel = 0;
@@ -58,6 +62,8 @@ export class InteractiveLab {
       host.querySelector('.il-scene-panel')!.prepend(heading);
       host.querySelector('.il-controls')!.innerHTML = `<input type="hidden" data-input="minutes" value="0"><p data-readout>12:00</p><button data-action="step" aria-label="分針前進一圈，時針前進一大格">⟳ <span>+1 時</span></button><button data-action="run" aria-label="播放或暫停指針">▶ / Ⅱ</button><button data-action="record" aria-label="記錄目前時間">📒</button><p>調時時，左右拖動鐘面調整時間。打開旋轉開關，用手轉方向；打開拆卸，點右上零件表找零件。</p>`;
       const reset = host.querySelector<HTMLButtonElement>('[data-action="reset"]')!; reset.textContent = '↺'; reset.setAttribute('aria-label','重新開始');
+      host.querySelector('[data-action="run"]')!.insertAdjacentHTML('afterend','<button data-action="peek" aria-label="透視刻度盤" title="透視刻度盤" aria-pressed="false"><svg viewBox="0 0 32 24" width="32" height="24" aria-hidden="true"><path d="M2 12Q16-5 30 12Q16 29 2 12Z" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="12" r="5" fill="currentColor"/></svg></button>');
+      const demoInfo=document.createElement('div');demoInfo.className='clock-demo-info';demoInfo.innerHTML='<strong>60× · <span data-demo-seconds>0</span> / 60 秒</strong><div>馬達 → 減速齒輪 → 分針 → 時針</div><small>馬達慢動作示意 · 前段減速省略</small>';this.stage.append(demoInfo);
       const clockPicture = (hour: number) => `<svg viewBox="0 0 160 160" role="img" aria-label="${hour}點"><circle cx="80" cy="80" r="70" fill="#fff5db" stroke="#cba85c" stroke-width="7"/>${Array.from({length:12},(_,i)=>`<circle cx="${80+59*Math.sin(i*Math.PI/6)}" cy="${80-59*Math.cos(i*Math.PI/6)}" r="3" fill="#294651"/>`).join('')}<path d="M80 80V25" stroke="#168ba8" stroke-width="6" stroke-linecap="round"/><path d="M80 80L${80+36*Math.sin(hour*Math.PI/6)} ${80-36*Math.cos(hour*Math.PI/6)}" stroke="#a47818" stroke-width="9" stroke-linecap="round"/><circle cx="80" cy="80" r="6" fill="#294651"/></svg>`;
       host.querySelector('.il-assessment > p')!.innerHTML = `<span class="clock-question">${clockPicture(12)}<span aria-label="分針前進一圈">⟳ → ?</span></span>`;
       host.querySelector('.il-assessment h3')!.textContent = '分針一圈，時針？';
@@ -85,7 +91,7 @@ export class InteractiveLab {
     if (kind === 'buoyancy') this.buildTank();
     if (kind !== 'buoyancy') this.mechanism = new Mechanism(kind, this.scene, this.camera, this.stage, host, this.renderer, () => this.wake(), (value, release) => {
       this.active = false;
-      if (kind === 'clock') { if (!release) this.minutes = value; this.updateClock(); if (release) this.record(`轉動指針到 ${this.clockText()}，分針和時針一起運動。`); }
+      if (kind === 'clock') { this.demoStarted=false;this.mechanism?.setClockDemo(false);if (!release) this.minutes = value; this.updateClock(); if (release) this.record(`轉動指針到 ${this.clockText()}，分針和時針一起運動。`); }
       else { if (!release) { this.pull = value; (host.querySelector('[data-input="pull"]') as HTMLInputElement).value = String(Math.round(value * 100)); this.updateCar(); } else this.run(); }
     });
     if (kind !== 'buoyancy') {
@@ -149,7 +155,9 @@ export class InteractiveLab {
   }
   private click = (event: Event) => {
     const button = (event.target as HTMLElement).closest<HTMLButtonElement>('button'); if (!button) return;
+    if(this.kind==='clock'&&button.dataset.action==='peek'){const on=this.host.dataset.clockPeek!=='true';this.mechanism?.setClockPeek(on);this.status.textContent=on?'透視開啟：看看齒輪怎麼帶動指針。':'刻度盤恢復。';return;}
     if (this.kind === 'clock' && (['quiz','notes','help'].includes(button.dataset.helper || '') || button.hasAttribute('data-clock-rotate') || button.hasAttribute('data-clock-explode') || button.dataset.action === 'step')) { this.active=false; this.updateClock(); }
+    if(this.kind==='clock'&&(button.hasAttribute('data-clock-rotate')||button.hasAttribute('data-clock-explode')||button.dataset.action==='step')){this.demoStarted=false;this.mechanism?.setClockDemo(false);}
     if (this.kind === 'car') {
       if (button.dataset.carMode || button.dataset.part) this.active = false;
       if (button.dataset.road) {
@@ -186,6 +194,7 @@ export class InteractiveLab {
   };
   private reset() {
     this.active = false; this.dragging = false; this.last = 0;
+    if(this.kind==='clock'){this.demoStarted=false;this.demoElapsed=0;this.mechanism?.setClockDemo(false);this.mechanism?.setClockPeek(false);}
     if (this.kind === 'buoyancy') { this.prediction = ''; (this.host.querySelector('[data-input="prediction"]') as HTMLSelectElement).value = ''; this.buildSample(); }
     if (this.kind === 'clock') { this.minutes = 0; this.updateClock(); }
     if (this.kind === 'car') { this.pull = .5; this.mechanism?.setCarMode('rotate'); (this.host.querySelector('[data-input="pull"]') as HTMLInputElement).value = '50'; this.updateCar(); }
@@ -198,7 +207,11 @@ export class InteractiveLab {
       const o = FLOAT_OBJECTS[this.selected], result = buoyancy(o.mass, o.volume);
       this.targetY = result.floats ? .15 + .3 - .6 * result.fraction : -2.13;
       this.active = true; this.status.textContent = `正在觀察${o.name}…`;
-    } else if (this.kind === 'clock') { this.active = !this.active; this.updateClock(); this.status.textContent = this.active ? '▶ 分針 12 圈 → 時針 1 圈' : 'Ⅱ 暫停 · 📒 記錄'; }
+    } else if (this.kind === 'clock') {
+      if(!this.demoStarted||this.demoElapsed>=60){this.demoElapsed=0;this.demoStarted=true;this.demoCue=-1;this.minutes=0;}
+      this.active=!this.active;this.last=0;this.mechanism?.setClockDemo(true);this.updateClock();
+      this.status.textContent=this.active?'60 倍速：一分鐘看完一小時。':'Ⅱ 暫停';
+    }
     else { if (this.active) return; this.mechanism?.setCarMode('test'); this.runDistance = carDistance(this.pull, this.rough); this.travel = 0; this.runElapsed = 0; this.object.position.x = -3.2; this.active = true; this.status.textContent = '彈簧釋放能量，透過輪軸帶動車輪前進。'; }
     this.wake();
   }
@@ -213,8 +226,8 @@ export class InteractiveLab {
   private updateClock() {
     this.mechanism?.setClock(this.minutes);
     (this.host.querySelector('[data-input="minutes"]') as HTMLInputElement).value = String(this.minutes % 721);
-    this.host.querySelector('[data-readout]')!.textContent = this.clockText();
-    const play=this.host.querySelector<HTMLButtonElement>('[data-action="run"]')!; play.textContent=this.active?'Ⅱ':'▶'; play.setAttribute('aria-pressed',String(this.active)); play.setAttribute('aria-label',this.active?'暫停指針':'播放指針');
+    const readout=this.host.querySelector('[data-readout]')!;const time=this.clockText();if(readout.textContent!==time)readout.textContent=time;
+    const play=this.host.querySelector<HTMLButtonElement>('[data-action="run"]')!; const icon=this.active?'Ⅱ':'▶ 1 min';if(play.textContent!==icon)play.textContent=icon;const pressed=String(this.active);if(play.getAttribute('aria-pressed')!==pressed)play.setAttribute('aria-pressed',pressed);const label=this.active?'暫停一分鐘示範':this.demoStarted&&this.demoElapsed<60?'繼續一分鐘示範':'播放一分鐘示範';if(play.getAttribute('aria-label')!==label)play.setAttribute('aria-label',label);
   }
   private updateCar() {
     this.object.position.set(-1.5 - this.pull * 1.7, -1, .2);
@@ -246,7 +259,8 @@ export class InteractiveLab {
   private wake() { if (!this.frame && !this.dead && !document.hidden) this.frame = requestAnimationFrame(this.tick); }
   private tick = (now: number) => {
     this.frame = 0; if (this.dead || document.hidden) { this.last = 0; return; }
-    const dt = this.last ? Math.min(.05, (now - this.last) / 1000) : .016; this.last = now;
+    const realDt = this.last ? Math.max(0,(now-this.last)/1000) : 0;
+    const dt = Math.min(.05,realDt || .016); this.last = now;
     if (this.active && this.kind === 'buoyancy') {
       this.object.position.y += (this.targetY - this.object.position.y) * Math.min(1, dt * 3);
       if (Math.abs(this.object.position.y - this.targetY) < .015) {
@@ -255,7 +269,14 @@ export class InteractiveLab {
         this.status.textContent = text; this.record(`預測：${this.prediction === 'float' ? '浮' : this.prediction === 'sink' ? '沉' : '不確定'} → ${text}`);
       }
     }
-    if (this.active && this.kind === 'clock') { this.minutes += dt * 20; this.updateClock(); }
+    if (this.active && this.kind === 'clock') {
+      const demo=clockDemo(this.demoElapsed+realDt);this.demoElapsed=demo.elapsed;this.minutes=demo.minutes;
+      const counter=this.host.querySelector('[data-demo-seconds]')!;const seconds=String(Math.floor(demo.elapsed));if(counter.textContent!==seconds)counter.textContent=seconds;
+      const cue=Math.min(3,Math.floor(demo.elapsed/20));
+      if(cue!==this.demoCue){this.demoCue=cue;this.host.querySelector('.mech-quick-info')!.innerHTML=['<strong>馬達 → 齒輪</strong><p>馬達轉動，經過減速齒輪帶動指針；前段減速在這裡省略。</p>','<strong>分針正在走</strong><p>小齒輪帶大齒輪，轉動就變慢。</p>','<strong>看看短時針</strong><p>分針走得快，時針慢慢前進。</p>','<strong>✓ 一小時！</strong><p>分針一圈，時針一大格。</p>'][cue];}
+      if(demo.done){this.active=false;this.record('60 秒示範完成：分針轉一圈，時針轉 30 度，前進一大格。');this.status.textContent='✓ 60 秒 → 1 小時';}
+      this.updateClock();
+    }
     if (this.active && this.kind === 'car') {
       this.runElapsed += dt; const t = Math.min(1, this.runElapsed / 2.5); this.travel = this.runDistance * (2 * t - t * t); this.object.position.x = -3.2 + this.travel;
       this.mechanism?.setCar(this.pull * (1 - t), this.travel, true);

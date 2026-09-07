@@ -2,6 +2,7 @@ import * as T from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { buildCarBody } from './car-body';
+import { clockTrain } from './clock-demo';
 
 export type ViewMode = 'whole' | 'xray' | 'explode';
 export const PARTS = {
@@ -62,6 +63,8 @@ export class Mechanism {
   private clockRotate = false;
   private zoom = 1;
   private halo?: HTMLElement;
+  private clockPeek = false;
+  private rotor = new T.Group();
 
   constructor(private kind: Kind, private scene: T.Scene, private camera: T.OrthographicCamera, private stage: HTMLElement, private host: HTMLElement, renderer: T.WebGLRenderer | undefined, private wake: () => void, private action: (value: number, release: boolean) => void) {
     this.yaw = kind === 'clock' ? -.25 : -.55;
@@ -155,16 +158,24 @@ export class Mechanism {
     this.mesh(new T.TorusGeometry(1.64,.035,12,96),0x9fc4ce,glass,0,0,0,.7);
     const dial=this.part('dial',[0,0,.45],[1.5,.2,.8],true);
     const canvas=document.createElement('canvas');canvas.width=1024;canvas.height=1024;const ctx=canvas.getContext('2d')!;
-    ctx.fillStyle='#f8f1df';ctx.fillRect(0,0,1024,1024);ctx.translate(512,512);
+    ctx.translate(512,512);
     for(let i=0;i<60;i++){ctx.save();ctx.rotate(i*Math.PI/30);ctx.fillStyle='#26444a';ctx.fillRect(-2,-465,4,i%5===0?32:13);ctx.restore();}
     ctx.font='600 72px system-ui';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle='#234752';for(let i=1;i<=12;i++){const a=i*Math.PI/6;ctx.fillText(String(i),Math.sin(a)*372,-Math.cos(a)*372);}ctx.font='20px system-ui';ctx.fillText('QUARTZ',0,220);
     const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;this.textures.push(texture);
-    const face=this.mesh(new T.CircleGeometry(1.6,96),0xffffff,dial);face.material.map=texture;face.material.roughness=.7;face.material.side=T.DoubleSide;
+    this.mesh(new T.CircleGeometry(1.6,96),0xf8f1df,dial,0,0,-.006);
+    const face=this.mesh(new T.CircleGeometry(1.6,96),0xffffff,dial);face.name='clock-marks';face.material.map=texture;face.material.roughness=.7;face.material.side=T.DoubleSide;
     const hands=this.part('hands',[0,0,.57],[2.6,-.2,1.1]);hands.add(this.handMinute,this.handHour);
     this.box(.075,1.31,.04,0x158ea0,this.handMinute,0,.55,.07);this.box(.13,.92,.05,0xb18435,this.handHour,0,.34,.02);this.disk(.10,.12,0xe5bd65,hands,0,0,.13);
-    const gears=this.part('gears',[0,.1,.10],[.05,.5,.1]);this.gear(.43,24,gears,0,0,0);this.gear(.28,16,gears,.64,.08,.04);this.gear(.23,12,gears,.21,.56,.02);this.gear(.31,18,gears,-.66,.1,.02,0xebebd8);
+    const gears=this.part('gears',[0,0,.08],[.05,.5,.1]);
+    this.gear(.20,12,gears,0,0,.19,0x21c0db);
+    this.gear(.60,36,gears,.8,0,.19,0xe8c271);
+    this.gear(.16,10,gears,.8,0,-.04,0xe8c271);
+    this.gear(.64,40,gears,0,0,-.04,0xe6a947);
+    this.disk(.055,.45,0xcdd9e8,gears,.8,0,.1);
     const motor=this.part('motor',[-.55,-.7,.04],[-1.5,-1.25,.35]);this.box(.65,.3,.3,0xb76632,motor);for(let i=0;i<16;i++)this.mesh(new T.TorusGeometry(.16,.013,6,20),0xe5a17a,motor,-.28+i*.036,0,.08,.8).rotation.y=Math.PI/2;this.disk(.19,.15,0x969da6,motor,.4,0,.05);
     const pcb=this.part('quartz',[.45,-.75,.05],[.35,-1.5,.2]);this.box(.72,.46,.06,0x2d7962,pcb);this.box(.22,.18,.07,0x22252a,pcb,-.08,0,.06);this.box(.14,.30,.1,0xc4c6c7,pcb,.23,0,.07);
+    this.rotor.position.set(.4,0,.18);motor.add(this.rotor);
+    this.box(.28,.045,.06,0xfcec95,this.rotor);this.box(.045,.28,.06,0xfcec95,this.rotor);
     const battery=this.part('battery',[0,-1.25,-.48],[-2.6,-1.6,-.1]);this.mesh(new T.CylinderGeometry(.19,.19,1.25,32),0xcbbb80,battery,0,0,0,.6).rotation.z=Math.PI/2;this.mesh(new T.CylinderGeometry(.2,.2,.27,32),0x242e40,battery,.47,0,0).rotation.z=Math.PI/2;this.mesh(new T.CylinderGeometry(.09,.09,.05,16),0xd9dfe4,battery,-.65,0,0,.8).rotation.z=Math.PI/2;
   }
   private car() {
@@ -184,6 +195,9 @@ export class Mechanism {
   private setMode(mode:ViewMode) {this.mode=mode;this.target=mode==='explode'?1:0;if(mode!=='whole')this.root.position.x=0;this.skins();this.wake();}
   private skins() {
     this.parts.forEach(p=>p.group.traverse(n=>{if(n instanceof T.Mesh){const m=n.material as T.MeshStandardMaterial;const glass=p.id==='glass';m.transparent=glass||(this.mode==='xray'&&p.skin);m.opacity=glass?.10:this.mode==='xray'&&p.skin?.13:1;m.depthWrite=!m.transparent;}}));
+    if(this.clockPeek) this.parts.filter(p=>p.skin).forEach(p=>p.group.traverse(n=>{if(n instanceof T.Mesh){const m=n.material as T.MeshStandardMaterial;m.transparent=true;m.opacity=p.id==='case'?.08:0;m.depthWrite=false;}}));
+    this.parts.forEach(p=>p.group.traverse(n=>{if(n instanceof T.Mesh&&n.name==='clock-marks'){const m=n.material as T.MeshStandardMaterial;m.transparent=true;m.opacity=1;m.depthWrite=false;if(this.clockPeek){m.emissive.setHex(0xffffff);m.emissiveMap=m.map;m.emissiveIntensity=3;}else{m.emissive.setHex(0);m.emissiveIntensity=0;}}}));
+    this.parts.forEach(p=>p.group.traverse(n=>{if(n instanceof T.Mesh)(n.material as T.Material).needsUpdate=true;}));
   }
   private select(id:string,host:HTMLElement) {
     if(this.kind==='car'&&this.mode==='whole'&&!['shell','wheels'].includes(id)) this.setCarMode('explode');
@@ -196,7 +210,17 @@ export class Mechanism {
     if(this.kind==='car') this.parts.forEach(p=>p.group.traverse(n=>{if(n instanceof T.Mesh){const m=n.material as T.MeshStandardMaterial;m.emissive.setHex(p.id===id?0x164b59:0);m.emissiveIntensity=p.id===id?.5:0;}}));
     this.wake();
   }
-  setClock(minutes:number) {this.minutes=minutes;this.handMinute.rotation.z=-minutes*Math.PI/30;this.handHour.rotation.z=-minutes*Math.PI/360;this.gears.forEach((g,i)=>g.rotation.z=minutes*.06*(i%2?-1:1)/(i+1));}
+  setClock(minutes:number) {this.minutes=minutes;const angles=clockTrain(minutes);this.handMinute.rotation.z=angles[0];this.handHour.rotation.z=angles[3];this.gears.forEach((g,i)=>g.rotation.z=angles[i]);this.rotor.rotation.z=minutes*Math.PI*2;}
+  setClockDemo(on:boolean) {
+    this.host.dataset.clockDemo=String(on);
+    if(on){this.setMode('whole');this.amount=0;this.yaw=0;this.zoom=1;this.clockRotate=false;this.selected='';this.host.querySelectorAll('[data-clock-rotate],[data-clock-explode]').forEach(b=>b.setAttribute('aria-checked','false'));this.host.querySelectorAll('[data-part]').forEach(b=>b.setAttribute('aria-pressed','false'));const bom=this.stage.querySelector('details');if(bom)bom.open=false;}
+    if(on)this.setClockPeek(true);else{this.skins();this.wake();}
+  }
+  setClockPeek(on:boolean) {
+    this.clockPeek=on;this.host.dataset.clockPeek=String(on);
+    const eye=this.host.querySelector('[data-action="peek"]');eye?.setAttribute('aria-pressed',String(on));eye?.setAttribute('aria-label',on?'關閉透視刻度盤':'透視刻度盤');
+    this.skins();this.wake();
+  }
   setCar(pull:number,travel=0,running=false) {this.pullValue=pull;this.root.position.x=this.carMode==='test'?-pull*1.8+travel:0;this.wheels.forEach(w=>w.rotation.z=running?-travel/.5:pull*4);if(this.spring)this.spring.scale.setScalar(1-.25*pull);this.gears.forEach((g,i)=>g.rotation.z=(running?travel*4:pull*6)*(i%2?-1:1));}
   frame(dt:number) {
     this.amount+=(this.target-this.amount)*Math.min(1,dt*9);if(Math.abs(this.amount-this.target)<.001)this.amount=this.target;
