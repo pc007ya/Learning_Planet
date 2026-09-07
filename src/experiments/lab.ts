@@ -1,6 +1,7 @@
 import * as T from 'three';
 import { FLOAT_OBJECTS, LAB_SPECS, buoyancy, carDistance, type LabKind } from './models';
 import { Mechanism } from './mechanism';
+import { LabExperience } from './experience';
 
 export class InteractiveLab {
   private renderer?: T.WebGLRenderer;
@@ -8,6 +9,7 @@ export class InteractiveLab {
   private camera = new T.OrthographicCamera(-5, 5, 3.6, -3.6, 0.1, 100);
   private object = new T.Group();
   private mechanism?: Mechanism;
+  private experience?: LabExperience;
   private abort = new AbortController();
   private resize?: ResizeObserver;
   private frame = 0;
@@ -72,6 +74,7 @@ export class InteractiveLab {
     }
     this.scene.add(this.object);
     this.reset();
+    this.experience = new LabExperience(host, kind);
     document.addEventListener('visibilitychange', () => { this.last = 0; if (!document.hidden) this.wake(); }, { signal: this.abort.signal });
     this.wake();
   }
@@ -223,5 +226,5 @@ export class InteractiveLab {
     this.renderer?.render(this.scene, this.camera);
     if (this.active || transitioning) this.wake(); else this.last = 0;
   };
-  destroy() { this.dead = true; cancelAnimationFrame(this.frame); this.abort.abort(); this.resize?.disconnect(); this.mechanism?.destroy(); this.disposeObject(this.scene); this.renderer?.dispose(); this.renderer?.domElement.remove(); }
+  destroy() { this.dead = true; this.experience?.destroy(); cancelAnimationFrame(this.frame); this.abort.abort(); this.resize?.disconnect(); this.mechanism?.destroy(); this.disposeObject(this.scene); this.renderer?.dispose(); this.renderer?.domElement.remove(); }
 }

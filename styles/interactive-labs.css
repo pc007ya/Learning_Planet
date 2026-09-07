@@ -56,3 +56,51 @@ body:has(.il-shell) { background:linear-gradient(135deg,rgba(3,9,30,.85),rgba(14
 .il-mechanism .il-kicker { font-size:10px!important;letter-spacing:.08em; }.il-mechanism aside.il-panel { padding:22px 20px;border-color:#9bcde230;background:rgba(10,24,48,.75); }.il-mechanism aside h2 { font-size:24px; }.il-mechanism aside p { font-size:14px; }.il-mechanism .il-observations,.il-mechanism .il-assessment { background:rgba(10,24,48,.72);border-color:#9bcde230; }
 @media(max-width:900px) { .il-mechanism .il-layout { grid-template-columns:1fr; }.il-mechanism .il-stage { height:430px; } }
 @media(max-width:520px) { .mech-toolbar,.mech-tray { padding:14px; }.il-shell .mech-modes button { font-size:13px;padding:10px 5px; }.mech-parts { grid-template-columns:repeat(2,1fr); }.il-mechanism .il-stage { height:350px; }.mech-adjust { gap:12px; } }
+/* A landscape tablet is a play table, not a long document. */
+.il-mission-nav { display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px; }
+.il-shell .il-mission-nav button,.il-shell .il-controls button,.il-shell [data-action=reset],.il-shell .il-dialog-close { border-radius:24px;background:linear-gradient(160deg,#318ba1,#3b5190);border:1px solid #acf3ff88;box-shadow:inset 0 2px 0 #ffffff30,0 4px 0 #12264e,0 7px 15px #0003;transition:transform .16s,filter .16s; }
+.il-shell .il-controls [data-action=run] { background:linear-gradient(150deg,#248b82,#247678);border-color:#8cffde; }
+.il-shell .il-mission-nav [data-helper=quiz] { background:linear-gradient(150deg,#876027,#75518c);border-color:#ffdf9f; }
+.il-shell button:active:not(.mech-labels button) { transform:translateY(2px);filter:brightness(1.15); }
+.il-shell .mech-modes button::before { display:inline-block;margin-right:6px; }
+.mech-modes [data-view=whole]::before { content:'🧩'; }.mech-modes [data-view=xray]::before { content:'🔎'; }.mech-modes [data-view=explode]::before { content:'✨'; }
+.il-voice-state { font-size:12px; }
+.il-discovery-dialog { color:white;background:linear-gradient(145deg,#0b234bed,#251c4cf5);border:1px solid #93defa;border-radius:28px;width:min(650px,85vw);max-height:80svh;padding:22px;box-shadow:0 24px 80px #0009; }
+.il-discovery-dialog::backdrop { background:#010817a6;backdrop-filter:blur(8px); }
+.il-discovery-dialog [hidden] { display:none!important; }.il-dialog-close { display:block;margin:0 0 18px auto; }
+.il-discovery-dialog .il-panel { margin:0;padding:12px;border:0;background:transparent;box-shadow:none; }
+.il-discovery-dialog details { margin:16px 0; }.il-discovery-dialog summary { min-height:44px;cursor:pointer; }
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape) {
+  .app-shell.lab-focus:has(.il-shell) { padding:0!important;max-width:1440px!important; }
+  .il-shell { box-sizing:border-box;max-width:1440px;margin:0 auto;padding:10px 14px;height:100svh;display:flex;flex-direction:column;gap:8px; }
+  .il-back { margin:0;align-self:flex-start;min-height:44px!important;padding:7px 14px!important; }
+  .il-workspace { flex:1;min-height:0;display:flex;flex-direction:column; }
+  .il-mission-nav { flex:none;margin:0 0 10px;gap:8px; }.il-shell .il-mission-nav button { padding:7px 13px;min-height:44px;font-size:14px; }
+  .il-voice-state { margin-left:auto;max-width:180px; }
+  .il-workspace .il-layout { flex:1;min-height:0;grid-template-columns:minmax(0,1fr) 285px;gap:12px;align-items:stretch; }
+  .il-workspace .il-scene-panel { min-height:0;display:flex;flex-direction:column;border-radius:24px; }
+  .il-workspace .il-stage { flex:1;min-height:180px;height:auto; }
+  .il-workspace .mech-toolbar { padding:10px 12px 6px;flex:none; }
+  .mech-adjust { margin-top:6px;gap:14px; }.il-workspace .mech-adjust input { min-height:32px!important; }
+  .il-workspace .il-live { min-height:0;padding:8px 12px;font-size:13px;line-height:1.45;flex:none; }
+  .il-workspace .mech-tray { padding:8px 10px;flex:none; }.mech-tray-title { margin-bottom:6px;font-size:13px; }
+  .il-workspace .mech-parts { gap:6px; }.il-workspace .mech-parts button { min-height:44px;padding:5px 7px;font-size:13px;border-radius:17px; }
+  .il-workspace aside.il-panel { min-height:0;padding:14px;overflow-y:auto;border-radius:24px; }
+  .il-workspace aside h2 { font-size:21px;margin:0 0 8px; }.il-workspace .il-kicker { display:none; }
+  .il-workspace aside > p:not(.il-kicker) { margin:6px 0;font-size:13px;line-height:1.45; }
+  .il-workspace .mech-quick-info { padding:10px 12px;margin:10px 0 12px; }.il-workspace .mech-quick-info p { font-size:14px;line-height:1.4;margin:5px 0 0; }
+  .il-workspace .il-controls { gap:8px; }.il-workspace .il-controls label { gap:4px;font-size:14px; }
+  .il-workspace .il-controls p { font-size:13px;line-height:1.45;margin:2px 0; }
+  .il-workspace .il-controls button { min-height:46px;padding:8px 10px; }
+  .il-workspace [data-action=reset] { margin-top:12px;min-height:44px;padding:7px 12px; }
+  .il-workspace select { padding:9px;min-height:44px; }
+}
+@media(prefers-reduced-motion:reduce) { .il-shell button { transition:none!important; }.il-shell button:active { transform:none!important; } }
+@media(min-width:900px) and (min-height:600px) and (max-height:680px) and (orientation:landscape) {
+  .il-workspace aside.il-panel { padding:10px 12px; }
+  .il-workspace aside h2 { font-size:19px;margin-bottom:4px; }
+  .il-workspace .mech-quick-info { margin:7px 0;padding:8px 10px; }
+  .il-workspace .il-controls { gap:5px; }
+  .il-workspace .il-controls button { min-height:44px;padding:6px 10px; }
+  .il-workspace [data-action=reset] { margin-top:8px; }
+}

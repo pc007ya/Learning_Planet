@@ -15,8 +15,8 @@
 <script type="module" src="./src/firebase-config.js"></script>
 <script type="module" src="./auth-v2/firebase-client.js"></script>
 <script type="module" src="./modules/earth-orbit/earth-orbit-v01.js"></script>
-<script type="module" src="./modules/interactive-labs/interactive-labs.js?v=20260907-mechanism-v2"></script>
-<link rel="stylesheet" href="./styles/interactive-labs.css?v=20260907-mechanism-v2">
+<script type="module" src="./modules/interactive-labs/interactive-labs.js?v=20260907-tablet-voice"></script>
+<link rel="stylesheet" href="./styles/interactive-labs.css?v=20260907-tablet-voice">
 </head>
 <body>
 <x-dc>
@@ -837,7 +837,7 @@
     .closet-animated-pet { width:min(22%,140px);height:26%; }
   }
   @media (orientation: landscape) and (max-height: 850px) {
-    .app-shell:not(.home-focus):not(.cosmos-focus):not(.subject-focus):not(.profile-focus):not(.module-focus) { padding: 8px 14px 14px !important; }
+    .app-shell:not(.home-focus):not(.cosmos-focus):not(.subject-focus):not(.profile-focus):not(.module-focus):not(:has(.il-shell)) { padding: 8px 14px 14px !important; }
     .app-shell:not(.home-focus):not(.cosmos-focus):not(.subject-focus):not(.profile-focus):not(.module-focus) .app-header { padding: 8px 14px !important; border-radius: 20px !important; }
     .app-shell:not(.home-focus):not(.cosmos-focus):not(.subject-focus):not(.profile-focus):not(.module-focus) .app-header > * { transform: scale(.92); }
     .app-shell:not(.home-focus):not(.cosmos-focus):not(.subject-focus):not(.profile-focus):not(.module-focus) .app-nav { margin: 7px 0 8px !important; }
