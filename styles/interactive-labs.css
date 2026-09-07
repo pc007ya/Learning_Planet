@@ -10,12 +10,12 @@
 /* Clock: one framed workspace, direct switches and collapsible in-scene BOM. */
 .il-clock-play [data-action=peek] { color:white;display:grid;place-items:center; }
 .il-clock-play [data-action=peek][aria-pressed=true] { outline:3px solid #ffe19a;background:#147a89; }
-.il-clock-play .clock-transmission { position:absolute;left:10px;top:64px;z-index:6;width:240px;border:1px solid #9ceaff80;border-radius:18px;background:rgba(7,25,49,.65);backdrop-filter:blur(8px);color:white;font-size:13px; }
+.il-clock-play .clock-transmission { position:absolute;left:10px;top:64px;z-index:6;width:260px;border:1px solid #9ceaff80;border-radius:18px;background:rgba(7,25,49,.65);backdrop-filter:blur(8px);color:white;font-size:13px; }
 .clock-transmission > summary { display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:0 12px;cursor:pointer;list-style:none;font-weight:800; }
 .clock-transmission > summary::-webkit-details-marker { display:none; }.clock-transmission:not([open]) { width:150px; }.clock-transmission:not([open]) summary span { transform:rotate(180deg); }
-.ct-body { padding:0 10px 10px; }.ct-tools { display:flex;gap:4px; }
-.ct-tabs { display:flex;gap:6px;margin:5px 0; }.ct-tabs button { flex:1; }.clock-transmission [data-drive-section][hidden] { display:none; }
-@media(max-height:650px) { .il-clock-play .clock-transmission .ct-row { min-height:32px; }.il-clock-play .clock-transmission .ct-row svg { width:30px;height:30px; }.il-clock-play .clock-transmission .ct-row strong { font-size:14px; }.il-clock-play .clock-transmission.is-large { font-size:14px; }.il-clock-play .clock-transmission footer small { font-size:10px; } }
+.ct-body { padding:0 10px 10px; }.ct-tools { display:flex;gap:4px;margin-bottom:8px; }
+.il-shell .clock-transmission .ct-tools button { width:44px;flex:0 0 44px;padding:3px;display:grid;place-items:center; }.ct-tools svg { width:30px;height:30px;pointer-events:none; }.clock-transmission [data-drive-section][hidden] { display:none; }
+@media(max-height:650px) { .il-clock-play .clock-transmission .ct-row { min-height:32px; }.il-clock-play .clock-transmission .ct-row svg { width:30px;height:30px; }.il-clock-play .clock-transmission .ct-row strong { font-size:14px; }.il-clock-play .clock-transmission footer small { font-size:10px; } }
 .il-shell .clock-transmission button { min-width:44px;min-height:44px;height:44px;padding:3px 7px;font-size:13px;color:white;border-radius:14px;background:#23536d88; }
 .clock-transmission [aria-pressed=true] { outline:2px solid #ffe09b; }.ct-motor { padding:8px 0;font-weight:800; }.ct-motor span { font-size:11px;color:#ccedff; }
 .ct-row { display:flex;align-items:center;gap:9px; }.ct-row svg { width:40px;height:40px;flex:none; }.ct-row strong { display:block;color:#b5f5ff;font-size:14px; }.ct-row small { display:block;font-size:11px; }.ct-link { font-size:11px;padding:2px 0 2px 49px;color:#ffe2a3; }
@@ -25,8 +25,7 @@
 .ct-motor small { display:block;font-size:11px;font-weight:400;margin-top:3px; }
 .il-clock-play:has(.clock-transmission[open]) :is(.mech-quick-info,.il-live) { display:none; }
 .il-clock-play:has(.clock-transmission[open]):has([data-part][aria-pressed=true]) .mech-quick-info { display:block;position:absolute;right:0;bottom:58px;max-width:250px; }
-.il-clock-play .clock-transmission.is-large { width:300px;font-size:16px; }.clock-transmission.is-large .ct-row strong { font-size:18px; }.clock-transmission.is-large .ct-row svg { width:46px;height:46px; }
-@media(max-height:650px) { .ct-motor { padding:4px 0; }.ct-row svg { width:32px;height:32px; }.ct-link { padding-top:0;padding-bottom:0; }.il-clock-play .clock-transmission.is-large .ct-row svg { width:36px;height:36px; } }
+@media(max-height:650px) { .ct-row svg { width:32px;height:32px; }.ct-link { padding-top:0;padding-bottom:0; } }
 .il-shell:has(.il-clock-play) > .il-back { display:none; }
 .il-clock-play .bp-heading { display:flex;align-items:center;gap:10px;padding:8px 12px; }
 .il-clock-play .bp-heading h2 { margin:0;font-size:20px;white-space:nowrap; }

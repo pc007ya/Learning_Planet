@@ -3,7 +3,7 @@ import { FLOAT_OBJECTS, LAB_SPECS, buoyancy, carDistance, type LabKind } from '.
 import { Mechanism } from './mechanism';
 import { LabExperience } from './experience';
 import { installCarArtwork } from './car-art';
-import { clockDemo } from './clock-demo';
+import { advanceClockDemo } from './clock-demo';
 import { clockTransmission,clockRPMLabels,driveRPMLabels } from './clock-transmission';
 
 export class InteractiveLab {
@@ -27,6 +27,7 @@ export class InteractiveLab {
   private demoElapsed = 0;
   private demoStarted = false;
   private demoCue = -1;
+  private clockSpeed:1|60 = 60;
   private pull = 0.5;
   private rough = false;
   private travel = 0;
@@ -157,9 +158,8 @@ export class InteractiveLab {
   }
   private click = (event: Event) => {
     const button = (event.target as HTMLElement).closest<HTMLButtonElement>('button'); if (!button) return;
-    if(button.hasAttribute('data-rpm-size')){const panel=this.stage.querySelector('.clock-transmission')!;const large=panel.classList.toggle('is-large');button.setAttribute('aria-pressed',String(large));button.setAttribute('aria-label',large?'縮小轉速面板':'放大轉速面板');this.wake();return;}
     if(button.dataset.drivePage){this.host.querySelectorAll<HTMLElement>('[data-drive-section]').forEach(el=>el.hidden=el.dataset.driveSection!==button.dataset.drivePage);this.host.querySelectorAll<HTMLButtonElement>('[data-drive-page]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));return;}
-    if(button.dataset.rpmSpeed){const speed=button.dataset.rpmSpeed==='60'?60:1;this.host.querySelectorAll<HTMLButtonElement>('[data-rpm-speed]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));const values=clockRPMLabels(speed),drive=driveRPMLabels(speed);this.host.querySelectorAll('[data-rpm]').forEach((el,i)=>el.textContent=values[i]+' RPM');this.host.querySelectorAll('[data-drive-rpm]').forEach((el,i)=>el.textContent=drive[i]+' RPM');return;}
+    if(button.dataset.rpmSpeed){this.clockSpeed=button.dataset.rpmSpeed==='60'?60:1;this.updateClockSpeed();this.last=0;if(!this.active)this.run();else this.updateClock();this.status.textContent=this.clockSpeed===1?'正常速度：一秒走一秒。':'60倍速：一秒走一分鐘。';return;}
     if(this.kind==='clock'&&button.dataset.action==='peek'){const on=this.host.dataset.clockPeek!=='true';this.mechanism?.setClockPeek(on);this.status.textContent=on?'透視開啟：看看齒輪怎麼帶動指針。':'刻度盤恢復。';return;}
     if (this.kind === 'clock' && (['quiz','notes','help'].includes(button.dataset.helper || '') || button.hasAttribute('data-clock-rotate') || button.hasAttribute('data-clock-explode') || button.dataset.action === 'step')) { this.active=false; this.updateClock(); }
     if(this.kind==='clock'&&(button.hasAttribute('data-clock-rotate')||button.hasAttribute('data-clock-explode')||button.dataset.action==='step')){this.demoStarted=false;this.mechanism?.setClockDemo(false);}
@@ -199,7 +199,7 @@ export class InteractiveLab {
   };
   private reset() {
     this.active = false; this.dragging = false; this.last = 0;
-    if(this.kind==='clock'){this.demoStarted=false;this.demoElapsed=0;this.mechanism?.setClockDemo(false);this.mechanism?.setClockPeek(false);}
+    if(this.kind==='clock'){this.demoStarted=false;this.demoElapsed=0;this.clockSpeed=60;this.updateClockSpeed();this.mechanism?.setClockDemo(false);this.mechanism?.setClockPeek(false);}
     if (this.kind === 'buoyancy') { this.prediction = ''; (this.host.querySelector('[data-input="prediction"]') as HTMLSelectElement).value = ''; this.buildSample(); }
     if (this.kind === 'clock') { this.minutes = 0; this.updateClock(); }
     if (this.kind === 'car') { this.pull = .5; this.mechanism?.setCarMode('rotate'); (this.host.querySelector('[data-input="pull"]') as HTMLInputElement).value = '50'; this.updateCar(); }
@@ -215,7 +215,7 @@ export class InteractiveLab {
     } else if (this.kind === 'clock') {
       if(!this.demoStarted||this.demoElapsed>=60){this.demoElapsed=0;this.demoStarted=true;this.demoCue=-1;this.minutes=0;}
       this.active=!this.active;this.last=0;this.mechanism?.setClockDemo(true);this.updateClock();
-      this.status.textContent=this.active?'60 倍速：一分鐘看完一小時。':'Ⅱ 暫停';
+      this.status.textContent=this.active?(this.clockSpeed===60?'60 倍速：一分鐘看完一小時。':'正常速度：一秒走一秒。'):'Ⅱ 暫停';
     }
     else { if (this.active) return; this.mechanism?.setCarMode('test'); this.runDistance = carDistance(this.pull, this.rough); this.travel = 0; this.runElapsed = 0; this.object.position.x = -3.2; this.active = true; this.status.textContent = '彈簧釋放能量，透過輪軸帶動車輪前進。'; }
     this.wake();
@@ -227,12 +227,20 @@ export class InteractiveLab {
     this.answerReady = true;
     if(this.kind==='clock') this.host.querySelector('.il-feedback')!.textContent='看圖選一個。';
   }
-  private clockText() { const m = Math.floor(this.minutes) % 720; return `${Math.floor(m / 60) || 12}:${String(m % 60).padStart(2, '0')}`; }
+  private clockText() { const m = Math.floor(this.minutes) % 720; return `${Math.floor(m / 60) || 12}:${String(m % 60).padStart(2, '0')}${this.clockSpeed===1?':'+String(Math.floor(this.minutes*60)%60).padStart(2,'0'):''}`; }
+  private updateClockSpeed() {
+    const speed=this.clockSpeed,values=clockRPMLabels(speed),drive=driveRPMLabels(speed);
+    this.host.querySelectorAll<HTMLButtonElement>('[data-rpm-speed]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.rpmSpeed)===speed)));
+    this.host.querySelectorAll('[data-rpm]').forEach((el,i)=>el.textContent=values[i]+' RPM');
+    this.host.querySelectorAll('[data-drive-rpm]').forEach((el,i)=>el.textContent=drive[i]+' RPM');
+    this.host.querySelector('[data-demo-speed]')!.textContent=`${speed}×`;
+  }
   private updateClock() {
     this.mechanism?.setClock(this.minutes);
     (this.host.querySelector('[data-input="minutes"]') as HTMLInputElement).value = String(this.minutes % 721);
     const readout=this.host.querySelector('[data-readout]')!;const time=this.clockText();if(readout.textContent!==time)readout.textContent=time;
-    const play=this.host.querySelector<HTMLButtonElement>('[data-action="run"]')!; const icon=this.active?'Ⅱ':'▶ 1 min';if(play.textContent!==icon)play.textContent=icon;const pressed=String(this.active);if(play.getAttribute('aria-pressed')!==pressed)play.setAttribute('aria-pressed',pressed);const label=this.active?'暫停一分鐘示範':this.demoStarted&&this.demoElapsed<60?'繼續一分鐘示範':'播放一分鐘示範';if(play.getAttribute('aria-label')!==label)play.setAttribute('aria-label',label);
+    const play=this.host.querySelector<HTMLButtonElement>('[data-action="run"]')!; const icon=this.active?'Ⅱ':`▶ ${this.clockSpeed}×`;if(play.textContent!==icon)play.textContent=icon;const pressed=String(this.active);if(play.getAttribute('aria-pressed')!==pressed)play.setAttribute('aria-pressed',pressed);const label=this.active?'暫停時鐘':this.demoStarted&&this.demoElapsed<60?'繼續時鐘':'播放時鐘';if(play.getAttribute('aria-label')!==label)play.setAttribute('aria-label',label);
+    const counter=this.host.querySelector('[data-demo-seconds]')!;const progress=`${Math.floor(this.demoElapsed)}分${String(Math.floor(this.demoElapsed*60)%60).padStart(2,'0')}秒`;if(counter.textContent!==progress)counter.textContent=progress;
   }
   private updateCar() {
     this.object.position.set(-1.5 - this.pull * 1.7, -1, .2);
@@ -275,11 +283,10 @@ export class InteractiveLab {
       }
     }
     if (this.active && this.kind === 'clock') {
-      const demo=clockDemo(this.demoElapsed+realDt);this.demoElapsed=demo.elapsed;this.minutes=demo.minutes;
-      const counter=this.host.querySelector('[data-demo-seconds]')!;const seconds=String(Math.floor(demo.elapsed));if(counter.textContent!==seconds)counter.textContent=seconds;
+      const demo=advanceClockDemo(this.demoElapsed,realDt,this.clockSpeed);this.demoElapsed=demo.elapsed;this.minutes=demo.minutes;
       const cue=Math.min(3,Math.floor(demo.elapsed/20));
       if(cue!==this.demoCue){this.demoCue=cue;this.host.querySelector('.mech-quick-info')!.innerHTML=['<strong>馬達 → 齒輪</strong><p>跟著綠色齒輪看，馬達經三段減速，帶動長分針。</p>','<strong>分針正在走</strong><p>先慢三倍，再慢四倍，再慢五倍。馬達六十圈，長分針一圈。</p>','<strong>看看短時針</strong><p>金色齒輪再減速十二倍，帶動短時針。</p>','<strong>✓ 一小時！</strong><p>分針一圈，時針一大格。</p>'][cue];}
-      if(demo.done){this.active=false;this.record('60 秒示範完成：分針轉一圈，時針轉 30 度，前進一大格。');this.status.textContent='✓ 60 秒 → 1 小時';}
+      if(demo.done){this.active=false;this.record('一小時示範完成：分針轉一圈，時針轉 30 度，前進一大格。');this.status.textContent='✓ 已走 1 小時';}
       this.updateClock();
     }
     if (this.active && this.kind === 'car') {

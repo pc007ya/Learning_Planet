@@ -6,8 +6,9 @@ it('matches the animated 12:1 hand relationship at both reference speeds',()=>{
   expect(clockRPMLabels(1)).toEqual(['1/60','1/180','1/720']);
   expect(clockRPMLabels(60)).toEqual(['1','1/3','1/12']);
 });
-it('labels the omitted motor reduction and exposes collapse, resize and narration',()=>{
-  const html=clockTransmission();for(const token of ['details','data-rpm-size','data-rpm-read','非品牌機芯','data-drive-section','data-demo-seconds'])expect(html).toContain(token);
+it('keeps icon tabs in one toolbar without panel resizing',()=>{
+  const html=clockTransmission();for(const token of ['details','data-rpm-read','非品牌機芯','data-drive-section','data-demo-seconds','aria-label="馬達輪系"','aria-label="指針輪系"'])expect(html).toContain(token);
+  expect(html).not.toContain('data-rpm-size');expect(html).not.toContain('ct-tabs');
 });
 it('does not close the transmission explanation when demonstration starts',()=>{
   const code=readFileSync('src/experiments/mechanism.ts','utf8');expect(code).toContain("querySelector<HTMLDetailsElement>('.mech-bom')");expect(code).not.toContain("const bom=this.stage.querySelector('details')");

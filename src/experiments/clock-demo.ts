@@ -3,6 +3,10 @@ export function clockDemo(seconds:number) {
   const elapsed=Math.max(0,Math.min(60,seconds));
   return {elapsed,minutes:elapsed,done:elapsed>=60,minuteAngle:-elapsed*Math.PI/30,hourAngle:-elapsed*Math.PI/360};
 }
+/** Progress is simulated minutes; normal time advances one minute per 60 real seconds. */
+export function advanceClockDemo(progress:number,realSeconds:number,speed:1|60) {
+  return clockDemo(progress+Math.max(0,realSeconds)*speed/60);
+}
 /** 12→36, coaxial 10→40: two external meshes give 3×4=12 reduction. */
 export function clockTrain(minutes:number) {
   const minute=clockDrive(minutes).minute;
