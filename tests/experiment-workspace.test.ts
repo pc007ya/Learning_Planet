@@ -23,7 +23,7 @@ describe('tablet experiment workspace contract', () => {
     expect(css).not.toContain('body:has(.il-shell) { overflow:hidden');
   });
   it('merges buoyancy navigation into its heading without removing accessible actions', () => {
-    expect(code).toContain("if (kind === 'buoyancy')");
+    expect(code).toContain("if (kind === 'buoyancy' || kind === 'car')");
     expect(code).toContain('heading.prepend(back); heading.append(nav)');
     expect(code).toContain("button.setAttribute('aria-label', label)");
     expect(code).toContain("querySelector<HTMLButtonElement>('.il-back')?.click()");

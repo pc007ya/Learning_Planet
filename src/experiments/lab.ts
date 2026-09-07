@@ -43,6 +43,13 @@ export class InteractiveLab {
     guide.textContent = kind === 'buoyancy' ? '選物品 → 預測 → 放入水中 → 比較浮沉' : kind === 'clock' ? '左：指針比例 12:1 ｜ 右：外齒輪反向傳動示意' : '向左回拉 → 彈簧儲能 → 放手帶動輪軸';
     this.stage.append(guide);
     host.querySelector('.il-controls')!.innerHTML = kind === 'buoyancy' ? `<label>① 選物品<select data-input="object">${FLOAT_OBJECTS.map((o, i) => `<option value="${i}">${o.name}</option>`).join('')}</select></label><p data-sample></p><label>② 先預測<select data-input="prediction"><option value="">請選擇</option><option value="float">浮在水面</option><option value="sink">沉到水底</option><option value="unsure">還不確定</option></select></label><button type="button" data-action="run">③ 放入水中</button><p>也可拖動物品，放手入水。可重複測試，猜錯也能學習。</p>` : kind === 'clock' ? `<label>轉動分針（分鐘）<input data-input="minutes" type="range" min="0" max="720" step="1" value="0"></label><p data-readout>12:00</p><button type="button" data-action="step">分針前進一圈（60 分鐘）</button><button type="button" data-action="run">▶ 播放／暫停</button><button type="button" data-action="record">記錄目前時間</button><p>可拖曳鐘面指針；滑桿與按鈕也能操作。</p>` : `<label>① 向後拉多少<input data-input="pull" type="range" min="10" max="100" step="10" value="50"></label><p data-readout>回拉量 50%</p><label>② 路面<select data-input="surface"><option value="smooth">較平滑</option><option value="rough">較粗糙</option></select></label><button type="button" data-action="run">③ 放手出發</button><p>也可把車向左拖，放手前進。比較同一回拉量在不同路面的結果。</p>`;
+    if (kind === 'car') {
+      const heading = document.createElement('div'); heading.className = 'bp-heading'; heading.innerHTML = '<h2>回力車工坊</h2>';
+      host.querySelector('.il-scene-panel')!.prepend(heading);
+      host.dataset.road = 'smooth';
+      host.querySelector('.il-controls')!.innerHTML = `<input type="hidden" data-input="pull" value="50"><div class="car-roads" role="group" aria-label="選擇路面"><button data-road="smooth" aria-pressed="true" aria-label="平路"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M8 55 30 5h40l22 50" fill="#547990"/><path d="M50 12v9m0 8v9m0 8v8" stroke="#fff3bb" stroke-width="4"/></svg><span>平路</span></button><button data-road="rough" aria-pressed="false" aria-label="石頭路"><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M8 55 30 5h40l22 50" fill="#675852"/><g fill="#d1b99a" stroke="#8c7664"><path d="m25 37 8-8 12 5-3 11-15 2Z"/><path d="m56 17 8-5 9 7-5 8-12-2Z"/><path d="m52 43 8-10 16 5 3 14-21 3Z"/><path d="m38 15 8-7 6 8-4 9-12-1Z"/></g></svg><span>石頭路</span></button></div><p data-readout>回拉量 50%</p><div class="car-force" role="group" aria-label="回拉力量"><button data-force=".25" aria-label="小力回拉">●</button><button data-force=".5" aria-label="中力回拉">●●</button><button data-force="1" aria-label="大力回拉">●●●</button></div><button data-action="run">🏁 出發</button><p>打開旋轉，用手拖動。打開拆卸，點零件。打開拉力，鏡頭自動轉側面、拉遠；向左拉車，放手出發。也可點圓點選力量，再點出發。</p>`;
+      const road = document.createElement('div'); road.className = 'car-track'; road.setAttribute('aria-hidden','true'); this.stage.append(road);
+    }
     host.addEventListener('click', this.click, { signal: this.abort.signal });
     host.addEventListener('input', this.input, { signal: this.abort.signal });
     this.camera.position.set(0, 0, 12);
@@ -70,7 +77,7 @@ export class InteractiveLab {
     });
     if (kind !== 'buoyancy') {
       host.querySelector('aside > details > p')!.textContent = kind === 'clock' ? '常見的電池式石英鐘：電池供电，石英與電路提供節拍，馬達和多級齒輪帶動指針。本模型省略部分細小零件，不是維修圖。分針和時針保持 12:1 的轉速關係。' : '彈簧式回力車：回拉讓輪軸、齒輪帶動捲簧儲能，放手後由捲簧驅動車輪。拆解圖省略部分緊固件；行駛距離為教學模型單位，不代表真實車款。';
-      host.querySelector('.il-controls > p:last-child')!.textContent = kind === 'clock' ? '完整外觀：左右拖動模型可調整時間。透視或拆開時：拖動模型可轉視角。' : '完整外觀：向左拖車、放手出發。透視或拆開時：拖動模型可轉視角。';
+      if (kind === 'clock') host.querySelector('.il-controls > p:last-child')!.textContent = '完整外觀：左右拖動模型可調整時間。透視或拆開時：拖動模型可轉視角。';
     }
     this.scene.add(this.object);
     this.reset();
@@ -130,6 +137,15 @@ export class InteractiveLab {
   }
   private click = (event: Event) => {
     const button = (event.target as HTMLElement).closest<HTMLButtonElement>('button'); if (!button) return;
+    if (this.kind === 'car') {
+      if (button.dataset.carMode || button.dataset.part) this.active = false;
+      if (button.dataset.road) {
+        this.active = false; this.rough = button.dataset.road === 'rough'; this.host.dataset.road = button.dataset.road;
+        this.host.querySelectorAll<HTMLButtonElement>('[data-road]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+        this.updateCar(); this.status.textContent = this.rough ? '換成石頭路，試試看能跑多遠。' : '換成平路，用相同力量比較看看。';
+      }
+      if (button.dataset.force) { this.active = false; this.pull = Number(button.dataset.force); this.mechanism?.setCarMode('test'); this.updateCar(); }
+    }
     if (button.dataset.answer !== undefined) {
       this.host.querySelector('.il-feedback')!.textContent = !this.answerReady ? '先操作並完成一次觀察，再用證據回答。' : Number(button.dataset.answer) === LAB_SPECS[this.kind].answer ? '✓ 完成！你已把操作結果和原理解釋連起來。可以再改一個條件試試。' : '再看看觀察紀錄。答錯沒關係，回到實驗找證據後再回答。'; return;
     }
@@ -152,8 +168,8 @@ export class InteractiveLab {
     this.active = false; this.dragging = false; this.last = 0;
     if (this.kind === 'buoyancy') { this.prediction = ''; (this.host.querySelector('[data-input="prediction"]') as HTMLSelectElement).value = ''; this.buildSample(); }
     if (this.kind === 'clock') { this.minutes = 0; this.updateClock(); }
-    if (this.kind === 'car') { this.pull = .5; (this.host.querySelector('[data-input="pull"]') as HTMLInputElement).value = '50'; this.updateCar(); }
-    this.status.textContent = '準備好了，改變條件後開始觀察。'; this.wake();
+    if (this.kind === 'car') { this.pull = .5; this.mechanism?.setCarMode('rotate'); (this.host.querySelector('[data-input="pull"]') as HTMLInputElement).value = '50'; this.updateCar(); }
+    this.status.textContent = this.kind === 'car' ? '用手左右拖，看看車子的每一面。' : '準備好了，改變條件後開始觀察。'; this.wake();
   }
   private run() {
     if (this.kind === 'buoyancy') {
@@ -163,7 +179,7 @@ export class InteractiveLab {
       this.targetY = result.floats ? .15 + .3 - .6 * result.fraction : -2.13;
       this.active = true; this.status.textContent = `正在觀察${o.name}…`;
     } else if (this.kind === 'clock') { this.active = !this.active; this.status.textContent = this.active ? '加速示範中：分針轉 12 圈，時針轉 1 圈。試試透視，看裡面哪些零件跟著動。' : '已暫停，可以記錄目前時間。'; }
-    else { if (this.active) return; this.runDistance = carDistance(this.pull, this.rough); this.travel = 0; this.runElapsed = 0; this.object.position.x = -3.2; this.active = true; this.status.textContent = '彈簧釋放能量，透過輪軸帶動車輪前進。'; }
+    else { if (this.active) return; this.mechanism?.setCarMode('test'); this.runDistance = carDistance(this.pull, this.rough); this.travel = 0; this.runElapsed = 0; this.object.position.x = -3.2; this.active = true; this.status.textContent = '彈簧釋放能量，透過輪軸帶動車輪前進。'; }
     this.wake();
   }
   private record(text: string) {
@@ -182,6 +198,7 @@ export class InteractiveLab {
     this.object.position.set(-1.5 - this.pull * 1.7, -1, .2);
     this.mechanism?.setCar(this.pull);
     this.host.querySelector('[data-readout]')!.textContent = `回拉量 ${Math.round(this.pull * 100)}% · ${this.rough ? '較粗糙' : '較平滑'}路面`;
+    this.host.querySelectorAll<HTMLButtonElement>('[data-force]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.force)===this.pull)));
   }
   private point(event: PointerEvent) {
     const rect = this.stage.getBoundingClientRect();

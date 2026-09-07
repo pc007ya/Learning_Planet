@@ -1,4 +1,36 @@
 :root { --planet-panel: linear-gradient(145deg,rgba(7,19,48,.92),rgba(23,16,60,.86)); --planet-text: #fff; --planet-border: rgba(126,218,255,.55); }
+.il-shell:has(.il-car-play) > .il-back { display:none; }
+.il-car-play .il-assessment[hidden] { display:none!important; }
+.il-car-play[data-car-page=quiz] :is(.mech-toolbar,.il-stage,.il-live,.mech-tray,aside.il-panel) { display:none!important; }
+.il-car-play.il-workspace[data-car-page=quiz] .il-layout { grid-template-columns:1fr; }
+.il-car-play[data-car-page=quiz] .il-assessment { margin:0;flex:1;padding:clamp(20px,5vh,48px);border:0;box-shadow:none;background:transparent; }
+.il-car-play[data-car-page=quiz] .il-answers { display:grid;grid-template-columns:1fr 1fr;gap:16px; }
+.il-car-play[data-car-page=quiz] .il-answers button { min-height:80px;border-radius:24px; }
+.il-car-play .bp-heading { display:grid;grid-template-columns:44px auto minmax(0,1fr);gap:8px;padding:8px 12px; }
+.il-shell .il-car-play .bp-heading h2 { font-size:20px;white-space:nowrap;margin:0; }
+.il-car-play .bp-heading .il-mission-nav { margin:0;gap:5px;flex-wrap:nowrap;justify-content:flex-end; }
+.il-shell .il-car-play .bp-heading :is(.bp-back-icon,.il-mission-nav button) { flex:none;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border-radius:50%;font-size:22px;display:inline-grid;place-items:center; }
+.il-shell .il-car-play .bp-heading .il-mission-nav [data-helper=quiz] { font-size:14px;width:54px;border-radius:16px;white-space:nowrap; }
+.il-car-play .bp-heading .il-voice-state { position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap; }
+.il-car-play aside > :is(h2,p),.il-car-play .il-scene-guide { display:none; }
+.il-car-play .car-switches { display:flex;gap:8px; }
+.il-shell .car-switches button { flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:18px;min-height:44px;padding:6px;font-size:15px; }
+.car-switches i { display:block;width:30px;height:18px;border-radius:12px;background:#102139;border:1px solid #a9d8f288;position:relative; }
+.car-switches i:after { content:'';position:absolute;left:2px;top:2px;width:12px;height:12px;border-radius:50%;background:white;transition:left .15s; }
+.car-switches [aria-checked=true] i { background:#198d83; }.car-switches [aria-checked=true] i:after { left:14px; }
+.il-car-play:not([data-car-mode=explode]) .mech-tray { display:none; }
+.il-car-play .car-roads { display:grid;grid-template-columns:1fr 1fr;gap:8px; }
+.il-shell .car-roads button { padding:8px;border-radius:20px;display:grid;justify-items:center;gap:4px; }.car-roads svg { width:80px;max-width:100%;height:55px; }
+.il-car-play [data-road][aria-pressed=true] { border:2px solid #ffe396;background:#3d5069; }
+.car-force { display:flex;gap:6px; }.il-shell .car-force button { flex:1;padding:4px;font-size:13px;color:#ffe396!important; }
+.il-car-play [data-readout] { font-size:13px;margin:4px 0; }.il-car-play .mech-quick-info { min-height:80px; }
+.il-car-play .car-track { display:none;position:absolute;left:0;right:0;top:60%;height:12%;background:#526b7dc9;border-top:3px solid #c2e5e5;pointer-events:none; }
+.il-car-play[data-car-mode=test] .car-track { display:block; }
+.il-car-play[data-road=rough] .car-track { background:radial-gradient(ellipse at center,#d3bd9b 0 35%,#665851 38% 48%,transparent 52%) 0 0/35px 21px,#65594d; }
+.il-car-play canvas { position:relative;z-index:1; }.il-car-play .mech-labels { z-index:3; }
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape) { .il-car-play.il-workspace .il-layout { grid-template-columns:minmax(0,1fr) 220px; }.il-car-play.il-workspace .mech-toolbar { padding:4px 12px 8px; }.il-car-play.il-workspace .il-live { min-height:46px; }.il-car-play .mech-parts { grid-template-columns:repeat(4,1fr); } }
+@media(max-width:620px) { .il-car-play .bp-heading { gap:4px;padding:8px; }.il-shell .il-car-play .bp-heading h2 { font-size:18px; }.il-car-play .bp-heading .il-mission-nav { gap:3px; } }
+@media(max-width:470px) { .il-car-play .bp-heading { grid-template-columns:44px 1fr; }.il-car-play .bp-heading .il-mission-nav { grid-column:1 / -1; } }
 .il-shell:has(.il-buoyancy-play) > .il-back { display:none; }
 .il-buoyancy-play .bp-heading { display:grid;grid-template-columns:44px auto minmax(0,1fr);gap:8px;padding:8px 12px; }
 .il-buoyancy-play .bp-heading > span { display:none; }
