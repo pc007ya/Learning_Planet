@@ -1,0 +1,6812 @@
+{
+  "schemaVersion": "1.0",
+  "id": "cube-picture-book-v1",
+  "background": "images/experiments/shared-classroom/v1/classroom.png",
+  "sourceNote": "Concept reference only: https://1hrbld.tw/3x3-dab/ . Original text, exercises, state geometry and artwork; not the site’s DAB course or illustrations.",
+  "orientation": "Fixed centers: U white, D yellow, F green, R red; yellow-view changes camera, not moves. Apply cameraUp before lookAt.",
+  "limits": [
+    "Prepared examples, not a universal beginner solver",
+    "Existing guided solver remains CFOP",
+    "Timing hints need voiceover editing; no new rendered video included"
+  ],
+  "shots": [
+    {
+      "id": "families",
+      "title": "認識小零件",
+      "narration": "先認識三種小零件。中心只有一種顏色，邊塊有兩種，角塊有三種。中心像地址，決定這一面的顏色。看右邊的小圖，找出有兩種顏色的邊塊。",
+      "caption": "1 色中心 · 2 色邊 · 3 色角",
+      "camera": [
+        6,
+        4.5,
+        7
+      ],
+      "cameraUp": [
+        0,
+        1,
+        0
+      ],
+      "focus": "parts",
+      "initialState": [
+        {
+          "id": "-1,-1,-1",
+          "position": [
+            -1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,0",
+          "position": [
+            -1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,1",
+          "position": [
+            -1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,-1",
+          "position": [
+            -1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,0",
+          "position": [
+            -1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,1",
+          "position": [
+            -1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,-1",
+          "position": [
+            -1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,0",
+          "position": [
+            -1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,1",
+          "position": [
+            -1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,-1",
+          "position": [
+            0,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,0",
+          "position": [
+            0,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,1",
+          "position": [
+            0,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,-1",
+          "position": [
+            0,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,1",
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,-1",
+          "position": [
+            0,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,0",
+          "position": [
+            0,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,1",
+          "position": [
+            0,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,-1",
+          "position": [
+            1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,0",
+          "position": [
+            1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,1",
+          "position": [
+            1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,-1",
+          "position": [
+            1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,0",
+          "position": [
+            1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,1",
+          "position": [
+            1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,-1",
+          "position": [
+            1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,0",
+          "position": [
+            1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,1",
+          "position": [
+            1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "moves": [],
+      "frames": [
+        {
+          "id": "families-0",
+          "asset": "modules/interactive-labs/book-v1/families-0.svg",
+          "holdSeconds": 7,
+          "move": null
+        }
+      ],
+      "goal": "找兩色的邊塊"
+    },
+    {
+      "id": "turn",
+      "title": "鏡頭和轉層不同",
+      "narration": "轉視角只是換個地方看，不會交換色塊。轉一層才會改變它們的位置。這裡把右面轉回四分之一圈。播放看前後兩張圖，再比較側面有沒有同色。",
+      "caption": "看同一面 · 每次四分之一圈",
+      "camera": [
+        6,
+        4.5,
+        7
+      ],
+      "cameraUp": [
+        0,
+        1,
+        0
+      ],
+      "focus": "all",
+      "initialState": [
+        {
+          "id": "-1,-1,-1",
+          "position": [
+            -1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,0",
+          "position": [
+            -1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,1",
+          "position": [
+            -1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,-1",
+          "position": [
+            -1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,0",
+          "position": [
+            -1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,1",
+          "position": [
+            -1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,-1",
+          "position": [
+            -1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,0",
+          "position": [
+            -1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,1",
+          "position": [
+            -1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,-1",
+          "position": [
+            0,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,0",
+          "position": [
+            0,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,1",
+          "position": [
+            0,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,-1",
+          "position": [
+            0,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,1",
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,-1",
+          "position": [
+            0,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,0",
+          "position": [
+            0,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,1",
+          "position": [
+            0,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,-1",
+          "position": [
+            1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,0",
+          "position": [
+            1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,1",
+          "position": [
+            1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,-1",
+          "position": [
+            1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,0",
+          "position": [
+            1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,1",
+          "position": [
+            1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,-1",
+          "position": [
+            1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,0",
+          "position": [
+            1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,1",
+          "position": [
+            1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "moves": [
+        "R'"
+      ],
+      "frames": [
+        {
+          "id": "turn-0",
+          "asset": "modules/interactive-labs/book-v1/turn-0.svg",
+          "holdSeconds": 7,
+          "move": null
+        },
+        {
+          "id": "turn-1",
+          "asset": "modules/interactive-labs/book-v1/turn-1.svg",
+          "holdSeconds": 2,
+          "move": "R'"
+        }
+      ],
+      "goal": "側色也要接成同一排"
+    },
+    {
+      "id": "cross",
+      "title": "十字還要對側色",
+      "narration": "這兩張圖，上面都可能是白色。還要看白邊旁的另一個顏色，有沒有和側面中心相同。只拼出白色十字，不代表位置正確。請找側色也對齊的一張。",
+      "caption": "白色在上 · 側色對中心",
+      "camera": [
+        6,
+        4.5,
+        7
+      ],
+      "cameraUp": [
+        0,
+        1,
+        0
+      ],
+      "focus": "cross",
+      "initialState": [
+        {
+          "id": "-1,-1,-1",
+          "position": [
+            -1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,0",
+          "position": [
+            -1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,1",
+          "position": [
+            -1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,-1",
+          "position": [
+            -1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,0",
+          "position": [
+            -1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,1",
+          "position": [
+            -1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,-1",
+          "position": [
+            1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,0",
+          "position": [
+            0,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,1",
+          "position": [
+            -1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,-1",
+          "position": [
+            0,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,0",
+          "position": [
+            0,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,1",
+          "position": [
+            0,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,-1",
+          "position": [
+            0,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,1",
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,-1",
+          "position": [
+            1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,0",
+          "position": [
+            0,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,1",
+          "position": [
+            -1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,-1",
+          "position": [
+            1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,0",
+          "position": [
+            1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,1",
+          "position": [
+            1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,-1",
+          "position": [
+            1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,0",
+          "position": [
+            1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,1",
+          "position": [
+            1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,-1",
+          "position": [
+            1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,0",
+          "position": [
+            0,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,1",
+          "position": [
+            -1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "moves": [
+        "U'"
+      ],
+      "frames": [
+        {
+          "id": "cross-0",
+          "asset": "modules/interactive-labs/book-v1/cross-0.svg",
+          "holdSeconds": 7,
+          "move": null
+        },
+        {
+          "id": "cross-1",
+          "asset": "modules/interactive-labs/book-v1/cross-1.svg",
+          "holdSeconds": 2,
+          "move": "U'"
+        }
+      ],
+      "goal": "白十字的側色也對齊"
+    },
+    {
+      "id": "corners",
+      "title": "三個顏色找一個家",
+      "narration": "角塊不能只看白色。它的另外兩個顏色，也要和兩邊的中心對上。這是單一角塊的歸位例子；不同位置不能直接套用同一串動作。先看目標，再播放小段。",
+      "caption": "先找角塊 · 比對三個中心",
+      "camera": [
+        6,
+        4.5,
+        7
+      ],
+      "cameraUp": [
+        0,
+        1,
+        0
+      ],
+      "focus": "corners",
+      "initialState": [
+        {
+          "id": "-1,-1,-1",
+          "position": [
+            -1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,0",
+          "position": [
+            0,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,1",
+          "position": [
+            1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,-1",
+          "position": [
+            -1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,0",
+          "position": [
+            -1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,1",
+          "position": [
+            -1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,-1",
+          "position": [
+            -1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,0",
+          "position": [
+            -1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,1",
+          "position": [
+            -1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,-1",
+          "position": [
+            -1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,0",
+          "position": [
+            0,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,1",
+          "position": [
+            1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,-1",
+          "position": [
+            0,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,1",
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,-1",
+          "position": [
+            0,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,0",
+          "position": [
+            0,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,1",
+          "position": [
+            0,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,-1",
+          "position": [
+            1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,0",
+          "position": [
+            1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,1",
+          "position": [
+            -1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,-1",
+          "position": [
+            1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,0",
+          "position": [
+            1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,1",
+          "position": [
+            0,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,-1",
+          "position": [
+            1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,0",
+          "position": [
+            1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,1",
+          "position": [
+            1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "moves": [
+        "R'",
+        "D'",
+        "R"
+      ],
+      "frames": [
+        {
+          "id": "corners-0",
+          "asset": "modules/interactive-labs/book-v1/corners-0.svg",
+          "holdSeconds": 7,
+          "move": null
+        },
+        {
+          "id": "corners-1",
+          "asset": "modules/interactive-labs/book-v1/corners-1.svg",
+          "holdSeconds": 2,
+          "move": "R'"
+        },
+        {
+          "id": "corners-2",
+          "asset": "modules/interactive-labs/book-v1/corners-2.svg",
+          "holdSeconds": 2,
+          "move": "D'"
+        },
+        {
+          "id": "corners-3",
+          "asset": "modules/interactive-labs/book-v1/corners-3.svg",
+          "holdSeconds": 2,
+          "move": "R"
+        }
+      ],
+      "goal": "白角與兩側同色"
+    },
+    {
+      "id": "middle",
+      "title": "中間層找同色夥伴",
+      "narration": "在這顆方塊，中間層的邊塊不會有白色或黃色。先用兩個顏色找出它應該住在哪兩個中心之間。播放的是一個已經擺好方向的例子，不是任何打亂都能直接照轉。",
+      "caption": "先挑沒有白、黃的邊塊",
+      "camera": [
+        6,
+        4.5,
+        7
+      ],
+      "cameraUp": [
+        0,
+        1,
+        0
+      ],
+      "focus": "middle",
+      "initialState": [
+        {
+          "id": "-1,-1,-1",
+          "position": [
+            1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,0",
+          "position": [
+            1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,1",
+          "position": [
+            -1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,-1",
+          "position": [
+            -1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,0",
+          "position": [
+            -1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,1",
+          "position": [
+            -1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,-1",
+          "position": [
+            -1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,0",
+          "position": [
+            -1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,1",
+          "position": [
+            -1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,-1",
+          "position": [
+            -1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,0",
+          "position": [
+            0,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,1",
+          "position": [
+            1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,-1",
+          "position": [
+            0,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,1",
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,-1",
+          "position": [
+            0,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,0",
+          "position": [
+            0,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,1",
+          "position": [
+            0,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,-1",
+          "position": [
+            1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,0",
+          "position": [
+            0,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,1",
+          "position": [
+            -1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,-1",
+          "position": [
+            0,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,0",
+          "position": [
+            1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,1",
+          "position": [
+            1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,-1",
+          "position": [
+            1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,0",
+          "position": [
+            1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,1",
+          "position": [
+            1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "moves": [
+        "D",
+        "R",
+        "D'",
+        "R'",
+        "D'",
+        "B'",
+        "D",
+        "B"
+      ],
+      "frames": [
+        {
+          "id": "middle-0",
+          "asset": "modules/interactive-labs/book-v1/middle-0.svg",
+          "holdSeconds": 7,
+          "move": null
+        },
+        {
+          "id": "middle-1",
+          "asset": "modules/interactive-labs/book-v1/middle-1.svg",
+          "holdSeconds": 2,
+          "move": "D"
+        },
+        {
+          "id": "middle-2",
+          "asset": "modules/interactive-labs/book-v1/middle-2.svg",
+          "holdSeconds": 2,
+          "move": "R"
+        },
+        {
+          "id": "middle-3",
+          "asset": "modules/interactive-labs/book-v1/middle-3.svg",
+          "holdSeconds": 2,
+          "move": "D'"
+        },
+        {
+          "id": "middle-4",
+          "asset": "modules/interactive-labs/book-v1/middle-4.svg",
+          "holdSeconds": 2,
+          "move": "R'"
+        },
+        {
+          "id": "middle-5",
+          "asset": "modules/interactive-labs/book-v1/middle-5.svg",
+          "holdSeconds": 2,
+          "move": "D'"
+        },
+        {
+          "id": "middle-6",
+          "asset": "modules/interactive-labs/book-v1/middle-6.svg",
+          "holdSeconds": 2,
+          "move": "B'"
+        },
+        {
+          "id": "middle-7",
+          "asset": "modules/interactive-labs/book-v1/middle-7.svg",
+          "holdSeconds": 2,
+          "move": "D"
+        },
+        {
+          "id": "middle-8",
+          "asset": "modules/interactive-labs/book-v1/middle-8.svg",
+          "holdSeconds": 2,
+          "move": "B"
+        }
+      ],
+      "goal": "邊塊兩色都對中心"
+    },
+    {
+      "id": "yellow-cross",
+      "title": "先看黃邊的方向",
+      "narration": "現在從黃色這一側看。暫時只找中心旁的四個邊塊，不必被角塊干擾。黃色可能還沒朝外。這段示範把黃邊翻正；做完要重新看圖判斷，不能只靠記次數。",
+      "caption": "翻到黃色面 · 先不看角塊",
+      "camera": [
+        6,
+        -4.5,
+        7
+      ],
+      "cameraUp": [
+        0,
+        -1,
+        0
+      ],
+      "focus": "yellow",
+      "initialState": [
+        {
+          "id": "-1,-1,-1",
+          "position": [
+            1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,0",
+          "position": [
+            -1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,1",
+          "position": [
+            1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,-1",
+          "position": [
+            -1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,0",
+          "position": [
+            -1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,1",
+          "position": [
+            -1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,-1",
+          "position": [
+            -1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,0",
+          "position": [
+            -1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,1",
+          "position": [
+            -1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,-1",
+          "position": [
+            0,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,0",
+          "position": [
+            0,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,1",
+          "position": [
+            1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,-1",
+          "position": [
+            0,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,1",
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,-1",
+          "position": [
+            0,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,0",
+          "position": [
+            0,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,1",
+          "position": [
+            0,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,-1",
+          "position": [
+            -1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,0",
+          "position": [
+            0,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,1",
+          "position": [
+            -1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,-1",
+          "position": [
+            1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,0",
+          "position": [
+            1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,1",
+          "position": [
+            1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,-1",
+          "position": [
+            1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,0",
+          "position": [
+            1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,1",
+          "position": [
+            1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "moves": [
+        "B",
+        "R",
+        "D",
+        "R'",
+        "D'",
+        "B'"
+      ],
+      "frames": [
+        {
+          "id": "yellow-cross-0",
+          "asset": "modules/interactive-labs/book-v1/yellow-cross-0.svg",
+          "holdSeconds": 7,
+          "move": null
+        },
+        {
+          "id": "yellow-cross-1",
+          "asset": "modules/interactive-labs/book-v1/yellow-cross-1.svg",
+          "holdSeconds": 2,
+          "move": "B"
+        },
+        {
+          "id": "yellow-cross-2",
+          "asset": "modules/interactive-labs/book-v1/yellow-cross-2.svg",
+          "holdSeconds": 2,
+          "move": "R"
+        },
+        {
+          "id": "yellow-cross-3",
+          "asset": "modules/interactive-labs/book-v1/yellow-cross-3.svg",
+          "holdSeconds": 2,
+          "move": "D"
+        },
+        {
+          "id": "yellow-cross-4",
+          "asset": "modules/interactive-labs/book-v1/yellow-cross-4.svg",
+          "holdSeconds": 2,
+          "move": "R'"
+        },
+        {
+          "id": "yellow-cross-5",
+          "asset": "modules/interactive-labs/book-v1/yellow-cross-5.svg",
+          "holdSeconds": 2,
+          "move": "D'"
+        },
+        {
+          "id": "yellow-cross-6",
+          "asset": "modules/interactive-labs/book-v1/yellow-cross-6.svg",
+          "holdSeconds": 2,
+          "move": "B'"
+        }
+      ],
+      "goal": "四條黃邊朝向黃中心"
+    },
+    {
+      "id": "yellow-face",
+      "title": "角塊也要翻對",
+      "narration": "黃十字完成後，還要看四個角的黃色朝哪裡。先保持前面完成的部分，再處理角塊方向。播放中間可能暫時借位，必須做完這一小段再檢查；不要做一半就換公式。",
+      "caption": "黃邊好了 · 再看黃角",
+      "camera": [
+        6,
+        -4.5,
+        7
+      ],
+      "cameraUp": [
+        0,
+        -1,
+        0
+      ],
+      "focus": "yellow",
+      "initialState": [
+        {
+          "id": "-1,-1,-1",
+          "position": [
+            1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,0",
+          "position": [
+            0,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,1",
+          "position": [
+            1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,-1",
+          "position": [
+            -1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,0",
+          "position": [
+            -1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,1",
+          "position": [
+            -1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,-1",
+          "position": [
+            -1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,0",
+          "position": [
+            -1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,1",
+          "position": [
+            -1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,-1",
+          "position": [
+            0,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,0",
+          "position": [
+            0,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,1",
+          "position": [
+            1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,-1",
+          "position": [
+            0,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,1",
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,-1",
+          "position": [
+            0,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,0",
+          "position": [
+            0,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,1",
+          "position": [
+            0,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,-1",
+          "position": [
+            -1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,0",
+          "position": [
+            -1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,1",
+          "position": [
+            -1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,-1",
+          "position": [
+            1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,0",
+          "position": [
+            1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,1",
+          "position": [
+            1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,-1",
+          "position": [
+            1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,0",
+          "position": [
+            1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,1",
+          "position": [
+            1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "moves": [
+        "R",
+        "D",
+        "R'",
+        "D",
+        "R",
+        "D",
+        "D",
+        "R'"
+      ],
+      "frames": [
+        {
+          "id": "yellow-face-0",
+          "asset": "modules/interactive-labs/book-v1/yellow-face-0.svg",
+          "holdSeconds": 7,
+          "move": null
+        },
+        {
+          "id": "yellow-face-1",
+          "asset": "modules/interactive-labs/book-v1/yellow-face-1.svg",
+          "holdSeconds": 2,
+          "move": "R"
+        },
+        {
+          "id": "yellow-face-2",
+          "asset": "modules/interactive-labs/book-v1/yellow-face-2.svg",
+          "holdSeconds": 2,
+          "move": "D"
+        },
+        {
+          "id": "yellow-face-3",
+          "asset": "modules/interactive-labs/book-v1/yellow-face-3.svg",
+          "holdSeconds": 2,
+          "move": "R'"
+        },
+        {
+          "id": "yellow-face-4",
+          "asset": "modules/interactive-labs/book-v1/yellow-face-4.svg",
+          "holdSeconds": 2,
+          "move": "D"
+        },
+        {
+          "id": "yellow-face-5",
+          "asset": "modules/interactive-labs/book-v1/yellow-face-5.svg",
+          "holdSeconds": 2,
+          "move": "R"
+        },
+        {
+          "id": "yellow-face-6",
+          "asset": "modules/interactive-labs/book-v1/yellow-face-6.svg",
+          "holdSeconds": 2,
+          "move": "D"
+        },
+        {
+          "id": "yellow-face-7",
+          "asset": "modules/interactive-labs/book-v1/yellow-face-7.svg",
+          "holdSeconds": 2,
+          "move": "D"
+        },
+        {
+          "id": "yellow-face-8",
+          "asset": "modules/interactive-labs/book-v1/yellow-face-8.svg",
+          "holdSeconds": 2,
+          "move": "R'"
+        }
+      ],
+      "goal": "整個黃色面朝外"
+    },
+    {
+      "id": "last-places",
+      "title": "同色面不等於全完成",
+      "narration": "黃色面同色，不代表每塊都回家了。再比較四周側色與中心。這個例子交換最後的邊塊；如果角塊也沒對齊，還要另外處理角塊位置。回到教我還原，可依你目前的方塊繼續。",
+      "caption": "翻面方向對 · 還要對位置",
+      "camera": [
+        6,
+        -4.5,
+        7
+      ],
+      "cameraUp": [
+        0,
+        -1,
+        0
+      ],
+      "focus": "all",
+      "initialState": [
+        {
+          "id": "-1,-1,-1",
+          "position": [
+            -1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,0",
+          "position": [
+            1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,1",
+          "position": [
+            -1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,-1",
+          "position": [
+            -1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,0",
+          "position": [
+            -1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,1",
+          "position": [
+            -1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,-1",
+          "position": [
+            -1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,0",
+          "position": [
+            -1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,1",
+          "position": [
+            -1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,-1",
+          "position": [
+            -1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,0",
+          "position": [
+            0,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,1",
+          "position": [
+            0,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,-1",
+          "position": [
+            0,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,1",
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,-1",
+          "position": [
+            0,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,0",
+          "position": [
+            0,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,1",
+          "position": [
+            0,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,-1",
+          "position": [
+            1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,0",
+          "position": [
+            0,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,1",
+          "position": [
+            1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,-1",
+          "position": [
+            1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,0",
+          "position": [
+            1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,1",
+          "position": [
+            1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,-1",
+          "position": [
+            1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,0",
+          "position": [
+            1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,1",
+          "position": [
+            1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "moves": [
+        "R",
+        "D'",
+        "R",
+        "D",
+        "R",
+        "D",
+        "R",
+        "D'",
+        "R'",
+        "D'",
+        "R",
+        "R"
+      ],
+      "frames": [
+        {
+          "id": "last-places-0",
+          "asset": "modules/interactive-labs/book-v1/last-places-0.svg",
+          "holdSeconds": 7,
+          "move": null
+        },
+        {
+          "id": "last-places-1",
+          "asset": "modules/interactive-labs/book-v1/last-places-1.svg",
+          "holdSeconds": 2,
+          "move": "R"
+        },
+        {
+          "id": "last-places-2",
+          "asset": "modules/interactive-labs/book-v1/last-places-2.svg",
+          "holdSeconds": 2,
+          "move": "D'"
+        },
+        {
+          "id": "last-places-3",
+          "asset": "modules/interactive-labs/book-v1/last-places-3.svg",
+          "holdSeconds": 2,
+          "move": "R"
+        },
+        {
+          "id": "last-places-4",
+          "asset": "modules/interactive-labs/book-v1/last-places-4.svg",
+          "holdSeconds": 2,
+          "move": "D"
+        },
+        {
+          "id": "last-places-5",
+          "asset": "modules/interactive-labs/book-v1/last-places-5.svg",
+          "holdSeconds": 2,
+          "move": "R"
+        },
+        {
+          "id": "last-places-6",
+          "asset": "modules/interactive-labs/book-v1/last-places-6.svg",
+          "holdSeconds": 2,
+          "move": "D"
+        },
+        {
+          "id": "last-places-7",
+          "asset": "modules/interactive-labs/book-v1/last-places-7.svg",
+          "holdSeconds": 2,
+          "move": "R"
+        },
+        {
+          "id": "last-places-8",
+          "asset": "modules/interactive-labs/book-v1/last-places-8.svg",
+          "holdSeconds": 2,
+          "move": "D'"
+        },
+        {
+          "id": "last-places-9",
+          "asset": "modules/interactive-labs/book-v1/last-places-9.svg",
+          "holdSeconds": 2,
+          "move": "R'"
+        },
+        {
+          "id": "last-places-10",
+          "asset": "modules/interactive-labs/book-v1/last-places-10.svg",
+          "holdSeconds": 2,
+          "move": "D'"
+        },
+        {
+          "id": "last-places-11",
+          "asset": "modules/interactive-labs/book-v1/last-places-11.svg",
+          "holdSeconds": 2,
+          "move": "R"
+        },
+        {
+          "id": "last-places-12",
+          "asset": "modules/interactive-labs/book-v1/last-places-12.svg",
+          "holdSeconds": 2,
+          "move": "R"
+        }
+      ],
+      "goal": "側邊每一排都接上中心"
+    },
+    {
+      "id": "four-moves",
+      "title": "把長動作拆小段",
+      "narration": "R 是紅色右面，U 是白色上面。沒有撇號是正看該面順轉，有撇號就是反轉。這四步是一種動作練習，不是萬用解法。這裡的起始狀態特別安排過，所以一小段後會回到同色。",
+      "caption": "R → U → R′ → U′",
+      "camera": [
+        6,
+        4.5,
+        7
+      ],
+      "cameraUp": [
+        0,
+        1,
+        0
+      ],
+      "focus": "all",
+      "initialState": [
+        {
+          "id": "-1,-1,-1",
+          "position": [
+            -1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,0",
+          "position": [
+            -1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,-1,1",
+          "position": [
+            -1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,-1",
+          "position": [
+            -1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,0",
+          "position": [
+            -1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,0,1",
+          "position": [
+            -1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,-1",
+          "position": [
+            1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,0",
+          "position": [
+            -1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "-1,1,1",
+          "position": [
+            -1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "orange",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,-1",
+          "position": [
+            0,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,0",
+          "position": [
+            0,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,-1,1",
+          "position": [
+            0,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,-1",
+          "position": [
+            0,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,0,1",
+          "position": [
+            0,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,-1",
+          "position": [
+            1,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,0",
+          "position": [
+            0,
+            1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "0,1,1",
+          "position": [
+            0,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "white",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,-1",
+          "position": [
+            1,
+            -1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,0",
+          "position": [
+            1,
+            -1,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,-1,1",
+          "position": [
+            1,
+            1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "yellow",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,-1",
+          "position": [
+            1,
+            0,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,0",
+          "position": [
+            1,
+            0,
+            0
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,0,1",
+          "position": [
+            0,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,-1",
+          "position": [
+            -1,
+            1,
+            -1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                0,
+                1,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                -1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "blue",
+              "normal": [
+                0,
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,0",
+          "position": [
+            1,
+            0,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1,1,1",
+          "position": [
+            1,
+            -1,
+            1
+          ],
+          "stickers": [
+            {
+              "color": "red",
+              "normal": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "color": "white",
+              "normal": [
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "color": "green",
+              "normal": [
+                0,
+                -1,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "moves": [
+        "R",
+        "U",
+        "R'",
+        "U'"
+      ],
+      "frames": [
+        {
+          "id": "four-moves-0",
+          "asset": "modules/interactive-labs/book-v1/four-moves-0.svg",
+          "holdSeconds": 7,
+          "move": null
+        },
+        {
+          "id": "four-moves-1",
+          "asset": "modules/interactive-labs/book-v1/four-moves-1.svg",
+          "holdSeconds": 2,
+          "move": "R"
+        },
+        {
+          "id": "four-moves-2",
+          "asset": "modules/interactive-labs/book-v1/four-moves-2.svg",
+          "holdSeconds": 2,
+          "move": "U"
+        },
+        {
+          "id": "four-moves-3",
+          "asset": "modules/interactive-labs/book-v1/four-moves-3.svg",
+          "holdSeconds": 2,
+          "move": "R'"
+        },
+        {
+          "id": "four-moves-4",
+          "asset": "modules/interactive-labs/book-v1/four-moves-4.svg",
+          "holdSeconds": 2,
+          "move": "U'"
+        }
+      ],
+      "goal": "比較小段前後的變化"
+    }
+  ]
+}
