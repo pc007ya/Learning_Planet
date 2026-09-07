@@ -1,10 +1,11 @@
 import type { LabKind } from './models';
 const mounted = new Map<HTMLElement, { destroy(): void }>();
+const failed = new WeakSet<HTMLElement>();
 const pending = new WeakSet<HTMLElement>();
 function sync() {
   for (const [host, lab] of mounted) if (!host.isConnected) { lab.destroy(); mounted.delete(host); }
   document.querySelectorAll<HTMLElement>('[data-interactive-lab]').forEach(host => {
-    if (mounted.has(host) || pending.has(host)) return;
+    if (mounted.has(host) || pending.has(host) || failed.has(host)) return;
     const kind = host.dataset.interactiveLab;
     if (!['buoyancy', 'clock', 'car', 'cube', 'mini4wd'].includes(kind || '')) return;
     pending.add(host);
@@ -12,8 +13,8 @@ function sync() {
     void loader.then(create => {
       if (host.isConnected) mounted.set(host, create());
       pending.delete(host);
-    }).catch(error => { console.error('Interactive lab failed', error); host.textContent = '實驗載入失敗，請返回後重試。'; pending.delete(host); });
+    }).catch(error => { failed.add(host); console.error('Interactive lab failed', error); host.textContent = '實驗載入失敗，請返回後重試。'; pending.delete(host); });
   });
 }
-new MutationObserver(sync).observe(document.documentElement, { childList: true, subtree: true });
+new MutationObserver(records=>{if(records.some(r=>[...r.addedNodes,...r.removedNodes].some(n=>n instanceof Element&&(n.matches('[data-interactive-lab]')||n.querySelector('[data-interactive-lab]')))))sync();}).observe(document.documentElement, { childList: true, subtree: true });
 sync();
