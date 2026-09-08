@@ -1,82 +1,82 @@
-import { G as C, M as vt, D as Y, a as G, B as ot, F as K, b as E, V as T, c as N, d as F, C as O, R as X, T as ut, e as Pt, f as qt, O as Tt, I as st, g as wt, S as bt, W as At, P as Ct, A as It, h as Et, H as Gt, i as Lt, j as jt, k as Rt, l as Q, m as Bt, n as tt, o as Dt, p as V, q as nt } from "./RoundedBoxGeometry-CQPJIpnr.mjs";
+import { G as C, M as vt, D as Z, a as G, B as J, F as Y, b as E, V as A, c as N, d as F, C as V, R as X, T as ut, e as Pt, f as qt, O as Tt, I as it, g as wt, S as bt, W as At, P as Ct, A as It, h as Et, H as Gt, i as Lt, j as jt, k as Rt, l as tt, m as Bt, n as et, o as Dt, p as O, q as ht } from "./RoundedBoxGeometry-CQPJIpnr.mjs";
 import { R as Ht } from "./RoomEnvironment-CAidMGg-.mjs";
 import { S as Ft } from "./narration-DCI2AWPz.mjs";
-const ht = ["fl", "fr", "rl", "rr"], et = ["左前", "右前", "左後", "右後"], S = [
+const lt = ["fl", "fr", "rl", "rr"], st = ["左前", "右前", "左後", "右後"], P = [
   { id: "chassis", name: "底盤", count: 1, needs: [], voice: "底盤固定所有零件，是四驅車的骨架。" },
   { id: "motor", name: "馬達", count: 1, needs: ["chassis"], voice: "電流經過馬達，電能轉成轉動。它不需要先往後拉。" },
   { id: "gears", name: "減速齒輪組", count: 1, needs: ["motor"], voice: "小齒輪帶動較大的齒輪，轉得比較慢，輪端扭力比較大。" },
   { id: "shaft", name: "傳動軸", count: 1, needs: ["gears"], voice: "中間的長軸把馬達動力傳到前輪，是四輪驅動的重要連接。" },
   { id: "axles", name: "前後輪軸", count: 2, needs: ["shaft"], voice: "兩根輪軸連接左右輪圈，齒輪把動力送到前後輪軸。" },
-  ...ht.map((s, t) => ({ id: "rim-" + s, name: et[t] + "輪圈", count: 1, needs: ["axles"], voice: et[t] + "輪圈套在輪軸上，輪胎再套在輪圈外面。" })),
-  ...ht.map((s, t) => ({ id: "tire-" + s, name: et[t] + "輪胎", count: 1, needs: ["rim-" + s], voice: et[t] + "輪胎接觸地面。摩擦讓輪子的轉動變成前進。" })),
+  ...lt.map((s, t) => ({ id: "rim-" + s, name: st[t] + "輪圈", count: 1, needs: ["axles"], voice: st[t] + "輪圈套在輪軸上，輪胎再套在輪圈外面。" })),
+  ...lt.map((s, t) => ({ id: "tire-" + s, name: st[t] + "輪胎", count: 1, needs: ["rim-" + s], voice: st[t] + "輪胎接觸地面。摩擦讓輪子的轉動變成前進。" })),
   { id: "rollers", name: "導輪", count: 4, needs: ["chassis"], voice: "四個小導輪接觸軌道護欄，幫忙引導車頭轉彎。" },
   { id: "switch", name: "開關與接點", count: 1, needs: ["motor"], voice: "開關閉合，電池、馬達與導線形成完整迴路；打開開關，馬達就不再得到電力。" },
   { id: "battery-a", name: "電池 A", count: 1, needs: ["switch"], voice: "這兩顆電池串聯。依正負標記安裝，接點會把它們接成供電迴路。" },
   { id: "battery-b", name: "電池 B", count: 1, needs: ["battery-a"], voice: "第二顆電池依相反方向放置，底盤接點將兩顆串聯。" },
-  { id: "shell", name: "車殼", count: 1, needs: ["rollers", "battery-b", ...ht.map((s) => "tire-" + s)], voice: "最後扣上車殼。外觀與配重不同，試跑結果也可能不同。" }
-], it = () => new Set(S.map((s) => s.id));
+  { id: "shell", name: "車殼", count: 1, needs: ["rollers", "battery-b", ...lt.map((s) => "tire-" + s)], voice: "最後扣上車殼。外觀與配重不同，試跑結果也可能不同。" }
+], at = () => new Set(P.map((s) => s.id));
 function xt(s, t) {
-  return S.find((e) => e.id === s)?.needs.every((e) => t.has(e)) ?? !1;
+  return P.find((e) => e.id === s)?.needs.every((e) => t.has(e)) ?? !1;
 }
-function Ot(s, t) {
-  return s === "chassis" || S.some((e) => t.has(e.id) && e.needs.includes(s)) ? !1 : t.delete(s);
+function Vt(s, t) {
+  return s === "chassis" || P.some((e) => t.has(e.id) && e.needs.includes(s)) ? !1 : t.delete(s);
 }
-function Vt(s) {
+function Ot(s) {
   return `${s.gear}:1・${s.tire === "grip" ? "抓地胎" : "硬胎"} ${s.diameter} mm・${s.shell === "arrow" ? "箭羽" : "尾翼"}・${s.ballast === "center" ? "中央" : "後方"}配重`;
 }
-function ct(s, t) {
+function rt(s, t) {
   const e = Math.exp(-Math.pow((s + 0.2) / 0.53, 4)), i = 0.465 + 0.09 * Math.exp(-Math.pow((s + 0.9) / 0.36, 2)) + 0.1 * Math.exp(-Math.pow((s - 0.92) / 0.36, 2)) - 0.12 * Math.pow(Math.abs(s) / 1.43, 8), a = 0.85 + 0.025 * Math.exp(-Math.pow((s + 0.85) / 0.45, 2)) - 0.26 * Math.pow(Math.max(0, s) / 1.43, 3), r = a + 0.025 + 0.205 * e, o = Math.abs(t), l = 0.735 + 0.055 * Math.exp(-Math.pow((Math.abs(s) - 0.96) / 0.34, 4)) - 0.19 * Math.pow(Math.abs(s) / 1.43, 8), c = o < 0.65 ? F.lerp(r, a, (1 - Math.cos(Math.PI * o / 0.65)) / 2) : F.lerp(a, l, Math.sin((o - 0.65) / 0.35 * Math.PI / 2));
-  return new T(s, c, t * i);
+  return new A(s, c, t * i);
 }
 function I(s, t, e, i, a = 0, r = 48, o = 24) {
   const h = [], l = [];
   for (let n = 0; n <= r; n++) for (let d = 0; d <= o; d++) {
-    const v = ct(F.lerp(s, t, n / r), F.lerp(e, i, d / o));
-    v.y += a, h.push(v.x, v.y, v.z);
+    const w = rt(F.lerp(s, t, n / r), F.lerp(e, i, d / o));
+    w.y += a, h.push(w.x, w.y, w.z);
   }
   for (let n = 0; n < r; n++) for (let d = 0; d < o; d++) {
-    const v = n * (o + 1) + d, b = v + o + 1;
-    l.push(v, v + 1, b, b, v + 1, b + 1);
+    const w = n * (o + 1) + d, x = w + o + 1;
+    l.push(w, w + 1, x, x, w + 1, x + 1);
   }
-  const c = new ot();
-  return c.setAttribute("position", new K(h, 3)), c.setIndex(l), c.computeVertexNormals(), c;
+  const c = new J();
+  return c.setAttribute("position", new Y(h, 3)), c.setIndex(l), c.computeVertexNormals(), c;
 }
 function Ut() {
   const s = new C(), t = new C(), e = new C(), i = new C();
   s.add(e, i), e.name = "streamline-shell", i.name = "open-wheel-shell", i.visible = !1;
-  const a = new vt({ color: 2738687, metalness: 0.42, roughness: 0.24, clearcoat: 1, side: Y }), r = new vt({ color: 1521485, metalness: 0.25, roughness: 0.08, clearcoat: 1, side: Y });
+  const a = new vt({ color: 2738687, metalness: 0.42, roughness: 0.24, clearcoat: 1, side: Z }), r = new vt({ color: 1521485, metalness: 0.25, roughness: 0.08, clearcoat: 1, side: Z });
   r.transparent = !0, r.opacity = 0.88, r.depthWrite = !1, r.userData.normalOpacity = 0.88;
-  const o = new G({ color: 1055532, roughness: 0.55, metalness: 0.25, side: Y }), h = new G({ color: 15267327, roughness: 0.3, metalness: 0.25, side: Y }), l = new G({ color: 12581631, emissive: 6676479, emissiveIntensity: 0.6 }), c = new G({ color: 16725074, emissive: 16717624, emissiveIntensity: 0.5 }), n = (u, z, f = e) => {
+  const o = new G({ color: 1055532, roughness: 0.55, metalness: 0.25, side: Z }), h = new G({ color: 15267327, roughness: 0.3, metalness: 0.25, side: Z }), l = new G({ color: 12581631, emissive: 6676479, emissiveIntensity: 0.6 }), c = new G({ color: 16725074, emissive: 16717624, emissiveIntensity: 0.5 }), n = (u, z, g = e) => {
     const p = new E(u, z);
-    return p.castShadow = !0, p.receiveShadow = !0, f.add(p), p;
-  }, d = (u, z, f, p, y, M, m, g = e) => {
-    const w = n(new N(u, z, f), m, g);
-    return w.position.set(p, y, M), w;
+    return p.castShadow = !0, p.receiveShadow = !0, g.add(p), p;
+  }, d = (u, z, g, p, b, y, m, f = e) => {
+    const v = n(new N(u, z, g), m, f);
+    return v.position.set(p, b, y), v;
   };
   n(I(-1.43, 1.43, -1, 1), a);
   for (const u of [-1, 1]) {
-    const z = [], f = [];
-    for (let y = 0; y <= 80; y++) {
-      const M = -1.43 + y * 2.86 / 80, m = ct(M, u), g = 0.43 + 0.28 * Math.exp(-Math.pow((Math.abs(M) - 0.96) / 0.34, 4));
-      if (z.push(m.x, m.y, m.z, m.x, Math.min(m.y, g), m.z), y < 80) {
-        const w = y * 2;
-        f.push(w, w + 1, w + 2, w + 1, w + 3, w + 2);
+    const z = [], g = [];
+    for (let b = 0; b <= 80; b++) {
+      const y = -1.43 + b * 2.86 / 80, m = rt(y, u), f = 0.43 + 0.28 * Math.exp(-Math.pow((Math.abs(y) - 0.96) / 0.34, 4));
+      if (z.push(m.x, m.y, m.z, m.x, Math.min(m.y, f), m.z), b < 80) {
+        const v = b * 2;
+        g.push(v, v + 1, v + 2, v + 1, v + 3, v + 2);
       }
     }
-    const p = new ot();
-    p.setAttribute("position", new K(z, 3)), p.setIndex(f), p.computeVertexNormals(), n(p, a);
+    const p = new J();
+    p.setAttribute("position", new Y(z, 3)), p.setIndex(g), p.computeVertexNormals(), n(p, a);
   }
   for (const u of [-1.43, 1.43]) {
-    const z = [], f = [];
-    for (let y = 0; y <= 32; y++) {
-      const M = ct(u, y / 16 - 1);
-      if (z.push(M.x, M.y, M.z, M.x, 0.4, M.z), y < 32) {
-        const m = y * 2;
-        f.push(m, m + 1, m + 2, m + 1, m + 3, m + 2);
+    const z = [], g = [];
+    for (let b = 0; b <= 32; b++) {
+      const y = rt(u, b / 16 - 1);
+      if (z.push(y.x, y.y, y.z, y.x, 0.4, y.z), b < 32) {
+        const m = b * 2;
+        g.push(m, m + 1, m + 2, m + 1, m + 3, m + 2);
       }
     }
-    const p = new ot();
-    p.setAttribute("position", new K(z, 3)), p.setIndex(f), p.computeVertexNormals(), n(p, a);
+    const p = new J();
+    p.setAttribute("position", new Y(z, 3)), p.setIndex(g), p.computeVertexNormals(), n(p, a);
   }
   n(I(0.02, 0.48, -0.58, 0.58, 7e-3, 28, 24), r), n(I(-0.79, -0.44, -0.57, 0.57, 7e-3, 20, 20), r);
   for (const u of [-1, 1]) {
@@ -87,21 +87,31 @@ function Ut() {
   d(0.018, 0.055, 0.45, 1.437, 0.465, 0, o), d(0.16, 0.035, 0.88, 1.36, 0.402, 0, o), d(0.17, 0.045, 0.88, -1.36, 0.4, 0, o);
   for (const u of [-0.27, -0.09, 0.09, 0.27]) d(0.24, 0.065, 0.025, -1.32, 0.39, u, o);
   s.add(t);
-  const v = d(0.3, 0.045, 1.15, -1.16, 1.03, 0, a, t);
-  v.rotation.z = -0.1;
+  const w = d(0.3, 0.045, 1.15, -1.16, 1.03, 0, a, t);
+  w.rotation.z = -0.1;
   for (const u of [-0.38, 0.38]) d(0.065, 0.25, 0.045, -1.16, 0.885, u, o, t);
   for (const u of [-0.59, 0.59]) d(0.31, 0.12, 0.035, -1.16, 1.05, u, a, t);
-  const b = I(-1.4, 1.43, -1, 1);
-  b.scale(1, 1, 0.62), n(b, a, i);
-  const x = I(-0.65, 0.43, -0.55, 0.55, 0.012);
-  x.scale(1, 1, 0.62), n(x, r, i);
+  const x = I(-1.4, 1.43, -1, 1);
+  x.scale(1, 1, 0.62), n(x, a, i);
+  const M = I(-0.65, 0.43, -0.55, 0.55, 0.012);
+  M.scale(1, 1, 0.62), n(M, r, i);
   for (const u of [-1, 1]) {
     const z = I(-0.58, 0.8, u * 0.45, u * 0.99, 0.015);
     n(z, a, i);
-    const f = I(-0.31, 0.23, u * 0.8, u * 0.95, 0.021);
-    n(f, o, i);
-    const p = I(0.53, 1.36, u * 0.24, u * 0.39, 0.012);
-    p.scale(1, 1, 0.62), n(p, h, i), d(0.24, 0.045, 0.47, 1.25, 0.48, u * 0.4, a, i), d(0.27, 0.11, 0.035, 1.25, 0.51, u * 0.63, o, i), d(0.055, 0.025, 0.15, 1.37, 0.53, u * 0.32, l, i), d(0.025, 0.19, 0.24, 0.79, 0.65, u * 0.32, a, i);
+    const g = [], p = [];
+    for (let f = 0; f <= 32; f++) {
+      const v = -0.58 + f * 1.38 / 32, S = rt(v, u * 0.99);
+      if (g.push(v, S.y + 0.015, S.z, v, 0.45, S.z), f < 32) {
+        const q = f * 2;
+        p.push(q, q + 1, q + 2, q + 1, q + 3, q + 2);
+      }
+    }
+    const b = new J();
+    b.setAttribute("position", new Y(g, 3)), b.setIndex(p), b.computeVertexNormals(), n(b, a, i);
+    const y = I(-0.31, 0.23, u * 0.8, u * 0.95, 0.021);
+    n(y, o, i);
+    const m = I(0.53, 1.36, u * 0.24, u * 0.39, 0.012);
+    m.scale(1, 1, 0.62), n(m, h, i), d(0.24, 0.045, 0.47, 1.25, 0.48, u * 0.4, a, i), d(0.27, 0.11, 0.035, 1.25, 0.51, u * 0.63, o, i), d(0.055, 0.025, 0.15, 1.37, 0.53, u * 0.32, l, i), d(0.025, 0.19, 0.24, 0.79, 0.65, u * 0.32, a, i);
   }
   return t.visible = !1, { root: s, wing: t, street: e, racer: i, paint: a, materials: [a, r, o, h, l, c] };
 }
@@ -109,9 +119,9 @@ function Wt() {
   const s = new C();
   s.name = "moulded-chassis";
   const t = new G({ color: 3492704, roughness: 0.8, metalness: 0.12 }), e = new G({ color: 6587031, roughness: 0.65, metalness: 0.15 }), i = new G({ color: 12241357, roughness: 0.28, metalness: 0.8 }), a = new G({ color: 14462565, roughness: 0.3, metalness: 0.7 });
-  function r(o, h, l, c, n, d, v, b = t) {
-    const x = new E(new X(h, l, c, 2, Math.min(h, l, c) * 0.2), b);
-    return x.name = o, x.position.set(n, d, v), x.castShadow = !0, x.receiveShadow = !0, s.add(x), x;
+  function r(o, h, l, c, n, d, w, x = t) {
+    const M = new E(new X(h, l, c, 2, Math.min(h, l, c) * 0.2), x);
+    return M.name = o, M.position.set(n, d, w), M.castShadow = !0, M.receiveShadow = !0, s.add(M), M;
   }
   r("tray-floor", 2.62, 0.075, 1.06, 0, 0.315, 0);
   for (const o of [-1, 1]) {
@@ -132,16 +142,16 @@ function Wt() {
     for (const h of [-1, 1]) {
       const l = r("roller-brace", 0.52, 0.075, 0.1, o * 0.83, 0.385, h * 0.65, e);
       l.rotation.y = h * o * 0.48;
-      const c = new E(new O(0.085, 0.1, 0.1, 16), e);
+      const c = new E(new V(0.085, 0.1, 0.1, 16), e);
       c.position.set(o, 0.46, h * 0.88), c.name = "roller-mount", s.add(c);
-      const n = new E(new O(0.035, 0.035, 0.02, 12), i);
+      const n = new E(new V(0.035, 0.035, 0.02, 12), i);
       n.position.set(o, 0.517, h * 0.88), n.name = "mount-screw", s.add(n);
     }
   }
   for (const o of [-1.15, 0.83]) for (const h of [-0.34, 0.34]) r("shell-latch", 0.12, 0.16, 0.075, o, 0.47, h, e);
   return s;
 }
-class lt {
+class ct {
   root = new C();
   parts = /* @__PURE__ */ new Map();
   wheels = [];
@@ -156,63 +166,63 @@ class lt {
   wings = new C();
   ballast = new C();
   constructor() {
-    for (const f of S) {
+    for (const g of P) {
       const p = new C();
-      p.userData.part = f.id, this.parts.set(f.id, p), this.root.add(p);
+      p.userData.part = g.id, this.parts.set(g.id, p), this.root.add(p);
     }
-    const t = (f, p = 0.1) => new G({ color: f, metalness: p, roughness: 0.35 }), e = t(1319992, 0.45), i = t(13294819, 0.8), a = t(16759127, 0.55), r = t(15069179, 0.25), o = (f, p, y, M = 0, m = 0, g = 0) => {
-      const w = new E(p, y.clone());
-      return w.position.set(M, m, g), w.castShadow = !0, w.receiveShadow = !0, f.add(w), w;
-    }, h = (f, p, y, M, m, g = 0, w = 0, q = 0) => o(f, new X(p, y, M, 2, Math.min(p, y, M) * 0.18), m, g, w, q), l = (f, p, y, M, m, g, w, q = "z") => {
-      const A = o(f, new O(p, p, y, 20), M, m, g, w);
-      return q === "z" && (A.rotation.x = Math.PI / 2), q === "x" && (A.rotation.z = Math.PI / 2), A;
+    const t = (g, p = 0.1) => new G({ color: g, metalness: p, roughness: 0.35 }), e = t(1319992, 0.45), i = t(13294819, 0.8), a = t(16759127, 0.55), r = t(15069179, 0.25), o = (g, p, b, y = 0, m = 0, f = 0) => {
+      const v = new E(p, b.clone());
+      return v.position.set(y, m, f), v.castShadow = !0, v.receiveShadow = !0, g.add(v), v;
+    }, h = (g, p, b, y, m, f = 0, v = 0, S = 0) => o(g, new X(p, b, y, 2, Math.min(p, b, y) * 0.18), m, f, v, S), l = (g, p, b, y, m, f, v, S = "z") => {
+      const q = o(g, new V(p, p, b, 20), y, m, f, v);
+      return S === "z" && (q.rotation.x = Math.PI / 2), S === "x" && (q.rotation.z = Math.PI / 2), q;
     }, c = this.parts.get("chassis");
     c.add(Wt());
     const n = this.parts.get("motor");
     l(n, 0.2, 0.68, i, -0.74, 0.62, 0), h(n, 0.33, 0.29, 0.14, e, -0.74, 0.62, -0.4), n.add(this.rotor), this.rotor.position.set(-0.74, 0.62, 0.41), h(this.rotor, 0.31, 0.055, 0.05, a);
     const d = this.parts.get("gears");
-    for (const [f, p, y, M] of [[-0.74, 0.62, 0.44, 0.1], [-0.98, 0.54, 0.44, 0.18], [0.94, 0.43, 0.43, 0.18]]) {
+    for (const [g, p, b, y] of [[-0.74, 0.62, 0.44, 0.1], [-0.98, 0.54, 0.44, 0.18], [0.94, 0.43, 0.43, 0.18]]) {
       const m = new C();
-      m.position.set(f, p, y), d.add(m), this.gears.push(m), l(m, M, 0.075, a, 0, 0, 0);
-      for (let g = 0; g < 16; g++) {
-        const w = g * Math.PI / 8, q = h(m, 0.07, 0.07, 0.075, a, Math.cos(w) * M, Math.sin(w) * M, 0);
-        q.rotation.z = w;
+      m.position.set(g, p, b), d.add(m), this.gears.push(m), l(m, y, 0.075, a, 0, 0, 0);
+      for (let f = 0; f < 16; f++) {
+        const v = f * Math.PI / 8, S = h(m, 0.07, 0.07, 0.075, a, Math.cos(v) * y, Math.sin(v) * y, 0);
+        S.rotation.z = v;
       }
     }
     l(this.parts.get("shaft"), 0.035, 1.94, i, 0, 0.5, 0.43, "x");
-    for (const f of [-0.96, 0.96]) l(this.parts.get("axles"), 0.045, 1.62, i, f, 0.26, 0);
-    ["fl", "fr", "rl", "rr"].forEach((f, p) => {
-      const y = p < 2 ? 0.96 : -0.96, M = p % 2 ? -0.76 : 0.76, m = this.parts.get("rim-" + f), g = this.parts.get("tire-" + f);
-      for (const $ of [m, g])
-        $.position.set(y, 0.26, M), $.userData.home = $.position.clone(), this.wheelParts.push($);
-      const w = new C();
-      m.add(w), this.wheels.push(w);
-      const q = t(2569542), A = l(g, 0.26, 0.24, q, 0, 0, 0);
-      this.rubber.push(A.material);
+    for (const g of [-0.96, 0.96]) l(this.parts.get("axles"), 0.045, 1.62, i, g, 0.26, 0);
+    ["fl", "fr", "rl", "rr"].forEach((g, p) => {
+      const b = p < 2 ? 0.96 : -0.96, y = p % 2 ? -0.76 : 0.76, m = this.parts.get("rim-" + g), f = this.parts.get("tire-" + g);
+      for (const $ of [m, f])
+        $.position.set(b, 0.26, y), $.userData.home = $.position.clone(), this.wheelParts.push($);
+      const v = new C();
+      m.add(v), this.wheels.push(v);
+      const S = t(2569542), q = l(f, 0.26, 0.24, S, 0, 0, 0);
+      this.rubber.push(q.material);
       for (const $ of [-1, 1]) {
-        l(w, 0.175, 0.025, i, 0, 0, 0.135 * $), l(w, 0.065, 0.04, a, 0, 0, 0.152 * $);
+        l(v, 0.175, 0.025, i, 0, 0, 0.135 * $), l(v, 0.065, 0.04, a, 0, 0, 0.152 * $);
         for (let L = 0; L < 5; L++) {
-          const R = L * Math.PI * 2 / 5, B = h(w, 0.15, 0.035, 0.04, e, Math.cos(R) * 0.11, Math.sin(R) * 0.11, 0.153 * $);
+          const R = L * Math.PI * 2 / 5, B = h(v, 0.15, 0.035, 0.04, e, Math.cos(R) * 0.11, Math.sin(R) * 0.11, 0.153 * $);
           B.rotation.z = R;
         }
-        o(g, new ut(0.222, 0.012, 4, 24), r, 0, 0, 0.124 * $);
+        o(f, new ut(0.222, 0.012, 4, 24), r, 0, 0, 0.124 * $);
       }
     });
-    const v = this.parts.get("rollers");
-    for (const f of [-1.28, 1.28]) for (const p of [-0.88, 0.88])
-      l(v, 0.13, 0.11, r, f, 0.52, p, "y"), l(v, 0.04, 0.14, a, f, 0.54, p, "y");
-    for (const [f, p] of ["battery-a", "battery-b"].entries()) {
-      const y = this.parts.get(p), M = f ? 0.22 : -0.22;
-      l(y, 0.145, 1.02, t(f ? 16747596 : 4377557), 0.15, 0.62, M, "x"), l(y, 0.1, 0.035, i, f ? -0.38 : 0.68, 0.62, M, "x"), h(y, 0.015, 0.085, 0.018, r, f ? -0.405 : 0.705, 0.64, M), h(y, 0.015, 0.018, 0.085, r, f ? -0.405 : 0.705, 0.64, M);
+    const w = this.parts.get("rollers");
+    for (const g of [-1.28, 1.28]) for (const p of [-0.88, 0.88])
+      l(w, 0.13, 0.11, r, g, 0.52, p, "y"), l(w, 0.04, 0.14, a, g, 0.54, p, "y");
+    for (const [g, p] of ["battery-a", "battery-b"].entries()) {
+      const b = this.parts.get(p), y = g ? 0.22 : -0.22;
+      l(b, 0.145, 1.02, t(g ? 16747596 : 4377557), 0.15, 0.62, y, "x"), l(b, 0.1, 0.035, i, g ? -0.38 : 0.68, 0.62, y, "x"), h(b, 0.015, 0.085, 0.018, r, g ? -0.405 : 0.705, 0.64, y), h(b, 0.015, 0.018, 0.085, r, g ? -0.405 : 0.705, 0.64, y);
     }
-    const b = this.parts.get("switch");
-    h(b, 0.23, 0.12, 0.18, a, 0.95, 0.53, -0.3), h(b, 0.09, 0.08, 0.14, e, 0.93, 0.62, -0.3);
-    const x = (f, p) => o(b, new Pt(new qt(f.map((y) => new T(...y))), 20, 0.017, 6, !1), t(p));
-    x([[0.95, 0.55, -0.3], [1.15, 0.5, -0.4], [0.7, 0.5, -0.4], [0.68, 0.62, -0.22]], 16738390), x([[-0.38, 0.62, -0.22], [-0.48, 0.49, 0], [-0.38, 0.62, 0.22]], 14992227), x([[0.68, 0.62, 0.22], [0.8, 0.48, 0.52], [-0.7, 0.48, 0.52], [-0.74, 0.63, 0.35]], 5672959), x([[-0.74, 0.63, -0.35], [-1.1, 0.5, -0.49], [0.95, 0.55, -0.3]], 5672959);
+    const x = this.parts.get("switch");
+    h(x, 0.23, 0.12, 0.18, a, 0.95, 0.53, -0.3), h(x, 0.09, 0.08, 0.14, e, 0.93, 0.62, -0.3);
+    const M = (g, p) => o(x, new Pt(new qt(g.map((b) => new A(...b))), 20, 0.017, 6, !1), t(p));
+    M([[0.95, 0.55, -0.3], [1.15, 0.5, -0.4], [0.7, 0.5, -0.4], [0.68, 0.62, -0.22]], 16738390), M([[-0.38, 0.62, -0.22], [-0.48, 0.49, 0], [-0.38, 0.62, 0.22]], 14992227), M([[0.68, 0.62, 0.22], [0.8, 0.48, 0.52], [-0.7, 0.48, 0.52], [-0.74, 0.63, 0.35]], 5672959), M([[-0.74, 0.63, -0.35], [-1.1, 0.5, -0.49], [0.95, 0.55, -0.3]], 5672959);
     const u = this.parts.get("shell"), z = Ut();
     u.add(z.root), this.wings = z.wing, this.street = z.street, this.racer = z.racer, this.skins = [z.paint], this.shellMaterials = z.materials, c.add(this.ballast), l(this.ballast, 0.16, 0.08, a, 0, 0.43, 0, "y");
-    for (const [f, p] of this.parts)
-      p.userData.home || (p.userData.home = p.position.clone()), p.name = f;
+    for (const [g, p] of this.parts)
+      p.userData.home || (p.userData.home = p.position.clone()), p.name = g;
   }
   configure(t) {
     this.skins.forEach((e) => e.color.set(t.color)), this.rubber.forEach((e) => {
@@ -226,7 +236,7 @@ class lt {
       const l = h.userData.home;
       if (h.visible = t.has(o), h.position.copy(l), e && o !== "chassis") {
         const c = Math.floor(r / 5), n = r % 5;
-        h.position.add(new T((n - 2) * 1.18, (c + 1) * 0.62, (c - 1) * 1.2));
+        h.position.add(new A((n - 2) * 1.18, (c + 1) * 0.62, (c - 1) * 1.2));
       }
       r++;
     }
@@ -247,9 +257,9 @@ class lt {
     }), t.forEach((i) => i.dispose()), e.forEach((i) => i.dispose());
   }
 }
-const Z = { gear: 4, tire: "grip", diameter: 26, shell: "arrow", ballast: "center", color: "#29c9ff" }, P = { straight: 18, radius: 12, width: 5, length: 72 + 24 * Math.PI }, _ = 1 / 240, at = (s, t, e) => Math.max(t, Math.min(e, s));
+const _ = { gear: 4, tire: "grip", diameter: 26, shell: "arrow", ballast: "center", color: "#29c9ff" }, T = { straight: 18, radius: 12, width: 5, length: 72 + 24 * Math.PI }, K = 1 / 240, ot = (s, t, e) => Math.max(t, Math.min(e, s));
 function dt(s) {
-  const { straight: t, radius: e, length: i } = P;
+  const { straight: t, radius: e, length: i } = T;
   if (s = (s % i + i) % i, s < 2 * t) return { x: s - t, z: -e, tx: 1, tz: 0 };
   if (s -= 2 * t, s < Math.PI * e) {
     const r = s / e - Math.PI / 2;
@@ -260,7 +270,7 @@ function dt(s) {
   return { x: -t + e * Math.cos(a), z: e * Math.sin(a), tx: -Math.sin(a), tz: Math.cos(a) };
 }
 function yt(s, t) {
-  const e = P.straight, i = P.radius, a = at(s, -e, e), r = s - a, o = Math.hypot(r, t) || 1e-5, h = r / o, l = t / o;
+  const e = T.straight, i = T.radius, a = ot(s, -e, e), r = s - a, o = Math.hypot(r, t) || 1e-5, h = r / o, l = t / o;
   let c = 0;
   if (s >= -e && s <= e) c = t < 0 ? s + e : 2 * e + Math.PI * i + e - s;
   else if (s > e) c = 2 * e + (Math.atan2(t, r) + Math.PI / 2) * i;
@@ -268,9 +278,9 @@ function yt(s, t) {
     let n = Math.atan2(t, r);
     n < Math.PI / 2 && (n += 2 * Math.PI), c = 4 * e + Math.PI * i + (n - Math.PI / 2) * i;
   }
-  return { offset: o - i, nx: h, nz: l, s: (c % P.length + P.length) % P.length };
+  return { offset: o - i, nx: h, nz: l, s: (c % T.length + T.length) % T.length };
 }
-function J(s, t, e = "jump") {
+function Q(s, t, e = "jump") {
   if (e === "flat") return { height: 0, slope: 0, gap: !1 };
   if (e === "bridge") {
     if (t < -8 && s > -10 && s < 10) {
@@ -293,49 +303,49 @@ function pt(s) {
 }
 function U(s = 0) {
   const t = 3 - s * 3, e = dt(t);
-  return { id: s, x: e.x, z: e.z, y: 0, vx: 0, vz: 0, vy: 0, yaw: 0, omega: 0, pitch: 0, roll: 0, distance: 0, lastS: (t % P.length + P.length) % P.length, time: 0, lap: 0, lapTimes: [], lapStart: 0, contacts: 0, landings: 0, impact: 0, offTrack: !1, finished: !1, airborne: !1, maxSpeed: 0 };
+  return { id: s, x: e.x, z: e.z, y: 0, vx: 0, vz: 0, vy: 0, yaw: 0, omega: 0, pitch: 0, roll: 0, distance: 0, lastS: (t % T.length + T.length) % T.length, time: 0, lap: 0, lapTimes: [], lapStart: 0, contacts: 0, landings: 0, impact: 0, offTrack: !1, finished: !1, airborne: !1, maxSpeed: 0 };
 }
-function Mt(s, t, e = _, i = !0, a = "jump") {
+function Mt(s, t, e = K, i = !0, a = "jump") {
   if (s.offTrack || s.finished) return;
-  e = at(e, 0, 1 / 120);
-  const r = pt(t), o = 196, h = Math.cos(s.yaw), l = Math.sin(s.yaw), c = s.vx * h + s.vz * l, n = -s.vx * l + s.vz * h, d = J(s.x, s.z, a);
+  e = ot(e, 0, 1 / 120);
+  const r = pt(t), o = 196, h = Math.cos(s.yaw), l = Math.sin(s.yaw), c = s.vx * h + s.vz * l, n = -s.vx * l + s.vz * h, d = Q(s.x, s.z, a);
   if (!d.gap && s.y <= d.height + 0.018 && s.vy <= d.slope * s.vx + 0.05) {
-    const f = 133.33333333333334 * Math.PI * 2 / t.gear * r.radius, p = i ? 12e-4 * t.gear * 0.78 / (r.radius * 0.05) * Math.max(0, 1 - Math.max(0, c) / f) : 0, y = r.rolling + Math.abs(c) * 25e-5, M = (p - (Math.abs(c) > 0.05 ? y : 0)) / (r.mass * 0.05), m = at(-n * 16, -r.grip * o, r.grip * o), g = -o * d.slope / (1 + d.slope * d.slope);
-    s.vx += (h * M - l * m + g) * e, s.vz += (l * M + h * m) * e, s.omega *= Math.exp(-4 * e), s.y = d.height, s.vy = d.slope * s.vx, s.pitch += (Math.atan(d.slope * h) - s.pitch) * Math.min(1, e * 18), s.roll *= Math.exp(-10 * e), s.airborne = !1;
+    const g = 133.33333333333334 * Math.PI * 2 / t.gear * r.radius, p = i ? 12e-4 * t.gear * 0.78 / (r.radius * 0.05) * Math.max(0, 1 - Math.max(0, c) / g) : 0, b = r.rolling + Math.abs(c) * 25e-5, y = (p - (Math.abs(c) > 0.05 ? b : 0)) / (r.mass * 0.05), m = ot(-n * 16, -r.grip * o, r.grip * o), f = -o * d.slope / (1 + d.slope * d.slope);
+    s.vx += (h * y - l * m + f) * e, s.vz += (l * y + h * m) * e, s.omega *= Math.exp(-4 * e), s.y = d.height, s.vy = d.slope * s.vx, s.pitch += (Math.atan(d.slope * h) - s.pitch) * Math.min(1, e * 18), s.roll *= Math.exp(-10 * e), s.airborne = !1;
   } else
     s.vy -= o * e, s.airborne = !0, s.pitch += (t.ballast === "rear" ? 0.18 : -0.13) * e;
   s.x += s.vx * e, s.z += s.vz * e, s.y += s.vy * e, s.yaw += s.omega * e;
-  const b = J(s.x, s.z, a);
-  if (!b.gap && s.y < b.height) {
-    const f = Math.max(0, -s.vy);
-    if (s.y = b.height, s.vy = 0, s.airborne && f > 3) {
-      s.landings++, s.impact = Math.max(s.impact, f / 50);
-      const p = at(f * (t.ballast === "rear" ? 5e-3 : 25e-4), 0, 0.35);
+  const x = Q(s.x, s.z, a);
+  if (!x.gap && s.y < x.height) {
+    const g = Math.max(0, -s.vy);
+    if (s.y = x.height, s.vy = 0, s.airborne && g > 3) {
+      s.landings++, s.impact = Math.max(s.impact, g / 50);
+      const p = ot(g * (t.ballast === "rear" ? 5e-3 : 25e-4), 0, 0.35);
       s.vx *= 1 - p, s.vz *= 1 - p, s.roll = t.ballast === "rear" ? 0.11 : 0.03;
     }
     s.airborne = !1;
   }
   if (s.y < 1.8)
-    for (const f of [-1.28, 1.28]) for (const p of [-0.88, 0.88]) {
-      const y = f * h - p * l, M = f * l + p * h, m = yt(s.x + y, s.z + M), g = P.width / 2 - 0.13, w = Math.abs(m.offset) - g;
-      if (w > 0) {
-        const q = m.offset > 0 ? -1 : 1, A = m.nx * q, $ = m.nz * q;
-        s.x += A * w * 0.65, s.z += $ * w * 0.65;
-        const L = (s.vx - s.omega * M) * A + (s.vz + s.omega * y) * $;
+    for (const g of [-1.28, 1.28]) for (const p of [-0.88, 0.88]) {
+      const b = g * h - p * l, y = g * l + p * h, m = yt(s.x + b, s.z + y), f = T.width / 2 - 0.13, v = Math.abs(m.offset) - f;
+      if (v > 0) {
+        const S = m.offset > 0 ? -1 : 1, q = m.nx * S, $ = m.nz * S;
+        s.x += q * v * 0.65, s.z += $ * v * 0.65;
+        const L = (s.vx - s.omega * y) * q + (s.vz + s.omega * b) * $;
         if (L < 0) {
-          const R = y * $ - M * A, B = -1.12 * L / (1 / r.mass + R * R / r.inertia);
-          s.vx += B * A / r.mass, s.vz += B * $ / r.mass, s.omega += R * B / r.inertia, s.vx *= 0.997, s.vz *= 0.997, -L > 2 && s.impact < 0.06 && s.contacts++, s.impact = Math.max(s.impact, Math.min(1, -L / 40));
+          const R = b * $ - y * q, B = -1.12 * L / (1 / r.mass + R * R / r.inertia);
+          s.vx += B * q / r.mass, s.vz += B * $ / r.mass, s.omega += R * B / r.inertia, s.vx *= 0.997, s.vz *= 0.997, -L > 2 && s.impact < 0.06 && s.contacts++, s.impact = Math.max(s.impact, Math.min(1, -L / 40));
         }
       }
     }
-  const x = yt(s.x, s.z);
-  if (s.y < -2.5 || Math.abs(x.offset) > P.width / 2 + 1.8) {
+  const M = yt(s.x, s.z);
+  if (s.y < -2.5 || Math.abs(M.offset) > T.width / 2 + 1.8) {
     s.offTrack = !0;
     return;
   }
-  let u = x.s - s.lastS;
-  u > P.length / 2 && (u -= P.length), u < -P.length / 2 && (u += P.length), Math.abs(u) < 3 && (s.distance += u), s.lastS = x.s, s.time += e;
-  const z = Math.max(0, Math.floor(s.distance / P.length));
+  let u = M.s - s.lastS;
+  u > T.length / 2 && (u -= T.length), u < -T.length / 2 && (u += T.length), Math.abs(u) < 3 && (s.distance += u), s.lastS = M.s, s.time += e;
+  const z = Math.max(0, Math.floor(s.distance / T.length));
   z > s.lap && (s.lap = z, s.lapTimes.push(s.time - s.lapStart), s.lapStart = s.time, z >= 3 && (s.finished = !0)), s.impact *= Math.exp(-9 * e), s.maxSpeed = Math.max(s.maxSpeed, Math.hypot(s.vx, s.vz));
 }
 function Nt(s, t, e, i) {
@@ -343,52 +353,52 @@ function Nt(s, t, e, i) {
     for (const a of [-0.7, 0.7]) for (const r of [-0.7, 0.7]) {
       const o = t.x + Math.cos(t.yaw) * r - s.x - Math.cos(s.yaw) * a, h = t.z + Math.sin(t.yaw) * r - s.z - Math.sin(s.yaw) * a, l = Math.hypot(o, h);
       if (l >= 1.5 || l < 1e-5) continue;
-      const c = o / l, n = h / l, d = pt(e).mass, v = pt(i).mass, b = 1 / d + 1 / v, x = 1.5 - l;
-      s.x -= c * x / (d * b), s.z -= n * x / (d * b), t.x += c * x / (v * b), t.z += n * x / (v * b);
+      const c = o / l, n = h / l, d = pt(e).mass, w = pt(i).mass, x = 1 / d + 1 / w, M = 1.5 - l;
+      s.x -= c * M / (d * x), s.z -= n * M / (d * x), t.x += c * M / (w * x), t.z += n * M / (w * x);
       const u = (t.vx - s.vx) * c + (t.vz - s.vz) * n;
       if (u < 0) {
-        const z = -1.2 * u / b;
-        s.vx -= z * c / d, s.vz -= z * n / d, t.vx += z * c / v, t.vz += z * n / v, s.impact = t.impact = 0.65;
+        const z = -1.2 * u / x;
+        s.vx -= z * c / d, s.vz -= z * n / d, t.vx += z * c / w, t.vz += z * n / w, s.impact = t.impact = 0.65;
       }
     }
 }
 function zt(s) {
-  const t = new C(), e = new Tt(), i = (m) => new G({ color: m, roughness: 0.46, metalness: 0.06 }), a = (m, g, w = 0, q = 0, A = 0) => {
-    const $ = new E(m, g);
-    return $.position.set(w, q, A), $.receiveShadow = !0, $.castShadow = !0, t.add($), $;
+  const t = new C(), e = new Tt(), i = (m) => new G({ color: m, roughness: 0.46, metalness: 0.06 }), a = (m, f, v = 0, S = 0, q = 0) => {
+    const $ = new E(m, f);
+    return $.position.set(v, S, q), $.receiveShadow = !0, $.castShadow = !0, t.add($), $;
   }, r = i(16772304), o = i(2445931), h = i(5159853), l = i(16761702);
   a(new X(69, 1.1, 35, 3, 1), i(12157774), 0, -1, 0), a(new X(67, 0.2, 33, 3, 0.8), i(2508379), 0, -0.38, 0), a(new X(44, 0.3, 14, 3, 2), i(7121568), 0, -0.17, 0);
-  const c = 360, n = new st(new N(1, 0.72, 0.17), r, c * 2), d = new st(new N(1, 0.06, 0.22), r, c * 2), v = new st(new N(0.035, 0.018, P.width), o, c);
-  let b = 0, x = 0;
-  const u = [], z = [], f = [];
+  const c = 360, n = new it(new N(1, 0.72, 0.17), r, c * 2), d = new it(new N(1, 0.06, 0.22), r, c * 2), w = new it(new N(0.035, 0.018, T.width), o, c);
+  let x = 0, M = 0;
+  const u = [], z = [], g = [];
   for (let m = 0; m < c; m++) {
-    const g = dt(m / c * P.length), w = dt((m + 1) / c * P.length), q = J(g.x, g.z, s), A = J(w.x, w.z, s);
-    if (q.gap || A.gap) continue;
-    const $ = u.length / 3, L = new wt(s === "jump" && g.z < -8 && g.x > -6 && g.x < 1 ? 16762477 : 15003369);
-    for (const [D, St] of [[g, q], [w, A]]) for (const gt of [-1, 1])
-      u.push(D.x - D.tz * gt * P.width / 2, St.height, D.z + D.tx * gt * P.width / 2), z.push(L.r, L.g, L.b);
-    f.push($, $ + 2, $ + 1, $ + 1, $ + 2, $ + 3);
-    const R = w.x - g.x, B = w.z - g.z, ft = Math.hypot(R, B), $t = Math.atan2(A.height - q.height, ft);
+    const f = dt(m / c * T.length), v = dt((m + 1) / c * T.length), S = Q(f.x, f.z, s), q = Q(v.x, v.z, s);
+    if (S.gap || q.gap) continue;
+    const $ = u.length / 3, L = new wt(s === "jump" && f.z < -8 && f.x > -6 && f.x < 1 ? 16762477 : 15003369);
+    for (const [D, St] of [[f, S], [v, q]]) for (const gt of [-1, 1])
+      u.push(D.x - D.tz * gt * T.width / 2, St.height, D.z + D.tx * gt * T.width / 2), z.push(L.r, L.g, L.b);
+    g.push($, $ + 2, $ + 1, $ + 1, $ + 2, $ + 3);
+    const R = v.x - f.x, B = v.z - f.z, ft = Math.hypot(R, B), $t = Math.atan2(q.height - S.height, ft);
     for (const D of [-1, 1])
-      e.position.set((g.x + w.x) / 2 - g.tz * D * P.width / 2, (q.height + A.height) / 2 + 0.36, (g.z + w.z) / 2 + g.tx * D * P.width / 2), e.rotation.set(0, -Math.atan2(B, R), 0), e.rotateZ($t), e.scale.set(ft * 1.04, 1, 1), e.updateMatrix(), n.setMatrixAt(b, e.matrix), n.setColorAt(b, new wt(Math.floor(m / 15) % 2 ? 15788764 : D === 1 ? 4107956 : 15041136)), e.position.y += 0.37, e.updateMatrix(), d.setMatrixAt(b++, e.matrix);
-    m % 12 === 0 && (e.position.set(g.x, q.height + 0.012, g.z), e.rotation.set(0, -Math.atan2(g.tz, g.tx), 0), e.scale.set(1, 1, 1), e.updateMatrix(), v.setMatrixAt(x++, e.matrix)), q.height > 0.15 && m % 10 === 0 && a(new N(0.32, q.height + 0.32, 4), o, g.x, (q.height - 0.32) / 2, g.z);
+      e.position.set((f.x + v.x) / 2 - f.tz * D * T.width / 2, (S.height + q.height) / 2 + 0.36, (f.z + v.z) / 2 + f.tx * D * T.width / 2), e.rotation.set(0, -Math.atan2(B, R), 0), e.rotateZ($t), e.scale.set(ft * 1.04, 1, 1), e.updateMatrix(), n.setMatrixAt(x, e.matrix), n.setColorAt(x, new wt(Math.floor(m / 15) % 2 ? 15788764 : D === 1 ? 4107956 : 15041136)), e.position.y += 0.37, e.updateMatrix(), d.setMatrixAt(x++, e.matrix);
+    m % 12 === 0 && (e.position.set(f.x, S.height + 0.012, f.z), e.rotation.set(0, -Math.atan2(f.tz, f.tx), 0), e.scale.set(1, 1, 1), e.updateMatrix(), w.setMatrixAt(M++, e.matrix)), S.height > 0.15 && m % 10 === 0 && a(new N(0.32, S.height + 0.32, 4), o, f.x, (S.height - 0.32) / 2, f.z);
   }
-  n.count = d.count = b, v.count = x, n.castShadow = !0, t.add(n, d, v);
-  const p = new ot();
-  p.setAttribute("position", new K(u, 3)), p.setAttribute("color", new K(z, 3)), p.setIndex(f), p.computeVertexNormals(), a(p, new G({ vertexColors: !0, side: Y, roughness: 0.82 }));
-  for (const m of [-14.85, -9.15]) a(new O(0.16, 0.2, 3.4, 12), h, -15, 1.7, m);
+  n.count = d.count = x, w.count = M, n.castShadow = !0, t.add(n, d, w);
+  const p = new J();
+  p.setAttribute("position", new Y(u, 3)), p.setAttribute("color", new Y(z, 3)), p.setIndex(g), p.computeVertexNormals(), a(p, new G({ vertexColors: !0, side: Z, roughness: 0.82 }));
+  for (const m of [-14.85, -9.15]) a(new V(0.16, 0.2, 3.4, 12), h, -15, 1.7, m);
   a(new X(0.45, 0.65, 6.3, 2, 0.18), l, -15, 3.4, -12);
-  for (let m = 0; m < 10; m++) for (let g = 0; g < 2; g++) a(new N(0.42, 0.024, 0.49), m % 2 === g ? o : r, -15 + g * 0.42, 0.02, -14.2 + m * 0.49);
-  const y = a(new bt(2, 24, 16), i(15119707), 0, 2, 0), M = a(new ut(2.65, 0.13, 8, 48), r, 0, 2, 0);
-  M.rotation.x = 1.2, M.rotation.y = 0.24, y.rotation.y = 0.4, a(new O(2.8, 3, 0.35, 32), o, 0, 0.15, 0);
-  for (const m of [-17, -11, 11, 17]) for (const g of [-3.4, 3.4])
-    a(new O(0.12, 0.16, 1.2, 8), i(11171916), m, 0.6, g), a(new bt(0.85, 12, 8), i(m < 0 ? 9554063 : 6929070), m, 1.4, g).scale.y = 1.15;
+  for (let m = 0; m < 10; m++) for (let f = 0; f < 2; f++) a(new N(0.42, 0.024, 0.49), m % 2 === f ? o : r, -15 + f * 0.42, 0.02, -14.2 + m * 0.49);
+  const b = a(new bt(2, 24, 16), i(15119707), 0, 2, 0), y = a(new ut(2.65, 0.13, 8, 48), r, 0, 2, 0);
+  y.rotation.x = 1.2, y.rotation.y = 0.24, b.rotation.y = 0.4, a(new V(2.8, 3, 0.35, 32), o, 0, 0.15, 0);
+  for (const m of [-17, -11, 11, 17]) for (const f of [-3.4, 3.4])
+    a(new V(0.12, 0.16, 1.2, 8), i(11171916), m, 0.6, f), a(new bt(0.85, 12, 8), i(m < 0 ? 9554063 : 6929070), m, 1.4, f).scale.y = 1.15;
   return t;
 }
 function kt(s) {
   const t = /* @__PURE__ */ new Set(), e = /* @__PURE__ */ new Set();
   s.traverse((i) => {
-    i instanceof E && (t.add(i.geometry), (Array.isArray(i.material) ? i.material : [i.material]).forEach((a) => e.add(a)), i instanceof st && i.dispose());
+    i instanceof E && (t.add(i.geometry), (Array.isArray(i.material) ? i.material : [i.material]).forEach((a) => e.add(a)), i instanceof it && i.dispose());
   }), t.forEach((i) => i.dispose()), e.forEach((i) => i.dispose()), s.clear();
 }
 const H = (s) => ({ time: s.time, x: s.x, y: s.y, z: s.z, yaw: s.yaw, pitch: s.pitch, roll: s.roll, distance: s.distance });
@@ -427,7 +437,7 @@ class Zt {
     this.environment = i.fromScene(e, 0.04), this.scene.environment = this.environment.texture, this.scene.environmentIntensity = 0.4, this.renderer.toneMappingExposure = 0.85, e.dispose(), i.dispose(), this.scene.add(new Gt(13036287, 2504790, 1.1));
     const a = new Lt(16774096, 1.8);
     a.position.set(12, 35, -18), a.castShadow = !0, a.shadow.mapSize.set(1024, 1024), Object.assign(a.shadow.camera, { left: -40, right: 40, top: 32, bottom: -32 }), a.shadow.bias = -2e-4, this.scene.add(a);
-    const r = new E(new O(2.25, 2.3, 0.18, 64), new G({ color: 1583683, metalness: 0.45, roughness: 0.35 }));
+    const r = new E(new V(2.25, 2.3, 0.18, 64), new G({ color: 1583683, metalness: 0.45, roughness: 0.35 }));
     r.position.y = -0.16, r.receiveShadow = !0, this.plinth.add(r);
     const o = new E(new ut(2.17, 0.012, 6, 100), new jt({ color: 7137535 }));
     o.rotation.x = Math.PI / 2, o.position.y = -0.058, this.plinth.add(o), this.scene.add(this.plinth, this.car.root, this.arena, this.rival.root), this.rival.root.visible = !1, this.buildTrack(), this.arena.visible = !1, this.observer = new ResizeObserver(() => {
@@ -438,19 +448,19 @@ class Zt {
       this.race || (this.dragging = { x: c.clientX, y: c.clientY, yaw: this.orbit.yaw, pitch: this.orbit.pitch, id: c.pointerId, moved: !1 }, l.setPointerCapture(c.pointerId));
     }, { signal: h }), l.addEventListener("pointermove", (c) => {
       if (!this.dragging) return;
-      const n = this.dragging, d = c.clientX - n.x, v = c.clientY - n.y;
-      Math.hypot(d, v) > 5 && (n.moved = !0), this.orbit.yaw = n.yaw - d * 8e-3, this.orbit.pitch = Math.max(0.15, Math.min(1.35, n.pitch + v * 6e-3)), this.wake();
+      const n = this.dragging, d = c.clientX - n.x, w = c.clientY - n.y;
+      Math.hypot(d, w) > 5 && (n.moved = !0), this.orbit.yaw = n.yaw - d * 8e-3, this.orbit.pitch = Math.max(0.15, Math.min(1.35, n.pitch + w * 6e-3)), this.wake();
     }, { signal: h }), l.addEventListener("pointerup", (c) => {
       if (!this.dragging) return;
       const n = this.dragging.moved;
       if (this.dragging = void 0, l.hasPointerCapture(c.pointerId) && l.releasePointerCapture(c.pointerId), !n) {
-        const d = l.getBoundingClientRect(), v = new Rt();
-        v.setFromCamera(new Q((c.clientX - d.left) / d.width * 2 - 1, 1 - (c.clientY - d.top) / d.height * 2), this.camera);
-        for (const b of v.intersectObject(this.car.root, !0)) {
-          let x = b.object;
-          for (; x && !x.userData.part; ) x = x.parent;
-          if (x && x.visible) {
-            this.onPick?.(x.userData.part);
+        const d = l.getBoundingClientRect(), w = new Rt();
+        w.setFromCamera(new tt((c.clientX - d.left) / d.width * 2 - 1, 1 - (c.clientY - d.top) / d.height * 2), this.camera);
+        for (const x of w.intersectObject(this.car.root, !0)) {
+          let M = x.object;
+          for (; M && !M.userData.part; ) M = M.parent;
+          if (M && M.visible) {
+            this.onPick?.(M.userData.part);
             break;
           }
         }
@@ -484,20 +494,20 @@ class Zt {
   hideGhost() {
     this.activeGhost = void 0, this.ghost && (this.ghost.root.visible = !1), this.wake();
   }
-  car = new lt();
+  car = new ct();
   state = U();
-  setup = { ...Z };
+  setup = { ..._ };
   onUpdate;
   onPick;
   renderer;
   scene = new Bt();
-  camera = new tt(42, 1, 0.025, 300);
+  camera = new et(42, 1, 0.025, 300);
   environment;
-  halo = new Dt(new V(), 16768137);
+  halo = new Dt(new O(), 16768137);
   balloon;
   arena = new C();
   plinth = new C();
-  rival = new lt();
+  rival = new ct();
   rivalState = U(1);
   race = !1;
   running = !1;
@@ -511,7 +521,7 @@ class Zt {
   lastUI = 0;
   dead = !1;
   orbit = { yaw: 0.75, pitch: 0.38, zoom: 5.2 };
-  installed = it();
+  installed = at();
   exploded = !1;
   xray = !1;
   selected = "";
@@ -523,12 +533,12 @@ class Zt {
   gain;
   sound = !1;
   compare = !1;
-  look = new T();
-  goal = new T();
-  target = new T();
+  look = new A();
+  goal = new A();
+  target = new A();
   wind;
   windGain;
-  explodedBounds = new nt();
+  explodedBounds = new ht();
   explodedCorners = [];
   buildTrack() {
     this.arena.add(zt(this.track));
@@ -547,13 +557,13 @@ class Zt {
     this.installed = new Set(t), e && !this.exploded && (this.orbit.zoom = 5.2), this.exploded = e, this.xray = i, this.selected = a, this.layout(), this.wake();
   }
   layout() {
-    if (this.car.layout(this.race ? it() : this.installed, this.race ? 0 : Number(this.exploded), !this.race && this.xray, this.race ? "" : this.selected), this.exploded) {
-      const t = new V();
-      for (const e of this.car.parts.values()) e.visible && t.union(new V().setFromObject(e));
+    if (this.car.layout(this.race ? at() : this.installed, this.race ? 0 : Number(this.exploded), !this.race && this.xray, this.race ? "" : this.selected), this.exploded) {
+      const t = new O();
+      for (const e of this.car.parts.values()) e.visible && t.union(new O().setFromObject(e));
       t.getBoundingSphere(this.explodedBounds), this.explodedCorners = [];
       for (const e of this.car.parts.values()) if (e.visible) {
-        const i = new V().setFromObject(e);
-        for (const a of [i.min.x, i.max.x]) for (const r of [i.min.y, i.max.y]) for (const o of [i.min.z, i.max.z]) this.explodedCorners.push(new T(a, r, o).sub(this.explodedBounds.center));
+        const i = new O().setFromObject(e);
+        for (const a of [i.min.x, i.max.x]) for (const r of [i.min.y, i.max.y]) for (const o of [i.min.z, i.max.z]) this.explodedCorners.push(new A(a, r, o).sub(this.explodedBounds.center));
       }
     }
   }
@@ -576,7 +586,7 @@ class Zt {
     this.state = U(), this.rivalState = U(1), this.rival.root.visible = !1, this.ghost && (this.ghost.root.visible = !1), this.activeGhost = void 0, this.distance = 0, this.wake();
   }
   run(t = !1, e = !1) {
-    this.state = U(), this.rivalState = U(1), this.compare = t, this.rival.root.visible = t, this.rival.configure({ ...Z, color: "#ff9266" }), this.activeGhost = !t && e ? this.ghosts.get(this.track) : void 0, this.activeGhost && (this.ghost || (this.ghost = new lt(), this.scene.add(this.ghost.root)), this.ghost.configure(this.activeGhost.setup), this.ghost.layout(it(), 0, !1, ""), this.ghost.root.traverse((i) => {
+    this.state = U(), this.rivalState = U(1), this.compare = t, this.rival.root.visible = t, this.rival.configure({ ..._, color: "#ff9266" }), this.activeGhost = !t && e ? this.ghosts.get(this.track) : void 0, this.activeGhost && (this.ghost || (this.ghost = new ct(), this.scene.add(this.ghost.root)), this.ghost.configure(this.activeGhost.setup), this.ghost.layout(at(), 0, !1, ""), this.ghost.root.traverse((i) => {
       if (i instanceof E) {
         i.castShadow = !1, i.receiveShadow = !1;
         for (const a of Array.isArray(i.material) ? i.material : [i.material])
@@ -602,23 +612,23 @@ class Zt {
     t ? this.audio?.resume() : (this.gain && (this.gain.gain.value = 0), this.windGain && (this.windGain.gain.value = 0));
   }
   thumbnails() {
-    const t = {}, e = this.renderer.getSize(new Q());
+    const t = {}, e = this.renderer.getSize(new tt());
     this.renderer.setSize(160, 110, !1);
-    const i = new tt(35, 160 / 110, 0.01, 100);
+    const i = new et(35, 160 / 110, 0.01, 100);
     this.plinth.visible = !1;
     for (const [a, r] of this.car.parts) {
-      for (const [v, b] of this.car.parts) b.visible = v === a;
-      const o = a === "gears" ? this.car.gears[1] : a === "rollers" ? r.children[0] : r, h = r.children.map((v) => v.visible);
-      o !== r && r.children.forEach((v, b) => v.visible = a === "rollers" ? b < 2 : v === o);
-      const l = new V().setFromObject(o), c = l.getCenter(new T()), n = l.getBoundingSphere(new nt()).radius, d = n / Math.sin(F.degToRad(17.5)) * 0.92;
-      i.position.copy(c).add(new T(0.85, 0.6, 1).normalize().multiplyScalar(d)), i.lookAt(c), this.renderer.render(this.scene, i), t[a] = this.renderer.domElement.toDataURL("image/png"), r.children.forEach((v, b) => v.visible = h[b]);
+      for (const [w, x] of this.car.parts) x.visible = w === a;
+      const o = a === "gears" ? this.car.gears[1] : a === "rollers" ? r.children[0] : r, h = r.children.map((w) => w.visible);
+      o !== r && r.children.forEach((w, x) => w.visible = a === "rollers" ? x < 2 : w === o);
+      const l = new O().setFromObject(o), c = l.getCenter(new A()), n = l.getBoundingSphere(new ht()).radius, d = n / Math.sin(F.degToRad(17.5)) * 0.92;
+      i.position.copy(c).add(new A(0.85, 0.6, 1).normalize().multiplyScalar(d)), i.lookAt(c), this.renderer.render(this.scene, i), t[a] = this.renderer.domElement.toDataURL("image/png"), r.children.forEach((w, x) => w.visible = h[x]);
     }
     return this.renderer.setSize(e.x, e.y, !1), this.plinth.visible = !0, this.layout(), this.wake(), t;
   }
   trackThumbnails() {
-    const t = {}, e = this.renderer.getSize(new Q());
+    const t = {}, e = this.renderer.getSize(new tt());
     this.renderer.setSize(256, 144, !1), this.car.root.visible = !1, this.plinth.visible = !1;
-    const i = new tt(40, 256 / 144, 0.1, 300);
+    const i = new et(40, 256 / 144, 0.1, 300);
     i.position.set(43, 59, 58), i.lookAt(0, 0, 0);
     for (const a of ["flat", "bridge", "jump"]) {
       const r = zt(a);
@@ -627,14 +637,14 @@ class Zt {
     return this.car.root.visible = !0, this.plinth.visible = !0, this.renderer.setSize(e.x, e.y, !1), this.wake(), t;
   }
   optionThumbnails() {
-    const t = {}, e = this.renderer.getSize(new Q());
+    const t = {}, e = this.renderer.getSize(new tt());
     this.renderer.setSize(200, 120, !1), this.plinth.visible = !1;
-    const i = new tt(35, 200 / 120, 0.01, 100), a = [["tire:grip", "tire-fl", { tire: "grip" }], ["tire:hard", "tire-fl", { tire: "hard" }], ["diameter:26", "tire-fl", { diameter: 26 }], ["diameter:30", "tire-fl", { diameter: 30 }], ["shell:arrow", "shell", { shell: "arrow" }], ["shell:wing", "shell", { shell: "wing" }]];
+    const i = new et(35, 200 / 120, 0.01, 100), a = [["tire:grip", "tire-fl", { tire: "grip" }], ["tire:hard", "tire-fl", { tire: "hard" }], ["diameter:26", "tire-fl", { diameter: 26 }], ["diameter:30", "tire-fl", { diameter: 30 }], ["shell:arrow", "shell", { shell: "arrow" }], ["shell:wing", "shell", { shell: "wing" }]];
     for (const [r, o, h] of a) {
       this.car.configure({ ...this.setup, ...h });
-      for (const [b, x] of this.car.parts) x.visible = b === o;
-      const l = this.car.parts.get(o), c = new V().setFromObject(l), n = c.getCenter(new T()), d = c.getBoundingSphere(new nt()).radius, v = (r.startsWith("diameter:") ? 0.36 : d) / Math.sin(F.degToRad(17.5)) * 1.1;
-      i.position.copy(n).add(new T(0.85, 0.6, 1).normalize().multiplyScalar(v)), i.lookAt(n), this.renderer.render(this.scene, i), t[r] = this.renderer.domElement.toDataURL("image/png");
+      for (const [x, M] of this.car.parts) M.visible = x === o;
+      const l = this.car.parts.get(o), c = new O().setFromObject(l), n = c.getCenter(new A()), d = c.getBoundingSphere(new ht()).radius, w = (r.startsWith("diameter:") ? 0.36 : d) / Math.sin(F.degToRad(17.5)) * 1.1;
+      i.position.copy(n).add(new A(0.85, 0.6, 1).normalize().multiplyScalar(w)), i.lookAt(n), this.renderer.render(this.scene, i), t[r] = this.renderer.domElement.toDataURL("image/png");
     }
     return this.car.configure(this.setup), this.layout(), this.plinth.visible = !0, this.renderer.setSize(e.x, e.y, !1), this.wake(), t;
   }
@@ -650,8 +660,8 @@ class Zt {
     const e = !this.previous, i = e ? 0 : Math.min(0.05, (t - this.previous) / 1e3);
     if (this.previous = t, this.race) {
       if (this.running) {
-        for (this.accumulator += i; this.accumulator >= _; )
-          Mt(this.state, this.setup, _, !0, this.track), this.compare ? (Mt(this.rivalState, Z, _, !0, this.track), Nt(this.state, this.rivalState, this.setup, Z)) : this.recording.sample(this.state), this.accumulator -= _;
+        for (this.accumulator += i; this.accumulator >= K; )
+          Mt(this.state, this.setup, K, !0, this.track), this.compare ? (Mt(this.rivalState, _, K, !0, this.track), Nt(this.state, this.rivalState, this.setup, _)) : this.recording.sample(this.state), this.accumulator -= K;
         this.distance += Math.hypot(this.state.vx, this.state.vz) * i, (this.state.finished || this.state.offTrack) && (this.running = !1);
       }
       if (this.state.finished && !this.compare && !this.savedGhost) {
@@ -664,15 +674,15 @@ class Zt {
       }
       for (const [n, d] of [[this.car, this.state], [this.rival, this.rivalState]])
         n.root.position.set(d.x, d.y + (n === this.car ? (this.setup.diameter - 26) / 100 : 0), d.z), n.root.rotation.set(0, -d.yaw, 0), n.root.rotateZ(d.pitch), n.root.rotateX(d.roll), n.animate(this.distance, !0, n === this.car ? this.setup.gear : 4, n === this.car ? this.setup.diameter / 100 : 0.26);
-      const r = this.state, o = new T(Math.cos(r.yaw), 0, Math.sin(r.yaw)), h = new T(r.x, r.y, r.z), l = Math.hypot(r.vx, r.vz);
-      if (this.goal.copy(h).addScaledVector(o, this.first ? 1.4 : -6.5).add(new T(0, this.first ? 1.2 : 3.8, 0)), this.target.copy(h).addScaledVector(o, this.first ? 9 : 5).add(new T(0, 0.7, 0)), !this.first && this.activeGhost && this.ghost) {
+      const r = this.state, o = new A(Math.cos(r.yaw), 0, Math.sin(r.yaw)), h = new A(r.x, r.y, r.z), l = Math.hypot(r.vx, r.vz);
+      if (this.goal.copy(h).addScaledVector(o, this.first ? 1.4 : -6.5).add(new A(0, this.first ? 1.2 : 3.8, 0)), this.target.copy(h).addScaledVector(o, this.first ? 9 : 5).add(new A(0, 0.7, 0)), !this.first && this.activeGhost && this.ghost) {
         const n = h.distanceTo(this.ghost.root.position);
         n < 24 && (this.goal.addScaledVector(o, -Math.min(8, n * 0.4)), this.goal.y += Math.min(5, n * 0.2), this.target.lerp(this.ghost.root.position, 0.3));
       }
       const c = e ? 1 : 1 - Math.exp(-i * (this.first ? 18 : 7));
       this.camera.position.lerp(this.goal, c), this.look.lerp(this.target, c), this.reduced || (this.camera.position.y += Math.sin(t * 0.025) * Math.min(0.035, l * 1e-3) + r.impact * 0.08), this.camera.lookAt(this.look), this.camera.fov += (65 + Math.min(9, l * 0.18) - this.camera.fov) * (e ? 1 : 0.08), !this.running && r.time === 0 && (this.camera.position.set(18, 48, 56), this.camera.lookAt(0, 0, 0), this.camera.fov = 46), this.camera.updateProjectionMatrix();
     } else if (this.car.root.position.set(0, (this.setup.diameter - 26) / 100, 0), this.car.root.rotation.set(0, 0, 0), this.power && (this.distance += i * 1.8, this.car.animate(this.distance, !0, this.setup.gear, this.setup.diameter / 100)), this.exploded) {
-      const r = Math.tan(F.degToRad(this.camera.fov / 2)), o = r * this.camera.aspect, h = new T(Math.cos(this.orbit.yaw), Math.sin(this.orbit.pitch), Math.sin(this.orbit.yaw)).normalize(), l = new T().crossVectors(new T(0, 1, 0), h).normalize(), c = new T().crossVectors(h, l);
+      const r = Math.tan(F.degToRad(this.camera.fov / 2)), o = r * this.camera.aspect, h = new A(Math.cos(this.orbit.yaw), Math.sin(this.orbit.pitch), Math.sin(this.orbit.yaw)).normalize(), l = new A().crossVectors(new A(0, 1, 0), h).normalize(), c = new A().crossVectors(h, l);
       let n = 1;
       for (const d of this.explodedCorners) n = Math.max(n, d.dot(h) + Math.max(Math.abs(d.dot(c)) / r, Math.abs(d.dot(l)) / o));
       this.camera.position.copy(this.explodedBounds.center).addScaledVector(h, n * 1.12 * this.orbit.zoom / 5.2), this.camera.lookAt(this.explodedBounds.center);
@@ -688,8 +698,8 @@ class Zt {
     const a = this.car.parts.get(this.selected);
     if (this.halo.visible = !this.race && !!a?.visible, this.balloon.hidden = !this.halo.visible, this.halo.visible && a) {
       this.halo.box.setFromObject(a).expandByScalar(0.06), this.halo.updateMatrixWorld(!0);
-      const r = this.halo.box.getCenter(new T()).project(this.camera);
-      this.balloon.textContent = String(S.findIndex((o) => o.id === this.selected) + 1), this.balloon.style.left = Math.max(6, Math.min(this.stage.clientWidth - 32, (r.x + 1) * this.stage.clientWidth / 2)) + "px", this.balloon.style.top = Math.max(6, Math.min(this.stage.clientHeight - 32, (1 - r.y) * this.stage.clientHeight / 2)) + "px";
+      const r = this.halo.box.getCenter(new A()).project(this.camera);
+      this.balloon.textContent = String(P.findIndex((o) => o.id === this.selected) + 1), this.balloon.style.left = Math.max(6, Math.min(this.stage.clientWidth - 32, (r.x + 1) * this.stage.clientWidth / 2)) + "px", this.balloon.style.top = Math.max(6, Math.min(this.stage.clientHeight - 32, (1 - r.y) * this.stage.clientHeight / 2)) + "px";
     }
     this.renderer.render(this.scene, this.camera), (t - this.lastUI > 100 || this.state.finished || this.state.offTrack) && (this.onUpdate?.(this.state), this.lastUI = t), this.running || this.power ? this.wake() : this.previous = 0;
   }
@@ -704,7 +714,7 @@ class Zt {
 function _t(s) {
   let t = "", e = !1;
   for (let i = 0; i <= 60; i++) {
-    const a = -12 + i * 0.4, r = J(a, -12, s);
+    const a = -12 + i * 0.4, r = Q(a, -12, s);
     if (r.gap) {
       e = !1;
       continue;
@@ -714,9 +724,9 @@ function _t(s) {
   return `<svg class="m4-track-profile" viewBox="0 0 120 36" aria-hidden="true"><path d="${t}" fill="none" stroke="#ffe29b" stroke-width="5" stroke-linecap="round"/></svg>`;
 }
 function Kt(s) {
-  const t = s * 12, e = 46 / (t + 12), i = t * e, a = 12 * e, r = (o, h, l, c, n) => `<polygon points="${Array.from({ length: c * 4 }, (v, b) => {
-    const x = b * Math.PI * 2 / (c * 4), u = l * (b % 4 === 0 || b % 4 === 3 ? 0.89 : 1);
-    return `${o + Math.cos(x) * u},${h + Math.sin(x) * u}`;
+  const t = s * 12, e = 46 / (t + 12), i = t * e, a = 12 * e, r = (o, h, l, c, n) => `<polygon points="${Array.from({ length: c * 4 }, (w, x) => {
+    const M = x * Math.PI * 2 / (c * 4), u = l * (x % 4 === 0 || x % 4 === 3 ? 0.89 : 1);
+    return `${o + Math.cos(M) * u},${h + Math.sin(M) * u}`;
   }).join(" ")}" fill="${n}" stroke="#fff3c5" stroke-width=".8"/><circle cx="${o}" cy="${h}" r="${l * 0.3}" fill="#183148"/><circle cx="${o - l * 0.1}" cy="${h - l * 0.1}" r="${l * 0.1}" fill="#fff7dc"/>`;
   return `<svg viewBox="0 0 150 100" aria-hidden="true">${r(52 - a, 52, a, 12, "#75e4d1")}${r(52 + i * 0.85, 52, i, t, "#f9c667")}</svg>`;
 }
@@ -727,9 +737,9 @@ function Qt(s, t) {
   const e = (i) => `<img src="${t[i] || ""}" alt="">`;
   return `<div class="m4-picture-prompt" aria-hidden="true">${s === 0 ? `<b>?</b><i>→</i>${e("motor")}<i>→</i>${e("rim-fl")}` : s === 1 ? `${e("motor")}<i>→</i><b>?</b><i>→</i>${e("rim-fl")}` : `<span class="m4-rail-picture">${e("shell")}<b>?</b><i>↪</i></span>`}</div>`;
 }
-const mt = { back: "M15 5 8 12l7 7M8 12h13", voice: "m4 9 4 0 5-4v14l-5-4H4zM17 8q6 4 0 8", replay: "M5 8a8 8 0 1 1-1 8M5 3v5h5", quiz: "m5 16 11-11 3 3-11 11-4 1zM14 7l3 3", notes: "M5 3h14v18H5zM8 8h8M8 12h8M8 16h5", learn: "M3 5q5-3 9 0 5-3 9 0v15q-5-3-9 0-4-3-9 0zM12 5v15", parts: "M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z", build: "m4 20 9-9M14 4a5 5 0 0 0 6 6l-4-1-1-4z", tune: "M4 7h16M4 17h16M8 4v6M16 14v6", race: "M5 21V3m0 1h14l-3 5 3 5H5", camera: "M3 7h5l2-3h4l2 3h5v13H3zM15 13a3 3 0 1 1-6 0 3 3 0 0 1 6 0", power: "M12 3v9M6 5a9 9 0 1 0 12 0", play: "m8 4 12 8-12 8z", stop: "M6 6h12v12H6z", next: "m9 5 7 7-7 7", prev: "m15 5-7 7 7 7", remove: "M5 12h14", plus: "M5 12h14M12 5v14", explode: "m9 9-6-6m0 5V3h5M15 15l6 6m0-5v5h-5M3 21l6-6M15 9l6-6", eye: "M2 12q10-15 20 0-10 15-20 0M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0", check: "m4 12 5 5L20 6" }, rt = (s) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${mt[s] || mt.parts}"/></svg>`;
+const mt = { back: "M15 5 8 12l7 7M8 12h13", voice: "m4 9 4 0 5-4v14l-5-4H4zM17 8q6 4 0 8", replay: "M5 8a8 8 0 1 1-1 8M5 3v5h5", quiz: "m5 16 11-11 3 3-11 11-4 1zM14 7l3 3", notes: "M5 3h14v18H5zM8 8h8M8 12h8M8 16h5", learn: "M3 5q5-3 9 0 5-3 9 0v15q-5-3-9 0-4-3-9 0zM12 5v15", parts: "M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z", build: "m4 20 9-9M14 4a5 5 0 0 0 6 6l-4-1-1-4z", tune: "M4 7h16M4 17h16M8 4v6M16 14v6", race: "M5 21V3m0 1h14l-3 5 3 5H5", camera: "M3 7h5l2-3h4l2 3h5v13H3zM15 13a3 3 0 1 1-6 0 3 3 0 0 1 6 0", power: "M12 3v9M6 5a9 9 0 1 0 12 0", play: "m8 4 12 8-12 8z", stop: "M6 6h12v12H6z", next: "m9 5 7 7-7 7", prev: "m15 5-7 7 7 7", remove: "M5 12h14", plus: "M5 12h14M12 5v14", explode: "m9 9-6-6m0 5V3h5M15 15l6 6m0-5v5h-5M3 21l6-6M15 9l6-6", eye: "M2 12q10-15 20 0-10 15-20 0M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0", check: "m4 12 5 5L20 6" }, nt = (s) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${mt[s] || mt.parts}"/></svg>`;
 mt.ghost = "M5 20V9a7 7 0 0 1 14 0v11l-3-2-4 2-4-2-3 2M9 9v2M15 9v2";
-const k = (s, t, e = s) => `<button type="button" data-m4="${s}" aria-label="${t}" title="${t}">${rt(e)}<span>${t}</span></button>`, W = { flat: "平道", bridge: "坡橋", jump: "跳台" }, j = [
+const k = (s, t, e = s) => `<button type="button" data-m4="${s}" aria-label="${t}" title="${t}">${nt(e)}<span>${t}</span></button>`, W = { flat: "平道", bridge: "坡橋", jump: "跳台" }, j = [
   { title: "電池讓車跑起來", text: "閉合開關，看馬達和四輪轉動。", voice: "電池經過接點和開關，形成完整電路，馬達把電能轉成轉動。按電源，看看馬達和四個輪圈。這台車不需要回拉。", part: "battery-a" },
   { title: "小齒輪，大力量", text: "馬達轉 4 圈，輪軸轉 1 圈。", voice: "現在是四比一減速。馬達轉四圈，輪軸轉一圈。較大的減速比可以增加輪端扭力，但降低空載輪速。", part: "gears" },
   { title: "動力送到四個輪子", text: "沿著長軸，找出前後輪軸。", voice: "馬達帶動減速齒輪，再經過長傳動軸，把動力送到前後輪軸，帶動四個輪圈和輪胎。這是軸傳動四輪驅動的簡化教學模型。", part: "shaft" },
@@ -737,7 +747,7 @@ const k = (s, t, e = s) => `<button type="button" data-m4="${s}" aria-label="${t
 ];
 class ie {
   constructor(t) {
-    this.host = t, t.innerHTML = `<section class="m4-lab" aria-label="四驅車研究所"><header class="m4-header">${k("back", "返回")}<h2>四驅車研究所</h2><nav class="m4-helpers" aria-label="實驗小幫手">${k("voice", "語音")}${k("replay", "重聽")}${k("notes", "紀錄")}${k("quiz", "考題")}</nav></header><nav class="m4-nav" aria-label="探索步驟">${[["learn", "原理"], ["parts", "零件"], ["build", "組裝"], ["tune", "改裝"], ["race", "試跑"]].map(([a, r]) => k(a, r)).join("")}</nav><div class="m4-layout"><section class="m4-scene"><div class="m4-stage"></div><div class="m4-scene-tag">原創教學車 · 星羽 01</div><div class="m4-view-tools">${k("explode", "拆開", "explode")}${k("xray", "透視", "eye")}${k("zoom-in", "放大", "plus")}${k("zoom-out", "縮小", "remove")}</div><button class="m4-snap" data-m4="install" hidden aria-label="安裝選取零件">${rt("plus")}<span>裝到車上</span></button><div class="m4-hud" hidden><div><b data-speed>0.0</b><small>km/h · 模擬</small></div><div><b data-lap>0 / 3</b><small>完成圈數</small></div><div><b data-time>0.0</b><small>秒</small></div></div><div class="m4-overlay" hidden></div><div class="m4-countdown" hidden></div><p class="m4-status" role="status" aria-live="polite">電池讓車跑起來</p></section><aside class="m4-tools" aria-label="操作面板"></aside></div></section>`, this.root = t.querySelector(".m4-lab"), this.root.querySelector(".m4-hud").insertAdjacentHTML("beforeend", "<div data-shadow hidden><b>—</b><small>影子 · 上次秒數</small></div>");
+    this.host = t, t.innerHTML = `<section class="m4-lab" aria-label="四驅車研究所"><header class="m4-header">${k("back", "返回")}<h2>四驅車研究所</h2><nav class="m4-helpers" aria-label="實驗小幫手">${k("voice", "語音")}${k("replay", "重聽")}${k("notes", "紀錄")}${k("quiz", "考題")}</nav></header><nav class="m4-nav" aria-label="探索步驟">${[["learn", "原理"], ["parts", "零件"], ["build", "組裝"], ["tune", "改裝"], ["race", "試跑"]].map(([a, r]) => k(a, r)).join("")}</nav><div class="m4-layout"><section class="m4-scene"><div class="m4-stage"></div><div class="m4-scene-tag">原創教學車 · 星羽 01</div><div class="m4-view-tools">${k("explode", "拆開", "explode")}${k("xray", "透視", "eye")}${k("zoom-in", "放大", "plus")}${k("zoom-out", "縮小", "remove")}</div><button class="m4-snap" data-m4="install" hidden aria-label="安裝選取零件">${nt("plus")}<span>裝到車上</span></button><div class="m4-hud" hidden><div><b data-speed>0.0</b><small>km/h · 模擬</small></div><div><b data-lap>0 / 3</b><small>完成圈數</small></div><div><b data-time>0.0</b><small>秒</small></div></div><div class="m4-overlay" hidden></div><div class="m4-countdown" hidden></div><p class="m4-status" role="status" aria-live="polite">電池讓車跑起來</p></section><aside class="m4-tools" aria-label="操作面板"></aside></div></section>`, this.root = t.querySelector(".m4-lab"), this.root.querySelector(".m4-hud").insertAdjacentHTML("beforeend", "<div data-shadow hidden><b>—</b><small>影子 · 上次秒數</small></div>");
     const e = this.root.querySelector(".m4-nav");
     this.root.querySelector(".m4-header").insertBefore(e, this.root.querySelector(".m4-helpers")), e.querySelector('[data-m4="parts"]').remove();
     const i = document.createElement("details");
@@ -770,9 +780,9 @@ class ie {
   lesson = 0;
   partPage = 0;
   selected = "";
-  installed = it();
+  installed = at();
   started = !1;
-  setup = { ...Z };
+  setup = { ..._ };
   thumbnails = {};
   exploded = !1;
   xray = !1;
@@ -801,30 +811,30 @@ class ie {
       const i = j[this.lesson];
       t.innerHTML = `<div class="m4-lesson-cards">${j.map((a, r) => `<button class="m4-object-card" data-m4="lesson-${r}" aria-label="${a.title}" aria-pressed="${this.lesson === r}"><img src="${this.thumbnails[a.part] || ""}" alt=""><span>${["電池", "齒輪", "傳動", "導輪"][r]}</span></button>`).join("")}</div><div class="m4-dock-actions">${k("power", this.powered ? "關閉電源" : "開啟電源", "power")}${k("replay", "聽解說")}${k("lesson-next", this.lesson === 3 ? "去組裝" : "下一步", "next")}</div><p class="m4-sr">${i.voice}</p>`;
     } else if (this.page === "parts" || this.page === "build") {
-      const i = S.slice(this.partPage * 4, this.partPage * 4 + 4);
-      t.innerHTML = `<div class="m4-eyebrow">${this.page === "build" ? "我的組裝" : "BOM · 教學零件表"} <b>${this.installed.size} / ${S.length}</b></div><div class="m4-part-grid">${i.map((a) => `<button type="button" data-part="${a.id}" aria-label="${a.name}，${a.count}${a.count === 1 ? "組或件" : "件"}${this.installed.has(a.id) ? "，已安裝" : ""}" aria-pressed="${a.id === this.selected}"><img src="${this.thumbnails[a.id] || ""}" alt="" draggable="false"><span>${a.name}</span><small>× ${a.count} ${this.installed.has(a.id) ? "✓" : ""}</small></button>`).join("")}</div><div class="m4-pager">${k("part-prev", "上一頁", "prev")}${this.page === "build" ? '<button data-m4="next-part" class="m4-find-next">找下一件</button>' : `<span>${this.partPage + 1} / ${Math.ceil(S.length / 4)}</span>`}${k("part-next", "下一頁", "next")}</div><p class="m4-part-description"></p><div class="m4-two">${this.page === "build" ? k("install", "安裝", "plus") + k("remove", "拆下", "remove") : k("build", "開始組裝", "build") + k("replay", "聽用途")}</div>`, this.describePart();
+      const i = P.slice(this.partPage * 4, this.partPage * 4 + 4);
+      t.innerHTML = `<div class="m4-eyebrow">${this.page === "build" ? "我的組裝" : "BOM · 教學零件表"} <b>${this.installed.size} / ${P.length}</b></div><div class="m4-part-grid">${i.map((a) => `<button type="button" data-part="${a.id}" aria-label="${a.name}，${a.count}${a.count === 1 ? "組或件" : "件"}${this.installed.has(a.id) ? "，已安裝" : ""}" aria-pressed="${a.id === this.selected}"><img src="${this.thumbnails[a.id] || ""}" alt="" draggable="false"><span>${a.name}</span><small>× ${a.count} ${this.installed.has(a.id) ? "✓" : ""}</small></button>`).join("")}</div><div class="m4-pager">${k("part-prev", "上一頁", "prev")}${this.page === "build" ? '<button data-m4="next-part" class="m4-find-next">找下一件</button>' : `<span>${this.partPage + 1} / ${Math.ceil(P.length / 4)}</span>`}${k("part-next", "下一頁", "next")}</div><p class="m4-part-description"></p><div class="m4-two">${this.page === "build" ? k("install", "安裝", "plus") + k("remove", "拆下", "remove") : k("build", "開始組裝", "build") + k("replay", "聽用途")}</div>`, this.describePart();
     } else if (this.page === "tune") this.renderTune(t);
-    else if (this.page === "race") t.innerHTML = `<div class="m4-track-cards">${Object.keys(W).map((i) => `<button class="m4-object-card" data-m4="track-${i}" aria-label="${W[i]}賽道" aria-pressed="${this.track === i}" ${this.running ? "disabled" : ""}><img src="${this.trackPhotos[i] || ""}" alt="">${_t(i)}<span>${W[i]}</span></button>`).join("")}</div><div class="m4-race-options">${k("camera", this.first ? "車頭視角" : "追車視角", "camera")}${k("sound", this.sound ? "聲音開" : "聲音關", "voice")}<button data-m4="motion" aria-label="穩定鏡頭" aria-pressed="${this.reduced}">${rt("eye")}</button>${k("collision", "雙車碰撞測試", "parts")}<button data-m4="ghost" aria-label="挑戰影子車" title="同一跑道上一趟完成的自己" aria-pressed="${this.shadow}" ${this.running ? "disabled" : ""}>${rt("ghost")}</button></div><div class="m4-dock-actions"><button class="m4-go" data-m4="run" aria-label="開始試跑"><img src="images/experiments/mini4wd-v2/race-flag.png" alt=""><span>出發</span></button>${k("stop", "停止", "stop")}</div>`;
+    else if (this.page === "race") t.innerHTML = `<div class="m4-track-cards">${Object.keys(W).map((i) => `<button class="m4-object-card" data-m4="track-${i}" aria-label="${W[i]}賽道" aria-pressed="${this.track === i}" ${this.running ? "disabled" : ""}><img src="${this.trackPhotos[i] || ""}" alt="">${_t(i)}<span>${W[i]}</span></button>`).join("")}</div><div class="m4-race-options">${k("camera", this.first ? "車頭視角" : "追車視角", "camera")}${k("sound", this.sound ? "聲音開" : "聲音關", "voice")}<button data-m4="motion" aria-label="穩定鏡頭" aria-pressed="${this.reduced}">${nt("eye")}</button>${k("collision", "雙車碰撞測試", "parts")}<button data-m4="ghost" aria-label="挑戰影子車" title="同一跑道上一趟完成的自己" aria-pressed="${this.shadow}" ${this.running ? "disabled" : ""}>${nt("ghost")}</button></div><div class="m4-dock-actions"><button class="m4-go" data-m4="run" aria-label="開始試跑"><img src="images/experiments/mini4wd-v2/race-flag.png" alt=""><span>出發</span></button>${k("stop", "停止", "stop")}</div>`;
     else if (this.page === "notes") {
       const i = this.records.slice(this.recordPage * 2, this.recordPage * 2 + 2);
-      t.innerHTML = `<h3>我的測試</h3><p>一次只換一個條件，再跑同一條賽道。</p><div class="m4-pager">${k("record-prev", "上一頁", "prev")}<span>${this.records.length ? this.recordPage + 1 : 0} / ${Math.ceil(this.records.length / 2)}</span>${k("record-next", "下一頁", "next")}</div>${k("return", "回到實驗", "back")}`, e.innerHTML = `<h3>比較試跑結果</h3>${i.length ? i.map((a, r) => `<article class="m4-record"><b>第 ${this.recordPage * 2 + r + 1} 次 · ${a.finished ? "完成三圈" : "中途停止"}</b><p>${W[a.track]} · ${Vt(a.setup)}</p><div><strong>${a.time.toFixed(2)} <small>秒</small></strong><strong>${(a.max * 0.18).toFixed(1)} <small>km/h 最高</small></strong></div><p>護欄撞擊 ${a.contacts} 次 · 落地 ${a.landings} 次</p></article>`).join("") : "<p>還沒有紀錄。把車組好，去試跑吧！</p>"}`;
+      t.innerHTML = `<h3>我的測試</h3><p>一次只換一個條件，再跑同一條賽道。</p><div class="m4-pager">${k("record-prev", "上一頁", "prev")}<span>${this.records.length ? this.recordPage + 1 : 0} / ${Math.ceil(this.records.length / 2)}</span>${k("record-next", "下一頁", "next")}</div>${k("return", "回到實驗", "back")}`, e.innerHTML = `<h3>比較試跑結果</h3>${i.length ? i.map((a, r) => `<article class="m4-record"><b>第 ${this.recordPage * 2 + r + 1} 次 · ${a.finished ? "完成三圈" : "中途停止"}</b><p>${W[a.track]} · ${Ot(a.setup)}</p><div><strong>${a.time.toFixed(2)} <small>秒</small></strong><strong>${(a.max * 0.18).toFixed(1)} <small>km/h 最高</small></strong></div><p>護欄撞擊 ${a.contacts} 次 · 落地 ${a.landings} 次</p></article>`).join("") : "<p>還沒有紀錄。把車組好，去試跑吧！</p>"}`;
     } else {
       const a = [{ q: "哪個零件提供電能？", ids: ["battery-a", "shell", "rollers"], answer: "battery-a" }, { q: "哪個零件把動力送到前輪？", ids: ["shell", "shaft", "battery-a"], answer: "shaft" }, { q: "哪個零件會碰護欄，引導轉彎？", ids: ["rollers", "battery-a", "rim-fl"], answer: "rollers" }][this.quizIndex];
-      t.innerHTML = `<h3>看圖想一想</h3><p>${this.quizIndex + 1} / 3</p>${k("replay", "聽題目")}${k("quiz-next", "下一題", "next")}${k("return", "回到實驗", "back")}`, e.innerHTML = `<h3>${a.q}</h3>${Qt(this.quizIndex, this.thumbnails)}<div class="m4-answer-grid">${a.ids.map((r) => `<button data-answer="${r}" aria-label="${S.find((o) => o.id === r).name}"><img src="${this.thumbnails[r] || ""}" alt="${S.find((o) => o.id === r).name}"></button>`).join("")}</div><p class="m4-feedback" role="status">點一張圖片</p>`, this.voice.last = a.q;
+      t.innerHTML = `<h3>看圖想一想</h3><p>${this.quizIndex + 1} / 3</p>${k("replay", "聽題目")}${k("quiz-next", "下一題", "next")}${k("return", "回到實驗", "back")}`, e.innerHTML = `<h3>${a.q}</h3>${Qt(this.quizIndex, this.thumbnails)}<div class="m4-answer-grid">${a.ids.map((r) => `<button data-answer="${r}" aria-label="${P.find((o) => o.id === r).name}"><img src="${this.thumbnails[r] || ""}" alt="${P.find((o) => o.id === r).name}"></button>`).join("")}</div><p class="m4-feedback" role="status">點一張圖片</p>`, this.voice.last = a.q;
     }
     this.view || t.querySelectorAll("button").forEach((i) => {
       ["run", "collision", "power"].includes(i.dataset.m4 || "") && (i.disabled = !0);
     });
     for (const i of ["run", "collision"]) {
       const a = t.querySelector(`[data-m4="${i}"]`);
-      a && (a.disabled = this.installed.size !== S.length || !this.view || this.running);
+      a && (a.disabled = this.installed.size !== P.length || !this.view || this.running);
     }
     this.renderBom(), this.view?.setParts(this.installed, this.exploded, this.xray, this.selected);
   }
   bomPage = 0;
   renderBom() {
     const t = this.root.querySelector(".m4-bom-body");
-    this.root.querySelector(".m4-bom").hidden = ["race", "quiz", "notes"].includes(this.page), t.innerHTML = S.slice(this.bomPage * 4, this.bomPage * 4 + 4).map((e) => '<button data-part="' + e.id + '" aria-pressed="' + (e.id === this.selected) + '"><b>' + (S.indexOf(e) + 1) + "</b><span>" + e.name + "</span></button>").join("") + '<div class="m4-pager">' + k("bom-prev", "上一頁零件", "prev") + "<span>" + (this.bomPage + 1) + "/5</span>" + k("bom-next", "下一頁零件", "next") + "</div>";
+    this.root.querySelector(".m4-bom").hidden = ["race", "quiz", "notes"].includes(this.page), t.innerHTML = P.slice(this.bomPage * 4, this.bomPage * 4 + 4).map((e) => '<button data-part="' + e.id + '" aria-pressed="' + (e.id === this.selected) + '"><b>' + (P.indexOf(e) + 1) + "</b><span>" + e.name + "</span></button>").join("") + '<div class="m4-pager">' + k("bom-prev", "上一頁零件", "prev") + "<span>" + (this.bomPage + 1) + "/5</span>" + k("bom-next", "下一頁零件", "next") + "</div>";
   }
   renderTune(t) {
     const e = [
@@ -874,7 +884,7 @@ class ie {
       this.xray = !this.xray, this.render();
     else if (t === "zoom-in" || t === "zoom-out") this.view?.zoom(t === "zoom-in" ? -0.7 : 0.7);
     else if (t === "power") {
-      if (this.installed.size !== S.length) {
+      if (this.installed.size !== P.length) {
         this.tell("先把車組好，再觀察通電。");
         return;
       }
@@ -889,10 +899,10 @@ class ie {
       this.partPage = (this.partPage + (t === "part-next" ? 1 : 4)) % 5, this.render();
     else if (t === "install") this.install();
     else if (t === "remove")
-      Ot(this.selected, this.installed) ? (this.tell("拆下了。可以再装回去。"), this.render()) : this.tell(this.selected === "chassis" ? "底盤留在工作台上。" : "先拆下裝在它上面的零件。");
+      Vt(this.selected, this.installed) ? (this.tell("拆下了。可以再装回去。"), this.render()) : this.tell(this.selected === "chassis" ? "底盤留在工作台上。" : "先拆下裝在它上面的零件。");
     else if (t === "next-part") {
-      const e = S.find((i) => !this.installed.has(i.id) && xt(i.id, this.installed));
-      e ? (this.partPage = Math.floor(S.indexOf(e) / 4), this.select(e.id), this.render()) : this.tell("組裝完成！去改裝，或到賽道試跑。");
+      const e = P.find((i) => !this.installed.has(i.id) && xt(i.id, this.installed));
+      e ? (this.partPage = Math.floor(P.indexOf(e) / 4), this.select(e.id), this.render()) : this.tell("組裝完成！去改裝，或到賽道試跑。");
     } else if (t === "camera")
       this.first = !this.first, this.view?.setCamera(this.first), this.render();
     else if (t === "sound")
@@ -914,13 +924,13 @@ class ie {
     this.tell(e, t === "learn" ? j[this.lesson].voice : e), t === "quiz" && (this.voice.last = this.root.querySelector(".m4-overlay h3").textContent || "");
   }
   select(t) {
-    if (!S.some((i) => i.id === t)) return;
-    this.selected = t, this.bomPage = Math.floor(S.findIndex((i) => i.id === t) / 4), this.renderBom(), this.view?.setParts(this.installed, this.exploded, this.xray, t), this.describePart(), this.root.querySelectorAll("[data-part]").forEach((i) => i.setAttribute("aria-pressed", String(i.dataset.part === t))), this.root.querySelector(".m4-snap").hidden = this.page !== "build" || this.installed.has(t);
-    const e = S.find((i) => i.id === t);
+    if (!P.some((i) => i.id === t)) return;
+    this.selected = t, this.bomPage = Math.floor(P.findIndex((i) => i.id === t) / 4), this.renderBom(), this.view?.setParts(this.installed, this.exploded, this.xray, t), this.describePart(), this.root.querySelectorAll("[data-part]").forEach((i) => i.setAttribute("aria-pressed", String(i.dataset.part === t))), this.root.querySelector(".m4-snap").hidden = this.page !== "build" || this.installed.has(t);
+    const e = P.find((i) => i.id === t);
     this.tell(e.name, e.voice);
   }
   describePart() {
-    const t = S.find((i) => i.id === this.selected), e = this.root.querySelector(".m4-part-description");
+    const t = P.find((i) => i.id === this.selected), e = this.root.querySelector(".m4-part-description");
     e && (e.textContent = t.voice);
   }
   install() {
@@ -930,11 +940,11 @@ class ie {
         return;
       }
       if (!xt(this.selected, this.installed)) {
-        const t = S.find((e) => e.id === this.selected).needs.filter((e) => !this.installed.has(e)).map((e) => S.find((i) => i.id === e).name);
+        const t = P.find((e) => e.id === this.selected).needs.filter((e) => !this.installed.has(e)).map((e) => P.find((i) => i.id === e).name);
         this.tell(`先裝好：${t.join("、")}`);
         return;
       }
-      this.installed.add(this.selected), this.tell(this.installed.size === S.length ? "完成了！這台就是你要試跑的車。" : "喀！裝好了。找下一個零件吧。"), this.render();
+      this.installed.add(this.selected), this.tell(this.installed.size === P.length ? "完成了！這台就是你要試跑的車。" : "喀！裝好了。找下一個零件吧。"), this.render();
     }
   }
   choose(t) {
@@ -942,7 +952,7 @@ class ie {
     ({ gear: ["3.5", "4", "5"], tire: ["grip", "hard"], diameter: ["26", "30"], shell: ["arrow", "wing"], ballast: ["center", "rear"], color: ["#29c9ff", "#ff794f", "#b59aff"] })[e]?.includes(i) && (this.setup = { ...this.setup, [e]: e === "gear" || e === "diameter" ? Number(i) : i }, this.view?.configure(this.setup), this.render(), this.tell(e === "color" ? "換了車色，性能不變。" : e === "gear" ? "齒比改好了。比較加速與三圈時間。" : "設定改好了，去同一條賽道比較。"));
   }
   async run(t) {
-    if (!this.view || this.running || this.installed.size !== S.length) return;
+    if (!this.view || this.running || this.installed.size !== P.length) return;
     this.view.reset(), this.running = !0, this.recorded = !1;
     const e = ++this.sequence;
     this.render(), this.voice.stop();
@@ -970,7 +980,7 @@ class ie {
     this.recorded || (this.recorded = !0, this.records.push({ setup: { ...this.setup }, track: this.track, time: t.time, max: t.maxSpeed, contacts: t.contacts, landings: t.landings, finished: t.finished }));
   }
   answer(t) {
-    const e = ["battery-a", "shaft", "rollers"][this.quizIndex], i = t === e ? "答對了！" + S.find((a) => a.id === e).voice : "再想想。點語音，聽聽題目。";
+    const e = ["battery-a", "shaft", "rollers"][this.quizIndex], i = t === e ? "答對了！" + P.find((a) => a.id === e).voice : "再想想。點語音，聽聽題目。";
     this.root.querySelector(".m4-feedback").textContent = t === e ? "✓ 答對了" : "↻ 再試試", this.voice.say(i);
   }
   dragStart(t) {

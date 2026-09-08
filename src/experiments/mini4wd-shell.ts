@@ -75,6 +75,9 @@ export function makeSportsShell(){
   const canopy=patch(-.65,.43,-.55,.55,.012);canopy.scale(1,1,.62);add(canopy,glass,racer);
   for(const side of [-1,1]){
     const pod=patch(-.58,.80,side*.45,side*.99,.015);add(pod,paint,racer);
+    const wall:number[]=[],faces:number[]=[];
+    for(let i=0;i<=32;i++){const x=-.58+i*1.38/32,v=shellSurface(x,side*.99);wall.push(x,v.y+.015,v.z,x,.45,v.z);if(i<32){const a=i*2;faces.push(a,a+1,a+2,a+1,a+3,a+2);}}
+    const sidewall=new T.BufferGeometry();sidewall.setAttribute('position',new T.Float32BufferAttribute(wall,3));sidewall.setIndex(faces);sidewall.computeVertexNormals();add(sidewall,paint,racer);
     const intake=patch(-.31,.23,side*.80,side*.95,.021);add(intake,dark,racer);
     const ribbon=patch(.53,1.36,side*.24,side*.39,.012);ribbon.scale(1,1,.62);add(ribbon,stripe,racer);
     box(.24,.045,.47,1.25,.48,side*.40,paint,racer);
