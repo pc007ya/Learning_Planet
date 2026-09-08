@@ -69,7 +69,7 @@ export class Mini4wdView{
   private layout(){
     this.car.layout(this.race?completeParts():this.installed,this.race?0:Number(this.exploded),!this.race&&this.xray,this.race?'':this.selected);
     if(this.exploded){
-      new T.Box3().setFromObject(this.car.root).getBoundingSphere(this.explodedBounds);this.explodedCorners=[];
+      const visibleBounds=new T.Box3();for(const part of this.car.parts.values())if(part.visible)visibleBounds.union(new T.Box3().setFromObject(part));visibleBounds.getBoundingSphere(this.explodedBounds);this.explodedCorners=[];
       for(const part of this.car.parts.values())if(part.visible){const b=new T.Box3().setFromObject(part);for(const x of [b.min.x,b.max.x])for(const y of [b.min.y,b.max.y])for(const z of [b.min.z,b.max.z])this.explodedCorners.push(new T.Vector3(x,y,z).sub(this.explodedBounds.center));}
     }
   }

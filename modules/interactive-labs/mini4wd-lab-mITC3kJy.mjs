@@ -1,4 +1,4 @@
-import { G as I, M as st, D as V, a as E, B as tt, F as et, b as C, V as T, c as j, d as F, T as pt, R as gt, C as _, e as vt, f as wt, W as bt, P as xt, A as Mt, g as yt, H as zt, h as St, i as Y, j as $t, k as it, S as Pt, l as at, m as kt, n as W, o as rt, I as ot, O as qt, p as Tt, q as At } from "./RoundedBoxGeometry-DFERVGq8.mjs";
+import { G as I, M as st, D as O, a as E, B as tt, F as et, b as C, V as T, c as j, d as F, T as pt, R as gt, C as _, e as vt, f as wt, W as bt, P as xt, A as Mt, g as yt, H as zt, h as St, i as Y, j as $t, k as it, S as Pt, l as at, m as kt, n as V, o as rt, I as ot, O as qt, p as Tt, q as At } from "./RoundedBoxGeometry-DFERVGq8.mjs";
 import { R as Ct } from "./RoomEnvironment-DwYDT8-q.mjs";
 import { S as Et } from "./narration-DCI2AWPz.mjs";
 const Z = ["fl", "fr", "rl", "rr"], N = ["左前", "右前", "左後", "右後"], M = [
@@ -42,7 +42,7 @@ function L(e, t, s, i, a = 0, r = 48, n = 24) {
   return h.setAttribute("position", new et(c, 3)), h.setIndex(d), h.computeVertexNormals(), h;
 }
 function Bt() {
-  const e = new I(), t = new I(), s = new st({ color: 2738687, metalness: 0.42, roughness: 0.24, clearcoat: 1, side: V }), i = new st({ color: 530213, metalness: 0.35, roughness: 0.12, clearcoat: 1, side: V }), a = new E({ color: 1055532, roughness: 0.55, metalness: 0.25, side: V }), r = new E({ color: 15267327, roughness: 0.3, metalness: 0.25, side: V }), n = new E({ color: 12581631, emissive: 6676479, emissiveIntensity: 0.6 }), c = new E({ color: 16725074, emissive: 16717624, emissiveIntensity: 0.5 }), d = (o, m, g = e) => {
+  const e = new I(), t = new I(), s = new st({ color: 2738687, metalness: 0.42, roughness: 0.24, clearcoat: 1, side: O }), i = new st({ color: 530213, metalness: 0.35, roughness: 0.12, clearcoat: 1, side: O }), a = new E({ color: 1055532, roughness: 0.55, metalness: 0.25, side: O }), r = new E({ color: 15267327, roughness: 0.3, metalness: 0.25, side: O }), n = new E({ color: 12581631, emissive: 6676479, emissiveIntensity: 0.6 }), c = new E({ color: 16725074, emissive: 16717624, emissiveIntensity: 0.5 }), d = (o, m, g = e) => {
     const x = new C(o, m);
     return x.castShadow = !0, x.receiveShadow = !0, g.add(x), x;
   }, h = (o, m, g, x, b, P, p, l = e) => {
@@ -182,8 +182,8 @@ class ht {
     }), t.forEach((i) => i.dispose()), s.forEach((i) => i.dispose());
   }
 }
-const O = { gear: 4, tire: "grip", diameter: 26, shell: "arrow", ballast: "center", color: "#29c9ff" }, z = { straight: 18, radius: 12, width: 5, length: 72 + 24 * Math.PI }, J = 1 / 240, X = (e, t, s) => Math.max(t, Math.min(s, e));
-function U(e) {
+const U = { gear: 4, tire: "grip", diameter: 26, shell: "arrow", ballast: "center", color: "#29c9ff" }, z = { straight: 18, radius: 12, width: 5, length: 72 + 24 * Math.PI }, J = 1 / 240, X = (e, t, s) => Math.max(t, Math.min(s, e));
+function W(e) {
   const { straight: t, radius: s, length: i } = z;
   if (e = (e % i + i) % i, e < 2 * t) return { x: e - t, z: -s, tx: 1, tz: 0 };
   if (e -= 2 * t, e < Math.PI * s) {
@@ -219,7 +219,7 @@ function Q(e) {
   };
 }
 function H(e = 0) {
-  const t = 3 - e * 3, s = U(t);
+  const t = 3 - e * 3, s = W(t);
   return { id: e, x: s.x, z: s.z, y: 0, vx: 0, vz: 0, vy: 0, yaw: 0, omega: 0, pitch: 0, roll: 0, distance: 0, lastS: (t % z.length + z.length) % z.length, time: 0, lap: 0, lapTimes: [], lapStart: 0, contacts: 0, landings: 0, impact: 0, offTrack: !1, finished: !1, airborne: !1, maxSpeed: 0 };
 }
 function dt(e, t, s = J, i = !0) {
@@ -327,14 +327,14 @@ class Rt {
   stage;
   car = new ht();
   state = H();
-  setup = { ...O };
+  setup = { ...U };
   onUpdate;
   onPick;
   renderer;
   scene = new Pt();
   camera = new at(42, 1, 0.025, 300);
   environment;
-  halo = new kt(new W(), 16768137);
+  halo = new kt(new V(), 16768137);
   balloon;
   arena = new I();
   plinth = new I();
@@ -378,7 +378,7 @@ class Rt {
     let c = 0;
     const d = [], h = [];
     for (let p = 0; p < 240; p++) {
-      const l = p / 240 * z.length, u = (p + 1) / 240 * z.length, f = U(l), v = U(u), k = D(f.x, f.z), q = D(v.x, v.z), y = Math.hypot(f.x - v.x, f.z - v.z);
+      const l = p / 240 * z.length, u = (p + 1) / 240 * z.length, f = W(l), v = W(u), k = D(f.x, f.z), q = D(v.x, v.z), y = Math.hypot(f.x - v.x, f.z - v.z);
       for (const $ of [-1, 1])
         n.position.set((f.x + v.x) / 2 - f.tz * $ * z.width / 2, 0.4 + Math.max(0, k.height), (f.z + v.z) / 2 + f.tx * $ * z.width / 2), n.rotation.set(0, -Math.atan2(f.tz, f.tx), 0), n.scale.set(y * 1.08, 1, 1), n.updateMatrix(), r.setMatrixAt(c, n.matrix), r.setColorAt(c++, new Tt(Math.floor(p / 12) % 2 ? 16768907 : 4315365));
       if (k.gap || q.gap) continue;
@@ -386,7 +386,7 @@ class Rt {
       for (const $ of [f, v]) for (const A of [-1, 1]) d.push($.x - $.tz * A * z.width / 2, Math.max(0, D($.x, $.z).height), $.z + $.tx * A * z.width / 2);
       h.push(S, S + 1, S + 2, S + 1, S + 3, S + 2);
     }
-    r.count = c, this.arena.add(r), s.side = V;
+    r.count = c, this.arena.add(r), s.side = O;
     const o = new tt();
     o.setAttribute("position", new et(d, 3)), o.setIndex(h), o.computeVertexNormals();
     const m = new C(o, s);
@@ -395,7 +395,7 @@ class Rt {
     g.position.y = -1.2, g.receiveShadow = !0, this.arena.add(g);
     const x = new ot(new j(0.18, 0.015, 0.45), new Y({ color: 16768115 }), 90);
     for (let p = 0; p < 90; p++) {
-      const l = U(p / 90 * z.length);
+      const l = W(p / 90 * z.length);
       n.position.set(l.x - l.tz * 1.9, 0.015 + Math.max(0, D(l.x, l.z).height), l.z + l.tx * 1.9), n.rotation.set(0, -Math.atan2(l.tz, l.tx), 0), n.scale.set(1, 1, 1), n.updateMatrix(), x.setMatrixAt(p, n.matrix);
     }
     this.arena.add(x);
@@ -417,7 +417,7 @@ class Rt {
       v.position.set(l, 2, u), this.arena.add(v);
     }
     for (let p = 0; p < 12; p++) {
-      const l = U(p / 12 * z.length), u = new C(new _(0.07, 0.1, 3, 8), i);
+      const l = W(p / 12 * z.length), u = new C(new _(0.07, 0.1, 3, 8), i);
       u.position.set(l.x - l.tz * 4, 1, l.z + l.tx * 4), this.arena.add(u);
     }
   }
@@ -436,10 +436,12 @@ class Rt {
   }
   layout() {
     if (this.car.layout(this.race ? K() : this.installed, this.race ? 0 : Number(this.exploded), !this.race && this.xray, this.race ? "" : this.selected), this.exploded) {
-      new W().setFromObject(this.car.root).getBoundingSphere(this.explodedBounds), this.explodedCorners = [];
-      for (const t of this.car.parts.values()) if (t.visible) {
-        const s = new W().setFromObject(t);
-        for (const i of [s.min.x, s.max.x]) for (const a of [s.min.y, s.max.y]) for (const r of [s.min.z, s.max.z]) this.explodedCorners.push(new T(i, a, r).sub(this.explodedBounds.center));
+      const t = new V();
+      for (const s of this.car.parts.values()) s.visible && t.union(new V().setFromObject(s));
+      t.getBoundingSphere(this.explodedBounds), this.explodedCorners = [];
+      for (const s of this.car.parts.values()) if (s.visible) {
+        const i = new V().setFromObject(s);
+        for (const a of [i.min.x, i.max.x]) for (const r of [i.min.y, i.max.y]) for (const n of [i.min.z, i.max.z]) this.explodedCorners.push(new T(a, r, n).sub(this.explodedBounds.center));
       }
     }
   }
@@ -459,7 +461,7 @@ class Rt {
     this.state = H(), this.rivalState = H(1), this.rival.root.visible = !1, this.distance = 0, this.wake();
   }
   run(t = !1) {
-    this.state = H(), this.rivalState = H(1), this.compare = t, this.rival.root.visible = t, this.rival.configure({ ...O, color: "#ff9266" }), this.running = !0, this.accumulator = 0, this.distance = 0, this.wake();
+    this.state = H(), this.rivalState = H(1), this.compare = t, this.rival.root.visible = t, this.rival.configure({ ...U, color: "#ff9266" }), this.running = !0, this.accumulator = 0, this.distance = 0, this.wake();
   }
   pause() {
     this.running = !1, this.power = !1, this.gain && this.gain.gain.setTargetAtTime(0, this.audio.currentTime, 0.05), this.windGain && this.windGain.gain.setTargetAtTime(0, this.audio.currentTime, 0.05), this.wake();
@@ -485,7 +487,7 @@ class Rt {
     this.plinth.visible = !1;
     for (const [a, r] of this.car.parts) {
       for (const [o, m] of this.car.parts) m.visible = o === a;
-      const n = new W().setFromObject(r), c = n.getCenter(new T()), d = n.getBoundingSphere(new rt()).radius, h = d / Math.sin(F.degToRad(17.5)) * 1.08;
+      const n = new V().setFromObject(r), c = n.getCenter(new T()), d = n.getBoundingSphere(new rt()).radius, h = d / Math.sin(F.degToRad(17.5)) * 1.08;
       i.position.copy(c).add(new T(0.85, 0.6, 1).normalize().multiplyScalar(h)), i.lookAt(c), this.renderer.render(this.scene, i), t[a] = this.renderer.domElement.toDataURL("image/png");
     }
     return this.renderer.setSize(s.x, s.y, !1), this.plinth.visible = !0, this.layout(), this.wake(), t;
@@ -503,7 +505,7 @@ class Rt {
     if (this.previous = t, this.race) {
       if (this.running) {
         for (this.accumulator += i; this.accumulator >= J; )
-          dt(this.state, this.setup), this.compare && (dt(this.rivalState, O), jt(this.state, this.rivalState, this.setup, O)), this.accumulator -= J;
+          dt(this.state, this.setup), this.compare && (dt(this.rivalState, U), jt(this.state, this.rivalState, this.setup, U)), this.accumulator -= J;
         this.distance += Math.hypot(this.state.vx, this.state.vz) * i, (this.state.finished || this.state.offTrack) && (this.running = !1);
       }
       for (const [o, m] of [[this.car, this.state], [this.rival, this.rivalState]])
@@ -580,7 +582,7 @@ class Ft {
   selected = "battery-a";
   installed = K();
   started = !1;
-  setup = { ...O };
+  setup = { ...U };
   thumbnails = {};
   exploded = !1;
   xray = !1;
