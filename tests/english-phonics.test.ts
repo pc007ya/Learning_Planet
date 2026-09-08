@@ -3,6 +3,16 @@ import {existsSync,readFileSync} from 'node:fs';
 import vm from 'node:vm';
 import {SOUND_CARDS,uniqueWords,AnswerGate,shuffled} from '../src/english/phonics-data';
 describe('English sound cards',()=>{
+  it('keeps navigation and confirmation in the header without a read-report footer',()=>{
+    const source=readFileSync('src/english/phonics.ts','utf8');
+    expect(source).toContain('<div class="ph-header-controls">${controls}</div>');
+    expect(source).not.toContain('<footer>');
+    expect(source).not.toContain('data-action="read"');
+    expect(source).toContain('確認答案');
+    const css=readFileSync('styles/english-phonics.css','utf8');
+    expect(css).toContain('grid-template-rows:56px 48px minmax(0,1fr);');
+    expect(css).toContain('grid-template-rows:48px 44px minmax(0,1fr)');
+  });
   it('provides 15 vowel and 24 consonant cards with real image files',()=>{
     expect(SOUND_CARDS.filter(c=>c.group==='vowels')).toHaveLength(15);
     expect(SOUND_CARDS.filter(c=>c.group==='consonants')).toHaveLength(24);
