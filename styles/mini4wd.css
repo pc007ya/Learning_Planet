@@ -26,3 +26,4 @@
 @media(prefers-reduced-motion:reduce){.m4-lab button{transition:none}}
 .m4-object-card>.m4-track-profile{position:absolute;right:8px;bottom:23px;width:52px;height:21px;filter:drop-shadow(0 1px 2px #000)}
 .m4-bom:not([open]) .m4-bom-body{display:none}
+.m4-race-options:has([data-m4=ghost]){grid-template-columns:repeat(3,44px)}

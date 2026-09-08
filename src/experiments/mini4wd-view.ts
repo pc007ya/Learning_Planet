@@ -4,9 +4,15 @@ import {MiniCarModel} from './mini4wd-model';
 import {completeParts,PARTS} from './mini4wd-parts';
 import {STEP,createCar,stepCar,collideCars,type TrackKind,type CarState,type Setup,DEFAULT_SETUP} from './mini4wd-physics';
 import {makeToyTrack,disposeTrack} from './mini4wd-track';
+import {GhostRecorder,ghostAt,type GhostLap} from './mini4wd-ghost';
 
 export class Mini4wdView{
   private track:TrackKind='flat';
+  private ghosts=new Map<TrackKind,GhostLap>();private recording=new GhostRecorder();private ghost?:MiniCarModel;private activeGhost?:GhostLap;private savedGhost=false;
+  hasGhost(){return this.ghosts.has(this.track);}
+  ghostTime(){return this.activeGhost?.time;}
+  isCollisionRun(){return this.compare;}
+  hideGhost(){this.activeGhost=undefined;if(this.ghost)this.ghost.root.visible=false;this.wake();}
   readonly car=new MiniCarModel();state=createCar();setup={...DEFAULT_SETUP};onUpdate?:(state:CarState)=>void;onPick?:(id:string)=>void;
   private renderer:T.WebGLRenderer;private scene=new T.Scene();private camera=new T.PerspectiveCamera(42,1,.025,300);private environment:T.WebGLRenderTarget;
   private halo=new T.Box3Helper(new T.Box3(),0xffdc89);private balloon:HTMLSpanElement;
@@ -39,7 +45,7 @@ export class Mini4wdView{
   }
   private buildTrack(){this.arena.add(makeToyTrack(this.track));}
   private resize(){const w=Math.max(1,this.stage.clientWidth),h=Math.max(1,this.stage.clientHeight);const scale=Math.min(1,1280/w,800/h);this.renderer.setSize(Math.round(w*scale),Math.round(h*scale),false);this.camera.aspect=w/h;this.camera.updateProjectionMatrix();}
-  setMode(race:boolean){this.pause();this.race=race;this.arena.visible=race;this.plinth.visible=!race;this.rival.root.visible=race&&this.compare;this.power=false;this.car.root.position.set(0,0,0);this.car.root.rotation.set(0,0,0);this.camera.fov=race?65:42;this.camera.updateProjectionMatrix();this.previous=0;this.layout();this.wake();}
+  setMode(race:boolean){this.pause();this.race=race;this.arena.visible=race;this.plinth.visible=!race;this.rival.root.visible=race&&this.compare;if(this.ghost)this.ghost.root.visible=race&&!!this.activeGhost;this.power=false;this.car.root.position.set(0,0,0);this.car.root.rotation.set(0,0,0);this.camera.fov=race?65:42;this.camera.updateProjectionMatrix();this.previous=0;this.layout();this.wake();}
   configure(s:Setup){this.setup={...s};this.car.configure(s);this.wake();}
   setParts(installed:Set<string>,explode:boolean,xray:boolean,selected=''){this.installed=new Set(installed);if(explode&&!this.exploded)this.orbit.zoom=5.2;this.exploded=explode;this.xray=xray;this.selected=selected;this.layout();this.wake();}
   private layout(){
@@ -54,8 +60,18 @@ export class Mini4wdView{
   setReduced(v:boolean){this.reduced=v;this.wake();}
   setPower(v:boolean){this.power=v;this.wake();}
   zoom(delta:number){this.orbit.zoom=Math.max(4,Math.min(11,this.orbit.zoom+delta));this.wake();}
-  reset(){this.state=createCar();this.rivalState=createCar(1);this.rival.root.visible=false;this.distance=0;this.wake();}
-  run(compare=false){this.state=createCar();this.rivalState=createCar(1);this.compare=compare;this.rival.root.visible=compare;this.rival.configure({...DEFAULT_SETUP,color:'#ff9266'});this.running=true;this.accumulator=0;this.distance=0;this.wake();}
+  reset(){this.state=createCar();this.rivalState=createCar(1);this.rival.root.visible=false;if(this.ghost)this.ghost.root.visible=false;this.activeGhost=undefined;this.distance=0;this.wake();}
+  run(compare=false,withGhost=false){
+    this.state=createCar();this.rivalState=createCar(1);this.compare=compare;this.rival.root.visible=compare;this.rival.configure({...DEFAULT_SETUP,color:'#ff9266'});
+    this.activeGhost=!compare&&withGhost?this.ghosts.get(this.track):undefined;
+    if(this.activeGhost){
+      if(!this.ghost){this.ghost=new MiniCarModel();this.scene.add(this.ghost.root);}
+      this.ghost.configure(this.activeGhost.setup);this.ghost.layout(completeParts(),0,false,'');
+      this.ghost.root.traverse(o=>{if(o instanceof T.Mesh){o.castShadow=false;o.receiveShadow=false;for(const m of (Array.isArray(o.material)?o.material:[o.material])){m.transparent=true;m.opacity=.30;m.depthWrite=false;if(m instanceof T.MeshStandardMaterial){m.color.set(0xb4acff);m.emissive.set(0x6454c7);m.emissiveIntensity=.45;}}}});
+    }
+    if(this.ghost)this.ghost.root.visible=!!this.activeGhost;
+    this.recording.start(this.state);this.savedGhost=false;this.running=true;this.accumulator=0;this.distance=0;this.wake();
+  }
   pause(){this.running=false;this.power=false;if(this.gain)this.gain.gain.setTargetAtTime(0,this.audio!.currentTime,.05);if(this.windGain)this.windGain.gain.setTargetAtTime(0,this.audio!.currentTime,.05);this.wake();}
   setSound(v:boolean){this.sound=v;if(v&&!this.audio){try{this.audio=new AudioContext();this.oscillator=this.audio.createOscillator();this.gain=this.audio.createGain();this.oscillator.type='sawtooth';this.gain.gain.value=0;this.oscillator.connect(this.gain);this.gain.connect(this.audio.destination);this.oscillator.start();
     const buffer=this.audio.createBuffer(1,this.audio.sampleRate,this.audio.sampleRate),data=buffer.getChannelData(0);for(let i=0;i<data.length;i++)data[i]=Math.random()*2-1;
@@ -92,12 +108,15 @@ export class Mini4wdView{
   private render(now:number){
     this.frame=0;if(this.dead)return;if(this.previous&&now-this.previous<1000/30){this.wake();return;}const fresh=!this.previous,dt=fresh?0:Math.min(.05,(now-this.previous)/1000);this.previous=now;
     if(this.race){
-      if(this.running){this.accumulator+=dt;while(this.accumulator>=STEP){stepCar(this.state,this.setup,STEP,true,this.track);if(this.compare){stepCar(this.rivalState,DEFAULT_SETUP,STEP,true,this.track);collideCars(this.state,this.rivalState,this.setup,DEFAULT_SETUP);}this.accumulator-=STEP;}
+      if(this.running){this.accumulator+=dt;while(this.accumulator>=STEP){stepCar(this.state,this.setup,STEP,true,this.track);if(this.compare){stepCar(this.rivalState,DEFAULT_SETUP,STEP,true,this.track);collideCars(this.state,this.rivalState,this.setup,DEFAULT_SETUP);}else this.recording.sample(this.state);this.accumulator-=STEP;}
         this.distance+=Math.hypot(this.state.vx,this.state.vz)*dt;if(this.state.finished||this.state.offTrack)this.running=false;
       }
+      if(this.state.finished&&!this.compare&&!this.savedGhost){const lap=this.recording.finish(this.state,this.setup,this.track);if(lap)this.ghosts.set(this.track,lap);this.savedGhost=true;}
+      if(this.activeGhost&&this.ghost){const p=ghostAt(this.activeGhost,this.state.time);this.ghost.root.position.set(p.x,p.y+(this.activeGhost.setup.diameter-26)/100,p.z);this.ghost.root.rotation.set(0,-p.yaw,0);this.ghost.root.rotateZ(p.pitch);this.ghost.root.rotateX(p.roll);this.ghost.animate(p.distance,true,this.activeGhost.setup.gear,this.activeGhost.setup.diameter/100);}
       for(const [model,c] of [[this.car,this.state],[this.rival,this.rivalState]] as const){model.root.position.set(c.x,c.y+(model===this.car?(this.setup.diameter-26)/100:0),c.z);model.root.rotation.set(0,-c.yaw,0);model.root.rotateZ(c.pitch);model.root.rotateX(c.roll);model.animate(this.distance,true,model===this.car?this.setup.gear:4,model===this.car?this.setup.diameter/100:.26);}
       const c=this.state,f=new T.Vector3(Math.cos(c.yaw),0,Math.sin(c.yaw)),pos=new T.Vector3(c.x,c.y,c.z),v=Math.hypot(c.vx,c.vz);
       this.goal.copy(pos).addScaledVector(f,this.first?1.4:-6.5).add(new T.Vector3(0,this.first?1.2:3.8,0));this.target.copy(pos).addScaledVector(f,this.first?9:5).add(new T.Vector3(0,.7,0));
+      if(!this.first&&this.activeGhost&&this.ghost){const separation=pos.distanceTo(this.ghost.root.position);if(separation<24){this.goal.addScaledVector(f,-Math.min(8,separation*.4));this.goal.y+=Math.min(5,separation*.2);this.target.lerp(this.ghost.root.position,.3);}}
       const smoothing=fresh?1:1-Math.exp(-dt*(this.first?18:7));this.camera.position.lerp(this.goal,smoothing);this.look.lerp(this.target,smoothing);if(!this.reduced)this.camera.position.y+=Math.sin(now*.025)*Math.min(.035,v*.001)+c.impact*.08;
       this.camera.lookAt(this.look);this.camera.fov+=(65+Math.min(9,v*.18)-this.camera.fov)*(fresh?1:.08);
       if(!this.running&&c.time===0){this.camera.position.set(18,48,56);this.camera.lookAt(0,0,0);this.camera.fov=46;}
@@ -118,5 +137,5 @@ export class Mini4wdView{
     this.renderer.render(this.scene,this.camera);if(now-this.lastUI>100||this.state.finished||this.state.offTrack){this.onUpdate?.(this.state);this.lastUI=now;}
     if(this.running||this.power)this.wake();else this.previous=0;
   }
-  destroy(){this.dead=true;cancelAnimationFrame(this.frame);this.abort.abort();this.observer.disconnect();this.car.dispose();this.rival.dispose();this.arena.traverse(o=>{if(o instanceof T.Mesh){o.geometry.dispose();(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>m.dispose());}});this.plinth.traverse(o=>{if(o instanceof T.Mesh){o.geometry.dispose();(o.material as T.Material).dispose();}});this.halo.geometry.dispose();(this.halo.material as T.Material).dispose();this.balloon.remove();this.environment.dispose();this.renderer.dispose();this.oscillator?.stop();this.wind?.stop();void this.audio?.close();this.renderer.domElement.remove();}
+  destroy(){this.dead=true;cancelAnimationFrame(this.frame);this.abort.abort();this.observer.disconnect();this.car.dispose();this.rival.dispose();this.ghost?.dispose();this.ghosts.clear();this.arena.traverse(o=>{if(o instanceof T.Mesh){o.geometry.dispose();(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>m.dispose());}});this.plinth.traverse(o=>{if(o instanceof T.Mesh){o.geometry.dispose();(o.material as T.Material).dispose();}});this.halo.geometry.dispose();(this.halo.material as T.Material).dispose();this.balloon.remove();this.environment.dispose();this.renderer.dispose();this.oscillator?.stop();this.wind?.stop();void this.audio?.close();this.renderer.domElement.remove();}
 }

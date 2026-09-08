@@ -19,9 +19,15 @@ describe('original sports shell',()=>{
     const car=new MiniCarModel();expect(car.parts.size).toBe(18);
     for(const color of ['#29c9ff','#ff9266','#a78bfa'])for(const diameter of [26,30] as const){
       car.configure({...DEFAULT_SETUP,color,diameter});
-      for(const xray of [true,false]){car.layout(completeParts(),0,xray,'shell');car.parts.get('shell')!.traverse(o=>{if(o instanceof T.Mesh){expect(o.material.transparent).toBe(xray);expect(o.material.opacity).toBe(xray?.12:1);}});}
+      for(const xray of [true,false]){car.layout(completeParts(),0,xray,'shell');car.parts.get('shell')!.traverse(o=>{if(o instanceof T.Mesh){const alpha=xray?.12:(o.material.userData.normalOpacity??1);expect(o.material.transparent).toBe(alpha<1);expect(o.material.opacity).toBe(alpha);}});}
     }
     car.layout(completeParts(),1,false,'shell');expect(car.parts.get('shell')!.position.y).toBeGreaterThan(0);
     car.layout(completeParts(),0,false,'shell');expect(car.parts.get('shell')!.position.y).toBe(0);car.dispose();
+  });
+  it('uses different shell bodies and an open compartment chassis',()=>{
+    const car=new MiniCarModel();const chassis=car.parts.get('chassis')!;
+    for(const name of ['battery-bay-wall','motor-saddle','bearing-seat','gearbox-wall','roller-brace','shell-latch'])expect(chassis.getObjectByName(name)).toBeDefined();
+    for(const shell of ['arrow','wing'] as const){car.configure({...DEFAULT_SETUP,shell});expect(car.root.getObjectByName('streamline-shell')!.visible).toBe(shell==='arrow');expect(car.root.getObjectByName('open-wheel-shell')!.visible).toBe(shell==='wing');}
+    car.dispose();
   });
 });
