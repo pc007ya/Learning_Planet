@@ -15,7 +15,8 @@
 <script type="module" src="./src/firebase-config.js"></script>
 <script type="module" src="./auth-v2/firebase-client.js"></script>
 <script type="module" src="./modules/earth-orbit/earth-orbit-v01.js"></script>
-<script type="module" src="./modules/interactive-labs/interactive-labs.js?v=20260908-shell-fit4"></script>
+<script type="module" src="./modules/interactive-labs/interactive-labs.js?v=20260908-phonics1"></script>
+<link rel="stylesheet" href="./styles/english-phonics.css?v=20260908-phonics1">
 <link rel="stylesheet" href="./styles/interactive-labs.css?v=20260907-clock-axes-v1">
 <link rel="stylesheet" href="./styles/mini4wd.css?v=20260908-shell-ghost3">
 </head>
@@ -1884,9 +1885,12 @@
       </div>
     </sc-if>
 
+    <sc-if value="{{ isEnglishPhonics }}" hint-placeholder-val="{{ false }}">
+      <section class="phonics-host"><button class="phonics-back" hidden onClick="{{ englishBack }}">返回</button><div data-interactive-lab="phonics" data-phonics-group="{{ phonicsGroup }}"></div></section>
+    </sc-if>
     <sc-if value="{{ isEnglishMatch }}" hint-placeholder-val="{{ false }}">
-      <p style="max-width:940px;margin:0 auto 8px;text-align:right;font-size:12px;font-weight:900;color:#7c74a8">全站 120 題專圖庫・本年級 60 題</p>
-      <div style="max-width:940px;margin:0 auto"><div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap"><button onClick="{{ englishBack }}" style="width:42px;height:42px;border-radius:50%;border:1px solid #ece7ff;background:#fff;font-size:18px;cursor:pointer">←</button><div><p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.18em;color:#22c8d8">PICTURE WORD MATCH</p><h2 style="margin:3px 0 0;font-size:25px;font-weight:900"><img class="language-title-icon" src="images/home/planets/english-planet-v1.png" alt=""> 圖片 × 英文單字配對</h2></div><button class="english-icon-button" aria-label="聽題目" title="聽題目" onClick="{{ englishMatchSpeakQuestion }}" style="margin-left:auto;border:1px solid #bfeaf0;background:#eafbfd;border-radius:14px;padding:9px 13px;color:#0e7d8c;font-weight:900;cursor:pointer"><img class="language-sound-icon" src="images/ui/sound-rounded.svg" alt=""></button><span style="padding:9px 13px;border-radius:99px;background:#fff6e0;color:#a06400;font-weight:900">{{ englishMatchStatus }}</span></div><div style="display:flex;gap:9px;margin-bottom:13px"><button onClick="{{ showEnglishPictureQuiz }}" style="flex:1;border:2px solid {{ englishQuizTabBorder }};border-radius:16px;padding:11px;background:{{ englishQuizTabBg }};color:{{ englishQuizTabFg }};font-family:inherit;font-weight:900;cursor:pointer">看圖四選一</button><button onClick="{{ showEnglishFivePair }}" style="flex:1;border:2px solid {{ englishPairTabBorder }};border-radius:16px;padding:11px;background:{{ englishPairTabBg }};color:{{ englishPairTabFg }};font-family:inherit;font-weight:900;cursor:pointer">正面卡 6 對 6</button></div><section style="background:#fff;border:1px solid #ece7ff;border-radius:30px;padding:20px;box-shadow:0 18px 38px rgba(43,31,87,.08)"><p style="margin:0 0 14px;padding:11px;border-radius:15px;background:{{ englishFeedbackBg }};color:{{ englishFeedbackFg }};font-weight:900;text-align:center">{{ englishFeedback }}</p><sc-if value="{{ englishMatchIsQuiz }}" hint-placeholder-val="{{ true }}"><sc-if value="{{ englishQuizPlaying }}" hint-placeholder-val="{{ true }}"><div class="english-picture-question"><img src="{{ englishQuizImage }}" alt="請選正確英文單字"><div><h3 style="margin:0 0 13px;font-size:22px;font-weight:900">這張圖片是哪一個英文單字？</h3><div class="english-four-options"><sc-for list="{{ englishQuizOptions }}" as="option" hint-placeholder-count="4"><button class="english-four-option" onClick="{{ option.pick }}" disabled="{{ englishQuizAnswered }}" style="border-color:{{ option.border }};background:{{ option.bg }};color:{{ option.fg }}"><span>{{ option.word }}</span><span onClick="{{ option.speak }}" title="播放 {{ option.word }}" aria-label="播放單字 {{ option.word }}" style="display:inline-grid;place-items:center;margin-left:8px;width:31px;height:31px;border-radius:50%;background:#eafbfd;color:#0e7d8c;font-size:15px"><img class="language-sound-icon" src="images/ui/sound-rounded.svg" alt="播放"></span></button></sc-for></div><sc-if value="{{ englishQuizAnswered }}" hint-placeholder-val="{{ false }}"><button onClick="{{ englishQuizNext }}" style="margin-top:14px;width:100%;border:0;border-radius:16px;padding:13px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-weight:900;cursor:pointer">下一題 →</button></sc-if></div></div></sc-if><sc-if value="{{ englishQuizComplete }}" hint-placeholder-val="{{ false }}"><div style="padding:30px;text-align:center"><img src="images/math-master/v1/objects/star-v1.png" alt="完成" style="width:78px;height:78px;object-fit:contain"><h3 style="margin:8px 0;font-size:27px;font-weight:900">完成看圖四選一</h3><p style="font-size:19px;font-weight:900;color:#5b3fe0">答對 {{ englishQuizCorrect }} / 10 題</p><button onClick="{{ showEnglishPictureQuiz }}" style="border:0;border-radius:16px;padding:13px 24px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-weight:900;cursor:pointer">重新抽 10 題</button></div></sc-if></sc-if><sc-if value="{{ englishMatchIsPair }}" hint-placeholder-val="{{ false }}"><div class="english-pair-board"><sc-for list="{{ englishPairTargets }}" as="target" hint-placeholder-count="6"><div class="english-pair-target" onDragOver="{{ englishAllowDrop }}" onDrop="{{ target.drop }}" onClick="{{ target.choose }}"><img src="{{ target.image }}" alt="配對圖片"><div class="english-pair-drop {{ target.matchClass }}"><sc-if value="{{ target.matched }}" hint-placeholder-val="{{ false }}"><span>{{ target.word }}</span><span onClick="{{ target.speak }}" title="播放 {{ target.word }}" style="margin-left:6px"><img class="language-sound-icon" src="images/ui/sound-rounded.svg" alt="播放"></span></sc-if><sc-if value="{{ target.open }}" hint-placeholder-val="{{ true }}">拖入或點選</sc-if></div></div></sc-for></div><div class="english-word-tray"><sc-for list="{{ englishPairWordCards }}" as="word" hint-placeholder-count="6"><button class="english-word-chip" draggable="true" onDragStart="{{ word.drag }}" onClick="{{ word.choose }}" style="outline:{{ word.outline }}"><span>{{ word.word }}</span><span onClick="{{ word.speak }}" title="播放 {{ word.word }}" aria-label="播放單字 {{ word.word }}" style="margin-left:7px"><img class="language-sound-icon" src="images/ui/sound-rounded.svg" alt="播放"></span></button></sc-for></div><button onClick="{{ showEnglishFivePair }}" style="margin-top:15px;width:100%;border:0;border-radius:17px;padding:13px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-weight:900;cursor:pointer">{{ englishPairAdvanceLabel }}</button></sc-if></section></div>
+      <p class="english-bank-count">本年級 {{ englishPictureBankCount }} 張不重複圖卡</p>
+      <div class="english-match-workspace" style="max-width:1100px;margin:0 auto"><div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap"><button onClick="{{ englishBack }}" style="width:42px;height:42px;border-radius:50%;border:1px solid #ece7ff;background:#fff;font-size:18px;cursor:pointer">←</button><div><p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.18em;color:#22c8d8">PICTURE WORD MATCH</p><h2 style="margin:3px 0 0;font-size:25px;font-weight:900"><img class="language-title-icon" src="images/home/planets/english-planet-v1.png" alt=""> 圖片 × 英文單字配對</h2></div><button class="english-icon-button" aria-label="聽題目" title="聽題目" onClick="{{ englishMatchSpeakQuestion }}" style="margin-left:auto;border:1px solid #bfeaf0;background:#eafbfd;border-radius:14px;padding:9px 13px;color:#0e7d8c;font-weight:900;cursor:pointer"><img class="language-sound-icon" src="images/ui/sound-rounded.svg" alt=""></button><span style="padding:9px 13px;border-radius:99px;background:#fff6e0;color:#a06400;font-weight:900">{{ englishMatchStatus }}</span></div><div style="display:flex;gap:9px;margin-bottom:13px"><button aria-pressed="{{ englishMatchIsQuiz }}" onClick="{{ showEnglishPictureQuiz }}" style="flex:1;border:2px solid {{ englishQuizTabBorder }};border-radius:16px;padding:11px;background:{{ englishQuizTabBg }};color:{{ englishQuizTabFg }};font-family:inherit;font-weight:900;cursor:pointer">看圖四選一</button><button aria-pressed="{{ englishMatchIsPair }}" onClick="{{ showEnglishFivePair }}" style="flex:1;border:2px solid {{ englishPairTabBorder }};border-radius:16px;padding:11px;background:{{ englishPairTabBg }};color:{{ englishPairTabFg }};font-family:inherit;font-weight:900;cursor:pointer">正面卡 6 對 6</button></div><section style="background:#fff;border:1px solid #ece7ff;border-radius:30px;padding:20px;box-shadow:0 18px 38px rgba(43,31,87,.08)"><p style="margin:0 0 14px;padding:11px;border-radius:15px;background:{{ englishFeedbackBg }};color:{{ englishFeedbackFg }};font-weight:900;text-align:center">{{ englishFeedback }}</p><sc-if value="{{ englishMatchIsQuiz }}" hint-placeholder-val="{{ true }}"><sc-if value="{{ englishQuizPlaying }}" hint-placeholder-val="{{ true }}"><div class="english-picture-question"><img src="{{ englishQuizImage }}" alt="請選正確英文單字"><div><h3 style="margin:0 0 13px;font-size:22px;font-weight:900">這張圖片是哪一個英文單字？</h3><div class="english-four-options"><sc-for list="{{ englishQuizOptions }}" as="option" hint-placeholder-count="4"><div class="english-answer-wrap"><button class="english-four-option {{ option.stateClass }}" onClick="{{ option.pick }}" disabled="{{ englishQuizAnswered }}" style="border-color:{{ option.border }};background:{{ option.bg }};color:{{ option.fg }}"><span>{{ option.word }}</span></button><button class="english-option-sound" onClick="{{ option.speak }}" aria-label="播放單字 {{ option.word }}"><img class="language-sound-icon" src="images/ui/sound-rounded.svg" alt=""></button></div></sc-for></div><sc-if value="{{ englishQuizNeedsCheck }}"><button class="english-quiz-check" onClick="{{ englishQuizCheck }}" disabled="{{ englishQuizCheckDisabled }}">檢查 ✓</button></sc-if><sc-if value="{{ englishQuizAnswered }}" hint-placeholder-val="{{ false }}"><button onClick="{{ englishQuizNext }}" style="margin-top:14px;width:100%;border:0;border-radius:16px;padding:13px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-weight:900;cursor:pointer">下一題 →</button></sc-if></div></div></sc-if><sc-if value="{{ englishQuizComplete }}" hint-placeholder-val="{{ false }}"><div style="padding:30px;text-align:center"><img src="images/math-master/v1/objects/star-v1.png" alt="完成" style="width:78px;height:78px;object-fit:contain"><h3 style="margin:8px 0;font-size:27px;font-weight:900">完成看圖四選一</h3><p style="font-size:19px;font-weight:900;color:#5b3fe0">答對 {{ englishQuizCorrect }} / 10 題</p><button onClick="{{ showEnglishPictureQuiz }}" style="border:0;border-radius:16px;padding:13px 24px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-weight:900;cursor:pointer">重新抽 10 題</button></div></sc-if></sc-if><sc-if value="{{ englishMatchIsPair }}" hint-placeholder-val="{{ false }}"><div class="english-pair-board"><sc-for list="{{ englishPairTargets }}" as="target" hint-placeholder-count="6"><div class="english-pair-target" onDragOver="{{ englishAllowDrop }}" onDrop="{{ target.drop }}" onClick="{{ target.choose }}"><img src="{{ target.image }}" alt="配對圖片"><div class="english-pair-drop {{ target.matchClass }}"><sc-if value="{{ target.matched }}" hint-placeholder-val="{{ false }}"><span>{{ target.word }}</span><span onClick="{{ target.speak }}" title="播放 {{ target.word }}" style="margin-left:6px"><img class="language-sound-icon" src="images/ui/sound-rounded.svg" alt="播放"></span></sc-if><sc-if value="{{ target.open }}" hint-placeholder-val="{{ true }}">拖入或點選</sc-if></div></div></sc-for></div><div class="english-word-tray"><sc-for list="{{ englishPairWordCards }}" as="word" hint-placeholder-count="6"><button class="english-word-chip" draggable="true" onDragStart="{{ word.drag }}" onClick="{{ word.choose }}" style="outline:{{ word.outline }}"><span>{{ word.word }}</span><span onClick="{{ word.speak }}" title="播放 {{ word.word }}" aria-label="播放單字 {{ word.word }}" style="margin-left:7px"><img class="language-sound-icon" src="images/ui/sound-rounded.svg" alt="播放"></span></button></sc-for></div><button onClick="{{ showEnglishFivePair }}" style="margin-top:15px;width:100%;border:0;border-radius:17px;padding:13px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font-family:inherit;font-weight:900;cursor:pointer">{{ englishPairAdvanceLabel }}</button></sc-if></section></div>
     </sc-if>
 
     <sc-if value="{{ isEnglishChain }}" hint-placeholder-val="{{ false }}">
@@ -3872,13 +3876,16 @@ const CH_UNITS = [
   { id: "c6", grade: 2, difficulty: 2, icon: "✍️", art: "images/subject-unit-icons/v2/chinese-grade2-writing-v2.png", tint: "#eafbfd", title: "寫字練習辨識", sub: "二年級 · 描寫與辨識", kind: "writing" },
 ];
 const EN_UNITS = [
+  { id: "e-vowels", art: "images/ui/phonics-vowels.svg", grade: 1, difficulty: 1, icon: "🔊", title: "元音", sub: "一年級 · 15 張美式例字卡", kind: "english-phonics", phonicsGroup: "vowels" },
+  { id: "e-consonants", art: "images/ui/phonics-consonants.svg", grade: 1, difficulty: 1, icon: "🔊", title: "輔音", sub: "一年級 · 24 張美式例字卡", kind: "english-phonics", phonicsGroup: "consonants" },
+  { id: "e-reading", art: "images/ui/phonics-reading.svg", grade: 1, difficulty: 1, icon: "📖", title: "念讀卡", sub: "一年級 · 聽例字、念短句", kind: "english-phonics", phonicsGroup: "reading" },
   { id: "e1", grade: 1, difficulty: 1, icon: "📚", art: "images/subject-unit-icons/v1/english-library-v1.png", tint: "#eafbfd", title: "500 字單字學習庫", sub: "一年級 · 圖像字卡與英文導讀", kind: "english-library" },
   { id: "e2", grade: 1, difficulty: 1, icon: "🔤", art: "images/subject-unit-icons/v1/english-scramble-v1.png", tint: "#fff0cc", title: "打散字母排單字", sub: "一年級 · 拖曳字母到正確順序", kind: "english-scramble" },
-  { id: "e3", grade: 1, difficulty: 2, icon: "🖼️", art: "images/subject-unit-icons/v1/english-match-v1.png", tint: "#ffe0ef", title: "圖片單字配對", sub: "一年級 · 60 題專圖庫 · 六對六三輪／60 秒", kind: "english-match" },
+  { id: "e3", grade: 1, difficulty: 2, icon: "🖼️", art: "images/subject-unit-icons/v1/english-match-v1.png", tint: "#ffe0ef", title: "圖片單字配對", sub: "一年級 · 不重複圖卡 · 六對六三輪／60 秒", kind: "english-match" },
   { id: "e4", grade: 1, difficulty: 2, icon: "🧩", art: "images/subject-unit-icons/v1/english-chain-v1.png", tint: "#e6f7ee", title: "句子缺字挑戰", sub: "一年級 · 看圖完成句子", kind: "english-chain" },
   { id: "e5", grade: 2, difficulty: 1, icon: "📚", art: "images/subject-unit-icons/v2/english-grade2-library-v2.png", tint: "#eafbfd", title: "500 字單字學習庫", sub: "二年級 · 圖像字卡與英文導讀", kind: "english-library" },
   { id: "e6", grade: 2, difficulty: 2, icon: "🔤", art: "images/subject-unit-icons/v2/english-grade2-scramble-v2.png", tint: "#fff0cc", title: "打散字母排單字", sub: "二年級 · 拖曳拼字與導讀", kind: "english-scramble" },
-  { id: "e7", grade: 2, difficulty: 2, icon: "🖼️", art: "images/subject-unit-icons/v2/english-grade2-match-v2.png", tint: "#ffe0ef", title: "圖片單字配對", sub: "二年級 · 60 題專圖庫 · 六對六三輪／60 秒", kind: "english-match" },
+  { id: "e7", grade: 2, difficulty: 2, icon: "🖼️", art: "images/subject-unit-icons/v2/english-grade2-match-v2.png", tint: "#ffe0ef", title: "圖片單字配對", sub: "二年級 · 不重複圖卡 · 六對六三輪／60 秒", kind: "english-match" },
   { id: "e8", grade: 2, difficulty: 3, icon: "🧩", art: "images/subject-unit-icons/v2/english-grade2-chain-v2.png", tint: "#e6f7ee", title: "句子缺字挑戰", sub: "二年級 · 詞義完成句子", kind: "english-chain" },
   { id: "e9", grade: 1, difficulty: 2, icon: "🧱", art: "images/subject-unit-icons/v1/english-grammar-v1.png", tint: "#fff0cc", title: "句型積木拖曳", sub: "一年級 · 50 題題庫／每輪抽 10 題", kind: "english-grammar" },
   { id: "e10", grade: 2, difficulty: 2, icon: "🧱", art: "images/subject-unit-icons/v2/english-grade2-grammar-v2.png", tint: "#eafbfd", title: "句型結構拖曳", sub: "二年級 · 50 題題庫／每輪抽 10 題", kind: "english-grammar" },
@@ -6490,8 +6497,12 @@ class Component extends DCLogic {
     return words.filter((word) => word.category !== "人物" && iconCounts[word.emoji] === 1 && !ambiguousPeople.has(word.word));
   }
   englishGeneratedPicturePool(grade) {
+    const images = new Set(), meanings = new Set();
     return this.englishPool(grade).map((word) => Object.assign({}, word, { image: this.englishImageForWord(word) })).filter((word) => {
-      return !!englishSharedAssetKey(word) || word.image.indexOf("images/english-generated-v2/") === 0 || word.image.indexOf("images/english-generated-v4/") === 0;
+      const key = englishSharedAssetKey(word) || String(word.word).toLowerCase();
+      const dedicated = !!englishSharedAssetKey(word) || /^images\/english-generated-v[234]\//.test(word.image);
+      if (!dedicated || images.has(word.image) || meanings.has(key)) return false;
+      images.add(word.image); meanings.add(key); return true;
     });
   }
   englishShuffle(items) { return items.slice().sort(() => Math.random() - .5); }
@@ -6503,8 +6514,9 @@ class Component extends DCLogic {
   }
   startEnglishUnit(unit) {
     const grade = Number(unit.grade) || 1;
-    if (unit.kind !== "english-grammar" && !this.englishPool(grade).length) { this.flash("英文單字庫還在載入中，請稍等一下"); return; }
-    if (unit.kind === "english-library") this.setState({ screen: "englishLibrary", grade, englishCategory: "全部", englishPage: 0 });
+    if (unit.kind !== "english-grammar" && unit.kind !== "english-phonics" && !this.englishPool(grade).length) { this.flash("英文單字庫還在載入中，請稍等一下"); return; }
+    if (unit.kind === "english-phonics") this.setState({ screen: "englishPhonics", grade, phonicsGroup: unit.phonicsGroup });
+    else if (unit.kind === "english-library") this.setState({ screen: "englishLibrary", grade, englishCategory: "全部", englishPage: 0 });
     else if (unit.kind === "english-scramble") this.setState({ screen: "englishScramble", grade }, () => this.newEnglishScramble());
     else if (unit.kind === "english-match") this.setState({ screen: "englishMatch", grade }, () => this.startEnglishMatch());
     else if (unit.kind === "english-grammar") this.setState({ screen: "englishGrammar", grade }, () => this.startEnglishGrammar());
@@ -6566,7 +6578,7 @@ class Component extends DCLogic {
   }
   answerEnglishPictureQuiz(id) {
     const s = this.state, question = s.englishMatchQuizQueue[s.englishMatchQuizIndex];
-    if (!question || s.englishMatchQuizAnswered) return;
+    if (!question || s.englishMatchQuizAnswered || !id || id !== s.englishMatchQuizSelected || !question.options.some(word => word.id === id)) return;
     const good = id === question.answer.id;
     this.setState({
       englishMatchQuizAnswered: true, englishMatchQuizSelected: id,
@@ -6577,6 +6589,7 @@ class Component extends DCLogic {
     this.speakEnglish(question.answer.word);
   }
   nextEnglishPictureQuiz() {
+    if (!this.state.englishMatchQuizAnswered) return;
     const next = this.state.englishMatchQuizIndex + 1;
     if (next >= this.state.englishMatchQuizQueue.length) {
       this.setState({ englishMatchQuizIndex: next, englishFeedbackGood: true, englishFeedback: "完成 10 題看圖配對！" });
@@ -10493,7 +10506,7 @@ class Component extends DCLogic {
 
     const experimentLabScreens = ["dissolveLab", "magnetLab", "magnet2Lab", "plantWaterLab", "dayNightLab", "interactiveLab"];
     const isExperimentLabScreen = experimentLabScreens.includes(s.screen);
-    const focusedLearningScreens = ["quiz", "result", "library", "writing", "memory", "video", "mindmap", "englishLibrary", "englishScramble", "englishMatch", "englishChain", "englishGrammar", "englishAssociation", "divLesson", "vertLesson", "geoLesson", "weekly", "weeklyQuiz", "weeklyResult", "shop", "closet"];
+    const focusedLearningScreens = ["englishPhonics", "quiz", "result", "library", "writing", "memory", "video", "mindmap", "englishLibrary", "englishScramble", "englishMatch", "englishChain", "englishGrammar", "englishAssociation", "divLesson", "vertLesson", "geoLesson", "weekly", "weeklyQuiz", "weeklyResult", "shop", "closet"];
     const isFocusedLearningScreen = focusedLearningScreens.includes(s.screen);
     const isMathMaster = s.screen === "quiz" && s.quizSubject === "math";
     const isLanguageFocus = String(s.screen).indexOf("english") === 0 || (["library", "writing"].includes(s.screen) && s.subject === "chinese") || (s.screen === "quiz" && s.quizSubject === "chinese");
@@ -10518,6 +10531,7 @@ class Component extends DCLogic {
       appShellClass: isExperimentLabScreen ? "lab-focus" : isFocusedLearningScreen ? ("module-focus" + (s.screen === "quiz" && s.quizSubject === "math" ? " math-quiz-focus" : isLanguageFocus ? " language-quiz-focus" : "")) : ["gacha", "collection"].includes(s.screen) ? "gacha-focus" : s.screen === "home" ? "home-focus" : isCosmosHub ? "cosmos-focus" : s.screen === "profile" ? "profile-focus" : s.screen === "map" ? "subject-focus" : s.screen === "teacher" ? "admin-focus" : "",
       isCosmosHub,
       isHome: s.screen === "home", isProfile: s.screen === "profile", isSignin: s.screen === "signin", isMap: s.screen === "map", isMemory: s.screen === "memory",
+      isEnglishPhonics: s.screen === "englishPhonics", phonicsGroup: s.phonicsGroup || "vowels",
       isEnglishLibrary: s.screen === "englishLibrary", isEnglishScramble: s.screen === "englishScramble", isEnglishMatch: s.screen === "englishMatch", isEnglishChain: s.screen === "englishChain", isEnglishGrammar: s.screen === "englishGrammar", isEnglishAssociation: s.screen === "englishAssociation",
       isMindmap: s.screen === "mindmap",
       mindmapTitle: s.mmTopic ? s.mmTopic.title : "",
@@ -11103,6 +11117,10 @@ class Component extends DCLogic {
       englishTrayDrop: (event) => { event.preventDefault(); const id = event.dataTransfer && event.dataTransfer.getData("text/plain"); if (id) this.removeEnglishTile(id); },
       englishFeedback: s.englishFeedback, englishFeedbackBg: s.englishFeedbackGood ? "#e6f7ee" : "#fff6e0", englishFeedbackFg: s.englishFeedbackGood ? "#1d7a55" : "#a06400",
       englishMatchIsQuiz: s.englishMatchMode === "quiz", englishMatchIsPair: s.englishMatchMode === "pair",
+      englishPictureBankCount: this.englishGeneratedPicturePool().length,
+      englishQuizNeedsCheck: !s.englishMatchQuizAnswered,
+      englishQuizCheckDisabled: !s.englishMatchQuizSelected,
+      englishQuizCheck: () => this.answerEnglishPictureQuiz(s.englishMatchQuizSelected),
       englishMatchStatus: s.englishMatchMode === "quiz" ? (Math.min(s.englishMatchQuizIndex + 1, 10) + " / 10 題") : (s.englishPairFinished && s.timeLeft > 0 ? "完成 3 / 3 輪" : "第 " + Math.max(1, s.englishPairRound) + " / 3 輪 · " + s.timeLeft + " 秒"),
       showEnglishPictureQuiz: () => this.startEnglishMatch(), showEnglishFivePair: (event) => { const tabClick = event && event.currentTarget && String(event.currentTarget.textContent || "").indexOf("正面卡") >= 0; if (tabClick) { if (s.englishMatchMode !== "pair" || s.englishPairFinished) this.startEnglishFivePair(); return; } this.advanceEnglishPair(); },
       englishMatchSpeakQuestion: () => s.englishMatchMode === "quiz" ? this.speakText("請看圖片，選出正確的英文單字") : this.speakText("請把英文單字卡放到正確的圖片下面"),
@@ -11111,7 +11129,7 @@ class Component extends DCLogic {
       englishPairAdvanceLabel: s.englishPairFinished ? "重新挑戰三輪" : s.englishPairChecked ? "進入第 " + (s.englishPairRound + 1) + " 輪 →" : s.englishPairRound >= 3 ? "完成並領取獎勵" : "檢查第 " + Math.max(1, s.englishPairRound) + " 輪答案",
       englishQuizPlaying: !!englishQuizQuestion, englishQuizComplete: s.englishMatchMode === "quiz" && !englishQuizQuestion && s.englishMatchQuizQueue.length > 0,
       englishQuizImage: englishQuizQuestion ? englishQuizQuestion.answer.image : "", englishQuizAnswered: s.englishMatchQuizAnswered, englishQuizCorrect: s.englishMatchQuizCorrect, englishQuizNext: () => this.nextEnglishPictureQuiz(),
-      englishQuizOptions: englishQuizQuestion ? englishQuizQuestion.options.map((word) => { const selected = s.englishMatchQuizSelected === word.id, correct = s.englishMatchQuizAnswered && word.id === englishQuizQuestion.answer.id; return { word: word.word, pick: () => this.answerEnglishPictureQuiz(word.id), speak: (event) => { if (event && event.stopPropagation) event.stopPropagation(); this.speakEnglish(word.word); }, border: correct ? "#35c98a" : selected ? "#ff5c86" : "#ddd5ff", bg: correct ? "#e6f7ee" : selected ? "#fff0f4" : "#fff", fg: correct ? "#1d7a55" : selected ? "#c72e58" : "#2b1f57" }; }) : [],
+      englishQuizOptions: englishQuizQuestion ? englishQuizQuestion.options.map((word) => { const selected = s.englishMatchQuizSelected === word.id, correct = s.englishMatchQuizAnswered && word.id === englishQuizQuestion.answer.id; return { word: word.word, stateClass: correct ? "checked-correct" : selected ? "pending-selected" : "", pick: () => { if (!s.englishMatchQuizAnswered) this.setState({ englishMatchQuizSelected: word.id, englishFeedback: "選好了，再按檢查" }); }, speak: (event) => { if (event && event.stopPropagation) event.stopPropagation(); this.speakEnglish(word.word); }, border: correct ? "#35c98a" : selected ? "#ff5c86" : "#ddd5ff", bg: correct ? "#e6f7ee" : selected ? "#fff0f4" : "#fff", fg: correct ? "#1d7a55" : selected ? "#c72e58" : "#2b1f57" }; }) : [],
       englishPairTargets: (s.englishPairImages || []).map((word) => { const assignedId = (s.englishPairAssignments || {})[word.id], assignedWord = (s.englishPairWords || []).find((item) => item.id === assignedId), matched = !!assignedWord, incorrect = s.englishPairIncorrect.indexOf(word.id) >= 0, reviewing = s.englishPairChecked || s.englishPairIncorrect.length > 0, correct = reviewing && assignedId === word.id; return { image: word.image, word: assignedWord ? assignedWord.word : "", matched, open: !matched, matchClass: incorrect ? "incorrect" : correct ? "matched" : matched ? "assigned" : "", speak: (event) => { if (event && event.stopPropagation) event.stopPropagation(); if (assignedWord) this.speakEnglish(assignedWord.word); }, choose: () => incorrect ? this.reopenEnglishPairTarget(word.id) : reviewing ? null : this.matchEnglishPair(word.id), drop: (event) => { event.preventDefault(); if (reviewing && !incorrect) return; const id = event.dataTransfer && event.dataTransfer.getData("text/plain"); if (id) this.matchEnglishPair(word.id, id); } }; }),
       englishPairWordCards: (s.englishPairWords || []).filter((word) => Object.values(s.englishPairAssignments || {}).indexOf(word.id) < 0).map((word) => ({ word: word.word, outline: s.englishPairSelected === word.id ? "4px solid #7c5cff" : "none", speak: (event) => { if (event && event.stopPropagation) event.stopPropagation(); this.speakEnglish(word.word); }, choose: () => this.selectEnglishPairWord(word.id), drag: (event) => { if (event.dataTransfer) { event.dataTransfer.setData("text/plain", word.id); event.dataTransfer.effectAllowed = "move"; } } })),
       englishMissingStatus: Math.min(s.englishMissingIndex + 1, 10) + " / 10 題", englishMissingPlaying: !!englishMissingQuestion, englishMissingComplete: !englishMissingQuestion && s.englishMissingQueue.length > 0,
@@ -11416,6 +11434,7 @@ class Component extends DCLogic {
       units: subjectUnits.filter((u) => s.subject === "experiment" || u.grade === s.grade).map((u) => {
         const isLib = u.kind === "library";
         const isExperiment = u.kind === "experiment";
+        const isPhonics = u.kind === "english-phonics";
         const round = isLib || isExperiment ? 0 : dailyMasteryRound(p, u.id);
         const atLimit = !isExperiment && round >= 3;
         const difficulty = Math.max(1, Math.min(3, Number(u.difficulty) || 1));
@@ -11426,16 +11445,16 @@ class Component extends DCLogic {
           icon: u.icon, iconEl, tint: u.tint, title: u.title, sub: u.sub,
           pct: isLib ? 100 : isExperiment ? 0 : Math.round(round / 3 * 100),
           stars: isLib || isExperiment ? [] : [0, 1, 2].map((i) => ({ opacity: i < difficulty ? 1 : .28, gray: i < difficulty ? 0 : 1 })),
-          showMastery: !isExperiment,
-          showStatus: !isExperiment,
-          showProgress: !isExperiment,
+          showMastery: !isExperiment && !isPhonics,
+          showStatus: !isExperiment && !isPhonics,
+          showProgress: !isExperiment && !isPhonics,
           masteryMark: isLib ? "字庫" : isExperiment ? "" : masteryRoman(round),
           masteryBg: round ? "#e6f7ee" : "#fbfaff",
           masteryFg: round ? "#1d7a55" : "#b3a9d8",
           masteryBorder: round ? "#9fe3c4" : "#ece7ff",
           stateLabel: isLib ? gradeWords.length + " 個字" : isExperiment ? "" : atLimit ? "今日已完成上限" : round ? "今日完成 " + masteryRoman(round) : "今日未開始",
           stateColor: isLib || round ? "#35c98a" : "#b3a9d8",
-          btnLabel: isLib ? "進入學習庫" : isExperiment ? "進入實驗室" : atLimit ? "今日改練其他單元" : round ? "挑戰第 " + masteryRoman(round + 1) + " 輪" : "開始第 I 輪",
+          btnLabel: isPhonics ? "開始練習" : isLib ? "進入學習庫" : isExperiment ? "進入實驗室" : atLimit ? "今日改練其他單元" : round ? "挑戰第 " + masteryRoman(round + 1) + " 輪" : "開始第 I 輪",
           btnBg: atLimit ? "#ece9f5" : "linear-gradient(90deg,#7c5cff,#22c8d8)",
           btnFg: atLimit ? "#9a90c8" : "#fff",
           start: () => this.startUnit(u.id),
