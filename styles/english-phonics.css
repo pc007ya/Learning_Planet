@@ -83,3 +83,6 @@ html body .language-quiz-focus .english-match-workspace>section{flex:1;min-heigh
 .ph-page{min-width:48px;text-align:center;font-variant-numeric:tabular-nums}
 .ph-feedback{min-height:48px;max-width:100%;text-align:center;font-size:16px;color:#d0f0ff}
 .ph-notice{position:absolute;bottom:12px;left:24px;right:24px;margin:0;padding:8px;border-radius:12px;background:#07162fee;text-align:center;pointer-events:none}
+.ph-confirm-slot{height:56px;flex-shrink:0;display:flex;justify-content:center;align-items:center}
+.ph-confirm-slot .ph-check{width:160px;min-height:52px;border-radius:22px}
+@media(max-width:650px){.ph-listen-prompt{flex-wrap:wrap;gap:4px}.ph-confirm-slot{height:44px}.ph-confirm-slot .ph-check{width:110px;min-height:44px}}

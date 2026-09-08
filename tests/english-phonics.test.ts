@@ -3,9 +3,11 @@ import {existsSync,readFileSync} from 'node:fs';
 import vm from 'node:vm';
 import {SOUND_CARDS,uniqueWords,AnswerGate,shuffled} from '../src/english/phonics-data';
 describe('English sound cards',()=>{
-  it('keeps navigation and confirmation in the header without a read-report footer',()=>{
+  it('keeps navigation in the header and confirmation beside the listening feedback without a footer',()=>{
     const source=readFileSync('src/english/phonics.ts','utf8');
     expect(source).toContain('<div class="ph-header-controls">${controls}</div>');
+    expect(source).toContain('<div class="ph-confirm-slot">${confirmation}</div>');
+    expect(source).toContain("const controls=this.listen?'':");
     expect(source).not.toContain('<footer>');
     expect(source).not.toContain('data-action="read"');
     expect(source).toContain('確認答案');

@@ -1,4 +1,4 @@
-const g = (a) => `images/language-shared-v1/${a}.webp`, b = (a) => `images/english-generated-v3/${a}-v1.webp`, w = [
+const b = (a) => `images/language-shared-v1/${a}.webp`, w = (a) => `images/english-generated-v3/${a}-v1.webp`, f = [
   ["æ", "a", "cat", "cat", "嘴巴張開，聽 cat 中間的聲音。", "I see a cat."],
   ["ɛ", "e", "bed", "bed", "嘴巴稍微打開，聽 bed 中間的聲音。", "This is my bed."],
   ["ɪ", "i", "fish", "fish", "短短的聲音，比較 fish 和 sheep。", "I see a fish."],
@@ -14,7 +14,7 @@ const g = (a) => `images/language-shared-v1/${a}.webp`, b = (a) => `images/engli
   ["ɔɪ", "oy", "toy", "toy", "先圓唇，再把嘴角打開。", "This is my toy."],
   ["ɝ", "ir", "bird", "bird", "美式 bird 的中間音有 r 的音色。", "I see a bird."],
   ["ə", "a", "banana", "banana", "第一個 a 輕輕帶過；不是重讀的那一節。", "I like a banana."]
-], f = [
+], m = [
   ["b", "b", "book", "book", "雙唇合起來再打開，喉嚨會震動。", "Open the book."],
   ["p", "p", "pig", "pig", "雙唇合起來再放氣，不加「呃」。", "I see a pig."],
   ["t", "t", "tent", "tent", "舌尖輕碰上齒後方，再放開。", "This is a tent."],
@@ -39,8 +39,8 @@ const g = (a) => `images/language-shared-v1/${a}.webp`, b = (a) => `images/engli
   ["j", "y", "yellow", "yellow", "音標 j 是 yellow 開頭的音，不是字母 J。", "The sun is yellow."],
   ["w", "w", "water", "water", "先圓唇，再打開。", "I drink water."],
   ["h", "h", "hat", "hat", "輕輕呼氣，不要用力摩擦喉嚨。", "This is my hat."]
-], u = [...w.map((a) => [...a, "vowels"]), ...f.map((a) => [...a, "consonants"])].map(([a, e, t, s, n, o, i], h) => ({ id: `sound-${h}`, group: i, ipa: a, spelling: e, word: t, image: ["toy", "van", "nose"].includes(s) ? b(s) : s === "mother" ? "images/language-shared-v2/mother-v1.webp" : g(s), hint: n, sentence: o }));
-function c(a, e = Math.random) {
+], p = [...f.map((a) => [...a, "vowels"]), ...m.map((a) => [...a, "consonants"])].map(([a, e, t, s, n, o, h], i) => ({ id: `sound-${i}`, group: h, ipa: a, spelling: e, word: t, image: ["toy", "van", "nose"].includes(s) ? w(s) : s === "mother" ? "images/language-shared-v2/mother-v1.webp" : b(s), hint: n, sentence: o }));
+function d(a, e = Math.random) {
   const t = a.slice();
   for (let s = t.length - 1; s > 0; s--) {
     const n = Math.floor(e() * (s + 1));
@@ -48,10 +48,10 @@ function c(a, e = Math.random) {
   }
   return t;
 }
-function d(a) {
+function l(a) {
   return a.filter((e, t, s) => s.findIndex((n) => n.word === e.word) === t);
 }
-class m {
+class $ {
   constructor(e, t) {
     this.answer = e, this.options = t;
   }
@@ -67,8 +67,8 @@ class m {
       return this.checked = !0, this.selected === this.answer;
   }
 }
-const p = { vowels: "元音", consonants: "輔音", reading: "念讀卡" }, r = '<img src="images/ui/sound-rounded.svg" alt="">', l = (a) => a.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll('"', "&quot;");
-class $ {
+const g = { vowels: "元音", consonants: "輔音", reading: "念讀卡" }, r = '<img src="images/ui/sound-rounded.svg" alt="">', u = (a) => a.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll('"', "&quot;");
+class v {
   constructor(e) {
     this.host = e, this.group = ["vowels", "consonants", "reading"].includes(e.dataset.phonicsGroup || "") ? e.dataset.phonicsGroup : "vowels", e.addEventListener("click", (t) => {
       const s = t.target.closest("button");
@@ -79,7 +79,7 @@ class $ {
         return;
       }
       if (s.dataset.preview) {
-        const o = this.options.find((i) => i.id === s.dataset.preview);
+        const o = this.options.find((h) => h.id === s.dataset.preview);
         o && this.say(o.word);
         return;
       }
@@ -107,7 +107,7 @@ class $ {
   note = "";
   abort = new AbortController();
   cards() {
-    return this.group === "reading" ? d(u) : u.filter((e) => e.group === this.group);
+    return this.group === "reading" ? l(p) : p.filter((e) => e.group === this.group);
   }
   say(e) {
     if (this.muted) return;
@@ -132,17 +132,17 @@ class $ {
       this.gate = void 0;
       return;
     }
-    this.options = c([e, ...c(d(this.cards()).filter((t) => t.word !== e.word)).slice(0, 3)]), this.gate = new m(e.id, this.options.map((t) => t.id));
+    this.options = d([e, ...d(l(this.cards()).filter((t) => t.word !== e.word)).slice(0, 3)]), this.gate = new $(e.id, this.options.map((t) => t.id));
   }
   start() {
-    this.listen = !0, this.queue = c(d(this.cards())).slice(0, 10), this.question = 0, this.correct = 0, this.note = "先聽，再選一張", this.newQuestion(), this.render(), this.say(this.queue[0].word);
+    this.listen = !0, this.queue = d(l(this.cards())).slice(0, 10), this.question = 0, this.correct = 0, this.note = "先聽，再選一張", this.newQuestion(), this.render(), this.say(this.queue[0].word);
   }
   action(e) {
     if (e === "back") {
       this.stopVoice(), this.host.parentElement?.querySelector(".phonics-back")?.click();
       return;
     }
-    if (e in p) {
+    if (e in g) {
       this.group = e, this.queue = [], this.gate = void 0, this.listen = !1, this.selected = 0, this.page = 0, this.note = "", this.stopVoice(), this.render();
       return;
     }
@@ -188,13 +188,13 @@ class $ {
     }
   }
   render() {
-    const e = this.cards(), t = e[this.selected], s = this.queue[this.question], n = this.listen ? this.gate ? `<div class="ph-listen-prompt"><button class="ph-big-sound" data-action="hear" aria-label="播放題目發音">${r}</button><p>聽到哪個單字？</p><small>${this.question + 1} / ${this.queue.length}</small><p class="ph-feedback" role="status">${l(this.note)}</p></div><div class="ph-answer-grid">${this.options.map((i) => `<div class="ph-answer ${this.gate.selected === i.id ? "is-selected" : ""} ${this.gate.checked && i.id === s.id ? "is-correct" : ""}"><button class="ph-pick" data-select="${i.id}" aria-pressed="${this.gate.selected === i.id}" ${this.gate.checked ? "disabled" : ""}><img src="${i.image}" alt=""><strong>${i.word}</strong>${this.gate.selected === i.id ? "<i>✓</i>" : ""}</button><button class="ph-preview" data-preview="${i.id}" aria-label="試聽 ${i.word}">${r}</button></div>`).join("")}</div>` : `<div class="ph-finish"><strong>✓ ${this.correct} / ${this.queue.length}</strong><p>練習完成</p><button data-action="restart">再玩一次</button></div>` : `<div class="ph-card-grid">${e.slice(this.page * 6, this.page * 6 + 6).map((i, h) => `<button data-card="${this.page * 6 + h}" aria-pressed="${this.selected === this.page * 6 + h}" aria-label="${this.group === "reading" ? i.word : i.ipa + "，" + i.word}">${this.group === "reading" ? `<img src="${i.image}" alt="">` : `<strong class="ph-ipa">/${i.ipa}/</strong>`}<span>${i.word}</span></button>`).join("")}</div><article class="ph-detail"><img src="${t.image}" alt="${t.word === "measure" ? "用尺量長度的例字提示" : t.word}"><div><strong class="ph-word">${t.word}</strong><span class="ph-symbol">/${t.ipa}/ · ${t.spelling}</span></div><p>${l(this.group === "reading" ? t.sentence : t.hint)}</p><div class="ph-detail-actions"><button data-action="hear" aria-label="聽例字 ${t.word}">${r}</button><button data-action="sentence" aria-label="聽短句">${r}<span>短句</span></button></div></article>`, o = this.listen ? this.gate ? `<button class="ph-check" data-action="${this.gate.checked ? "continue" : "check"}" aria-label="${this.gate.checked ? "下一題" : "確認答案"}" ${this.gate.selected ? "" : "disabled"}>${this.gate.checked ? "下一題 →" : "確認 ✓"}</button>` : "" : `<button data-action="prev" aria-label="上一頁">‹</button><span class="ph-page">${this.page + 1} / ${Math.ceil(e.length / 6)}</span><button data-action="next" aria-label="下一頁">›</button>`;
-    this.host.innerHTML = `<section class="ph-shell" aria-label="一年級發音工坊"><header><button data-action="back" aria-label="返回英文">←</button><h2>發音工坊</h2><div class="ph-header-controls">${o}</div><button data-action="slow" aria-pressed="${this.slow}" aria-label="慢速發音">0.6×</button><button data-action="mute" aria-pressed="${this.muted}" aria-label="${this.muted ? "開啟" : "關閉"}語音">${this.muted ? "◌" : r}</button></header><nav aria-label="發音單元">${Object.entries(p).map(([i, h]) => `<button data-action="${i}" aria-pressed="${this.group === i && !this.listen}">${h}</button>`).join("")}<button data-action="listen" aria-pressed="${this.listen}">聽音四選一</button></nav><div class="ph-body ${this.listen ? "is-listening" : ""}">${n}</div>${!this.listen && this.note ? `<p class="ph-notice" role="status">${l(this.note)}</p>` : ""}</section>`;
+    const e = this.cards(), t = e[this.selected], s = this.queue[this.question], n = this.gate ? `<button class="ph-check" data-action="${this.gate.checked ? "continue" : "check"}" aria-label="${this.gate.checked ? "下一題" : "確認答案"}" ${this.gate.selected ? "" : "disabled"}>${this.gate.checked ? "下一題 →" : "確認 ✓"}</button>` : "", o = this.listen ? this.gate ? `<div class="ph-listen-prompt"><button class="ph-big-sound" data-action="hear" aria-label="播放題目發音">${r}</button><p>聽到哪個單字？</p><small>${this.question + 1} / ${this.queue.length}</small><p class="ph-feedback" role="status">${u(this.note)}</p><div class="ph-confirm-slot">${n}</div></div><div class="ph-answer-grid">${this.options.map((i) => `<div class="ph-answer ${this.gate.selected === i.id ? "is-selected" : ""} ${this.gate.checked && i.id === s.id ? "is-correct" : ""}"><button class="ph-pick" data-select="${i.id}" aria-pressed="${this.gate.selected === i.id}" ${this.gate.checked ? "disabled" : ""}><img src="${i.image}" alt=""><strong>${i.word}</strong>${this.gate.selected === i.id ? "<i>✓</i>" : ""}</button><button class="ph-preview" data-preview="${i.id}" aria-label="試聽 ${i.word}">${r}</button></div>`).join("")}</div>` : `<div class="ph-finish"><strong>✓ ${this.correct} / ${this.queue.length}</strong><p>練習完成</p><button data-action="restart">再玩一次</button></div>` : `<div class="ph-card-grid">${e.slice(this.page * 6, this.page * 6 + 6).map((i, c) => `<button data-card="${this.page * 6 + c}" aria-pressed="${this.selected === this.page * 6 + c}" aria-label="${this.group === "reading" ? i.word : i.ipa + "，" + i.word}">${this.group === "reading" ? `<img src="${i.image}" alt="">` : `<strong class="ph-ipa">/${i.ipa}/</strong>`}<span>${i.word}</span></button>`).join("")}</div><article class="ph-detail"><img src="${t.image}" alt="${t.word === "measure" ? "用尺量長度的例字提示" : t.word}"><div><strong class="ph-word">${t.word}</strong><span class="ph-symbol">/${t.ipa}/ · ${t.spelling}</span></div><p>${u(this.group === "reading" ? t.sentence : t.hint)}</p><div class="ph-detail-actions"><button data-action="hear" aria-label="聽例字 ${t.word}">${r}</button><button data-action="sentence" aria-label="聽短句">${r}<span>短句</span></button></div></article>`, h = this.listen ? "" : `<button data-action="prev" aria-label="上一頁">‹</button><span class="ph-page">${this.page + 1} / ${Math.ceil(e.length / 6)}</span><button data-action="next" aria-label="下一頁">›</button>`;
+    this.host.innerHTML = `<section class="ph-shell" aria-label="一年級發音工坊"><header><button data-action="back" aria-label="返回英文">←</button><h2>發音工坊</h2><div class="ph-header-controls">${h}</div><button data-action="slow" aria-pressed="${this.slow}" aria-label="慢速發音">0.6×</button><button data-action="mute" aria-pressed="${this.muted}" aria-label="${this.muted ? "開啟" : "關閉"}語音">${this.muted ? "◌" : r}</button></header><nav aria-label="發音單元">${Object.entries(g).map(([i, c]) => `<button data-action="${i}" aria-pressed="${this.group === i && !this.listen}">${c}</button>`).join("")}<button data-action="listen" aria-pressed="${this.listen}">聽音四選一</button></nav><div class="ph-body ${this.listen ? "is-listening" : ""}">${o}</div>${!this.listen && this.note ? `<p class="ph-notice" role="status">${u(this.note)}</p>` : ""}</section>`;
   }
   destroy() {
     this.abort.abort(), this.stopVoice();
   }
 }
 export {
-  $ as PhonicsLab
+  v as PhonicsLab
 };
