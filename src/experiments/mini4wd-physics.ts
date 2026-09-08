@@ -5,6 +5,7 @@ export type Setup = { gear: 3.5 | 4 | 5; tire: 'grip' | 'hard'; diameter: 26 | 3
 export const DEFAULT_SETUP: Setup = {gear:4,tire:'grip',diameter:26,shell:'arrow',ballast:'center',color:'#29c9ff'};
 export const TRACK = {straight:18,radius:12,width:5,length:72+24*Math.PI};
 export const STEP = 1/240;
+export type TrackKind='flat'|'bridge'|'jump';
 export const clamp = (n:number,a:number,b:number)=>Math.max(a,Math.min(b,n));
 export function trackPoint(s:number) {
   const {straight:a,radius:r,length:l}=TRACK;s=((s%l)+l)%l;
@@ -24,7 +25,12 @@ export function nearestTrack(x:number,z:number){
   return {offset:d-r,nx,nz,s:((s%TRACK.length)+TRACK.length)%TRACK.length};
 }
 /** Launch ramp, gap, and flat landing are shared by renderer and physics. */
-export function ground(x:number,z:number){
+export function ground(x:number,z:number,kind:TrackKind='jump'){
+  if(kind==='flat')return {height:0,slope:0,gap:false};
+  if(kind==='bridge'){
+    if(z<-8&&x>-10&&x<10){const t=(x+10)/20;return {height:1.2*(1-Math.cos(t*Math.PI*2))/2,slope:1.2*Math.PI/20*Math.sin(t*Math.PI*2),gap:false};}
+    return {height:0,slope:0,gap:false};
+  }
   if(z<-8 && x>-6 && x<1)return {height:(x+6)*.18,slope:.18,gap:false};
   if(z<-8 && x>=1 && x<5)return {height:-4,slope:0,gap:true};
   return {height:0,slope:0,gap:false};
@@ -38,24 +44,25 @@ export type CarState = {id:number;x:number;z:number;y:number;vx:number;vz:number
 export function createCar(id=0):CarState{
   const s=3-id*3,p=trackPoint(s);return{id,x:p.x,z:p.z,y:0,vx:0,vz:0,vy:0,yaw:0,omega:0,pitch:0,roll:0,distance:0,lastS:((s%TRACK.length)+TRACK.length)%TRACK.length,time:0,lap:0,lapTimes:[],lapStart:0,contacts:0,landings:0,impact:0,offTrack:false,finished:false,airborne:false,maxSpeed:0};
 }
-export function stepCar(c:CarState,setup:Setup,dt=STEP,power=true){
+export function stepCar(c:CarState,setup:Setup,dt=STEP,power=true,track:TrackKind='jump'){
   if(c.offTrack||c.finished)return;
   dt=clamp(dt,0,1/120);const p=parameters(setup),g=196,fx=Math.cos(c.yaw),fz=Math.sin(c.yaw);
   const forward=c.vx*fx+c.vz*fz,lateral=-c.vx*fz+c.vz*fx;
-  const road=ground(c.x,c.z),onGround=!road.gap&&c.y<=road.height+.018&&c.vy<=road.slope*c.vx+.05;
+  const road=ground(c.x,c.z,track),onGround=!road.gap&&c.y<=road.height+.018&&c.vy<=road.slope*c.vx+.05;
   if(onGround){
     const wheelMax=8000/60*Math.PI*2/setup.gear*p.radius;
     const motor=power?.0012*setup.gear*.78/(p.radius*.05)*Math.max(0,1-Math.max(0,forward)/wheelMax):0;
     const drag=p.rolling+Math.abs(forward)*.00025;
     const accel=(motor-(Math.abs(forward)>.05?drag:0))/(p.mass*.05);
     const side=clamp(-lateral*16,-p.grip*g,p.grip*g);
-    c.vx+=(fx*accel-fz*side)*dt;c.vz+=(fz*accel+fx*side)*dt;
+    const gradeAcceleration=-g*road.slope/(1+road.slope*road.slope);
+    c.vx+=(fx*accel-fz*side+gradeAcceleration)*dt;c.vz+=(fz*accel+fx*side)*dt;
     c.omega*=Math.exp(-4*dt);c.y=road.height;c.vy=road.slope*c.vx;
     c.pitch+=(Math.atan(road.slope*fx)-c.pitch)*Math.min(1,dt*18);
     c.roll*=Math.exp(-10*dt);c.airborne=false;
   }else{c.vy-=g*dt;c.airborne=true;c.pitch+=(setup.ballast==='rear'?.18:-.13)*dt;}
   c.x+=c.vx*dt;c.z+=c.vz*dt;c.y+=c.vy*dt;c.yaw+=c.omega*dt;
-  const nextRoad=ground(c.x,c.z);
+  const nextRoad=ground(c.x,c.z,track);
   if(!nextRoad.gap&&c.y<nextRoad.height){
     const hit=Math.max(0,-c.vy);c.y=nextRoad.height;c.vy=0;
     if(c.airborne&&hit>3){c.landings++;c.impact=Math.max(c.impact,hit/50);const loss=clamp(hit*(setup.ballast==='rear'?.005:.0025),0,.35);c.vx*=1-loss;c.vz*=1-loss;c.roll=(setup.ballast==='rear'?.11:.03);}

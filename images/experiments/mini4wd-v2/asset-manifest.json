@@ -1,0 +1,11 @@
+{
+  "version": "20260908-picture-dock-v2",
+  "generator": "built-in image_gen",
+  "assets": [
+    {"file":"clubhouse.png","role":"decorative environment only","interactive":false,"alpha":false},
+    {"file":"race-flag.png","role":"start/replay action artwork","interactive":"separate HTML button","alpha":true}
+  ],
+  "model_assets": "Parts, configuration and track thumbnails are rendered from the actual Three.js geometry. Gear and ballast diagrams are deterministic SVG, not copied catalog pictures.",
+  "original_sources_preserved": "/Users/ming/.codex/generated_images/01a06020-9ed5-7b80-ad88-de781cf5c4d1",
+  "prompts": "../../../docs/MINI4WD_PICTURE_DOCK.md"
+}
