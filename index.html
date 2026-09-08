@@ -1175,6 +1175,13 @@
   @media(max-width:640px){.app-shell.module-focus.math-quiz-focus{padding:9px 9px 28px!important}.math-quiz-focus .quiz-master-shell.is-math-master{display:flex;flex-direction:column;gap:11px}.math-quiz-focus .is-math-master .quiz-progress{width:100%;grid-template-columns:42px minmax(0,1fr) auto;padding:8px!important}.math-quiz-focus .is-math-master .quiz-progress>button{width:42px!important;height:42px!important}.math-quiz-focus .quiz-back-button img{width:47px;height:47px}.math-quiz-focus .is-math-master .quiz-progress>div:nth-child(2)>div:first-child span:first-child{font-size:16px}.math-quiz-focus .is-math-master .quiz-timer-circle{width:54px!important;height:54px!important;font-size:17px!important}.math-quiz-focus .is-math-master .quiz-timer-tools{gap:4px!important}.math-quiz-focus .is-math-master .quiz-auto-next{min-width:46px;padding:0!important}.math-quiz-focus .is-math-master .quiz-auto-next b{margin:auto}.math-master-left-rail{order:2;width:100%;height:auto}.math-presenter-card{min-height:210px}.math-quiz-focus .is-math-master .quiz-card{order:3;width:100%;min-height:0;padding:17px 14px!important}.math-quiz-focus .is-math-master .quiz-heading{font-size:21px!important;text-align:left}.math-quiz-focus .is-math-master .quiz-sound-button{width:38px;height:38px}.math-quiz-focus .is-math-master .answer-slot{min-height:72px!important}.math-master-submit{order:4;width:100%;height:58px;min-height:58px;padding:10px}.math-master-submit>span[aria-hidden="true"]{width:34px;height:34px}.math-master-analysis{order:5;width:100%;margin-top:8px}.math-master-analysis .analysis-result{gap:6px 13px}}
   @media(prefers-reduced-motion:reduce){.math-presenter-frame{animation:none!important}.math-presenter-card.is-thinking .math-presenter-frame.is-blink,.math-presenter-card.is-wrong .math-presenter-frame.is-retry{display:none}}
 </style>
+<style>
+  /* Story sits between experiment and gacha in the second orbit. */
+  .home-focus .home-subject-card[data-subject="experiment"]{grid-column:4 / span 3;grid-row:2;translate:0 0}
+  .home-focus .home-subject-card[data-subject="story"]{grid-column:7 / span 3;grid-row:2;translate:0 0}
+  @media(min-width:641px) and (max-width:900px){.home-focus .home-subject-card[data-subject="experiment"]{grid-column:3 / span 2;grid-row:2}.home-focus .home-subject-card[data-subject="story"]{grid-column:5 / span 2;grid-row:2}}
+  @media(max-width:640px){.home-focus .home-subject-card[data-subject="experiment"]{grid-column:1;grid-row:3}.home-focus .home-subject-card[data-subject="story"]{grid-column:2;grid-row:3}}
+</style>
 </helmet>
 
 <div style="min-height:100vh;background:radial-gradient(circle at 12% -8%, #ffe9f6 0, transparent 42%), radial-gradient(circle at 88% -4%, #dff6ff 0, transparent 40%), #f6f3ff;color:#2b1f57">
@@ -1311,6 +1318,9 @@
           <button class="home-subject-card home-aux-card" data-subject="gacha" aria-label="進入扭蛋" onClick="{{ goGacha }}" style="--planet-image:url('images/home/hud/gacha-planet-v2.png');--subject-glow:rgba(255,115,177,.9)">
             <span class="home-planet-art" aria-hidden="true"></span><span class="home-subject-copy"><strong>扭蛋</strong></span>
           </button>
+          <a class="home-subject-card" data-subject="story" aria-label="進入故事星球" href="story-planet.html" style="--planet-image:url('images/home/planets/story-planet-v1.png');--subject-glow:rgba(255,205,116,.85);text-decoration:none">
+            <span class="home-planet-art" aria-hidden="true"></span><span class="home-subject-copy"><strong>故事</strong></span>
+          </a>
         </section>
       </div>
     </sc-if>
