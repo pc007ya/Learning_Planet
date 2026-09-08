@@ -2,10 +2,12 @@ import * as T from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {PARTS} from './mini4wd-parts';
 import type {Setup} from './mini4wd-physics';
+import {makeSportsShell} from './mini4wd-shell';
 
 /** Original reusable CAD-style component model. No borrowed character assets. */
 export class MiniCarModel{
   root=new T.Group();parts=new Map<string,T.Group>();wheels:T.Group[]=[];gears:T.Group[]=[];rotor=new T.Group();
+  private shellMaterials:T.Material[]=[];
   private skins:T.MeshPhysicalMaterial[]=[];private rubber:T.MeshStandardMaterial[]=[];private wheelParts:T.Group[]=[];private wings=new T.Group();private ballast=new T.Group();
   constructor(){
     for(const p of PARTS){const g=new T.Group();g.userData.part=p.id;this.parts.set(p.id,g);this.root.add(g);}
@@ -44,31 +46,16 @@ export class MiniCarModel{
     const wire=(pts:number[][],color:number)=>mesh(sw,new T.TubeGeometry(new T.CatmullRomCurve3(pts.map(p=>new T.Vector3(...p as [number,number,number]))),20,.017,6,false),mat(color));
     wire([[.95,.55,-.3],[1.15,.5,-.4],[.7,.5,-.4],[.68,.62,-.22]],0xff6856);wire([[-.38,.62,-.22],[-.48,.49,0],[-.38,.62,.22]],0xe4c363);wire([[.68,.62,.22],[.8,.48,.52],[-.7,.48,.52],[-.74,.63,.35]],0x568fff);wire([[-.74,.63,-.35],[-1.1,.5,-.49],[.95,.55,-.3]],0x568fff);
     const shell=this.parts.get('shell')!;
-    const paint=new T.MeshPhysicalMaterial({color:0x29c9ff,metalness:.28,roughness:.23,clearcoat:1});this.skins.push(paint);
-    // Lofted shell: pointed nose, narrow cockpit, rear shoulder; separate exposed wheels.
-    const rows=[[-1.25,.48,.68],[-.85,.56,.77],[-.25,.42,1.04],[.35,.34,1.02],[.9,.40,.72],[1.43,.15,.53]];
-    const v:number[]=[];for(const [x,w,h] of rows)v.push(x,.55,-w,x,h,-w*.55,x,h,w*.55,x,.55,w);
-    const indices:number[]=[];for(let i=0;i<rows.length-1;i++)for(let k=0;k<3;k++){const a=i*4+k,b=a+4;indices.push(a,b,a+1,b,b+1,a+1);}
-    const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(v,3));geo.setIndex(indices);geo.computeVertexNormals();paint.side=T.DoubleSide;mesh(shell,geo,paint);
-    const canopy=mesh(shell,new T.SphereGeometry(1,24,12),new T.MeshPhysicalMaterial({color:0x112338,metalness:.65,roughness:.1,clearcoat:1}),0,.96);canopy.scale.set(.42,.19,.235);canopy.rotation.z=-.10;
-    for(const z of [-.39,.39]){const blade=box(shell,.95,.035,.12,white,.66,.76,z*.8);blade.rotation.z=-.30;box(shell,.30,.025,.10,gold,-.85,.79,z);}
-    for(const side of [-1,1]){
-      const pod=mesh(shell,new T.SphereGeometry(1,20,10),paint,-.32,.63,side*.43);pod.scale.set(.68,.18,.16);
-      for(let j=0;j<3;j++){const vent=box(shell,.075,.018,.12,dark,-.52+j*.12,.8,side*.38);vent.rotation.z=-.12;}
-      const fin=box(shell,.36,.16,.035,white,1.05,.64,side*.22);fin.rotation.z=-.25;
-    }
-    shell.add(this.wings);box(this.wings,.35,.09,1.64,paint,-1.08,1.01);for(const z of [-.55,.55])box(this.wings,.10,.33,.08,dark,-1.1,.84,z);
+    const body=makeSportsShell();shell.add(body.root);this.wings=body.wing;this.skins=[body.paint];this.shellMaterials=body.materials;
     ch.add(this.ballast);cyl(this.ballast,.16,.08,gold,0,.43,0,'y');
-    this.skins=[];shell.traverse(o=>{if(o instanceof T.Mesh&&o.material instanceof T.MeshPhysicalMaterial&&o.material.color.getHex()===0x29c9ff)this.skins.push(o.material);});
     for(const [id,g] of this.parts){if(!g.userData.home)g.userData.home=g.position.clone();g.name=id;}
   }
   configure(s:Setup){this.skins.forEach(m=>m.color.set(s.color));this.rubber.forEach(m=>{m.color.set(s.tire==='grip'?0x213346:0x687585);m.roughness=s.tire==='grip'?.92:.45;});this.wings.visible=s.shell==='wing';this.ballast.position.x=s.ballast==='rear'?-.67:0;for(const w of this.wheelParts)w.scale.setScalar(s.diameter/26);}
   layout(installed:Set<string>,explode:number,xray:boolean,_selected:string){
     let i=0;for(const [id,g] of this.parts){const home=g.userData.home as T.Vector3;g.visible=installed.has(id);g.position.copy(home);
       if(explode&&id!=='chassis'){const row=Math.floor(i/5),col=i%5;g.position.add(new T.Vector3((col-2)*1.18,(row+1)*.62,(row-1)*1.2));}i++;
-      g.traverse(o=>{if(o instanceof T.Mesh){const materials=Array.isArray(o.material)?o.material:[o.material];for(const m of materials){if(m instanceof T.MeshStandardMaterial){m.emissive.setHex(0);m.emissiveIntensity=0;}}}});
     }
-    for(const m of this.skins){m.transparent=xray;m.opacity=xray?.16:1;m.depthWrite=!xray;}
+    for(const m of this.shellMaterials){if(m.transparent!==xray)m.needsUpdate=true;m.transparent=xray;m.opacity=xray?.12:1;m.depthWrite=!xray;}
   }
   animate(distance:number,powered=false,gear=4,radius=.26){const angle=-distance/radius;for(const w of this.wheels)w.rotation.z=angle;this.gears.forEach((g,i)=>g.rotation.z=angle*(i===0?-gear:1));this.rotor.rotation.z=powered?-angle*gear:0;}
   dispose(){const geos=new Set<T.BufferGeometry>(),mats=new Set<T.Material>();this.root.traverse(o=>{if(o instanceof T.Mesh){geos.add(o.geometry);(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>mats.add(m));}});geos.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());}

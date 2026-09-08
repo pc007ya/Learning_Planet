@@ -9,17 +9,19 @@ export class Mini4wdView{
   private renderer:T.WebGLRenderer;private scene=new T.Scene();private camera=new T.PerspectiveCamera(42,1,.025,300);private environment:T.WebGLRenderTarget;
   private halo=new T.Box3Helper(new T.Box3(),0xffdc89);private balloon:HTMLSpanElement;
   private arena=new T.Group();private plinth=new T.Group();private rival=new MiniCarModel();private rivalState=createCar(1);private race=false;private running=false;private power=false;
-  private first=false;private reduced=true;private frame=0;private previous=0;private accumulator=0;private distance=0;private lastUI=0;private dead=false;private orbit={yaw:.75,pitch:.52,zoom:6.8};
+  private first=false;private reduced=true;private frame=0;private previous=0;private accumulator=0;private distance=0;private lastUI=0;private dead=false;private orbit={yaw:.75,pitch:.38,zoom:5.2};
   private installed=completeParts();private exploded=false;private xray=false;private selected='';private observer:ResizeObserver;private abort=new AbortController();
   private dragging?:{x:number;y:number;yaw:number;pitch:number;id:number;moved:boolean};private audio?:AudioContext;private oscillator?:OscillatorNode;private gain?:GainNode;private sound=false;private compare=false;
   private look=new T.Vector3();private goal=new T.Vector3();private target=new T.Vector3();private wind?:AudioBufferSourceNode;private windGain?:GainNode;
+  private explodedBounds=new T.Sphere();
+  private explodedCorners:T.Vector3[]=[];
   constructor(private stage:HTMLElement){
-    this.renderer=new T.WebGLRenderer({antialias:false,alpha:true,powerPreference:'low-power'});this.renderer.setPixelRatio(1);this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=T.PCFSoftShadowMap;this.renderer.toneMapping=T.ACESFilmicToneMapping;
+    this.renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});this.renderer.setPixelRatio(1);this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=T.PCFSoftShadowMap;this.renderer.toneMapping=T.ACESFilmicToneMapping;
     this.renderer.domElement.setAttribute('aria-label','四驅車模型，可拖動旋轉，也可點零件');this.renderer.domElement.tabIndex=0;stage.append(this.renderer.domElement);
     const room=new RoomEnvironment(),pmrem=new T.PMREMGenerator(this.renderer);this.environment=pmrem.fromScene(room,.04);this.scene.environment=this.environment.texture;this.scene.environmentIntensity=.4;this.renderer.toneMappingExposure=.85;room.dispose();pmrem.dispose();
     this.scene.add(new T.HemisphereLight(0xc6eaff,0x263856,1.1));const sun=new T.DirectionalLight(0xfff3d0,1.8);sun.position.set(12,35,-18);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);Object.assign(sun.shadow.camera,{left:-40,right:40,top:32,bottom:-32});sun.shadow.bias=-.0002;this.scene.add(sun);
-    const floor=new T.Mesh(new T.CylinderGeometry(3,3.1,.18,64),new T.MeshStandardMaterial({color:0x263b5e,metalness:.45,roughness:.35}));floor.position.y=-.16;floor.receiveShadow=true;this.plinth.add(floor);
-    const ring=new T.Mesh(new T.TorusGeometry(2.86,.018,6,100),new T.MeshBasicMaterial({color:0x6ce8ff}));ring.rotation.x=Math.PI/2;ring.position.y=-.058;this.plinth.add(ring);
+    const floor=new T.Mesh(new T.CylinderGeometry(2.25,2.30,.18,64),new T.MeshStandardMaterial({color:0x182a43,metalness:.45,roughness:.35}));floor.position.y=-.16;floor.receiveShadow=true;this.plinth.add(floor);
+    const ring=new T.Mesh(new T.TorusGeometry(2.17,.012,6,100),new T.MeshBasicMaterial({color:0x6ce8ff}));ring.rotation.x=Math.PI/2;ring.position.y=-.058;this.plinth.add(ring);
     this.scene.add(this.plinth,this.car.root,this.arena,this.rival.root);this.rival.root.visible=false;this.buildTrack();this.arena.visible=false;
     this.observer=new ResizeObserver(()=>{this.resize();this.wake();});this.observer.observe(stage);
     const signal=this.abort.signal,canvas=this.renderer.domElement;
@@ -63,8 +65,14 @@ export class Mini4wdView{
   private resize(){const w=Math.max(1,this.stage.clientWidth),h=Math.max(1,this.stage.clientHeight);const scale=Math.min(1,1280/w,800/h);this.renderer.setSize(Math.round(w*scale),Math.round(h*scale),false);this.camera.aspect=w/h;this.camera.updateProjectionMatrix();}
   setMode(race:boolean){this.pause();this.race=race;this.arena.visible=race;this.plinth.visible=!race;this.rival.root.visible=race&&this.compare;this.power=false;this.car.root.position.set(0,0,0);this.car.root.rotation.set(0,0,0);this.camera.fov=race?65:42;this.camera.updateProjectionMatrix();this.previous=0;this.layout();this.wake();}
   configure(s:Setup){this.setup={...s};this.car.configure(s);this.wake();}
-  setParts(installed:Set<string>,explode:boolean,xray:boolean,selected=''){this.installed=new Set(installed);this.exploded=explode;this.xray=xray;this.selected=selected;this.layout();this.wake();}
-  private layout(){this.car.layout(this.race?completeParts():this.installed,this.race?0:Number(this.exploded),!this.race&&this.xray,this.race?'':this.selected);}
+  setParts(installed:Set<string>,explode:boolean,xray:boolean,selected=''){this.installed=new Set(installed);if(explode&&!this.exploded)this.orbit.zoom=5.2;this.exploded=explode;this.xray=xray;this.selected=selected;this.layout();this.wake();}
+  private layout(){
+    this.car.layout(this.race?completeParts():this.installed,this.race?0:Number(this.exploded),!this.race&&this.xray,this.race?'':this.selected);
+    if(this.exploded){
+      new T.Box3().setFromObject(this.car.root).getBoundingSphere(this.explodedBounds);this.explodedCorners=[];
+      for(const part of this.car.parts.values())if(part.visible){const b=new T.Box3().setFromObject(part);for(const x of [b.min.x,b.max.x])for(const y of [b.min.y,b.max.y])for(const z of [b.min.z,b.max.z])this.explodedCorners.push(new T.Vector3(x,y,z).sub(this.explodedBounds.center));}
+    }
+  }
   setCamera(first:boolean){this.first=first;this.previous=0;this.wake();}
   setReduced(v:boolean){this.reduced=v;this.wake();}
   setPower(v:boolean){this.power=v;this.wake();}
@@ -78,7 +86,7 @@ export class Mini4wdView{
     }catch{this.sound=false;}}if(v)void this.audio?.resume();else{if(this.gain)this.gain.gain.value=0;if(this.windGain)this.windGain.gain.value=0;}}
   thumbnails(){
     const result:Record<string,string>={};const old=this.renderer.getSize(new T.Vector2());this.renderer.setSize(160,110,false);const camera=new T.PerspectiveCamera(35,160/110,.01,100);this.plinth.visible=false;
-    for(const [id,g] of this.car.parts){for(const [other,p] of this.car.parts)p.visible=other===id;const b=new T.Box3().setFromObject(g),center=b.getCenter(new T.Vector3()),size=b.getSize(new T.Vector3()),d=Math.max(size.x,size.y,size.z)*2.4+.3;camera.position.copy(center).add(new T.Vector3(d*.72,d*.7,d));camera.lookAt(center);this.renderer.render(this.scene,camera);result[id]=this.renderer.domElement.toDataURL('image/png');}
+    for(const [id,g] of this.car.parts){for(const [other,p] of this.car.parts)p.visible=other===id;const b=new T.Box3().setFromObject(g),center=b.getCenter(new T.Vector3()),radius=b.getBoundingSphere(new T.Sphere()).radius,d=radius/Math.sin(T.MathUtils.degToRad(17.5))*1.08;camera.position.copy(center).add(new T.Vector3(.85,.60,1).normalize().multiplyScalar(d));camera.lookAt(center);this.renderer.render(this.scene,camera);result[id]=this.renderer.domElement.toDataURL('image/png');}
     this.renderer.setSize(old.x,old.y,false);this.plinth.visible=true;this.layout();this.wake();return result;
   }
   wake(){if(!this.dead&&!this.frame&&!document.hidden)this.frame=requestAnimationFrame(t=>this.render(t));}
@@ -95,7 +103,12 @@ export class Mini4wdView{
       this.camera.lookAt(this.look);this.camera.fov+=(65+Math.min(9,v*.18)-this.camera.fov)*(fresh?1:.08);this.camera.updateProjectionMatrix();
     }else{
       this.car.root.position.set(0,(this.setup.diameter-26)/100,0);this.car.root.rotation.set(0,0,0);if(this.power){this.distance+=dt*1.8;this.car.animate(this.distance,true,this.setup.gear,this.setup.diameter/100);}
-      const d=this.orbit.zoom*(this.exploded?1.5:1);this.camera.position.set(Math.cos(this.orbit.yaw)*d,Math.sin(this.orbit.pitch)*d+.5,Math.sin(this.orbit.yaw)*d);this.camera.lookAt(0,this.exploded?1.1:.4,0);
+      if(this.exploded){
+        const tanV=Math.tan(T.MathUtils.degToRad(this.camera.fov/2)),tanH=tanV*this.camera.aspect;
+        const dir=new T.Vector3(Math.cos(this.orbit.yaw),Math.sin(this.orbit.pitch),Math.sin(this.orbit.yaw)).normalize(),right=new T.Vector3().crossVectors(new T.Vector3(0,1,0),dir).normalize(),up=new T.Vector3().crossVectors(dir,right);
+        let fit=1;for(const p of this.explodedCorners)fit=Math.max(fit,p.dot(dir)+Math.max(Math.abs(p.dot(up))/tanV,Math.abs(p.dot(right))/tanH));
+        this.camera.position.copy(this.explodedBounds.center).addScaledVector(dir,fit*1.12*this.orbit.zoom/5.2);this.camera.lookAt(this.explodedBounds.center);
+      }else{const d=this.orbit.zoom;this.camera.position.set(Math.cos(this.orbit.yaw)*d,Math.sin(this.orbit.pitch)*d+.5,Math.sin(this.orbit.yaw)*d);this.camera.lookAt(0,.4,0);}
     }
     if(this.audio&&this.gain&&this.oscillator){const on=this.sound&&(this.running||this.power);this.gain.gain.setTargetAtTime(on?.015:0,this.audio.currentTime,.05);this.oscillator.frequency.setTargetAtTime(100+(this.race?Math.hypot(this.state.vx,this.state.vz)*13:130),this.audio.currentTime,.08);this.windGain?.gain.setTargetAtTime(on&&this.race?Math.min(.045,Math.hypot(this.state.vx,this.state.vz)*.0007)+this.state.impact*.045:0,this.audio.currentTime,.03);}
     const chosen=this.car.parts.get(this.selected);this.halo.visible=!this.race&&!!chosen?.visible;this.balloon.hidden=!this.halo.visible;

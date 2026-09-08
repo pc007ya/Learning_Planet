@@ -1,5 +1,5 @@
-import { j as w, n as u, b as M, a0 as g, a1 as A, a, I as v, O as b, a2 as y } from "./RoundedBoxGeometry-5pHu4LnG.mjs";
-class S extends w {
+import { S as w, c as u, a as M, a1 as g, a2 as A, b as a, I as v, O as S, a3 as b } from "./RoundedBoxGeometry-DFERVGq8.mjs";
+class L extends w {
   constructor() {
     super();
     const s = new u();
@@ -8,7 +8,7 @@ class S extends w {
     m.position.set(0.418, 16.199, 0.3), this.add(m);
     const n = new a(s, e);
     n.position.set(-0.757, 13.219, 0.717), n.scale.set(31.713, 28.305, 28.591), this.add(n);
-    const i = new v(s, f, 6), t = new b();
+    const i = new v(s, f, 6), t = new S();
     t.position.set(-10.906, 2.009, 1.846), t.rotation.set(0, -0.195, 0), t.scale.set(2.328, 7.905, 4.651), t.updateMatrix(), i.setMatrixAt(0, t.matrix), t.position.set(-5.607, -0.754, -0.758), t.rotation.set(0, 0.994, 0), t.scale.set(1.97, 1.534, 3.955), t.updateMatrix(), i.setMatrixAt(1, t.matrix), t.position.set(6.167, 0.857, 7.803), t.rotation.set(0, 0.561, 0), t.scale.set(3.927, 6.285, 3.687), t.updateMatrix(), i.setMatrixAt(2, t.matrix), t.position.set(-2.017, 0.018, 6.124), t.rotation.set(0, 0.333, 0), t.scale.set(2.002, 4.566, 2.064), t.updateMatrix(), i.setMatrixAt(3, t.matrix), t.position.set(2.291, -0.756, -2.621), t.rotation.set(0, -0.286, 0), t.scale.set(1.546, 1.552, 1.496), t.updateMatrix(), i.setMatrixAt(4, t.matrix), t.position.set(-2.193, -0.369, -5.547), t.rotation.set(0, 0.516, 0), t.scale.set(3.875, 3.487, 2.986), t.updateMatrix(), i.setMatrixAt(5, t.matrix), this.add(i);
     const r = new a(s, o(50));
     r.position.set(-16.116, 14.37, 8.208), r.scale.set(0.1, 2.428, 2.739), this.add(r);
@@ -37,12 +37,12 @@ class S extends w {
   }
 }
 function o(h) {
-  return new y({
+  return new b({
     color: 0,
     emissive: 16777215,
     emissiveIntensity: h
   });
 }
 export {
-  S as R
+  L as R
 };
