@@ -12,6 +12,7 @@
 <meta name="description" content="提供小學數學、國文、英文、自然與科學實驗的互動學習網站。">
 <script src="./support.js"></script>
 <script src="./sci-art.js"></script>
+<script type="module" src="./modules/math-question-engine/math-question-engine-v1.js?v=20260909-concept-engine-v1"></script>
 <script type="module" src="./src/firebase-config.js"></script>
 <script type="module" src="./auth-v2/firebase-client.js"></script>
 <script type="module" src="./modules/earth-orbit/earth-orbit-v01.js"></script>
@@ -3814,6 +3815,7 @@ const MATH_UNITS = [
   { id: "u105", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-05-solids-v2.png", tint: "#f1e6ff", title: "5. 方盒、圓罐、球", sub: "堆疊分類、平面圖形與做造型" },
   { id: "u106", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-06-numbers-within-30-v2.png", tint: "#eafbfd", title: "6. 30 以內的數", sub: "數到 20、數到 30、序數與比大小" },
   { id: "u1", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-07-addition-v2.png", tint: "#ffe0e6", title: "7. 10 以內的加法", sub: "合起來、0 的加法與加加看" },
+  { id: "u108", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/unit-07-addition-v2.png", tint: "#fff0cc", title: "20 以內的加法（湊十）", sub: "一年級 · 先湊成 10，再加剩下的數" },
   { id: "u2", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-08-subtraction-v2.png", tint: "#ffeccc", title: "8. 10 以內的減法", sub: "剩下多少、多多少少多少、加加減減" },
   { id: "u107", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-09-time-v2.png", tint: "#fff0cc", title: "9. 幾點鐘", sub: "先後與長短、整點與半點" },
   { id: "u29", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/puzzle-shapes-v2.png", tint: "#e8f2ff", title: "形狀偵探隊", sub: "一年級 · 平面形狀、立體與積木", kind: "math-game" },
@@ -5340,12 +5342,22 @@ function makeProfile() {
     dailyMastery: { date: localDateKey(), units: {} },
     masteryHistory: {}, xpLedger: [], rewardedRuns: [], weeklyExam: null,
     gachaOwned: {}, gachaHistory: [], gachaDraws: 0,
+    mathQuestionHistory: {},
     achievementHistory: [],
     cardAvatarIndex: 0, cardTheme: "C", englishName: "",
     // Passwords belong exclusively to Firebase Authentication.  The browser
     // may retain a login name for display, but never a password.
     loginAccount: "", lastLoginAt: "", passwordCustomized: null,
   };
+}
+function appendMathQuestionSession(history, unitId, questions, sessionId) {
+  const next = Object.assign({}, history && typeof history === "object" ? history : {});
+  const keys = Array.from(new Set((Array.isArray(questions) ? questions : []).map((question) => question && question.questionKey).filter(Boolean)));
+  if (!keys.length) return next;
+  const sessions = Array.isArray(next[unitId]) ? next[unitId].slice() : [];
+  if (sessions.some((session) => session && session.id === sessionId)) return next;
+  next[unitId] = sessions.concat({ id: sessionId, at: new Date().toISOString(), keys }).slice(-6);
+  return next;
 }
 const VERIFIED_PROGRESS_RECOVERIES = [
   { id: "gale-c302-s77-20260831-v2", uidPrefix: "PTUBRMiMmQhu2K", displayName: "gale", classId: "302", seat: "77", xp: 456, coins: 201 },
@@ -5686,6 +5698,7 @@ class Component extends DCLogic {
         profile.gachaOwned = profile.gachaOwned && typeof profile.gachaOwned === "object" ? profile.gachaOwned : {};
         profile.gachaHistory = Array.isArray(profile.gachaHistory) ? profile.gachaHistory : [];
         profile.gachaDraws = Math.max(0, Number(profile.gachaDraws) || 0);
+        profile.mathQuestionHistory = profile.mathQuestionHistory && typeof profile.mathQuestionHistory === "object" ? profile.mathQuestionHistory : {};
         profile.answeredTotal = Math.max(Number(profile.correctTotal) || 0, Number(profile.answeredTotal) || 0);
         profile.subjectCorrect = Object.assign({ math: 0, chinese: 0, english: 0, science: 0 }, profile.subjectCorrect && typeof profile.subjectCorrect === "object" ? profile.subjectCorrect : {});
         profile.achievementHistory = Array.isArray(profile.achievementHistory) && profile.achievementHistory.length ? profile.achievementHistory : achievedMilestoneEntries(profile).reverse();
@@ -7635,9 +7648,18 @@ class Component extends DCLogic {
     this.setState({ writingWord: word, writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false }, () => this.clearWriting());
   }
 
-  buildMath(unitId, round) {
+  buildMath(unitId, round, options) {
     const lvl = Math.max(0, Math.min(2, Number(round) || 0));
     const n = this.total();
+    if (unitId === "u108" && window.LearningPlanetMathEngine) {
+      const history = (this.prof().mathQuestionHistory || {})[unitId] || [];
+      return window.LearningPlanetMathEngine.generateSession({
+        conceptId: "g1-add-make-ten",
+        count: n,
+        history,
+        mode: options && options.mode === "exam" ? "exam" : "practice",
+      });
+    }
     const r = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
     const shuffle = (a) => a.slice().sort(() => Math.random() - 0.5);
     const list = [];
@@ -8596,7 +8618,7 @@ class Component extends DCLogic {
       const setup = this.state.weeklyConfig.modules[unit.id] || { count: 0, difficulty: unit.difficulty || 1 };
       const count = Math.max(0, Math.min(10, Number(setup.count) || 0));
       if (!count) return;
-      const built = unit.id.charAt(0) === "c" ? this.buildChinese(unit.grade) : (unit.id === "u36" || unit.id === "u37") ? this.buildJunyi(unit.id) : unit.id.charAt(0) === "s" ? this.buildScience(unit.id, (Number(setup.difficulty) || 1) - 1) : this.buildMath(unit.id, (Number(setup.difficulty) || 1) - 1);
+      const built = unit.id.charAt(0) === "c" ? this.buildChinese(unit.grade) : (unit.id === "u36" || unit.id === "u37") ? this.buildJunyi(unit.id) : unit.id.charAt(0) === "s" ? this.buildScience(unit.id, (Number(setup.difficulty) || 1) - 1) : this.buildMath(unit.id, (Number(setup.difficulty) || 1) - 1, { mode: "exam" });
       built.slice(0, count).forEach((question) => questions.push(Object.assign({}, question, { unitId: unit.id, unitTitle: unit.title, difficulty: setup.difficulty || unit.difficulty || 1 })));
     });
     if (!questions.length) { this.flash("老師還沒有設定這個年級的週考題目"); return; }
@@ -8652,6 +8674,7 @@ class Component extends DCLogic {
       const rewarded = p.rewardedRuns.indexOf(rewardId) >= 0;
       return {
         weeklyExam: exam,
+        mathQuestionHistory: appendMathQuestionSession(p.mathQuestionHistory, "u108", s.examQs.filter((question) => question.unitId === "u108"), rewardId),
         xp: p.xp + (rewarded ? 0 : xp), coins: p.coins + (rewarded ? 0 : coins),
         correctTotal: p.correctTotal + (rewarded ? 0 : correct),
         rewardedRuns: rewarded ? p.rewardedRuns : p.rewardedRuns.concat(rewardId).slice(-300),
@@ -9690,14 +9713,27 @@ class Component extends DCLogic {
     const feedbackTitle = right
       ? randomFeedback(CORRECT_FEEDBACKS)
       : (timedOut ? "時間到了！ " : "") + randomFeedback(ENCOURAGE_FEEDBACKS);
-    this.setState((s) => Object.assign({
+    this.setState((s) => {
+      let qs = s.qs;
+      if (!right && q && q.conceptId && window.LearningPlanetMathEngine && s.qi + 3 < s.qs.length) {
+        const replacementIndex = s.qi + 3;
+        const excludeKeys = s.qs.filter((question, questionIndex) => questionIndex !== replacementIndex).map((question) => question && question.questionKey).filter(Boolean);
+        const related = window.LearningPlanetMathEngine.generateRelatedQuestion(q, { excludeKeys });
+        if (related) {
+          qs = s.qs.slice();
+          qs[replacementIndex] = related;
+        }
+      }
+      return Object.assign({
       picked: index,
       locked: true,
       correct: s.correct + (right ? 1 : 0),
       timeLeft: timedOut ? 0 : s.timeLeft,
       feedbackTitle,
       lastRight: right,
-    }, extra), () => {
+      qs,
+    }, extra);
+    }, () => {
       if (!this.state.speechMuted) this.speakText(feedbackTitle);
       if ((this.autoNextMode ?? this.state.autoNext)) this.autoNextTimer = setTimeout(() => this.next(), isLongdivInput ? 6000 : 3000);
     });
@@ -9733,6 +9769,7 @@ class Component extends DCLogic {
       if (all && completedRound >= 3) masteryHistory[localDateKey()] = Array.from(new Set((masteryHistory[localDateKey()] || []).concat(s.unit)));
       return {
         coins: p.coins + coins, xp: p.xp + xp,
+        mathQuestionHistory: appendMathQuestionSession(p.mathQuestionHistory, s.unit, s.qs, rewardId),
         correctTotal: p.correctTotal + s.correct,
         answeredTotal: Math.max(Number(p.answeredTotal) || 0, Number(p.correctTotal) || 0) + s.qs.length,
         subjectCorrect,
