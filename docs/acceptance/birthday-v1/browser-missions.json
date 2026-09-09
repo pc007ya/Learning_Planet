@@ -1,0 +1,127 @@
+[
+  {
+    "page": 1,
+    "prompt": "Find the calendar.",
+    "solved": true
+  },
+  {
+    "page": 2,
+    "prompt": "Find the basket.",
+    "solved": true
+  },
+  {
+    "page": 3,
+    "prompt": "Find the stall.",
+    "solved": true
+  },
+  {
+    "page": 4,
+    "prompt": "Move the flour to the basket.",
+    "solved": true
+  },
+  {
+    "page": 5,
+    "prompt": "Move the strawberries to the basket.",
+    "solved": true
+  },
+  {
+    "page": 6,
+    "prompt": "Tap milk, then eggs.",
+    "solved": true
+  },
+  {
+    "page": 7,
+    "prompt": "Tap butter, then sugar.",
+    "solved": true
+  },
+  {
+    "page": 8,
+    "prompt": "Find the basket.",
+    "solved": true
+  },
+  {
+    "page": 9,
+    "prompt": "Tap sink, then apron.",
+    "solved": true
+  },
+  {
+    "page": 10,
+    "prompt": "Move the flour to the cup.",
+    "solved": true
+  },
+  {
+    "page": 11,
+    "prompt": "Find the cloth.",
+    "solved": true
+  },
+  {
+    "page": 12,
+    "prompt": "Tap butter, then sugar, then whisk.",
+    "solved": true
+  },
+  {
+    "page": 13,
+    "prompt": "Move the eggs to the bowl.",
+    "solved": true
+  },
+  {
+    "page": 14,
+    "prompt": "Move the milk to the bowl.",
+    "solved": true
+  },
+  {
+    "page": 15,
+    "prompt": "Tap the whisk three times.",
+    "solved": true
+  },
+  {
+    "page": 16,
+    "prompt": "Move the bowl to the pan.",
+    "solved": true
+  },
+  {
+    "page": 17,
+    "prompt": "Tap oven, then timer.",
+    "solved": true
+  },
+  {
+    "page": 18,
+    "prompt": "Move the strawberries to the sink.",
+    "solved": true
+  },
+  {
+    "page": 19,
+    "prompt": "Move the cake to the rack.",
+    "solved": true
+  },
+  {
+    "page": 20,
+    "prompt": "Move the spatula to the cake.",
+    "solved": true
+  },
+  {
+    "page": 21,
+    "prompt": "Move the strawberries to the cake.",
+    "solved": true
+  },
+  {
+    "page": 22,
+    "prompt": "Move the candle to the cake.",
+    "solved": true
+  },
+  {
+    "page": 23,
+    "prompt": "Tap Mom, then Dad.",
+    "solved": true
+  },
+  {
+    "page": 24,
+    "prompt": "Move the slice to the plate.",
+    "solved": true
+  },
+  {
+    "page": 25,
+    "prompt": "Find the heart.",
+    "solved": true
+  }
+]

@@ -1,0 +1,84 @@
+{
+  "status": "Implemented as questions 11–16 at A/B/C levels in src/story/interactive/princess-quiz.ts",
+  "interaction": "Tap an option to hear and select it. Submit separately. Options remain available for listening after submission.",
+  "questions": [
+    {
+      "id": "princess-picture-01",
+      "image": "images/story/princess-v1/quiz/scene-01.png",
+      "prompt": "Which sentence matches the picture?",
+      "options": [
+        "Ella runs in the rain.",
+        "Ella sits by the window.",
+        "Ella buys an orange.",
+        "Ella builds a tower."
+      ],
+      "answer": 1,
+      "explanation": "Ella 坐在窗邊，身旁還沒有一起玩的朋友。"
+    },
+    {
+      "id": "princess-picture-02",
+      "image": "images/story/princess-v1/quiz/scene-02.png",
+      "prompt": "Which sentence matches the picture?",
+      "options": [
+        "Ella opens a gift.",
+        "Ella holds a pinwheel.",
+        "Ella picks up a block.",
+        "Ella puts on a hat."
+      ],
+      "answer": 2,
+      "explanation": "積木塔倒了，Ella 正撿起一塊積木。"
+    },
+    {
+      "id": "princess-picture-03",
+      "image": "images/story/princess-v1/quiz/scene-03.png",
+      "prompt": "Which sentence matches the picture?",
+      "options": [
+        "Gail listens to Ella.",
+        "Gail runs to the market.",
+        "Gail collects oranges.",
+        "Gail opens a gift."
+      ],
+      "answer": 0,
+      "explanation": "Gail 坐下來，專心聽 Ella 說話。"
+    },
+    {
+      "id": "princess-picture-04",
+      "image": "images/story/princess-v1/quiz/scene-04.png",
+      "prompt": "Which sentence matches the picture?",
+      "options": [
+        "They build a castle.",
+        "They repair a pinwheel.",
+        "They put on paper hats.",
+        "They put oranges in a basket."
+      ],
+      "answer": 3,
+      "explanation": "她們一起把橘子放進籃子。"
+    },
+    {
+      "id": "princess-picture-05",
+      "image": "images/story/princess-v1/quiz/scene-05.png",
+      "prompt": "Which sentence matches the picture?",
+      "options": [
+        "They pick up blocks.",
+        "They fix the pinwheel.",
+        "They buy oranges.",
+        "They open gifts."
+      ],
+      "answer": 1,
+      "explanation": "外面下著雨，她們在棚下修風車。"
+    },
+    {
+      "id": "princess-picture-06",
+      "image": "images/story/princess-v1/quiz/scene-06.png",
+      "prompt": "Which sentence matches the picture?",
+      "options": [
+        "Ella sits alone.",
+        "They run in the rain.",
+        "The friends play together.",
+        "They collect oranges."
+      ],
+      "answer": 2,
+      "explanation": "回到城堡，孩子們一起玩積木，Ella 開心地笑了。"
+    }
+  ]
+}

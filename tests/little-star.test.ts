@@ -1,0 +1,9 @@
+import {describe,it,expect} from 'vitest';
+import {pages,objects,scenes,parseProgress,migrateV1Progress,dropMatches} from '../src/story/interactive/book';
+describe('little star story contract',()=>{
+ it('has fifteen playable pages with visible mission answers and targets',()=>{expect(pages).toHaveLength(15);pages.forEach(p=>{expect(p.lines.length).toBeGreaterThanOrEqual(3);p.objects.forEach(id=>expect(objects[id]).toBeDefined());expect(p.objects).toContain(p.mission.answer);if(p.mission.target)expect(p.objects).toContain(p.mission.target);p.mission.steps?.forEach(id=>expect(p.objects).toContain(id));});});
+ it('recovers safely from corrupt progress',()=>{expect(parseProgress('{')).toEqual({page:0,stars:[],words:[]});expect(parseProgress('null')).toEqual({page:0,stars:[],words:[]});expect(parseProgress(JSON.stringify({page:999,stars:[1,1,-1,99,'2',3.1],words:['cat','cat',33]}))).toEqual({page:14,stars:[1],words:['cat']});});
+ it('adds five distinct scene assets before the original ending',()=>{expect(pages.slice(9,14).map(p=>p.scene)).toEqual(['forest','pond','orchard','windmill','hill']);expect(pages[14].title).toBe('Good night, little star');pages.forEach(p=>expect(scenes[p.scene]).toBeDefined());});
+ it('moves old final-page progress without awarding stars for new scenes',()=>{expect(migrateV1Progress(JSON.stringify({page:9,stars:[0,8,9],words:['bed']}))).toEqual({page:14,stars:[0,8,14],words:['bed']});expect(migrateV1Progress(null)).toEqual({page:0,stars:[],words:[]});expect(parseProgress(JSON.stringify({page:12,stars:[9,12,14],words:[]}))).toEqual({page:12,stars:[9,12,14],words:[]});});
+ it('accepts drops inside targets and rejects distant or invalid positions',()=>{expect(dropMatches(83,34,objects.tree)).toBe(true);expect(dropMatches(0,90,objects.tree)).toBe(false);expect(dropMatches(NaN,34,objects.tree)).toBe(false);});
+});

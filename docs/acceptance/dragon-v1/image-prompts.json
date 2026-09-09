@@ -1,0 +1,17 @@
+{
+  "method": "Built-in image_gen",
+  "assets": [
+    {
+      "file": "images/story/dragon-v1/scenes.png",
+      "prompt": "Use case: illustration-story. Create one production background atlas for an interactive children's paper-cut storybook, a precise 2 by 2 grid of four equally sized wide landscape panels, overall landscape 1536x1024. No borders no text no people no animals. Rich tactile miniature woodland diorama, layered cut paper foliage, warm soft cinematic light, detailed storybook realism, teal foliage gold firefly lights. Top left: magical starry forest path at dusk with open grassy foreground and glowing tiny lights among trees. Top right: friendly small rock cave in a green valley, cave opening on left half, broad level grassy foreground. Bottom left: gentle grassy practice hill with low flat stepping rock at left middle, rolling valley and clouds, ample clear foreground. Bottom right: tall tree with clearly visible small empty nest on right side branch at upper middle, sunny valley beyond and clear soft grass foreground. Every panel fills its quadrant edge to edge. Eye-level view for separate paper characters to be layered onto foreground. No characters baked into environments."
+    },
+    {
+      "file": "images/story/dragon-v1/cast.png",
+      "prompt": "Use case: illustration-story. Production character sprite atlas on TRUE TRANSPARENT RGBA background, no checkerboard. Precise 2x2 grid four equal square cells, square canvas. Tactile layered paper-cut miniature children's storybook style, lovely hand painted texture, thin warm cream cut-paper contour. Same sweet small teal baby dragon Pip in first three cells: oversized gentle eyes, rounded snout, cream tummy, two short horns, little golden spikes, bat-like teal wings, stubby legs and curling tail. Top left Pip standing in three quarter view facing RIGHT, wings folded, timid worried expression. Top right SAME Pip standing with BOTH wings spread fully, hopeful expression. Bottom left SAME Pip flying horizontally facing RIGHT with wings fully open, legs tucked safely, delighted expression. Bottom right one little golden-yellow baby bird facing left with tiny wings, full body. Each subject centered WITH 12 percent transparent padding on ALL sides, all horns, wings, tails and feet complete inside its cell. No shadows outside subject. No labels no scenery no text. Artwork only, true alpha transparency."
+    },
+    {
+      "file": "images/story/dragon-v1/cover.png",
+      "prompt": "Use case illustration-story. Create a premium portrait children's storybook cover illustration, no text at all. Reference image is a character design reference: use exactly this little teal dragon Pip, cream tummy, ivory horns, golden spikes, large gentle eyes. Pip spreads both wings on a low grassy hill, looking toward little golden bird safely in a tree nest. Enchanted layered paper-cut forest and golden firefly specks. Dark teal, sage, warm cream and restrained gold palette. Book design has generous clean dark teal empty upper 40 percent reserved for a title to be typeset separately. Lower 60 percent detailed tactile paper miniature scene with Pip and tree. All characters complete within canvas, natural soft warm evening lighting. Fine printed-paper texture, sophisticated classic children's book jacket, no symbols, no lettering, no logos, no mockup perspective."
+    }
+  ]
+}

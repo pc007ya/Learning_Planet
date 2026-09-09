@@ -1,0 +1,23 @@
+[
+  {
+    "size": {
+      "width": 1024,
+      "height": 600
+    },
+    "failures": []
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "failures": []
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 720
+    },
+    "failures": []
+  }
+]
