@@ -1,0 +1,55 @@
+{
+  "mode": "built-in image_gen",
+  "prompts": [
+    {
+      "name": "environments.png",
+      "prompt": "Use case: illustration-story. Production environment atlas for the approved Gail and Ella story, using reference as style reference ONLY. Four precisely equal panels in a 2 by 2 grid, no gutters, full bleed; overall 1536x1024, each panel landscape 3:2. TOP LEFT castle courtyard with a small ivory castle arch door, distant tower and garden, wide clear stone paving foreground. TOP RIGHT castle playroom matching reference: pink curtains, tall arched window on right back wall, quiet muted sage and cream room with gifts and soft toys stored at far back wall only, large empty rug and floor in lower half. BOTTOM LEFT sunny open market square, fruit stalls across background, pale striped awnings, stalls containing oranges at rear, broad completely clear paving in lower half. BOTTOM RIGHT sheltered market awning interior in rain: canopy overhead, low wooden craft table against LEFT rear edge, rainy market visible behind, large clear dry tiled floor foreground, no objects on floor. Warm sophisticated tactile layered paper sculpture children's book style, realistic paper grain, gently detailed, eye-level stage, consistent light. Absolutely NO people, NO characters, NO loose oranges, NO pinwheel, NO hats, NO block towers, NO chairs in foreground, no text or labels. These are four character-free background plates for separate movable puppets. Every panel must reach its exact quadrant boundaries."
+    },
+    {
+      "name": "princess-cast.png",
+      "prompt": "Use case: illustration-story. Transparent PNG production character sprite atlas for Gail and Ella. Reference defines exact identities and clothing. Exactly 3 columns by 3 rows equal square cells, square whole canvas, one COMPLETE FULL BODY character centered in each cell, each fits within central 76% width and 84% height of cell, 8% completely transparent padding on every cell boundary. No background, no floor, no shadows outside character, NO checkerboard painted in image, actual alpha transparency. Tactile layered paper-cut illustration with cream cut-paper edge, same delicate style as reference. All characters subtly three-quarter facing viewer's RIGHT. ROW1: cell0 Ella standing neutral listening; cell1 Ella sitting on floor with knees hugged looking lonely; cell2 Ella kneeling reaching forward to pick a block but NO block drawn. ROW2: cell3 Ella standing hands covering ears politely overwhelmed; cell4 Ella standing laughing with hands clasped; cell5 Gail sitting cross-legged listening attentively. ROW3: cell6 adult caregiver warm brown hair bun, muted sage skirt cream blouse, standing kindly; cell7 little boy brown hair cream shirt sage shorts seated cross-legged; cell8 little girl dark brown hair pink bow and dusty blush dress seated cross-legged. Ella always honey-blonde bob, tiny gold crown, sage dress ivory collar, ivory socks, brown Mary Jane shoes. Gail always long brown hair gold starclip purple star pajamas cream slippers. ALL hair, crowns, fingers, shoes entirely inside their own cell. Exactly nine independent characters, no props, no text, no scene."
+    },
+    {
+      "name": "props.png",
+      "prompt": "Use case: illustration-story. Production transparent props atlas, 3 columns x 3 rows with NINE exactly equal square cells on square canvas. Each object centered well INSIDE its cell with minimum 15% transparent padding all around, never crosses cell boundary. Actual transparent alpha background, no checkerboard painted. Warm tactile layered paper-cut storybook craft style matching reference, sage green blush pink cream and warm orange, realistic paper texture and delicate cream cut edge. Row1: single pink wrapped gift with ribbon; one sage wooden cube block; a modest tall six-block pastel toy tower. Row2: small scattered pile of pastel toy blocks; one COMPLETE paper pinwheel with pastel blades AND full wooden handle; one folded cream newspaper paper hat with no readable text. Row3: one empty wicker basket with complete handle; one single ripe orange with small leaf; one small sage wooden child chair with all four legs. No people no backgrounds no labels no shadows beyond each object. Every item distinct, complete, separate, comfortably padded inside own equal cell. The pinwheel and chair fit fully. Exactly nine items."
+    },
+    {
+      "name": "princess-cast-v2.png",
+      "prompt": "Use case: background-extraction. EDIT THIS EXACT CHARACTER ATLAS. Remove ALL gray/white checkerboard background pixels and return a genuinely transparent RGBA PNG cutout of the nine characters. The checkerboard in input is unfortunately painted; it must be fully removed, including gaps between legs/arms. Preserve the exact nine character identities, faces, clothing, poses and paper edges. Arrange into a mathematically exact 3 by 3 equal square-cell atlas with each complete character scaled SMALLER to fit the inner 76% of its cell, leaving generous actual transparent margin at every boundary. Preserve all crowns, hair, hands and shoes. Do not draw any backdrop or checkerboard. Output true alpha transparency, like a game sprite PNG. No text, no new objects."
+    },
+    {
+      "name": "princess-cast-v3.png",
+      "prompt": "Generate transparent-background character sprites in a 3x3 atlas for an interactive paper storybook. TRANSPARENT PNG. Use this story board as identity reference. Nine isolated characters, one per equal cell, generous 15% padding. NO BACKGROUND. Row 1: Princess Ella standing thoughtful; Ella sitting hugging knees lonely; Ella kneeling reaching forward. Row 2: Ella covering ears; Ella laughing standing; Gail cross-legged listening. Row 3: adult female caregiver in cream blouse sage long skirt standing; brown-haired boy cream shirt sage shorts seated; dark-haired girl blush dress seated. Ella seven years old honey blonde bob tiny golden crown sage green dress ivory collar brown shoes. Gail seven long chestnut hair star clip lavender star pajamas cream slippers. Delicate paper cutout texture and cream outline. Full figures complete shoes and crowns. Three rows exactly equal heights. Small puppets centered within each cell. Actual alpha background, transparent image, no visible backdrop."
+    },
+    {
+      "name": "ella-cast.png",
+      "prompt": "Transparent PNG cutouts. Four COMPLETE characters in a 2x2 square atlas, equal square cells, no visible background. Match identities to reference story board. Top left: Ella standing quietly, honey BLONDE BOB, GOLD CROWN, SAGE GREEN DRESS ivory collar, brown Mary Jane shoes. Top right: the SAME ELLA blonde bob crown GREEN DRESS standing hands covering ears with overwhelmed expression. Bottom left: the SAME ELLA blonde bob crown GREEN DRESS laughing happily standing with hands clasped. Bottom right: GAIL long CHESTNUT hair, STAR CLIP, LAVENDER STAR PAJAMAS, sitting cross-legged listening attentively, hands on knees, cream slippers. Ella is NOT Gail; only bottom right has purple clothes. All seven-year-old proportions, same delicate layered paper-cut storybook art as reference. Each figure centered and SMALL enough to leave at least 15% empty transparent space on every side of each cell. Full hair, crown, feet and hands inside cell. True alpha transparent background. Four cutout figures only, no props, no labels."
+    },
+    {
+      "name": "ella-final.png",
+      "prompt": "A transparent-background PNG sticker sheet of ONE original princess character in four poses, arranged as a 2x2 grid. She has a honey-blonde bob haircut, tiny gold crown, sage-green dress with ivory Peter Pan collar, cream socks, brown Mary Jane shoes, large brown eyes, seven-year-old child proportions. Top left standing quietly with hands together; top right covering her ears gently; bottom left laughing joyfully; bottom right kneeling and reaching forward. Consistent character in all four poses. Warm hand-painted layered paper cutout illustration, matte paper grain, cream cut edge. Full body each pose, very generous empty transparent margins between characters and at outer edges. ISOLATED CUTOUT OBJECTS WITH TRANSPARENT BACKGROUND. No backdrop, no stage, no text, no pattern."
+    },
+    {
+      "name": "gail-listening.png",
+      "prompt": "Transparent PNG cutout of Gail sitting cross-legged, listening quietly toward her right. Gail is the long chestnut-haired girl with a gold star hair clip and purple lavender two-piece star pajamas with cream slippers from this reference. Preserve her face and hair identity closely. Hands resting on knees, attentive friendly expression, full body and all shoes visible. One isolated character only, centered with generous transparent margins, no objects or scenery. Tactile layered paper-cut storybook illustration with cream paper edge. Actual alpha transparent background."
+    },
+    {
+      "name": "gail-listening-final.png",
+      "prompt": "Transparent PNG cutout sticker of a seven-year-old girl sitting cross-legged with hands on knees, listening attentively toward the right. Long wavy chestnut-brown hair, brown eyes, small gold star hairclip above her left temple, lavender purple two-piece pajamas printed with little pale-yellow stars, cream plush slippers. Gentle anime-inspired children's book face, warm layered paper illustration, matte paper grain and thin cream cut edge. Full body, entire hair and slippers. Single isolated character on a TRANSPARENT BACKGROUND. Leave 12% empty transparent margin around all sides. No background texture or pattern, no room, no props, no text."
+    }
+  ],
+  "accepted": {
+    "background": "images/story/princess-v1/environments.png",
+    "supportingCast": "images/story/princess-v1/support-cast.png",
+    "ella": "images/story/princess-v1/ella-final.png",
+    "gailSeated": "images/story/princess-v1/gail-listening.png",
+    "props": "images/story/princess-v1/props.png"
+  },
+  "rejected": [
+    "princess-cast.png: painted checkerboard",
+    "princess-cast-v2.png: painted checkerboard remained",
+    "ella-cast.png: painted checkerboard",
+    "gail-listening.png first referenced generation: painted checkerboard"
+  ],
+  "notes": "support-cast.png came from the princess-cast-v3 prompt; actual poses were inspected and only the appropriate seated Ella, caregiver and two friends are consumed via explicit sprite rectangles. Original generator outputs are retained in the default generated_images directory."
+}

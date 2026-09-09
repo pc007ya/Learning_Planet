@@ -10,7 +10,8 @@
     "build:stories": "vite build --config vite.story.config.ts",
     "check": "npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit && npm run build:experiments && npm run build:stories",
     "deploy": "npx -y firebase-tools@latest deploy --only hosting",
-    "deploy:all": "npx -y firebase-tools@latest deploy"
+    "deploy:all": "npx -y firebase-tools@latest deploy",
+    "build:little-star": "vite build --config vite.little-star.config.ts"
   },
   "dependencies": {
     "pixi.js": "^8.18.1",
