@@ -2,9 +2,11 @@ import {correctOrder,type StoryQuestion,type QuizArt} from './dragon-quiz';
 export type QuizState={index:number;answers:number[][];attempted:boolean[];complete:boolean};
 export function freshQuiz():QuizState{return {index:0,answers:[],attempted:[],complete:false};}
 export function quizScore(state:QuizState,questions:StoryQuestion[]){return questions.filter((q,i)=>state.attempted[i]&&correctOrder(state.answers[i]||[],q.answer)).length;}
-const artNames:Record<QuizArt,string>={pip:'小龍',bird:'小鳥',wing:'翅膀',gail:'Gail',cave:'洞穴',sky:'天空',rock:'石頭',nest:'鳥巢',jump:'小龍練習跳躍'};
+const artNames:Record<QuizArt,string>={pip:'小龍',bird:'小鳥',wing:'翅膀',gail:'Gail',cave:'洞穴',sky:'天空',rock:'石頭',nest:'鳥巢',jump:'小龍練習跳躍',moth:'發光小飛蛾',garden:'月光花園',flower:'月光花',frog:'小青蛙',mushroom:'蘑菇森林',firefly:'螢火蟲',bell:'銀鈴',tree:'月亮樹',path:'發光小路'};
 export function quizArt(id:QuizArt){const frame=document.createElement('span');frame.className='quiz-art art-'+id;frame.setAttribute('role','img');frame.setAttribute('aria-label',artNames[id]);
  const inner=document.createElement('span');inner.className='quiz-art-image';frame.append(inner);
+ const moonlight:Partial<Record<QuizArt,[string,number]>>={moth:['scenes-01-04.webp',1],garden:['scenes-01-04.webp',3],flower:['scenes-17-20.webp',2],frog:['scenes-09-12.webp',0],mushroom:['scenes-09-12.webp',2],firefly:['scenes-13-16.webp',0],bell:['scenes-13-16.webp',2],tree:['scenes-13-16.webp',2],path:['scenes-05-08.webp',2]};
+ if(moonlight[id]){const [file,cell]=moonlight[id]!;inner.style.backgroundImage=`url('images/story/moonlight-garden-v1/${file}')`;inner.style.backgroundSize='200% 200%';inner.style.backgroundPosition=`${cell%2*100}% ${Math.floor(cell/2)*100}%`;return frame;}
  const sprite={pip:0,wing:1,jump:1,bird:3}[id as 'pip'|'wing'|'jump'|'bird'];
  if(sprite!==undefined){inner.style.backgroundImage="url('images/story/dragon-v1/cast.png')";inner.style.backgroundSize='200% 200%';inner.style.backgroundPosition=`${sprite%2*100}% ${Math.floor(sprite/2)*100}%`;}
  else if(id==='gail'){const img=document.createElement('img');img.src='images/story/little-star-v1/gail-paper.png';img.className='paper-girl';img.alt='';inner.append(img);}

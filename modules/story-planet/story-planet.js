@@ -19961,8 +19961,8 @@ function cn() {
     R.setAttribute("aria-label", "英文繪本"), R.append(dt("h2", "sp-row-label", "英文繪本")), e.append(u, R);
     const b = Is(u, vt.slice(g, g + 6), (P) => {
       gt = g + P, Xt = Qh(), At = "read", cn();
-    }), T = Is(R, [{ title: "Where Is My Star?", cover: "images/story/little-star-v1/room.png", english: !0 }, { title: "Gail and the Big Bad Wolf", cover: "images/story/red-hood-v1/gail.png", english: !0 }, { title: "Gail’s Birthday Cake", cover: "images/story/birthday-v1/cover.png", english: !0 }, { title: "Gail and the Little Dragon Who Forgot to Fly", cover: "images/story/dragon-v1/cover.png", english: !0 }, { title: "Gail and the Princess Who Forgot to Smile", cover: "images/story/princess-v1/cover-composition-v1.png", english: !0 }], (P) => {
-      location.href = ["english-storybook.html", "red-hood-storybook.html", "birthday-storybook.html", "dragon-storybook.html", "princess-storybook.html"][P];
+    }), T = Is(R, [{ title: "Where Is My Star?", cover: "images/story/little-star-v1/room.png", english: !0 }, { title: "Gail and the Big Bad Wolf", cover: "images/story/red-hood-v1/gail.png", english: !0 }, { title: "Gail’s Birthday Cake", cover: "images/story/birthday-v1/cover.png", english: !0 }, { title: "Gail and the Little Dragon Who Forgot to Fly", cover: "images/story/dragon-v1/cover.png", english: !0 }, { title: "Gail and the Princess Who Forgot to Smile", cover: "images/story/princess-v1/cover-composition-v1.png", english: !0 }, { title: "Gail and the Moonlight Garden", cover: "images/story/moonlight-garden-v1/scenes-01-04.webp", english: !0 }], (P) => {
+      location.href = ["english-storybook.html", "red-hood-storybook.html", "birthday-storybook.html", "dragon-storybook.html", "princess-storybook.html", "moonlight-garden-storybook.html"][P];
     });
     Hi = () => {
       b(), T();
