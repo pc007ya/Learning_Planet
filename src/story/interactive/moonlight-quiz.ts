@@ -1,0 +1,15 @@
+import type {ReadingLevel} from './dragon-text';
+import type {StoryQuestion} from './dragon-quiz';
+const options=(...text:string[])=>text.map(text=>({text}));
+export function moonlightQuestions(level:ReadingLevel):StoryQuestion[]{const easy=level==='A',advanced=level==='C';return [
+ {id:'moth',kind:'choice',prompt:easy?'Who flies into Gail’s room?':'What is the tiny light that visits Gail?',art:'moth',options:options('A frog','A moth','A bird','A flower'),answer:[1],explanation:'A little glowing moth flies into Gail’s room.'},
+ {id:'garden',kind:'choice',prompt:'Where does Gail go?',art:'garden',options:options('A moonlight garden','A busy station','A classroom','A shop'),answer:[0],explanation:'Gail enters the Moonlight Garden.'},
+ {id:'flowers',kind:'choice',prompt:easy?'What is sleeping?':'What is unusual about the garden?',art:'flower',options:options('The flowers are closed.','The bridge is red.','The frog is flying.','The sun is bright.'),answer:[0],explanation:'All the flowers are closed and sleeping.'},
+ {id:'frog',kind:'choice',prompt:easy?'Who is lost?':'Why does Gail stop beside the pond?',art:'frog',options:options('The moth','The frog','The moon','The bell'),answer:[1],explanation:'Gail finds a little lost frog beside the pond.'},
+ {id:'dark',kind:'choice',prompt:advanced?'What causes the mushroom forest to become dark?':'Why does it get dark?',art:'mushroom',options:options('A cloud covers the moon.','The bell falls.','Gail closes a door.','The frog sleeps.'),answer:[0],explanation:'A cloud covers the moon, so the forest becomes dark.'},
+ {id:'light',kind:'choice',prompt:'Who helps make light in the dark?',art:'firefly',options:options('Fireflies and the moth','The bridge','The flowers','The rocks'),answer:[0],explanation:'The moth and fireflies glow together.'},
+ {id:'bell',kind:'choice',prompt:'Where is the silver bell?',art:'bell',options:options('Under the bed','In the moon tree','On a lily pad','Inside a mushroom'),answer:[1],explanation:'The silver bell is tangled in the moon tree.'},
+ {id:'teamwork',kind:'choice',prompt:advanced?'How do Gail and her friends solve the problem?':'How do they reach the bell?',art:'tree',options:options('They work together.','They go home.','They wait for morning.','They close the flowers.'),answer:[0],explanation:'Gail, the frog, and the moth work together.'},
+ {id:'order',kind:'sequence',prompt:'Put the story in order.',options:[{text:'Meet the frog',art:'frog'},{text:'Find the bell',art:'bell'},{text:'Follow the lights',art:'path'},{text:'Flowers open',art:'flower'}],answer:[2,0,1,3],explanation:'First follow the lights, meet the frog, find the bell, and then the flowers open.'},
+ {id:'cause',kind:'choice',prompt:advanced?'Why do the flowers finally open?':'What wakes the flowers?',art:'flower',options:options('The silver bell rings.','The frog jumps away.','Gail reads a book.','The fog grows thicker.'),answer:[0],explanation:'When the silver bell rings, moonlight flows through the garden and wakes the flowers.'}
+];}

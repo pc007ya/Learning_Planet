@@ -226,3 +226,33 @@
 .cloud-drop{position:absolute;top:85%;height:8px;width:2px;background:#b2dbe9;border-radius:50%;pointer-events:none;opacity:0}
 .cloud-book .cover-border h2{font-size:clamp(20px,2.6vw,36px)}
 .cloud-book .scene-object[data-object^=leaf] img{transform:rotate(65deg) scaleY(.6)}
+
+/* Book 06: hand-painted Moonlight Garden with optional Three.js 2.5D drift. */
+.moonlight-book{background:radial-gradient(circle at 72% 10%,#f7d98b33,transparent 25%),linear-gradient(125deg,#102d3d,#245368 48%,#163648)}
+.moonlight-book .closed-book{background:#153f51;border-left-color:#0c2c39;aspect-ratio:16/10;max-width:540px}
+.moonlight-book .cover-border{inset:0;border:0;background-repeat:no-repeat;box-shadow:inset 0 0 0 2px #ffe5a050,inset 0 -110px 100px #071d2fd9}
+.moonlight-book .cover-border h2{top:auto;bottom:8%;left:7%;right:7%;color:#fff2c7;text-shadow:0 3px 18px #071b29;font-size:clamp(24px,3.1vw,43px);line-height:1.04}
+.moonlight-book .dragon-series{color:#fff0bd;text-shadow:0 2px 8px #071b29;font-weight:900}
+.moonlight-cover-mark{position:absolute;right:7%;top:7%;font-size:28px;color:#ffe395;text-shadow:0 0 16px #ffe395}
+.moonlight-book .story-paper{background:linear-gradient(165deg,#fff9e8,#edf3e5);box-shadow:inset -24px 0 30px #244b4d18}
+.moonlight-book .story-paper h1{color:#204f55}
+.story-translation{margin:6px 0 2px;padding-top:9px;border-top:1px solid #527a6e32;color:#6d735f;font-size:14px;line-height:1.45}
+.moonlight-book .scene{background:#102c3d}
+.moonlight-book .scene-world{isolation:isolate;background:#102c3d}
+.moonlight-webgl{position:absolute;inset:0;width:100%!important;height:100%!important;z-index:2;pointer-events:none;animation:moonlightReveal 1.1s ease both}
+.moonlight-book .is-dream-3d>.scene-atlas{opacity:1}
+.moonlight-book .scene-object.hotspot{z-index:7!important;border:1px solid transparent;border-radius:50%;background:transparent;box-shadow:none}
+.moonlight-book .scene-object.hotspot .hotspot-spark{opacity:0;transition:opacity .2s,transform .2s}
+.moonlight-book.show-hints .scene-object.hotspot .hotspot-spark,.moonlight-book .scene-object.hotspot:hover .hotspot-spark,.moonlight-book .scene-object.hotspot:focus-visible .hotspot-spark{opacity:.92;transform:scale(1.12);filter:drop-shadow(0 0 8px #fff2a0)}
+.moonlight-book .mission.checkpoint{border-color:#e5c96e;background:linear-gradient(130deg,#193f4de8,#315a5be8);box-shadow:0 5px 0 #0d2a35,0 0 28px #ffe68a35}
+.moonlight-book .mission.checkpoint small{color:#ffe59a;letter-spacing:2px}
+.moonlight-book .scene-caption{color:#fff0bd;background:#12303ed9;letter-spacing:2px}
+.moonlight-book .quiz-ending-image{object-position:50% 100%;background:#173747}
+.moonlight-book .art-moth .quiz-art-image,.moonlight-book .art-garden .quiz-art-image,.moonlight-book .art-flower .quiz-art-image,.moonlight-book .art-frog .quiz-art-image,.moonlight-book .art-mushroom .quiz-art-image,.moonlight-book .art-firefly .quiz-art-image,.moonlight-book .art-bell .quiz-art-image,.moonlight-book .art-tree .quiz-art-image,.moonlight-book .art-path .quiz-art-image{border-radius:14px;background-repeat:no-repeat;background-color:#16394a;box-shadow:inset 0 0 0 2px #fff2c9,0 5px 14px #17384a33}
+@keyframes moonlightReveal{from{opacity:0;transform:scale(1.045);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+@media(prefers-reduced-motion:reduce){.moonlight-webgl{animation:none}.moonlight-book .is-dream-3d>.scene-atlas{opacity:1}.moonlight-book .is-dream-3d>.moonlight-webgl{display:none}}
+@media(max-width:700px){.moonlight-book .closed-book{aspect-ratio:16/11}.moonlight-book .cover-border h2{font-size:27px}.story-translation{font-size:13px}.moonlight-book .story-lines{font-size:17px!important}}
+
+.moonlight-book .scene-object.girl{z-index:8}.moonlight-book .scene-object img{object-fit:contain;clip-path:none}.moonlight-foreground{position:absolute;bottom:-2%;left:-3%;width:39%;height:24%;object-fit:contain;z-index:12;pointer-events:none}.moonlight-cover-gail{position:absolute;width:43%;height:60%;object-fit:contain;bottom:5%;left:25%;filter:drop-shadow(0 4px 4px #142f3d70)}.moonlight-book .is-dream-3d .moonlight-foreground{animation:moonlight-leaves 7s ease-in-out infinite alternate;transform-origin:bottom left}@keyframes moonlight-leaves{to{transform:translateX(5px) rotate(1deg)}}@media(prefers-reduced-motion:reduce){.moonlight-book .is-dream-3d .moonlight-foreground{animation:none}}
+
+.moonlight-book .scene-object.hotspot .hotspot-spark{opacity:.45}

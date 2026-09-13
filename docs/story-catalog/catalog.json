@@ -409,6 +409,46 @@
         "need",
         "again"
       ]
+    },
+    {
+      "id": "moonlight",
+      "title": "Gail and the Moonlight Garden",
+      "status": "已實作（非部署狀態）",
+      "pages": 20,
+      "source": "src/story/interactive/moonlight.ts",
+      "basis": "頁面 words 去重（舊書未另列核心詞表）",
+      "words": [
+        "light",
+        "window",
+        "moth",
+        "follow",
+        "garden",
+        "moon",
+        "flower",
+        "sleep",
+        "bell",
+        "hear",
+        "path",
+        "bridge",
+        "fog",
+        "frog",
+        "lost",
+        "lily",
+        "help",
+        "mushroom",
+        "forest",
+        "dark",
+        "firefly",
+        "find",
+        "tree",
+        "reach",
+        "think",
+        "together",
+        "moonlight",
+        "awake",
+        "bed",
+        "good night"
+      ]
     }
   ]
 }

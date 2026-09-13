@@ -18,6 +18,7 @@
 |Gail and the Rabbit Who Could Not Wait|20|20|已實作（非部署狀態）|
 |Gail and the Bear Who Hid the Pieces|20|20|已實作（非部署狀態）|
 |Gail and the Cloud That Could Not Stop Thundering|20|20|已實作，待使用者驗收|
+|Gail and the Moonlight Garden|20|30|已實作（非部署狀態）|
 
 ## Where Is My Star?
 
@@ -91,6 +92,12 @@ bear, tile, clay, shelf, reach, bump, crack, broken, piece, hide, worried, truth
 
 lid, chime, mist, float, breeze, scatter, spin, thunder, rumble, loud, angry, upset, name, pause, breathe, slow, calm, gentle, need, again
 
+## Gail and the Moonlight Garden
+
+來源：src/story/interactive/moonlight.ts；頁面 words 去重（舊書未另列核心詞表）。
+
+light, window, moth, follow, garden, moon, flower, sleep, bell, hear, path, bridge, fog, frog, lost, lily, help, mushroom, forest, dark, firefly, find, tree, reach, think, together, moonlight, awake, bed, good night
+
 ## 已實作單字反查
 
 |單字|使用書目|
@@ -102,14 +109,15 @@ lid, chime, mist, float, breeze, scatter, spin, thunder, rumble, loud, angry, up
 |angry|Gail and the Cloud That Could Not Stop Thundering|
 |apple|Where Is My Star?|
 |apron|Gail’s Birthday Cake|
+|awake|Gail and the Moonlight Garden|
 |away|Gail and the Big Bad Wolf|
 |bag|Gail and the Big Bad Wolf|
 |basket|Where Is My Star?；Gail’s Birthday Cake；Gail and the Princess Who Forgot to Smile|
 |beach|Gail and the Pirate Who Said Mine|
 |bear|Gail and the Bear Who Hid the Pieces|
-|bed|Where Is My Star?|
+|bed|Where Is My Star?；Gail and the Moonlight Garden|
 |believe|Gail and the Little Dragon Who Forgot to Fly|
-|bell|Gail and the Big Bad Wolf|
+|bell|Gail and the Big Bad Wolf；Gail and the Moonlight Garden|
 |big|Gail and the Rabbit Who Could Not Wait|
 |bigger|Gail and the Rabbit Who Could Not Wait|
 |bird|Gail and the Big Bad Wolf；Gail and the Little Dragon Who Forgot to Fly|
@@ -123,7 +131,7 @@ lid, chime, mist, float, breeze, scatter, spin, thunder, rumble, loud, angry, up
 |bread|Gail and the Big Bad Wolf|
 |breathe|Gail and the Cloud That Could Not Stop Thundering|
 |breeze|Gail and the Cloud That Could Not Stop Thundering|
-|bridge|Where Is My Star?|
+|bridge|Where Is My Star?；Gail and the Moonlight Garden|
 |broken|Gail and the Bear Who Hid the Pieces|
 |broom|Gail and the Wizard Who Always Said Later|
 |brush|Gail and the Fox Who Was Afraid to Draw|
@@ -153,6 +161,7 @@ lid, chime, mist, float, breeze, scatter, spin, thunder, rumble, loud, angry, up
 |cup|Gail’s Birthday Cake|
 |daily|Gail and the Rabbit Who Could Not Wait|
 |damp|Gail and the Rabbit Who Could Not Wait|
+|dark|Gail and the Moonlight Garden|
 |dig|Gail and the Rabbit Who Could Not Wait|
 |dock|Gail and the Pirate Who Said Mine|
 |door|Where Is My Star?；Gail and the Big Bad Wolf；Gail’s Birthday Cake；Gail and the Fox Who Was Afraid to Draw|
@@ -165,29 +174,34 @@ lid, chime, mist, float, breeze, scatter, spin, thunder, rumble, loud, angry, up
 |eggs|Gail’s Birthday Cake|
 |eyes|Gail and the Big Bad Wolf|
 |fall|Gail and the Little Dragon Who Forgot to Fly|
+|find|Gail and the Moonlight Garden|
 |finish|Gail and the Wizard Who Always Said Later|
-|firefly|Where Is My Star?|
+|firefly|Where Is My Star?；Gail and the Moonlight Garden|
 |first|Gail and the Wizard Who Always Said Later|
 |float|Gail and the Cloud That Could Not Stop Thundering|
 |flour|Gail’s Birthday Cake|
-|flower|Where Is My Star?；Gail and the Wizard Who Always Said Later|
+|flower|Where Is My Star?；Gail and the Wizard Who Always Said Later；Gail and the Moonlight Garden|
 |fly|Where Is My Star?；Gail and the Little Dragon Who Forgot to Fly|
-|forest|Gail and the Little Dragon Who Forgot to Fly|
+|fog|Gail and the Moonlight Garden|
+|follow|Gail and the Moonlight Garden|
+|forest|Gail and the Little Dragon Who Forgot to Fly；Gail and the Moonlight Garden|
 |fox|Gail and the Fox Who Was Afraid to Draw|
 |friend|Where Is My Star?；Gail and the Princess Who Forgot to Smile；Gail and the Pirate Who Said Mine|
+|frog|Gail and the Moonlight Garden|
 |gail|Gail and the Big Bad Wolf|
 |gap|Gail and the Giant’s Tiny Umbrella|
-|garden|Gail and the Wizard Who Always Said Later|
+|garden|Gail and the Wizard Who Always Said Later；Gail and the Moonlight Garden|
 |gentle|Gail and the Cloud That Could Not Stop Thundering|
 |giant|Gail and the Giant’s Tiny Umbrella|
 |gift|Gail’s Birthday Cake；Gail and the Princess Who Forgot to Smile|
 |glasses|Gail and the Big Bad Wolf|
 |glide|Gail and the Little Dragon Who Forgot to Fly|
 |gloves|Gail and the Bear Who Hid the Pieces|
+|good night|Gail and the Moonlight Garden|
 |grandma|Gail and the Big Bad Wolf|
 |grass|Where Is My Star?|
-|hear|Gail and the Little Dragon Who Forgot to Fly|
-|help|Where Is My Star?；Gail and the Little Dragon Who Forgot to Fly；Gail and the Princess Who Forgot to Smile；Gail and the Wizard Who Always Said Later；Gail and the Pirate Who Said Mine|
+|hear|Gail and the Little Dragon Who Forgot to Fly；Gail and the Moonlight Garden|
+|help|Where Is My Star?；Gail and the Little Dragon Who Forgot to Fly；Gail and the Princess Who Forgot to Smile；Gail and the Wizard Who Always Said Later；Gail and the Pirate Who Said Mine；Gail and the Moonlight Garden|
 |hide|Gail and the Bear Who Hid the Pieces|
 |high|Where Is My Star?；Gail and the Little Dragon Who Forgot to Fly|
 |hill|Gail and the Little Dragon Who Forgot to Fly|
@@ -208,13 +222,15 @@ lid, chime, mist, float, breeze, scatter, spin, thunder, rumble, loud, angry, up
 |lid|Gail and the Cloud That Could Not Stop Thundering|
 |lifejacket|Gail and the Pirate Who Said Mine|
 |lift|Gail and the Giant’s Tiny Umbrella|
-|lily|Where Is My Star?|
+|light|Gail and the Moonlight Garden|
+|lily|Where Is My Star?；Gail and the Moonlight Garden|
 |line|Gail and the Fox Who Was Afraid to Draw|
 |list|Gail and the Wizard Who Always Said Later|
 |listen|Gail and the Princess Who Forgot to Smile|
 |little|Gail and the Little Dragon Who Forgot to Fly|
 |lonely|Gail and the Princess Who Forgot to Smile|
 |look|Gail and the Pirate Who Said Mine|
+|lost|Gail and the Moonlight Garden|
 |loud|Gail and the Cloud That Could Not Stop Thundering|
 |love|Gail’s Birthday Cake|
 |mail|Gail and the Big Bad Wolf|
@@ -227,9 +243,11 @@ lid, chime, mist, float, breeze, scatter, spin, thunder, rumble, loud, angry, up
 |mine|Gail and the Pirate Who Said Mine|
 |mist|Gail and the Cloud That Could Not Stop Thundering|
 |mistake|Gail and the Fox Who Was Afraid to Draw|
-|moon|Where Is My Star?|
+|moon|Where Is My Star?；Gail and the Moonlight Garden|
+|moonlight|Gail and the Moonlight Garden|
 |mosaic|Gail and the Bear Who Hid the Pieces|
-|mushroom|Where Is My Star?|
+|moth|Gail and the Moonlight Garden|
+|mushroom|Where Is My Star?；Gail and the Moonlight Garden|
 |name|Gail and the Cloud That Could Not Stop Thundering|
 |need|Gail and the Cloud That Could Not Stop Thundering|
 |nest|Gail and the Little Dragon Who Forgot to Fly|
@@ -244,7 +262,7 @@ lid, chime, mist, float, breeze, scatter, spin, thunder, rumble, loud, angry, up
 |over|Where Is My Star?|
 |pan|Gail’s Birthday Cake|
 |paper|Gail and the Fox Who Was Afraid to Draw|
-|path|Where Is My Star?；Gail and the Big Bad Wolf|
+|path|Where Is My Star?；Gail and the Big Bad Wolf；Gail and the Moonlight Garden|
 |patient|Gail and the Rabbit Who Could Not Wait|
 |pause|Gail and the Cloud That Could Not Stop Thundering|
 |phone|Gail and the Big Bad Wolf|
@@ -262,7 +280,7 @@ lid, chime, mist, float, breeze, scatter, spin, thunder, rumble, loud, angry, up
 |rabbit|Gail and the Rabbit Who Could Not Wait|
 |rack|Gail’s Birthday Cake|
 |rain|Gail and the Princess Who Forgot to Smile；Gail and the Giant’s Tiny Umbrella|
-|reach|Gail and the Bear Who Hid the Pieces|
+|reach|Gail and the Bear Who Hid the Pieces；Gail and the Moonlight Garden|
 |record|Gail and the Rabbit Who Could Not Wait|
 |repair|Gail and the Bear Who Hid the Pieces|
 |right|Gail and the Big Bad Wolf|
@@ -286,7 +304,7 @@ lid, chime, mist, float, breeze, scatter, spin, thunder, rumble, loud, angry, up
 |shelf|Gail and the Bear Who Hid the Pieces|
 |sink|Gail’s Birthday Cake|
 |sky|Where Is My Star?；Gail and the Little Dragon Who Forgot to Fly|
-|sleep|Where Is My Star?|
+|sleep|Where Is My Star?；Gail and the Moonlight Garden|
 |slice|Gail’s Birthday Cake|
 |slow|Gail and the Cloud That Could Not Stop Thundering|
 |smile|Gail and the Princess Who Forgot to Smile|
@@ -319,12 +337,13 @@ lid, chime, mist, float, breeze, scatter, spin, thunder, rumble, loud, angry, up
 |teeth|Gail and the Big Bad Wolf|
 |telescope|Where Is My Star?；Gail and the Pirate Who Said Mine|
 |tell|Gail and the Bear Who Hid the Pieces|
+|think|Gail and the Moonlight Garden|
 |thunder|Gail and the Cloud That Could Not Stop Thundering|
 |tile|Gail and the Bear Who Hid the Pieces|
 |timer|Gail’s Birthday Cake|
 |tiny|Gail and the Giant’s Tiny Umbrella|
-|together|Gail and the Princess Who Forgot to Smile；Gail and the Giant’s Tiny Umbrella；Gail and the Pirate Who Said Mine|
-|tree|Where Is My Star?|
+|together|Gail and the Princess Who Forgot to Smile；Gail and the Giant’s Tiny Umbrella；Gail and the Pirate Who Said Mine；Gail and the Moonlight Garden|
+|tree|Where Is My Star?；Gail and the Moonlight Garden|
 |truth|Gail and the Bear Who Hid the Pieces|
 |try|Gail and the Little Dragon Who Forgot to Fly；Gail and the Fox Who Was Afraid to Draw|
 |turn|Gail and the Fox Who Was Afraid to Draw；Gail and the Pirate Who Said Mine|
@@ -342,7 +361,7 @@ lid, chime, mist, float, breeze, scatter, spin, thunder, rumble, loud, angry, up
 |white|Where Is My Star?|
 |wind|Gail and the Little Dragon Who Forgot to Fly；Gail and the Giant’s Tiny Umbrella|
 |windmill|Where Is My Star?|
-|window|Where Is My Star?；Gail and the Princess Who Forgot to Smile|
+|window|Where Is My Star?；Gail and the Princess Who Forgot to Smile；Gail and the Moonlight Garden|
 |wing|Gail and the Little Dragon Who Forgot to Fly|
 |wizard|Gail and the Wizard Who Always Said Later|
 |wolf|Gail and the Big Bad Wolf|
