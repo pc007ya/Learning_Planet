@@ -1,10 +1,11 @@
+import {gailPoseImage} from './gail-poses';
 import type {ObjectSpec,SceneSpec,StoryPage} from './book';
 import type {StoryMotion} from './choreography';
 import {dragonText,type ReadingLevel} from './dragon-text';
 export {dragonText,type ReadingLevel};
 export const levelNames={A:'跟讀 · Read Along',B:'初階 · Early Reader',C:'進階 · Independent Reader'};
 export const dragonObjects:Record<string,ObjectSpec>={
- gail:{id:'gail',word:'Gail',kind:'girl',image:'../little-star-v1/gail-paper.png',x:78,y:70,w:20,h:49},
+ gail:{id:'gail',word:'Gail',kind:'girl',image:gailPoseImage('standing'),x:78,y:70,w:20,h:49},
  pip:{id:'pip',word:'Pip',x:39,y:70,w:33,h:49,sprite:{sheet:'cast.png',cell:0,columns:2}},
  bird:{id:'bird',word:'bird',x:65,y:26,w:14,h:21,sprite:{sheet:'cast.png',cell:3,columns:2,clip:'inset(0 0 0 20%)'}},
  forest:{id:'forest',word:'forest',x:20,y:33,w:23,h:35},cave:{id:'cave',word:'cave',x:25,y:44,w:25,h:32},

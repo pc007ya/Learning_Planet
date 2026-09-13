@@ -1,3 +1,4 @@
+import {gailPoseImage} from './gail-poses';
 import type {ObjectSpec,SceneSpec,StoryPage} from './book';
 import type {StoryMotion} from './choreography';
 import type {ReadingLevel} from './dragon-text';
@@ -10,7 +11,7 @@ const cast=(cell:number):NonNullable<ObjectSpec['sprite']>=>{
 };
 const prop=(cell:number)=>({sheet:'props.png',cell,columns:3});
 export const princessObjects:Record<string,ObjectSpec>={
- gail:{id:'gail',word:'Gail',kind:'girl',image:'../little-star-v1/gail-paper.png',x:27,y:62,w:23,h:55.2},
+ gail:{id:'gail',word:'Gail',kind:'girl',image:gailPoseImage('standing'),x:27,y:62,w:23,h:55.2},
  ella:{id:'ella',word:'princess',sprite:cast(0),x:73,y:64,w:35,h:52.5},
  caregiver:{id:'caregiver',word:'caregiver',sprite:cast(6),x:87,y:50,w:25,h:37.5},
  boy:{id:'boy',word:'friend',sprite:cast(7),x:15,y:69,w:26,h:39},
@@ -46,7 +47,7 @@ export function princessPages(level:ReadingLevel):StoryPage[]{return princessTex
  if([4,5,12,15].includes(i))placements.ella={sprite:cast(2),w:27,h:38.6,y:69};
  if(i===7)placements.ella={sprite:cast(3)};
  if(i>=17)placements.ella={sprite:cast(4)};
- if([8,9,15,18].includes(i))placements.gail={image:'gail-listening-v2.png',sprite:undefined,w:24,h:38.7,y:69};
+ if([8,9,15,18].includes(i))placements.gail={image:gailPoseImage('seated'),sprite:undefined,w:24,h:38.7,y:69};
  if(i===0)placements.gail={x:76};
  if([10,11,12,13,14,15,16,17].includes(i)){placements.ella={...placements.ella,x:62};placements.gail={...placements.gail,x:24};}
  if(i===11)placements.orange={x:44,y:82};

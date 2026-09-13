@@ -1,0 +1,8 @@
+import {test,expect} from 'vitest';
+import {existsSync,readFileSync} from 'node:fs';
+import {cloudPages,cloudObjects,cloudVocabulary} from '../src/story/interactive/cloud';
+import {cloudQuestions} from '../src/story/interactive/cloud-quiz';
+import {cloudChinese} from '../src/story/interactive/cloud-text';
+import {vocabularyGlossary} from '../src/story/interactive/vocabulary-glossary';
+test('cloud levels, Chinese, mission targets and question images are complete',()=>{for(const level of ['A','B','C'] as const){const pages=cloudPages(level);expect(pages).toHaveLength(20);const questions=cloudQuestions(level);expect(questions).toHaveLength(16);pages.forEach((p,i)=>{expect(cloudChinese(i,level).length).toBeGreaterThan(0);expect(p.objects).toContain(p.mission.answer);for(const id of p.objects){const o={...cloudObjects[id],...p.placements?.[id]};if(o.image)expect(existsSync(o.image.startsWith('images/')?o.image:'images/story/cloud-v1/'+o.image),o.image).toBe(true);}});questions.forEach(q=>expect(existsSync(q.image!),q.image).toBe(true));}});
+test('20 translated core words avoid historic repeats and simple inflections',()=>{expect(new Set(cloudVocabulary).size).toBe(20);const taught=new Set(cloudPages('C').flatMap(p=>p.words));cloudVocabulary.forEach(w=>{expect(taught.has(w),w).toBe(true);expect(vocabularyGlossary[w],w).toBeTruthy();});const old=JSON.parse(readFileSync('docs/story-catalog/catalog.json','utf8')).books.filter((b:{id:string;source?:string})=>b.source&&b.id!=='cloud');const used=new Set(old.flatMap((b:{words:string[]})=>b.words));expect(cloudVocabulary.filter(w=>used.has(w)||used.has(w+'s')||used.has(w+'ing')||used.has(w+'ed')||used.has(w+'ly')).length).toBeLessThan(3);});

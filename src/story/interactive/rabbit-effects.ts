@@ -1,0 +1,22 @@
+/** Ordered entrance and rooted growth: soil/pot never scales with the plant. */
+export function createRabbitEffects(world:HTMLElement,page:number,_sound:boolean){
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,animations=new Set<Animation>(),nodes:HTMLElement[]=[];
+ let disposed=false;let entranceFrame=0;
+ const object=(id:string)=>world.querySelector<HTMLElement>(`[data-object="${id}"]`);
+ function animate(n:HTMLElement,frames:Keyframe[],duration:number,delay=0){const a=n.animate(frames,{duration:reduced?150:duration,delay:reduced?0:delay,fill:'forwards',easing:'ease-in-out'});animations.add(a);return a;}
+ function clear(){animations.forEach(a=>a.cancel());animations.clear();nodes.splice(0).forEach(n=>n.remove());}
+ if(page<2){const pot=object('pot');if(pot)pot.style.translate='55vw 0';const rabbit=object('rabbit');if(rabbit)rabbit.style.opacity='0';}
+ function entrance(){clear();const pot=object('pot');if(!pot)return;animate(pot,[{translate:'55vw 0'},{translate:'0 0'}],1100);animate(pot,[{filter:'drop-shadow(0 0 0px transparent)'},{filter:'drop-shadow(0 0 23px #bce681)'}],1100,1100);
+ const rabbit=object('rabbit');if(rabbit)animate(rabbit,[{opacity:0,translate:'35vw 0'},{opacity:1,translate:'15vw -70px',offset:.5},{opacity:1,translate:'0 0'}],1000,2200);
+ for(let i=0;i<12;i++){const n=document.createElement('i');n.className='rabbit-mote';n.style.left='50%';n.style.top='12%';n.setAttribute('aria-hidden','true');pot.append(n);nodes.push(n);animate(n,[{opacity:0,translate:'0 0'},{opacity:.9,offset:.2},{opacity:0,translate:`${(i%2?1:-1)*(50+i*12)}px ${-90-i*12}px`}],2200,1200+i*40);}
+ if(page===1){const bg=document.createElement('img');bg.className='rabbit-arrival';bg.src='images/story/rabbit-v1/garden.png';bg.alt='綠光帶領瑜瑜進入育苗園';world.append(bg);nodes.push(bg);animate(bg,[{opacity:0},{opacity:1}],1400,3100);}
+ }
+ function grow(){const img=object('sprout')?.querySelector('img');if(img){img.style.transformOrigin='50% 100%';animate(img,[{scale:page>=17?'.65 .6':'.8 .55'},{scale:'1 1'}],2500);}}
+ if(page===13||page===14){const ruler=document.createElement('div');ruler.className='rabbit-ruler';for(let i=0;i<=10;i+=2){const mark=document.createElement('span');mark.textContent=String(i)+' ─';mark.style.bottom=(i*9)+'%';ruler.append(mark);}ruler.setAttribute('aria-label','從土面開始的高度尺');world.append(ruler);nodes.push(ruler);if(page===14){const old=document.createElement('div');old.className='rabbit-old-height';old.textContent='Before';world.append(old);nodes.push(old);}}
+ if([11,16,18,19].includes(page)){const record=object('record');if(record){const marks=document.createElement('span');marks.className='rabbit-record-marks';marks.textContent=page===11?'1 · ✓':page===16?'1 ✓  2 ✓  3 ✓':'1 ✓  2 ✓  3 ✓  4 ✓';marks.setAttribute('aria-label','每日觀察紀錄');record.append(marks);}}
+ function dig(){const scoop=object('scoop'),pot=object('pot');if(!scoop||!pot)return;const dx=pot.offsetLeft-scoop.offsetLeft+scoop.offsetWidth*.2,dy=pot.offsetTop-pot.offsetHeight*.45-scoop.offsetTop-scoop.offsetHeight*.2;animate(scoop,[{rotate:'0deg',translate:'0 0'},{rotate:'-30deg',translate:`${dx}px ${dy-8}px`,offset:.35},{rotate:'-10deg',translate:`${dx}px ${dy+6}px`,offset:.55},{rotate:'-40deg',translate:`${dx-8}px ${dy-16}px`,offset:.75},{rotate:'0deg',translate:'0 0'}],2200);}
+ function water(){const can=object('can');if(!can)return;animate(can,[{rotate:'0deg'},{rotate:'15deg',offset:.3},{rotate:'0deg'}],1600);for(let i=0;i<9;i++){const n=document.createElement('i');n.className='rabbit-drop';n.style.left='49%';n.style.top='68%';world.append(n);nodes.push(n);animate(n,[{opacity:0,translate:'0 0'},{opacity:1,offset:.2},{opacity:0,translate:`${i%3*4}px 40px`}],650,i*100);}}
+ function interact(id:string){if(disposed)return;if(page<2){entrance();return;}if(id==='scoop'||id==='dig')dig();if(id==='can'||id==='sprinkle')water();if(['sprout','taller','measure'].includes(id))grow();if(page===5&&id==='seed'){const seed=object('seed');if(seed)animate(seed,[{translate:'0 0',opacity:1},{translate:'0 32px',opacity:0}],900);}}
+ if(page<2)entranceFrame=requestAnimationFrame(()=>{if(!disposed)entrance();});
+ return {interact,sentence(index:number,_text:string){if(index===0){if(page<2)entrance();else if(page===4||page===9)dig();else if(page===6)water();else if([12,14,17].includes(page))grow();}},playback(running:boolean,paused:boolean){animations.forEach(a=>{if(paused||!running)a.pause();else a.play();});},sound(_enabled:boolean){},dispose(){disposed=true;cancelAnimationFrame(entranceFrame);clear();}};
+}

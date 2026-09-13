@@ -1,0 +1,15 @@
+import type {ReadingLevel} from './dragon-text';
+import type {StoryQuestion} from './dragon-quiz';
+export function bearQuestions(level:ReadingLevel):StoryQuestion[]{const a=level==='A';const rows:[string,string,string,string[],number,string][]=[
+ ['What shines?','What begins to glow after Gail looks closely?','tile',['A tile','A spoon','A shoe','A leaf'],0,'The blue tile lights the way.'],
+ ['What does Bear bump?','What does Bear accidentally knock from the shelf?','pot',['A chair','A clay pot','A pillow','A bell'],1,'His elbow bumps the clay pot.'],
+ ['What is broken?','What happens when the pot hits the floor?','pieces',['It flies away.','It grows.','It breaks into pieces.','It turns to gold.'],2,'The pot cracks on the floor.'],
+ ['Why does Bear hide it?','Why does Bear pull the curtain across the pieces?','bear-worried',['He is decorating.','He wants to sleep.','He is cold.','He is frightened to tell.'],3,'Bear is frightened about the accident.'],
+ ['What does Gail do?','How does Gail help Bear begin to speak?','bear-reaching',['She waits and listens.','She laughs at him.','She hides the pieces too.','She blames someone else.'],0,'Gail gives Bear time to tell what happened.'],
+ ['Who should Bear tell?','Who needs to hear how the work was broken?','adult',['Nobody','The potter','A bird','Only a toy'],1,'Bear tells the potter whose work was broken.'],
+ ['What is honest?','Which answer tells the truth about the accident?','bear-worried',['Nothing happened.','Someone else did it.','I bumped it and hid it.','It vanished.'],2,'Bear explains his own actions.'],
+ ['Who handles sharp pieces?','Who handles the sharp pieces with protection?','gloves',['Gail with bare hands','Bear with bare paws','Nobody ever','The adult with gloves'],3,'The adult uses protective gloves and tools.'],
+ ['What do they make?','What do they make from the pieces after the edges are smooth?','mosaic',['A mosaic','A new bird','A cake','A boat'],0,'They arrange safe pieces into a heart mosaic.'],
+ ['What comes after sorry?','What action follows Bear’s apology?','smooth',['Hide again','Help with the next safe step','Blame Gail','Pretend it never happened'],1,'Bear helps with safe repair after telling the truth.']];const q:StoryQuestion[]=rows.map((r,i)=>({id:'bear-'+i,kind:'choice',prompt:a?r[0]:r[1],image:`images/story/bear-v1/${r[2]}.png`,imageAlt:'故事相關物件或角色',options:r[3].map(text=>({text})),answer:[r[4]],explanation:r[5]}));
+const answers=['Gail finds the blue tile.','Bear admires the pot.','The pot breaks on the floor.','Bear hides the pieces.','Bear tells the potter the truth.','They display the mosaic.'];
+answers.forEach((correct,i)=>{const options=['They sail away.','They bake a cake.','They chase a butterfly.','They plant a seed.'];options[i%4]=correct;q.push({id:'bear-picture-'+i,kind:'choice',prompt:a?'Look. What happens?':'Which event matches this picture?',image:`images/story/bear-v1/quiz/scene-${i+1}.jpg`,imageAlt:'小熊故事分鏡 '+(i+1),options:options.map(text=>({text})),answer:[i%4],explanation:correct});});return q;}

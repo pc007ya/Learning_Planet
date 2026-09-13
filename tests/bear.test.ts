@@ -1,0 +1,8 @@
+import {test,expect} from 'vitest';
+import {existsSync,readFileSync} from 'node:fs';
+import {bearPages,bearObjects,bearVocabulary} from '../src/story/interactive/bear';
+import {bearQuestions} from '../src/story/interactive/bear-quiz';
+import {bearChinese} from '../src/story/interactive/bear-text';
+import {vocabularyGlossary} from '../src/story/interactive/vocabulary-glossary';
+test('bear book has complete levels, translations, mission targets and image questions',()=>{for(const level of ['A','B','C'] as const){const pages=bearPages(level);expect(pages).toHaveLength(20);const questions=bearQuestions(level);expect(questions).toHaveLength(16);pages.forEach((p,i)=>{expect(bearChinese(i,level).length).toBeGreaterThan(0);expect(p.objects).toContain(p.mission.answer);for(const id of p.objects){const o={...bearObjects[id],...p.placements?.[id]};if(o.image)expect(existsSync(o.image.startsWith('images/')?o.image:'images/story/bear-v1/'+o.image),o.image).toBe(true);}});questions.forEach(q=>expect(existsSync(q.image!),q.image).toBe(true));}});
+test('20 core words are taught, translated and avoid three historic repeats',()=>{expect(new Set(bearVocabulary).size).toBe(20);const taught=new Set(bearPages('C').flatMap(p=>p.words));bearVocabulary.forEach(w=>{expect(taught.has(w),w).toBe(true);expect(vocabularyGlossary[w],w).toBeTruthy();});const old=JSON.parse(readFileSync('docs/story-catalog/catalog.json','utf8')).books.filter((b:{id:string;source?:string})=>b.source&&b.id!=='bear');const used=new Set(old.flatMap((b:{words:string[]})=>b.words));expect(bearVocabulary.filter(w=>used.has(w)).length).toBeLessThan(3);});

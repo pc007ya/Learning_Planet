@@ -1,3 +1,4 @@
+import {gailPoseImage} from './gail-poses';
 import type {ObjectSpec,StoryPage,SceneSpec} from './book';
 import type {StoryMotion} from './choreography';
 export const cakeObjects:Record<string,ObjectSpec>={
@@ -9,7 +10,7 @@ export const cakeObjects:Record<string,ObjectSpec>={
     "w": 21,
     "h": 52,
     "kind": "girl",
-    "image": "../little-star-v1/gail-paper.png"
+    "image": gailPoseImage('standing')
   },
   "mom": {
     "id": "mom",

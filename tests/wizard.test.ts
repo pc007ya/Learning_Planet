@@ -1,0 +1,10 @@
+import {describe,it,expect} from 'vitest';
+import {wizardPages,wizardObjects,wizardChoreography} from '../src/story/interactive/wizard';
+import {wizardVocabulary,wizardText} from '../src/story/interactive/wizard-text';
+import {wizardQuestions} from '../src/story/interactive/wizard-quiz';
+import {freshQuiz,quizScore} from '../src/story/interactive/story-quiz';
+describe('Wizard story',()=>{
+ it('has twenty shared scenes and twenty core words across levels',()=>{expect(new Set(wizardVocabulary).size).toBe(20);for(const level of ['A','B','C'] as const){const pages=wizardPages(level);expect(pages).toHaveLength(20);expect(pages.map(p=>p.scene)).toEqual(wizardPages('A').map(p=>p.scene));expect(wizardText.every(t=>t[level].length>=2)).toBe(true);}const text=wizardText.map(t=>t.A.join(' ')).join(' ').toLowerCase();for(const word of wizardVocabulary)expect(text).toContain(word);});
+ it('keeps missions and motion on available objects',()=>{for(const level of ['A','B','C'] as const){const pages=wizardPages(level);pages.forEach(p=>{for(const id of [p.mission.answer,...(p.mission.steps||[]),...(p.mission.target?[p.mission.target]:[])])expect(p.objects).toContain(id);p.objects.forEach(id=>expect(wizardObjects[id]).toBeTruthy());});for(const [page,lines] of Object.entries(wizardChoreography(level)))for(const [line,cues] of Object.entries(lines)){expect(Number(line)).toBeLessThan(pages[Number(page)].lines.length);for(const cue of cues)expect(pages[Number(page)].objects).toContain(cue.actor);}}});
+ it('offers sixteen four-choice questions including six picture scenes; selection is not submission',()=>{for(const level of ['A','B','C'] as const){const q=wizardQuestions(level);expect(q).toHaveLength(16);expect(q.filter(x=>x.id.startsWith('scene-'))).toHaveLength(6);for(const x of q){expect(x.options).toHaveLength(4);expect(new Set(x.options.map(o=>o.text)).size).toBe(4);expect(x.answer[0]).toBeLessThan(4);}const state=freshQuiz();state.answers[0]=q[0].answer;expect(quizScore(state,q)).toBe(0);state.attempted[0]=true;expect(quizScore(state,q)).toBe(1);}});
+});

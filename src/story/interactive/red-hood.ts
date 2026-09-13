@@ -1,10 +1,11 @@
+import {gailPoseImage} from './gail-poses';
 import type {ObjectSpec,StoryPage,SceneSpec} from './book';
 import type {StoryMotion} from './choreography';
 const puppet=(id:string,word:string,cell:number,x:number):ObjectSpec=>({id,word,x,y:69,w:22,h:54,sprite:{sheet:'cast.png',cell,columns:2,clip:cell<2?'inset(0 0 3% 0)':undefined}});
 const prop=(id:string,cell:number,x:number,y:number,w=14,h=21):ObjectSpec=>({id,word:id,x,y,w,h,sprite:{sheet:'props.png',cell,columns:3}});
 const hot=(id:string,word:string,x:number,y:number,w:number,h:number):ObjectSpec=>({id,word,x,y,w,h});
 export const redObjects:Record<string,ObjectSpec>={
- gail:{id:'gail',word:'Gail',x:82,y:72,w:21,h:52,image:'gail.png',kind:'girl'},
+ gail:{id:'gail',word:'Gail',x:82,y:72,w:21,h:52,image:'gail-clean-v2.png',kind:'girl'},
  wolf:puppet('wolf','wolf',0,29),grandma:puppet('grandma','Grandma',1,27),mom:puppet('mom','Mom',2,25),manager:puppet('manager','manager',3,52),
  bread:prop('bread',0,50,76),bag:prop('bag',1,68,80,18,25),soup:prop('soup',2,38,74),phone:prop('phone',3,74,69,11,18),cap:prop('cap',4,54,47),glasses:prop('glasses',5,65,65,15,12),blanket:prop('blanket',6,45,76,23,27),bowl:prop('bowl',7,55,76),map:prop('map',8,57,78,20,27),
  hood:hot('hood','hood',83,53,19,18),door:hot('door','door',11,39,18,66),window:hot('window','window',74,22,25,35),
@@ -1393,7 +1394,7 @@ redChoreography[22][2]=[{actor:'bowl',x:62,y:62}];
 for(const p of redPages)p.words=p.words.map(w=>w==='gail'?'Gail':w==='grandma'?'Grandma':w);
 
 // A separate cape is placed over Gail before the final costume is shown.
-redPages[0].placements={...redPages[0].placements,gail:{image:'../little-star-v1/gail-paper.png'},hood:{image:'cape.png',x:63,y:62,w:19,h:22}};
+redPages[0].placements={...redPages[0].placements,gail:{image:gailPoseImage('standing')},hood:{image:'cape.png',x:63,y:62,w:19,h:22}};
 redChoreography[0][1]=[{actor:'hood',x:82,y:61}];
 for(const index of [14,15,16,17]){
  redPages[index].placements={...redPages[index].placements,ears:{x:30,y:35,w:13,h:10},eyes:{x:31,y:41,w:11,h:8},teeth:{x:32,y:46,w:10,h:8},tail:{x:22,y:64,w:10,h:19}};

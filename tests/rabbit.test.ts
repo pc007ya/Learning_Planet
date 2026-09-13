@@ -1,0 +1,6 @@
+import {test,expect} from 'vitest';
+import {existsSync,readFileSync} from 'node:fs';
+import {rabbitPages,rabbitObjects,rabbitVocabulary} from '../src/story/interactive/rabbit';
+import {rabbitQuestions} from '../src/story/interactive/rabbit-quiz';
+test('rabbit assets, targets and all three levels form a complete book',()=>{for(const level of ['A','B','C'] as const){const pages=rabbitPages(level);expect(pages).toHaveLength(20);expect(rabbitQuestions(level)).toHaveLength(16);for(const page of pages){expect(page.lines.length).toBeGreaterThan(0);expect(page.objects).toContain(page.mission.answer);for(const id of page.objects){const o={...rabbitObjects[id],...page.placements?.[id]};if(o.image)expect(existsSync(o.image.startsWith('images/')?o.image:'images/story/rabbit-v1/'+o.image)).toBe(true);}}}});
+test('twenty core words appear in teaching pages and have no exact historic duplicates',()=>{expect(new Set(rabbitVocabulary).size).toBe(20);const words=new Set(rabbitPages('C').flatMap(p=>p.words));rabbitVocabulary.forEach(w=>expect(words.has(w)).toBe(true));const old=JSON.parse(readFileSync('docs/story-catalog/catalog.json','utf8')).books.filter((b:{id:string;source?:string})=>b.source&&b.id!=='rabbit');const used=new Set(old.flatMap((b:{words:string[]})=>b.words));expect(rabbitVocabulary.filter(w=>used.has(w)).length).toBeLessThan(3);});
