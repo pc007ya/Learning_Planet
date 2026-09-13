@@ -6,7 +6,18 @@ import { solvedCube, turnCube, type CubeState, type CubeColor } from './cube-sta
 export const CUBE_COLORS: Record<CubeColor,number>={white:0xfff9e6,yellow:0xffd53d,red:0xf14355,orange:0xff8b30,green:0x16b985,blue:0x2686ef};
 export const CUBE_FACES=[{id:'U',color:'white',name:'白色上面',normal:[0,1,0]}, {id:'F',color:'green',name:'綠色前面',normal:[0,0,1]}, {id:'R',color:'red',name:'紅色右面',normal:[1,0,0]}, {id:'B',color:'blue',name:'藍色後面',normal:[0,0,-1]}, {id:'L',color:'orange',name:'橘色左面',normal:[-1,0,0]}, {id:'D',color:'yellow',name:'黃色底面',normal:[0,-1,0]}] as const;
 const FACE_AXIS:Record<string,[number,number]>={R:[0,1],L:[0,-1],U:[1,1],D:[1,-1],F:[2,1],B:[2,-1]};
+// Corner view: 45° azimuth and 35.3° elevation give U/F/R equal prominence.
+const HOME_CAMERA = new T.Vector3(6,6,6);
 export class CubeView {
+  onCameraChange=()=>{};
+  get singleFaceView(){const d=this.camera.position.clone().sub(this.controls.target).normalize();return Math.max(Math.abs(d.x),Math.abs(d.y),Math.abs(d.z))>.998;}
+  toggleCamera(face?:string){
+    if(this.singleFaceView){this.home();return;}
+    const d=this.camera.position.clone().sub(this.controls.target).normalize();
+    const nearest=[...CUBE_FACES].sort((a,b)=>d.dot(new T.Vector3(...b.normal))-d.dot(new T.Vector3(...a.normal)))[0];
+    this.faceCamera(face||nearest.id);
+    if(this.exploded)this.zoom(1.5);
+  }
   readonly scene=new T.Scene(); readonly camera=new T.PerspectiveCamera(36,1,.1,80);
   readonly root=new T.Group(); readonly renderer:T.WebGLRenderer; readonly controls:OrbitControls;
   state:CubeState=solvedCube(); exploded=false; turnMode=false; busy=false;
@@ -18,7 +29,7 @@ export class CubeView {
     this.renderer=new T.WebGLRenderer({alpha:true,antialias:true});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
     this.renderer.setClearColor(0x000000,0);this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=T.PCFSoftShadowMap;
     this.renderer.domElement.setAttribute('aria-label','可轉動與縮放的魔術方塊');stage.append(this.renderer.domElement);
-    this.camera.position.set(6,4.5,7);this.scene.add(this.root);
+    this.camera.position.copy(HOME_CAMERA);this.scene.add(this.root);
     // A camera-side fill keeps underside/back stickers readable for color lessons.
     const readingLight=new T.DirectionalLight(0xffffff,2);readingLight.position.set(0,1,0);this.camera.add(readingLight);this.scene.add(this.camera);
     this.scene.add(new T.HemisphereLight(0xf2f8ff,0x3a486b,2));
@@ -28,7 +39,7 @@ export class CubeView {
     this.makeCore();this.root.add(this.core);
     this.halo=new T.LineSegments(new T.EdgesGeometry(new T.BoxGeometry(2.98,2.98,.035)),new T.LineBasicMaterial({color:0xffec92,transparent:true,opacity:.9}));this.root.add(this.halo);
     this.controls=new OrbitControls(this.camera,this.renderer.domElement);this.controls.enablePan=false;this.controls.enableDamping=false;this.controls.minDistance=5.8;this.controls.maxDistance=16;this.controls.minPolarAngle=.04;this.controls.maxPolarAngle=Math.PI-.04;
-    this.controls.addEventListener('change',this.draw);this.controls.addEventListener('start',()=>{if(this.task&&!this.busy)this.task=undefined;});
+    this.controls.addEventListener('change',()=>{this.draw();this.onCameraChange();});this.controls.addEventListener('start',()=>{if(this.task&&!this.busy)this.task=undefined;});
     this.resize=new ResizeObserver(()=>{const w=stage.clientWidth,h=stage.clientHeight;if(w&&h){this.camera.aspect=w/h;this.camera.updateProjectionMatrix();this.renderer.setSize(w,h,false);this.draw();}});this.resize.observe(stage);
     const canvas=this.renderer.domElement;
     canvas.addEventListener('pointerdown',e=>{if(e.isPrimary)this.down={x:e.clientX,y:e.clientY,time:performance.now(),id:e.pointerId};},{signal:this.abort.signal});
@@ -75,7 +86,7 @@ export class CubeView {
   }
   private animate(duration:number,tick:(t:number)=>void){this.busy=true;return new Promise<void>(resolve=>{this.task={start:performance.now(),duration:matchMedia('(prefers-reduced-motion: reduce)').matches?0:duration,tick,done:()=>{this.busy=false;resolve();}};this.draw();});}
   reset(state=solvedCube()){if(this.busy)return;this.state=state;this.exploded=false;this.sync();this.mode('view');this.home();}
-  home(){this.camera.up.set(0,1,0);this.camera.position.set(6,4.5,7).multiplyScalar(this.exploded?1.5:1);this.controls.target.set(0,0,0);this.controls.update();this.draw();}
+  home(){this.camera.up.set(0,1,0);this.camera.position.copy(HOME_CAMERA).multiplyScalar(this.exploded?1.5:1);this.controls.target.set(0,0,0);this.controls.update();this.draw();}
   zoom(factor:number){this.camera.position.sub(this.controls.target).multiplyScalar(factor).clampLength(this.controls.minDistance,this.controls.maxDistance).add(this.controls.target);this.controls.update();this.draw();}
   focusCore(){this.camera.position.set(6,4.1,7.2);this.controls.target.set(0,0,0);this.controls.update();this.draw();}
   focusPart(kind:'center'|'edge'|'corner'|'core'){

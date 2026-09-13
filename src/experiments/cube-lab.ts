@@ -33,6 +33,10 @@ export class CubeLab {
     this.root=host.querySelector('.cube-lab')!;this.status=this.root.querySelector('.cube-badge')!;this.explanation=this.root.querySelector('.cube-explanation')!;
     this.root.querySelector('h2')!.insertAdjacentHTML('afterend',button('book',BOOK_ICON,'圖解教學書'));this.book=new CubeBook(this.root,this.voice);
     this.view=new CubeView(this.root.querySelector('.cube-stage')!);this.view.onFace=f=>{if(this.teacher)return;this.face=f;this.update();};this.view.onDragTurn=m=>{if(!this.teacher)void this.turn(m);};
+    this.root.querySelector('.cube-camera')!.insertAdjacentHTML('beforeend',button('camera-toggle','▣','切換為單面視角'));
+    const cameraToggle=this.root.querySelector<HTMLButtonElement>('[data-cube=camera-toggle]')!;
+    const updateCameraToggle=()=>{const single=this.view.singleFaceView;cameraToggle.textContent=single?'三面':'單面';cameraToggle.setAttribute('aria-label',single?'切換為三面視角':'切換為單面視角');cameraToggle.title=single?'切換為三面視角':'切換為單面視角';};
+    cameraToggle.style.fontSize='14px';this.view.onCameraChange=updateCameraToggle;updateCameraToggle();
     this.explanation.insertAdjacentHTML('afterend',button('teach','💡 教我還原','教我還原'));
     this.root.addEventListener('click',e=>{const b=(e.target as HTMLElement).closest<HTMLButtonElement>('button');if(!b)return;if(b.dataset.face){this.face=b.dataset.face;this.setMode('turn');this.update();this.tell(`${CUBE_FACES.find(f=>f.id===this.face)!.name}。箭頭以正看這一面為準。`);return;}if(b.dataset.answer){this.answer(b.dataset.answer);return;}void this.action(b.dataset.cube||'');},{signal:this.abort.signal});
     document.addEventListener('visibilitychange',()=>{if(document.hidden){this.voice.stop();this.sequence++;this.recorder?.destroy();}},{signal:this.abort.signal});this.update();
@@ -52,6 +56,7 @@ export class CubeLab {
     if(id==='replay'){this.voice.replay();return;}
     if(id==='book'){if(!this.view.busy&&!this.recording)this.book.toggle();return;}
     if(this.root.dataset.bookOpen==='true')return;
+    if(id==='camera-toggle'){if(!this.recording&&!this.view.busy)this.view.toggleCamera(this.teacher?undefined:this.face);return;}
     if(this.teacher){if(id==='zoom-in')this.view.zoom(.85);if(id==='zoom-out')this.view.zoom(1.18);if(id==='home')this.view.home();if(id==='help')this.teacher.explain();return;}
     if(this.recording)return;
     if(id==='quiz'){this.setPage(this.page==='quiz'?'play':'quiz');if(this.page==='quiz')this.quiz();return;}
