@@ -9,3 +9,19 @@ vocabularySymbols.turn='🔄';
 Object.assign(vocabularyGlossary,{bear:"熊",tile:"磁磚",clay:"黏土",shelf:"架子",reach:"伸手",bump:"碰撞",crack:"裂開",broken:"破碎的",piece:"碎片；一片",hide:"藏起來",worried:"擔心的",truth:"事實；真相",tell:"告訴",sorry:"抱歉",honest:"誠實的",adult:"大人",gloves:"手套",sweep:"清掃",repair:"修補",mosaic:"馬賽克拼貼"});
 
 Object.assign(vocabularyGlossary,{lid:'蓋子',chime:'清脆的鈴聲',mist:'霧',float:'飄浮',breeze:'微風',scatter:'散開',spin:'旋轉',thunder:'雷聲',rumble:'隆隆聲',loud:'大聲的',angry:'生氣的',upset:'難受的',name:'說出名稱；說出感受',pause:'暫停',breathe:'呼吸',slow:'慢的',calm:'平靜的',gentle:'柔和的',need:'需要',again:'再一次'});
+
+Object.assign(vocabularyGlossary,{"fairy": "仙女", "wand": "魔杖", "yes": "是／好", "no": "不／不要", "please": "請", "busy": "忙碌的", "tired": "疲倦的", "rest": "休息", "carry": "搬運", "bucket": "水桶", "parcel": "包裹", "ribbon": "緞帶", "heavy": "重的", "full": "滿的", "empty": "空的", "enough": "足夠", "choose": "選擇", "promise": "答應", "picnic": "野餐", "kind": "友善的", "knight": "騎士", "helmet": "頭盔", "shield": "盾牌", "flag": "旗子", "race": "比賽", "fast": "快的", "win": "贏", "lose": "輸", "team": "團隊", "partner": "夥伴", "push": "推", "pull": "拉", "balance": "平衡", "steady": "穩定的", "tent": "帳篷", "peg": "營釘", "hammer": "槌子", "check": "檢查", "ready": "準備好的", "cheer": "歡呼"});
+
+Object.assign(vocabularyGlossary,{"genie": "神燈精靈", "wish": "願望", "want": "想要", "more": "更多", "less": "更少", "many": "許多", "few": "少數", "toy": "玩具", "train": "火車", "balloon": "氣球", "crown": "王冠", "gold": "金色", "silver": "銀色", "shiny": "閃亮的", "huge": "巨大的", "small": "小的", "space": "空間", "compare": "比較", "decide": "決定", "keep": "保留", "music": "音樂", "drum": "鼓", "flute": "長笛", "violin": "小提琴", "piano": "鋼琴", "trumpet": "小號", "sound": "聲音", "silent": "無聲的", "beat": "拍點", "rhythm": "節奏", "clap": "拍手", "tap": "輕敲", "shake": "搖動", "soft": "輕柔的", "volume": "音量", "tune": "曲調", "song": "歌曲", "band": "樂隊", "conductor": "指揮", "bow": "鞠躬"});
+
+Object.assign(vocabularyGlossary,{'clock': '時鐘', 'watch': '懷錶', 'hand': '指針', 'tick': '滴答聲', 'hour': '小時', 'minute': '分鐘', 'second': '秒', 'early': '提早的', 'late': '遲的', 'today': '今天', 'tomorrow': '明天', 'yesterday': '昨天', 'morning': '早晨', 'evening': '傍晚', 'breakfast': '早餐', 'lunch': '午餐', 'ticket': '車票', 'suitcase': '行李箱', 'photo': '照片', 'enjoy': '享受'});
+
+Object.assign(vocabularyGlossary,{"shadow": "影子", "flashlight": "手電筒", "noise": "聲響", "branch": "樹枝", "curtain": "窗簾", "shape": "形狀", "round": "圓的", "straight": "筆直的", "behind": "在後面", "beside": "在旁邊", "inside": "在裡面", "outside": "在外面", "guess": "猜測", "explain": "解釋", "creak": "吱呀聲", "wall": "牆壁", "floor": "地板", "short": "短的", "dark": "黑暗的", "brave": "勇敢的"});
+
+Object.assign(vocabularyGlossary,{"mermaid": "美人魚", "coral": "珊瑚", "reef": "珊瑚礁", "seaweed": "海草", "sand": "沙", "shell": "貝殼", "crab": "螃蟹", "turtle": "海龜", "shelter": "庇護處", "tidy": "整齊的", "messy": "凌亂的", "clean": "乾淨的", "dirty": "髒的", "scrub": "刷洗", "spotless": "一塵不染的", "natural": "自然的", "protect": "保護", "habitat": "棲地", "belong": "屬於", "litter": "垃圾"});
+
+Object.assign(vocabularyGlossary,{ elf:'小精靈',acorn:'橡實',bud:'花苞',bloom:'花朵',ripe:'成熟的',unripe:'未熟的',change:'改變',grow:'成長',learn:'學習',new:'新的',old:'舊的',young:'年幼的',season:'季節',spring:'春天',summer:'夏天',autumn:'秋天',winter:'冬天',melt:'融化',frozen:'定住的',allow:'允許',});
+
+Object.assign(vocabularyGlossary,{"parrot": "鸚鵡", "beak": "鳥喙", "feather": "羽毛", "perch": "棲木", "message": "訊息", "envelope": "信封", "stamp": "郵票", "address": "地址", "deliver": "遞送", "sentence": "句子", "question": "問題", "answer": "回答", "interrupt": "打斷說話", "finish": "說完", "repeat": "重複", "correct": "正確的", "wrong": "錯誤的", "clear": "清楚的", "detail": "細節", "attention": "注意力"});
+
+Object.assign(vocabularyGlossary,{"volcano": "火山", "monster": "怪獸", "steam": "蒸氣", "heat": "熱", "warm": "溫暖的", "hot": "熱的", "cool": "涼的", "cheek": "臉頰", "fist": "拳頭", "shoulder": "肩膀", "tight": "緊的", "loose": "鬆的", "stomp": "跺腳", "burst": "突然迸出", "notice": "察覺", "signal": "訊號", "tense": "緊繃的", "relax": "放鬆", "smoke": "煙", "calm": "平靜的"});

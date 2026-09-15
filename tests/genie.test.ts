@@ -1,0 +1,8 @@
+import {test,expect} from 'vitest';
+import {existsSync,readFileSync} from 'node:fs';
+import {geniePages,genieObjects,genieVocabulary} from '../src/story/interactive/genie';
+import {genieQuestions} from '../src/story/interactive/genie-quiz';
+import {genieChinese} from '../src/story/interactive/genie-text';
+import {vocabularyGlossary} from '../src/story/interactive/vocabulary-glossary';
+test('genie book has complete levels, translations, mission targets and image questions',()=>{for(const level of ['A','B','C'] as const){const pages=geniePages(level);expect(pages).toHaveLength(20);const questions=genieQuestions(level);expect(questions).toHaveLength(16);pages.forEach((p,i)=>{expect(genieChinese(i,level).length).toBeGreaterThan(0);expect(p.objects).toContain(p.mission.answer);for(const id of p.objects){const o={...genieObjects[id],...p.placements?.[id]};if(o.image)expect(existsSync(o.image.startsWith('images/')?o.image:'images/story/genie-v1/'+o.image),o.image).toBe(true);}});questions.forEach(q=>expect(existsSync(q.image!.split('?')[0]),q.image).toBe(true));}});
+test('20 core words are taught, translated and avoid three historic repeats',()=>{expect(new Set(genieVocabulary).size).toBe(20);const taught=new Set(geniePages('C').flatMap(p=>p.words));genieVocabulary.forEach(w=>{expect(taught.has(w),w).toBe(true);expect(vocabularyGlossary[w],w).toBeTruthy();});const old=JSON.parse(readFileSync('docs/story-catalog/catalog.json','utf8')).books.filter((b:{id:string;source?:string})=>b.source&&b.id!=='genie');const used=new Set(old.flatMap((b:{words:string[]})=>b.words));expect(genieVocabulary.filter(w=>used.has(w)).length).toBeLessThan(3);});

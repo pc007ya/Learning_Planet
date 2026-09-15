@@ -1,0 +1,1680 @@
+{
+  "version": 1,
+  "status": "reader-integrated; local-preview-awaiting-user-review",
+  "book": "star-library-v1",
+  "title": "瑜瑜與星星圖書館",
+  "englishTitle": "Gail and the Library of Stars",
+  "cover": "cover.png",
+  "coordinateSystem": "center x/y and box width/height as percentages; object-fit:contain; z ascending; flipX on image only",
+  "backgrounds": {
+    "bedroom": "../shared-gail-v1/bedroom.png",
+    "library": "library.png"
+  },
+  "assets": [
+    {
+      "path": "../parrot-v1/rabbit.png",
+      "sha256": "7c11a53c7ea8be0608909bcd80ea93842a1d71c0ae1e9526c37acd6125797930",
+      "bytes": 173986,
+      "width": 278,
+      "height": 360,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "../shared-gail-v1/bedroom.png",
+      "sha256": "225264dcc86b09eb860121a1cdbdd74c2566aa8c60978325f4c0db9651ac1474",
+      "bytes": 586287,
+      "width": 752,
+      "height": 498,
+      "alpha": false
+    },
+    {
+      "path": "../shared-gail-v1/kneeling.png",
+      "sha256": "9f8ceaa4c15a21c4e088f73611936ded94363ba8363165ff94335c5db5fc69bf",
+      "bytes": 347752,
+      "width": 464,
+      "height": 463,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "../shared-gail-v1/seated.png",
+      "sha256": "12f22ee760f14269fb2c1e6c945c72e612bb750f34e7cd07e7e111cb81069ffa",
+      "bytes": 1837480,
+      "width": 1209,
+      "height": 1301,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "../time-v1/table.png",
+      "sha256": "d2453d0783af2c745a32d1bd5f379b53ccac8889b2285de5ec11fe1d72552ad6",
+      "bytes": 93205,
+      "width": 364,
+      "height": 185,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "book.png",
+      "sha256": "03b19787215987027d74837d6a7b017114525b95a0891300bb915f20f73d0744",
+      "bytes": 2242666,
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "bookmark.png",
+      "sha256": "5c93671bf9d738bebd3347cd41563a803fbf3b19bc15af3f881f65dca7ea5d52",
+      "bytes": 1760755,
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "card-beginning.png",
+      "sha256": "da0d763855d97468c3febed66b61aba52cefd189b8842fc4fba7c4ca6bd5fb65",
+      "bytes": 2691274,
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "card-ending.png",
+      "sha256": "f86bdd72fe462275ce8bf9ddac8cc4ef984f023d91378610a61e8c9534a3e9bf",
+      "bytes": 2651690,
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "card-middle.png",
+      "sha256": "ffc605dcafd5bdb89b3117e04a1463c3c5b5e649594629168cf8b3de0637dae2",
+      "bytes": 2751016,
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "cover.png",
+      "sha256": "0a127f136c9cdd82ddef3b90cf75ea413b465cc83745fa1b8517a1dfbe38557d",
+      "bytes": 2527252,
+      "width": 1024,
+      "height": 1536,
+      "alpha": false
+    },
+    {
+      "path": "deer.png",
+      "sha256": "4c34dbc7f5926b26bed76cd5efc0ae32170e30fca9b431d3ac0731054b4e6e5d",
+      "bytes": 1596216,
+      "width": 1206,
+      "height": 1304,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "librarian.png",
+      "sha256": "ebdf3be9a7fb5439d53108690a2e0ff7793f1e3891218406f8cb7e0f41c79ba6",
+      "bytes": 1636944,
+      "width": 1145,
+      "height": 1374,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "library.png",
+      "sha256": "c0b3174bfece6d7474df513d7f1be47bc1b78de6b03476f5b84b2a0f0485057b",
+      "bytes": 2354144,
+      "width": 1672,
+      "height": 941,
+      "alpha": false
+    },
+    {
+      "path": "portal.svg",
+      "sha256": "8ab59a3e57fc1414928901ec6ee3ac208789708dab1583b62ae56fed03cd33ab",
+      "bytes": 1984
+    },
+    {
+      "path": "star.svg",
+      "sha256": "63ead16ec0c88adec479d35ecb735eb7d276198ffc1e9b3ab662a95376a07f78",
+      "bytes": 283
+    }
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "scene": "bedroom",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/kneeling.png",
+          "x": 30,
+          "y": 77,
+          "w": 33,
+          "h": 36,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 55,
+          "y": 84,
+          "w": 24,
+          "h": 22,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "bookmark",
+          "image": "bookmark.png",
+          "x": 59,
+          "y": 74,
+          "w": 7,
+          "h": 20,
+          "word": "bookmark",
+          "z": 5
+        }
+      ],
+      "motion": "書先打開，書籤再升起。",
+      "actions": [],
+      "description": "固定房間的故事書自行翻開，一枚金色書籤從頁間升起。"
+    },
+    {
+      "number": 2,
+      "scene": "bedroom",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/kneeling.png",
+          "x": 30,
+          "y": 77,
+          "w": 33,
+          "h": 36,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 55,
+          "y": 84,
+          "w": 24,
+          "h": 22,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "bookmark",
+          "image": "bookmark.png",
+          "x": 59,
+          "y": 74,
+          "w": 7,
+          "h": 20,
+          "word": "bookmark",
+          "z": 5
+        },
+        {
+          "id": "portal",
+          "image": "portal.svg",
+          "x": 69,
+          "y": 44,
+          "w": 35,
+          "h": 72,
+          "word": "portal",
+          "z": 1
+        }
+      ],
+      "motion": "書籤停穩後沿書頁亮出星階入口。",
+      "actions": [
+        "portal",
+        "glow"
+      ],
+      "description": "書籤停在空白頁上，星光沿頁面形成通往圖書館的階梯。"
+    },
+    {
+      "number": 3,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        }
+      ],
+      "motion": "瑜瑜遇見分鏡確認的刺蝟館員。",
+      "actions": [],
+      "description": "瑜瑜抵達圓頂星星圖書館，遇見刺蝟館員。"
+    },
+    {
+      "number": 4,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        }
+      ],
+      "motion": "館員指向未亮的圓頂。",
+      "actions": [],
+      "description": "館員說，每讀懂一個故事就會亮起一顆星。"
+    },
+    {
+      "number": 5,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "book2",
+          "image": "book.png",
+          "x": 36,
+          "y": 76,
+          "w": 21,
+          "h": 20,
+          "word": "page",
+          "z": 4
+        },
+        {
+          "id": "book3",
+          "image": "book.png",
+          "x": 68,
+          "y": 76,
+          "w": 21,
+          "h": 20,
+          "word": "page",
+          "z": 4
+        }
+      ],
+      "motion": "快速翻頁，圓頂不亮。",
+      "actions": [],
+      "description": "瑜瑜快速翻完第一本書，抬頭等待星光。"
+    },
+    {
+      "number": 6,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "book2",
+          "image": "book.png",
+          "x": 36,
+          "y": 76,
+          "w": 21,
+          "h": 20,
+          "word": "page",
+          "z": 4
+        },
+        {
+          "id": "book3",
+          "image": "book.png",
+          "x": 68,
+          "y": 76,
+          "w": 21,
+          "h": 20,
+          "word": "page",
+          "z": 4
+        }
+      ],
+      "motion": "再翻幾本，星光依然未亮。",
+      "actions": [],
+      "description": "她又快速翻過第二、第三本，屋頂仍然黑暗。"
+    },
+    {
+      "number": 7,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        }
+      ],
+      "motion": "館員提問，瑜瑜停下思考。",
+      "actions": [],
+      "description": "館員問主角是誰，瑜瑜答不出來。"
+    },
+    {
+      "number": 8,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        }
+      ],
+      "motion": "保留一本想讀的書。",
+      "actions": [],
+      "description": "他請瑜瑜只選一本真正想讀的書。"
+    },
+    {
+      "number": 9,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        }
+      ],
+      "motion": "看封面並作預測。",
+      "actions": [],
+      "description": "瑜瑜觀察封面與標題，說出自己的預測。"
+    },
+    {
+      "number": 10,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "card-beginning",
+          "image": "card-beginning.png",
+          "x": 42,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-middle",
+          "image": "card-middle.png",
+          "x": 52,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-ending",
+          "image": "card-ending.png",
+          "x": 62,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        }
+      ],
+      "motion": "指出書中的狐狸角色。",
+      "actions": [],
+      "description": "她讀第一段，找出故事角色。"
+    },
+    {
+      "number": 11,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "card-beginning",
+          "image": "card-beginning.png",
+          "x": 42,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-middle",
+          "image": "card-middle.png",
+          "x": 52,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-ending",
+          "image": "card-ending.png",
+          "x": 62,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        }
+      ],
+      "motion": "指出小溪與橋的場景。",
+      "actions": [],
+      "description": "她從圖畫和句子找出故事場景。"
+    },
+    {
+      "number": 12,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "card-beginning",
+          "image": "card-beginning.png",
+          "x": 42,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-middle",
+          "image": "card-middle.png",
+          "x": 52,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-ending",
+          "image": "card-ending.png",
+          "x": 62,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        }
+      ],
+      "motion": "三張事件卡依序排列。",
+      "actions": [
+        "reveal"
+      ],
+      "description": "她排出三張重要事件圖卡。"
+    },
+    {
+      "number": 13,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "card-beginning",
+          "image": "card-beginning.png",
+          "x": 42,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-middle",
+          "image": "card-middle.png",
+          "x": 52,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-ending",
+          "image": "card-ending.png",
+          "x": 62,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        }
+      ],
+      "motion": "聚焦橋這條線索。",
+      "actions": [],
+      "description": "故事中出現一個線索，瑜瑜停下來思考。"
+    },
+    {
+      "number": 14,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "card-beginning",
+          "image": "card-beginning.png",
+          "x": 42,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-middle",
+          "image": "card-middle.png",
+          "x": 52,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-ending",
+          "image": "card-ending.png",
+          "x": 62,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        }
+      ],
+      "motion": "指出中段圖卡作預測。",
+      "actions": [],
+      "description": "她根據線索預測角色接下來會做什麼。"
+    },
+    {
+      "number": 15,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "card-beginning",
+          "image": "card-beginning.png",
+          "x": 42,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-middle",
+          "image": "card-middle.png",
+          "x": 52,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-ending",
+          "image": "card-ending.png",
+          "x": 62,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        }
+      ],
+      "motion": "翻看結尾圖卡核對預測。",
+      "actions": [],
+      "description": "翻頁後，她檢查預測並說出原因。"
+    },
+    {
+      "number": 16,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "card-beginning",
+          "image": "card-beginning.png",
+          "x": 42,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-middle",
+          "image": "card-middle.png",
+          "x": 52,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-ending",
+          "image": "card-ending.png",
+          "x": 62,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        }
+      ],
+      "motion": "依序重述開頭、中段、結尾。",
+      "actions": [
+        "reveal"
+      ],
+      "description": "瑜瑜用自己的話重述故事開頭、中段與結尾。"
+    },
+    {
+      "number": 17,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "librarian",
+          "image": "librarian.png",
+          "x": 74,
+          "y": 56,
+          "w": 28,
+          "h": 65,
+          "word": "librarian",
+          "z": 2,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "card-beginning",
+          "image": "card-beginning.png",
+          "x": 42,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-middle",
+          "image": "card-middle.png",
+          "x": 52,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-ending",
+          "image": "card-ending.png",
+          "x": 62,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "star0",
+          "image": "star.svg",
+          "x": 18,
+          "y": 16,
+          "w": 4,
+          "h": 7,
+          "word": "understand",
+          "z": 5
+        }
+      ],
+      "motion": "只亮第一顆星。",
+      "actions": [
+        "reveal"
+      ],
+      "description": "第一顆星在圓頂亮起。"
+    },
+    {
+      "number": 18,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "card-beginning",
+          "image": "card-beginning.png",
+          "x": 42,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-middle",
+          "image": "card-middle.png",
+          "x": 52,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-ending",
+          "image": "card-ending.png",
+          "x": 62,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 11,
+          "y": 70,
+          "w": 20,
+          "h": 38,
+          "word": "reader",
+          "z": 3
+        },
+        {
+          "id": "deer",
+          "image": "deer.png",
+          "x": 87,
+          "y": 70,
+          "w": 24,
+          "h": 42,
+          "word": "reader",
+          "z": 3
+        },
+        {
+          "id": "star0",
+          "image": "star.svg",
+          "x": 18,
+          "y": 16,
+          "w": 4,
+          "h": 7,
+          "word": "understand",
+          "z": 5
+        },
+        {
+          "id": "star1",
+          "image": "star.svg",
+          "x": 26,
+          "y": 22,
+          "w": 4,
+          "h": 7,
+          "word": "understand",
+          "z": 5
+        }
+      ],
+      "motion": "兔子與小鹿加入傾聽。",
+      "actions": [],
+      "description": "她向兩位小讀者分享故事，回答「你怎麼知道？」"
+    },
+    {
+      "number": 19,
+      "scene": "library",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 27,
+          "y": 65,
+          "w": 30,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 52,
+          "y": 81,
+          "w": 62,
+          "h": 34,
+          "word": "table",
+          "z": 3
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 52,
+          "y": 66,
+          "w": 27,
+          "h": 23,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "card-beginning",
+          "image": "card-beginning.png",
+          "x": 42,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-middle",
+          "image": "card-middle.png",
+          "x": 52,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "card-ending",
+          "image": "card-ending.png",
+          "x": 62,
+          "y": 77,
+          "w": 12,
+          "h": 12,
+          "word": "event",
+          "z": 5
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 11,
+          "y": 70,
+          "w": 20,
+          "h": 38,
+          "word": "reader",
+          "z": 3
+        },
+        {
+          "id": "deer",
+          "image": "deer.png",
+          "x": 87,
+          "y": 70,
+          "w": 24,
+          "h": 42,
+          "word": "reader",
+          "z": 3
+        },
+        {
+          "id": "star0",
+          "image": "star.svg",
+          "x": 18,
+          "y": 16,
+          "w": 4,
+          "h": 7,
+          "word": "understand",
+          "z": 5
+        },
+        {
+          "id": "star1",
+          "image": "star.svg",
+          "x": 26,
+          "y": 22,
+          "w": 4,
+          "h": 7,
+          "word": "understand",
+          "z": 5
+        },
+        {
+          "id": "star2",
+          "image": "star.svg",
+          "x": 34,
+          "y": 28,
+          "w": 4,
+          "h": 7,
+          "word": "understand",
+          "z": 5
+        },
+        {
+          "id": "star3",
+          "image": "star.svg",
+          "x": 42,
+          "y": 16,
+          "w": 4,
+          "h": 7,
+          "word": "understand",
+          "z": 5
+        },
+        {
+          "id": "star4",
+          "image": "star.svg",
+          "x": 50,
+          "y": 22,
+          "w": 4,
+          "h": 7,
+          "word": "understand",
+          "z": 5
+        },
+        {
+          "id": "star5",
+          "image": "star.svg",
+          "x": 58,
+          "y": 28,
+          "w": 4,
+          "h": 7,
+          "word": "understand",
+          "z": 5
+        },
+        {
+          "id": "star6",
+          "image": "star.svg",
+          "x": 66,
+          "y": 16,
+          "w": 4,
+          "h": 7,
+          "word": "understand",
+          "z": 5
+        },
+        {
+          "id": "star7",
+          "image": "star.svg",
+          "x": 74,
+          "y": 22,
+          "w": 4,
+          "h": 7,
+          "word": "understand",
+          "z": 5
+        },
+        {
+          "id": "star8",
+          "image": "star.svg",
+          "x": 82,
+          "y": 28,
+          "w": 4,
+          "h": 7,
+          "word": "understand",
+          "z": 5
+        }
+      ],
+      "motion": "孩子指出圖卡證據後逐顆亮星。",
+      "actions": [
+        "reveal"
+      ],
+      "description": "孩子們各自指出書中的證據，整片星空依次亮起。"
+    },
+    {
+      "number": 20,
+      "scene": "bedroom",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/kneeling.png",
+          "x": 30,
+          "y": 77,
+          "w": 33,
+          "h": 36,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "book",
+          "image": "book.png",
+          "x": 55,
+          "y": 84,
+          "w": 24,
+          "h": 22,
+          "word": "book",
+          "z": 4
+        },
+        {
+          "id": "bookmark",
+          "image": "bookmark.png",
+          "x": 59,
+          "y": 74,
+          "w": 7,
+          "h": 20,
+          "word": "bookmark",
+          "z": 5
+        }
+      ],
+      "motion": "回固定房間，書籤放回書中。",
+      "actions": [],
+      "description": "瑜瑜回到房間，把金色書籤放回書中；窗外多了一顆安靜的新星。"
+    }
+  ],
+  "lifecycle": {
+    "swapGapMs": 200,
+    "cancelOn": [
+      "pause",
+      "pagechange",
+      "visibilityhidden",
+      "leave"
+    ],
+    "reducedMotion": "soft opacity only"
+  },
+  "notice": "正式閱讀器已整合；本機預覽待使用者驗收，尚未發布。"
+}

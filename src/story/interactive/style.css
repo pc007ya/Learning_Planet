@@ -256,3 +256,65 @@
 .moonlight-book .scene-object.girl{z-index:8}.moonlight-book .scene-object img{object-fit:contain;clip-path:none}.moonlight-foreground{position:absolute;bottom:-2%;left:-3%;width:39%;height:24%;object-fit:contain;z-index:12;pointer-events:none}.moonlight-cover-gail{position:absolute;width:43%;height:60%;object-fit:contain;bottom:5%;left:25%;filter:drop-shadow(0 4px 4px #142f3d70)}.moonlight-book .is-dream-3d .moonlight-foreground{animation:moonlight-leaves 7s ease-in-out infinite alternate;transform-origin:bottom left}@keyframes moonlight-leaves{to{transform:translateX(5px) rotate(1deg)}}@media(prefers-reduced-motion:reduce){.moonlight-book .is-dream-3d .moonlight-foreground{animation:none}}
 
 .moonlight-book .scene-object.hotspot .hotspot-spark{opacity:.45}
+/* Fairy / Knight: separate character, prop and transition layers. */
+.together-book .scene-object[data-object=tent],.together-book .scene-object[data-object=flat],.together-book .scene-object[data-object=emptycart],.together-book .scene-object[data-object=cart]{z-index:2!important}
+.together-book .scene-object[data-object=picnic],.together-book .scene-object[data-object=blanket]{z-index:2!important}
+.together-book .scene-object[data-object=gail],.together-book .scene-object[data-object=fairy],.together-book .scene-object[data-object=knight],.together-book .scene-object[data-object=girl],.together-book .scene-object[data-object=boy],.together-book .scene-object[data-object=adult],.together-book .scene-object[data-object=squirrel],.together-book .scene-object[data-object=hedgehog]{z-index:4!important}
+.together-book .scene-object[data-object=bucket],.together-book .scene-object[data-object=parcel],.together-book .scene-object[data-object=ribbon],.together-book .scene-object[data-object=peg]{z-index:5!important}
+.together-book .cover-border h2{font-size:clamp(20px,2.7vw,37px);color:#41554f}
+.together-portal{position:absolute;left:45%;top:35%;width:22px;height:22px;border:2px solid #ffe5a0;box-shadow:0 0 15px #ffe3a7;border-radius:50%;pointer-events:none;opacity:0}
+.together-portal.fairy{width:12px;height:65px;border-color:#ffb6d3;border-radius:80% 10%;box-shadow:0 0 17px #f5accd;rotate:30deg}
+.together-arrival{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:12;pointer-events:none;opacity:0}
+.together-book .scene-object[data-object=blanket]:before{content:'';position:absolute;inset:10%;background:repeating-conic-gradient(#f2c3b6 0 25%,#f9eee0 0 50%) 0/18px 18px;transform:skewX(-15deg);border:2px solid #ce8c81;box-shadow:0 3px 2px #40382922}
+
+.concept-card{display:block;width:100%;height:100%}.concept-card svg{width:100%;height:100%;overflow:visible}
+.genie-book [data-object=castle],.genie-book [data-object=track]{z-index:2!important}.genie-book [data-object=blocks]{z-index:5!important}.genie-book [data-object=train]{z-index:6!important}.genie-book [data-object=few]{z-index:6!important}.genie-book [data-object=few]::before{content:'';position:absolute;inset:20% 12%;background:linear-gradient(90deg,#a0bdb1 0 30%,transparent 30% 35%,#caa465 35% 65%,transparent 65% 70%,#ce8a76 70%);border-bottom:3px solid #8c745a}.music-book .scene-object[data-object=drum],.music-book .scene-object[data-object=piano],.music-book .scene-object[data-object=shakers]{z-index:7!important}.wish-note{position:absolute;left:50%;top:20%;color:#f9d471;font-size:25px;pointer-events:none;text-shadow:0 0 12px #cbb9ff;z-index:15}.silent-cue{position:absolute;left:47%;top:13%;font-size:70px;color:#808999;pointer-events:none}.silent-cue::after{content:'';position:absolute;top:50%;left:-10%;width:120%;height:3px;background:#ac8478;rotate:-45deg}
+
+.music-book .scene-object[data-object=rabbit],.music-book .scene-object[data-object=fox],.music-book .scene-object[data-object=bear],.music-book .scene-object[data-object=owl]{z-index:4!important}
+/* Time props stay above the low table; the watch owns its portal rings. */
+.time-book .scene-object[data-object=table]{z-index:4!important}
+.time-book .scene-object[data-object=breakfast],.time-book .scene-object[data-object=empty],.time-book .scene-object[data-object=lunch],.time-book .scene-object[data-object=memories],.time-book .scene-object[data-object=thermos]{z-index:7!important}
+.time-ring{position:absolute;inset:15%;border:3px solid #ffe086;border-radius:50%;box-shadow:0 0 15px #ffc34c;pointer-events:none}
+.time-clock-hand{position:absolute;left:49%;top:15%;height:35%;width:3px;background:#d59133;transform-origin:50% 100%;border-radius:2px;pointer-events:none}
+.time-evening{position:absolute;inset:0;background:linear-gradient(#9c6394,#e5a245);pointer-events:none;z-index:12}
+.bears-book .scene-object[data-object=shadow],.bears-book .scene-object[data-object=round]{z-index:2!important}
+.bears-book [data-object=shadow] img,.bears-book [data-object=round] img{filter:brightness(0) blur(1px)!important;opacity:.35}
+.bears-book .scene-object[data-object=curtain]{z-index:8!important}
+.bears-book .scene-object[data-object=chair]{z-index:5!important}
+.bears-book .scene-object[data-object=flashlight]{z-index:12!important}
+.bears-beam{position:absolute;left:90%;top:-95%;width:240%;height:300%;clip-path:polygon(0 47%,100% 0,100% 100%,0 53%);background:linear-gradient(90deg,#ffedab,transparent);pointer-events:none;transform-origin:0 50%;rotate:-24deg}
+.bears-straight{position:absolute;left:35%;top:65%;width:50%;height:3px;background:#ffdb75;box-shadow:0 0 6px #fff5b9;pointer-events:none}
+.bears-dim{position:absolute;inset:0;background:#132344;pointer-events:none;z-index:13}
+/* The vocabulary word “round” is not the toolbar's round-button treatment. */
+.vocabulary-dialog .vocab-picture.round{background:none;border:0;box-shadow:none;padding:0;border-radius:0}
+.mermaid-book .scene-object[data-object=gail]:after{content:'';position:absolute;inset:-12% -8%;border:2px solid #dbffffa6;border-radius:50%;background:radial-gradient(ellipse at 30% 20%,#ffffff28,transparent 55%);box-shadow:inset 0 0 18px #d7ffff44,0 0 13px #c8ffff55;pointer-events:none}
+.mermaid-book .scene-world:has(.scene-bg[src*="shared-gail"]) [data-object=gail]:after{display:none}
+.mermaid-book .scene-object[data-object=litter]{z-index:8!important}
+.mermaid-book .scene-object[data-object=basket]{z-index:9!important}
+.mermaid-bubble{position:absolute;bottom:25%;width:12px;height:12px;border:1px solid #eaffff;border-radius:50%;background:#d6ffff30;pointer-events:none}
+
+.elf-spark{position:absolute;bottom:40%;color:#ffe69a;font-size:18px;text-shadow:0 0 8px #ffe6a0;pointer-events:none}
+.elf-book .scene-object[data-object=home]{background:transparent!important;box-shadow:none!important}
+.elf-book .scene-object[data-object=twig]{z-index:3!important}
+.elf-book .scene-object[data-object=unripe],.elf-book .scene-object[data-object=ripe]{z-index:5!important}
+.elf-vision{position:absolute;left:33%;top:23%;width:35%;height:63%;border:2px dashed #eddfa8;border-radius:45%;background:#fffaeaba;z-index:2;pointer-events:none}
+.elf-book .cover-border h2{top:11%;font-size:clamp(23px,2.2vw,30px);line-height:1.08}
+.elf-book .cover-border h2 small{display:inline-block;margin-top:5px;font-size:.6em}
+/* Listening and body signals: bounded, sentence-driven overlays. */
+.listening-bubble{position:absolute;bottom:100%;left:12%;min-width:75px;max-width:190px;padding:7px 10px;border-radius:14px;background:#fff8e8f5;border:1px solid #c7aa78;color:#546456;font:700 clamp(10px,1.1vw,15px)/1.3 sans-serif;box-shadow:0 3px 12px #35241824;pointer-events:none;white-space:normal;z-index:8}
+.feelings-puff{position:absolute;width:22px;height:19px;border-radius:50%;background:radial-gradient(ellipse,#dad5cfdd,#e7e2db77 60%,transparent 72%);filter:blur(2px);pointer-events:none}
+
+.closed-book.star-portrait-cover{aspect-ratio:2/3;background:#f9f2df}.star-portrait-cover .cover-border{inset:0;border:0;background-position:center;background-size:100% 100%;padding:0}.star-portrait-cover .cover-border h2{position:absolute;top:7%;left:5%;right:5%;margin:0;color:#68513e;text-shadow:none;font-size:clamp(26px,3.2vw,44px);line-height:1.12}.star-portrait-cover .cover-border p{position:absolute;top:24%;left:4%;right:4%;margin:0;color:#68513e;font-size:13px}
+
+/* Shared reader additions for the three layered stories. */
+.layered-cover .cover-border{background-size:cover;background-position:center;}
+.layered-word-visual{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;gap:3px;color:#946422;}
+.layered-word-visual img{min-height:0;max-height:80%;object-fit:contain;}
+.layered-word-visual .concept-cue{font-size:22px;font-weight:bold;line-height:1.15;white-space:normal;}
+.layered-word-visual small{font-size:11px;line-height:1.15;color:#456564;}
+
+.quiz-layered-scene{display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.quiz-layered-stage{position:relative;aspect-ratio:3/2;height:100%;max-width:100%;overflow:hidden;border-radius:8px;}
+.quiz-layered-stage .quiz-layered-background{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.quiz-layered-object{position:absolute;display:block;transform:translate(-50%,-50%);}
+.quiz-layered-object img{width:100%;height:100%;object-fit:contain;}

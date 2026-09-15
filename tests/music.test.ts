@@ -1,0 +1,8 @@
+import {test,expect} from 'vitest';
+import {existsSync,readFileSync} from 'node:fs';
+import {musicPages,musicObjects,musicVocabulary} from '../src/story/interactive/music';
+import {musicQuestions} from '../src/story/interactive/music-quiz';
+import {musicChinese} from '../src/story/interactive/music-text';
+import {vocabularyGlossary} from '../src/story/interactive/vocabulary-glossary';
+test('music book has complete levels, translations, mission targets and image questions',()=>{for(const level of ['A','B','C'] as const){const pages=musicPages(level);expect(pages).toHaveLength(20);const questions=musicQuestions(level);expect(questions).toHaveLength(16);pages.forEach((p,i)=>{expect(musicChinese(i,level).length).toBeGreaterThan(0);expect(p.objects).toContain(p.mission.answer);for(const id of p.objects){const o={...musicObjects[id],...p.placements?.[id]};if(o.image)expect(existsSync(o.image.startsWith('images/')?o.image:'images/story/music-v1/'+o.image),o.image).toBe(true);}});questions.forEach(q=>expect(existsSync(q.image!.split('?')[0]),q.image).toBe(true));}});
+test('20 core words are taught, translated and avoid three historic repeats',()=>{expect(new Set(musicVocabulary).size).toBe(20);const taught=new Set(musicPages('C').flatMap(p=>p.words));musicVocabulary.forEach(w=>{expect(taught.has(w),w).toBe(true);expect(vocabularyGlossary[w],w).toBeTruthy();});const old=JSON.parse(readFileSync('docs/story-catalog/catalog.json','utf8')).books.filter((b:{id:string;source?:string})=>b.source&&b.id!=='music');const used=new Set(old.flatMap((b:{words:string[]})=>b.words));expect(musicVocabulary.filter(w=>used.has(w)).length).toBeLessThan(3);});

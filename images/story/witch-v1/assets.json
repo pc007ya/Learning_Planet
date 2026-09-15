@@ -1,0 +1,1552 @@
+{
+  "version": 1,
+  "status": "reader-integrated; local-preview-awaiting-user-review",
+  "book": "witch-v1",
+  "title": "瑜瑜與總說「我不會」的小女巫",
+  "englishTitle": "Gail and the Little Witch Who Said “I Can’t”",
+  "cover": "cover.png",
+  "coordinateSystem": "center x/y and box width/height as percentages; object-fit:contain; z ascending; flipX on image only",
+  "backgrounds": {
+    "bedroom": "../shared-gail-v1/bedroom.png",
+    "rooftop": "rooftop.png"
+  },
+  "assets": [
+    {
+      "path": "../shared-gail-v1/bedroom.png",
+      "sha256": "225264dcc86b09eb860121a1cdbdd74c2566aa8c60978325f4c0db9651ac1474",
+      "bytes": 586287,
+      "width": 752,
+      "height": 498,
+      "alpha": false
+    },
+    {
+      "path": "../shared-gail-v1/kneeling.png",
+      "sha256": "9f8ceaa4c15a21c4e088f73611936ded94363ba8363165ff94335c5db5fc69bf",
+      "bytes": 347752,
+      "width": 464,
+      "height": 463,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "../shared-gail-v1/standing.png",
+      "sha256": "db17b28048d1bdf44bb74a7c44e00f68092954a10fc18c8e31a495d1fc5f4568",
+      "bytes": 1244040,
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "beginner.png",
+      "sha256": "02353aa8659bea1f76fab03baeb56d3dcaf6a3b7a303cb68bcbb67926dd30711",
+      "bytes": 2094323,
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "broomstick.png",
+      "sha256": "bb80fcbcb057aea7e9158bfe863184c1a1080444f37aa9574cff6bea839327ed",
+      "bytes": 572250,
+      "width": 1672,
+      "height": 941,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "card-grip.svg",
+      "sha256": "d80dee2cd84171c137f1d57b5ef95ba35bf37ce62f7b706326667f70642f02c2",
+      "bytes": 763445
+    },
+    {
+      "path": "card-hover.svg",
+      "sha256": "033b02f3e8a4670795fad160d34f0f7ab0b3edc512de313939085d1303579efd",
+      "bytes": 2227537
+    },
+    {
+      "path": "card-land.svg",
+      "sha256": "3c0a75749ebca4b11aebbd447b8f13c34ee3281acb1a509b7097463dffee7286",
+      "bytes": 1865203
+    },
+    {
+      "path": "card-turn.svg",
+      "sha256": "8bc1015ff54d696dac80a61d634fde9d95d462d5065e57e6ba9d4cbbd1d88c76",
+      "bytes": 2227646
+    },
+    {
+      "path": "cover.png",
+      "sha256": "14a95b37db55a484e786c365760bcef0c8d0efb41f88d0ef10a63c310796c8d1",
+      "bytes": 2361421,
+      "width": 1024,
+      "height": 1536,
+      "alpha": false
+    },
+    {
+      "path": "cushion.png",
+      "sha256": "bf4dd611efd05ca5afa2c85dca27a9bbd837c173e4dbdf5f7cb3b2bc91b76e80",
+      "bytes": 1398699,
+      "width": 1672,
+      "height": 941,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "hoop.svg",
+      "sha256": "68b0fdf6fb8b4702fa38c422d3ec7c263edc7a8ff179ddad24ca8ddb471d2172",
+      "bytes": 288
+    },
+    {
+      "path": "mira-riding.png",
+      "sha256": "2a082ffe25d10dd10b23543239741ff7112e62485b44702bb94f73c7c26ea2b3",
+      "bytes": 1098098,
+      "width": 1295,
+      "height": 1214,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "mira-seated.png",
+      "sha256": "272d130771872fc16a2877cc8d342674bba0573818457c5fd4bc5f757d197889",
+      "bytes": 1503564,
+      "width": 1192,
+      "height": 1320,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "mira-standing.png",
+      "sha256": "2a3b2e796f23eaedeb7cccc5594df1b066632e16d31ab6d299b5d61a11ca1d49",
+      "bytes": 1951333,
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "portal.svg",
+      "sha256": "8ab59a3e57fc1414928901ec6ee3ac208789708dab1583b62ae56fed03cd33ab",
+      "bytes": 1984
+    },
+    {
+      "path": "rooftop.png",
+      "sha256": "8eb56e3b019066f51536355225b60915fb89199563e4c023ef86770d2b72e903",
+      "bytes": 2363445,
+      "width": 1672,
+      "height": 941,
+      "alpha": false
+    },
+    {
+      "path": "star.svg",
+      "sha256": "63ead16ec0c88adec479d35ecb735eb7d276198ffc1e9b3ab662a95376a07f78",
+      "bytes": 283
+    },
+    {
+      "path": "teacher.png",
+      "sha256": "3753eab1e678592391f769ab33e25f04f19bd455fc9574ddc093e83966d75025",
+      "bytes": 2189911,
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "scene": "bedroom",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/kneeling.png",
+          "x": 32,
+          "y": 78,
+          "w": 33,
+          "h": 36,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "guide",
+          "image": "broomstick.png",
+          "x": 55,
+          "y": 83,
+          "w": 12,
+          "h": 17,
+          "word": "guide",
+          "z": 4
+        }
+      ],
+      "motion": "引路吊飾先滑入停穩。",
+      "actions": [],
+      "description": "固定房間裡，一枚迷你掃帚吊飾滑到瑜瑜面前。"
+    },
+    {
+      "number": 2,
+      "scene": "bedroom",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/kneeling.png",
+          "x": 32,
+          "y": 78,
+          "w": 33,
+          "h": 36,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "guide",
+          "image": "broomstick.png",
+          "x": 55,
+          "y": 83,
+          "w": 12,
+          "h": 17,
+          "word": "guide",
+          "z": 4
+        },
+        {
+          "id": "portal",
+          "image": "portal.svg",
+          "x": 67,
+          "y": 45,
+          "w": 38,
+          "h": 75,
+          "word": "portal",
+          "z": 1
+        }
+      ],
+      "motion": "吊飾停穩後亮起，星塵向入口展開。",
+      "actions": [
+        "glow",
+        "portal"
+      ],
+      "description": "吊飾停穩才發光，星塵沿地板掃出通往屋頂飛行學校的入口。"
+    },
+    {
+      "number": 3,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "cushion",
+          "image": "cushion.png",
+          "x": 57,
+          "y": 85,
+          "w": 44,
+          "h": 23,
+          "word": "landing",
+          "z": 1
+        },
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-standing.png",
+          "x": 55,
+          "y": 65,
+          "w": 29,
+          "h": 57,
+          "word": "witch",
+          "z": 4,
+          "facing": "left"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "broom",
+          "image": "broomstick.png",
+          "x": 61,
+          "y": 85,
+          "w": 40,
+          "h": 20,
+          "word": "broomstick",
+          "z": 3
+        }
+      ],
+      "motion": "Mira望向飛行練習区，瑜瑜招呼。",
+      "actions": [],
+      "description": "瑜瑜遇見正在看其他學員飛行的小女巫 Mira。"
+    },
+    {
+      "number": 4,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "cushion",
+          "image": "cushion.png",
+          "x": 57,
+          "y": 85,
+          "w": 44,
+          "h": 23,
+          "word": "landing",
+          "z": 1
+        },
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-standing.png",
+          "x": 55,
+          "y": 65,
+          "w": 29,
+          "h": 57,
+          "word": "witch",
+          "z": 4,
+          "facing": "left"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "broom",
+          "image": "broomstick.png",
+          "x": 61,
+          "y": 85,
+          "w": 40,
+          "h": 20,
+          "word": "broomstick",
+          "z": 3
+        }
+      ],
+      "motion": "Mira退後一步，瑜瑜傾聽。",
+      "actions": [],
+      "description": "Mira 指著高空，說自己一定做不到。"
+    },
+    {
+      "number": 5,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "cushion",
+          "image": "cushion.png",
+          "x": 57,
+          "y": 85,
+          "w": 44,
+          "h": 23,
+          "word": "landing",
+          "z": 1
+        },
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-standing.png",
+          "x": 55,
+          "y": 65,
+          "w": 29,
+          "h": 57,
+          "word": "witch",
+          "z": 4,
+          "facing": "left"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "broom",
+          "image": "broomstick.png",
+          "x": 61,
+          "y": 85,
+          "w": 40,
+          "h": 20,
+          "word": "broomstick",
+          "z": 3
+        }
+      ],
+      "motion": "老師示範握柄，掃帚保持獨立層。",
+      "actions": [],
+      "description": "老師示範雙手握柄與面向前方。"
+    },
+    {
+      "number": 6,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "cushion",
+          "image": "cushion.png",
+          "x": 57,
+          "y": 85,
+          "w": 44,
+          "h": 23,
+          "word": "landing",
+          "z": 1
+        },
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-riding.png",
+          "x": 55,
+          "y": 57,
+          "w": 29,
+          "h": 49,
+          "word": "witch",
+          "z": 4,
+          "facing": "right"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "broom",
+          "image": "broomstick.png",
+          "x": 50,
+          "y": 65,
+          "w": 40,
+          "h": 40,
+          "word": "broomstick",
+          "z": 3
+        }
+      ],
+      "motion": "人物與掃帚成組輕微左右搖晃。",
+      "actions": [
+        "ride"
+      ],
+      "description": "Mira 第一次離地，掃帚左右搖晃。"
+    },
+    {
+      "number": 7,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "cushion",
+          "image": "cushion.png",
+          "x": 57,
+          "y": 85,
+          "w": 44,
+          "h": 23,
+          "word": "landing",
+          "z": 1
+        },
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/kneeling.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-seated.png",
+          "x": 55,
+          "y": 65,
+          "w": 29,
+          "h": 57,
+          "word": "witch",
+          "z": 4,
+          "facing": "left"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "broom",
+          "image": "broomstick.png",
+          "x": 61,
+          "y": 85,
+          "w": 40,
+          "h": 20,
+          "word": "broomstick",
+          "z": 3
+        }
+      ],
+      "motion": "安全落墊後切換坐姿，掃帚移到旁邊。",
+      "actions": [],
+      "description": "她安全落在厚墊上，立刻把掃帚推開。"
+    },
+    {
+      "number": 8,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "cushion",
+          "image": "cushion.png",
+          "x": 57,
+          "y": 85,
+          "w": 44,
+          "h": 23,
+          "word": "landing",
+          "z": 1
+        },
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/kneeling.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-standing.png",
+          "x": 55,
+          "y": 65,
+          "w": 29,
+          "h": 57,
+          "word": "witch",
+          "z": 4,
+          "facing": "left"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "broom",
+          "image": "broomstick.png",
+          "x": 61,
+          "y": 85,
+          "w": 40,
+          "h": 20,
+          "word": "broomstick",
+          "z": 3
+        }
+      ],
+      "motion": "瑜瑜指向Mira，肯定第一次離地。",
+      "actions": [],
+      "description": "瑜瑜指出她其實已經成功離地。"
+    },
+    {
+      "number": 9,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/kneeling.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-standing.png",
+          "x": 55,
+          "y": 65,
+          "w": 29,
+          "h": 57,
+          "word": "witch",
+          "z": 4,
+          "facing": "left"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "card-grip",
+          "image": "card-grip.svg",
+          "x": 33,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        },
+        {
+          "id": "card-hover",
+          "image": "card-hover.svg",
+          "x": 48,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        },
+        {
+          "id": "card-turn",
+          "image": "card-turn.svg",
+          "x": 63,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        },
+        {
+          "id": "card-land",
+          "image": "card-land.svg",
+          "x": 78,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        }
+      ],
+      "motion": "依序點亮握柄、懸停、轉彎、落地圖卡。",
+      "actions": [
+        "reveal"
+      ],
+      "description": "兩人把練習分成四張無字圖卡。"
+    },
+    {
+      "number": 10,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-standing.png",
+          "x": 55,
+          "y": 65,
+          "w": 29,
+          "h": 57,
+          "word": "witch",
+          "z": 4,
+          "facing": "left"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "card-grip",
+          "image": "card-grip.svg",
+          "x": 33,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        },
+        {
+          "id": "card-hover",
+          "image": "card-hover.svg",
+          "x": 48,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        },
+        {
+          "id": "card-turn",
+          "image": "card-turn.svg",
+          "x": 63,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        },
+        {
+          "id": "card-land",
+          "image": "card-land.svg",
+          "x": 78,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        }
+      ],
+      "motion": "只練握柄與向前看。",
+      "actions": [],
+      "description": "Mira 只練習握穩和看向前方。"
+    },
+    {
+      "number": 11,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "cushion",
+          "image": "cushion.png",
+          "x": 57,
+          "y": 85,
+          "w": 44,
+          "h": 23,
+          "word": "landing",
+          "z": 1
+        },
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-riding.png",
+          "x": 55,
+          "y": 57,
+          "w": 29,
+          "h": 49,
+          "word": "witch",
+          "z": 4,
+          "facing": "right"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "broom",
+          "image": "broomstick.png",
+          "x": 50,
+          "y": 65,
+          "w": 40,
+          "h": 40,
+          "word": "broomstick",
+          "z": 3
+        }
+      ],
+      "motion": "低低上升並懸停三拍，再下降。",
+      "actions": [
+        "ride"
+      ],
+      "description": "她低低懸停，數到三才落下。"
+    },
+    {
+      "number": 12,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "cushion",
+          "image": "cushion.png",
+          "x": 57,
+          "y": 85,
+          "w": 44,
+          "h": 23,
+          "word": "landing",
+          "z": 1
+        },
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-riding.png",
+          "x": 55,
+          "y": 57,
+          "w": 29,
+          "h": 49,
+          "word": "witch",
+          "z": 4,
+          "facing": "right"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "broom",
+          "image": "broomstick.png",
+          "x": 50,
+          "y": 65,
+          "w": 40,
+          "h": 40,
+          "word": "broomstick",
+          "z": 3
+        }
+      ],
+      "motion": "懸停較久，末段轻微搖晃再下降。",
+      "actions": [
+        "ride"
+      ],
+      "description": "第二次懸停較久，仍在落地前晃了一下。"
+    },
+    {
+      "number": 13,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/kneeling.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-standing.png",
+          "x": 55,
+          "y": 65,
+          "w": 29,
+          "h": 57,
+          "word": "witch",
+          "z": 4,
+          "facing": "left"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "card-grip",
+          "image": "card-grip.svg",
+          "x": 33,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        },
+        {
+          "id": "card-hover",
+          "image": "card-hover.svg",
+          "x": 48,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        },
+        {
+          "id": "card-turn",
+          "image": "card-turn.svg",
+          "x": 63,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        },
+        {
+          "id": "card-land",
+          "image": "card-land.svg",
+          "x": 78,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        }
+      ],
+      "motion": "回看練習圖卡，Mira留在練習區。",
+      "actions": [],
+      "description": "Mira 說「還不會」，沒有離開練習區。"
+    },
+    {
+      "number": 14,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "cushion",
+          "image": "cushion.png",
+          "x": 57,
+          "y": 85,
+          "w": 44,
+          "h": 23,
+          "word": "landing",
+          "z": 1
+        },
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-riding.png",
+          "x": 55,
+          "y": 57,
+          "w": 29,
+          "h": 49,
+          "word": "witch",
+          "z": 4,
+          "facing": "right"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "broom",
+          "image": "broomstick.png",
+          "x": 50,
+          "y": 65,
+          "w": 40,
+          "h": 40,
+          "word": "broomstick",
+          "z": 3
+        },
+        {
+          "id": "hoop1",
+          "image": "hoop.svg",
+          "x": 46,
+          "y": 50,
+          "w": 28,
+          "h": 53,
+          "word": "turn",
+          "z": 1
+        }
+      ],
+      "motion": "第一個光圈亮起，沿圈緩慢前進。",
+      "actions": [
+        "ride"
+      ],
+      "description": "她沿第一個低光圈緩慢前進。"
+    },
+    {
+      "number": 15,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "cushion",
+          "image": "cushion.png",
+          "x": 57,
+          "y": 85,
+          "w": 44,
+          "h": 23,
+          "word": "landing",
+          "z": 1
+        },
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-riding.png",
+          "x": 55,
+          "y": 57,
+          "w": 29,
+          "h": 49,
+          "word": "witch",
+          "z": 4,
+          "facing": "right"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "broom",
+          "image": "broomstick.png",
+          "x": 50,
+          "y": 65,
+          "w": 40,
+          "h": 40,
+          "word": "broomstick",
+          "z": 3
+        },
+        {
+          "id": "hoop1",
+          "image": "hoop.svg",
+          "x": 46,
+          "y": 50,
+          "w": 28,
+          "h": 53,
+          "word": "turn",
+          "z": 1
+        },
+        {
+          "id": "hoop2",
+          "image": "hoop.svg",
+          "x": 69,
+          "y": 49,
+          "w": 23,
+          "h": 48,
+          "word": "turn",
+          "z": 1
+        }
+      ],
+      "motion": "第二個圈亮起，人物與掃帚一起轉彎。",
+      "actions": [
+        "ride"
+      ],
+      "description": "她繞過第二個光圈，學會調整身體。"
+    },
+    {
+      "number": 16,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "cushion",
+          "image": "cushion.png",
+          "x": 57,
+          "y": 85,
+          "w": 44,
+          "h": 23,
+          "word": "landing",
+          "z": 1
+        },
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-riding.png",
+          "x": 55,
+          "y": 57,
+          "w": 29,
+          "h": 49,
+          "word": "witch",
+          "z": 4,
+          "facing": "right"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "broom",
+          "image": "broomstick.png",
+          "x": 50,
+          "y": 65,
+          "w": 40,
+          "h": 40,
+          "word": "broomstick",
+          "z": 3
+        },
+        {
+          "id": "hoop1",
+          "image": "hoop.svg",
+          "x": 46,
+          "y": 50,
+          "w": 28,
+          "h": 53,
+          "word": "turn",
+          "z": 1
+        },
+        {
+          "id": "hoop2",
+          "image": "hoop.svg",
+          "x": 69,
+          "y": 49,
+          "w": 23,
+          "h": 48,
+          "word": "turn",
+          "z": 1
+        }
+      ],
+      "motion": "輕風偏移後依老師手勢降落。",
+      "actions": [
+        "ride"
+      ],
+      "description": "一陣風讓掃帚偏向旁邊，她依照老師手勢降落。"
+    },
+    {
+      "number": 17,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "cushion",
+          "image": "cushion.png",
+          "x": 57,
+          "y": 85,
+          "w": 44,
+          "h": 23,
+          "word": "landing",
+          "z": 1
+        },
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-riding.png",
+          "x": 55,
+          "y": 57,
+          "w": 29,
+          "h": 49,
+          "word": "witch",
+          "z": 4,
+          "facing": "right"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "broom",
+          "image": "broomstick.png",
+          "x": 50,
+          "y": 65,
+          "w": 40,
+          "h": 40,
+          "word": "broomstick",
+          "z": 3
+        },
+        {
+          "id": "hoop1",
+          "image": "hoop.svg",
+          "x": 46,
+          "y": 50,
+          "w": 28,
+          "h": 53,
+          "word": "turn",
+          "z": 1
+        },
+        {
+          "id": "hoop2",
+          "image": "hoop.svg",
+          "x": 69,
+          "y": 49,
+          "w": 23,
+          "h": 48,
+          "word": "turn",
+          "z": 1
+        }
+      ],
+      "motion": "指出轉彎步驟，下次放慢。",
+      "actions": [],
+      "description": "Mira 找出下次只需放慢轉彎。"
+    },
+    {
+      "number": 18,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "cushion",
+          "image": "cushion.png",
+          "x": 57,
+          "y": 85,
+          "w": 44,
+          "h": 23,
+          "word": "landing",
+          "z": 1
+        },
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-standing.png",
+          "x": 55,
+          "y": 57,
+          "w": 29,
+          "h": 57,
+          "word": "witch",
+          "z": 4,
+          "facing": "left"
+        },
+        {
+          "id": "teacher",
+          "image": "teacher.png",
+          "x": 83,
+          "y": 57,
+          "w": 25,
+          "h": 72,
+          "word": "lesson",
+          "z": 2,
+          "facing": "right",
+          "flipX": true
+        },
+        {
+          "id": "broom",
+          "image": "broomstick.png",
+          "x": 61,
+          "y": 85,
+          "w": 40,
+          "h": 20,
+          "word": "broomstick",
+          "z": 3
+        },
+        {
+          "id": "hoop1",
+          "image": "hoop.svg",
+          "x": 46,
+          "y": 50,
+          "w": 28,
+          "h": 53,
+          "word": "turn",
+          "z": 1
+        },
+        {
+          "id": "hoop2",
+          "image": "hoop.svg",
+          "x": 69,
+          "y": 49,
+          "w": 23,
+          "h": 48,
+          "word": "turn",
+          "z": 1
+        }
+      ],
+      "motion": "完成低圈，平穩落地後才慶祝。",
+      "actions": [],
+      "description": "她完成一個低空小圈並平穩落地。"
+    },
+    {
+      "number": 19,
+      "scene": "rooftop",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 20,
+          "y": 68,
+          "w": 26,
+          "h": 54,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mira",
+          "image": "mira-standing.png",
+          "x": 55,
+          "y": 65,
+          "w": 29,
+          "h": 57,
+          "word": "witch",
+          "z": 4,
+          "facing": "left"
+        },
+        {
+          "id": "card-grip",
+          "image": "card-grip.svg",
+          "x": 33,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        },
+        {
+          "id": "card-hover",
+          "image": "card-hover.svg",
+          "x": 48,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        },
+        {
+          "id": "card-turn",
+          "image": "card-turn.svg",
+          "x": 63,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        },
+        {
+          "id": "card-land",
+          "image": "card-land.svg",
+          "x": 78,
+          "y": 85,
+          "w": 14,
+          "h": 18,
+          "word": "skill",
+          "z": 5
+        },
+        {
+          "id": "beginner",
+          "image": "beginner.png",
+          "x": 84,
+          "y": 65,
+          "w": 26,
+          "h": 57,
+          "word": "lesson",
+          "z": 3,
+          "facing": "left"
+        }
+      ],
+      "motion": "將圖卡移交給初學者。",
+      "actions": [],
+      "description": "同伴為她的進步歡呼，Mira 把練習圖卡送給下一位初學者。"
+    },
+    {
+      "number": 20,
+      "scene": "bedroom",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/kneeling.png",
+          "x": 32,
+          "y": 78,
+          "w": 33,
+          "h": 36,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "guide",
+          "image": "broomstick.png",
+          "x": 55,
+          "y": 83,
+          "w": 12,
+          "h": 17,
+          "word": "guide",
+          "z": 4
+        }
+      ],
+      "motion": "回固定房間，吊飾停在書邊並熄光。",
+      "actions": [],
+      "description": "瑜瑜回到房間，把掃帚吊飾掛在書邊；它安靜停止發光。"
+    }
+  ],
+  "lifecycle": {
+    "swapGapMs": 200,
+    "cancelOn": [
+      "pause",
+      "pagechange",
+      "visibilityhidden",
+      "leave"
+    ],
+    "reducedMotion": "soft opacity only"
+  },
+  "notice": "正式閱讀器已整合；本機預覽待使用者驗收，尚未發布。"
+}

@@ -1,0 +1,8 @@
+import {test,expect} from 'vitest';
+import {existsSync,readFileSync} from 'node:fs';
+import {knightPages,knightObjects,knightVocabulary} from '../src/story/interactive/knight';
+import {knightQuestions} from '../src/story/interactive/knight-quiz';
+import {knightChinese} from '../src/story/interactive/knight-text';
+import {vocabularyGlossary} from '../src/story/interactive/vocabulary-glossary';
+test('knight book has complete levels, translations, mission targets and image questions',()=>{for(const level of ['A','B','C'] as const){const pages=knightPages(level);expect(pages).toHaveLength(20);const questions=knightQuestions(level);expect(questions).toHaveLength(16);pages.forEach((p,i)=>{expect(knightChinese(i,level).length).toBeGreaterThan(0);expect(p.objects).toContain(p.mission.answer);for(const id of p.objects){const o={...knightObjects[id],...p.placements?.[id]};if(o.image)expect(existsSync(o.image.startsWith('images/')?o.image:'images/story/knight-v1/'+o.image),o.image).toBe(true);}});questions.forEach(q=>expect(existsSync(q.image!.split('?')[0]),q.image).toBe(true));}});
+test('20 core words are taught, translated and avoid three historic repeats',()=>{expect(new Set(knightVocabulary).size).toBe(20);const taught=new Set(knightPages('C').flatMap(p=>p.words));knightVocabulary.forEach(w=>{expect(taught.has(w),w).toBe(true);expect(vocabularyGlossary[w],w).toBeTruthy();});const old=JSON.parse(readFileSync('docs/story-catalog/catalog.json','utf8')).books.filter((b:{id:string;source?:string})=>b.source&&b.id!=='knight');const used=new Set(old.flatMap((b:{words:string[]})=>b.words));expect(knightVocabulary.filter(w=>used.has(w)).length).toBeLessThan(3);});

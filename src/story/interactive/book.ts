@@ -1,4 +1,4 @@
-export type ObjectSpec={id:string;word:string;x:number;y:number;w:number;h:number;kind?:'star'|'girl'|'cat'|'ladder';sprite?:{sheet:string;cell:number;columns:number;clip?:string;rect?:[number,number,number,number];size?:number|[number,number]};image?:string};
+export type ObjectSpec={id:string;word:string;x:number;y:number;w:number;h:number;z?:number;flipX?:boolean;scaleY?:number;kind?:'star'|'girl'|'cat'|'ladder';sprite?:{sheet:string;cell:number;columns:number;clip?:string;rect?:[number,number,number,number];size?:number|[number,number]};image?:string};
 export type StoryPage={title:string;scene:string;lines:string[];translation?:string;words:string[];objects:string[];mission:{type:'find'|'tap'|'follow'|'drag'|'sequence';prompt:string;hint:string;answer:string;target?:string;steps?:string[]};checkpoint?:boolean;action:string;star?:[number,number];placements?:Record<string,Partial<ObjectSpec>>};
 export type SceneSpec={name:string;caption:string;alt:string;sheet?:string;cell?:number};
 export const scenes:Record<string,SceneSpec>={

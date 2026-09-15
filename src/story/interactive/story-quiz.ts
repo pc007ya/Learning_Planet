@@ -21,7 +21,7 @@ export function mountStoryQuiz(host:HTMLElement,questions:StoryQuestion[],state:
  const q=questions[state.index];let choice=[...(state.answers[state.index]||[])];let checked=Boolean(state.attempted[state.index]);
  card.append(element('div','quiz-count',`${state.index+1} / ${questions.length}`));const heading=element('h1','',q.prompt);card.append(heading);
  const speak=button('♫','朗讀題目',()=>options.say(q.audio||q.prompt));speak.classList.add('quiz-listen');card.append(speak);
- card.classList.toggle('scene-question',Boolean(q.image));if(q.image){const picture=document.createElement('img');picture.className='quiz-scene-image';picture.src=q.image;picture.alt=q.imageAlt||'故事場景';card.append(picture);}else if(q.art)card.append(quizArt(q.art));
+ card.classList.toggle('scene-question',Boolean(q.image||q.sceneImage));if(q.sceneImage){card.append(quizLayeredScene(q));}else if(q.image){const picture=document.createElement('img');picture.className='quiz-scene-image';picture.src=q.image;picture.alt=q.imageAlt||'故事場景';card.append(picture);}else if(q.art)card.append(quizArt(q.art));
  const grid=element('div','quiz-options'+(q.options.every(o=>o.art)?' picture-options':''));
  if(q.kind==='sequence')grid.style.gridTemplateColumns=`repeat(${q.options.length},minmax(0,1fr))`;
  const feedback=element('p','quiz-feedback');feedback.setAttribute('role','status');
@@ -35,4 +35,18 @@ export function mountStoryQuiz(host:HTMLElement,questions:StoryQuestion[],state:
  const actions=element('div','quiz-actions');actions.append(button('← 故事','回到故事',options.back),next);card.append(actions);
  }
  draw();
+}
+
+/** Reuse the actual book layers, avoiding cropped storyboard strips or new artwork. */
+export function quizLayeredScene(q:StoryQuestion){
+ const scene=q.sceneImage!;
+ const frame=document.createElement('div');frame.className='quiz-scene-image quiz-layered-scene';frame.setAttribute('role','img');frame.setAttribute('aria-label',q.imageAlt||'故事場景');
+ const stage=document.createElement('div');stage.className='quiz-layered-stage';stage.setAttribute('aria-hidden','true');
+ const bg=document.createElement('img');bg.className='quiz-layered-background';bg.src=scene.background;bg.alt='';stage.append(bg);
+ for(const object of [...scene.objects].sort((a,b)=>(a.z??3)-(b.z??3))){
+  if(!object.image)continue;
+  const box=document.createElement('span');box.className='quiz-layered-object';box.style.left=object.x+'%';box.style.top=object.y+'%';box.style.width=object.w+'%';box.style.height=object.h+'%';
+  const image=document.createElement('img');image.src=scene.assetBase+object.image;image.alt='';image.style.transform=`scale(${object.flipX?-1:1},${object.scaleY??1})`;box.append(image);stage.append(box);
+ }
+ frame.append(stage);return frame;
 }

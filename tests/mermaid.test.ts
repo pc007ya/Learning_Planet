@@ -1,0 +1,8 @@
+import {test,expect} from 'vitest';
+import {existsSync,readFileSync} from 'node:fs';
+import {mermaidPages,mermaidObjects,mermaidVocabulary} from '../src/story/interactive/mermaid';
+import {mermaidQuestions} from '../src/story/interactive/mermaid-quiz';
+import {mermaidChinese} from '../src/story/interactive/mermaid-text';
+import {vocabularyGlossary} from '../src/story/interactive/vocabulary-glossary';
+test('mermaid book has complete levels, translations, mission targets and image questions',()=>{for(const level of ['A','B','C'] as const){const pages=mermaidPages(level);expect(pages).toHaveLength(20);const questions=mermaidQuestions(level);expect(questions).toHaveLength(16);pages.forEach((p,i)=>{expect(mermaidChinese(i,level).length).toBeGreaterThan(0);expect(p.objects).toContain(p.mission.answer);for(const id of p.objects){const o={...mermaidObjects[id],...p.placements?.[id]};if(o.image)expect(existsSync(o.image.startsWith('images/')?o.image:'images/story/mermaid-v1/'+o.image),o.image).toBe(true);}});questions.forEach(q=>expect(existsSync(q.image!.split('?')[0]),q.image).toBe(true));}});
+test('20 core words are taught, translated and avoid three historic repeats',()=>{expect(new Set(mermaidVocabulary).size).toBe(20);const taught=new Set(mermaidPages('C').flatMap(p=>p.words));mermaidVocabulary.forEach(w=>{expect(taught.has(w),w).toBe(true);expect(vocabularyGlossary[w],w).toBeTruthy();});const old=JSON.parse(readFileSync('docs/story-catalog/catalog.json','utf8')).books.filter((b:{id:string;source?:string})=>b.source&&b.id!=='mermaid');const used=new Set(old.flatMap((b:{words:string[]})=>b.words));expect(mermaidVocabulary.filter(w=>used.has(w)).length).toBeLessThan(3);});

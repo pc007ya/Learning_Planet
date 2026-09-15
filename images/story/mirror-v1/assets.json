@@ -1,0 +1,3270 @@
+{
+  "version": 1,
+  "status": "reader-integrated; local-preview-awaiting-user-review",
+  "book": "mirror-v1",
+  "title": "瑜瑜與總愛比較的魔法鏡",
+  "englishTitle": "Gail and the Magic Mirror That Loved to Compare",
+  "cover": "cover.png",
+  "coordinateSystem": "center x/y and box width/height as percentages; object-fit:contain; z ascending; flipX on image only",
+  "backgrounds": {
+    "bedroom": "../shared-gail-v1/bedroom.png",
+    "carnival": "carnival.png"
+  },
+  "assets": [
+    {
+      "path": "../parrot-v1/rabbit.png",
+      "sha256": "7c11a53c7ea8be0608909bcd80ea93842a1d71c0ae1e9526c37acd6125797930",
+      "bytes": 173986,
+      "width": 278,
+      "height": 360,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "../shared-gail-v1/bedroom.png",
+      "sha256": "225264dcc86b09eb860121a1cdbdd74c2566aa8c60978325f4c0db9651ac1474",
+      "bytes": 586287,
+      "width": 752,
+      "height": 498,
+      "alpha": false
+    },
+    {
+      "path": "../shared-gail-v1/kneeling.png",
+      "sha256": "9f8ceaa4c15a21c4e088f73611936ded94363ba8363165ff94335c5db5fc69bf",
+      "bytes": 347752,
+      "width": 464,
+      "height": 463,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "../shared-gail-v1/seated.png",
+      "sha256": "12f22ee760f14269fb2c1e6c945c72e612bb750f34e7cd07e7e111cb81069ffa",
+      "bytes": 1837480,
+      "width": 1209,
+      "height": 1301,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "../shared-gail-v1/standing.png",
+      "sha256": "db17b28048d1bdf44bb74a7c44e00f68092954a10fc18c8e31a495d1fc5f4568",
+      "bytes": 1244040,
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "../time-v1/table.png",
+      "sha256": "d2453d0783af2c745a32d1bd5f379b53ccac8889b2285de5ec11fe1d72552ad6",
+      "bytes": 93205,
+      "width": 364,
+      "height": 185,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "carnival.png",
+      "sha256": "ee4d2ca1c80be1d8f95743eee73ef8a04a7bf54cb4af094ab99b9186e34b2110",
+      "bytes": 2595660,
+      "width": 1672,
+      "height": 941,
+      "alpha": false
+    },
+    {
+      "path": "cover.png",
+      "sha256": "f842c64c28d69f5eb3b283526eaa561cbeeeb04b44c6630c9ce7ddf71214856d",
+      "bytes": 2561619,
+      "width": 1024,
+      "height": 1536,
+      "alpha": false
+    },
+    {
+      "path": "medal-blue.svg",
+      "sha256": "78092afc256608f675e575d57e363bdfd5756fdcc72dcd098c73ef3402f7d360",
+      "bytes": 419
+    },
+    {
+      "path": "medal-gold.svg",
+      "sha256": "6fc025b54c6f8858acfa4bc2bd542a41a9fc3fb1ab61e63cb8fa4118bdc6935c",
+      "bytes": 419
+    },
+    {
+      "path": "medal-red.svg",
+      "sha256": "b0972bf0c2a0533ef9a7b1bf94243ca9a79f7592f67b8f8088be4ea4de465c69",
+      "bytes": 419
+    },
+    {
+      "path": "mirror.png",
+      "sha256": "9f03b7f8354985d978df381ccbafe5b934ed5ba6bc9fc88e180340793376fcb6",
+      "bytes": 1564541,
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "owl.png",
+      "sha256": "424f1642c2d0765ce1d8a03b42893c7878045e8bf4e54d4ffff1db7a3e76ddb6",
+      "bytes": 1830811,
+      "width": 1188,
+      "height": 1324,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "portal.svg",
+      "sha256": "8ab59a3e57fc1414928901ec6ee3ac208789708dab1583b62ae56fed03cd33ab",
+      "bytes": 1984
+    },
+    {
+      "path": "rabbit-running.png",
+      "sha256": "0efa04b14cd545cc0dbf216977a6ee31c3793112da0e1d3309cd6c56f88f3f75",
+      "bytes": 960284,
+      "width": 1374,
+      "height": 1145,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "star.svg",
+      "sha256": "63ead16ec0c88adec479d35ecb735eb7d276198ffc1e9b3ab662a95376a07f78",
+      "bytes": 283
+    },
+    {
+      "path": "swan.png",
+      "sha256": "03ca22a7c2fd2b35f3db065824ba4b8bae36a3581dd8e2acfb20cfbdcb0b2543",
+      "bytes": 1427315,
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "tile-1.svg",
+      "sha256": "21d271f6ec4524393bc9e74109faf17bed9e0a85bad8f7fc9ee53b57278cb658",
+      "bytes": 300
+    },
+    {
+      "path": "tile-2.svg",
+      "sha256": "368d2589a14c71522a22cac9d2fd553bc67541ff6b5d1520ab109e82e035321d",
+      "bytes": 304
+    },
+    {
+      "path": "tile-3.svg",
+      "sha256": "62440c1e3af43801bfdd433d27eb7014a87481d5336fb4360b0d1eac4ff2de71",
+      "bytes": 304
+    },
+    {
+      "path": "tile-4.svg",
+      "sha256": "8d3240b1b3811a2cc97aab35f72a329112707724ce61a922a7df8034a943bf03",
+      "bytes": 304
+    },
+    {
+      "path": "tile-5.svg",
+      "sha256": "c6b6a5283d0b0989cf5d2cd29d51f23815b315ce82f03618cb427e70f2a3fea0",
+      "bytes": 308
+    },
+    {
+      "path": "tile-6.svg",
+      "sha256": "f03d66c428e5ef541ead06898de6152c5905c80ea2c8b58956c7f5d7ab260350",
+      "bytes": 308
+    },
+    {
+      "path": "tile-7.svg",
+      "sha256": "1d04144aa715ff74d0ef229ed5da49f56b1a93275c82c3a08e42afda5737b47b",
+      "bytes": 304
+    },
+    {
+      "path": "tile-8.svg",
+      "sha256": "3a6e24082bc9d76f65326a92fd7332a9a8eb7e74af38639a7ee919d0fe1bf00b",
+      "bytes": 308
+    },
+    {
+      "path": "tile-9.svg",
+      "sha256": "43a98ffcc7ea44511db32a8c8d362e57b34d8c2c562d2b4eccfd1e4a5c357e54",
+      "bytes": 308
+    }
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "scene": "bedroom",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/kneeling.png",
+          "x": 32,
+          "y": 78,
+          "w": 33,
+          "h": 36,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "guide",
+          "image": "mirror.png",
+          "x": 55,
+          "y": 83,
+          "w": 12,
+          "h": 17,
+          "word": "guide",
+          "z": 4
+        }
+      ],
+      "motion": "手鏡滑出並停穩。",
+      "actions": [],
+      "description": "固定房間裡，一面小手鏡從書架側邊滑出並停穩。"
+    },
+    {
+      "number": 2,
+      "scene": "bedroom",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/kneeling.png",
+          "x": 32,
+          "y": 78,
+          "w": 33,
+          "h": 36,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "guide",
+          "image": "mirror.png",
+          "x": 55,
+          "y": 83,
+          "w": 12,
+          "h": 17,
+          "word": "guide",
+          "z": 4
+        },
+        {
+          "id": "portal",
+          "image": "portal.svg",
+          "x": 66,
+          "y": 45,
+          "w": 38,
+          "h": 75,
+          "word": "portal",
+          "z": 1
+        }
+      ],
+      "motion": "鏡面先亮，彩色光從鏡面展開。",
+      "actions": [
+        "portal",
+        "glow"
+      ],
+      "description": "鏡面亮起不同顏色的光，倒影展開成技能嘉年華入口。"
+    },
+    {
+      "number": 3,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "medal-red",
+          "image": "medal-red.svg",
+          "x": 68,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-blue",
+          "image": "medal-blue.svg",
+          "x": 75,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-gold",
+          "image": "medal-gold.svg",
+          "x": 82,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        }
+      ],
+      "motion": "展示跑步獎章。",
+      "actions": [],
+      "description": "魔法鏡替跑步站頒出第一條緞帶。"
+    },
+    {
+      "number": 4,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "rabbit-running.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "medal-red",
+          "image": "medal-red.svg",
+          "x": 68,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-blue",
+          "image": "medal-blue.svg",
+          "x": 75,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-gold",
+          "image": "medal-gold.svg",
+          "x": 82,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        }
+      ],
+      "motion": "兔子向前跑，瑜瑜鼓掌。",
+      "actions": [
+        "run"
+      ],
+      "description": "兔子跑得最快，瑜瑜笑著為牠鼓掌。"
+    },
+    {
+      "number": 5,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "medal-red",
+          "image": "medal-red.svg",
+          "x": 68,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-blue",
+          "image": "medal-blue.svg",
+          "x": 75,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-gold",
+          "image": "medal-gold.svg",
+          "x": 82,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        }
+      ],
+      "motion": "天鵝輕轉，獎章獨立顯示。",
+      "actions": [
+        "turn"
+      ],
+      "description": "舞蹈站開始，天鵝轉得最流暢。"
+    },
+    {
+      "number": 6,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "medal-red",
+          "image": "medal-red.svg",
+          "x": 68,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-blue",
+          "image": "medal-blue.svg",
+          "x": 75,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-gold",
+          "image": "medal-gold.svg",
+          "x": 82,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 51,
+          "y": 86,
+          "w": 48,
+          "h": 28,
+          "word": "table",
+          "z": 4
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 46.0,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 49.4,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 52.8,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 46.0,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 49.4,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 52.8,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 46.0,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 49.4,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 52.8,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        }
+      ],
+      "motion": "貓頭鷹完成一組拼圖。",
+      "actions": [],
+      "description": "拼圖站開始，貓頭鷹最先完成。"
+    },
+    {
+      "number": 7,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "medal-red",
+          "image": "medal-red.svg",
+          "x": 68,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-blue",
+          "image": "medal-blue.svg",
+          "x": 75,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-gold",
+          "image": "medal-gold.svg",
+          "x": 82,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 51,
+          "y": 86,
+          "w": 48,
+          "h": 28,
+          "word": "table",
+          "z": 4
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 46.0,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 49.4,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 52.8,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 46.0,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 49.4,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 52.8,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 46.0,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 49.4,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 52.8,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        }
+      ],
+      "motion": "瑜瑜依序嘗試。",
+      "actions": [],
+      "description": "瑜瑜依序嘗試，卻沒有拿到第一。"
+    },
+    {
+      "number": 8,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "medal-red",
+          "image": "medal-red.svg",
+          "x": 68,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-blue",
+          "image": "medal-blue.svg",
+          "x": 75,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-gold",
+          "image": "medal-gold.svg",
+          "x": 82,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "reflection-rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 68,
+          "y": 57,
+          "w": 7,
+          "h": 13,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "reflection-swan",
+          "image": "swan.png",
+          "x": 75,
+          "y": 57,
+          "w": 7,
+          "h": 13,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "reflection-owl",
+          "image": "owl.png",
+          "x": 82,
+          "y": 57,
+          "w": 7,
+          "h": 13,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "reflection-gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 75,
+          "y": 69,
+          "w": 5,
+          "h": 9,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 51,
+          "y": 86,
+          "w": 48,
+          "h": 28,
+          "word": "table",
+          "z": 4
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 46.0,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 49.4,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 52.8,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 46.0,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 49.4,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 52.8,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 46.0,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 49.4,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 52.8,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        }
+      ],
+      "motion": "三枚獎章放大，瑜瑜倒影縮小。",
+      "actions": [],
+      "description": "鏡面把三位朋友的獎章放大，瑜瑜的倒影縮到角落。"
+    },
+    {
+      "number": 9,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/seated.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "medal-red",
+          "image": "medal-red.svg",
+          "x": 68,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-blue",
+          "image": "medal-blue.svg",
+          "x": 75,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "medal-gold",
+          "image": "medal-gold.svg",
+          "x": 82,
+          "y": 48,
+          "w": 5,
+          "h": 8,
+          "word": "medal",
+          "z": 4
+        },
+        {
+          "id": "reflection-rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 68,
+          "y": 57,
+          "w": 7,
+          "h": 13,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "reflection-swan",
+          "image": "swan.png",
+          "x": 75,
+          "y": 57,
+          "w": 7,
+          "h": 13,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "reflection-owl",
+          "image": "owl.png",
+          "x": 82,
+          "y": 57,
+          "w": 7,
+          "h": 13,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "reflection-gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 75,
+          "y": 69,
+          "w": 5,
+          "h": 9,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 51,
+          "y": 86,
+          "w": 48,
+          "h": 28,
+          "word": "table",
+          "z": 4
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 46.0,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 49.4,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 52.8,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 46.0,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 49.4,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 52.8,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 46.0,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 49.4,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 52.8,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        }
+      ],
+      "motion": "瑜瑜回看自己的拼圖。",
+      "actions": [],
+      "description": "瑜瑜開始只看排名，忘了自己已比第一次更熟練。"
+    },
+    {
+      "number": 10,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 13,
+          "y": 26,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 32,
+          "y": 43,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 51,
+          "y": 60,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 70,
+          "y": 77,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 89,
+          "y": 38,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 30,
+          "y": 55,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 49,
+          "y": 72,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 68,
+          "y": 33,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 87,
+          "y": 50,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        }
+      ],
+      "motion": "九張星圖卡沿單一方向吹散。",
+      "actions": [
+        "scatter"
+      ],
+      "description": "一陣風把大型星圖卡片吹散。"
+    },
+    {
+      "number": 11,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 13,
+          "y": 26,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 32,
+          "y": 43,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 51,
+          "y": 60,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 70,
+          "y": 77,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 89,
+          "y": 38,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 30,
+          "y": 55,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 49,
+          "y": 72,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 68,
+          "y": 33,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 87,
+          "y": 50,
+          "w": 6,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5
+        }
+      ],
+      "motion": "朋友各自嘗試。",
+      "actions": [],
+      "description": "大家各自搶著用最擅長的方法，仍無法完成星圖。"
+    },
+    {
+      "number": 12,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 51,
+          "y": 86,
+          "w": 48,
+          "h": 28,
+          "word": "table",
+          "z": 4
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 46.0,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 49.4,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 52.8,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 46.0,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 49.4,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 52.8,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 46.0,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 49.4,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 52.8,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        }
+      ],
+      "motion": "依次聚焦每位朋友。",
+      "actions": [],
+      "description": "瑜瑜先請每個人說出能幫忙的部分。"
+    },
+    {
+      "number": 13,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "rabbit-running.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 51,
+          "y": 86,
+          "w": 48,
+          "h": 28,
+          "word": "table",
+          "z": 4
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 46.0,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 49.4,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 52.8,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 46.0,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 49.4,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 52.8,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 46.0,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 49.4,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 52.8,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        }
+      ],
+      "motion": "兔子帶回遠處卡片。",
+      "actions": [
+        "run"
+      ],
+      "description": "兔子快速取回遠處卡片。"
+    },
+    {
+      "number": 14,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 51,
+          "y": 86,
+          "w": 48,
+          "h": 28,
+          "word": "table",
+          "z": 4
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 46.0,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 49.4,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 52.8,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 46.0,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 49.4,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 52.8,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 46.0,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 49.4,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 52.8,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        }
+      ],
+      "motion": "天鵝排出曲線。",
+      "actions": [],
+      "description": "天鵝按曲線排列星星路徑。"
+    },
+    {
+      "number": 15,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 51,
+          "y": 86,
+          "w": 48,
+          "h": 28,
+          "word": "table",
+          "z": 4
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 46.0,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 49.4,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 52.8,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 46.0,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 49.4,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 52.8,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 46.0,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 49.4,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 52.8,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        }
+      ],
+      "motion": "貓頭鷹比對空缺。",
+      "actions": [],
+      "description": "貓頭鷹比對形狀，找出缺少的一角。"
+    },
+    {
+      "number": 16,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 51,
+          "y": 86,
+          "w": 48,
+          "h": 28,
+          "word": "table",
+          "z": 4
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 46.0,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 49.4,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 52.8,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 46.0,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 49.4,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 52.8,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 46.0,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 49.4,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 52.8,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        }
+      ],
+      "motion": "瑜瑜將步驟依序排列。",
+      "actions": [],
+      "description": "瑜瑜把三種做法排成清楚順序。"
+    },
+    {
+      "number": 17,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 75,
+          "y": 57,
+          "w": 45,
+          "h": 85,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 39,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 61,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 84,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 51,
+          "y": 86,
+          "w": 48,
+          "h": 28,
+          "word": "table",
+          "z": 4
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 46.0,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 49.4,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 52.8,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 46.0,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 49.4,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 52.8,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 46.0,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 49.4,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 52.8,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        }
+      ],
+      "motion": "九張卡片回到完整網格。",
+      "actions": [],
+      "description": "大家一起完成星圖，沒有單一勝利者。"
+    },
+    {
+      "number": 18,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 57,
+          "y": 50,
+          "w": 61,
+          "h": 96,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 32,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 81,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 91,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "reflection-rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 48,
+          "y": 47,
+          "w": 10,
+          "h": 18,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "reflection-swan",
+          "image": "swan.png",
+          "x": 57,
+          "y": 47,
+          "w": 10,
+          "h": 18,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "reflection-owl",
+          "image": "owl.png",
+          "x": 66,
+          "y": 47,
+          "w": 10,
+          "h": 18,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "reflection-gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 57,
+          "y": 65,
+          "w": 10,
+          "h": 18,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 51,
+          "y": 86,
+          "w": 48,
+          "h": 28,
+          "word": "table",
+          "z": 4
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 46.0,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 49.4,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 52.8,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 46.0,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 49.4,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 52.8,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 46.0,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 49.4,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 52.8,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        }
+      ],
+      "motion": "鏡面四種貢獻同時亮起，沒有高低排名。",
+      "actions": [],
+      "description": "鏡子照見四個不同圖示，不再顯示高低名次。"
+    },
+    {
+      "number": 19,
+      "scene": "carnival",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 19,
+          "y": 67,
+          "w": 26,
+          "h": 53,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "mirror",
+          "image": "mirror.png",
+          "x": 57,
+          "y": 50,
+          "w": 61,
+          "h": 96,
+          "word": "mirror",
+          "z": 1
+        },
+        {
+          "id": "rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 32,
+          "y": 71,
+          "w": 22,
+          "h": 41,
+          "word": "pace",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "swan",
+          "image": "swan.png",
+          "x": 81,
+          "y": 69,
+          "w": 24,
+          "h": 45,
+          "word": "dance",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "owl",
+          "image": "owl.png",
+          "x": 91,
+          "y": 68,
+          "w": 20,
+          "h": 40,
+          "word": "puzzle",
+          "z": 3,
+          "facing": "left"
+        },
+        {
+          "id": "reflection-rabbit",
+          "image": "../parrot-v1/rabbit.png",
+          "x": 48,
+          "y": 47,
+          "w": 10,
+          "h": 18,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "reflection-swan",
+          "image": "swan.png",
+          "x": 57,
+          "y": 47,
+          "w": 10,
+          "h": 18,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "reflection-owl",
+          "image": "owl.png",
+          "x": 66,
+          "y": 47,
+          "w": 10,
+          "h": 18,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "reflection-gail",
+          "image": "../shared-gail-v1/standing.png",
+          "x": 57,
+          "y": 65,
+          "w": 10,
+          "h": 18,
+          "word": "reflection",
+          "z": 2
+        },
+        {
+          "id": "table",
+          "image": "../time-v1/table.png",
+          "x": 51,
+          "y": 86,
+          "w": 48,
+          "h": 28,
+          "word": "table",
+          "z": 4
+        },
+        {
+          "id": "tile-1",
+          "image": "tile-1.svg",
+          "x": 46.0,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-2",
+          "image": "tile-2.svg",
+          "x": 49.4,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-3",
+          "image": "tile-3.svg",
+          "x": 52.8,
+          "y": 74,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-4",
+          "image": "tile-4.svg",
+          "x": 46.0,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-5",
+          "image": "tile-5.svg",
+          "x": 49.4,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-6",
+          "image": "tile-6.svg",
+          "x": 52.8,
+          "y": 77,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-7",
+          "image": "tile-7.svg",
+          "x": 46.0,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-8",
+          "image": "tile-8.svg",
+          "x": 49.4,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        },
+        {
+          "id": "tile-9",
+          "image": "tile-9.svg",
+          "x": 52.8,
+          "y": 80,
+          "w": 3.4,
+          "h": 6,
+          "word": "puzzle",
+          "z": 5,
+          "scaleY": 0.5
+        }
+      ],
+      "motion": "前後兩組片數並列。",
+      "actions": [],
+      "description": "瑜瑜比較自己前後兩次的拼圖片數，看見真實進步。"
+    },
+    {
+      "number": 20,
+      "scene": "bedroom",
+      "objects": [
+        {
+          "id": "gail",
+          "image": "../shared-gail-v1/kneeling.png",
+          "x": 32,
+          "y": 78,
+          "w": 33,
+          "h": 36,
+          "word": "Gail",
+          "z": 3,
+          "facing": "right"
+        },
+        {
+          "id": "guide",
+          "image": "mirror.png",
+          "x": 55,
+          "y": 83,
+          "w": 12,
+          "h": 17,
+          "word": "guide",
+          "z": 4
+        }
+      ],
+      "motion": "回固定房間，鏡面安靜熄光。",
+      "actions": [],
+      "description": "回到房間後，手鏡只映出平常大小的瑜瑜與朋友合照，接著熄光。"
+    }
+  ],
+  "lifecycle": {
+    "swapGapMs": 200,
+    "cancelOn": [
+      "pause",
+      "pagechange",
+      "visibilityhidden",
+      "leave"
+    ],
+    "reducedMotion": "soft opacity only"
+  },
+  "notice": "正式閱讀器已整合；本機預覽待使用者驗收，尚未發布。"
+}
