@@ -2,13 +2,14 @@
   "name": "learning-planet",
   "private": true,
   "scripts": {
+    "build:math-teaching": "vite build --config vite.math-teaching.config.mjs",
     "dev": "vite",
     "build:earth-orbit": "vite build",
     "typecheck": "tsc --noEmit",
     "test:earth-orbit": "vitest run",
     "build:experiments": "vite build --config vite.experiments.config.ts",
     "build:stories": "vite build --config vite.story.config.ts",
-    "check": "npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit && npm run build:experiments && npm run build:stories && npm run build:little-star",
+    "check": "npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit && npm run build:experiments && npm run build:stories && npm run build:little-star && npm run build:math-teaching",
     "deploy": "npx -y firebase-tools@latest deploy --only hosting",
     "deploy:all": "npx -y firebase-tools@latest deploy",
     "build:little-star": "vite build --config vite.little-star.config.ts"

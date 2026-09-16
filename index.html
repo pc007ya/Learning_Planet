@@ -12,6 +12,7 @@
 <meta name="description" content="提供小學數學、國文、英文、自然與科學實驗的互動學習網站。">
 <script src="./support.js"></script>
 <script src="./sci-art.js"></script>
+<script type="module" src="./modules/math-teaching/launch.mjs"></script>
 <script type="module" src="./modules/math-question-engine/math-question-engine-v1.js?v=20260909-concept-engine-v1"></script>
 <script type="module" src="./src/firebase-config.js"></script>
 <script type="module" src="./auth-v2/firebase-client.js"></script>
@@ -563,6 +564,7 @@
   .subject-world-card-progress-slot { min-height:7px; }
   .subject-world-card-progress { height:7px!important;background:rgba(255,255,255,.17)!important; }
   .subject-world-card-extra { display:flex;align-items:stretch;gap:8px;height:40px;min-height:40px; }
+  .subject-world-card-extra.has-teaching { height:44px;min-height:44px; }
   .subject-world-card-extra button { flex:1;margin:0!important;padding:0 9px!important;border-color:rgba(255,255,255,.25)!important;background:rgba(255,255,255,.12)!important;color:#fff!important;backdrop-filter:blur(10px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
   .subject-battle-button { --battle-hi:color-mix(in srgb,var(--subject-world-accent) 48%,white);--battle-mid:var(--subject-world-accent);--battle-lo:color-mix(in srgb,var(--subject-world-accent) 72%,#3a176e);--battle-edge:color-mix(in srgb,var(--subject-world-accent) 48%,#120626);position:relative;isolation:isolate;width:100%;border:0!important;border-radius:17px!important;padding:0!important;background:transparent!important;color:#fff!important;font-family:inherit;font-size:15px;font-weight:900;line-height:1.1;letter-spacing:.04em;cursor:pointer;filter:drop-shadow(0 8px 11px rgba(0,0,0,.24)); }
   .subject-battle-button::before { content:"";position:absolute;z-index:-1;inset:8px 9%;border-radius:999px;background:var(--battle-mid);filter:blur(14px);opacity:.5;transition:opacity .2s ease; }
@@ -1711,7 +1713,8 @@
                 <span class="subject-world-card-state" style="margin-left:auto;font-size:12px;font-weight:900">{{ u.stateLabel }}</span>
               </div></sc-if>
               <div class="subject-world-card-progress-slot"><sc-if value="{{ u.showProgress }}" hint-placeholder-val="{{ true }}"><div class="subject-world-card-progress" style="border-radius:99px;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,var(--subject-world-accent),#59e5f2);width:{{ u.pct }}%"></div></div></sc-if></div>
-              <div class="subject-world-card-extra">
+              <div class="subject-world-card-extra {{ u.teachingClass }}">
+              <sc-for list="{{ u.teachingLinks }}" as="tl"><button type="button" data-math-teaching-open="{{ tl.lesson }}" data-math-teaching-max="{{ tl.max }}" style="min-height:44px" aria-label="{{ tl.label }}">{{ tl.label }}</button></sc-for>
               <sc-if value="{{ u.hasVideo }}" hint-placeholder-val="{{ false }}">
                 <button onClick="{{ u.watchVideo }}" style="margin-top:-4px;border:1.5px solid #ffd9ec;border-radius:16px;padding:10px;font-size:13px;font-weight:900;font-family:inherit;cursor:pointer;color:#c8447a;background:#fff5f9">🎬 教學影片</button>
               </sc-if>
@@ -11505,6 +11508,8 @@ class Component extends DCLogic {
           btnBg: atLimit ? "#ece9f5" : "linear-gradient(90deg,#7c5cff,#22c8d8)",
           btnFg: atLimit ? "#9a90c8" : "#fff",
           start: () => this.startUnit(u.id),
+          teachingLinks: s.subject === "math" ? ({ u108: ["ten"], u14: ["add"], u20: ["add"], u15: ["sub"], u21: ["sub"], u5: ["add", "sub"], u37: ["add", "sub"] }[u.id] || []).map((lesson) => ({lesson, max: ["u14", "u15"].includes(u.id) ? 50 : 99, label: "先看教學 · " + ({ten:"湊十",add:"加法",sub:"減法"}[lesson])})) : [],
+          teachingClass: s.subject === "math" && ["u108","u14","u20","u15","u21","u5","u37"].includes(u.id) ? "has-teaching" : "",
           hasVideo: !!VIDEO_LIB[u.id],
           watchVideo: () => this.startVideo(u.id, "map"),
           hasLesson: ["u40", "u41", "u42", "u47", "u48", "u49", "u50", "u51", "u52", "u53", "u54", "u55", "u56", "u57", "u58", "u59", "u60", "u61", "u62", "s1", "s2", "s3", "s4", "s5", "s9", "s10", "s11", "s12", "s13", "s14", "s15", "s16", "s17", "s18"].indexOf(u.id) >= 0,
