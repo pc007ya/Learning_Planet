@@ -12,6 +12,7 @@
 <meta name="description" content="提供小學數學、國文、英文、自然與科學實驗的互動學習網站。">
 <script src="./support.js"></script>
 <script src="./sci-art.js"></script>
+<script type="module" src="./modules/math-image-guard.mjs"></script>
 <script type="module" src="./modules/story-launch.mjs"></script>
 <script type="module" src="./modules/math-teaching/launch.mjs"></script>
 <script type="module" src="./modules/math-question-engine/math-question-engine-v1.js?v=20260909-concept-engine-v1"></script>
@@ -1142,6 +1143,7 @@
   .math-quiz-focus .is-math-master .quiz-timer-circle{width:68px!important;height:68px!important;background:#fffaf0!important;box-shadow:inset 0 0 0 5px rgba(255,255,255,.7)}
   .app-shell.module-focus.math-quiz-focus [data-screen-label].is-math-master>.quiz-progress .quiz-auto-next{display:grid!important;place-items:center;min-width:46px;min-height:30px!important;padding:0!important;border:0!important;border-radius:0!important;outline:none!important;background:transparent!important;box-shadow:none!important}.math-quiz-focus .is-math-master .quiz-auto-next>span{display:none!important}.math-quiz-focus .is-math-master .quiz-auto-next b{display:grid;place-items:center;min-width:44px;height:26px;padding:0 8px;border-radius:99px;color:#fff!important;font-size:11px;box-shadow:inset 0 1px rgba(255,255,255,.4),0 3px 8px rgba(35,50,111,.18)}.math-quiz-focus .is-math-master .quiz-auto-next:focus-visible b{box-shadow:inset 0 1px rgba(255,255,255,.4),0 0 0 3px rgba(55,201,234,.36),0 3px 8px rgba(35,50,111,.18)}.math-quiz-focus .is-math-master .quiz-auto-next b>.sc-interp{display:inline!important;width:auto!important;height:auto!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#fff!important;font-size:11px!important;line-height:1!important;box-shadow:none!important}
   .math-master-left-rail{grid-area:side;display:flex;min-width:0;height:100%}
+  .app-shell.module-focus .quiz-timer-circle,.app-shell.module-focus .quiz-timer-circle *{color:#111!important;text-shadow:none!important}
   .math-object-image{display:block;width:52px;height:52px;object-fit:contain;filter:drop-shadow(0 5px 5px rgba(23,39,91,.16))}
   .math-object-image.is-small{width:38px;height:38px}.math-object-image.is-large{width:66px;height:66px}
   .math-number-line-marker{position:absolute;top:-23px;width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-top:18px solid #ff5c72;filter:drop-shadow(0 3px 2px rgba(87,29,67,.2))}
