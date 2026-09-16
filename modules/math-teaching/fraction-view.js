@@ -19,7 +19,7 @@ export class FractionView {
         const lo=p+i/d,hi=p+(i+1)/d,cuts=[lo,hi,...bands.flatMap(b=>[b.start,b.end]).filter(v=>v>lo+1e-10&&v<hi-1e-10)].sort((a,b)=>a-b);
         for(let j=0;j<cuts.length-1;j++){const a=cuts[j],b=cuts[j+1];if(b-a<1e-10)continue;const mid=(a+b)/2,color=bands.find(band=>mid>=band.start&&mid<band.end)?.color??3,gap=Math.min(.018,Math.PI/d*.06),start=(a-p)*Math.PI*2+(j===0?gap:0),length=(b-a)*Math.PI*2-(j===0?gap:0)-(j===cuts.length-2?gap:0);const mesh=new T.Mesh(new T.CylinderGeometry(1.65,1.65,.24,Math.max(3,Math.ceil(length*18)),1,false,start,Math.max(.00001,length)),this.materials[color]);mesh.position.set(2+p*4,0,0);this.group.add(mesh);}
       }
-      const signs=document.createElement('div');signs.className='fraction-symbols';signs.innerHTML=`<span>${s.op==='add'?'＋':'−'}</span><span>＝</span>`;this.element.append(signs);
+      const signs=document.createElement('div');signs.className='fraction-symbols';signs.innerHTML=`<span>${s.op==='add'?'＋':'−'}</span><span>${s.numerator<0?'＝ −':'＝'}</span>`;this.element.append(signs);
     }
     this.fit();
   }
