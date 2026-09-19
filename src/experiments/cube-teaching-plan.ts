@@ -51,7 +51,7 @@ export function sliceTranslator(algorithm:string){
   const wide:Record<string,string[]>={R:['R',"M'"],L:['L','M'],U:['U',"E'"],D:['D','E'],F:['F','S'],B:['B',"S'"]};
   for(const m of wide[face])result.push(withSuffix(m,suffix));
  }
- return result;
+ return result.flatMap(m=>m.endsWith('2')?[m[0],m[0]]:[m]);
 }
 
 // Compatibility fallback: absorb wide/slice notation into outer turns plus a virtual frame.
