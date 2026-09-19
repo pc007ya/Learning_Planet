@@ -23,8 +23,8 @@ describe('exact classic 3×3 cube moves',()=>{
     const e=turnCube(solvedCube(),'E').find(p=>p.id==='1,0,1')!;
     const s=turnCube(solvedCube(),'S').find(p=>p.id==='1,1,0')!;
     expect(m.position).toEqual([0,-1,1]);
-    expect(e.position).toEqual([1,0,1]);
-    expect(s.position).toEqual([-1,1,0]);
+    expect(e.position).toEqual([1,0,-1]);
+    expect(s.position).toEqual([1,-1,0]);
   });
   it('preserves color totals, distinct integer positions and reversible mixed histories',()=>{
     const original=solvedCube(),moves=['R','U',"F'",'M','E2',"S'",'L2','B','D2',"R'",'F','U2'];
