@@ -25,11 +25,12 @@ export function faceletString(state:CubeState){
    return colorFace[sticker.color].toLowerCase();
  }).join('')).join('');
 }
-export function pieceSolved(piece:Cubie,state:CubeState=solvedCube()){
+export function pieceSolvedInState(piece:Cubie,state:CubeState){
  const centers=new Map<string,CubeVector>();
  for(const p of state.filter(p=>p.stickers.length===1))centers.set(p.stickers[0].color,p.stickers[0].normal);
  return piece.stickers.every(s=>same(s.normal,centers.get(s.color)!));
 }
+export function pieceSolved(piece:Cubie){return pieceSolvedInState(piece,solvedCube());}
 export interface TeachingChapter{phase:'cross'|'f2l'|'oll'|'pll';moves:string[];targets:string[];end:string;checkedState:CubeState;usesSlices:boolean;}
 
 const suffixOf=(token:string)=>token.includes('2')?'2':token.toLowerCase().includes('prime')||token.includes("'")?"'":'';
@@ -88,14 +89,14 @@ export function teachingPlan(input:CubeState):TeachingChapter[]{
    const moves=useSlices?sliceTranslator(raw):fallback(raw);
    if(!moves.length)continue;
    const next=applyCubeMoves(state,moves);
-   let targets=next.filter(p=>pieceSolved(p,next)&&!pieceSolved(state.find(q=>q.id===p.id)!,state)).map(p=>p.id);
+   let targets=next.filter(p=>pieceSolvedInState(p,next)&&!pieceSolvedInState(state.find(q=>q.id===p.id)!,state)).map(p=>p.id);
    if(phase==='cross')targets=targets.filter(id=>{const p=next.find(p=>p.id===id)!;return p.stickers.length===2&&p.stickers.some(s=>s.color==='white');});
    if(phase==='f2l')targets=targets.filter(id=>!next.find(p=>p.id===id)!.stickers.some(s=>s.color==='yellow'));
    if(phase==='oll'){
     const yellow=centerNormalByColor(state,'yellow')!;
     targets=state.filter(p=>p.stickers.some(s=>s.color==='yellow'&&!same(s.normal,yellow))).map(p=>p.id);
    }
-   if(phase==='pll')targets=state.filter(p=>p.stickers.some(s=>s.color==='yellow')&&!pieceSolved(p,state)).map(p=>p.id);
+   if(phase==='pll')targets=state.filter(p=>p.stickers.some(s=>s.color==='yellow')&&!pieceSolvedInState(p,state)).map(p=>p.id);
    if(!targets.length){
     // A slice/frame action may improve orientation without immediately solving one cubie.
     // Keep the lesson visible by highlighting the pieces actually moved.
