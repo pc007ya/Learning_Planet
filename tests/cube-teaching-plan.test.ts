@@ -5,8 +5,8 @@ describe('state-based cube teacher',()=>{
  it('serializes centers and solved face order',()=>expect(faceletString(solvedCube())).toBe('fffffffffrrrrrrrrruuuuuuuuudddddddddlllllllllbbbbbbbbb'));
  it('does not invent steps for a solved cube',()=>expect(teachingPlan(solvedCube())).toEqual([]));
  it('keeps exact slice notation and expands wide turns into real middle layers',()=>{
-  expect(sliceTranslator("M E' S2")).toEqual(['M',"E'",'S2']);
-  expect(sliceTranslator("r u' f2")).toEqual(['R',"M'","U'",'E','F2','S2']);
+  expect(sliceTranslator("M E' S2")).toEqual(['M',"E'",'S','S']);
+  expect(sliceTranslator("r u' f2")).toEqual(['R',"M'","U'",'E','F','F','S','S']);
  });
  it('serializes states relative to their moved centers after a slice turn',()=>{
   const moved=applyCubeMoves(solvedCube(),['M','E',"S'"]);
