@@ -1,11 +1,10 @@
 import * as T from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { solvedCube, turnCube, type CubeState, type CubeColor } from './cube-state';
+import { solvedCube, turnCube, cubeMoveSpec, type CubeState, type CubeColor } from './cube-state';
 
 export const CUBE_COLORS: Record<CubeColor,number>={white:0xfff9e6,yellow:0xffd53d,red:0xf14355,orange:0xff8b30,green:0x16b985,blue:0x2686ef};
 export const CUBE_FACES=[{id:'U',color:'white',name:'白色上面',normal:[0,1,0]}, {id:'F',color:'green',name:'綠色前面',normal:[0,0,1]}, {id:'R',color:'red',name:'紅色右面',normal:[1,0,0]}, {id:'B',color:'blue',name:'藍色後面',normal:[0,0,-1]}, {id:'L',color:'orange',name:'橘色左面',normal:[-1,0,0]}, {id:'D',color:'yellow',name:'黃色底面',normal:[0,-1,0]}] as const;
-const FACE_AXIS:Record<string,[number,number]>={R:[0,1],L:[0,-1],U:[1,1],D:[1,-1],F:[2,1],B:[2,-1]};
 // Corner view: 45° azimuth and 35.3° elevation give U/F/R equal prominence.
 const HOME_CAMERA = new T.Vector3(6,6,6);
 export class CubeView {
@@ -80,9 +79,12 @@ export class CubeView {
   mode(mode:'view'|'turn'|'inspect'){this.turnMode=mode==='turn';this.controls.enableRotate=!this.turnMode;this.halo.visible=this.turnMode&&!this.exploded;this.draw();}
   private setSpread(t:number){for(const p of this.state){const g=this.groups.get(p.id)!;g.position.fromArray([...p.position]).multiplyScalar(1+t*1.1);}this.halo.visible=this.turnMode&&t===0;this.floor.visible=t===0;}
   async inspect(open:boolean){if(this.busy)return;this.exploded=open;this.mode(open?'inspect':'view');this.home();await this.animate(650,t=>this.setSpread(open?t:1-t));}
-  async move(move:string){if(this.busy||this.exploded)return false;const [axis,side]=FACE_AXIS[move[0]];const pivot=new T.Group();this.root.add(pivot);const pieces=this.state.filter(p=>p.position[axis]===side).map(p=>this.groups.get(p.id)!);pieces.forEach(g=>pivot.attach(g));const turns=move.endsWith('2')?2:move.endsWith("'")?-1:1;
-    await this.animate(400,t=>{pivot.rotation.set(0,0,0);pivot.rotation[(['x','y','z'] as const)[axis]]=-side*turns*Math.PI/2*t;});
+  async move(move:string){if(this.busy||this.exploded)return false;const {axis,layer,directionSide,turns}=cubeMoveSpec(move);const pivot=new T.Group();this.root.add(pivot);const pieces=this.state.filter(p=>p.position[axis]===layer).map(p=>this.groups.get(p.id)!);pieces.forEach(g=>pivot.attach(g));
+    await this.animate(400,t=>{pivot.rotation.set(0,0,0);pivot.rotation[(['x','y','z'] as const)[axis]]=-directionSide*turns*Math.PI/2*t;});
     if(this.dead)return false;pieces.forEach(g=>this.root.attach(g));this.root.remove(pivot);this.state=turnCube(this.state,move);this.sync();return true;
+  }
+  highlightSlice(slice:'M'|'E'|'S'){
+    const spec=cubeMoveSpec(slice);this.highlight(this.state.filter(p=>p.position[spec.axis]===0).map(p=>p.id));
   }
   private animate(duration:number,tick:(t:number)=>void){this.busy=true;return new Promise<void>(resolve=>{this.task={start:performance.now(),duration:matchMedia('(prefers-reduced-motion: reduce)').matches?0:duration,tick,done:()=>{this.busy=false;resolve();}};this.draw();});}
   reset(state=solvedCube()){if(this.busy)return;this.state=state;this.exploded=false;this.sync();this.mode('view');this.home();}
