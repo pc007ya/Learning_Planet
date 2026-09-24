@@ -1,4 +1,6 @@
 import * as T from 'three';
+export {GeometryView} from './geometry-view.js';
+export {DivisionView} from './division-view.js';
 export {FractionView} from './fraction-view.js';
 export {MultiplicationView} from './multiplication-view.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';

@@ -98,6 +98,15 @@ describe('Math Master Template', () => {
     expect(html).toContain('color:#f4fbff">{{ card.text }}');
   });
 
+  it('keeps dark quiz figures readable without darkening their light inset tiles', () => {
+    const columnStart = html.lastIndexOf('<sc-if value="{{ figColumns }}"');
+    const columnFigure = html.slice(columnStart, html.indexOf('</sc-if>', columnStart));
+    expect(columnFigure).toContain("font-family:'Baloo 2',monospace;color:#fff");
+    expect(columnFigure).toContain('border-bottom:3px solid #a9dfff');
+    expect(columnFigure).not.toContain('color:#2b1f57');
+    expect(html).not.toContain('.module-focus .quiz-visual [style*="background:#fff"]');
+  });
+
   it('uses recorded HsiaoChen presenter lines with type-specific hints', () => {
     const clips = ['welcome', 'ready', 'correct', 'wrong', 'urgent', 'hint-counting', 'hint-clock', 'hint-columns', 'hint-shape', 'hint-line', 'hint-weight', 'hint-generic'];
     for (const clip of clips) {

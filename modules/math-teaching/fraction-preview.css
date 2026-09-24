@@ -1,0 +1,13 @@
+.view-switch,.step-actions{display:flex;flex-wrap:wrap;gap:8px}.mw .desk button[aria-pressed=true]{color:#124f53}.mw .fraction-form input{width:68px;font-size:18px}.fraction-form span{font-size:13px;color:#b9cede}.mw .fraction-note{margin:0}.mw .legend{font-size:13px}.mw aside .caption{color:#b8cee1}.flat-bars{display:flex;justify-content:space-evenly;gap:16px}.mw .answer{flex-wrap:wrap}.mw .answer label{flex:1}.mw .fraction-canvas{height:clamp(240px,38vh,420px)}
+.mw .equation-editor{display:flex;align-items:center;gap:16px;margin:0;justify-content:center}
+.editable-fraction{display:inline-flex;flex-direction:column;align-items:center;width:64px;flex-shrink:0}
+.mw .editable-fraction input{width:64px;height:43px;text-align:center;font-size:26px;font-weight:800;border:0;border-radius:7px;padding:3px;background:#ffffffa6;color:#172936;appearance:textfield}
+.mw .editable-fraction input::-webkit-inner-spin-button,.mw .editable-fraction input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.mw .editable-fraction input:first-child{border-bottom:2px solid #273547;border-radius:7px 7px 0 0}
+.mw .editable-fraction input:last-child{border-radius:0 0 7px 7px}
+.blue-fraction{box-shadow:0 0 0 2px #31aabe;border-radius:7px}.orange-fraction{box-shadow:0 0 0 2px #db9a22;border-radius:7px}
+.operation-symbols{display:flex;gap:5px}.mw .operation-symbols button{font-size:25px;width:44px;height:44px;padding:0;border-radius:50%}
+.stacked-fraction{display:inline-flex!important;vertical-align:middle;flex-direction:column;align-items:stretch;text-align:center;font-size:inherit!important;color:inherit!important;line-height:1.15;margin:0 .18em;min-width:1.2em;font-variant-numeric:tabular-nums}
+.stacked-fraction>span{padding:.1em .16em;color:inherit!important;font-size:inherit!important}.stacked-fraction>span:first-child{border-bottom:1.5px solid currentColor}
+.mw .equation-result{display:flex;align-items:center;gap:8px;font-size:30px;color:#172936;font-weight:800}.mw .apply-fractions{font-size:14px}.fraction-labels>span{display:inline-flex;align-items:center;gap:6px}.mw .answer{align-items:center;justify-content:center}.mw .fraction-note{line-height:1.8}
+@media(max-width:540px){.mw .equation-editor{gap:8px}.mw .operation-symbols{flex-direction:column;gap:2px}.mw .operation-symbols button{width:40px;height:40px;min-height:40px}.mw .equation-result{font-size:24px}.mw .apply-fractions{padding:8px}.mw .view-switch button{font-size:12px;padding:8px}}

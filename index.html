@@ -408,7 +408,7 @@
   /* Learning cards retain the cosmic system even when a legacy activity uses
      inline light surfaces for its teaching illustration. */
   .module-focus .quiz-card,.module-focus .quiz-visual,.module-focus .english-word-card,.module-focus .english-match-card,.module-focus .english-pair-target,.module-focus .english-grammar-slot,.module-focus .english-association-big,.module-focus .english-missing-option,.module-focus .english-four-option { background:rgba(8,19,58,.66)!important;border-color:rgba(115,222,255,.38)!important;color:#f2fbff!important;box-shadow:inset 0 1px rgba(255,255,255,.12),0 14px 32px rgba(0,0,0,.22)!important;backdrop-filter:blur(12px); }
-  .module-focus .quiz-visual [style*="background:#fff"],.module-focus .quiz-visual [style*="background:#fbfaff"],.module-focus .quiz-visual [style*="background:#faf8ff"] { background:rgba(255,255,255,.1)!important;color:#f3fbff!important;border-color:rgba(151,223,255,.36)!important; }
+  /* Preserve light teaching tiles and their dark labels inside the dark quiz frame. */
   @media(max-width:900px) and (orientation:landscape){
     .login-space{padding:4px 14px 8px}.login-space-head{min-height:76px}.login-brand-full{height:78px;width:290px}.login-hud{overflow:hidden;padding:10px 14px 12px}.login-roster-grid{height:calc(100% - 55px)}.login-student-card{grid-template-columns:58px minmax(0,1fr)}.login-card-avatar{width:54px;height:64px}.login-card-name{font-size:14px}.login-card-en,.login-card-class-en{font-size:9px}.login-card-zh{font-size:10px}
   }
@@ -568,6 +568,9 @@
   .subject-world-card-extra { display:flex;align-items:stretch;gap:8px;height:40px;min-height:40px; }
   .subject-world-card-extra.has-teaching { height:44px;min-height:44px; }
   .subject-world-card-extra button { flex:1;margin:0!important;padding:0 9px!important;border-color:rgba(255,255,255,.25)!important;background:rgba(255,255,255,.12)!important;color:#fff!important;backdrop-filter:blur(10px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+  .subject-world-explore-card { display:flex;flex-direction:column;gap:12px; }
+  .subject-world-explore-icon { width:52px;height:52px;border-radius:18px;display:grid;place-items:center;background:rgba(111,235,225,.2);font-size:27px;color:#b7fff0; }
+  .subject-world-explore-desc { margin:0 0 6px;color:rgba(255,255,255,.78);font-size:13px;font-weight:700;line-height:1.6; }
   .subject-battle-button { --battle-hi:color-mix(in srgb,var(--subject-world-accent) 48%,white);--battle-mid:var(--subject-world-accent);--battle-lo:color-mix(in srgb,var(--subject-world-accent) 72%,#3a176e);--battle-edge:color-mix(in srgb,var(--subject-world-accent) 48%,#120626);position:relative;isolation:isolate;width:100%;border:0!important;border-radius:17px!important;padding:0!important;background:transparent!important;color:#fff!important;font-family:inherit;font-size:15px;font-weight:900;line-height:1.1;letter-spacing:.04em;cursor:pointer;filter:drop-shadow(0 8px 11px rgba(0,0,0,.24)); }
   .subject-battle-button::before { content:"";position:absolute;z-index:-1;inset:8px 9%;border-radius:999px;background:var(--battle-mid);filter:blur(14px);opacity:.5;transition:opacity .2s ease; }
   .subject-battle-face { position:relative;display:flex;align-items:center;justify-content:center;gap:8px;min-height:47px;overflow:hidden;border:1px solid rgba(255,255,255,.5);border-radius:17px;background:linear-gradient(180deg,var(--battle-hi),var(--battle-mid) 45%,var(--battle-lo));box-shadow:inset 0 2px 0 rgba(255,255,255,.48),inset 0 -2px 0 rgba(0,0,0,.13),0 6px 0 var(--battle-edge),0 10px 18px rgba(0,0,0,.26);text-shadow:0 2px 4px rgba(0,0,0,.3);transform:translateY(0);transition:transform .1s ease,box-shadow .1s ease,filter .18s ease; }
@@ -1729,6 +1732,34 @@
               </div>
             </article>
           </sc-for>
+          <sc-if value="{{ showGeoExplore }}" hint-placeholder-val="{{ false }}">
+            <article class="subject-world-card subject-world-explore-card" data-math-explore="area">
+              <div class="subject-world-card-head" style="display:flex;align-items:center;gap:12px">
+                <span class="subject-world-explore-icon" aria-hidden="true">▦</span>
+                <div style="min-width:0">
+                  <strong style="display:block;font-size:17px;font-weight:900">面積探索</strong>
+                  <span class="subject-world-card-sub" style="font-size:12px;font-weight:800">一年級延伸 · 用方格看面有多大</span>
+                </div>
+              </div>
+              <div class="subject-world-card-bottom">
+                <p class="subject-world-explore-desc">轉動立體、點選方格，看看一個面的大小。</p>
+                <div class="subject-world-card-extra has-teaching"><button type="button" data-math-teaching-open="geo-area" aria-label="先看教學 · 面積">先看教學 · 面積</button></div>
+              </div>
+            </article>
+            <article class="subject-world-card subject-world-explore-card" data-math-explore="volume">
+              <div class="subject-world-card-head" style="display:flex;align-items:center;gap:12px">
+                <span class="subject-world-explore-icon" aria-hidden="true">🧊</span>
+                <div style="min-width:0">
+                  <strong style="display:block;font-size:17px;font-weight:900">體積探索</strong>
+                  <span class="subject-world-card-sub" style="font-size:12px;font-weight:800">一年級延伸 · 用積木看佔多少空間</span>
+                </div>
+              </div>
+              <div class="subject-world-card-bottom">
+                <p class="subject-world-explore-desc">把積木一層層堆起來，觀察長、寬和高。</p>
+                <div class="subject-world-card-extra has-teaching"><button type="button" data-math-teaching-open="geo-volume" aria-label="先看教學 · 體積">先看教學 · 體積</button></div>
+              </div>
+            </article>
+          </sc-if>
         </div>
         </div>
       </div>
@@ -2366,15 +2397,15 @@
 
           <sc-if value="{{ figLine }}" hint-placeholder-val="{{ false }}">
             <div class="quiz-visual" style="margin-top:22px;padding:26px 18px 14px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff">
-              <div style="position:relative;height:4px;background:#2b1f57;border-radius:99px">
+              <div style="position:relative;height:4px;background:#a9dfff;border-radius:99px">
                 <sc-for list="{{ ticks }}" as="t" hint-placeholder-count="11">
-                  <span style="position:absolute;top:-8px;left:{{ t.pos }}%;width:2px;height:20px;background:#2b1f57"></span>
+                  <span style="position:absolute;top:-8px;left:{{ t.pos }}%;width:2px;height:20px;background:#a9dfff"></span>
                 </sc-for>
                 <span class="math-number-line-marker" style="left:{{ markerPos }}%;transform:translateX(-50%)" aria-label="數線標記"></span>
               </div>
               <div style="position:relative;height:22px;margin-top:6px">
                 <sc-for list="{{ ticks }}" as="t" hint-placeholder-count="11">
-                  <span style="position:absolute;left:{{ t.pos }}%;transform:translateX(-50%);font-size:13px;font-weight:900;color:#7c74a8">{{ t.label }}</span>
+                  <span style="position:absolute;left:{{ t.pos }}%;transform:translateX(-50%);font-size:13px;font-weight:900;color:#e5f4ff">{{ t.label }}</span>
                 </sc-for>
               </div>
             </div>
@@ -2416,7 +2447,7 @@
             <div class="quiz-visual" style="margin-top:20px;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:grid;justify-items:center;gap:8px">
               <sc-for list="{{ tensRows }}" as="row" hint-placeholder-count="3"><div style="display:flex;gap:2px;padding:5px 9px;border-radius:99px;background:#fff;border:2px solid #c9dfff"><sc-for list="{{ row.beads }}" as="bead" hint-placeholder-count="10"><img src="{{ bead.image }}" alt="" style="width:27px;height:27px;object-fit:contain"></sc-for></div></sc-for>
               <sc-if value="{{ hasOnesBeads }}" hint-placeholder-val="{{ true }}"><div style="display:flex;gap:3px;padding:5px 9px;border-radius:99px;background:#fff;border:2px dashed #ffbdd6"><sc-for list="{{ onesBeads }}" as="bead" hint-placeholder-count="7"><img src="{{ bead.image }}" alt="" style="width:27px;height:27px;object-fit:contain"></sc-for></div></sc-if>
-              <strong style="font-size:13px;color:#4a3d7a">每一整排是 10 顆</strong>
+              <strong style="font-size:13px;color:#e5f4ff">每一整排是 10 顆</strong>
             </div>
           </sc-if>
 
@@ -2430,7 +2461,7 @@
 
           <sc-if value="{{ figShapeGrid }}" hint-placeholder-val="{{ false }}">
             <div class="quiz-visual" style="margin-top:20px;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff">
-              <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;font-size:13px;font-weight:900;color:#7c74a8">找一找：<span style="width:24px;height:24px;background:{{ shapeGridTarget.color }};border-radius:{{ shapeGridTarget.radius }};clip-path:{{ shapeGridTarget.clip }}"></span></div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;font-size:13px;font-weight:900;color:#e5f4ff">找一找：<span style="width:24px;height:24px;background:{{ shapeGridTarget.color }};border-radius:{{ shapeGridTarget.radius }};clip-path:{{ shapeGridTarget.clip }}"></span></div>
               <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
                 <sc-for list="{{ shapeGridItems }}" as="shape" hint-placeholder-count="8">
                   <span style="width:44px;height:44px;background:{{ shape.color }};border-radius:{{ shape.radius }};clip-path:{{ shape.clip }}"></span>
@@ -2472,7 +2503,7 @@
                         <sc-for list="{{ row }}" as="cell" hint-placeholder-count="3"><span style="width:14px;height:14px;background:{{ cell.bg }};border-radius:2px"></span></sc-for>
                       </sc-for>
                     </div>
-                    <strong style="font-size:12px;font-weight:900;color:#7c74a8">{{ choice.label }}</strong>
+                    <strong style="font-size:12px;font-weight:900;color:#e5f4ff">{{ choice.label }}</strong>
                   </span>
                 </sc-for>
               </div>
@@ -2501,7 +2532,7 @@
           <sc-if value="{{ figLogicWheel }}" hint-placeholder-val="{{ false }}">
             <div class="quiz-visual" style="margin-top:20px;display:flex;justify-content:center;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff">
               <div style="position:relative;width:190px;height:190px">
-                <span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;place-items:center"><sc-if value="{{ logicWheelCenterImage }}" hint-placeholder-val="{{ true }}"><img class="math-object-image is-large" src="{{ logicWheelCenterImage }}" alt="摩天輪"></sc-if><sc-if value="{{ logicWheelCenterText }}" hint-placeholder-val="{{ false }}"><strong style="font-size:22px;color:#3951a3">{{ logicWheelCenterText }}</strong></sc-if></span>
+                <span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;place-items:center"><sc-if value="{{ logicWheelCenterImage }}" hint-placeholder-val="{{ true }}"><img class="math-object-image is-large" src="{{ logicWheelCenterImage }}" alt="摩天輪"></sc-if><sc-if value="{{ logicWheelCenterText }}" hint-placeholder-val="{{ false }}"><strong style="font-size:22px;color:#e5f4ff">{{ logicWheelCenterText }}</strong></sc-if></span>
                 <sc-for list="{{ logicWheelNodes }}" as="node" hint-placeholder-count="6">
                   <span style="position:absolute;left:50%;top:50%;transform:translate(calc(-50% + {{ node.x }}px),calc(-50% + {{ node.y }}px))"><img class="math-object-image" src="{{ node.image }}" alt="{{ node.alt }}"></span>
                 </sc-for>
@@ -2519,12 +2550,12 @@
                   <span style="position:absolute;left:0;top:9px;width:118px;transform:translateX(-35%) rotate({{ weightData.counterTilt }}deg);display:flex;flex-direction:column;align-items:center;gap:2px">
                     <span style="width:2px;height:22px;background:#9ceaff;box-shadow:31px 0 #9ceaff"></span>
                     <span style="display:flex;align-items:flex-end;justify-content:center;gap:2px;min-width:110px;min-height:58px;padding:3px 4px 0;border-bottom:6px solid #7c5cff;border-radius:0 0 56px 56px;background:linear-gradient(180deg,rgba(214,243,255,.2),rgba(84,111,202,.22));box-shadow:inset 0 -1px rgba(255,255,255,.6),0 4px 7px rgba(0,0,0,.18)"><sc-for list="{{ weightData.left.images }}" as="image" hint-placeholder-count="2"><img class="math-object-image" src="{{ image }}" alt="{{ weightData.left.label }}"></sc-for></span>
-                    <strong style="font-size:12px;font-weight:900;color:#7c74a8">{{ weightData.left.label }}</strong>
+                    <strong style="font-size:12px;font-weight:900;color:#e5f4ff">{{ weightData.left.label }}</strong>
                   </span>
                   <span style="position:absolute;right:0;top:9px;width:118px;transform:translateX(35%) rotate({{ weightData.counterTilt }}deg);display:flex;flex-direction:column;align-items:center;gap:2px">
                     <span style="width:2px;height:22px;background:#9ceaff;box-shadow:31px 0 #9ceaff"></span>
                     <span style="display:flex;align-items:flex-end;justify-content:center;gap:2px;min-width:110px;min-height:58px;padding:3px 4px 0;border-bottom:6px solid #7c5cff;border-radius:0 0 56px 56px;background:linear-gradient(180deg,rgba(214,243,255,.2),rgba(84,111,202,.22));box-shadow:inset 0 -1px rgba(255,255,255,.6),0 4px 7px rgba(0,0,0,.18)"><sc-for list="{{ weightData.right.images }}" as="image" hint-placeholder-count="2"><img class="math-object-image" src="{{ image }}" alt="{{ weightData.right.label }}"></sc-for></span>
-                    <strong style="font-size:12px;font-weight:900;color:#7c74a8">{{ weightData.right.label }}</strong>
+                    <strong style="font-size:12px;font-weight:900;color:#e5f4ff">{{ weightData.right.label }}</strong>
                   </span>
                 </div>
               </div>
@@ -2533,9 +2564,9 @@
 
           <sc-if value="{{ figProtractor }}" hint-placeholder-val="{{ false }}">
             <div class="quiz-visual" style="margin-top:20px;display:flex;justify-content:center;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff">
-              <div style="position:relative;width:190px;height:106px;border-radius:190px 190px 0 0;border:4px solid #2b1f57;border-bottom:0;overflow:hidden;background:repeating-conic-gradient(from 270deg at 50% 100%,rgba(138,112,225,.32) 0deg 1deg,transparent 1deg 10deg)">
-                <span style="position:absolute;left:0;bottom:0;width:100%;height:3px;background:#2b1f57"></span>
-                <span style="position:absolute;left:50%;bottom:0;width:84px;height:4px;background:#2b1f57;border-radius:99px;transform-origin:0% 50%"></span>
+              <div style="position:relative;width:190px;height:106px;border-radius:190px 190px 0 0;border:4px solid #a9dfff;border-bottom:0;overflow:hidden;background:repeating-conic-gradient(from 270deg at 50% 100%,rgba(138,112,225,.32) 0deg 1deg,transparent 1deg 10deg)">
+                <span style="position:absolute;left:0;bottom:0;width:100%;height:3px;background:#a9dfff"></span>
+                <span style="position:absolute;left:50%;bottom:0;width:84px;height:4px;background:#a9dfff;border-radius:99px;transform-origin:0% 50%"></span>
                 <span style="position:absolute;left:50%;bottom:0;width:84px;height:4px;background:#ff6fae;border-radius:99px;box-shadow:0 0 9px rgba(255,111,174,.58);transform-origin:0% 50%;transform:rotate({{ protractorRotate }}deg)"></span>
                 <span style="position:absolute;left:50%;bottom:-7px;width:18px;height:18px;transform:translateX(-50%);border-radius:50%;background:#ffd15a;border:3px solid #fff;box-shadow:0 2px 7px rgba(0,0,0,.3)"></span>
               </div>
@@ -2578,7 +2609,7 @@
               <sc-for list="{{ fracPies }}" as="p" hint-placeholder-count="2">
                 <span style="display:flex;flex-direction:column;align-items:center;gap:8px">
                   <span style="width:120px;height:120px;border-radius:50%;border:4px solid #2b1f57;background:{{ p.pie }}"></span>
-                  <strong style="font-size:18px;font-weight:900;color:#2b1f57">{{ p.label }}</strong>
+                  <strong style="font-size:18px;font-weight:900;color:#fff">{{ p.label }}</strong>
                 </span>
               </sc-for>
             </div>
@@ -2601,39 +2632,39 @@
 
           <sc-if value="{{ figColumns }}" hint-placeholder-val="{{ false }}">
             <div class="quiz-visual" style="margin-top:20px;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:flex;justify-content:center">
-              <div style="display:grid;grid-template-columns:repeat(3,42px);row-gap:4px;font-family:'Baloo 2',monospace;color:#2b1f57">
+              <div style="display:grid;grid-template-columns:repeat(3,42px);row-gap:4px;font-family:'Baloo 2',monospace;color:#fff">
                 <sc-for list="{{ colHeads }}" as="h" hint-placeholder-count="3">
-                  <span style="text-align:center;font-size:13px;font-weight:900;color:#9a90c8">{{ h }}</span>
+                  <span style="text-align:center;font-size:13px;font-weight:900;color:#d4eaff">{{ h }}</span>
                 </sc-for>
                 <sc-for list="{{ colRowA }}" as="d" hint-placeholder-count="3">
                   <span style="text-align:center;font-size:30px;font-weight:900">{{ d }}</span>
                 </sc-for>
                 <sc-for list="{{ colRowB }}" as="d" hint-placeholder-count="3">
-                  <span style="text-align:center;font-size:30px;font-weight:900;border-bottom:3px solid #2b1f57;padding-bottom:6px">{{ d }}</span>
+                  <span style="text-align:center;font-size:30px;font-weight:900;border-bottom:3px solid #a9dfff;padding-bottom:6px">{{ d }}</span>
                 </sc-for>
-                <span style="grid-column:1/-1;text-align:center;margin-top:8px;font-size:15px;font-weight:900;color:#9a90c8">{{ colSign }}　{{ colHint }}</span>
+                <span style="grid-column:1/-1;text-align:center;margin-top:8px;font-size:15px;font-weight:900;color:#e5f4ff">{{ colSign }}　{{ colHint }}</span>
               </div>
             </div>
           </sc-if>
 
           <sc-if value="{{ figLongdiv }}" hint-placeholder-val="{{ false }}">
             <div class="quiz-visual" style="margin-top:20px;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:flex;justify-content:center">
-              <div style="text-align:center;font-family:'Baloo 2',monospace;color:#2b1f57">
+              <div style="text-align:center;font-family:'Baloo 2',monospace;color:#fff">
                 <div style="display:grid;grid-auto-flow:column;justify-content:center;margin-left:52px">
                   <sc-for list="{{ longdivQuotient }}" as="d" hint-placeholder-count="3">
                     <span style="width:34px;text-align:center;font-size:26px;font-weight:900">{{ d }}</span>
                   </sc-for>
                 </div>
                 <div style="display:flex;align-items:flex-end;justify-content:center">
-                  <span style="font-size:26px;font-weight:900;padding:0 10px 6px 0;border-right:3px solid #2b1f57">{{ longdivDivisor }}</span>
-                  <div style="display:grid;grid-auto-flow:column;border-top:3px solid #2b1f57;padding-top:4px">
+                  <span style="font-size:26px;font-weight:900;padding:0 10px 6px 0;border-right:3px solid #a9dfff">{{ longdivDivisor }}</span>
+                  <div style="display:grid;grid-auto-flow:column;border-top:3px solid #a9dfff;padding-top:4px">
                     <sc-for list="{{ longdivDividend }}" as="d" hint-placeholder-count="3">
                       <span style="width:34px;text-align:center;font-size:26px;font-weight:900">{{ d }}</span>
                     </sc-for>
                   </div>
                 </div>
                 <sc-if value="{{ longdivHasRemainder }}" hint-placeholder-val="{{ false }}">
-                  <p style="margin:10px 0 0;font-size:14px;font-weight:900;color:#9a90c8">餘 {{ longdivRemainder }}</p>
+                  <p style="margin:10px 0 0;font-size:14px;font-weight:900;color:#d4eaff">餘 {{ longdivRemainder }}</p>
                 </sc-if>
               </div>
             </div>
@@ -2650,7 +2681,7 @@
                   </div>
                 </sc-for>
               </div>
-              <p style="margin:12px 0 0;text-align:center;font-size:16px;font-weight:900;color:#2b1f57">{{ fracstackLabel }}</p>
+              <p style="margin:12px 0 0;text-align:center;font-size:16px;font-weight:900;color:#fff">{{ fracstackLabel }}</p>
             </div>
           </sc-if>
 
@@ -2661,14 +2692,14 @@
                   <span style="width:32px;height:44px;border-radius:6px;background:{{ c.bg }};border:2px solid #2b1f57"></span>
                 </sc-for>
               </div>
-              <p style="margin:12px 0 0;text-align:center;font-size:16px;font-weight:900;color:#2b1f57">{{ fracaddLabel }}</p>
+              <p style="margin:12px 0 0;text-align:center;font-size:16px;font-weight:900;color:#fff">{{ fracaddLabel }}</p>
             </div>
           </sc-if>
 
           <sc-if value="{{ figLongdivInput }}" hint-placeholder-val="{{ false }}">
             <div class="quiz-visual" style="margin-top:20px;padding:20px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff">
               <div style="display:flex;gap:16px;align-items:flex-start;justify-content:center;flex-wrap:wrap">
-                <div style="display:flex;flex-direction:column;gap:2px;align-items:center;font-family:'Baloo 2',monospace;color:#2b1f57">
+                <div style="display:flex;flex-direction:column;gap:2px;align-items:center;font-family:'Baloo 2',monospace;color:#fff">
                   <div style="display:grid;grid-template-columns:{{ longdivInputColTemplate }};gap:2px;align-items:end">
                     <span></span>
                     <span></span>
@@ -2686,9 +2717,9 @@
 
                   <div style="display:grid;grid-template-columns:{{ longdivInputColTemplate }};gap:2px;align-items:end">
                     <span></span>
-                    <span style="text-align:right;font-size:22px;font-weight:900;padding:0 6px 4px 0;border-right:3px solid #2b1f57">{{ longdivInputDivisor }}</span>
+                    <span style="text-align:right;font-size:22px;font-weight:900;padding:0 6px 4px 0;border-right:3px solid #a9dfff">{{ longdivInputDivisor }}</span>
                     <sc-for list="{{ longdivInputDividendCells }}" as="d" hint-placeholder-count="3">
-                      <span style="text-align:center;font-size:22px;font-weight:900;border-top:3px solid #2b1f57;padding-top:4px">{{ d }}</span>
+                      <span style="text-align:center;font-size:22px;font-weight:900;border-top:3px solid #a9dfff;padding-top:4px">{{ d }}</span>
                     </sc-for>
                   </div>
 
@@ -2744,7 +2775,7 @@
           <sc-if value="{{ figVertInput }}" hint-placeholder-val="{{ false }}">
             <div class="quiz-visual" style="margin-top:20px;padding:20px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff">
               <div style="display:flex;gap:16px;align-items:flex-start;justify-content:center;flex-wrap:wrap">
-                <div style="display:flex;flex-direction:column;gap:2px;align-items:center;font-family:'Baloo 2',monospace;color:#2b1f57">
+                <div style="display:flex;flex-direction:column;gap:2px;align-items:center;font-family:'Baloo 2',monospace;color:#fff">
                   <sc-if value="{{ vertInputHasHints }}" hint-placeholder-val="{{ false }}">
                     <div style="display:grid;grid-template-columns:{{ vertInputColTemplate }};gap:2px;align-items:center">
                       <span style="justify-self:start;font-size:11px;font-weight:900;color:#e88a00;background:#fff8ec;border:1.5px solid #f0d9b8;border-radius:10px;padding:3px 7px;white-space:nowrap">{{ vertInputHintCaption }}</span>
@@ -2772,9 +2803,9 @@
 
                   <div style="display:grid;grid-template-columns:{{ vertInputColTemplate }};gap:2px;align-items:end">
                     <span></span>
-                    <span style="text-align:center;font-size:22px;font-weight:900;padding-bottom:4px;border-bottom:3px solid #2b1f57">{{ vertInputSign }}</span>
+                    <span style="text-align:center;font-size:22px;font-weight:900;padding-bottom:4px;border-bottom:3px solid #a9dfff">{{ vertInputSign }}</span>
                     <sc-for list="{{ vertInputRowB }}" as="d" hint-placeholder-count="3">
-                      <span style="text-align:center;font-size:22px;font-weight:900;padding-bottom:4px;border-bottom:3px solid #2b1f57">{{ d }}</span>
+                      <span style="text-align:center;font-size:22px;font-weight:900;padding-bottom:4px;border-bottom:3px solid #a9dfff">{{ d }}</span>
                     </sc-for>
                   </div>
 
@@ -2829,10 +2860,10 @@
             <div class="quiz-visual" style="margin-top:20px;padding:20px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:flex;justify-content:center">
               <div style="position:relative;width:200px;height:150px">
                 <span style="position:absolute;left:68px;top:98px;width:64px;height:64px;border-radius:50%;background:{{ angleFig.arc }};transform:scaleY(-1)"></span>
-                <span style="position:absolute;left:100px;top:128px;width:88px;height:4px;border-radius:99px;background:#2b1f57"></span>
+                <span style="position:absolute;left:100px;top:128px;width:88px;height:4px;border-radius:99px;background:#a9dfff"></span>
                 <span style="position:absolute;left:100px;top:128px;width:88px;height:4px;border-radius:99px;background:#7c5cff;transform-origin:0 50%;transform:{{ angleFig.rayRotate }}"></span>
-                <span style="position:absolute;left:94px;top:124px;width:12px;height:12px;border-radius:50%;background:#2b1f57"></span>
-                <strong style="position:absolute;left:{{ angleFig.labelLeft }}px;top:{{ angleFig.labelTop }}px;transform:translate(-50%,-50%);font-size:16px;font-weight:900;color:#5b3fe0">{{ angleFig.labelText }}</strong>
+                <span style="position:absolute;left:94px;top:124px;width:12px;height:12px;border-radius:50%;background:#a9dfff"></span>
+                <strong style="position:absolute;left:{{ angleFig.labelLeft }}px;top:{{ angleFig.labelTop }}px;transform:translate(-50%,-50%);font-size:16px;font-weight:900;color:#e5f4ff">{{ angleFig.labelText }}</strong>
               </div>
             </div>
           </sc-if>
@@ -2842,9 +2873,9 @@
               <div style="display:inline-grid;justify-items:center;gap:6px">
                 <div style="display:flex;align-items:center;gap:10px">
                   <div style="width:{{ rectFig.w }}px;height:{{ rectFig.h }}px;background:#e5dbff;border:3px solid #7c5cff;border-radius:4px"></div>
-                  <span style="font-size:13px;font-weight:900;color:#5b3fe0;writing-mode:vertical-lr">{{ rectFig.hLabel }}</span>
+                  <span style="font-size:13px;font-weight:900;color:#e5f4ff;writing-mode:vertical-lr">{{ rectFig.hLabel }}</span>
                 </div>
-                <span style="font-size:13px;font-weight:900;color:#5b3fe0">{{ rectFig.wLabel }}</span>
+                <span style="font-size:13px;font-weight:900;color:#e5f4ff">{{ rectFig.wLabel }}</span>
               </div>
             </div>
           </sc-if>
@@ -2857,11 +2888,11 @@
                     <span style="position:absolute;left:0;top:0;width:{{ cuboidFig.boxW }}px;height:{{ cuboidFig.boxH }}px;background:#efe9ff;clip-path:{{ cuboidFig.topClip }}"></span>
                     <span style="position:absolute;left:0;top:0;width:{{ cuboidFig.boxW }}px;height:{{ cuboidFig.boxH }}px;background:#b9a4f2;clip-path:{{ cuboidFig.rightClip }}"></span>
                     <span style="position:absolute;left:0;top:{{ cuboidFig.frontTop }}px;width:{{ cuboidFig.frontW }}px;height:{{ cuboidFig.frontH }}px;background:#dccfff;border:2.5px solid #7c5cff;box-sizing:border-box"></span>
-                    <span style="position:absolute;right:-6px;top:-4px;font-size:12px;font-weight:900;color:#5b3fe0;transform:translateX(100%)">{{ cuboidFig.wLabel }}</span>
+                    <span style="position:absolute;right:-6px;top:-4px;font-size:12px;font-weight:900;color:#e5f4ff;transform:translateX(100%)">{{ cuboidFig.wLabel }}</span>
                   </div>
-                  <span style="font-size:13px;font-weight:900;color:#5b3fe0;writing-mode:vertical-lr">{{ cuboidFig.hLabel }}</span>
+                  <span style="font-size:13px;font-weight:900;color:#e5f4ff;writing-mode:vertical-lr">{{ cuboidFig.hLabel }}</span>
                 </div>
-                <span style="font-size:13px;font-weight:900;color:#5b3fe0">{{ cuboidFig.lLabel }}</span>
+                <span style="font-size:13px;font-weight:900;color:#e5f4ff">{{ cuboidFig.lLabel }}</span>
               </div>
             </div>
           </sc-if>
@@ -2873,9 +2904,9 @@
                   <span style="position:absolute;left:0;top:0;width:100%;height:100%;background:#ffd7e4;clip-path:{{ triangleFig.clip }}"></span>
                   <span style="position:absolute;left:{{ triangleFig.heightLineLeft }}px;top:0;height:100%;border-left:2.5px dashed #ff5c8a"></span>
                   <span style="position:absolute;left:{{ triangleFig.heightLineLeft }}px;top:36%;margin-left:6px;font-size:12px;font-weight:900;color:#d8558a;white-space:nowrap">{{ triangleFig.heightLabel }}</span>
-                  <span style="position:absolute;left:0;bottom:-3px;width:100%;border-bottom:3px solid #2b1f57"></span>
+                  <span style="position:absolute;left:0;bottom:-3px;width:100%;border-bottom:3px solid #a9dfff"></span>
                 </div>
-                <span style="font-size:13px;font-weight:900;color:#5b3fe0">{{ triangleFig.baseLabel }}</span>
+                <span style="font-size:13px;font-weight:900;color:#e5f4ff">{{ triangleFig.baseLabel }}</span>
               </div>
             </div>
           </sc-if>
@@ -11478,6 +11509,7 @@ class Component extends DCLogic {
 
       showChallengeRules: s.subject !== "experiment",
       isExperimentSubject: s.subject === "experiment",
+      showGeoExplore: s.subject === "math" && s.grade === 1,
       gradeTabs: (s.subject === "experiment" ? [] : s.subject === "math" || s.subject === "english" ? [1, 2, 3, 4, 5, 6] : s.subject === "science" ? [3, 4, 5, 6] : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][g], active: String(s.grade === g),
         go: () => this.setState({ grade: g }),
         bg: s.grade === g ? "#7c5cff" : "#fff",
@@ -11511,8 +11543,8 @@ class Component extends DCLogic {
           btnBg: atLimit ? "#ece9f5" : "linear-gradient(90deg,#7c5cff,#22c8d8)",
           btnFg: atLimit ? "#9a90c8" : "#fff",
           start: () => this.startUnit(u.id),
-          teachingLinks: s.subject === "math" ? ({ u45: ["frac-add"], u46: ["frac-sub"], u16: ["mul"], u6: ["mul"], u108: ["ten"], u14: ["add"], u20: ["add"], u15: ["sub"], u21: ["sub"], u5: ["add", "sub"], u37: ["add", "sub"] }[u.id] || []).map((lesson) => ({lesson, max: ["u14", "u15"].includes(u.id) ? 50 : 99, label: "先看教學 · " + ({ten:"湊十",add:"加法",sub:"減法",mul:"乘法","frac-add":"分數加法","frac-sub":"分數減法"}[lesson])})) : [],
-          teachingClass: s.subject === "math" && ["u45","u46","u16","u6","u108","u14","u20","u15","u21","u5","u37"].includes(u.id) ? "has-teaching" : "",
+          teachingLinks: s.subject === "math" ? ({ u45: ["frac-add"], u46: ["frac-sub"], u16: ["mul"], u6: ["mul"], u108: ["ten"], u14: ["add"], u20: ["add"], u15: ["sub"], u21: ["sub"], u5: ["add", "sub"], u37: ["add", "sub"], u9: ["division"] }[u.id] || []).map((lesson) => ({lesson, max: ["u14", "u15"].includes(u.id) ? 50 : 99, label: "先看教學 · " + ({ten:"湊十",add:"加法",sub:"減法",mul:"乘法","frac-add":"分數加法","frac-sub":"分數減法",division:"長除法"}[lesson])})) : [],
+          teachingClass: s.subject === "math" && ["u45","u46","u16","u6","u108","u14","u20","u15","u21","u5","u37","u9"].includes(u.id) ? "has-teaching" : "",
           hasVideo: !!VIDEO_LIB[u.id],
           watchVideo: () => this.startVideo(u.id, "map"),
           hasLesson: ["u40", "u41", "u42", "u47", "u48", "u49", "u50", "u51", "u52", "u53", "u54", "u55", "u56", "u57", "u58", "u59", "u60", "u61", "u62", "s1", "s2", "s3", "s4", "s5", "s9", "s10", "s11", "s12", "s13", "s14", "s15", "s16", "s17", "s18"].indexOf(u.id) >= 0,

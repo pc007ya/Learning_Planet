@@ -1,5 +1,6 @@
 import {it,expect} from 'vitest';
-import {fractionLesson,gcd} from '../modules/math-teaching/fraction-model.mjs';
+import {fractionLesson,fractionSteps,gcd} from '../modules/math-teaching/fraction-model.mjs';
+it('compares all supported pairs using equal parts',()=>{for(let d=1;d<=10;d++)for(let e=1;e<=10;e++)for(let a=0;a<=d;a++)for(let b=0;b<=e;b++){const s=fractionLesson(a,d,b,e,'compare');expect(Math.sign(s.left-s.right)).toBe(Math.sign(a*e-b*d));expect(fractionSteps(s)[3]).toContain(a*e===b*d?'＝':a*e>b*d?'＞':'＜');}});
 it('preserves exact quantities for every supported fraction pair',()=>{for(let d=1;d<=10;d++)for(let e=1;e<=10;e++)for(let a=0;a<=d;a++)for(let b=0;b<=e;b++)for(const op of ['add','sub']){const s=fractionLesson(a,d,b,e,op);expect(s.numerator*d*e).toBe((a*e+(op==='add'?1:-1)*b*d)*s.denominator);expect(s.reducedNumerator*s.denominator).toBe(s.numerator*s.reducedDenominator);expect(gcd(s.reducedNumerator,s.reducedDenominator)).toBe(1);expect(s.denominator).toBeLessThanOrEqual(90);}});
 it('handles reduction, whole numbers, zero and negative results',()=>{expect(fractionLesson(1,4,1,4,'add').reducedDenominator).toBe(2);expect(fractionLesson(1,1,1,1,'add').reducedNumerator).toBe(2);expect(fractionLesson(1,2,1,2,'sub').reducedDenominator).toBe(1);expect(fractionLesson(1,3,1,2,'sub').reducedNumerator).toBe(-1);});
 it('rejects invalid denominators and numerators',()=>{expect(()=>fractionLesson(1,11,1,2,'add')).toThrow();expect(()=>fractionLesson(3,2,1,2,'add')).toThrow();expect(()=>fractionLesson(1,0,1,2,'add')).toThrow();});
