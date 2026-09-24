@@ -1,4 +1,4 @@
-# 分數教學預覽（尚未部署）
+# 分數教學更新（已部署）
 
 基底：origin/main a131095。獨立工作目錄 Learning_Planet-fraction-preview。
 
@@ -22,5 +22,5 @@
 - 瀏覽器測試 1/9 + 1/10 通分 90 等份。
 - 視覺檢查 1/4 + 1/4 約分後保留藍橘，補上完整教具外框。
 
-預覽：http://localhost:8195/math-fractions.html
-未推送、未部署。待使用者視覺與操作確認後再決定是否發布。
+正式入口：https://pc007ya.github.io/Learning_Planet/math-fractions.html
+已部署至 GitHub Pages。
