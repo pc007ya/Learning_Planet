@@ -1065,20 +1065,20 @@ const $r = [
     "Meet the mermaid",
     "A mermaid!|Hello!",
     "Gail meets a mermaid.|She is tidying her garden.",
-    "Inside her magical bubble, Gail meets a mermaid named Mira.|Mira is busy arranging everything in her underwater garden.",
+    "Inside her magical bubble, Gail meets a mermaid named Abby.|Abby is busy arranging everything in her underwater garden.",
     "美人魚！|你好！",
     "瑜瑜遇見美人魚。|她在整理花園。",
-    "瑜瑜待在魔法泡泡裡，遇見名叫米拉的美人魚。|米拉正忙著整理水底花園的一切。",
+    "瑜瑜待在魔法泡泡裡，遇見名叫艾比的美人魚。|艾比正忙著整理水底花園的一切。",
     "mermaid"
   ],
   [
     "The bright reef",
     "A reef!|So many homes.",
     "The reef is full of life.|Small animals live here.",
-    "Mira shows Gail the reef beside her garden.|Its many spaces provide homes for small animals.",
+    "Abby shows Gail the reef beside her garden.|Its many spaces provide homes for small animals.",
     "珊瑚礁！|好多家。",
     "珊瑚礁充滿生命。|小動物住在這裡。",
-    "米拉帶瑜瑜看花園旁的珊瑚礁。|許多大大小小的空間，成了小動物的家。",
+    "艾比帶瑜瑜看花園旁的珊瑚礁。|許多大大小小的空間，成了小動物的家。",
     "reef"
   ],
   [
@@ -1093,32 +1093,32 @@ const $r = [
   ],
   [
     "Not tidy enough",
-    "Not tidy!|Mira frowns.",
-    "Mira wants a tidy garden.|She wants everything in a row.",
-    "Mira thinks the garden is not tidy enough.|She wants every shell and plant arranged in perfectly straight rows.",
-    "不整齊！|米拉皺眉。",
-    "米拉想要整齊的花園。|她想讓每樣東西排一排。",
-    "米拉覺得花園還不夠整齊。|她希望每個貝殼和每株植物都排成筆直的行列。",
+    "Not tidy!|Abby frowns.",
+    "Abby wants a tidy garden.|She wants everything in a row.",
+    "Abby thinks the garden is not tidy enough.|She wants every shell and plant arranged in perfectly straight rows.",
+    "不整齊！|艾比皺眉。",
+    "艾比想要整齊的花園。|她想讓每樣東西排一排。",
+    "艾比覺得花園還不夠整齊。|她希望每個貝殼和每株植物都排成筆直的行列。",
     "tidy"
   ],
   [
     "Seaweed sways",
     "Seaweed moves.|Leave it here?",
-    "The seaweed bends and sways.|Mira thinks it looks messy.",
-    "The seaweed bends gently with the water.|Mira thinks its uneven shapes make the garden look messy.",
+    "The seaweed bends and sways.|Abby thinks it looks messy.",
+    "The seaweed bends gently with the water.|Abby thinks its uneven shapes make the garden look messy.",
     "海草在動。|留在這裡嗎？",
-    "海草彎彎搖搖。|米拉覺得看起來凌亂。",
-    "海草隨著水流輕輕彎動。|米拉覺得這些不整齊的形狀讓花園看起來凌亂。",
+    "海草彎彎搖搖。|艾比覺得看起來凌亂。",
+    "海草隨著水流輕輕彎動。|艾比覺得這些不整齊的形狀讓花園看起來凌亂。",
     "seaweed messy"
   ],
   [
     "Only smooth sand",
     "Smooth sand.|Nothing here.",
-    "Mira clears the sand.|The little places are gone.",
-    "Mira moves the seaweed and loose shells away from the sandy patch.|The sand looks smooth, but the little hiding places have disappeared.",
+    "Abby clears the sand.|The little places are gone.",
+    "Abby moves the seaweed and loose shells away from the sandy patch.|The sand looks smooth, but the little hiding places have disappeared.",
     "平滑的沙。|這裡空了。",
-    "米拉清空沙地。|小小的角落不見了。",
-    "米拉把沙地上的海草和空貝殼移到旁邊。|沙地看起來平滑，小小的藏身處卻消失了。",
+    "艾比清空沙地。|小小的角落不見了。",
+    "艾比把沙地上的海草和空貝殼移到旁邊。|沙地看起來平滑，小小的藏身處卻消失了。",
     "sand"
   ],
   [
@@ -1135,30 +1135,30 @@ const $r = [
     "A turtle looks around",
     "A turtle!|Where is the green?",
     "The turtle looks for seaweed.|The garden has changed.",
-    "A turtle swims past and looks around the bare patch.|Mira begins to notice that her tidy garden has become less welcoming.",
+    "A turtle swims past and looks around the bare patch.|Abby begins to notice that her tidy garden has become less welcoming.",
     "海龜！|綠色的東西呢？",
     "海龜尋找海草。|花園變了。",
-    "海龜游過，四處看著光禿禿的沙地。|米拉開始發現，整齊的花園變得不那麼適合來訪了。",
+    "海龜游過，四處看著光禿禿的沙地。|艾比開始發現，整齊的花園變得不那麼適合來訪了。",
     "turtle"
   ],
   [
     "They need shelter",
     "They need shelter.|A place to hide.",
     "The animals need shelter.|A bare garden is not enough.",
-    "Gail explains that the animals need shelter as well as open space.|A garden can look neat to Mira while losing the places its visitors need.",
+    "Gail explains that the animals need shelter as well as open space.|A garden can look neat to Abby while losing the places its visitors need.",
     "牠們需要庇護處。|可以躲藏的地方。",
     "動物需要庇護處。|光禿禿的花園不夠。",
-    "瑜瑜解釋，動物除了空間，也需要庇護處。|花園在米拉眼裡很整齊，卻可能失去訪客需要的角落。",
+    "瑜瑜解釋，動物除了空間，也需要庇護處。|花園在艾比眼裡很整齊，卻可能失去訪客需要的角落。",
     "shelter"
   ],
   [
     "Must it be spotless?",
     "Spotless?|Not every place.",
-    "Mira wants it spotless.|Gail looks at the empty sand.",
-    "Mira says she wanted a spotless garden, without a single thing out of place.|Gail asks whether looking perfect matters more than being a good home.",
+    "Abby wants it spotless.|Gail looks at the empty sand.",
+    "Abby says she wanted a spotless garden, without a single thing out of place.|Gail asks whether looking perfect matters more than being a good home.",
     "一塵不染？|不是每個地方都要。",
-    "米拉希望它一塵不染。|瑜瑜看著空空的沙地。",
-    "米拉說，她想要一個一塵不染、沒有東西放錯位置的花園。|瑜瑜問，看起來完美，會比成為好家園更重要嗎？",
+    "艾比希望它一塵不染。|瑜瑜看著空空的沙地。",
+    "艾比說，她想要一個一塵不染、沒有東西放錯位置的花園。|瑜瑜問，看起來完美，會比成為好家園更重要嗎？",
     "spotless"
   ],
   [
@@ -1184,21 +1184,21 @@ const $r = [
   [
     "Clean with care",
     "Keep it clean.|Take the litter.",
-    "Mira picks up the bottle.|She keeps the plants in place.",
-    "Mira places the discarded bottle in a collection basket.|Keeping the garden clean can mean removing litter while leaving its living parts alone.",
+    "Abby picks up the bottle.|She keeps the plants in place.",
+    "Abby places the discarded bottle in a collection basket.|Keeping the garden clean can mean removing litter while leaving its living parts alone.",
     "保持乾淨。|帶走垃圾。",
-    "米拉撿起瓶子。|她讓植物留在原位。",
-    "米拉把被丟棄的瓶子放進收集籃。|保持花園乾淨，可以是移除垃圾，同時不去打擾活著的部分。",
+    "艾比撿起瓶子。|她讓植物留在原位。",
+    "艾比把被丟棄的瓶子放進收集籃。|保持花園乾淨，可以是移除垃圾，同時不去打擾活著的部分。",
     "clean"
   ],
   [
     "Put the brush down",
     "Do not scrub.|Let it be.",
-    "Mira puts her brush down.|She will not scrub the coral.",
-    "Mira had planned to scrub every surface until it looked the same.|Now she puts down the brush and leaves the delicate coral untouched.",
+    "Abby puts her brush down.|She will not scrub the coral.",
+    "Abby had planned to scrub every surface until it looked the same.|Now she puts down the brush and leaves the delicate coral untouched.",
     "不要刷洗。|讓它留著。",
-    "米拉放下刷子。|她不會刷洗珊瑚。",
-    "米拉本來打算刷洗每個表面，直到它們看起來一樣。|現在她放下刷子，不再碰脆弱的珊瑚。",
+    "艾比放下刷子。|她不會刷洗珊瑚。",
+    "艾比本來打算刷洗每個表面，直到它們看起來一樣。|現在她放下刷子，不再碰脆弱的珊瑚。",
     "scrub"
   ],
   [
@@ -1214,31 +1214,31 @@ const $r = [
   [
     "Help protect it",
     "Protect this home.|Give them space.",
-    "Mira will protect the reef.|She leaves room for life.",
-    "Mira wants to protect the reef instead of controlling every detail.|She returns the moved shells and lets the seaweed fill its old corner again.",
+    "Abby will protect the reef.|She leaves room for life.",
+    "Abby wants to protect the reef instead of controlling every detail.|She returns the moved shells and lets the seaweed fill its old corner again.",
     "保護這個家。|給牠們空間。",
-    "米拉會保護珊瑚礁。|她為生命留下空間。",
-    "米拉想保護珊瑚礁，不再控制每個細節。|她放回移走的貝殼，讓海草再次回到原本的角落。",
+    "艾比會保護珊瑚礁。|她為生命留下空間。",
+    "艾比想保護珊瑚礁，不再控制每個細節。|她放回移走的貝殼，讓海草再次回到原本的角落。",
     "protect"
   ],
   [
     "A place to belong",
     "They belong here.|Welcome back!",
     "The crab comes back.|The animals belong here.",
-    "The crab finds shelter, and the little fish returns to the coral.|Mira sees that these visitors belong here, even when their home looks uneven.",
+    "The crab finds shelter, and the little fish returns to the coral.|Abby sees that these visitors belong here, even when their home looks uneven.",
     "牠們屬於這裡。|歡迎回來！",
     "螃蟹回來了。|動物屬於這裡。",
-    "螃蟹找到庇護處，小魚也回到珊瑚間。|米拉看見，這些訪客屬於這裡，即使牠們的家看起來不整齊。",
+    "螃蟹找到庇護處，小魚也回到珊瑚間。|艾比看見，這些訪客屬於這裡，即使牠們的家看起來不整齊。",
     "belong"
   ],
   [
     "A living garden",
     "A little messy.|Full of life!",
     "The garden is not spotless.|It is full of life.",
-    "The garden has waving plants and shells in different places again.|Mira smiles: it is a little messy, but it is a welcoming place to live.",
+    "The garden has waving plants and shells in different places again.|Abby smiles: it is a little messy, but it is a welcoming place to live.",
     "有點凌亂。|充滿生命！",
     "花園不是一塵不染。|它充滿生命。",
-    "花園又有搖動的植物和散在不同位置的貝殼。|米拉微笑：它有一點凌亂，卻是適合生活的家。",
+    "花園又有搖動的植物和散在不同位置的貝殼。|艾比微笑：它有一點凌亂，卻是適合生活的家。",
     "messy"
   ],
   [
@@ -1273,16 +1273,16 @@ const dp = "mermaid coral reef seaweed sand shell crab turtle shelter tidy messy
 function Eh(i) {
   return hp.map((e, t) => {
     let n = t >= 6 && t <= 15 ? "bare" : "reef", a = ["gail", "mira"], r = "mira", s = {};
-    return t === 0 || t === 19 ? (n = "bedroom", a = ["gail", "shell"], r = "shell", s.gail = { image: ye("kneeling"), x: 30, y: 81, w: 28, h: 35 }, s.shell = { x: 54, y: 86, w: 18, h: 20 }) : ((t < 6 || t >= 16) && a.push("shell", "seaweed", "coral", "fish"), (t === 2 || t === 3) && (r = "coral"), (t === 4 || t === 5) && (r = t === 4 ? "shell" : "seaweed"), t === 6 && (a.push("shell", "seaweed", "sand"), r = "sand"), (t === 7 || t === 8 || t === 9) && (a.push("crab"), r = "crab", t >= 8 && (a.push("turtle"), r = "turtle")), t === 10 && (a.push("sand"), r = "sand"), t === 11 && (a.push("shell", "seaweed"), r = "seaweed"), (t === 12 || t === 13) && (a.push("litter", "basket"), r = "litter"), t === 14 && (a.push("brush", "coral"), r = "brush"), t === 15 && (a.push("rock", "coral", "fish"), r = "rock"), t >= 16 && (a.push("crab", "turtle", "rock"), s.mira = { image: "mira-happy.png" }, r = t === 16 ? "seaweed" : t === 17 ? "crab" : "turtle", s.rock = { x: 45, y: 84 }, s.shell = { x: 38, y: 87, w: 13, h: 14 })), { title: op[t], scene: n, lines: e[i], objects: a, placements: s, words: lp[t], mission: { type: "tap", answer: r, prompt: ["Follow the glowing shell.", "Meet Mira.", "Explore the reef.", "Find the coral.", "Look at the shells.", "Watch the seaweed.", "Notice the empty sand.", "Find the crab.", "Follow the turtle.", "Look for shelter.", "Look at the bare patch.", "Find what belongs here.", "Find the litter.", "Collect the bottle.", "Put the brush down.", "Explore a habitat.", "Give the plants room.", "Welcome the crab back.", "Enjoy the living garden.", "Remember this home."][t], hint: "點小星星，探索動物的家。" }, action: "explore" };
+    return t === 0 || t === 19 ? (n = "bedroom", a = ["gail", "shell"], r = "shell", s.gail = { image: ye("kneeling"), x: 30, y: 81, w: 28, h: 35 }, s.shell = { x: 54, y: 86, w: 18, h: 20 }) : ((t < 6 || t >= 16) && a.push("shell", "seaweed", "coral", "fish"), (t === 2 || t === 3) && (r = "coral"), (t === 4 || t === 5) && (r = t === 4 ? "shell" : "seaweed"), t === 6 && (a.push("shell", "seaweed", "sand"), r = "sand"), (t === 7 || t === 8 || t === 9) && (a.push("crab"), r = "crab", t >= 8 && (a.push("turtle"), r = "turtle")), t === 10 && (a.push("sand"), r = "sand"), t === 11 && (a.push("shell", "seaweed"), r = "seaweed"), (t === 12 || t === 13) && (a.push("litter", "basket"), r = "litter"), t === 14 && (a.push("brush", "coral"), r = "brush"), t === 15 && (a.push("rock", "coral", "fish"), r = "rock"), t >= 16 && (a.push("crab", "turtle", "rock"), s.mira = { image: "mira-happy.png" }, r = t === 16 ? "seaweed" : t === 17 ? "crab" : "turtle", s.rock = { x: 45, y: 84 }, s.shell = { x: 38, y: 87, w: 13, h: 14 })), { title: op[t], scene: n, lines: e[i], objects: a, placements: s, words: lp[t], mission: { type: "tap", answer: r, prompt: ["Follow the glowing shell.", "Meet Abby.", "Explore the reef.", "Find the coral.", "Look at the shells.", "Watch the seaweed.", "Notice the empty sand.", "Find the crab.", "Follow the turtle.", "Look for shelter.", "Look at the bare patch.", "Find what belongs here.", "Find the litter.", "Collect the bottle.", "Put the brush down.", "Explore a habitat.", "Give the plants room.", "Welcome the crab back.", "Enjoy the living garden.", "Remember this home."][t], hint: "點小星星，探索動物的家。" }, action: "explore" };
   });
 }
-const kh = (i) => ({}), fp = [["Who meets Gail?", "Who is tidying the underwater garden?", "mira", "Mira the mermaid", "A knight", "A bear", "A fairy"], ["Where does the fish hide?", "Where does the little fish find a place to hide?", "coral", "Among the coral", "Inside a shoe", "On a train", "Under a plate"], ["What moves?", "What bends gently with the water?", "seaweed", "Seaweed", "A ticket", "A suitcase", "A clock"], ["What is gone?", "What does the crab lose when Mira clears the sand?", "crab", "Its hiding place", "Its eyes", "Its food basket", "Its friend Gail"], ["What do animals need?", "What do animals need as well as open space?", "rock", "Shelter", "Straight rows", "A spotless floor", "A brush"], ["Which is litter?", "Which item does not belong in the garden?", "litter", "A discarded plastic bottle", "The seaweed", "The coral", "A natural shell"], ["Where does the bottle go?", "Where does Mira put the discarded bottle?", "basket", "In the collection basket", "Behind the coral", "Under the sand", "Inside a shell"], ["Scrub the coral?", "What does Mira do with her brush?", "brush", "She puts it down.", "She scrubs the coral.", "She throws it away.", "She gives it to a fish."], ["A habitat is what?", "What does the word habitat mean in this story?", "rock", "A home for living things", "A spotless floor", "A cleaning tool", "A plastic bottle"], ["Must it be perfect?", "What does Mira learn about a good garden?", "mira-happy", "It needs room for life.", "Everything must form a row.", "Animals should stay away.", "Plants are always dirty."]];
+const kh = (i) => ({}), fp = [["Who meets Gail?", "Who is tidying the underwater garden?", "mira", "Abby the mermaid", "A knight", "A bear", "A fairy"], ["Where does the fish hide?", "Where does the little fish find a place to hide?", "coral", "Among the coral", "Inside a shoe", "On a train", "Under a plate"], ["What moves?", "What bends gently with the water?", "seaweed", "Seaweed", "A ticket", "A suitcase", "A clock"], ["What is gone?", "What does the crab lose when Abby clears the sand?", "crab", "Its hiding place", "Its eyes", "Its food basket", "Its friend Gail"], ["What do animals need?", "What do animals need as well as open space?", "rock", "Shelter", "Straight rows", "A spotless floor", "A brush"], ["Which is litter?", "Which item does not belong in the garden?", "litter", "A discarded plastic bottle", "The seaweed", "The coral", "A natural shell"], ["Where does the bottle go?", "Where does Abby put the discarded bottle?", "basket", "In the collection basket", "Behind the coral", "Under the sand", "Inside a shell"], ["Scrub the coral?", "What does Abby do with her brush?", "brush", "She puts it down.", "She scrubs the coral.", "She throws it away.", "She gives it to a fish."], ["A habitat is what?", "What does the word habitat mean in this story?", "rock", "A home for living things", "A spotless floor", "A cleaning tool", "A plastic bottle"], ["Must it be perfect?", "What does Abby learn about a good garden?", "mira-happy", "It needs room for life.", "Everything must form a row.", "Animals should stay away.", "Plants are always dirty."]];
 function mp(i) {
   const e = fp.map((n, a) => {
     const r = n.slice(3), s = r.shift();
     return r.splice(a % 4, 0, s), { id: "mermaid-" + a, kind: "choice", prompt: i === "A" ? n[0] : n[1], image: "images/story/mermaid-v1/" + n[2] + ".png", imageAlt: "故事角色或道具", options: r.map((o) => ({ text: o })), answer: [a % 4], explanation: s };
   });
-  return ["Mira welcomes Gail.", "Mira moves the shells and plants.", "The animals look for shelter.", "Gail finds a plastic bottle.", "Mira collects the litter.", "The animals return to the garden."].forEach((n, a) => {
+  return ["Abby welcomes Gail.", "Abby moves the shells and plants.", "The animals look for shelter.", "Gail finds a plastic bottle.", "Abby collects the litter.", "The animals return to the garden."].forEach((n, a) => {
     const r = ["They bake a cake.", "They sail a boat.", "They build a snowman.", "They fly a kite."];
     r[a % 4] = n, e.push({ id: "mermaid-picture-" + a, kind: "choice", prompt: i === "A" ? "Look. What happens?" : "Which event matches this picture?", image: "images/story/mermaid-v1/quiz/scene-" + (a + 1) + ".jpg", imageAlt: "故事分鏡 " + (a + 1), options: r.map((s) => ({ text: s })), answer: [a % 4], explanation: n });
   }), e;
