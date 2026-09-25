@@ -44,4 +44,4 @@ jobs:
           credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LEARNPLANET }}
 
       - name: Deploy Firebase Hosting
-        run: npx --yes firebase-tools@latest deploy --only hosting --project learnplanet-cce52 --non-interactive
+        run: npx --yes firebase-tools@latest deploy --only hosting --config firebase.hosting.json --project learnplanet-cce52 --non-interactive
