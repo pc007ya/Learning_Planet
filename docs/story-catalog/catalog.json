@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-15",
+  "updated": "2026-09-25",
   "books": [
     {
       "id": "parrot",
@@ -838,6 +838,36 @@
         "understand",
         "remember",
         "explain"
+      ]
+    },
+    {
+      "id": "unicorn",
+      "title": "Gail and the Lost Unicorn",
+      "status": "已實作，已上架學習星球",
+      "pages": 20,
+      "source": "src/story/interactive/unicorn.ts",
+      "basis": "C 級旁白沿用既有影片稿；核准20核心詞表",
+      "words": [
+        "unicorn",
+        "woods",
+        "glow",
+        "gallop",
+        "mane",
+        "signpost",
+        "grove",
+        "shortcut",
+        "fork",
+        "canopy",
+        "crooked",
+        "trot",
+        "droop",
+        "woodland",
+        "hooves",
+        "mossy",
+        "shimmer",
+        "nicker",
+        "ask",
+        "directions"
       ]
     }
   ]

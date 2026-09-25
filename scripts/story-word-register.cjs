@@ -4,11 +4,12 @@ const definitions=[['parrot','parrot','parrotPages','Gail and the Parrot Who Spo
 const books=definitions.map(([id,file,key,title])=>{const mod=require(path.resolve(__dirname,'../src/story/interactive',file+'.ts'));const pages=typeof mod[key]==='function'?mod[key]('A'):mod[key];const explicit=mod[id+'Vocabulary'];return {id,title,status:['parrot','volcano','elf','mermaid','bears','time','genie','music','fairy','knight','cloud'].includes(id)?'已實作，待使用者驗收':'已實作（非部署狀態）',pages:pages.length,source:'src/story/interactive/'+file+'.ts',basis:explicit?'明確核心詞表':'頁面 words 去重（舊書未另列核心詞表）',words:[...new Set((explicit||pages.flatMap(p=>p.words)).map(w=>w.trim().toLowerCase()))]};});
 const {layeredBook}=require(path.resolve(__dirname,'../src/story/interactive/layered-three.ts'));
 for(const id of ['witch','mirror','star-library']){const b=layeredBook(id);books.push({id,title:b.title,status:'已實作，本機預覽待使用者驗收',pages:20,source:'src/story/interactive/layered-three.ts',basis:'核准20核心詞表',words:b.words});}
+const unicornWords=require(path.resolve(__dirname,'../src/story/interactive/unicorn-vocabulary.json'));books.push({id:'unicorn',title:'Gail and the Lost Unicorn',status:'已實作，已上架學習星球',pages:20,source:'src/story/interactive/unicorn.ts',basis:'C 級旁白沿用既有影片稿；核准20核心詞表',words:unicornWords});
 const implementedCount=books.length;
 const drafts=[];
 for(const [id,title,words] of drafts)books.push({id,title,status:'方向已確認；詞表因新規則待修訂，未製作',pages:20,basis:'2026-09-13 對話提案，非核准核心詞表',words:words.split(' ')});
 const used=new Set(books.slice(0,implementedCount).flatMap(b=>b.words));for(const b of books.slice(implementedCount))b.repeatedAgainstExisting=b.words.filter(w=>used.has(w));
-fs.mkdirSync('docs/story-catalog',{recursive:true});fs.writeFileSync('docs/story-catalog/catalog.json',JSON.stringify({updated:'2026-09-15',books},null,2)+'\n');
+fs.mkdirSync('docs/story-catalog',{recursive:true});fs.writeFileSync('docs/story-catalog/catalog.json',JSON.stringify({updated:'2026-09-25',books},null,2)+'\n');
 let md='# Gail 英文繪本書目與核心單字總表\n\n來源為目前本機實作，不代表已發布。舊書沿用既有詞數；待製作新書為20詞。專名、舊書頁面詞也保留原始紀錄，不能假稱每本都只有20詞。\n\n新書核心詞與全部已用核心詞聯集最多重複2個。一般課文詞可自然複習。待修訂詞表不占用新詞。\n\n|書目|幕數|詞數|狀態|\n|---|---:|---:|---|\n';
 for(const b of books)md+=`|${b.title}|${b.pages}|${b.words.length}|${b.status}|\n`;
 for(const b of books)md+=`\n## ${b.title}\n\n來源：${b.source||'對話提案'}；${b.basis}。\n\n${b.words.join(', ')}\n`+(b.repeatedAgainstExisting?`\n與已實作詞表相同（${b.repeatedAgainstExisting.length}）：${b.repeatedAgainstExisting.join(', ')}。需重新選字。\n`:'');

@@ -1,0 +1,560 @@
+[
+  {
+    "title": "A silver glow in the woods",
+    "A": [
+      "Gail sees a light.",
+      "It is in the woods."
+    ],
+    "B": [
+      "Gail sees a silver light in the woods.",
+      "She looks through the trees."
+    ],
+    "C": [
+      "Deep in the magical woods, Gail spots a silver glow.",
+      "She peeks through the tall trees, wondering what is shining ahead."
+    ],
+    "zhA": [
+      "瑜瑜看見一道光。",
+      "光在樹林裡。"
+    ],
+    "zhB": [
+      "瑜瑜在樹林裡看見銀白色的光。",
+      "她往樹木之間看去。"
+    ],
+    "zhC": [
+      "在魔法森林深處，瑜瑜看見一道銀白色的微光。",
+      "她穿過高聳的樹木，好奇前面究竟是什麼在發光。"
+    ]
+  },
+  {
+    "title": "A little unicorn rushes by",
+    "A": [
+      "A little unicorn runs by.",
+      "He is in a hurry."
+    ],
+    "B": [
+      "A little unicorn runs down the path.",
+      "His mane shines as he runs."
+    ],
+    "C": [
+      "Suddenly, a little unicorn rushes down the path!",
+      "He gallops fast with a sparkly white mane, nearly bumping into Gail."
+    ],
+    "zhA": [
+      "一隻小獨角獸跑過。",
+      "他很著急。"
+    ],
+    "zhB": [
+      "一隻小獨角獸沿著小路跑來。",
+      "他的鬃毛跑動時閃閃發亮。"
+    ],
+    "zhC": [
+      "突然，一隻小獨角獸急忙沿著小路奔跑過來！",
+      "他甩著亮晶晶的白鬃毛飛奔，差點撞上了瑜瑜。"
+    ]
+  },
+  {
+    "title": "I know the way!",
+    "A": [
+      "“Are you lost?” asks Gail.",
+      "“No!” says Lumi."
+    ],
+    "B": [
+      "Gail asks, “Are you lost?”",
+      "“No, I know the way!” he says."
+    ],
+    "C": [
+      "“Are you lost?” Gail asks gently.",
+      "“No! I know the way!” the little unicorn replies with a proud smile."
+    ],
+    "zhA": [
+      "「你迷路了嗎？」瑜瑜問。",
+      "「沒有！」Lumi 說。"
+    ],
+    "zhB": [
+      "瑜瑜問：「你迷路了嗎？」",
+      "「沒有，我知道路！」他說。"
+    ],
+    "zhC": [
+      "「你迷路了嗎？」瑜瑜輕聲詢問。",
+      "「沒有！我知道路！」小獨角獸自豪地微笑回答。"
+    ]
+  },
+  {
+    "title": "The journey home",
+    "A": [
+      "Lumi wants to go home.",
+      "Gail walks with him."
+    ],
+    "B": [
+      "The unicorn is Lumi.",
+      "He wants to go home to Moonlight Meadow."
+    ],
+    "C": [
+      "His name is Lumi, and he needs to return to Moonlight Meadow.",
+      "Gail wants to help, so she offers to walk beside him."
+    ],
+    "zhA": [
+      "Lumi 想回家。",
+      "瑜瑜陪他走。"
+    ],
+    "zhB": [
+      "小獨角獸名叫 Lumi。",
+      "他想回到月光草原的家。"
+    ],
+    "zhC": [
+      "他的名字叫 Lumi，正要回到月光草原。",
+      "瑜瑜想幫忙，於是提議陪他一起走。"
+    ]
+  },
+  {
+    "title": "The first crossroads",
+    "A": [
+      "Two paths are here.",
+      "Lumi runs left."
+    ],
+    "B": [
+      "The path splits in two.",
+      "Gail looks at the sign, but Lumi turns left."
+    ],
+    "C": [
+      "Soon, the trail splits into two different paths.",
+      "Gail wants to read the wooden signpost, but Lumi dashes to the left.",
+      "“This way!” he shouts."
+    ],
+    "zhA": [
+      "這裡有兩條路。",
+      "Lumi 往左跑。"
+    ],
+    "zhB": [
+      "小路分成兩條。",
+      "瑜瑜看路標，Lumi 卻往左轉。"
+    ],
+    "zhC": [
+      "不久，小路分成了左右兩條岔路。",
+      "瑜瑜想看木頭路標，Lumi 卻立刻衝向左邊。",
+      "「走這邊！」他大喊。"
+    ]
+  },
+  {
+    "title": "The giant mushroom grove",
+    "A": [
+      "They see big mushrooms.",
+      "Where is the path?"
+    ],
+    "B": [
+      "They walk into a grove of giant mushrooms.",
+      "The path grows hard to see."
+    ],
+    "C": [
+      "They step into a strange grove filled with giant mushrooms.",
+      "The air smells sweet, but the path seems to fade away.",
+      "“It is just a shortcut,” Lumi insists."
+    ],
+    "zhA": [
+      "他們看見大蘑菇。",
+      "路在哪裡？"
+    ],
+    "zhB": [
+      "他們走進長滿巨大蘑菇的樹林。",
+      "小路漸漸看不清楚。"
+    ],
+    "zhC": [
+      "他們走進一片長滿巨大蘑菇的奇特樹林。",
+      "空氣中飄著甜甜的氣味，但小路似乎消失了。",
+      "「這只是捷徑啦。」Lumi 堅持說道。"
+    ]
+  },
+  {
+    "title": "Unicorns do not need maps!",
+    "A": [
+      "Gail has a map.",
+      "Lumi says no."
+    ],
+    "B": [
+      "They reach another fork.",
+      "Gail takes out a map, but Lumi says no."
+    ],
+    "C": [
+      "They reach another fork surrounded by twisting branches.",
+      "Gail pulls a colorful map out of her bag.",
+      "“Unicorns do not need maps!” Lumi declares boldly."
+    ],
+    "zhA": [
+      "瑜瑜有地圖。",
+      "Lumi 說不要。"
+    ],
+    "zhB": [
+      "他們來到另一個岔路。",
+      "瑜瑜拿出地圖，Lumi 卻說不要。"
+    ],
+    "zhC": [
+      "他們來到另一個被盤根錯節樹枝環繞的岔路。",
+      "瑜瑜從包包裡拿出一張彩色的地圖。",
+      "「獨角獸才不需要地圖呢！」Lumi 大膽宣稱。"
+    ]
+  },
+  {
+    "title": "Walking in circles",
+    "A": [
+      "They walk and walk.",
+      "They see the same tree."
+    ],
+    "B": [
+      "They walk for a long time.",
+      "Then they see the same crooked tree."
+    ],
+    "C": [
+      "They walk and walk under the leafy canopy.",
+      "Suddenly, they find themselves staring at the very same crooked tree!",
+      "They have walked in a big circle."
+    ],
+    "zhA": [
+      "他們一直走。",
+      "又看見同一棵樹。"
+    ],
+    "zhB": [
+      "他們走了很久。",
+      "接著又看見同一棵歪歪的樹。"
+    ],
+    "zhC": [
+      "他們在濃密的樹蔭下一走再走。",
+      "突然，他們發現自己竟又站在同一棵歪歪的大樹前！",
+      "他們繞了一大圈又走回了原地。"
+    ]
+  },
+  {
+    "title": "Gail spots a clue",
+    "A": [
+      "Gail sees a mark.",
+      "Lumi stops."
+    ],
+    "B": [
+      "Gail sees a mark on the tree.",
+      "“We have been here,” she says."
+    ],
+    "C": [
+      "“We have been here before,” Gail points out the mark on the bark.",
+      "Lumi stops trotting, and his ears begin to droop nervously."
+    ],
+    "zhA": [
+      "瑜瑜看見一個記號。",
+      "Lumi 停下來。"
+    ],
+    "zhB": [
+      "瑜瑜看見樹上的記號。",
+      "「我們來過這裡。」她說。"
+    ],
+    "zhC": [
+      "「我們剛剛來過這裡。」瑜瑜指著樹皮上的痕跡。",
+      "Lumi 停下腳步，耳朵緊張地垂了下來。"
+    ]
+  },
+  {
+    "title": "The woodland rabbit",
+    "A": [
+      "A rabbit hops by.",
+      "Lumi does not ask."
+    ],
+    "B": [
+      "A friendly rabbit crosses their path.",
+      "Gail wants to ask, but Lumi walks on."
+    ],
+    "C": [
+      "A friendly woodland rabbit hops across their path.",
+      "Gail wants to ask for directions, but Lumi hurries past.",
+      "“I already know where to go!” he says quickly."
+    ],
+    "zhA": [
+      "一隻兔子跳過。",
+      "Lumi 沒有問路。"
+    ],
+    "zhB": [
+      "友善的兔子走過小路。",
+      "瑜瑜想問路，Lumi 卻繼續走。"
+    ],
+    "zhC": [
+      "一隻友善的森林小兔子跳過他們面前。",
+      "瑜瑜想開口問路，但 Lumi 卻匆忙跑了過去。",
+      "「我早就知道該怎麼走了！」他急忙說。"
+    ]
+  },
+  {
+    "title": "The rushing river",
+    "A": [
+      "A big river is ahead.",
+      "They cannot cross."
+    ],
+    "B": [
+      "A wide river blocks the path.",
+      "There is no bridge to cross."
+    ],
+    "C": [
+      "The trees clear, and a wide, rushing river blocks their way.",
+      "There is no bridge, and the water is far too deep to cross.",
+      "This time, Lumi cannot say a single word."
+    ],
+    "zhA": [
+      "前面有一條大河。",
+      "他們過不去。"
+    ],
+    "zhB": [
+      "一條寬河擋住了去路。",
+      "這裡沒有橋可以過。"
+    ],
+    "zhC": [
+      "穿過樹林，一條奔流的大河擋住了他們的去路。",
+      "這裡沒有橋樑，河水太深無法跨越。",
+      "這一次，Lumi 一句話也說不出來了。"
+    ]
+  },
+  {
+    "title": "Sunset in the forest",
+    "A": [
+      "The sun goes down.",
+      "It is getting dark."
+    ],
+    "B": [
+      "The sun goes down behind the hills.",
+      "The woods grow dark."
+    ],
+    "C": [
+      "The sun begins to set behind the rolling hills.",
+      "Long purple shadows stretch across the grass, and the forest grows cold and dark."
+    ],
+    "zhA": [
+      "太陽下山了。",
+      "天漸漸黑了。"
+    ],
+    "zhB": [
+      "太陽落到山後。",
+      "樹林變暗了。"
+    ],
+    "zhC": [
+      "太陽漸漸落入起伏的山巒之後。",
+      "長長的紫色影子在草地上蔓延，森林變得寒冷又昏暗。"
+    ]
+  },
+  {
+    "title": "The truth at last",
+    "A": [
+      "“Do you know the way?”",
+      "“I do not know,” says Lumi."
+    ],
+    "B": [
+      "Gail asks Lumi if he knows where they are.",
+      "“I do not know,” he says."
+    ],
+    "C": [
+      "Gail sits beside Lumi and asks softly, “Lumi, do you know where we are?”",
+      "Lumi looks down at his hooves.",
+      "“I... I don't know,” he whispers honestly."
+    ],
+    "zhA": [
+      "「你知道路嗎？」",
+      "「我不知道。」Lumi 說。"
+    ],
+    "zhB": [
+      "瑜瑜問 Lumi 知不知道自己在哪裡。",
+      "「我不知道。」他說。"
+    ],
+    "zhC": [
+      "瑜瑜坐在 Lumi 身邊，溫柔地問：「Lumi，你知道我們在哪裡嗎？」",
+      "Lumi 看著自己的小蹄子。",
+      "「我……我不知道。」他誠實地小聲說。"
+    ]
+  },
+  {
+    "title": "It is okay not to know",
+    "A": [
+      "“That is okay,” says Gail.",
+      "“We can look together.”"
+    ],
+    "B": [
+      "Gail sits beside Lumi.",
+      "“It is okay. We can find out together.”"
+    ],
+    "C": [
+      "Gail smiles warmly and pats his silver mane.",
+      "“It is okay not to know,” she says. “We can find out together!”"
+    ],
+    "zhA": [
+      "「沒關係。」瑜瑜說。",
+      "「我們一起找。」"
+    ],
+    "zhB": [
+      "瑜瑜坐在 Lumi 身邊。",
+      "「沒關係，我們可以一起找。」"
+    ],
+    "zhC": [
+      "瑜瑜溫暖地微笑，輕拍他銀白色的鬃毛。",
+      "「不知道也沒關係呀，」她說：「我們可以一起找出答案！」"
+    ]
+  },
+  {
+    "title": "Reading the map together",
+    "A": [
+      "They look at the map.",
+      "Now they see the way."
+    ],
+    "B": [
+      "They look at the map on the ground.",
+      "They find the river, mountain, and moon."
+    ],
+    "C": [
+      "They sit together and spread out the map on the mossy ground.",
+      "They match the curved river, the tall mountain, and the rising moon.",
+      "Now the clues make sense!"
+    ],
+    "zhA": [
+      "他們看地圖。",
+      "現在看出路了。"
+    ],
+    "zhB": [
+      "他們看攤在地上的地圖。",
+      "找出了河、山和月亮。"
+    ],
+    "zhC": [
+      "他們坐在一起，將地圖攤在長滿青苔的地面上。",
+      "他們對照著彎彎的河流、高高的山峰和升起的月亮。",
+      "現在線索全都清楚了！"
+    ]
+  },
+  {
+    "title": "Asking for help",
+    "A": [
+      "Lumi asks the rabbit.",
+      "The rabbit shows the way."
+    ],
+    "B": [
+      "Lumi asks the rabbit for help.",
+      "The rabbit points to the glowing flowers."
+    ],
+    "C": [
+      "They walk back to find the friendly rabbit.",
+      "This time, Lumi speaks up politely: “Excuse me, can you help us find the way?”",
+      "The rabbit happily wiggles his nose and points toward the glowing flowers."
+    ],
+    "zhA": [
+      "Lumi 問兔子。",
+      "兔子指路。"
+    ],
+    "zhB": [
+      "Lumi 向兔子求助。",
+      "兔子指向發光的花。"
+    ],
+    "zhC": [
+      "他們走回去找剛才那隻友善的小兔子。",
+      "這一次，Lumi 很有禮貌地開口：「請問，你可以幫我們指路嗎？」",
+      "小兔子開心地動動鼻子，指著發光的花朵方向。"
+    ]
+  },
+  {
+    "title": "Glowing moon flowers",
+    "A": [
+      "The flowers glow.",
+      "They follow the light."
+    ],
+    "B": [
+      "The flowers light a little path.",
+      "Gail and Lumi follow them home."
+    ],
+    "C": [
+      "Following the rabbit’s directions, they discover shimmering moon flowers along the trail.",
+      "Their soft petals glow in the dark, lighting up the secret path home."
+    ],
+    "zhA": [
+      "花朵發光了。",
+      "他們跟著光走。"
+    ],
+    "zhB": [
+      "花朵照亮一條小路。",
+      "瑜瑜和 Lumi 沿著它回家。"
+    ],
+    "zhC": [
+      "順著兔子的指引，他們在小徑旁發現了閃閃發光的月亮花。",
+      "柔和的花瓣在黑暗中發光，照亮了通往家的祕密小徑。"
+    ]
+  },
+  {
+    "title": "Moonlight Meadow",
+    "A": [
+      "They reach Moonlight Meadow.",
+      "Lumi is home!"
+    ],
+    "B": [
+      "They come to Moonlight Meadow.",
+      "Lumi’s family is waiting there."
+    ],
+    "C": [
+      "They step out of the dense woods into the sparkling Moonlight Meadow!",
+      "A herd of unicorns welcomes Lumi home with joyful nickers."
+    ],
+    "zhA": [
+      "他們到月光草原了。",
+      "Lumi 回家了！"
+    ],
+    "zhB": [
+      "他們來到月光草原。",
+      "Lumi 的家人正在等他。"
+    ],
+    "zhC": [
+      "他們走出茂密的樹林，踏進了波光粼粼的月光草原！",
+      "獨角獸家族歡喜地輕鳴，熱情迎接 Lumi 回家。"
+    ]
+  },
+  {
+    "title": "I asked for help!",
+    "A": [
+      "Mom asks, “How?”",
+      "“I asked for help!”"
+    ],
+    "B": [
+      "Lumi’s mother asks how he got home.",
+      "“I asked for help!” says Lumi."
+    ],
+    "C": [
+      "His mother nuzzles him and asks, “How did you find your way back?”",
+      "Lumi smiles brightly and says, “I asked for help!”"
+    ],
+    "zhA": [
+      "媽媽問：「怎麼回來的？」",
+      "「我開口求助了！」"
+    ],
+    "zhB": [
+      "Lumi 的媽媽問他怎麼回來。",
+      "「我開口求助了！」Lumi 說。"
+    ],
+    "zhC": [
+      "媽媽親暱地蹭著他問：「你是怎麼找到回家的路呢？」",
+      "Lumi 開心地燦笑著說：「因為我主動求助了！」"
+    ]
+  },
+  {
+    "title": "Stop, look, and ask!",
+    "A": [
+      "Stop and look.",
+      "Ask for help when you need it."
+    ],
+    "B": [
+      "It is okay not to know.",
+      "Stop, look, and ask for help."
+    ],
+    "C": [
+      "Don't know? That is okay!",
+      "Stop, look, and ask—and you will always find your way!"
+    ],
+    "zhA": [
+      "停下來，仔細看。",
+      "需要時就開口求助。"
+    ],
+    "zhB": [
+      "不知道也沒關係。",
+      "停下來、仔細看、開口問。"
+    ],
+    "zhC": [
+      "不知道嗎？沒關係！",
+      "停下來、仔細看、開口問——你一定能找到方向！"
+    ]
+  }
+]

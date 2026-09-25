@@ -32,6 +32,7 @@
 |Gail and the Little Witch Who Said “I Can’t”|20|20|已實作，本機預覽待使用者驗收|
 |Gail and the Magic Mirror That Loved to Compare|20|20|已實作，本機預覽待使用者驗收|
 |Gail and the Library of Stars|20|20|已實作，本機預覽待使用者驗收|
+|Gail and the Lost Unicorn|20|20|已實作，已上架學習星球|
 
 ## Gail and the Parrot Who Spoke Too Soon
 
@@ -189,6 +190,12 @@ mirror, reflection, portrait, medal, puzzle, dance, paint, compare, similar, dif
 
 library, librarian, shelf, cover, page, title, chapter, character, setting, event, clue, predict, retell, meaning, summary, reason, evidence, understand, remember, explain
 
+## Gail and the Lost Unicorn
+
+來源：src/story/interactive/unicorn.ts；C 級旁白沿用既有影片稿；核准20核心詞表。
+
+unicorn, woods, glow, gallop, mane, signpost, grove, shortcut, fork, canopy, crooked, trot, droop, woodland, hooves, mossy, shimmer, nicker, ask, directions
+
 ## 已實作單字反查
 
 |單字|使用書目|
@@ -206,6 +213,7 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |answer|Gail and the Parrot Who Spoke Too Soon|
 |apple|Where Is My Star?|
 |apron|Gail’s Birthday Cake|
+|ask|Gail and the Lost Unicorn|
 |attempt|Gail and the Little Witch Who Said “I Can’t”|
 |attention|Gail and the Parrot Who Spoke Too Soon|
 |autumn|Gail and the Little Elf Who Would Not Grow|
@@ -261,6 +269,7 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |calendar|Gail’s Birthday Cake|
 |calm|Gail and the Little Volcano Monster；Gail and the Cloud That Could Not Stop Thundering|
 |candle|Gail’s Birthday Cake|
+|canopy|Gail and the Lost Unicorn|
 |cap|Gail and the Big Bad Wolf|
 |capable|Gail and the Little Witch Who Said “I Can’t”|
 |care|Gail’s Birthday Cake|
@@ -299,6 +308,7 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |crack|Gail and the Bear Who Hid the Pieces|
 |creak|Gail and the Three Bears Who Feared the Dark|
 |cream|Gail’s Birthday Cake|
+|crooked|Gail and the Lost Unicorn|
 |crown|Gail and the Genie of Too Many Wishes|
 |cup|Gail’s Birthday Cake|
 |curtain|Gail and the Three Bears Who Feared the Dark|
@@ -311,11 +321,13 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |detail|Gail and the Parrot Who Spoke Too Soon|
 |different|Gail and the Magic Mirror That Loved to Compare|
 |dig|Gail and the Rabbit Who Could Not Wait|
+|directions|Gail and the Lost Unicorn|
 |dirty|Gail and the Mermaid Who Wanted Everything Tidy|
 |dock|Gail and the Pirate Who Said Mine|
 |door|Where Is My Star?；Gail and the Big Bad Wolf；Gail’s Birthday Cake；Gail and the Fox Who Was Afraid to Draw|
 |dragon|Gail and the Little Dragon Who Forgot to Fly|
 |draw|Gail and the Fox Who Was Afraid to Draw|
+|droop|Gail and the Lost Unicorn|
 |drop|Gail and the Fox Who Was Afraid to Draw|
 |drum|Gail and the Kingdom That Lost Its Music|
 |dry|Gail and the Giant’s Tiny Umbrella|
@@ -355,12 +367,14 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |fog|Gail and the Moonlight Garden|
 |follow|Gail and the Moonlight Garden|
 |forest|Gail and the Little Dragon Who Forgot to Fly；Gail and the Moonlight Garden|
+|fork|Gail and the Lost Unicorn|
 |fox|Gail and the Fox Who Was Afraid to Draw|
 |friend|Where Is My Star?；Gail and the Princess Who Forgot to Smile；Gail and the Pirate Who Said Mine|
 |frog|Gail and the Moonlight Garden|
 |frozen|Gail and the Little Elf Who Would Not Grow|
 |full|Gail and the Fairy Who Always Said Yes|
 |gail|Gail and the Big Bad Wolf|
+|gallop|Gail and the Lost Unicorn|
 |gap|Gail and the Giant’s Tiny Umbrella|
 |garden|Gail and the Wizard Who Always Said Later；Gail and the Moonlight Garden|
 |genie|Gail and the Genie of Too Many Wishes|
@@ -370,10 +384,12 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |glasses|Gail and the Big Bad Wolf|
 |glide|Gail and the Little Dragon Who Forgot to Fly|
 |gloves|Gail and the Bear Who Hid the Pieces|
+|glow|Gail and the Lost Unicorn|
 |gold|Gail and the Genie of Too Many Wishes|
 |good night|Gail and the Moonlight Garden|
 |grandma|Gail and the Big Bad Wolf|
 |grass|Where Is My Star?|
+|grove|Gail and the Lost Unicorn|
 |grow|Gail and the Little Elf Who Would Not Grow|
 |guess|Gail and the Three Bears Who Feared the Dark|
 |habitat|Gail and the Mermaid Who Wanted Everything Tidy|
@@ -392,6 +408,7 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |home|Where Is My Star?|
 |honest|Gail and the Bear Who Hid the Pieces|
 |hood|Gail and the Big Bad Wolf|
+|hooves|Gail and the Lost Unicorn|
 |hot|Gail and the Little Volcano Monster|
 |hour|Gail and the Castle of Rushing Hours|
 |hover|Gail and the Little Witch Who Said “I Can’t”|
@@ -439,6 +456,7 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |lunch|Gail and the Castle of Rushing Hours|
 |mail|Gail and the Big Bad Wolf|
 |manager|Gail and the Big Bad Wolf|
+|mane|Gail and the Lost Unicorn|
 |many|Gail and the Genie of Too Many Wishes|
 |map|Gail and the Big Bad Wolf|
 |market|Gail and the Princess Who Forgot to Smile|
@@ -462,6 +480,7 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |more|Gail and the Genie of Too Many Wishes|
 |morning|Gail and the Castle of Rushing Hours|
 |mosaic|Gail and the Bear Who Hid the Pieces|
+|mossy|Gail and the Lost Unicorn|
 |moth|Gail and the Moonlight Garden|
 |mushroom|Where Is My Star?；Gail and the Moonlight Garden|
 |music|Gail and the Kingdom That Lost Its Music|
@@ -471,6 +490,7 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |nest|Gail and the Little Dragon Who Forgot to Fly|
 |new|Gail and the Little Elf Who Would Not Grow|
 |next|Gail and the Wizard Who Always Said Later|
+|nicker|Gail and the Lost Unicorn|
 |no|Gail and the Fairy Who Always Said Yes|
 |noise|Gail and the Three Bears Who Feared the Dark|
 |notice|Gail and the Little Volcano Monster|
@@ -575,10 +595,13 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |shell|Gail and the Mermaid Who Wanted Everything Tidy|
 |shelter|Gail and the Mermaid Who Wanted Everything Tidy|
 |shield|Gail and the Knight Who Had to Be First|
+|shimmer|Gail and the Lost Unicorn|
 |shiny|Gail and the Genie of Too Many Wishes|
 |short|Gail and the Three Bears Who Feared the Dark|
+|shortcut|Gail and the Lost Unicorn|
 |shoulder|Gail and the Little Volcano Monster|
 |signal|Gail and the Little Volcano Monster|
+|signpost|Gail and the Lost Unicorn|
 |silent|Gail and the Kingdom That Lost Its Music|
 |silver|Gail and the Genie of Too Many Wishes|
 |similar|Gail and the Magic Mirror That Loved to Compare|
@@ -660,6 +683,7 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |toy|Gail and the Genie of Too Many Wishes|
 |train|Gail and the Genie of Too Many Wishes|
 |tree|Where Is My Star?；Gail and the Moonlight Garden|
+|trot|Gail and the Lost Unicorn|
 |trumpet|Gail and the Kingdom That Lost Its Music|
 |truth|Gail and the Bear Who Hid the Pieces|
 |try|Gail and the Little Dragon Who Forgot to Fly；Gail and the Fox Who Was Afraid to Draw|
@@ -669,6 +693,7 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |umbrella|Gail and the Giant’s Tiny Umbrella|
 |under|Where Is My Star?|
 |understand|Gail and the Library of Stars|
+|unicorn|Gail and the Lost Unicorn|
 |unique|Gail and the Magic Mirror That Loved to Compare|
 |unripe|Gail and the Little Elf Who Would Not Grow|
 |unsure|Gail and the Little Witch Who Said “I Can’t”|
@@ -703,6 +728,8 @@ library, librarian, shelf, cover, page, title, chapter, character, setting, even
 |wizard|Gail and the Wizard Who Always Said Later|
 |wobble|Gail and the Little Witch Who Said “I Can’t”|
 |wolf|Gail and the Big Bad Wolf|
+|woodland|Gail and the Lost Unicorn|
+|woods|Gail and the Lost Unicorn|
 |worried|Gail and the Bear Who Hid the Pieces|
 |wrong|Gail and the Parrot Who Spoke Too Soon|
 |yellow|Gail and the Fox Who Was Afraid to Draw|
