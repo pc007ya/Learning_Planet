@@ -8,6 +8,14 @@ const $ = <T extends HTMLElement = HTMLElement>(s: string) => document.querySele
 const state: EarthLabState = initialEarthState();
 if (new URLSearchParams(location.search).get('mode') === 'moon') state.mode = 'moon';
 const narrator = new SceneNarration();
+$('.topbar a[aria-label="返回學習星球"]').addEventListener('click', event => {
+  narrator.stop();
+  if (window.parent !== window) {
+    event.preventDefault();
+    stage?.dispose();
+    window.parent.postMessage({ type: 'earth-lab-close' }, location.origin);
+  }
+});
 const slider = $<HTMLInputElement>('#timeline');
 const quiz = $<HTMLDialogElement>('#earth-quiz');
 let stage: EarthLabStage | undefined, cardScale = 1, resumeAfterQuiz = false, lastUI = 0;
@@ -84,7 +92,6 @@ document.querySelectorAll<HTMLButtonElement>('[data-action]').forEach(button => 
     case 'play': state.playing = !state.playing; break;
     case 'speed': state.speed = state.speed === 1 ? 4 : 1; break;
     case 'voice': narrator.enabled = !narrator.enabled; if (narrator.enabled) narrator.say(observation()); else narrator.stop(); break;
-    case 'replay': narrator.say(observation(), true); break;
     case 'home': stage?.home(); break;
     case 'zoom-in': stage?.zoom(.85); break;
     case 'zoom-out': stage?.zoom(1.18); break;

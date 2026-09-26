@@ -15,6 +15,7 @@
 <script type="module" src="./modules/math-image-guard.mjs"></script>
 <script type="module" src="./modules/story-launch.mjs"></script>
 <script type="module" src="./modules/math-teaching/launch.mjs"></script>
+<script type="module" src="./modules/earth-lab/launch.mjs"></script>
 <script type="module" src="./modules/math-question-engine/math-question-engine-v1.js?v=20260909-concept-engine-v1"></script>
 <script type="module" src="./src/firebase-config.js"></script>
 <script type="module" src="./auth-v2/firebase-client.js"></script>
@@ -8736,7 +8737,7 @@ class Component extends DCLogic {
     if (id === "exp-plant-water") { this.startPlantWaterLab(); return; }
     if (id === "exp-day-night") { this.startDayNightLab(); return; }
     if (id === "exp-earth-orbit") { this.startEarthOrbitLab(); return; }
-    if (id === "exp-earth-lab") { window.location.assign("./science-earth-lab.html"); return; }
+    if (id === "exp-earth-lab") { window.LearningPlanetEarthLab.open(); return; }
     if (id === "exp-optics") { window.location.assign("./science-optics.html"); return; }
     if (["exp-buoyancy", "exp-clock-mechanism", "exp-pullback-car", "exp-cube-mechanism", "exp-mini4wd"].includes(id)) { this.setState({ screen: "interactiveLab", subject: "experiment", unit: id }); return; }
     if (["s7", "s8", "s20", "s21"].indexOf(id) >= 0) { this.startMindmap(id); return; }
