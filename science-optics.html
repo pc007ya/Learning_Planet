@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#09131d"><title>光・實驗室｜學習星球</title><link rel="stylesheet" href="./modules/optics/optics.css?v=2"></head>
+<body data-mode="lens">
+<svg class="icon-library" xmlns="http://www.w3.org/2000/svg"><defs>
+<symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5m7-7-7 7 7 7"/></symbol>
+<symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zm13-1q4 4 0 8m3-11q7 7 0 14"/></symbol>
+<symbol id="i-reset" viewBox="0 0 24 24"><path d="M5 8a8 8 0 1 1-1 7M5 3v6h6"/></symbol>
+<symbol id="i-pencil" viewBox="0 0 24 24"><path d="m4 16 12-12 4 4L8 20H4zm9-9 4 4M3 23h19"/></symbol>
+<symbol id="i-view" viewBox="0 0 24 24"><path d="m12 3 9 5v9l-9 5-9-5V8zm0 10 9-5m-9 5L3 8m9 5v9"/></symbol>
+<symbol id="i-ray" viewBox="0 0 24 24"><path d="m2 4 10 8L2 20m20-16-10 8 10 8M2 12h20"/></symbol>
+<symbol id="i-explode" viewBox="0 0 24 24"><path d="M8 5 3 12l5 7M16 5l5 7-5 7M11 6v12m2-12v12"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 2v6m0 8v6M2 12h6m8 0h6"/></symbol>
+<symbol id="i-lens" viewBox="0 0 24 24"><path d="M12 3Q3 12 12 21Q21 12 12 3M2 12h20"/></symbol>
+<symbol id="i-concave" viewBox="0 0 24 24"><path d="M6 3H18Q11 12 18 21H6Q13 12 6 3M2 12h20"/></symbol>
+<symbol id="i-prism" viewBox="0 0 24 24"><path d="m12 3 10 18H2zM2 12h8m4 0 8-3m-8 3 8 2m-8-2 8 7"/></symbol>
+</defs></svg>
+<main class="optics-app">
+<div id="stage" class="world"><div id="loading" class="loading">正在開啟光學實驗台…</div></div>
+<header class="toolbar">
+ <a class="icon-button back" href="./index.html" aria-label="返回學習星球"><svg><use href="#i-back"/></svg></a>
+ <div class="brand"><small>LEARNING PLANET</small><h1>光<span>・</span>實驗室</h1></div>
+ <nav class="mode-tabs" aria-label="實驗"><button data-activity="rocket" class="active"><svg><use href="#i-lens"/></svg>透鏡</button><button data-activity="prism"><svg><use href="#i-prism"/></svg>三稜鏡</button><button data-activity="point"><svg><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/></svg>點光源</button></nav>
+ <div class="tool-actions">
+ <button class="icon-button point-only" data-info aria-label="開啟光學說明小卡" aria-expanded="false" title="光學說明小卡"><svg><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8m-8 4h8m-8 4h4"/></svg></button>
+ <button class="icon-button lens-only" data-explode aria-label="拆開鏡頭" title="拆開／組合鏡頭"><svg><use href="#i-explode"/></svg></button>
+ <button class="icon-button" data-rays aria-label="顯示光路" title="顯示／隱藏光路"><svg><use href="#i-ray"/></svg></button>
+ <button class="icon-button" data-view aria-label="正面觀察" title="正面／立體觀察"><svg><use href="#i-view"/></svg></button>
+ <button class="icon-button" data-voice aria-label="開啟語音" title="語音開關"><svg><use href="#i-sound"/></svg></button>
+ <button class="icon-button" data-quiz aria-label="看圖小挑戰" title="看圖小挑戰"><svg><use href="#i-pencil"/></svg></button>
+ <button class="icon-button" data-reset aria-label="重設實驗" title="重設實驗"><svg><use href="#i-reset"/></svg></button>
+ </div>
+</header>
+<section class="lesson-overlay"><span id="lesson-number" class="overline"></span><h2 id="lesson-name"></h2><p id="observation"></p>
+ <div class="metrics lens-only"><div><span>焦距</span><b id="focus-distance"></b></div><div><span>像距</span><b id="image-distance"></b></div><div><span id="size-label">大小</span><b id="image-size"></b></div></div>
+ <div class="lens-kind-switch point-only" role="group" aria-label="點光源透鏡類型"><button data-kind="convex"><svg><use href="#i-lens"/></svg>凸透鏡</button><button data-kind="concave"><svg><use href="#i-concave"/></svg>凹透鏡</button></div>
+ <button class="text-voice" data-replay aria-label="朗讀觀察說明"><svg><use href="#i-sound"/></svg></button>
+</section>
+<aside id="explanation-card" aria-label="可縮放光學說明小卡" hidden><header><strong>光學小卡</strong><span id="card-zoom-value">100%</span><button data-card-zoom="-0.15" aria-label="縮小说明小卡">−</button><button data-card-zoom="0.15" aria-label="放大說明小卡">＋</button><button data-card-close aria-label="關閉說明小卡">×</button></header><div id="card-diagram"></div><p id="card-result"></p><div class="card-equation">1 / f = 1 / u + 1 / v</div><p id="card-values"></p><p class="card-note">實線是光線；虛線是反向延長線。S 高於主軸 8 cm；單一光點沒有「倒立」或「大小」。v &gt; 0 為異側實像，v &lt; 0 為同側虛像。採理想薄透鏡、近軸模型。</p></aside>
+<aside class="projection-panel" aria-label="成像屏放大預覽"><div class="projection-heading"><span id="preview-title"></span><button class="align-button lens-only" data-align aria-label="把成像屏移到清楚位置" title="將屏移到清晰位置"><svg><use href="#i-target"/></svg></button></div><div class="projection-image"><canvas id="projection"></canvas><div id="empty-projection" hidden>屏上接不到虛像</div></div><div class="image-caption"><i></i><span id="image-state"></span></div><div class="meter-track"><div id="focus-meter"></div></div></aside>
+<div class="bottom-ui"><div class="position-presets lens-only" role="group" aria-label="物體相對焦點的位置"><span id="position-ratio"></span><button data-position="outer" aria-label="物體放在 2F 外">2F 外</button><button data-position="2" aria-label="物體放在 2F 上">2F</button><button data-position="between" aria-label="物體放在 F 與 2F 之間">F—2F</button><button data-position="1" aria-label="物體放在 F 上">F</button><button data-position="inner" aria-label="物體放在 F 內">F 內</button><strong id="image-detail" role="status"></strong></div><div class="stage-hint"><span class="live-dot"></span><span id="stage-help"></span></div>
+ <section id="lens-controls" class="control-dock" aria-label="透鏡操作">
+  <div class="focus-control"><label for="focal">焦距 <b id="focal-value"></b></label><input id="focal" type="range" min="20" max="45" step="0.1" value="30" aria-label="焦距，公分"><div class="range-labels"><span>短焦距</span><span>長焦距</span></div></div>
+  <div class="position-control"><span class="control-title">物距 <small>cm</small></span><div class="stepper"><button data-move="object:-0.25" aria-label="物體靠近透鏡">−</button><output id="object-value"></output><button data-move="object:0.25" aria-label="物體遠離透鏡">＋</button></div></div>
+  <div class="position-control"><span class="control-title">屏距 <small>cm</small></span><div class="stepper"><button data-move="screen:-0.25" aria-label="成像屏靠近透鏡">−</button><output id="screen-value"></output><button data-move="screen:0.25" aria-label="成像屏遠離透鏡">＋</button></div></div>
+  <div class="aperture-control"><span class="control-title">光圈</span><div class="aperture-options" role="group" aria-label="光圈大小"><button data-aperture="0.45" aria-label="小光圈"><i class="aperture small"></i></button><button data-aperture="0.85" aria-label="中光圈"><i class="aperture medium"></i></button><button data-aperture="1.25" aria-label="大光圈"><i class="aperture large"></i></button></div></div>
+ </section>
+ <section id="prism-controls" class="control-dock prism-dock" aria-label="三稜鏡操作" hidden><div class="focus-control"><label for="angle">旋轉 <b id="angle-value"></b></label><input id="angle" type="range" min="-30" max="30" step="0.5" value="-10" aria-label="三稜鏡角度"><div class="range-labels"><span>−30°</span><span>＋30°</span></div></div><div class="prism-presets"><button data-angle="-20" aria-label="向左旋轉二十度">−20°</button><button data-angle="0" aria-label="回到零度">0°</button><button data-angle="20" aria-label="向右旋轉二十度">＋20°</button></div><div class="spectrum-key"><span>白光中的顏色</span><div></div><p>紅光 → 紫光</p></div></section>
+</div></main>
+<dialog id="quiz"><form method="dialog"><button class="dialog-close" aria-label="返回實驗">×</button></form><small class="overline">LOOK & DISCOVER</small><h2 id="quiz-title"></h2><div id="quiz-options"></div><p id="quiz-feedback" role="status"></p></dialog>
+<script type="module" src="./modules/optics/optics-lab.mjs?v=2"></script></body></html>
