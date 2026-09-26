@@ -4264,6 +4264,7 @@ const EXPERIMENT_UNITS = [
   { id: "exp-plant-water", grade: 0, difficulty: 0, icon: "🌱", art: "images/subject-unit-icons/v2/experiment-plant-water-v2.png", tint: "#eef8df", title: "植物怎麼喝水？", sub: "分鏡＋互動實驗 · 土壤、根毛、木質部、氣孔與蒸散", kind: "experiment" },
   { id: "exp-day-night", grade: 0, difficulty: 0, icon: "🌍", art: "images/subject-unit-icons/v2/experiment-day-night-v2.png", tint: "#eaf2ff", title: "白天與黑夜", sub: "分鏡＋互動實驗 · 旋轉地球、判斷臺灣日夜", kind: "experiment" },
   { id: "exp-earth-orbit", grade: 0, difficulty: 0, icon: "🌎", art: "images/subject-unit-icons/v2/experiment-earth-orbit-v2.png", tint: "#e8edff", title: "地球公轉", sub: "3D 互動實驗 · 地球公轉、月球繞行與日照方向", kind: "experiment" },
+  { id: "exp-earth-lab", grade: 0, difficulty: 0, icon: "", art: "images/experiments/earth-lab.svg", tint: "#e6f5ff", title: "地球自轉與公轉（新）", sub: "3D 觀測台 · 臺灣晝夜、四季與地月同步", kind: "experiment" },
   { id: "exp-optics", grade: 0, difficulty: 0, icon: "", art: "images/experiments/optics.svg", tint: "#e7f8ff", title: "光的魔法實驗室", sub: "3D 互動 · 透鏡成像、點光源與三稜鏡色散", kind: "experiment" },
   { id: "exp-buoyancy", grade: 0, difficulty: 0, icon: "🌊", art: "images/experiments/buoyancy.svg", tint: "#e8edff", title: "浮力實驗室", sub: "圖卡拖曳 · 8 種寶物、○ × 猜浮沉", kind: "experiment" },
   { id: "exp-clock-mechanism", grade: 0, difficulty: 0, icon: "🕒", art: "images/experiments/clock.svg", tint: "#e8edff", title: "簡單機構：時鐘", sub: "3D 互動 · 轉動指針、齒輪傳動與時間比例", kind: "experiment" },
@@ -8735,6 +8736,7 @@ class Component extends DCLogic {
     if (id === "exp-plant-water") { this.startPlantWaterLab(); return; }
     if (id === "exp-day-night") { this.startDayNightLab(); return; }
     if (id === "exp-earth-orbit") { this.startEarthOrbitLab(); return; }
+    if (id === "exp-earth-lab") { window.location.assign("./science-earth-lab.html"); return; }
     if (id === "exp-optics") { window.location.assign("./science-optics.html"); return; }
     if (["exp-buoyancy", "exp-clock-mechanism", "exp-pullback-car", "exp-cube-mechanism", "exp-mini4wd"].includes(id)) { this.setState({ screen: "interactiveLab", subject: "experiment", unit: id }); return; }
     if (["s7", "s8", "s20", "s21"].indexOf(id) >= 0) { this.startMindmap(id); return; }

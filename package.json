@@ -4,13 +4,14 @@
   "scripts": {
     "build:math-teaching": "vite build --config vite.math-teaching.config.mjs",
     "build:optics": "vite build --config vite.optics.config.mjs",
+    "build:earth-lab": "vite build --config vite.earth-lab.config.mjs",
     "dev": "vite",
     "build:earth-orbit": "vite build",
     "typecheck": "tsc --noEmit",
     "test:earth-orbit": "vitest run",
     "build:experiments": "vite build --config vite.experiments.config.ts",
     "build:stories": "vite build --config vite.story.config.ts",
-    "check": "npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit && npm run build:experiments && npm run build:stories && npm run build:little-star && npm run build:math-teaching && npm run build:optics",
+    "check": "npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit && npm run build:experiments && npm run build:stories && npm run build:little-star && npm run build:math-teaching && npm run build:optics && npm run build:earth-lab",
     "deploy": "npx -y firebase-tools@latest deploy --only hosting",
     "deploy:all": "npx -y firebase-tools@latest deploy",
     "build:little-star": "vite build --config vite.little-star.config.ts"
