@@ -1,0 +1,1877 @@
+{
+  "number": 49,
+  "id": "princess-weekend",
+  "title": "Gail and the Princess’s Weekend Break",
+  "chineseTitle": "瑜瑜與公主喘息的假日",
+  "coreWords": [
+    "UK",
+    "Saturday",
+    "movie theater",
+    "Sunday",
+    "department store",
+    "nice",
+    "cute",
+    "restaurant",
+    "taste",
+    "coke",
+    "French fries",
+    "lemon",
+    "banana",
+    "ice cream",
+    "MRT",
+    "really",
+    "maybe",
+    "bye",
+    "shirt",
+    "pants",
+    "T-shirt"
+  ],
+  "wordBasis": "使用者指定21詞，24幕ABC中英；分級為設計目標，非實測",
+  "scenes": [
+    {
+      "number": 1,
+      "title": "The pocket watch wakes",
+      "scene": "bedroom",
+      "background": "images/story/princess-weekend-v1/bedroom.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "gail",
+          "image": "images/story/princess-weekend-v1/gail-home.png",
+          "x": 29,
+          "y": 69,
+          "w": 36,
+          "h": 56,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "watch",
+          "word": "watch",
+          "image": "images/story/princess-weekend-v1/watch.png",
+          "x": 64,
+          "y": 67,
+          "w": 17,
+          "h": 22,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "A watch! Tick, tick!"
+        ],
+        "B": [
+          "Gail is in her room. A golden watch opens and shines."
+        ],
+        "C": [
+          "In her familiar bedroom, Gail hears a soft tick. Her golden pocket watch opens by itself. A tiny picture of Ella’s castle shines inside. Gail leans closer. “Ella?”"
+        ]
+      },
+      "chinese": {
+        "A": [
+          "一只懷錶！滴答，滴答！"
+        ],
+        "B": [
+          "瑜瑜在房間裡，金色懷錶打開並發光。"
+        ],
+        "C": [
+          "熟悉的房間裡，瑜瑜聽見輕輕的滴答聲。金色懷錶自己打開，錶內亮起Ella城堡的小小影像。瑜瑜靠近看：「Ella？」"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "watch",
+        "prompt": "Explore the watch.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "固定shared-gail-v1/bedroom.png，原家具鏡位；淡紫奶油星睡衣、金色五角髮夾、奶油拖鞋。懷錶先滴答、錶蓋開啟、指針發光；此幕尚無門。"
+    },
+    {
+      "number": 2,
+      "title": "A doorway to Ella",
+      "scene": "bedroom",
+      "background": "images/story/princess-weekend-v1/bedroom.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "gail",
+          "image": "images/story/princess-weekend-v1/gail-home.png",
+          "x": 29,
+          "y": 69,
+          "w": 36,
+          "h": 56,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "watch",
+          "word": "watch",
+          "image": "images/story/princess-weekend-v1/watch.png",
+          "x": 64,
+          "y": 67,
+          "w": 17,
+          "h": 22,
+          "z": 5,
+          "flip": false
+        },
+        {
+          "id": "portal",
+          "word": "doorway",
+          "image": "images/story/princess-weekend-v1/portal.svg",
+          "x": 51,
+          "y": 42,
+          "w": 37,
+          "h": 72,
+          "z": 2,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "The watch glows. Hello, Ella!"
+        ],
+        "B": [
+          "Light rises from the watch. Gail steps through a door to Ella."
+        ],
+        "C": [
+          "Warm light rises from the watch. Tiny golden clock hands turn in a circle and open a doorway. Gail sees Ella by the castle window. She steps through the light to visit her friend."
+        ]
+      },
+      "chinese": {
+        "A": [
+          "懷錶發光了。你好，Ella！"
+        ],
+        "B": [
+          "光從懷錶升起，瑜瑜穿過門去找Ella。"
+        ],
+        "C": [
+          "暖光從懷錶升起，小小金色指針繞成圓圈，打開一道門。瑜瑜看見城堡窗邊的Ella，穿過光去探望朋友。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "watch",
+        "prompt": "Explore the watch.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "光點必須從懷錶位置散出→指針光圈→門成形→瑜瑜穿門→宮殿。入城堡後仍穿原淡紫奶油星睡衣與奶油拖鞋；到Scene18百貨公司才換現代服装。"
+    },
+    {
+      "number": 3,
+      "title": "A Busy Princess",
+      "scene": "palace",
+      "background": "images/story/princess-weekend-v1/palace.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-pajamas.png",
+          "x": 28,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella.png",
+          "x": 73,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": true
+        },
+        {
+          "id": "watch",
+          "word": "watch",
+          "image": "images/story/princess-weekend-v1/watch.png",
+          "x": 51,
+          "y": 72,
+          "w": 18,
+          "h": 22,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "Ella is busy."
+        ],
+        "B": [
+          "Ella is busy in her castle. She wants to see the world."
+        ],
+        "C": [
+          "“Ella, are you okay?” asks Gail. Ella sighs. “I like my castle.” “But every day is so busy.” She looks outside. “I want to see the world outside.”"
+        ]
+      },
+      "chinese": {
+        "A": [
+          "Ella很忙。"
+        ],
+        "B": [
+          "Ella在城堡裡很忙，她想看看外面的世界。"
+        ],
+        "C": [
+          "瑜瑜問Ella還好嗎。Ella說喜歡城堡，但每天都忙，想看看外面的世界。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "ella",
+        "prompt": "Explore the Ella.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "Ella 在城堡房間裡。\n\n桌上放著課本、行程表和正式的公主禮服。\n\nElla 坐在窗邊，看著遠方。\n\n瑜瑜來找她。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 4,
+      "title": "A Little Weekend Break",
+      "scene": "palace",
+      "background": "images/story/princess-weekend-v1/palace.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-pajamas.png",
+          "x": 28,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella.png",
+          "x": 73,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": true
+        },
+        {
+          "id": "watch",
+          "word": "watch",
+          "image": "images/story/princess-weekend-v1/watch.png",
+          "x": 51,
+          "y": 72,
+          "w": 18,
+          "h": 22,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "A weekend break! That is nice."
+        ],
+        "B": [
+          "Gail has a nice plan. They can take a weekend break."
+        ],
+        "C": [
+          "Gail smiles. “Then you need a little holiday.” Ella’s eyes grow wide. “A holiday?” “Yes!” “Just for the weekend.” Ella smiles. “That sounds nice.” Before leaving, they check the weekend plan and their place to stay."
+        ]
+      },
+      "chinese": {
+        "A": [
+          "週末休個假！真好。"
+        ],
+        "B": [
+          "瑜瑜有個好計畫，她們可以在週末休假。"
+        ],
+        "C": [
+          "瑜瑜提議週末休個小假。Ella覺得很棒。她們先確認週末安排與住宿，收好要帶的物品。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "watch",
+        "prompt": "Explore the watch.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "瑜瑜坐到 Ella 身旁。\n\nElla期待地看著她。\n\n瑜瑜從小包包裡拿出熟悉的金色時光懷錶。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 5,
+      "title": "The Magic Pocket Watch",
+      "scene": "palace",
+      "background": "images/story/princess-weekend-v1/palace.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-pajamas.png",
+          "x": 28,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella.png",
+          "x": 73,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": true
+        },
+        {
+          "id": "watch",
+          "word": "watch",
+          "image": "images/story/princess-weekend-v1/watch.png",
+          "x": 48,
+          "y": 67,
+          "w": 17,
+          "h": 22,
+          "z": 5,
+          "flip": false
+        },
+        {
+          "id": "portal",
+          "word": "doorway",
+          "image": "images/story/princess-weekend-v1/portal.svg",
+          "x": 51,
+          "y": 42,
+          "w": 37,
+          "h": 72,
+          "z": 2,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "Hold my hand. Let us go!"
+        ],
+        "B": [
+          "The watch opens a door. Gail and Ella go through it together."
+        ],
+        "C": [
+          "Gail opens the same golden pocket watch. Tick, tick, tick. She turns its little wheel. Light gathers on the hands, then rises into a doorway. “Ready?” Ella holds Gail’s hand. “Ready!” They step through together."
+        ]
+      },
+      "chinese": {
+        "A": [
+          "牽著我的手，出發吧！"
+        ],
+        "B": [
+          "懷錶打開門，瑜瑜與Ella一起穿過門。"
+        ],
+        "C": [
+          "瑜瑜打開同一只金色懷錶，轉動小齒輪。指針發光，光點從錶盤旋成入口。Ella牽住她的手，一起出發。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "watch",
+        "prompt": "Explore the watch.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "瑜瑜打開時光懷錶。\n\n金色光芒與星點在兩人周圍旋轉。\n\nElla抓住瑜瑜的手。\n\n城堡背景開始變成現代城市。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 6,
+      "title": "Welcome to the UK",
+      "scene": "london",
+      "background": "images/story/princess-weekend-v1/london.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-pajamas.png",
+          "x": 28,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella.png",
+          "x": 73,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": true
+        },
+        {
+          "id": "ticket",
+          "word": "UK",
+          "image": "images/story/princess-weekend-v1/ticket.png",
+          "x": 50,
+          "y": 78,
+          "w": 18,
+          "h": 20,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "We are in the UK!"
+        ],
+        "B": [
+          "They are in London, in the UK. Ella sees a red bus."
+        ],
+        "C": [
+          "They open their eyes. Cars move along the street. People walk past colorful shops. A red bus drives by. “Where are we?” asks Ella. “London, in the UK!” says Gail. Ella turns around slowly. “Wow!”"
+        ]
+      },
+      "chinese": {
+        "A": [
+          "我們在英國！"
+        ],
+        "B": [
+          "她們在英國倫敦，Ella看見紅色公車。"
+        ],
+        "C": [
+          "她們來到英國倫敦，看到車輛、店鋪和紅色巴士。Ella驚喜地看著新世界。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "ticket",
+        "prompt": "Explore the UK.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "兩人出現在現代英國城市街道。\n\n可有紅色雙層巴士、紅色電話亭、現代街景。\n\nElla驚訝地四處張望。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 7,
+      "title": "It Is Saturday",
+      "scene": "cinema",
+      "background": "images/story/princess-weekend-v1/cinema.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-pajamas.png",
+          "x": 28,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella.png",
+          "x": 73,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": true
+        },
+        {
+          "id": "ticket",
+          "word": "movie ticket",
+          "image": "images/story/princess-weekend-v1/ticket.png",
+          "x": 50,
+          "y": 78,
+          "w": 20,
+          "h": 23,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "It is Saturday."
+        ],
+        "B": [
+          "It is Saturday. Gail and Ella will see a movie."
+        ],
+        "C": [
+          "Gail checks the day. “It is Saturday.” Ella smiles. “What do people do on Saturday?” “Lots of things,” says Gail. “Today, we are going to see a movie!”"
+        ]
+      },
+      "chinese": {
+        "A": [
+          "今天是星期六。"
+        ],
+        "B": [
+          "今天星期六，瑜瑜與Ella要去看電影。"
+        ],
+        "C": [
+          "今天是星期六，瑜瑜說要一起去看電影。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "ticket",
+        "prompt": "Explore the movie ticket.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "瑜瑜拿手機確認日期。\n\n畫面可以自然出現週末氣氛，人們正在逛街休閒。\n\nElla非常興奮。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 8,
+      "title": "The Movie Theater",
+      "scene": "cinema",
+      "background": "images/story/princess-weekend-v1/cinema.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-pajamas.png",
+          "x": 28,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella.png",
+          "x": 73,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": true
+        },
+        {
+          "id": "ticket",
+          "word": "movie ticket",
+          "image": "images/story/princess-weekend-v1/ticket.png",
+          "x": 50,
+          "y": 78,
+          "w": 20,
+          "h": 23,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "A movie theater!"
+        ],
+        "B": [
+          "They go to a big movie theater. Ella looks at the poster."
+        ],
+        "C": [
+          "They arrive at a movie theater. Ella looks up at the big building. “It is huge!” Gail points to their movie. “Today we are watching *Romeo and Juliet*.” Ella claps her hands. “Let’s go!”"
+        ]
+      },
+      "chinese": {
+        "A": [
+          "一間電影院！"
+        ],
+        "B": [
+          "她們來到大電影院，Ella看著海報。"
+        ],
+        "C": [
+          "兩人來到大型電影院，準備看《羅密歐與茱麗葉》。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "ticket",
+        "prompt": "Explore the movie ticket.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "兩人站在漂亮的現代 movie theater 外。\n\n海報上只需要簡單標示 Romeo and Juliet 的戲劇氛圍，不描繪電影情節。\n\nElla第一次看到大型電影院，非常好奇。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 9,
+      "title": "A Happy Movie Afternoon",
+      "scene": "cinema",
+      "background": "images/story/princess-weekend-v1/cinema.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-pajamas.png",
+          "x": 28,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella.png",
+          "x": 73,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": true
+        },
+        {
+          "id": "ticket",
+          "word": "movie ticket",
+          "image": "images/story/princess-weekend-v1/ticket.png",
+          "x": 50,
+          "y": 78,
+          "w": 20,
+          "h": 23,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "We can talk. I am glad."
+        ],
+        "B": [
+          "The movie ends. They talk about the story together."
+        ],
+        "C": [
+          "Later, the movie ends. Ella walks out quietly. “That story made me feel so much.” Gail nods. “We can talk about it.” Ella smiles at her friend. “I am really glad we came together.”"
+        ]
+      },
+      "chinese": {
+        "A": [
+          "我們可以聊聊，我很開心。"
+        ],
+        "B": [
+          "電影結束，她們一起聊電影的故事。"
+        ],
+        "C": [
+          "電影結束後，Ella說這個故事讓她有很多感受，很高興能與瑜瑜一起來。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "ticket",
+        "prompt": "Explore the movie ticket.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "電影結束後，兩人從影廳走出來。\n\nElla表情開心。\n\n不顯示電影內容。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 10,
+      "title": "Time for Fast Food",
+      "scene": "restaurant",
+      "background": "images/story/princess-weekend-v1/restaurant.png",
+      "objects": [
+        {
+          "id": "friends",
+          "word": "Gail and Ella",
+          "image": "images/story/princess-weekend-v1/cafe-pair.png",
+          "x": 50,
+          "y": 60,
+          "w": 88,
+          "h": 78,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "meal",
+          "word": "French fries and coke",
+          "image": "images/story/princess-weekend-v1/meal.png",
+          "x": 50,
+          "y": 54,
+          "w": 29,
+          "h": 25,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "We are hungry. A restaurant!"
+        ],
+        "B": [
+          "They are hungry. They find a restaurant and look at the menu."
+        ],
+        "C": [
+          "Soon, they feel hungry. “Let’s find a restaurant,” says Gail. They enter a small fast-food restaurant. Ella studies the menu. “So many choices!”"
+        ]
+      },
+      "chinese": {
+        "A": [
+          "我們餓了，一間餐廳！"
+        ],
+        "B": [
+          "她們餓了，找到餐廳，一起看菜單。"
+        ],
+        "C": [
+          "兩人餓了，走進一家快餐餐廳看菜單。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "meal",
+        "prompt": "Explore the French fries and coke.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "兩人走進一間明亮、乾淨的快餐 restaurant。\n\n櫃檯上有餐點圖示。\n\n兩人一起看菜單。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 11,
+      "title": "French Fries and Coke",
+      "scene": "restaurant",
+      "background": "images/story/princess-weekend-v1/restaurant.png",
+      "objects": [
+        {
+          "id": "friends",
+          "word": "Gail and Ella",
+          "image": "images/story/princess-weekend-v1/cafe-pair.png",
+          "x": 50,
+          "y": 60,
+          "w": 88,
+          "h": 78,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "meal",
+          "word": "French fries and coke",
+          "image": "images/story/princess-weekend-v1/meal.png",
+          "x": 50,
+          "y": 54,
+          "w": 29,
+          "h": 25,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "French fries and coke!"
+        ],
+        "B": [
+          "They have French fries and coke. The fries taste good."
+        ],
+        "C": [
+          "They order French fries and coke. Ella picks up a fry. Crunch! She smiles. “These taste good!” Gail takes a sip of coke. “Weekend food!” They both laugh."
+        ]
+      },
+      "chinese": {
+        "A": [
+          "薯條和可樂！"
+        ],
+        "B": [
+          "她們吃薯條、喝可樂，薯條很好吃。"
+        ],
+        "C": [
+          "兩人點薯條和可樂，Ella覺得薯條很好吃。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "meal",
+        "prompt": "Explore the French fries and coke.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "桌上放著兩份薯條和兩杯可樂。\n\nElla拿起一根薯條。\n\n瑜瑜拿著飲料。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 12,
+      "title": "Ice Cream Time",
+      "scene": "restaurant",
+      "background": "images/story/princess-weekend-v1/restaurant.png",
+      "objects": [
+        {
+          "id": "friends",
+          "word": "Gail and Ella",
+          "image": "images/story/princess-weekend-v1/cafe-pair.png",
+          "x": 50,
+          "y": 60,
+          "w": 88,
+          "h": 78,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "dessert",
+          "word": "ice cream",
+          "image": "images/story/princess-weekend-v1/dessert.png",
+          "x": 50,
+          "y": 54,
+          "w": 30,
+          "h": 25,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "Lemon or banana ice cream?"
+        ],
+        "B": [
+          "Gail wants lemon ice cream. Ella wants banana ice cream."
+        ],
+        "C": [
+          "Then Gail sees the ice cream. “I want lemon ice cream.” Ella looks at the flavors. “I want banana!” They sit down with their ice cream."
+        ]
+      },
+      "chinese": {
+        "A": [
+          "檸檬還是香蕉冰淇淋？"
+        ],
+        "B": [
+          "瑜瑜想吃檸檬冰淇淋，Ella想吃香蕉冰淇淋。"
+        ],
+        "C": [
+          "瑜瑜選檸檬冰淇淋，Ella選香蕉口味。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "dessert",
+        "prompt": "Explore the ice cream.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "甜點櫃前。\n\n有不同口味的冰淇淋。\n\n瑜瑜選黃色檸檬冰淇淋。\n\nElla 選淡黃色香蕉冰淇淋。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 13,
+      "title": "It Tastes Good!",
+      "scene": "restaurant",
+      "background": "images/story/princess-weekend-v1/restaurant.png",
+      "objects": [
+        {
+          "id": "friends",
+          "word": "Gail and Ella",
+          "image": "images/story/princess-weekend-v1/cafe-pair.png",
+          "x": 50,
+          "y": 60,
+          "w": 88,
+          "h": 78,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "dessert",
+          "word": "ice cream",
+          "image": "images/story/princess-weekend-v1/dessert.png",
+          "x": 50,
+          "y": 54,
+          "w": 30,
+          "h": 25,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "It tastes good!"
+        ],
+        "B": [
+          "They taste their ice cream. Later, they go back to rest."
+        ],
+        "C": [
+          "Ella takes a small bite. “Mmm!” “How does it taste?” asks Gail. “Good!” Ella laughs. “Banana ice cream is really good!” Gail tastes her lemon ice cream. “Mine is good, too!” That evening, they return to their planned place to stay and rest for the night."
+        ]
+      },
+      "chinese": {
+        "A": [
+          "真好吃！"
+        ],
+        "B": [
+          "她們品嚐冰淇淋，稍後回住宿處休息。"
+        ],
+        "C": [
+          "兩人品嚐冰淇淋，都覺得很好吃。傍晚回到事先安排的住宿處，好好休息。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "dessert",
+        "prompt": "Explore the ice cream.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "兩人各自品嚐冰淇淋。\n\nElla眼睛亮起。\n\n瑜瑜也開心地拿著檸檬口味。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 14,
+      "title": "Sunday Morning",
+      "scene": "hotel",
+      "background": "images/story/princess-weekend-v1/hotel.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-pajamas.png",
+          "x": 28,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella.png",
+          "x": 73,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": true
+        }
+      ],
+      "text": {
+        "A": [
+          "It is Sunday. Shopping!"
+        ],
+        "B": [
+          "It is Sunday morning. They get ready to go shopping."
+        ],
+        "C": [
+          "The next morning is Sunday. Ella wakes up early. “What are we doing today?” she asks. Gail smiles. “Shopping!” Ella jumps out of bed. “Shopping?”"
+        ]
+      },
+      "chinese": {
+        "A": [
+          "今天星期日，去逛街！"
+        ],
+        "B": [
+          "星期日早上，她們準備去逛街。"
+        ],
+        "C": [
+          "第二天星期日，她們在住宿處醒來，準備去逛街。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "ella",
+        "prompt": "Explore the Ella.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "第二天早晨。\n\n瑜瑜與 Ella 在窗邊準備出門。\n\nElla已經開始喜歡現代生活。\n住宿處晨光，承接上一幕休息；不是毫無交代換到陌生床。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 15,
+      "title": "Taking the Underground",
+      "scene": "underground",
+      "background": "images/story/princess-weekend-v1/underground.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-pajamas.png",
+          "x": 28,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella.png",
+          "x": 73,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": true
+        },
+        {
+          "id": "ticket",
+          "word": "train ticket",
+          "image": "images/story/princess-weekend-v1/ticket.png",
+          "x": 50,
+          "y": 78,
+          "w": 18,
+          "h": 20,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "A train! We go underground."
+        ],
+        "B": [
+          "They take the Underground in London. Gail thinks of the MRT at home."
+        ],
+        "C": [
+          "They take the Underground in London. “This reminds me of the MRT at home,” says Gail. “Here, it is called the Underground, or the Tube.” Ella watches the train arrive. “People travel underground?” “Yes!” Ella smiles. “This world is amazing!”"
+        ]
+      },
+      "chinese": {
+        "A": [
+          "一列火車！我們走進地下。"
+        ],
+        "B": [
+          "她們搭倫敦地鐵，瑜瑜想起家鄉的MRT。"
+        ],
+        "C": [
+          "兩人搭倫敦地鐵。瑜瑜想到家鄉的MRT，說這裡叫Underground或Tube。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "ticket",
+        "prompt": "Explore the train ticket.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "倫敦Underground標誌與交通卡；文字將MRT作家鄉交通比較，不把倫敦地鐵叫MRT。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 16,
+      "title": "The Department Store",
+      "scene": "store",
+      "background": "images/story/princess-weekend-v1/store.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-pajamas.png",
+          "x": 25,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella.png",
+          "x": 64,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": true
+        },
+        {
+          "id": "clothes",
+          "word": "clothes",
+          "image": "images/story/princess-weekend-v1/clothes.png",
+          "x": 47,
+          "y": 70,
+          "w": 27,
+          "h": 49,
+          "z": 2,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "A department store!"
+        ],
+        "B": [
+          "They go to a big department store. There are many clothes."
+        ],
+        "C": [
+          "They arrive at a big department store. Ella looks around. Clothes are everywhere. “This place is enormous!” Gail smiles. “Let’s find you something new.”"
+        ]
+      },
+      "chinese": {
+        "A": [
+          "一間百貨公司！"
+        ],
+        "B": [
+          "她們到大百貨公司，裡面有好多衣服。"
+        ],
+        "C": [
+          "她們來到大型百貨公司，看看衣服與商店。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "clothes",
+        "prompt": "Explore the clothes.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "兩人走進大型現代 department store。\n\n四周有服裝、鞋子與不同樓層。\n\nElla抬頭看著寬敞商場。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 17,
+      "title": "A Cute T-shirt",
+      "scene": "store",
+      "background": "images/story/princess-weekend-v1/store.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-pajamas.png",
+          "x": 25,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella.png",
+          "x": 64,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": true
+        },
+        {
+          "id": "clothes",
+          "word": "clothes",
+          "image": "images/story/princess-weekend-v1/clothes.png",
+          "x": 47,
+          "y": 70,
+          "w": 27,
+          "h": 49,
+          "z": 2,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "A cute T-shirt!"
+        ],
+        "B": [
+          "Ella finds a cute T-shirt. It has a little star."
+        ],
+        "C": [
+          "Ella finds a T-shirt. It has a small star on the front. “This is cute!” says Ella. Gail nods. “Try it on!” Ella holds it in front of the mirror. “I like it!”"
+        ]
+      },
+      "chinese": {
+        "A": [
+          "可愛的T恤！"
+        ],
+        "B": [
+          "Ella找到可愛的T恤，上面有小星星。"
+        ],
+        "C": [
+          "Ella找到有小星星的T-shirt，覺得很可愛。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "clothes",
+        "prompt": "Explore the clothes.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "Ella拿著一件簡潔可愛的現代 T-shirt 在鏡子前比看看。\n\n瑜瑜在旁給意見。 瑜瑜仍穿淡紫奶油星睡衣與奶油拖鞋，金色五角髮夾。"
+    },
+    {
+      "number": 18,
+      "title": "Shirt and Pants",
+      "scene": "store",
+      "background": "images/story/princess-weekend-v1/store.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-modern.png",
+          "x": 25,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella-modern.png",
+          "x": 64,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "clothes",
+          "word": "clothes",
+          "image": "images/story/princess-weekend-v1/clothes.png",
+          "x": 47,
+          "y": 70,
+          "w": 27,
+          "h": 49,
+          "z": 2,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "A shirt. Pants. New clothes!"
+        ],
+        "B": [
+          "Ella tries a shirt and pants. Gail changes out of her pajamas here, too."
+        ],
+        "C": [
+          "Next, Ella chooses a shirt. Then she finds a pair of pants. She steps out of the fitting room. Gail smiles. “You look great!” Ella turns toward the mirror. “This feels so different from a princess dress.” Gail chooses a white T-shirt, blue jacket, and navy pants, too. She changes out of her star pajamas in the fitting room and puts them in her bag."
+        ]
+      },
+      "chinese": {
+        "A": [
+          "襯衫、長褲、新衣服！"
+        ],
+        "B": [
+          "Ella試穿襯衫和長褲，瑜瑜也在這裡換下睡衣。"
+        ],
+        "C": [
+          "Ella再選一件襯衫和一條長褲，試穿時覺得與公主洋裝很不一樣。 瑜瑜也選白T恤、藍外套與深藍長褲；她在試衣間換下星星睡衣，收進袋子。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "clothes",
+        "prompt": "Explore the clothes.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "服裝店試衣區。\n\n桌上或衣架上有不同款式的 shirt 和 pants。\n\nElla已換上簡單現代休閒服。 此幕才是瑜瑜換装點；試衣間出來才穿藍外套白T恤與深藍長褲。"
+    },
+    {
+      "number": 19,
+      "title": "A Modern Princess",
+      "scene": "store",
+      "background": "images/story/princess-weekend-v1/store.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-modern.png",
+          "x": 25,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella-modern.png",
+          "x": 64,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "You look cute, Ella!"
+        ],
+        "B": [
+          "Ella wears a T-shirt and pants. Gail says she looks really cute."
+        ],
+        "C": [
+          "Ella looks at herself again. “No crown.” “No long dress.” “No royal shoes.” She turns around. “I can just be myself!” Gail laughs. “And you look very cute.” Ella is really happy."
+        ]
+      },
+      "chinese": {
+        "A": [
+          "Ella，你好可愛！"
+        ],
+        "B": [
+          "Ella穿T恤與長褲，瑜瑜說她真的好可愛。"
+        ],
+        "C": [
+          "Ella穿T-shirt與長褲照鏡子，沒有王冠和長裙，也能自在地做自己。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "ella",
+        "prompt": "Explore the Ella.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "Ella 穿著現代 T-shirt、pants 和簡單鞋子。\n\n她在全身鏡前開心轉一圈。\n\n瑜瑜在一旁比讚。 瑜瑜穿百貨公司換上的現代服裝。"
+    },
+    {
+      "number": 20,
+      "title": "Time to Go Home",
+      "scene": "london",
+      "background": "images/story/princess-weekend-v1/london.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-modern.png",
+          "x": 28,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella-modern.png",
+          "x": 73,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "watch",
+          "word": "watch",
+          "image": "images/story/princess-weekend-v1/watch.png",
+          "x": 50,
+          "y": 71,
+          "w": 18,
+          "h": 22,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "Time to go home."
+        ],
+        "B": [
+          "The weekend is ending. Gail takes out the golden watch."
+        ],
+        "C": [
+          "The weekend is almost over. Gail takes out the magic pocket watch. “It’s time to go home.” Ella looks at the city one more time. “Already?” Then she smiles. “Okay.”"
+        ]
+      },
+      "chinese": {
+        "A": [
+          "該回家了。"
+        ],
+        "B": [
+          "週末快結束，瑜瑜拿出金色懷錶。"
+        ],
+        "C": [
+          "週末快結束了。瑜瑜拿出懷錶，Ella滿足地向城市再看一眼。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "watch",
+        "prompt": "Explore the watch.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "傍晚。\n\n瑜瑜拿出時光懷錶。\n\n兩人手上提著百貨公司的衣服袋。\n\nElla雖然捨不得，但表情非常滿足。 瑜瑜穿百貨公司換上的現代服裝。"
+    },
+    {
+      "number": 21,
+      "title": "Back to the Castle",
+      "scene": "london",
+      "background": "images/story/princess-weekend-v1/london.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-modern.png",
+          "x": 28,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella-modern.png",
+          "x": 73,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "watch",
+          "word": "watch",
+          "image": "images/story/princess-weekend-v1/watch.png",
+          "x": 48,
+          "y": 67,
+          "w": 17,
+          "h": 22,
+          "z": 5,
+          "flip": false
+        },
+        {
+          "id": "portal",
+          "word": "doorway",
+          "image": "images/story/princess-weekend-v1/portal.svg",
+          "x": 51,
+          "y": 42,
+          "w": 37,
+          "h": 72,
+          "z": 2,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "Back at the castle! Thank you!"
+        ],
+        "B": [
+          "Light rises from the watch. They step through a door to the castle."
+        ],
+        "C": [
+          "The watch begins to glow. Golden points rise from its face and curl into a doorway. Gail and Ella step through together. They are back in the castle. Ella looks at her new T-shirt, shirt, and pants. “Thank you, Gail. This was the best little holiday.”"
+        ]
+      },
+      "chinese": {
+        "A": [
+          "回到城堡！謝謝！"
+        ],
+        "B": [
+          "光從懷錶升起，她們穿門回城堡。"
+        ],
+        "C": [
+          "懷錶先亮、指針光圈再開門，兩人回到城堡。Ella收好新衣服，謝謝瑜瑜。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "watch",
+        "prompt": "Explore the watch.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "金色懷錶光芒消失。\n\n兩人重新回到 Ella 的城堡房間。\n\nElla 把現代衣服放在床上。\n\n古典城堡與現代購物袋形成有趣對比。 瑜瑜穿百貨公司換上的現代服裝。"
+    },
+    {
+      "number": 22,
+      "title": "Maybe Next Time",
+      "scene": "palace",
+      "background": "images/story/princess-weekend-v1/palace.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-modern.png",
+          "x": 28,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella-modern.png",
+          "x": 73,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "watch",
+          "word": "watch",
+          "image": "images/story/princess-weekend-v1/watch.png",
+          "x": 49,
+          "y": 69,
+          "w": 17,
+          "h": 22,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "Maybe next time. Bye!"
+        ],
+        "B": [
+          "Maybe Alice can come next time. Gail and Ella say bye."
+        ],
+        "C": [
+          "Ella hugs Gail. “Thank you for showing me your world.” Gail smiles. “You’re welcome.” Ella thinks for a moment. “Maybe next time…” “We can bring Alice?” Gail laughs. “Maybe!” Ella waves. “Bye, Gail!” “Bye, Ella!” The magic pocket watch begins to tick again."
+        ]
+      },
+      "chinese": {
+        "A": [
+          "也許下次吧，再見！"
+        ],
+        "B": [
+          "也許Alice下次可以一起來，瑜瑜與Ella說再見。"
+        ],
+        "C": [
+          "Ella抱抱瑜瑜，提議下次邀Alice一起。她們互道再見，懷錶再度滴答作響。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "ella",
+        "prompt": "Explore the Ella.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "城堡門口。\n\nElla 抱抱瑜瑜。\n\n瑜瑜準備離開。\n\n遠處可以放一個 Alice 的小小剪影或畫像，作為下一次故事伏筆。 瑜瑜穿百貨公司換上的現代服裝。"
+    },
+    {
+      "number": 23,
+      "title": "The watch points home",
+      "scene": "palace",
+      "background": "images/story/princess-weekend-v1/palace.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "Gail",
+          "image": "images/story/princess-weekend-v1/gail-modern.png",
+          "x": 28,
+          "y": 62,
+          "w": 25,
+          "h": 66,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "ella",
+          "word": "Ella",
+          "image": "images/story/princess-weekend-v1/ella-modern.png",
+          "x": 73,
+          "y": 62,
+          "w": 25,
+          "h": 65,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "watch",
+          "word": "watch",
+          "image": "images/story/princess-weekend-v1/watch.png",
+          "x": 49,
+          "y": 69,
+          "w": 17,
+          "h": 22,
+          "z": 5,
+          "flip": false
+        },
+        {
+          "id": "portal",
+          "word": "doorway",
+          "image": "images/story/princess-weekend-v1/portal.svg",
+          "x": 51,
+          "y": 42,
+          "w": 37,
+          "h": 72,
+          "z": 2,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "Bye, Ella. I am going home."
+        ],
+        "B": [
+          "The same watch opens a door to Gail’s room. Ella waves from the castle."
+        ],
+        "C": [
+          "Gail opens the same watch one last time. Its hands shine, and golden points rise from its face. A doorway opens onto her familiar bedroom. “Bye, Ella!” Gail steps through. Ella stays in her castle and waves."
+        ]
+      },
+      "chinese": {
+        "A": [
+          "再見Ella，我要回家了。"
+        ],
+        "B": [
+          "同一只懷錶打開通往瑜瑜房間的門，Ella在城堡揮手。"
+        ],
+        "C": [
+          "瑜瑜最後一次打開同一只懷錶。指針發光，錶面升起金色光點，打開通往熟悉房間的門。「再見，Ella！」瑜瑜穿過門，Ella留在城堡揮手。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "watch",
+        "prompt": "Explore the watch.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "城堡端先懷錶→錶面粒子→房間門；瑜瑜穿門，Ella留城堡。不可一翻頁直接到家。 瑜瑜穿百貨公司換上的現代服裝。"
+    },
+    {
+      "number": 24,
+      "title": "A quiet tick in her room",
+      "scene": "bedroom",
+      "background": "images/story/princess-weekend-v1/bedroom.png",
+      "objects": [
+        {
+          "id": "gail",
+          "word": "gail",
+          "image": "images/story/princess-weekend-v1/gail-home.png",
+          "x": 29,
+          "y": 69,
+          "w": 36,
+          "h": 56,
+          "z": 3,
+          "flip": false
+        },
+        {
+          "id": "watch",
+          "word": "watch",
+          "image": "images/story/princess-weekend-v1/watch.png",
+          "x": 64,
+          "y": 67,
+          "w": 17,
+          "h": 22,
+          "z": 5,
+          "flip": false
+        }
+      ],
+      "text": {
+        "A": [
+          "My pajamas. My room. Tick, tick."
+        ],
+        "B": [
+          "Gail puts on her star pajamas at home. The watch rests beside her bed."
+        ],
+        "C": [
+          "Back in her room, Gail puts on her star pajamas and sets the watch beside her bed. Its light fades to a gentle tick. Saturday for movies. Sunday for shopping. A little holiday can make a princess really happy. Gail smiles and closes her book."
+        ]
+      },
+      "chinese": {
+        "A": [
+          "我的睡衣、我的房間。滴答，滴答。"
+        ],
+        "B": [
+          "瑜瑜回家換回星星睡衣，懷錶放在床邊。"
+        ],
+        "C": [
+          "回到房間，瑜瑜換回星星睡衣，把懷錶放在床邊。光慢慢熄滅，只剩輕輕滴答聲。星期六看電影，星期日逛街，一個小假期讓公主好開心。瑜瑜笑著合上書。"
+        ]
+      },
+      "mission": {
+        "type": "tap",
+        "answer": "watch",
+        "prompt": "Explore the watch.",
+        "hint": "點選星星提示，聽單字並觀察這一幕的動作。"
+      },
+      "visual": "固定bedroom.png原鏡位家具，睡衣與五角髮夾一致，拖鞋鞋底无星。懷錶光淡出，聲音回到平穩；無Ella或城市人物留在房間。"
+    }
+  ],
+  "quiz": [
+    {
+      "number": 1,
+      "kind": "choice",
+      "scene": 2,
+      "question": "What opens the doorway?",
+      "options": [
+        "A movie ticket.",
+        "The golden watch.",
+        "A T-shirt."
+      ],
+      "answerIndex": 1,
+      "answer": "The golden watch.",
+      "image": "images/story/princess-weekend-v1/quiz/question-01.png"
+    },
+    {
+      "number": 2,
+      "kind": "choice",
+      "scene": 4,
+      "question": "Why does Ella want a little holiday?",
+      "options": [
+        "She wants to see the world outside.",
+        "She lost her crown.",
+        "She wants to build a castle."
+      ],
+      "answerIndex": 0,
+      "answer": "She wants to see the world outside.",
+      "image": "images/story/princess-weekend-v1/quiz/question-02.png"
+    },
+    {
+      "number": 3,
+      "kind": "choice",
+      "scene": 8,
+      "question": "Where do the friends go on Saturday?",
+      "options": [
+        "To a mountain.",
+        "To a lake.",
+        "To a movie theater."
+      ],
+      "answerIndex": 2,
+      "answer": "To a movie theater.",
+      "image": "images/story/princess-weekend-v1/quiz/question-03.png"
+    },
+    {
+      "number": 4,
+      "kind": "choice",
+      "scene": 12,
+      "question": "Which ice cream does Gail choose?",
+      "options": [
+        "Banana.",
+        "Lemon.",
+        "Chocolate."
+      ],
+      "answerIndex": 1,
+      "answer": "Lemon.",
+      "image": "images/story/princess-weekend-v1/quiz/question-04.png"
+    },
+    {
+      "number": 5,
+      "kind": "choice",
+      "scene": 18,
+      "question": "Where does Gail change out of her pajamas?",
+      "options": [
+        "At the department store.",
+        "At the movie theater.",
+        "In the castle before the trip."
+      ],
+      "answerIndex": 0,
+      "answer": "At the department store.",
+      "image": "images/story/princess-weekend-v1/quiz/question-05.jpeg"
+    },
+    {
+      "number": 6,
+      "kind": "choice",
+      "scene": 24,
+      "question": "Where does Gail put the watch at the end?",
+      "options": [
+        "On a train.",
+        "In the restaurant.",
+        "Beside her bed."
+      ],
+      "answerIndex": 2,
+      "answer": "Beside her bed.",
+      "image": "images/story/princess-weekend-v1/quiz/question-06.png"
+    }
+  ],
+  "vocabulary": [
+    {
+      "word": "UK",
+      "chinese": "英國",
+      "cue": "英國",
+      "image": "images/story/princess-weekend-v1/london.png"
+    },
+    {
+      "word": "Saturday",
+      "chinese": "星期六",
+      "cue": "星期六",
+      "image": "images/story/princess-weekend-v1/cinema.png"
+    },
+    {
+      "word": "movie theater",
+      "chinese": "電影院",
+      "cue": "電影院",
+      "image": "images/story/princess-weekend-v1/cinema.png"
+    },
+    {
+      "word": "Sunday",
+      "chinese": "星期日",
+      "cue": "星期日",
+      "image": "images/story/princess-weekend-v1/store.png"
+    },
+    {
+      "word": "department store",
+      "chinese": "百貨公司",
+      "cue": "百貨公司",
+      "image": "images/story/princess-weekend-v1/store.png"
+    },
+    {
+      "word": "nice",
+      "chinese": "美好的",
+      "cue": "美好的",
+      "image": "images/story/princess-weekend-v1/ella.png"
+    },
+    {
+      "word": "cute",
+      "chinese": "可愛的",
+      "cue": "可愛的",
+      "image": "images/story/princess-weekend-v1/ella.png"
+    },
+    {
+      "word": "restaurant",
+      "chinese": "餐廳",
+      "cue": "餐廳",
+      "image": "images/story/princess-weekend-v1/restaurant.png"
+    },
+    {
+      "word": "taste",
+      "chinese": "嚐起來／品嚐",
+      "cue": "嚐起來／品嚐",
+      "image": "images/story/princess-weekend-v1/dessert.png"
+    },
+    {
+      "word": "coke",
+      "chinese": "可樂",
+      "cue": "可樂",
+      "image": "images/story/princess-weekend-v1/meal.png"
+    },
+    {
+      "word": "French fries",
+      "chinese": "薯條",
+      "cue": "薯條",
+      "image": "images/story/princess-weekend-v1/meal.png"
+    },
+    {
+      "word": "lemon",
+      "chinese": "檸檬",
+      "cue": "檸檬",
+      "image": "images/story/princess-weekend-v1/dessert.png"
+    },
+    {
+      "word": "banana",
+      "chinese": "香蕉",
+      "cue": "香蕉",
+      "image": "images/story/princess-weekend-v1/dessert.png"
+    },
+    {
+      "word": "ice cream",
+      "chinese": "冰淇淋",
+      "cue": "冰淇淋",
+      "image": "images/story/princess-weekend-v1/dessert.png"
+    },
+    {
+      "word": "MRT",
+      "chinese": "捷運",
+      "cue": "捷運",
+      "image": "images/story/princess-weekend-v1/underground.png"
+    },
+    {
+      "word": "really",
+      "chinese": "真的",
+      "cue": "真的",
+      "image": "images/story/princess-weekend-v1/ella.png"
+    },
+    {
+      "word": "maybe",
+      "chinese": "也許",
+      "cue": "也許",
+      "image": "images/story/princess-weekend-v1/watch.png"
+    },
+    {
+      "word": "bye",
+      "chinese": "再見",
+      "cue": "再見",
+      "image": "images/story/princess-weekend-v1/ella.png"
+    },
+    {
+      "word": "shirt",
+      "chinese": "襯衫",
+      "cue": "襯衫",
+      "image": "images/story/princess-weekend-v1/clothes.png"
+    },
+    {
+      "word": "pants",
+      "chinese": "長褲",
+      "cue": "長褲",
+      "image": "images/story/princess-weekend-v1/clothes.png"
+    },
+    {
+      "word": "T-shirt",
+      "chinese": "T恤",
+      "cue": "T恤",
+      "image": "images/story/princess-weekend-v1/clothes.png"
+    }
+  ],
+  "readingTargets": {
+    "A": "跟讀",
+    "B": "BR–100L（設計目標）",
+    "C": "190L–530L（設計目標）"
+  },
+  "status": "正式閱讀器製作，部署待驗證"
+}
