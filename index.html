@@ -214,7 +214,6 @@
   .login-hud::after { right:12px;bottom:12px;border-width:0 3px 3px 0;border-radius:0 0 8px; }
   .login-scanner-status { display:flex;align-items:center;justify-content:center;gap:8px;margin:0 0 14px;color:#9cefff;font-size:11px;font-weight:950;letter-spacing:.18em;text-align:center; }
   .login-scanner-status i { width:8px;height:8px;border-radius:50%;background:#58ffc7;box-shadow:0 0 12px #58ffc7;animation:homePlanetHalo 2s ease-in-out infinite; }
-  .login-image-progress { margin:10px 0 0;color:#9cefff;font-size:11px;font-weight:850;text-align:center; }
   .login-class-chips { display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:16px; }
   .login-class-chips button { border-color:rgba(119,220,255,.34)!important;background:rgba(255,255,255,.065)!important;color:#c8eaff!important;box-shadow:inset 0 1px rgba(255,255,255,.1);backdrop-filter:blur(8px); }
   .login-roster-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px; }
@@ -1221,7 +1220,6 @@
           <label class="login-auth-field">密碼<span class="password-field-wrap"><input type="{{ studentLoginPasswordType }}" value="{{ studentLoginPassword }}" onChange="{{ changeStudentPassword }}" onKeyDown="{{ studentLoginKey }}" autoComplete="current-password" placeholder="DEMO"><button type="button" class="password-eye" onClick="{{ toggleStudentLoginPassword }}" title="{{ studentLoginPasswordToggleTitle }}" aria-label="{{ studentLoginPasswordToggleTitle }}">{{ studentLoginPasswordEye }}</button></span></label>
           <p class="login-auth-error">{{ studentLoginError }}</p>
           <button class="login-auth-submit" onClick="{{ submitStudentLogin }}">登入學習星球</button>
-          <p class="login-image-progress" role="status" aria-live="polite" data-entry-image-progress>圖片載入中…</p>
           <button class="login-forgot-btn" onClick="{{ openStudentRecovery }}">忘記密碼？</button>
         </div>
       </section>
