@@ -32,6 +32,23 @@ jobs:
         run: |
           mkdir -p _site
           rsync -a --exclude='_site' --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='functions' --exclude='firebase-debug.log' --exclude='src' --exclude='tests' ./ _site/
+      - name: Inject Cloudflare Web Analytics
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path("_site/index.html")
+          html = path.read_text(encoding="utf-8")
+          token = "97690c088436400287798663727583b5"
+          snippet = """<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "97690c088436400287798663727583b5"}'></script><!-- End Cloudflare Web Analytics -->"""
+
+          if token not in html:
+              if "</body>" in html:
+                  html = html.replace("</body>", snippet + "\n</body>", 1)
+              else:
+                  html += "\n" + snippet + "\n"
+              path.write_text(html, encoding="utf-8")
+          PY
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
