@@ -1738,6 +1738,146 @@
       "answerIndex": 2,
       "answer": "Beside her bed.",
       "image": "images/story/princess-weekend-v1/quiz/question-06.png"
+    },
+    {
+      "number": 7,
+      "kind": "choice",
+      "scene": 6,
+      "question": "Which country do Gail and Ella visit?",
+      "options": [
+        "Japan.",
+        "The UK.",
+        "Canada."
+      ],
+      "answerIndex": 1,
+      "answer": "The UK.",
+      "image": "images/story/princess-weekend-v1/london.png"
+    },
+    {
+      "number": 8,
+      "kind": "choice",
+      "scene": 7,
+      "question": "Which day is their movie day?",
+      "options": [
+        "Saturday.",
+        "Sunday.",
+        "Monday."
+      ],
+      "answerIndex": 0,
+      "answer": "Saturday.",
+      "image": "images/story/princess-weekend-v1/quiz/question-03.png"
+    },
+    {
+      "number": 9,
+      "kind": "choice",
+      "scene": 10,
+      "question": "Why do they look for a restaurant?",
+      "options": [
+        "They need new pants.",
+        "They want a train ticket.",
+        "They are hungry."
+      ],
+      "answerIndex": 2,
+      "answer": "They are hungry.",
+      "image": "images/story/princess-weekend-v1/restaurant.png"
+    },
+    {
+      "number": 10,
+      "kind": "choice",
+      "scene": 11,
+      "question": "What do they order with their coke?",
+      "options": [
+        "Rice dumplings.",
+        "French fries.",
+        "Salad."
+      ],
+      "answerIndex": 1,
+      "answer": "French fries.",
+      "image": "images/story/princess-weekend-v1/meal.png"
+    },
+    {
+      "number": 11,
+      "kind": "choice",
+      "scene": 13,
+      "question": "How does Ella feel about her banana ice cream?",
+      "options": [
+        "She thinks it tastes good.",
+        "She says it is too hot.",
+        "She does not try it."
+      ],
+      "answerIndex": 0,
+      "answer": "She thinks it tastes good.",
+      "image": "images/story/princess-weekend-v1/quiz/question-04.png"
+    },
+    {
+      "number": 12,
+      "kind": "choice",
+      "scene": 14,
+      "question": "What do they plan to do on Sunday?",
+      "options": [
+        "Climb a mountain.",
+        "Go swimming.",
+        "Go shopping."
+      ],
+      "answerIndex": 2,
+      "answer": "Go shopping.",
+      "image": "images/story/princess-weekend-v1/hotel.png"
+    },
+    {
+      "number": 13,
+      "kind": "choice",
+      "scene": 15,
+      "question": "What does Gail compare with the Underground?",
+      "options": [
+        "A taxi.",
+        "The MRT at home.",
+        "A magic boat."
+      ],
+      "answerIndex": 1,
+      "answer": "The MRT at home.",
+      "image": "images/story/princess-weekend-v1/underground.png"
+    },
+    {
+      "number": 14,
+      "kind": "choice",
+      "scene": 19,
+      "question": "What does Ella wear after shopping?",
+      "options": [
+        "A T-shirt and pants.",
+        "A long royal dress and crown.",
+        "A swimsuit."
+      ],
+      "answerIndex": 0,
+      "answer": "A T-shirt and pants.",
+      "image": "images/story/princess-weekend-v1/quiz/question-05.jpeg"
+    },
+    {
+      "number": 15,
+      "kind": "choice",
+      "scene": 22,
+      "question": "Who might join their next holiday?",
+      "options": [
+        "Mira.",
+        "The pilot.",
+        "Alice."
+      ],
+      "answerIndex": 2,
+      "answer": "Alice.",
+      "image": "images/story/princess-weekend-v1/watch.png"
+    },
+    {
+      "number": 16,
+      "kind": "choice",
+      "scene": 23,
+      "question": "Who stays in the castle when Gail goes home?",
+      "options": [
+        "Gail.",
+        "Ella.",
+        "Alice."
+      ],
+      "answerIndex": 1,
+      "answer": "Ella.",
+      "image": "images/story/princess-weekend-v1/quiz/question-06.png"
     }
   ],
   "vocabulary": [
