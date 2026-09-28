@@ -1,0 +1,810 @@
+[
+  {
+    "source": "images/home/planets/math-planet-v1.png",
+    "output": "images/home/planets/math-planet-v1.jpg",
+    "width": 1254,
+    "height": 1254,
+    "before": 2942301,
+    "after": 685270
+  },
+  {
+    "source": "images/home/planets/chinese-planet-v1.png",
+    "output": "images/home/planets/chinese-planet-v1.jpg",
+    "width": 1254,
+    "height": 1254,
+    "before": 2760352,
+    "after": 647745
+  },
+  {
+    "source": "images/home/planets/english-planet-v1.png",
+    "output": "images/home/planets/english-planet-v1.jpg",
+    "width": 1254,
+    "height": 1254,
+    "before": 2898939,
+    "after": 702920
+  },
+  {
+    "source": "images/home/planets/experiment-planet-v1.png",
+    "output": "images/home/planets/experiment-planet-v1.jpg",
+    "width": 1254,
+    "height": 1254,
+    "before": 2948791,
+    "after": 705866
+  },
+  {
+    "source": "images/home/learning-planet-hero-v1.png",
+    "output": "images/home/learning-planet-hero-v1.jpg",
+    "width": 1672,
+    "height": 941,
+    "before": 2169918,
+    "after": 383334
+  },
+  {
+    "source": "images/gacha-native/native-xiaotu-01.png",
+    "output": "images/gacha-native/native-xiaotu-01.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 245057,
+    "after": 50379
+  },
+  {
+    "source": "images/gacha-native/native-xiaotu-02.png",
+    "output": "images/gacha-native/native-xiaotu-02.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 228789,
+    "after": 45861
+  },
+  {
+    "source": "images/gacha-native/native-xiaotu-03.png",
+    "output": "images/gacha-native/native-xiaotu-03.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 239196,
+    "after": 47772
+  },
+  {
+    "source": "images/gacha-native/native-xiaotu-04.png",
+    "output": "images/gacha-native/native-xiaotu-04.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 241884,
+    "after": 50247
+  },
+  {
+    "source": "images/gacha-native/native-xiaotu-05.png",
+    "output": "images/gacha-native/native-xiaotu-05.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 246300,
+    "after": 47311
+  },
+  {
+    "source": "images/gacha-native/native-xiaotu-06.png",
+    "output": "images/gacha-native/native-xiaotu-06.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 235339,
+    "after": 48775
+  },
+  {
+    "source": "images/gacha-native/native-xiaotu-07.png",
+    "output": "images/gacha-native/native-xiaotu-07.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 242166,
+    "after": 48324
+  },
+  {
+    "source": "images/gacha-native/native-xiaotu-08.png",
+    "output": "images/gacha-native/native-xiaotu-08.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 252178,
+    "after": 54729
+  },
+  {
+    "source": "images/gacha-native/native-xiaotian-01.png",
+    "output": "images/gacha-native/native-xiaotian-01.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 237825,
+    "after": 51462
+  },
+  {
+    "source": "images/gacha-native/native-xiaotian-02.png",
+    "output": "images/gacha-native/native-xiaotian-02.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 243637,
+    "after": 54251
+  },
+  {
+    "source": "images/gacha-native/native-xiaotian-03.png",
+    "output": "images/gacha-native/native-xiaotian-03.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 234454,
+    "after": 48704
+  },
+  {
+    "source": "images/gacha-native/native-xiaotian-04.png",
+    "output": "images/gacha-native/native-xiaotian-04.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 234103,
+    "after": 48089
+  },
+  {
+    "source": "images/gacha-native/native-xiaotian-05.png",
+    "output": "images/gacha-native/native-xiaotian-05.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 239667,
+    "after": 51800
+  },
+  {
+    "source": "images/gacha-native/native-xiaotian-06.png",
+    "output": "images/gacha-native/native-xiaotian-06.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 239499,
+    "after": 51313
+  },
+  {
+    "source": "images/gacha-native/native-xiaotian-07.png",
+    "output": "images/gacha-native/native-xiaotian-07.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 239589,
+    "after": 49363
+  },
+  {
+    "source": "images/gacha-native/native-xiaotian-08.png",
+    "output": "images/gacha-native/native-xiaotian-08.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 253550,
+    "after": 54879
+  },
+  {
+    "source": "images/gacha-native/native-xiaosu-01.png",
+    "output": "images/gacha-native/native-xiaosu-01.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 288497,
+    "after": 62404
+  },
+  {
+    "source": "images/gacha-native/native-xiaosu-02.png",
+    "output": "images/gacha-native/native-xiaosu-02.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 288240,
+    "after": 62739
+  },
+  {
+    "source": "images/gacha-native/native-xiaosu-03.png",
+    "output": "images/gacha-native/native-xiaosu-03.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 290668,
+    "after": 63224
+  },
+  {
+    "source": "images/gacha-native/native-xiaosu-04.png",
+    "output": "images/gacha-native/native-xiaosu-04.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 292154,
+    "after": 63338
+  },
+  {
+    "source": "images/gacha-native/native-xiaosu-05.png",
+    "output": "images/gacha-native/native-xiaosu-05.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 295896,
+    "after": 65116
+  },
+  {
+    "source": "images/gacha-native/native-xiaosu-06.png",
+    "output": "images/gacha-native/native-xiaosu-06.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 287898,
+    "after": 62377
+  },
+  {
+    "source": "images/gacha-native/native-xiaosu-07.png",
+    "output": "images/gacha-native/native-xiaosu-07.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 295116,
+    "after": 66652
+  },
+  {
+    "source": "images/gacha-native/native-xiaosu-08.png",
+    "output": "images/gacha-native/native-xiaosu-08.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 291639,
+    "after": 62540
+  },
+  {
+    "source": "images/gacha-native/native-dongdong-01.png",
+    "output": "images/gacha-native/native-dongdong-01.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 260390,
+    "after": 55209
+  },
+  {
+    "source": "images/gacha-native/native-dongdong-02.png",
+    "output": "images/gacha-native/native-dongdong-02.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 254100,
+    "after": 47514
+  },
+  {
+    "source": "images/gacha-native/native-dongdong-03.png",
+    "output": "images/gacha-native/native-dongdong-03.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 248220,
+    "after": 48132
+  },
+  {
+    "source": "images/gacha-native/native-dongdong-04.png",
+    "output": "images/gacha-native/native-dongdong-04.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 270457,
+    "after": 56387
+  },
+  {
+    "source": "images/gacha-native/native-dongdong-05.png",
+    "output": "images/gacha-native/native-dongdong-05.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 258061,
+    "after": 49898
+  },
+  {
+    "source": "images/gacha-native/native-dongdong-06.png",
+    "output": "images/gacha-native/native-dongdong-06.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 255454,
+    "after": 49200
+  },
+  {
+    "source": "images/gacha-native/native-dongdong-07.png",
+    "output": "images/gacha-native/native-dongdong-07.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 267789,
+    "after": 54663
+  },
+  {
+    "source": "images/gacha-native/native-dongdong-08.png",
+    "output": "images/gacha-native/native-dongdong-08.jpg",
+    "width": 384,
+    "height": 512,
+    "before": 263854,
+    "after": 51326
+  },
+  {
+    "source": "images/gacha-native/native-bugu-01.png",
+    "output": "images/gacha-native/native-bugu-01.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 298942,
+    "after": 60941
+  },
+  {
+    "source": "images/gacha-native/native-bugu-02.png",
+    "output": "images/gacha-native/native-bugu-02.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 320805,
+    "after": 69122
+  },
+  {
+    "source": "images/gacha-native/native-bugu-03.png",
+    "output": "images/gacha-native/native-bugu-03.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 308420,
+    "after": 64727
+  },
+  {
+    "source": "images/gacha-native/native-bugu-04.png",
+    "output": "images/gacha-native/native-bugu-04.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 315353,
+    "after": 66218
+  },
+  {
+    "source": "images/gacha-native/native-bugu-05.png",
+    "output": "images/gacha-native/native-bugu-05.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 321516,
+    "after": 67554
+  },
+  {
+    "source": "images/gacha-native/native-bugu-06.png",
+    "output": "images/gacha-native/native-bugu-06.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 311666,
+    "after": 65183
+  },
+  {
+    "source": "images/gacha-native/native-bugu-07.png",
+    "output": "images/gacha-native/native-bugu-07.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 311614,
+    "after": 67640
+  },
+  {
+    "source": "images/gacha-native/native-bugu-08.png",
+    "output": "images/gacha-native/native-bugu-08.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 335487,
+    "after": 71369
+  },
+  {
+    "source": "images/gacha-native/native-moumou-01.png",
+    "output": "images/gacha-native/native-moumou-01.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 331559,
+    "after": 68387
+  },
+  {
+    "source": "images/gacha-native/native-moumou-02.png",
+    "output": "images/gacha-native/native-moumou-02.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 335171,
+    "after": 70102
+  },
+  {
+    "source": "images/gacha-native/native-moumou-03.png",
+    "output": "images/gacha-native/native-moumou-03.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 340508,
+    "after": 71442
+  },
+  {
+    "source": "images/gacha-native/native-moumou-04.png",
+    "output": "images/gacha-native/native-moumou-04.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 335839,
+    "after": 71281
+  },
+  {
+    "source": "images/gacha-native/native-moumou-05.png",
+    "output": "images/gacha-native/native-moumou-05.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 339713,
+    "after": 69763
+  },
+  {
+    "source": "images/gacha-native/native-moumou-06.png",
+    "output": "images/gacha-native/native-moumou-06.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 343775,
+    "after": 72324
+  },
+  {
+    "source": "images/gacha-native/native-moumou-07.png",
+    "output": "images/gacha-native/native-moumou-07.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 336058,
+    "after": 68301
+  },
+  {
+    "source": "images/gacha-native/native-moumou-08.png",
+    "output": "images/gacha-native/native-moumou-08.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 348141,
+    "after": 75283
+  },
+  {
+    "source": "images/gacha-native/native-finn-01.png",
+    "output": "images/gacha-native/native-finn-01.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 356837,
+    "after": 71432
+  },
+  {
+    "source": "images/gacha-native/native-finn-02.png",
+    "output": "images/gacha-native/native-finn-02.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 366487,
+    "after": 74944
+  },
+  {
+    "source": "images/gacha-native/native-finn-03.png",
+    "output": "images/gacha-native/native-finn-03.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 352828,
+    "after": 72076
+  },
+  {
+    "source": "images/gacha-native/native-finn-04.png",
+    "output": "images/gacha-native/native-finn-04.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 362792,
+    "after": 73688
+  },
+  {
+    "source": "images/gacha-native/native-finn-05.png",
+    "output": "images/gacha-native/native-finn-05.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 364475,
+    "after": 75429
+  },
+  {
+    "source": "images/gacha-native/native-finn-06.png",
+    "output": "images/gacha-native/native-finn-06.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 364842,
+    "after": 75548
+  },
+  {
+    "source": "images/gacha-native/native-finn-07.png",
+    "output": "images/gacha-native/native-finn-07.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 351710,
+    "after": 69212
+  },
+  {
+    "source": "images/gacha-native/native-finn-08.png",
+    "output": "images/gacha-native/native-finn-08.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 362786,
+    "after": 76361
+  },
+  {
+    "source": "images/gacha-native/native-xiongbao-01.png",
+    "output": "images/gacha-native/native-xiongbao-01.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 332088,
+    "after": 72148
+  },
+  {
+    "source": "images/gacha-native/native-xiongbao-02.png",
+    "output": "images/gacha-native/native-xiongbao-02.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 332950,
+    "after": 68613
+  },
+  {
+    "source": "images/gacha-native/native-xiongbao-03.png",
+    "output": "images/gacha-native/native-xiongbao-03.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 320618,
+    "after": 68235
+  },
+  {
+    "source": "images/gacha-native/native-xiongbao-04.png",
+    "output": "images/gacha-native/native-xiongbao-04.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 336241,
+    "after": 67752
+  },
+  {
+    "source": "images/gacha-native/native-xiongbao-05.png",
+    "output": "images/gacha-native/native-xiongbao-05.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 333199,
+    "after": 74966
+  },
+  {
+    "source": "images/gacha-native/native-xiongbao-06.png",
+    "output": "images/gacha-native/native-xiongbao-06.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 339901,
+    "after": 71147
+  },
+  {
+    "source": "images/gacha-native/native-xiongbao-07.png",
+    "output": "images/gacha-native/native-xiongbao-07.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 338104,
+    "after": 70715
+  },
+  {
+    "source": "images/gacha-native/native-xiongbao-08.png",
+    "output": "images/gacha-native/native-xiongbao-08.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 336420,
+    "after": 70432
+  },
+  {
+    "source": "images/gacha-native/native-mimi-01.png",
+    "output": "images/gacha-native/native-mimi-01.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 358313,
+    "after": 69640
+  },
+  {
+    "source": "images/gacha-native/native-mimi-02.png",
+    "output": "images/gacha-native/native-mimi-02.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 369940,
+    "after": 75877
+  },
+  {
+    "source": "images/gacha-native/native-mimi-03.png",
+    "output": "images/gacha-native/native-mimi-03.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 360055,
+    "after": 71605
+  },
+  {
+    "source": "images/gacha-native/native-mimi-04.png",
+    "output": "images/gacha-native/native-mimi-04.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 359866,
+    "after": 69785
+  },
+  {
+    "source": "images/gacha-native/native-mimi-05.png",
+    "output": "images/gacha-native/native-mimi-05.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 360806,
+    "after": 71803
+  },
+  {
+    "source": "images/gacha-native/native-mimi-06.png",
+    "output": "images/gacha-native/native-mimi-06.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 366735,
+    "after": 73609
+  },
+  {
+    "source": "images/gacha-native/native-mimi-07.png",
+    "output": "images/gacha-native/native-mimi-07.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 360258,
+    "after": 70002
+  },
+  {
+    "source": "images/gacha-native/native-mimi-08.png",
+    "output": "images/gacha-native/native-mimi-08.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 371122,
+    "after": 76205
+  },
+  {
+    "source": "images/gacha-native/native-wanglai-01.png",
+    "output": "images/gacha-native/native-wanglai-01.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 373152,
+    "after": 85633
+  },
+  {
+    "source": "images/gacha-native/native-wanglai-02.png",
+    "output": "images/gacha-native/native-wanglai-02.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 385391,
+    "after": 87662
+  },
+  {
+    "source": "images/gacha-native/native-wanglai-03.png",
+    "output": "images/gacha-native/native-wanglai-03.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 364200,
+    "after": 71792
+  },
+  {
+    "source": "images/gacha-native/native-wanglai-04.png",
+    "output": "images/gacha-native/native-wanglai-04.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 371015,
+    "after": 78687
+  },
+  {
+    "source": "images/gacha-native/native-wanglai-05.png",
+    "output": "images/gacha-native/native-wanglai-05.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 369518,
+    "after": 81742
+  },
+  {
+    "source": "images/gacha-native/native-wanglai-06.png",
+    "output": "images/gacha-native/native-wanglai-06.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 384828,
+    "after": 74537
+  },
+  {
+    "source": "images/gacha-native/native-wanglai-07.png",
+    "output": "images/gacha-native/native-wanglai-07.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 355168,
+    "after": 68375
+  },
+  {
+    "source": "images/gacha-native/native-wanglai-08.png",
+    "output": "images/gacha-native/native-wanglai-08.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 400331,
+    "after": 92322
+  },
+  {
+    "source": "images/gacha-native/native-kala-01.png",
+    "output": "images/gacha-native/native-kala-01.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 363489,
+    "after": 75808
+  },
+  {
+    "source": "images/gacha-native/native-kala-02.png",
+    "output": "images/gacha-native/native-kala-02.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 369642,
+    "after": 79709
+  },
+  {
+    "source": "images/gacha-native/native-kala-03.png",
+    "output": "images/gacha-native/native-kala-03.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 357212,
+    "after": 72211
+  },
+  {
+    "source": "images/gacha-native/native-kala-04.png",
+    "output": "images/gacha-native/native-kala-04.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 354479,
+    "after": 69920
+  },
+  {
+    "source": "images/gacha-native/native-kala-05.png",
+    "output": "images/gacha-native/native-kala-05.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 343948,
+    "after": 63614
+  },
+  {
+    "source": "images/gacha-native/native-kala-06.png",
+    "output": "images/gacha-native/native-kala-06.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 355874,
+    "after": 70184
+  },
+  {
+    "source": "images/gacha-native/native-kala-07.png",
+    "output": "images/gacha-native/native-kala-07.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 355792,
+    "after": 70442
+  },
+  {
+    "source": "images/gacha-native/native-kala-08.png",
+    "output": "images/gacha-native/native-kala-08.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 347195,
+    "after": 65981
+  },
+  {
+    "source": "images/gacha-native/native-mei-01.png",
+    "output": "images/gacha-native/native-mei-01.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 323638,
+    "after": 64960
+  },
+  {
+    "source": "images/gacha-native/native-mei-02.png",
+    "output": "images/gacha-native/native-mei-02.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 320309,
+    "after": 60574
+  },
+  {
+    "source": "images/gacha-native/native-mei-03.png",
+    "output": "images/gacha-native/native-mei-03.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 320270,
+    "after": 67035
+  },
+  {
+    "source": "images/gacha-native/native-mei-04.png",
+    "output": "images/gacha-native/native-mei-04.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 320316,
+    "after": 61720
+  },
+  {
+    "source": "images/gacha-native/native-mei-05.png",
+    "output": "images/gacha-native/native-mei-05.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 321676,
+    "after": 61568
+  },
+  {
+    "source": "images/gacha-native/native-mei-06.png",
+    "output": "images/gacha-native/native-mei-06.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 317203,
+    "after": 61178
+  },
+  {
+    "source": "images/gacha-native/native-mei-07.png",
+    "output": "images/gacha-native/native-mei-07.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 319050,
+    "after": 63129
+  },
+  {
+    "source": "images/gacha-native/native-mei-08.png",
+    "output": "images/gacha-native/native-mei-08.jpg",
+    "width": 512,
+    "height": 512,
+    "before": 320430,
+    "after": 67144
+  }
+]

@@ -24,8 +24,8 @@ describe('Language submodule visual system', () => {
   it('uses the latest cosmic shell for English and Chinese learning screens', () => {
     expect(html).toContain('language-quiz-focus');
     expect(html).toContain('useModernQuizControls');
-    expect(html).toContain('images/home/planets/chinese-planet-v1.png');
-    expect(html).toContain('images/home/planets/english-planet-v1.png');
+    expect(html).toContain('images/home/planets/chinese-planet-v1.jpg');
+    expect(html).toContain('images/home/planets/english-planet-v1.jpg');
   });
 
   it('routes English word cards to shared or dedicated concept art', () => {
@@ -50,7 +50,7 @@ describe('Language submodule visual system', () => {
 
   it('does not reveal a Chinese quiz answer through an emoji picture hint', () => {
     expect(html).toContain('picture: chineseHintPictureForWord(w)');
-    expect(html).not.toContain('figData: { z: w.z, word: w.w.split(w.c).join("◯"), picture: "images/home/planets/chinese-planet-v1.png" }');
+    expect(html).not.toContain('figData: { z: w.z, word: w.w.split(w.c).join("◯"), picture: "images/home/planets/chinese-planet-v1.jpg" }');
     expect(html).not.toContain('picture: w.i || "🖼️"');
   });
 
