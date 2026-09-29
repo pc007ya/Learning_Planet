@@ -1,3 +1,4 @@
+export {SpatialView} from './spatial-view.js';
 import * as T from 'three';
 export {GeometryView} from './geometry-view.js';
 export {DivisionView} from './division-view.js';

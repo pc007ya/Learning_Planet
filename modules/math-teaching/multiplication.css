@@ -1,0 +1,18 @@
+.multiplication-desk .desk-top{flex-wrap:wrap;gap:10px}
+.multiplication-desk .equation{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.multiplication-desk .equation input{width:56px;min-height:44px;padding:2px 4px;text-align:center;font:inherit;letter-spacing:0;border:2px solid #85aaa6;background:#fffdf5;color:#273547;appearance:textfield}
+.multiplication-desk .equation input::-webkit-inner-spin-button,.multiplication-desk .equation input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.multiplication-desk .equation output{min-width:1.5em}
+.multiplication-desk .desk-tools{display:flex;align-items:center;gap:7px;margin-left:auto}
+.multiplication-desk .icon-tool{width:44px;height:44px;min-height:44px;padding:4px;display:grid;place-items:center;font-size:23px;background:#fff8e8;color:#273547;border-color:#af9c78}
+.multiplication-desk .icon-tool:hover:not(:disabled){background:#fff1c8}
+.multiplication-desk .basket-tool{position:relative;display:block;overflow:hidden}
+.multiplication-desk .basket-tool img{position:absolute;left:50%;top:50%;display:block;width:62px;height:62px;max-width:none;object-fit:contain;transform:translate(-50%,-50%);pointer-events:none}
+.multiplication-desk .basket-tool:disabled{opacity:.45}
+.multiplication-desk .tag{white-space:nowrap}
+.multiplication-desk .mul-summary{line-height:1.6}
+.multiplication-desk aside .caption{color:#b8cee1}
+.multiplication-desk .mul-status{min-height:28px}
+.multiplication-desk .flat-groups{display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start}
+.multiplication-desk .flat-groups button{min-width:100px}
+@media(max-width:550px){.multiplication-desk .desk-tools{margin-left:0}.multiplication-desk .equation{font-size:28px}.multiplication-desk .equation input{width:48px}}

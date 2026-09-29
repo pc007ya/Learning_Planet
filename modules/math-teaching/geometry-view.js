@@ -5,7 +5,21 @@ export class GeometryView {
     this.host=host;this.renderer=new T.WebGLRenderer({antialias:true,alpha:true});this.renderer.setPixelRatio(Math.min(devicePixelRatio,2));host.append(this.renderer.domElement);this.renderer.domElement.setAttribute('aria-label','可拖曳旋轉的幾何教具');
     this.scene=new T.Scene();this.camera=new T.PerspectiveCamera(35,1,.1,500);this.controls=new OrbitControls(this.camera,this.renderer.domElement);this.controls.enablePan=false;this.controls.minDistance=3;this.controls.maxDistance=150;this.controls.addEventListener('change',()=>this.draw());this.scene.add(new T.HemisphereLight(0xdcefff,0x1b2750,2.7));const light=new T.DirectionalLight(0xffffff,3);light.position.set(10,20,15);this.scene.add(light);this.group=new T.Group();this.scene.add(this.group);this.labels=[];this.faceMeshes=[];this.ray=new T.Raycaster();this.abort=new AbortController();
     const opts={signal:this.abort.signal};this.renderer.domElement.addEventListener('pointerdown',e=>{this.down=[e.clientX,e.clientY];},opts);this.renderer.domElement.addEventListener('pointerup',e=>{if(!this.down||Math.hypot(e.clientX-this.down[0],e.clientY-this.down[1])>5)return;const r=this.renderer.domElement.getBoundingClientRect();this.ray.setFromCamera(new T.Vector2((e.clientX-r.left)/r.width*2-1,1-(e.clientY-r.top)/r.height*2),this.camera);const hit=this.ray.intersectObjects(this.faceMeshes)[0];if(hit)onFace(hit.object.userData.face);},opts);
-    this.resize=new ResizeObserver(()=>{const w=host.clientWidth,h=host.clientHeight;if(!w||!h)return;this.camera.aspect=w/h;this.camera.updateProjectionMatrix();this.renderer.setSize(w,h,false);this.draw();});this.resize.observe(host);
+    this.resize=new ResizeObserver(()=>{const w=host.clientWidth,h=host.clientHeight;if(!w||!h)return;this.resizeCamera(w/h);this.renderer.setSize(w,h,false);this.draw();});this.resize.observe(host);
+  }
+  resizeCamera(aspect){
+    this.camera.aspect=aspect;
+    if(this.camera.isOrthographicCamera){const half=this.camera.userData.viewHeight/2;this.camera.left=-half*aspect;this.camera.right=half*aspect;this.camera.top=half;this.camera.bottom=-half;}
+    this.camera.updateProjectionMatrix();
+  }
+  setProjection(orthographic,distance){
+    const aspect=this.camera.aspect||1;
+    if(orthographic){
+      if(!this.camera.isOrthographicCamera){this.perspectiveCamera=this.camera;this.camera=new T.OrthographicCamera(-1,1,1,-1,.1,500);}
+      // Match the perspective framing at the target plane, without depth scaling.
+      this.camera.userData.viewHeight=2*distance*Math.tan(T.MathUtils.degToRad(35/2));this.camera.zoom=1;
+    }else if(this.perspectiveCamera)this.camera=this.perspectiveCamera;
+    this.resizeCamera(aspect);this.controls.object=this.camera;
   }
   clear(){this.group.traverse(o=>{o.geometry?.dispose();if(o.material){for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();}});this.group.clear();this.labels.forEach(x=>x.el.remove());this.labels=[];this.faceMeshes=[];}
   label(text,pos){const el=document.createElement('span');el.className='dimension-label';el.textContent=text;this.host.append(el);this.labels.push({el,pos:new T.Vector3(...pos)});}
@@ -24,7 +38,7 @@ export class GeometryView {
     }
     const y=planar?0:-h/2;this.label(`長 ${l} ${unit}`,[0,y-.25,w/2+.6]);this.label(`寬 ${w} ${unit}`,[l/2+.7,y,0]);if(!planar)this.label(`高 ${h} ${unit}`,[-l/2-.8,0,0]);this.draw();
   }
-  home(top=false){const s=this.s||{l:4,w:3,h:2},size=Math.max(s.l,s.w,s.h),distance=size*(this.mode==='surface'?3.3:2.3)*Math.max(1,1/this.camera.aspect);this.camera.position.set(top?0:distance*.65,top?distance:distance*.6,top?.001:distance*.85);this.controls.target.set(0,0,0);this.controls.update();this.draw();}
+  home(top=false){const s=this.s||{l:4,w:3,h:2},size=Math.max(s.l,s.w,s.h),distance=size*(this.mode==='surface'?3.3:2.3)*Math.max(1,1/this.camera.aspect);this.setProjection(top,distance);this.camera.position.set(top?0:distance*.65,top?distance:distance*.6,top?.001:distance*.85);this.controls.target.set(0,0,0);this.controls.update();this.draw();}
   draw(){this.renderer.render(this.scene,this.camera);for(const {el,pos} of this.labels){const p=pos.clone().project(this.camera);el.style.left=(p.x+1)*50+'%';el.style.top=(1-p.y)*50+'%';el.hidden=Math.abs(p.x)>1||Math.abs(p.y)>1||p.z>1;}}
   destroy(){this.abort.abort();this.resize.disconnect();this.controls.dispose();this.clear();this.renderer.dispose();}
 }

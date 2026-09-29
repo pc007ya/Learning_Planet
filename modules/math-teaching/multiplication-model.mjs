@@ -9,4 +9,4 @@ export function placeOne(s,group){
 export function multiplicationHint(s){
   return s.placed===s.a*s.b?'每一組都放好了，算算總共有多少個。':`第 ${Math.floor(s.placed/s.a)+1} 組還差 ${s.a-s.placed%s.a} 個；每組都要有 ${s.a} 個。`;
 }
-export function multiplicationRecap(s){return [`每組 ${s.a} 個，共 ${s.b} 組。`,`${Array(s.b).fill(s.a).join('＋')}＝${s.a*s.b}`,`${s.a} × ${s.b}＝${s.a*s.b}。`, `交換後每組 ${s.b} 個、共 ${s.a} 組，分組方式不同，總數仍是 ${s.a*s.b}。`];}
+export function multiplicationRecap(s){return [`每組 ${s.a} 個，共 ${s.b} 組。`,`${Array(s.b).fill(s.a).join('＋')}＝${s.a*s.b}`,`${s.a} × ${s.b}＝${s.a*s.b}。`];}

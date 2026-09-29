@@ -1,0 +1,10 @@
+.workshop-desk .desk-top{flex-wrap:wrap;gap:10px}
+.workshop-desk .equation{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.workshop-desk .equation input{width:68px;min-height:44px;padding:2px 4px;text-align:center;font:inherit;letter-spacing:0;border:2px solid #85aaa6;background:#fffdf5;color:#273547;appearance:textfield}
+.workshop-desk .equation input::-webkit-inner-spin-button,.workshop-desk .equation input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.workshop-desk .equation output{min-width:1.5em}
+.workshop-desk .desk-tools{display:flex;align-items:center;gap:8px;margin-left:auto}
+.workshop-desk .voice-tool{width:44px;height:44px;min-height:44px;padding:4px;display:grid;place-items:center;background:#fff8e8;color:#273547;border-color:#af9c78;font-size:22px}
+.workshop-desk .voice-tool:hover:not(:disabled){background:#fff1c8}
+.workshop-desk .tag{white-space:nowrap}
+@media(max-width:550px){.workshop-desk .desk-tools{margin-left:0}.workshop-desk .equation{font-size:28px}.workshop-desk .equation input{width:54px}}

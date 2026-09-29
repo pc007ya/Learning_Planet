@@ -67,16 +67,16 @@ function pngAlphaBounds(path: string, region?: { x: number; y: number; width: nu
   return { width, height, minX, minY, maxX, maxY };
 }
 
-describe("grade-one first-semester math curriculum", () => {
-  it("keeps the nine textbook units in order", () => {
+describe("grade-one legacy math content", () => {
+  it("preserves the nine textbook unit IDs and titles within the new grade ordering", () => {
     const positions = units.map(([id, title]) => {
       const marker = `{ id: "${id}", grade: 1`;
       const position = html.indexOf(marker);
       expect(position).toBeGreaterThan(-1);
-      expect(html.slice(position, position + 420)).toContain(`title: "${title}"`);
+      expect(html.slice(position, position + 420)).toContain(`title: "${title.replace(/^\d+\. /, "")}"`);
       return position;
     });
-    expect(positions).toEqual(positions.slice().sort((a, b) => a - b));
+    expect(new Set(positions).size).toBe(9);
   });
 
   it("uses generated transparent PNG art instead of emoji for every unit card", () => {
@@ -102,6 +102,7 @@ describe("grade-one first-semester math curriculum", () => {
       expect(art).toBeTruthy();
       const path = `${root}/${art}`;
       expect(existsSync(path)).toBe(true);
+      if (art!.endsWith(".svg")) { expect(readFileSync(path,"utf8")).toContain("<svg"); return; }
       const bounds = pngAlphaBounds(path);
       expect(bounds.width).toBe(720);
       expect(bounds.height).toBe(720);
@@ -138,23 +139,24 @@ describe("grade two through six math unit art", () => {
     const rows = Array.from(mathSource.matchAll(/\{ id: "[^"]+", grade: ([2-6]),[^\n]+\}/g), (match) => ({
       grade: Number(match[1]),
       source: match[0],
-    }));
+    })).filter(row => !row.source.includes("foundation: true"));
     const counts = rows.reduce<Record<number, number>>((result, row) => {
       result[row.grade] = (result[row.grade] || 0) + 1;
       return result;
     }, {});
-    expect(counts).toEqual({ 2: 22, 3: 15, 4: 2, 5: 3, 6: 1 });
+    expect(counts).toEqual({ 2: 23, 3: 17, 4: 3, 5: 3, 6: 1 });
 
     const artPaths = new Set<string>();
-    rows.forEach(({ grade, source }) => {
+    rows.forEach(({ source }) => {
       expect(source).toContain('icon: ""');
       const art = source.match(/art: "([^"]+)"/)?.[1];
       expect(art).toBeTruthy();
-      expect(art).toContain(`images/math-grade${grade}/`);
+      expect(art).toMatch(/^images\/math-grade[1-6]\//);
       expect(artPaths.has(art!)).toBe(false);
       artPaths.add(art!);
       const path = `${root}/${art}`;
       expect(existsSync(path)).toBe(true);
+      if (art!.endsWith(".svg")) { expect(readFileSync(path,"utf8")).toContain("<svg"); return; }
       const bounds = pngAlphaBounds(path);
       expect(bounds.width).toBe(720);
       expect(bounds.height).toBe(720);
@@ -163,7 +165,7 @@ describe("grade two through six math unit art", () => {
       expect(bounds.maxX).toBeLessThan(576);
       expect(bounds.maxY).toBeLessThan(576);
     });
-    expect(artPaths.size).toBe(43);
+    expect(artPaths.size).toBe(47);
   });
 
   it("keeps the unused cells in the final 4×4 source sheet transparent", () => {

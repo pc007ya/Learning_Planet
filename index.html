@@ -11,6 +11,8 @@
 <title>Learning Planet | 學習星球</title>
 <meta name="description" content="提供小學數學、國文、英文、自然與科學實驗的互動學習網站。">
 <script src="./support.js"></script>
+<script src="./modules/math-foundations/model.js"></script>
+<script src="./modules/math-concepts/objects.js"></script><script src="./modules/math-concepts/model.js"></script>
 <script src="./entry-image-manifest.js" defer></script>
 <script src="./entry-image-progress.js" defer></script>
 <script src="./sci-art.js"></script>
@@ -1013,6 +1015,38 @@
   .science-video-workspace > section { width:min(100%,calc((100svh - 260px) * 16 / 9));margin-inline:auto; }
   .science-video-workspace button { min-width:44px;min-height:44px; }
   .science-video-workspace button:focus-visible { outline:3px solid #ffe095;outline-offset:2px; }
+
+  .chinese-library-title { margin:0;display:flex;align-items:center;gap:10px;font-weight:900; }
+  .chinese-library-title-readings { display:inline-flex;align-items:center;gap:7px; }
+  .chinese-library-title .chinese-character-reading { gap:3px;min-height:42px; }
+  .chinese-library-title .chinese-character-reading .chinese-character { font-size:28px; }
+  .chinese-library-title .chinese-zhuyin { font-size:11px; }
+  body[data-nozhuyin="1"] .chinese-library-title .chinese-zhuyin { display:none; }
+  /* Chinese word cards: upright Bopomofo, with tone beside the syllable. */
+  .chinese-character-reading { display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:72px; }
+  .chinese-character-reading .chinese-character { font-size:46px;line-height:1.15;font-weight:900; }
+  .chinese-zhuyin { position:relative;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;padding:.5em .65em .5em 0;font-size:17px;line-height:1.05;color:#a06400;font-weight:700; }
+  .chinese-zhuyin-tone { position:absolute;right:0;top:50%;transform:translateY(-50%); }
+  .chinese-zhuyin-neutral { position:absolute;top:-.1em;left:0;width:1em;text-align:center; }
+  .chinese-word-detail button.chinese-character-reading { min-width:154px;min-height:132px;padding:10px;border:2px solid #ffd98a;border-radius:26px;background:rgba(255,255,255,.12);color:inherit;font-family:inherit;cursor:pointer; }
+  .chinese-word-detail .chinese-character { font-size:74px; }
+  .chinese-word-detail .chinese-zhuyin { font-size:24px; }
+  .chinese-word-grid { display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,132px),1fr)); }
+  .chinese-word-card { box-sizing:border-box;min-width:0;min-height:126px;padding:10px 8px;display:grid;justify-items:center;align-content:center;gap:3px;border:2px solid #f0ecff;border-radius:16px;background:#fff;color:#2b1f57;cursor:pointer;font-family:inherit;transition:transform .15s ease; }
+  .chinese-word-card:hover { transform:translateY(-2px); }
+  .chinese-word-card .chinese-word-reading { display:flex;align-items:center;justify-content:center; }
+  .chinese-word-card .chinese-character-reading { min-height:64px; }
+  .chinese-word-example { font-size:13px;line-height:1.4;font-weight:700;color:#7c74a8; }
+  .module-focus .chinese-word-example { color:#c2cde4; }
+  .chinese-word-card:focus-visible,.chinese-word-detail button:focus-visible { outline:3px solid #22c8d8;outline-offset:3px; }
+  .chinese-word-meta { font-size:12px;font-weight:800;color:#7c74a8; }
+  .module-focus .chinese-word-card { background:linear-gradient(145deg,rgba(7,20,56,.88),rgba(20,12,58,.78))!important;color:#f5fbff; }
+  .module-focus .chinese-word-card .chinese-character { color:#f5fbff; }
+  .module-focus .chinese-zhuyin { color:#ffd98a!important; }
+  .module-focus .chinese-word-meta { color:#cadcf4!important; }
+
+
+.subject-world-card[data-math-code]:not([data-math-code=""])::after{content:attr(data-math-code)}
 </style>
 <style>
   /* Magnetic objects attach to the magnet instead of jittering in place. */
@@ -1705,7 +1739,7 @@
         <div class="subject-world-content">
         <div class="subject-world-grid">
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="6">
-            <article class="subject-world-card" style="display:flex;flex-direction:column;gap:12px">
+            <article class="subject-world-card" data-math-code="{{ u.displayCode }}" style="display:flex;flex-direction:column;gap:12px">
               <div class="subject-world-card-head" style="display:flex;align-items:center;gap:12px">
                 <span style="width:52px;height:52px;border-radius:18px;display:grid;place-items:center;font-size:26px;background:{{ u.tint }}">{{ u.iconEl }}</span>
                 <div style="min-width:0">
@@ -1731,7 +1765,7 @@
                 <button onClick="{{ u.lesson }}" style="margin-top:-4px;border:1.5px solid #ddd5ff;border-radius:16px;padding:10px;font-size:13px;font-weight:900;font-family:inherit;cursor:pointer;color:#5b3fe0;background:#fbfaff">{{ u.lessonLabel }}</button>
               </sc-if>
               </div>
-              <button class="subject-battle-button" data-spark="true" onClick="{{ u.start }}"><span class="subject-battle-face"><span aria-hidden="true">✦</span>{{ u.btnLabel }}</span></button>
+              <sc-if value="{{ u.showStart }}" hint-placeholder-val="{{ true }}"><button class="subject-battle-button" data-spark="true" onClick="{{ u.start }}"><span class="subject-battle-face"><span aria-hidden="true">✦</span>{{ u.btnLabel }}</span></button></sc-if>
               </div>
             </article>
           </sc-for>
@@ -1998,6 +2032,7 @@
           </sc-if>
           <sc-if value="{{ figCompareBars }}" hint-placeholder-val="{{ false }}"><div style="margin:0 0 20px;display:flex;justify-content:center;padding:16px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;overflow:hidden">{{ compareFigEl }}</div></sc-if>
           <sc-if value="{{ figNumberBond }}" hint-placeholder-val="{{ false }}"><div style="margin:0 0 20px;padding:16px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:grid;justify-items:center;gap:10px"><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:8px 14px;border-radius:16px;background:#fff6e0;border:2px solid #ffd98a"><strong style="flex-basis:100%;text-align:center;color:#a06400">全部</strong><sc-for list="{{ numberBondTotal }}" as="star" hint-placeholder-count="10"><img class="math-object-image is-small" src="{{ star.image }}" alt="星星"></sc-for></div><div style="width:100%;display:grid;grid-template-columns:1fr 1fr;gap:12px"><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:10px;border-radius:16px;background:#fff;border:2px solid #bfe8fb"><strong style="flex-basis:100%;text-align:center">已知部分</strong><sc-for list="{{ numberBondKnown }}" as="star" hint-placeholder-count="5"><img class="math-object-image is-small" src="{{ star.image }}" alt="星星"></sc-for></div><div style="display:grid;place-items:center;border-radius:16px;background:#fff;border:2px dashed #ff8dbb;font-size:38px;font-weight:1000;color:#ff5c92">?</div></div></div></sc-if>
+          <sc-if value="{{ figFoundation }}" hint-placeholder-val="{{ false }}"><img src="{{ foundationPicture }}" alt="{{ foundationAlt }}" style="display:block;width:100%;max-width:660px;max-height:380px;margin:12px auto;object-fit:contain"></sc-if>
           <sc-if value="{{ figTensOnes }}" hint-placeholder-val="{{ false }}"><div style="margin:0 0 20px;padding:14px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:grid;justify-items:center;gap:6px"><sc-for list="{{ tensRows }}" as="row" hint-placeholder-count="3"><div style="display:flex;gap:2px"><sc-for list="{{ row.beads }}" as="bead" hint-placeholder-count="10"><img src="{{ bead.image }}" alt="" style="width:23px;height:23px;object-fit:contain"></sc-for></div></sc-for><sc-if value="{{ hasOnesBeads }}" hint-placeholder-val="{{ true }}"><div style="display:flex;gap:2px"><sc-for list="{{ onesBeads }}" as="bead" hint-placeholder-count="7"><img src="{{ bead.image }}" alt="" style="width:23px;height:23px;object-fit:contain"></sc-for></div></sc-if></div></sc-if>
           <sc-if value="{{ figSolidImage }}" hint-placeholder-val="{{ false }}"><div style="margin:0 0 20px;display:flex;justify-content:center;padding:16px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff">{{ solidImageEl }}</div></sc-if>
           <sc-if value="{{ figItemsGrid }}" hint-placeholder-val="{{ false }}"><div style="margin:0 0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:7px;padding:16px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff"><sc-for list="{{ itemsGridList }}" as="item" hint-placeholder-count="8"><img class="math-object-image" src="{{ item.image }}" alt="{{ item.alt }}"></sc-for><sc-for list="{{ itemsGridGroups }}" as="group" hint-placeholder-count="2"><span class="math-items-grid-group" style="min-width:170px;display:flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:9px;border-radius:16px;background:#fff;border:2px solid #bfe8fb"><strong style="flex-basis:100%;text-align:center">{{ group.label }}</strong><sc-for list="{{ group.items }}" as="item" hint-placeholder-count="6"><img class="math-object-image is-small" src="{{ item.image }}" alt="{{ item.alt }}"></sc-for></span></sc-for></div></sc-if>
@@ -2047,7 +2082,7 @@
       <div data-screen-label="學習庫">
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px">
           <button onClick="{{ goMap }}" style="border:1px solid #ece7ff;background:#fff;border-radius:99px;width:42px;height:42px;font-size:18px;cursor:pointer;font-family:inherit;color:#7c74a8">←</button>
-          <h2 style="margin:0;font-size:24px;font-weight:900"><img class="language-title-icon" src="images/home/planets/chinese-planet-v1.jpg" alt=""> <ruby>學<rt>ㄒㄩㄝˊ</rt></ruby><ruby>習<rt>ㄒㄧˊ</rt></ruby><ruby>庫<rt>ㄎㄨˋ</rt></ruby></h2>
+          <h2 class="chinese-library-title" aria-label="學習庫"><img class="language-title-icon" src="images/home/planets/chinese-planet-v1.jpg" alt="">{{ libraryTitleReading }}</h2>
           <span style="font-size:13px;font-weight:800;color:#9a90c8">{{ libCount }} 個字</span>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
@@ -2057,14 +2092,12 @@
         </div>
 
         <sc-if value="{{ hasWordDetail }}" hint-placeholder-val="{{ false }}">
-          <section style="margin-bottom:16px;background:linear-gradient(150deg,#fff6e0,#ffeef6);border:1px solid #ffe2ab;border-radius:30px;padding:26px;display:flex;align-items:center;gap:26px;flex-wrap:wrap;animation:pop .28s ease">
-            <span style="width:132px;height:132px;border-radius:28px;display:grid;place-items:center;font-size:74px;font-weight:900;background:#fff;border:3px solid #ffd98a;color:#2b1f57">{{ detail.char }}</span>
+          <section class="chinese-word-detail" style="margin-bottom:16px;background:linear-gradient(150deg,#fff6e0,#ffeef6);border:1px solid #ffe2ab;border-radius:30px;padding:26px;display:flex;align-items:center;gap:26px;flex-wrap:wrap;animation:pop .28s ease">
+            <button class="chinese-character-reading" aria-label="朗讀 {{ detail.char }}" onClick="{{ detail.speak }}">{{ detail.reading }}</button>
             <div style="flex:1;min-width:180px">
-              <p style="margin:0;font-size:26px;font-weight:900;color:#a06400">{{ detail.zhuyin }}</p>
               <h3 style="margin:8px 0 0;font-size:28px;font-weight:900">{{ detail.word }}</h3>
-              <p style="margin:8px 0 0;font-size:14px;font-weight:800;color:#7c74a8">{{ detail.radical }} 部 · {{ detail.unit }}</p>
+              <p style="margin:8px 0 0;font-size:14px;font-weight:800;color:#7c74a8">{{ detail.meta }} · {{ detail.unit }}</p>
               <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
-                <button onClick="{{ detail.speak }}" style="border:0;border-radius:18px;padding:13px 22px;font-size:15px;font-weight:900;font-family:inherit;color:#fff;background:linear-gradient(90deg,#ffb020,#ff7ab8);cursor:pointer"><img class="language-sound-icon" src="images/ui/sound-rounded.svg" alt="">聽讀音</button>
                 <button onClick="{{ detail.fav }}" style="border:1.5px solid #ffd0e6;background:#fff;border-radius:18px;padding:13px 22px;font-size:15px;font-weight:900;font-family:inherit;color:#b0316f;cursor:pointer">{{ detail.favLabel }}</button>
                 <button onClick="{{ detail.close }}" style="border:1.5px solid #ddd5ff;background:#fff;border-radius:18px;padding:13px 20px;font-size:15px;font-weight:900;font-family:inherit;color:#7c74a8;cursor:pointer">關閉</button>
               </div>
@@ -2072,16 +2105,17 @@
           </section>
         </sc-if>
 
-        <div style="display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(124px,1fr))">
+        <p style="font-size:13px;font-weight:800">點一下字卡，就能聽讀音。</p>
+        <div class="chinese-word-grid">
           <sc-for list="{{ libWords }}" as="w" hint-placeholder-count="12">
-            <button onClick="{{ w.open }}" style="background:#fff;border:2px solid {{ w.border }};border-radius:22px;padding:14px 8px;display:grid;justify-items:center;gap:4px;cursor:pointer;font-family:inherit;box-shadow:0 10px 22px rgba(43,31,87,.05)" style-hover="transform:translateY(-3px)">
-              <img src="images/math-master/v1/objects/star-v1.png" alt="" style="width:28px;height:28px;object-fit:contain">
-              <strong style="font-size:34px;font-weight:900;color:#2b1f57;line-height:1.1">{{ w.char }}</strong>
-              <span style="font-size:12px;font-weight:900;color:#a06400">{{ w.zhuyin }}</span>
-              <span style="font-size:12px;font-weight:800;color:#9a90c8">{{ w.word }}</span>
+            <button class="chinese-word-card" aria-label="朗讀 {{ w.char }}，{{ w.zhuyin }}，{{ w.meta }}" onClick="{{ w.open }}" style="border-color:{{ w.border }}">
+              <span class="chinese-word-reading">{{ w.reading }}</span>
+              <span class="chinese-word-meta">{{ w.meta }}</span>
+              <span class="chinese-word-example">{{ w.word }}</span>
             </button>
           </sc-for>
         </div>
+        <p style="font-size:12px;line-height:1.6">部首、總筆畫資料：<a href="https://language.moe.gov.tw/001/Upload/Files/site_content/M0001/respub/dict_mini_download.html" target="_blank" rel="noopener noreferrer" style="color:inherit">教育部《國語小字典》</a>（CC BY-ND 3.0 TW）</p>
       </div>
     </sc-if>
 
@@ -2446,6 +2480,7 @@
             </div>
           </sc-if>
 
+          <sc-if value="{{ figFoundation }}" hint-placeholder-val="{{ false }}"><img src="{{ foundationPicture }}" alt="{{ foundationAlt }}" style="display:block;width:100%;max-width:660px;max-height:380px;margin:12px auto;object-fit:contain"></sc-if>
           <sc-if value="{{ figTensOnes }}" hint-placeholder-val="{{ false }}">
             <div class="quiz-visual" style="margin-top:20px;padding:18px;border-radius:22px;background:#fbfaff;border:1px dashed #ddd5ff;display:grid;justify-items:center;gap:8px">
               <sc-for list="{{ tensRows }}" as="row" hint-placeholder-count="3"><div style="display:flex;gap:2px;padding:5px 9px;border-radius:99px;background:#fff;border:2px solid #c9dfff"><sc-for list="{{ row.beads }}" as="bead" hint-placeholder-count="10"><img src="{{ bead.image }}" alt="" style="width:27px;height:27px;object-fit:contain"></sc-for></div></sc-for>
@@ -3846,78 +3881,111 @@ function equipProfileItem(profile, item, slotOverride) {
 }
 
 const MATH_UNITS = [
-  // 一年級上冊核心 1–9：依康軒課本順序排列。每張單元卡使用
-  // 獨立透明圖層；題目中的數線、時鐘與數量則保留可變動的程式圖層。
-  { id: "u101", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-01-numbers-within-10-v2.png", tint: "#e8f2ff", title: "1. 10 以內的數", sub: "認識 1～10、0 與表示數量" },
-  { id: "u102", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-02-compare-v2.png", tint: "#fff6e0", title: "2. 比長短", sub: "長短、高矮、厚薄、直線與曲線" },
-  { id: "u103", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-03-order-v2.png", tint: "#e6f7ee", title: "3. 排順序、比多少", sub: "排數字、第幾個、幾個、比多少" },
-  { id: "u104", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-04-number-bonds-v2.png", tint: "#ffeef6", title: "4. 分與合", sub: "分一分、合一合、10 的分與合" },
-  { id: "u105", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-05-solids-v2.png", tint: "#f1e6ff", title: "5. 方盒、圓罐、球", sub: "堆疊分類、平面圖形與做造型" },
-  { id: "u106", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-06-numbers-within-30-v2.png", tint: "#eafbfd", title: "6. 30 以內的數", sub: "數到 20、數到 30、序數與比大小" },
-  { id: "u1", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-07-addition-v2.png", tint: "#ffe0e6", title: "7. 10 以內的加法", sub: "合起來、0 的加法與加加看" },
-  { id: "u108", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/unit-07-addition-v2.png", tint: "#fff0cc", title: "20 以內的加法（湊十）", sub: "一年級 · 先湊成 10，再加剩下的數" },
-  { id: "u2", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-08-subtraction-v2.png", tint: "#ffeccc", title: "8. 10 以內的減法", sub: "剩下多少、多多少少多少、加加減減" },
-  { id: "u107", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-09-time-v2.png", tint: "#fff0cc", title: "9. 幾點鐘", sub: "先後與長短、整點與半點" },
-  { id: "u29", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/puzzle-shapes-v2.png", tint: "#e8f2ff", title: "形狀偵探隊", sub: "一年級 · 平面形狀、立體與積木", kind: "math-game" },
-  { id: "u30", grade: 2, difficulty: 2, icon: "", art: "images/math-grade2/v1/u30-measurement-lab-v1.png", tint: "#fff0cc", title: "測量實驗室", sub: "二年級 · 時鐘、重量與角度", kind: "math-game" },
-  { id: "u31", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/counting-cubes-v2.png", tint: "#eafbfd", title: "小一立方體數量", sub: "一年級 · 排、柱、層與數量估計", kind: "math-game" },
-  { id: "u32", grade: 2, difficulty: 3, icon: "", art: "images/math-grade2/v1/u32-cube-spatial-reasoning-v1.png", tint: "#f1e6ff", title: "小二立方體空間推理", sub: "二年級 · 長寬高與遮擋估計", kind: "math-game" },
-  { id: "u33", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/puzzle-shapes-v2.png", tint: "#fff0cc", title: "圖形觀察與拼圖", sub: "一年級 · 旋轉與方格比對", kind: "math-game" },
-  { id: "u34", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/counting-magnifier-v2.png", tint: "#e6f7ee", title: "數一數與比多少", sub: "一年級 · 物件分類計數", kind: "math-game" },
-  { id: "u35", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/order-path-v2.png", tint: "#ffeef6", title: "順序與位置推理", sub: "一年級 · 先後順序與方位", kind: "math-game" },
-  { id: "u36", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/coin-stack-v2.png", tint: "#fff6e0", title: "數數看有多少元", sub: "一年級 · 均一挑戰 · 硬幣與面額" },
-  { id: "u37", grade: 2, difficulty: 2, icon: "", art: "images/math-grade2/v1/u37-two-digit-add-sub-challenge-v1.png", tint: "#e6f7ee", title: "二位數的加減", sub: "二年級 · 均一挑戰 · 進退位練習" },
-  { id: "u38", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/memory-cards-v2.png", tint: "#e8f2ff", title: "記憶翻牌", sub: "一年級 · 數字與數量配對", kind: "memory" },
-  { id: "u3", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/number-line-v2.png", tint: "#dff1ff", title: "20 以內的數與數線", sub: "一年級 · 數與量" },
-  { id: "u4", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/flat-shapes-v2.png", tint: "#e6ecff", title: "認識平面形狀", sub: "一年級 · 幾何" },
-  { id: "u19", grade: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/calculation-chain-v2.png", tint: "#e6f7ee", title: "橫式個位數連續加減", sub: "一年級 · 3～5 次運算" },
-  { id: "u14", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/addition-within-50-v2.png", tint: "#fff0cc", title: "直式 50 以內加法", sub: "一年級 · 進階加法" },
-  { id: "u15", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/subtraction-within-50-v2.png", tint: "#eafbfd", title: "直式 50 以內減法", sub: "一年級 · 進階減法" },
-  { id: "u16", grade: 1, difficulty: 2, icon: "", art: "images/math-grade1/v2/multiplication-array-v2.png", tint: "#f1e6ff", title: "個位數的乘法", sub: "一年級 · 乘法入門" },
-  { id: "u17", grade: 1, difficulty: 3, icon: "", art: "images/math-grade1/v2/fraction-half-v2.png", tint: "#ffe0ef", title: "認識分數", sub: "一年級 · 分數入門" },
-  { id: "u18", grade: 1, difficulty: 3, icon: "", art: "images/math-grade1/v2/division-groups-v2.png", tint: "#e6f7ee", title: "個位數的除法", sub: "一年級 · 除法入門" },
-  { id: "u20", grade: 1, difficulty: 3, icon: "", art: "images/math-grade1/v2/addition-within-99-v2.png", tint: "#ffeccc", title: "直式 99 以內加法", sub: "一年級 · 百以內加法" },
-  { id: "u21", grade: 1, difficulty: 3, icon: "", art: "images/math-grade1/v2/subtraction-within-99-v2.png", tint: "#e8f2ff", title: "直式 99 以內減法", sub: "一年級 · 百以內減法" },
-  { id: "u5", grade: 2, icon: "", art: "images/math-grade2/v1/u5-two-digit-add-sub-v1.png", tint: "#e6f7ee", title: "二位數的加減", sub: "二年級 · 數與量" },
-  { id: "u13", grade: 2, icon: "", art: "images/math-grade2/v1/u13-three-digit-add-sub-v1.png", tint: "#e8f2ff", title: "三位數的加減", sub: "二年級 · 直式計算" },
-  { id: "u6", grade: 2, icon: "", art: "images/math-grade2/v1/u6-multiplication-table-v1.png", tint: "#f1e6ff", title: "九九乘法", sub: "二年級 · 數與量" },
-  { id: "u7", grade: 2, icon: "", art: "images/math-grade2/v1/u7-clock-and-time-v1.png", tint: "#fff0cc", title: "時鐘與時間", sub: "二年級 · 數與量" },
-  { id: "u8", grade: 2, icon: "", art: "images/math-grade2/v1/u8-centimeter-and-meter-v1.png", tint: "#dff7fa", title: "長度：公分與公尺", sub: "二年級 · 數與量" },
-  { id: "u9", grade: 2, icon: "", art: "images/math-grade2/v1/u9-equal-sharing-v1.png", tint: "#ffeccc", title: "平分與除法", sub: "二年級 · 分裝與平分" },
-  { id: "u10", grade: 2, icon: "", art: "images/math-grade2/v1/u10-fraction-introduction-v1.png", tint: "#ffe0ef", title: "認識分數", sub: "二年級 · 分數" },
-  { id: "u11", grade: 2, icon: "", art: "images/math-grade2/v1/u11-fraction-comparison-v1.png", tint: "#e6f7ee", title: "分數比大小", sub: "二年級 · 分數" },
-  { id: "u39", grade: 3, difficulty: 1, icon: "", art: "images/math-grade3/v1/u39-exact-division-v1.png", tint: "#fff0cc", title: "二位數除以一位數(整除)", sub: "三年級上 · 拆十位、拆個位" },
-  { id: "u40", grade: 3, difficulty: 2, icon: "", art: "images/math-grade3/v1/u40-two-digit-long-division-v1.png", tint: "#eafbfd", title: "二位數除以一位數直式", sub: "三年級上 · 直式除法、有餘數" },
-  { id: "u41", grade: 3, difficulty: 2, icon: "", art: "images/math-grade3/v1/u41-three-digit-long-division-v1.png", tint: "#f1e6ff", title: "三位數除以一位數直式", sub: "三年級下 · 直式除法" },
-  { id: "u42", grade: 3, difficulty: 3, icon: "", art: "images/math-grade3/v1/u42-division-checking-v1.png", tint: "#ffe0e6", title: "除法應用與驗算", sub: "三年級下 · 文字題、商×除數+餘數" },
-  { id: "u43", grade: 3, difficulty: 1, icon: "", art: "images/math-grade3/v1/u43-improper-mixed-fractions-v1.png", tint: "#ffe0ef", title: "假分數與帶分數", sub: "三年級上 · 4個1/3是4/3" },
-  { id: "u44", grade: 3, difficulty: 2, icon: "", art: "images/math-grade3/v1/u44-same-denominator-comparison-v1.png", tint: "#e6f7ee", title: "同分母分數比大小(進階)", sub: "三年級上 · 分子越大分數越大" },
-  { id: "u45", grade: 3, difficulty: 2, icon: "", art: "images/math-grade3/v1/u45-same-denominator-addition-v1.png", tint: "#fff6e0", title: "同分母分數的加法", sub: "三年級下 · 分母不變、分子相加" },
-  { id: "u46", grade: 3, difficulty: 3, icon: "", art: "images/math-grade3/v1/u46-same-denominator-subtraction-v1.png", tint: "#dff1ff", title: "同分母分數的減法", sub: "三年級下 · 分母不變、分子相減" },
-  { id: "u50", grade: 3, difficulty: 1, icon: "", art: "images/math-grade3/v1/u50-grid-area-v1.png", tint: "#f1e6ff", title: "方格數面積", sub: "三年級 · 一格 1 平方公分、數數看" },
-  { id: "u51", grade: 3, difficulty: 2, icon: "", art: "images/math-grade3/v1/u51-angle-types-v1.png", tint: "#e8f2ff", title: "角的認識", sub: "三年級 · 銳角、直角、鈍角" },
-  { id: "u52", grade: 4, difficulty: 2, icon: "", art: "images/math-grade4/v1/u52-protractor-angle-v1.png", tint: "#dff7fa", title: "量角器與角度", sub: "四年級 · 認識「度」、估角度" },
-  { id: "u53", grade: 4, difficulty: 2, icon: "", art: "images/math-grade4/v1/u53-rectangle-square-area-v1.png", tint: "#e6f7ee", title: "正方形與長方形", sub: "四年級 · 周長與面積公式" },
-  { id: "u54", grade: 5, difficulty: 2, icon: "", art: "images/math-grade5/v1/u54-cuboid-cube-volume-v1.png", tint: "#eafbfd", title: "長方體與正方體的體積", sub: "五年級 · 長×寬×高、立方公分" },
-  { id: "u55", grade: 5, difficulty: 2, icon: "", art: "images/math-grade5/v1/u55-capacity-conversion-v1.png", tint: "#fff6e0", title: "容積與容量換算", sub: "五年級 · 公升、毫升、立方公分" },
-  { id: "u56", grade: 5, difficulty: 3, icon: "", art: "images/math-grade5/v1/u56-triangle-area-v1.png", tint: "#ffe0e6", title: "三角形面積", sub: "五年級 · 底×高÷2、各式三角形" },
-  { id: "u57", grade: 6, difficulty: 3, icon: "", art: "images/math-grade6/v1/u57-circle-circumference-area-v1.png", tint: "#ffeef6", title: "圓周長與圓面積", sub: "六年級 · 圓周率 3.14" },
-  { id: "u58", grade: 3, difficulty: 1, icon: "", art: "images/math-grade3/v1/u58-place-value-ten-thousand-v1.png", tint: "#fff0cc", title: "一萬以內的數", sub: "三年級上 · 讀寫、位值、比大小" },
-  { id: "u59", grade: 3, difficulty: 2, icon: "", art: "images/math-grade3/v1/u59-four-digit-add-sub-v1.png", tint: "#e6f7ee", title: "四位數的加減", sub: "三年級上 · 進位與退位" },
-  { id: "u60", grade: 3, difficulty: 2, icon: "", art: "images/math-grade3/v1/u60-multi-digit-multiplication-v1.png", tint: "#f1e6ff", title: "乘法：二三位數×一位數", sub: "三年級上 · 直式乘法進階" },
-  { id: "u61", grade: 3, difficulty: 2, icon: "", art: "images/math-grade3/v1/u61-millimeter-conversion-v1.png", tint: "#dff7fa", title: "毫米與長度換算", sub: "三年級上 · 毫米、公分、公尺" },
-  { id: "u62", grade: 3, difficulty: 2, icon: "", art: "images/math-grade3/v1/u62-decimal-tenths-v1.png", tint: "#ffe0ef", title: "小數初步", sub: "三年級下 · 一位小數與加減" },
-  { id: "u47", grade: 2, difficulty: 2, icon: "", art: "images/math-grade2/v1/u47-three-digit-addition-drag-v1.png", tint: "#e6f7ee", title: "直式三位數加法(拖拖樂)", sub: "二年級 · 拖數字進格子、進位練習" },
-  { id: "u48", grade: 2, difficulty: 2, icon: "", art: "images/math-grade2/v1/u48-three-digit-subtraction-drag-v1.png", tint: "#dff1ff", title: "直式三位數減法(拖拖樂)", sub: "二年級 · 拖數字進格子、退位練習" },
-  { id: "u49", grade: 2, difficulty: 2, icon: "", art: "images/math-grade2/v1/u49-column-multiplication-drag-v1.png", tint: "#ffe6d1", title: "二位數乘法直式(拖拖樂)", sub: "二年級挑戰 · 二位數×一位數" },
-  { id: "u12", grade: 2, icon: "", art: "images/math-grade2/v1/u12-animal-leg-reasoning-v1.png", tint: "#dff1ff", title: "動物的腳數（推理）", sub: "二年級 · 代數思考" },
-  { id: "u22", grade: 2, difficulty: 1, icon: "", art: "images/math-grade2/v1/u22-continuous-add-sub-v1.png", tint: "#e6f7ee", title: "橫式十位數連續加減", sub: "二年級 · 3～5 次運算" },
-  { id: "u23", grade: 2, difficulty: 2, icon: "", art: "images/math-grade2/v1/u23-addition-within-200-v1.png", tint: "#fff0cc", title: "直式 200 以內加法", sub: "二年級 · 進階加法" },
-  { id: "u24", grade: 2, difficulty: 2, icon: "", art: "images/math-grade2/v1/u24-subtraction-within-200-v1.png", tint: "#eafbfd", title: "直式 200 以內減法", sub: "二年級 · 進階減法" },
-  { id: "u25", grade: 2, difficulty: 3, icon: "", art: "images/math-grade2/v1/u25-addition-within-500-v1.png", tint: "#f1e6ff", title: "直式 500 以內加法", sub: "二年級 · 挑戰加法" },
-  { id: "u26", grade: 2, difficulty: 3, icon: "", art: "images/math-grade2/v1/u26-subtraction-within-500-v1.png", tint: "#ffe0ef", title: "直式 500 以內減法", sub: "二年級 · 挑戰減法" },
-  { id: "u27", grade: 2, difficulty: 2, icon: "", art: "images/math-grade2/v1/u27-tens-times-ones-v1.png", tint: "#fff6cc", title: "十位數 × 個位數", sub: "二年級 · 乘法進階" },
-  { id: "u28", grade: 2, difficulty: 3, icon: "", art: "images/math-grade2/v1/u28-tens-times-ones-challenge-v1.png", tint: "#ffe6d1", title: "十位數 × 個位數挑戰", sub: "二年級 · 進位乘法" },
+  { id: "u101", grade: 1, displayCode: "1-01", displayOrder: 1, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-01-numbers-within-10-v2.png", tint: "#e8f2ff", title: "10 以內的數", sub: "認識 1～10、0 與表示數量" },
+  { id: "u34", grade: 1, displayCode: "1-02", displayOrder: 2, difficulty: 1, icon: "", art: "images/math-grade1/v2/counting-magnifier-v2.png", tint: "#e6f7ee", title: "數一數與比多少", sub: "一年級 · 物件分類計數", kind: "math-game" },
+  { id: "u38", grade: 1, displayCode: "1-03", displayOrder: 3, difficulty: 1, icon: "", art: "images/math-grade1/v2/memory-cards-v2.png", tint: "#e8f2ff", title: "記憶翻牌", sub: "一年級 · 數字與數量配對", kind: "memory" },
+  { id: "u102", grade: 1, displayCode: "1-04", displayOrder: 4, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-02-compare-v2.png", tint: "#fff6e0", title: "比長短", sub: "長短、高矮、厚薄、直線與曲線" },
+  { id: "u103", grade: 1, displayCode: "1-05", displayOrder: 5, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-03-order-v2.png", tint: "#e6f7ee", title: "排順序、比多少", sub: "排數字、第幾個、幾個、比多少" },
+  { id: "u35", grade: 1, displayCode: "1-06", displayOrder: 6, difficulty: 2, icon: "", art: "images/math-grade1/v2/order-path-v2.png", tint: "#ffeef6", title: "順序與位置推理", sub: "一年級 · 先後順序與方位", kind: "math-game" },
+  { id: "u104", grade: 1, displayCode: "1-07", displayOrder: 7, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-04-number-bonds-v2.png", tint: "#ffeef6", title: "分與合", sub: "分一分、合一合、10 的分與合" },
+  { id: "u105", grade: 1, displayCode: "1-08", displayOrder: 8, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-05-solids-v2.png", tint: "#f1e6ff", title: "方盒、圓罐、球", sub: "堆疊分類、平面圖形與做造型" },
+  { id: "u29", grade: 1, displayCode: "1-09", displayOrder: 9, difficulty: 2, icon: "", art: "images/math-grade1/v2/puzzle-shapes-v2.png", tint: "#e8f2ff", title: "形狀偵探隊", sub: "一年級 · 平面形狀、立體與積木", kind: "math-game" },
+  { id: "u106", grade: 1, displayCode: "1-10", displayOrder: 10, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-06-numbers-within-30-v2.png", tint: "#eafbfd", title: "30 以內的數", sub: "數到 20、數到 30、序數與比大小" },
+  { id: "u109", grade: 1, displayCode: "1-11", displayOrder: 11, difficulty: 1, icon: "", art: "modules/math-foundations/icons/u109.svg", tint: "#eafbfd", title: "50／100 以內的數與十位個位", sub: "一年級 · 示範、操作與練習", foundation: true },
+  { id: "u3", grade: 1, displayCode: "1-12", displayOrder: 12, difficulty: 1, icon: "", art: "images/math-grade1/v2/number-line-v2.png", tint: "#dff1ff", title: "20 以內的數與數線", sub: "一年級 · 數與量" },
+  { id: "u1", grade: 1, displayCode: "1-13", displayOrder: 13, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-07-addition-v2.png", tint: "#ffe0e6", title: "10 以內的加法", sub: "合起來、0 的加法與加加看" },
+  { id: "u2", grade: 1, displayCode: "1-14", displayOrder: 14, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-08-subtraction-v2.png", tint: "#ffeccc", title: "10 以內的減法", sub: "剩下多少、多多少少多少、加加減減" },
+  { id: "u107", grade: 1, displayCode: "1-15", displayOrder: 15, difficulty: 1, icon: "", art: "images/math-grade1/v2/unit-09-time-v2.png", tint: "#fff0cc", title: "幾點鐘", sub: "先後與長短、整點與半點" },
+  { id: "u108", grade: 1, displayCode: "1-16", displayOrder: 16, difficulty: 2, icon: "", art: "images/math-grade1/v2/unit-07-addition-v2.png", tint: "#fff0cc", title: "20 以內的加法（湊十）", sub: "一年級 · 先湊成 10，再加剩下的數" },
+  { id: "u110", grade: 1, displayCode: "1-17", displayOrder: 17, difficulty: 1, icon: "", art: "modules/math-foundations/icons/u110.svg", tint: "#eafbfd", title: "20 以內減法", sub: "一年級 · 示範、操作與練習", foundation: true },
+  { id: "u4", grade: 1, displayCode: "1-18", displayOrder: 18, difficulty: 1, icon: "", art: "images/math-grade1/v2/flat-shapes-v2.png", tint: "#e6ecff", title: "認識平面形狀", sub: "一年級 · 幾何" },
+  { id: "u33", grade: 1, displayCode: "1-19", displayOrder: 19, difficulty: 2, icon: "", art: "images/math-grade1/v2/puzzle-shapes-v2.png", tint: "#fff0cc", title: "圖形觀察與拼圖", sub: "一年級 · 旋轉與方格比對", kind: "math-game" },
+  { id: "u111", grade: 1, displayCode: "1-20", displayOrder: 20, difficulty: 1, icon: "", art: "modules/math-foundations/icons/u111.svg", tint: "#eafbfd", title: "非標準單位量長度", sub: "一年級 · 示範、操作與練習", foundation: true },
+  { id: "u36", grade: 1, displayCode: "1-21", displayOrder: 21, difficulty: 1, icon: "", art: "images/math-grade1/v2/coin-stack-v2.png", tint: "#fff6e0", title: "數數看有多少元", sub: "一年級 · 均一挑戰 · 硬幣與面額" },
+  { id: "u19", grade: 1, displayCode: "1-22", displayOrder: 22, difficulty: 1, icon: "", art: "images/math-grade1/v2/calculation-chain-v2.png", tint: "#e6f7ee", title: "橫式個位數連續加減", sub: "一年級 · 3～5 次運算" },
+  { id: "u14", grade: 1, displayCode: "1-23", displayOrder: 23, difficulty: 2, icon: "", art: "images/math-grade1/v2/addition-within-50-v2.png", tint: "#fff0cc", title: "直式 50 以內加法", sub: "一年級 · 進階加法" },
+  { id: "u15", grade: 1, displayCode: "1-24", displayOrder: 24, difficulty: 2, icon: "", art: "images/math-grade1/v2/subtraction-within-50-v2.png", tint: "#eafbfd", title: "直式 50 以內減法", sub: "一年級 · 進階減法" },
+  { id: "u20", grade: 1, displayCode: "1-25", displayOrder: 25, difficulty: 3, icon: "", art: "images/math-grade1/v2/addition-within-99-v2.png", tint: "#ffeccc", title: "直式 99 以內加法", sub: "一年級 · 百以內加法" },
+  { id: "u21", grade: 1, displayCode: "1-26", displayOrder: 26, difficulty: 3, icon: "", art: "images/math-grade1/v2/subtraction-within-99-v2.png", tint: "#e8f2ff", title: "直式 99 以內減法", sub: "一年級 · 百以內減法" },
+  { id: "u112", grade: 1, displayCode: "1-27", displayOrder: 27, difficulty: 1, icon: "", art: "modules/math-foundations/icons/u112.svg", tint: "#eafbfd", title: "月曆、日期與星期", sub: "一年級 · 示範、操作與練習", foundation: true },
+  { id: "u113", grade: 2, displayCode: "2-01", displayOrder: 1, difficulty: 1, icon: "", art: "modules/math-foundations/icons/u113.svg", tint: "#eafbfd", title: "200／1000 以內的數", sub: "二年級 · 示範、操作與練習", foundation: true },
+  { id: "u5", grade: 2, displayCode: "2-02", displayOrder: 2, icon: "", art: "images/math-grade2/v1/u5-two-digit-add-sub-v1.png", tint: "#e6f7ee", title: "二位數的加減", sub: "二年級 · 數與量" },
+  { id: "u37", grade: 2, displayCode: "2-03", displayOrder: 3, difficulty: 2, icon: "", art: "images/math-grade2/v1/u37-two-digit-add-sub-challenge-v1.png", tint: "#e6f7ee", title: "二位數的加減", sub: "二年級 · 均一挑戰 · 進退位練習" },
+  { id: "u8", grade: 2, displayCode: "2-04", displayOrder: 4, icon: "", art: "images/math-grade2/v1/u8-centimeter-and-meter-v1.png", tint: "#dff7fa", title: "長度：公分與公尺", sub: "二年級 · 數與量" },
+  { id: "u114", grade: 2, displayCode: "2-05", displayOrder: 5, difficulty: 1, icon: "", art: "modules/math-foundations/icons/u114.svg", tint: "#eafbfd", title: "面積大小比較", sub: "二年級 · 示範、操作與練習", foundation: true },
+  { id: "u22", grade: 2, displayCode: "2-06", displayOrder: 6, difficulty: 1, icon: "", art: "images/math-grade2/v1/u22-continuous-add-sub-v1.png", tint: "#e6f7ee", title: "橫式十位數連續加減", sub: "二年級 · 3～5 次運算" },
+  { id: "u16", grade: 2, displayCode: "2-07", displayOrder: 7, difficulty: 2, icon: "", art: "images/math-grade1/v2/multiplication-array-v2.png", tint: "#f1e6ff", title: "個位數的乘法", sub: "二年級 · 乘法入門" },
+  { id: "u6", grade: 2, displayCode: "2-08", displayOrder: 8, icon: "", art: "images/math-grade2/v1/u6-multiplication-table-v1.png", tint: "#f1e6ff", title: "九九乘法", sub: "二年級 · 數與量" },
+  { id: "u7", grade: 2, displayCode: "2-09", displayOrder: 9, icon: "", art: "images/math-grade2/v1/u7-clock-and-time-v1.png", tint: "#fff0cc", title: "時鐘與時間", sub: "二年級 · 數與量" },
+  { id: "u115", grade: 2, displayCode: "2-10", displayOrder: 10, difficulty: 1, icon: "", art: "modules/math-foundations/icons/u115.svg", tint: "#eafbfd", title: "容量與重量比較", sub: "二年級 · 示範、操作與練習", foundation: true },
+  { id: "u30", grade: 2, displayCode: "2-11", displayOrder: 11, difficulty: 2, icon: "", art: "images/math-grade2/v1/u30-measurement-lab-v1.png", tint: "#fff0cc", title: "測量實驗室", sub: "二年級 · 時鐘、重量與角度", kind: "math-game" },
+  { id: "u23", grade: 2, displayCode: "2-12", displayOrder: 12, difficulty: 2, icon: "", art: "images/math-grade2/v1/u23-addition-within-200-v1.png", tint: "#fff0cc", title: "直式 200 以內加法", sub: "二年級 · 進階加法" },
+  { id: "u24", grade: 2, displayCode: "2-13", displayOrder: 13, difficulty: 2, icon: "", art: "images/math-grade2/v1/u24-subtraction-within-200-v1.png", tint: "#eafbfd", title: "直式 200 以內減法", sub: "二年級 · 進階減法" },
+  { id: "u25", grade: 2, displayCode: "2-14", displayOrder: 14, difficulty: 3, icon: "", art: "images/math-grade2/v1/u25-addition-within-500-v1.png", tint: "#f1e6ff", title: "直式 500 以內加法", sub: "二年級 · 挑戰加法" },
+  { id: "u26", grade: 2, displayCode: "2-15", displayOrder: 15, difficulty: 3, icon: "", art: "images/math-grade2/v1/u26-subtraction-within-500-v1.png", tint: "#ffe0ef", title: "直式 500 以內減法", sub: "二年級 · 挑戰減法" },
+  { id: "u13", grade: 2, displayCode: "2-16", displayOrder: 16, icon: "", art: "images/math-grade2/v1/u13-three-digit-add-sub-v1.png", tint: "#e8f2ff", title: "三位數的加減", sub: "二年級 · 直式計算" },
+  { id: "u47", grade: 2, displayCode: "2-17", displayOrder: 17, difficulty: 2, icon: "", art: "images/math-grade2/v1/u47-three-digit-addition-drag-v1.png", tint: "#e6f7ee", title: "直式三位數加法(拖拖樂)", sub: "二年級 · 拖數字進格子、進位練習" },
+  { id: "u48", grade: 2, displayCode: "2-18", displayOrder: 18, difficulty: 2, icon: "", art: "images/math-grade2/v1/u48-three-digit-subtraction-drag-v1.png", tint: "#dff1ff", title: "直式三位數減法(拖拖樂)", sub: "二年級 · 拖數字進格子、退位練習" },
+  { id: "u116", grade: 2, displayCode: "2-19", displayOrder: 19, difficulty: 1, icon: "", art: "modules/math-foundations/icons/u116.svg", tint: "#eafbfd", title: "年、月、日", sub: "二年級 · 示範、操作與練習", foundation: true },
+  { id: "u12", grade: 2, displayCode: "2-20", displayOrder: 20, icon: "", art: "images/math-grade2/v1/u12-animal-leg-reasoning-v1.png", tint: "#dff1ff", title: "動物的腳數（推理）", sub: "二年級 · 代數思考" },
+  { id: "u118", grade: 2, displayCode: "2-21", displayOrder: 21, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u118.svg", tint: "#eafbfd", title: "兩步驟生活應用題", sub: "二年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u31", grade: 2, displayCode: "2-22", displayOrder: 22, difficulty: 2, icon: "", art: "images/math-grade1/v2/counting-cubes-v2.png", tint: "#eafbfd", title: "立方體數量", sub: "二年級 · 排、柱、層與數量估計", kind: "math-game" },
+  { id: "u32", grade: 2, displayCode: "2-23", displayOrder: 23, difficulty: 3, icon: "", art: "images/math-grade2/v1/u32-cube-spatial-reasoning-v1.png", tint: "#f1e6ff", title: "立方體空間推理", sub: "二年級 · 長寬高與遮擋估計", kind: "math-game" },
+  { id: "u18", grade: 2, displayCode: "2-24", displayOrder: 24, difficulty: 3, icon: "", art: "images/math-grade1/v2/division-groups-v2.png", tint: "#e6f7ee", title: "個位數的除法", sub: "二年級 · 除法入門" },
+  { id: "u9", grade: 2, displayCode: "2-25", displayOrder: 25, icon: "", art: "images/math-grade2/v1/u9-equal-sharing-v1.png", tint: "#ffeccc", title: "平分與除法", sub: "二年級 · 分裝與平分" },
+  { id: "u17", grade: 2, displayCode: "2-26", displayOrder: 26, difficulty: 3, icon: "", art: "images/math-grade1/v2/fraction-half-v2.png", tint: "#ffe0ef", title: "認識分數", sub: "二年級 · 分數入門" },
+  { id: "u10", grade: 2, displayCode: "2-27", displayOrder: 27, icon: "", art: "images/math-grade2/v1/u10-fraction-introduction-v1.png", tint: "#ffe0ef", title: "認識分數", sub: "二年級 · 分數" },
+  { id: "u11", grade: 2, displayCode: "2-28", displayOrder: 28, icon: "", art: "images/math-grade2/v1/u11-fraction-comparison-v1.png", tint: "#e6f7ee", title: "分數比大小", sub: "二年級 · 分數" },
+  { id: "u58", grade: 3, displayCode: "3-01", displayOrder: 1, difficulty: 1, icon: "", art: "images/math-grade3/v1/u58-place-value-ten-thousand-v1.png", tint: "#fff0cc", title: "一萬以內的數", sub: "三年級 · 讀寫、位值、比大小" },
+  { id: "u59", grade: 3, displayCode: "3-02", displayOrder: 2, difficulty: 2, icon: "", art: "images/math-grade3/v1/u59-four-digit-add-sub-v1.png", tint: "#e6f7ee", title: "四位數的加減", sub: "三年級 · 進位與退位" },
+  { id: "u61", grade: 3, displayCode: "3-03", displayOrder: 3, difficulty: 2, icon: "", art: "images/math-grade3/v1/u61-millimeter-conversion-v1.png", tint: "#dff7fa", title: "毫米與長度換算", sub: "三年級 · 毫米、公分、公尺" },
+  { id: "u27", grade: 3, displayCode: "3-04", displayOrder: 4, difficulty: 2, icon: "", art: "images/math-grade2/v1/u27-tens-times-ones-v1.png", tint: "#fff6cc", title: "十位數 × 個位數", sub: "三年級 · 乘法進階" },
+  { id: "u28", grade: 3, displayCode: "3-05", displayOrder: 5, difficulty: 3, icon: "", art: "images/math-grade2/v1/u28-tens-times-ones-challenge-v1.png", tint: "#ffe6d1", title: "十位數 × 個位數挑戰", sub: "三年級 · 進位乘法" },
+  { id: "u49", grade: 3, displayCode: "3-06", displayOrder: 6, difficulty: 2, icon: "", art: "images/math-grade2/v1/u49-column-multiplication-drag-v1.png", tint: "#ffe6d1", title: "二位數乘法直式(拖拖樂)", sub: "三年級挑戰 · 二位數×一位數" },
+  { id: "u60", grade: 3, displayCode: "3-07", displayOrder: 7, difficulty: 2, icon: "", art: "images/math-grade3/v1/u60-multi-digit-multiplication-v1.png", tint: "#f1e6ff", title: "乘法：二三位數×一位數", sub: "三年級 · 直式乘法進階" },
+  { id: "u51", grade: 3, displayCode: "3-08", displayOrder: 8, difficulty: 2, icon: "", art: "images/math-grade3/v1/u51-angle-types-v1.png", tint: "#e8f2ff", title: "角的認識", sub: "三年級 · 銳角、直角、鈍角" },
+  { id: "u50", grade: 3, displayCode: "3-09", displayOrder: 9, difficulty: 1, icon: "", art: "images/math-grade3/v1/u50-grid-area-v1.png", tint: "#f1e6ff", title: "方格數面積", sub: "三年級 · 一格 1 平方公分、數數看" },
+  { id: "u39", grade: 3, displayCode: "3-11", displayOrder: 11, difficulty: 1, icon: "", art: "images/math-grade3/v1/u39-exact-division-v1.png", tint: "#fff0cc", title: "二位數除以一位數(整除)", sub: "三年級 · 拆十位、拆個位" },
+  { id: "u40", grade: 3, displayCode: "3-12", displayOrder: 12, difficulty: 2, icon: "", art: "images/math-grade3/v1/u40-two-digit-long-division-v1.png", tint: "#eafbfd", title: "二位數除以一位數直式", sub: "三年級 · 直式除法、有餘數" },
+  { id: "u117", grade: 3, displayCode: "3-13", displayOrder: 13, difficulty: 1, icon: "", art: "modules/math-foundations/icons/u117.svg", tint: "#eafbfd", title: "公升與毫升", sub: "三年級 · 示範、操作與練習", foundation: true },
+  { id: "u44", grade: 3, displayCode: "3-14", displayOrder: 14, difficulty: 2, icon: "", art: "images/math-grade3/v1/u44-same-denominator-comparison-v1.png", tint: "#e6f7ee", title: "同分母分數比大小(進階)", sub: "三年級 · 分子越大分數越大" },
+  { id: "u45", grade: 3, displayCode: "3-15", displayOrder: 15, difficulty: 2, icon: "", art: "images/math-grade3/v1/u45-same-denominator-addition-v1.png", tint: "#fff6e0", title: "同分母分數的加法", sub: "三年級 · 分母不變、分子相加" },
+  { id: "u46", grade: 3, displayCode: "3-16", displayOrder: 16, difficulty: 3, icon: "", art: "images/math-grade3/v1/u46-same-denominator-subtraction-v1.png", tint: "#dff1ff", title: "同分母分數的減法", sub: "三年級 · 分母不變、分子相減" },
+  { id: "u41", grade: 3, displayCode: "3-17", displayOrder: 17, difficulty: 2, icon: "", art: "images/math-grade3/v1/u41-three-digit-long-division-v1.png", tint: "#f1e6ff", title: "三位數除以一位數直式", sub: "三年級 · 直式除法" },
+  { id: "u119", grade: 3, displayCode: "3-18", displayOrder: 18, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u119.svg", tint: "#eafbfd", title: "找規律", sub: "三年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u120", grade: 3, displayCode: "3-19", displayOrder: 19, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u120.svg", tint: "#eafbfd", title: "公斤與公克", sub: "三年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u62", grade: 3, displayCode: "3-20", displayOrder: 20, difficulty: 2, icon: "", art: "images/math-grade3/v1/u62-decimal-tenths-v1.png", tint: "#ffe0ef", title: "小數初步", sub: "三年級 · 一位小數與加減" },
+  { id: "u121", grade: 3, displayCode: "3-21", displayOrder: 21, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u121.svg", tint: "#eafbfd", title: "圓的認識", sub: "三年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u122", grade: 3, displayCode: "3-22", displayOrder: 22, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u122.svg", tint: "#eafbfd", title: "時間的計算", sub: "三年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u123", grade: 3, displayCode: "3-23", displayOrder: 23, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u123.svg", tint: "#eafbfd", title: "統計表", sub: "三年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u42", grade: 3, displayCode: "3-24", displayOrder: 24, difficulty: 3, icon: "", art: "images/math-grade3/v1/u42-division-checking-v1.png", tint: "#ffe0e6", title: "除法應用與驗算", sub: "三年級 · 文字題、商×除數+餘數" },
+  { id: "u124", grade: 4, displayCode: "4-01", displayOrder: 1, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u124.svg", tint: "#eafbfd", title: "一億以內的數", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u125", grade: 4, displayCode: "4-02", displayOrder: 2, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u125.svg", tint: "#eafbfd", title: "多位數乘除", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u52", grade: 4, displayCode: "4-03", displayOrder: 3, difficulty: 2, icon: "", art: "images/math-grade4/v1/u52-protractor-angle-v1.png", tint: "#dff7fa", title: "量角器與角度", sub: "四年級 · 認識「度」、估角度" },
+  { id: "u126", grade: 4, displayCode: "4-04", displayOrder: 4, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u126.svg", tint: "#eafbfd", title: "公里與距離", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u127", grade: 4, displayCode: "4-05", displayOrder: 5, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u127.svg", tint: "#eafbfd", title: "三角形分類", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u128", grade: 4, displayCode: "4-06", displayOrder: 6, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u128.svg", tint: "#eafbfd", title: "多位小數", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u129", grade: 4, displayCode: "4-07", displayOrder: 7, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u129.svg", tint: "#eafbfd", title: "整數四則與括號", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u43", grade: 4, displayCode: "4-08", displayOrder: 8, difficulty: 1, icon: "", art: "images/math-grade3/v1/u43-improper-mixed-fractions-v1.png", tint: "#ffe0ef", title: "假分數與帶分數", sub: "四年級 · 4個1/3是4/3" },
+  { id: "u130", grade: 4, displayCode: "4-09", displayOrder: 9, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u130.svg", tint: "#eafbfd", title: "統計圖", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u131", grade: 4, displayCode: "4-10", displayOrder: 10, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u131.svg", tint: "#eafbfd", title: "概數與四捨五入", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u132", grade: 4, displayCode: "4-11", displayOrder: 11, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u132.svg", tint: "#eafbfd", title: "數量規律", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u133", grade: 4, displayCode: "4-12", displayOrder: 12, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u133.svg", tint: "#eafbfd", title: "小數乘整數", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u53", grade: 4, displayCode: "4-13", displayOrder: 13, difficulty: 2, icon: "", art: "images/math-grade4/v1/u53-rectangle-square-area-v1.png", tint: "#e6f7ee", title: "正方形與長方形", sub: "四年級 · 周長與面積公式" },
+  { id: "u134", grade: 4, displayCode: "4-14", displayOrder: 14, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u134.svg", tint: "#eafbfd", title: "四邊形分類", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u135", grade: 4, displayCode: "4-15", displayOrder: 15, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u135.svg", tint: "#eafbfd", title: "等值分數", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u136", grade: 4, displayCode: "4-16", displayOrder: 16, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u136.svg", tint: "#eafbfd", title: "簡化計算", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u137", grade: 4, displayCode: "4-17", displayOrder: 17, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u137.svg", tint: "#eafbfd", title: "時間單位換算與計算", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u56", grade: 5, displayCode: "5-01", displayOrder: 1, difficulty: 3, icon: "", art: "images/math-grade5/v1/u56-triangle-area-v1.png", tint: "#ffe0e6", title: "三角形面積", sub: "五年級 · 底×高÷2、各式三角形" },
+  { id: "u54", grade: 5, displayCode: "5-02", displayOrder: 2, difficulty: 2, icon: "", art: "images/math-grade5/v1/u54-cuboid-cube-volume-v1.png", tint: "#eafbfd", title: "長方體與正方體的體積", sub: "五年級 · 長×寬×高、立方公分" },
+  { id: "u55", grade: 5, displayCode: "5-03", displayOrder: 3, difficulty: 2, icon: "", art: "images/math-grade5/v1/u55-capacity-conversion-v1.png", tint: "#fff6e0", title: "容積與容量換算", sub: "五年級 · 公升、毫升、立方公分" },
+  { id: "u57", grade: 6, displayCode: "6-01", displayOrder: 1, difficulty: 3, icon: "", art: "images/math-grade6/v1/u57-circle-circumference-area-v1.png", tint: "#ffeef6", title: "圓周長與圓面積", sub: "六年級 · 圓周率 3.14" },
+];
+
+// Teaching-only entries do not enter quizzes or mastery records.
+const MATH_EXPLORE_UNITS = [
+ {id:"math-explore-area",grade:3,displayCode:"3-10",displayOrder:10,title:"面積探索",sub:"用方格看面有多大",kind:"math-explore",icon:"▦",tint:"#eafbfd",teaching:"geo-area"},
+ {id:"math-explore-volume",grade:4,displayCode:"4-18",displayOrder:18,title:"體積探索",sub:"用積木看佔多少空間",kind:"math-explore",icon:"▧",tint:"#eafbfd",teaching:"geo-volume"}
 ];
 const CH_UNITS = [
   { id: "c1", grade: 1, icon: "📚", art: "images/subject-unit-icons/v1/chinese-library-v1.png", tint: "#e6f7ee", title: "學習庫", sub: "一年級 · 識字單元", kind: "library" },
@@ -4680,6 +4748,20 @@ const MATH_GAME_FALLBACK = {
 function localDateKey() {
   const now = new Date();
   return now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+}
+
+function chineseReading(char, zhuyin) {
+  const symbols = Array.from(String(zhuyin || "").replace(/[ˊˇˋ˙ˉ\s]/g, ""));
+  const tone = (String(zhuyin || "").match(/[ˊˇˋ˙]/) || [""])[0];
+  return React.createElement("span", { className: "chinese-character-reading", "aria-label": char + "，" + zhuyin },
+    React.createElement("strong", { className: "chinese-character", "aria-hidden": true }, char),
+    React.createElement("span", { className: "chinese-zhuyin", "aria-hidden": true },
+      ...symbols.map((symbol, i) => React.createElement("span", { key: i }, symbol)),
+      tone ? React.createElement("span", { className: tone === "˙" ? "chinese-zhuyin-neutral" : "chinese-zhuyin-tone" }, tone) : null));
+}
+function chineseWordMeta(word) {
+  const count = Number(word.s);
+  return "部首：" + (word.r || "待補") + " · " + (Number.isInteger(count) && count > 0 ? "筆畫：" + count : "筆畫待補");
 }
 
 function evaluateHandwritingTrace(ink, mask, width, height, motion) {
@@ -7691,6 +7773,7 @@ class Component extends DCLogic {
   }
 
   buildMath(unitId, round, options) {
+    if (window.MathFoundations && window.MathFoundations.byId(unitId)) return window.MathFoundations.session(unitId, this.total());
     const lvl = Math.max(0, Math.min(2, Number(round) || 0));
     const n = this.total();
     if (unitId === "u108" && window.LearningPlanetMathEngine) {
@@ -10563,7 +10646,7 @@ class Component extends DCLogic {
       { key: "gacha", icon: "🫧", label: "扭蛋" },
     ];
     const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "library" || s.screen === "writing" || s.screen === "memory" || s.screen === "video" || String(s.screen).indexOf("english") === 0 ? "map" : s.screen === "weeklyQuiz" || s.screen === "weeklyResult" ? "weekly" : s.screen === "collection" ? "gacha" : s.screen;
-    const subjectUnits = s.subject === "math" ? MATH_UNITS : s.subject === "english" ? EN_UNITS : s.subject === "science" ? SCI_UNITS : s.subject === "experiment" ? EXPERIMENT_UNITS : CH_UNITS;
+    const subjectUnits = s.subject === "math" ? [...MATH_UNITS,...MATH_EXPLORE_UNITS].sort((a,b)=>a.grade-b.grade||a.displayOrder-b.displayOrder) : s.subject === "english" ? EN_UNITS : s.subject === "science" ? SCI_UNITS : s.subject === "experiment" ? EXPERIMENT_UNITS : CH_UNITS;
     const gradeWords = this.gradeWords(s.grade);
     const libFiltered = s.libUnit === "全部" ? gradeWords : gradeWords.filter((w) => w.u === s.libUnit);
     const detail = s.detailChar ? this.allWords().find((w) => w.c === s.detailChar) : null;
@@ -11516,7 +11599,7 @@ class Component extends DCLogic {
 
       showChallengeRules: s.subject !== "experiment",
       isExperimentSubject: s.subject === "experiment",
-      showGeoExplore: s.subject === "math" && s.grade === 1,
+      showGeoExplore: false,
       gradeTabs: (s.subject === "experiment" ? [] : s.subject === "math" || s.subject === "english" ? [1, 2, 3, 4, 5, 6] : s.subject === "science" ? [3, 4, 5, 6] : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][g], active: String(s.grade === g),
         go: () => this.setState({ grade: g }),
         bg: s.grade === g ? "#7c5cff" : "#fff",
@@ -11534,12 +11617,12 @@ class Component extends DCLogic {
         const unitArt = u.art || (s.subject === "math" && MATH_OBJECT_ASSETS[u.icon] ? mathObjectAsset(u.icon).image : "");
         const iconEl = /^s\d/.test(u.id) ? SCI_ICON_EL(u.icon, 34) : React.createElement("img", { src: unitArt || subjectPlanet || "images/home/planets/experiment-planet-v1.jpg", alt: "", style: { width: 54, height: 54, objectFit: "contain", filter: "drop-shadow(0 5px 6px rgba(38,50,112,.2))" } });
         return {
-          icon: u.icon, iconEl, tint: u.tint, title: u.title, sub: u.sub,
+          icon: u.icon, iconEl, tint: u.tint, title: u.title, sub: u.sub, displayCode: u.displayCode || "", showStart: u.kind !== "math-explore",
           pct: isLib ? 100 : isExperiment ? 0 : Math.round(round / 3 * 100),
           stars: isLib || isExperiment ? [] : [0, 1, 2].map((i) => ({ opacity: i < difficulty ? 1 : .28, gray: i < difficulty ? 0 : 1 })),
-          showMastery: !isExperiment && !isPhonics,
-          showStatus: !isExperiment && !isPhonics,
-          showProgress: !isExperiment && !isPhonics,
+          showMastery: u.kind !== "math-explore" && !isExperiment && !isPhonics,
+          showStatus: u.kind !== "math-explore" && !isExperiment && !isPhonics,
+          showProgress: u.kind !== "math-explore" && !isExperiment && !isPhonics,
           masteryMark: isLib ? "字庫" : isExperiment ? "" : masteryRoman(round),
           masteryBg: round ? "#e6f7ee" : "#fbfaff",
           masteryFg: round ? "#1d7a55" : "#b3a9d8",
@@ -11550,8 +11633,8 @@ class Component extends DCLogic {
           btnBg: atLimit ? "#ece9f5" : "linear-gradient(90deg,#7c5cff,#22c8d8)",
           btnFg: atLimit ? "#9a90c8" : "#fff",
           start: () => this.startUnit(u.id),
-          teachingLinks: s.subject === "math" ? ({ u45: ["frac-add"], u46: ["frac-sub"], u16: ["mul"], u6: ["mul"], u108: ["ten"], u14: ["add"], u20: ["add"], u15: ["sub"], u21: ["sub"], u5: ["add", "sub"], u37: ["add", "sub"], u9: ["division"] }[u.id] || []).map((lesson) => ({lesson, max: ["u14", "u15"].includes(u.id) ? 50 : 99, label: "先看教學 · " + ({ten:"湊十",add:"加法",sub:"減法",mul:"乘法","frac-add":"分數加法","frac-sub":"分數減法",division:"長除法"}[lesson])})) : [],
-          teachingClass: s.subject === "math" && ["u45","u46","u16","u6","u108","u14","u20","u15","u21","u5","u37","u9"].includes(u.id) ? "has-teaching" : "",
+          teachingLinks: s.subject === "math" ? (u.concept ? ["concept-" + u.id] : u.foundation ? ["foundation-" + u.id] : u.teaching ? [u.teaching] : ({ u105: ["geo-shapes"], u29: ["geo-shapes"], u31: ["geo-space"], u32: ["geo-space"], u54: ["geo-volume"], u55: ["capacity"], u45: ["frac-add"], u46: ["frac-sub"], u16: ["mul"], u6: ["mul"], u108: ["ten"], u14: ["add"], u20: ["add"], u15: ["sub"], u21: ["sub"], u5: ["add", "sub"], u37: ["add", "sub"], u9: ["division"] }[u.id] || [])).map((lesson) => ({lesson, max: ["u14", "u15"].includes(u.id) ? 50 : 99, label: u.foundation ? "先看教學" : "先看教學 · " + ({"geo-area":"面積","geo-shapes":"形狀與立體","geo-count":"數積木","geo-space":"空間","geo-volume":"體積","geo-capacity":"容積與容量",capacity:"容積與容量",ten:"湊十",add:"加法",sub:"減法",mul:"乘法","frac-add":"分數加法","frac-sub":"分數減法",division:"長除法"}[lesson])})) : [],
+          teachingClass: u.foundation || u.teaching ? "has-teaching" : s.subject === "math" && ["u105","u29","u31","u32","u54","u55","u45","u46","u16","u6","u108","u14","u20","u15","u21","u5","u37","u9"].includes(u.id) ? "has-teaching" : "",
           hasVideo: !!VIDEO_LIB[u.id],
           watchVideo: () => this.startVideo(u.id, "map"),
           hasLesson: ["u40", "u41", "u42", "u47", "u48", "u49", "u50", "u51", "u52", "u53", "u54", "u55", "u56", "u57", "u58", "u59", "u60", "u61", "u62", "s1", "s2", "s3", "s4", "s5", "s9", "s10", "s11", "s12", "s13", "s14", "s15", "s16", "s17", "s18"].indexOf(u.id) >= 0,
@@ -11567,6 +11650,7 @@ class Component extends DCLogic {
         };
       }),
 
+      libraryTitleReading: React.createElement("span", { className: "chinese-library-title-readings", "aria-hidden": true }, chineseReading("學", "ㄒㄩㄝˊ"), chineseReading("習", "ㄒㄧˊ"), chineseReading("庫", "ㄎㄨˋ")),
       libCount: libFiltered.length,
       libUnits: ["全部"].concat(this.unitNames().filter((u) => gradeWords.some((w) => w.u === u))).map((u) => ({
         label: u,
@@ -11576,14 +11660,14 @@ class Component extends DCLogic {
         border: s.libUnit === u ? "#35c98a" : "#ece7ff",
       })),
       libWords: libFiltered.map((w) => ({
-        char: w.c, zhuyin: w.z, word: w.w,
+        char: w.c, zhuyin: w.z, word: w.w, reading: chineseReading(w.c, w.z), meta: chineseWordMeta(w),
         border: p.favorites.indexOf(w.c) >= 0 ? "#ffb020" : "#f0ecff",
-        open: () => this.setState({ detailChar: w.c }),
+        open: () => { this.speakText(w.c + "。" + w.w); this.setState({ detailChar: w.c }); },
       })),
       hasWordDetail: !!detail,
       detail: detail ? {
-        char: detail.c, zhuyin: detail.z, word: detail.w, radical: detail.r, unit: detail.u,
-        speak: () => this.speakText(detail.w),
+        char: detail.c, zhuyin: detail.z, word: detail.w, radical: detail.r, unit: detail.u, reading: chineseReading(detail.c, detail.z), meta: chineseWordMeta(detail),
+        speak: () => this.speakText(detail.c + "。" + detail.w),
         favLabel: p.favorites.indexOf(detail.c) >= 0 ? "★ 已收藏" : "☆ 加入複習",
         fav: () => this.patch((pp) => ({ favorites: pp.favorites.indexOf(detail.c) >= 0 ? pp.favorites.filter((x) => x !== detail.c) : pp.favorites.concat(detail.c) })),
         close: () => this.setState({ detailChar: null }),
@@ -11708,6 +11792,9 @@ class Component extends DCLogic {
       figNumberBond: !!q && q.fig === "numberBond",
       numberBondTotal: q && q.fig === "numberBond" ? Array.from({ length: q.figData.total }, (_, i) => ({ key: i, image: "images/math-master/v1/objects/star-v1.png" })) : [],
       numberBondKnown: q && q.fig === "numberBond" ? Array.from({ length: q.figData.known }, (_, i) => ({ key: i, image: "images/math-master/v1/objects/star-v1.png" })) : [],
+      figFoundation: !!q && q.fig === "foundation",
+      foundationPicture: q && q.fig === "foundation" ? q.picture : "",
+      foundationAlt: q && q.fig === "foundation" ? q.stem : "",
       figTensOnes: !!q && q.fig === "tensOnes",
       tensRows: q && q.fig === "tensOnes" ? Array.from({ length: q.figData.tens }, (_, row) => ({ key: row, beads: Array.from({ length: 10 }, (_, bead) => ({ key: bead, image: ["images/math-master/v1/objects/bead-orange-v1.png", "images/math-master/v1/objects/bead-blue-v1.png", "images/math-master/v1/objects/bead-green-v1.png"][row % 3] })) })) : [],
       onesBeads: q && q.fig === "tensOnes" ? Array.from({ length: q.figData.ones }, (_, bead) => ({ key: bead, image: "images/math-master/v1/objects/bead-pink-v1.png" })) : [],

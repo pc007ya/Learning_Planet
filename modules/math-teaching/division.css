@@ -33,3 +33,5 @@
 .divisor-edit{width:100%;height:47px;padding:0 9px 0 0;text-align:right;font:700 28px ui-monospace,SFMono-Regular,Consolas,monospace}
 .dividend-edit{display:block;width:calc(var(--count)*var(--cell));height:47px;padding:0;text-align:left;text-indent:calc((var(--cell) - 1ch)/2);letter-spacing:calc(var(--cell) - 1ch);font:700 31px ui-monospace,SFMono-Regular,Consolas,monospace}
 @media(max-width:600px){.paper-top{align-items:flex-start;flex-wrap:wrap}.paper-controls{width:100%;justify-content:flex-end}.paper-title #equation{white-space:normal}}
+
+.symbol-control{font-size:25px;min-width:46px;min-height:46px;line-height:1}

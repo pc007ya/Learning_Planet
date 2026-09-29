@@ -2,3 +2,5 @@
 .mw .pieces .rod{display:grid;grid-template-rows:repeat(10,1fr);background:#388f9f;overflow:hidden}.mw .rod i{border-bottom:1px solid #d8f4e7;border-top:1px solid #235d70}.mw .answer button{flex-shrink:0;white-space:nowrap}
 .mw .three-boards{display:block;position:relative;min-height:240px}.mw-three{position:absolute;inset:0;overflow:hidden;border-radius:18px}.mw-three canvas{display:block;width:100%;height:100%}.scene-labels{position:absolute;top:8px;left:8px;right:8px;display:flex;justify-content:space-between;gap:10px;pointer-events:none;font-size:12px;color:#193c45}.scene-labels span{border-radius:9px;padding:6px 8px;background:#fffdf0dd}.mw .desk-bottom{flex-wrap:wrap}.mw .desk-bottom button{font-size:13px;padding:8px}.mw .three-boards+.desk-bottom .conservation{flex:1;min-width:180px}
 .mw .modes button[aria-pressed="true"]{background:#d8fbf2;color:#124f53;border-color:#8ce4cf}
+
+.mw .desk-symbol{font-size:25px;line-height:1;min-height:46px}.mw button svg{pointer-events:none;vertical-align:middle}
