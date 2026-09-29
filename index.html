@@ -5845,7 +5845,7 @@ class Component extends DCLogic {
         return Object.assign({}, student, { profile });
       }),
     }));
-    fetch("chinese-words.json").then((r) => r.json()).then((words) => {
+    fetch("chinese-words.json?v=20260929-metadata").then((r) => r.json()).then((words) => {
       this.setState({ words, vUnit: words.length ? words[0].u : "" });
     }).catch(() => {});
     Promise.all([1, 2, 3].map((grade) => fetch("data/english-words-grade" + grade + "-v2.json").then((r) => r.json())))
