@@ -18,9 +18,9 @@ const readings={};for(let i=0;i<entries.length;i+=2)readings[entries[i]]=entries
 const phrases={'分子':['ㄈㄣ','ㄗˇ'],'分母':['ㄈㄣ','ㄇㄨˇ'],'等分':['ㄉㄥˇ','ㄈㄣ'],'部分':['ㄅㄨˋ','ㄈㄣˋ'],'成為':['ㄔㄥˊ','ㄨㄟˊ'],'因為':['ㄧㄣ','ㄨㄟˋ'],'數一數':['ㄕㄨˇ','ㄧ','ㄕㄨˇ'],'再數':['ㄗㄞˋ','ㄕㄨˇ'],'數留下':['ㄕㄨˇ','ㄌㄧㄡˊ','ㄒㄧㄚˋ'],'數覆蓋':['ㄕㄨˇ','ㄈㄨˋ','ㄍㄞˋ'],'量長度':['ㄌㄧㄤˊ','ㄔㄤˊ','ㄉㄨˋ'],'重疊':['ㄔㄨㄥˊ','ㄉㄧㄝˊ'],'重新':['ㄔㄨㄥˊ','ㄒㄧㄣ'],'重來':['ㄔㄨㄥˊ','ㄌㄞˊ'],'相同':['ㄒㄧㄤ','ㄊㄨㄥˊ'],'長大':['ㄓㄤˇ','ㄉㄚˋ']};
 const phraseKeys=Object.keys(phrases).sort((a,b)=>b.length-a.length);
 export function readingTokens(text){const out=[];for(let i=0;i<text.length;){const phrase=phraseKeys.find(p=>text.startsWith(p,i));if(phrase){[...phrase].forEach((char,n)=>out.push({char,reading:phrases[phrase][n]}));i+=phrase.length;}else{const char=text[i++];out.push({char,reading:readings[char]||''});}}return out;}
-export function annotate(root){
+export function annotate(root,{includeControls=false}={}){
  annotateSvg(root);
- const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode()){const node=walker.currentNode,p=node.parentElement;if(!p||p.closest('svg,ruby,script,style,[data-action],.progress,small')||!node.textContent.trim())continue;nodes.push(node);}
+ const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode()){const node=walker.currentNode,p=node.parentElement;if(!p||p.closest(includeControls?'svg,ruby,script,style,.progress,small':'svg,ruby,script,style,[data-action],.progress,small')||!node.textContent.trim())continue;nodes.push(node);}
  for(const node of nodes){const fragment=document.createDocumentFragment();for(const {char,reading} of readingTokens(node.textContent)){if(!reading){fragment.append(document.createTextNode(char));continue;}const ruby=document.createElement('ruby'),rt=document.createElement('rt'),base=document.createElement('span');ruby.className='zhuyin-side';base.className='zhuyin-base';base.textContent=char;ruby.append(base);const tone=reading.match(/[ˊˇˋ˙]/)?.[0]||'';const sounds=document.createElement('span');sounds.className='zhuyin-sounds';for(const sound of reading.replace(/[ˊˇˋ˙]/g,'')){const glyph=document.createElement('span');glyph.textContent=sound;sounds.append(glyph);}rt.append(sounds);if(tone){const mark=document.createElement('span');mark.className=tone==='˙'?'zhuyin-tone neutral':'zhuyin-tone';mark.textContent=tone;rt.append(mark);}rt.setAttribute('aria-hidden','true');ruby.append(rt);fragment.append(ruby);}node.replaceWith(fragment);}
 }
 
@@ -45,4 +45,10 @@ function annotateSvg(root){
    if(tone)span(tone,tone==='˙'?rx:rx+small*.95,tone==='˙'?top-small*.8:y-size*.29,small).setAttribute('aria-hidden','true');
   }
  }
+}
+
+// Lessons may register reviewed subject vocabulary without replacing existing readings.
+export function extendReviewedReadings(extra, extraPhrases = {}) {
+ Object.assign(readings, extra); Object.assign(phrases, extraPhrases);
+ phraseKeys.splice(0, phraseKeys.length, ...Object.keys(phrases).sort((a,b)=>b.length-a.length));
 }

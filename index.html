@@ -19,6 +19,7 @@
 <script type="module" src="./modules/math-image-guard.mjs"></script>
 <script type="module" src="./modules/story-launch.mjs"></script>
 <script type="module" src="./modules/math-teaching/launch.mjs"></script>
+<script type="module" src="./modules/gifted-exam/app.mjs?v=auto-reasoning-1"></script>
 <script type="module" src="./modules/earth-lab/launch.mjs"></script>
 <script type="module" src="./modules/math-question-engine/math-question-engine-v1.js?v=20260909-concept-engine-v1"></script>
 <script type="module" src="./src/firebase-config.js"></script>
@@ -1985,6 +1986,9 @@
     <sc-if value="{{ isWeekly }}" hint-placeholder-val="{{ false }}">
       <div data-screen-label="週考設定" style="max-width:880px;margin:0 auto;display:grid;gap:16px">
         <div class="weekly-return-bar"><button class="weekly-back-button" onClick="{{ goMap }}"><b>←</b><span>返回學習星球</span></button></div>
+        <div class="bar" style="display:flex;gap:10px"><button onClick="{{ showWeekly }}" aria-pressed="{{ isWeeklyNormal }}" style="border:1px solid #7d96c1;border-radius:14px;padding:12px 18px;background:{{ weeklyModeBg }};color:{{ weeklyModeFg }};font:inherit;font-weight:900;cursor:pointer">每週考卷</button><button onClick="{{ showMock }}" aria-pressed="{{ isWeeklyMock }}" style="border:1px solid #7d96c1;border-radius:14px;padding:12px 18px;background:{{ mockModeBg }};color:{{ mockModeFg }};font:inherit;font-weight:900;cursor:pointer">模擬考</button></div>
+        <sc-if value="{{ isWeeklyMock }}" hint-placeholder-val="{{ false }}"><div>{{ weeklyMockPanel }}</div></sc-if>
+        <sc-if value="{{ isWeeklyNormal }}" hint-placeholder-val="{{ true }}">
         <section style="background:linear-gradient(145deg,#2b1f57,#5b3fe0);border-radius:30px;padding:26px;color:#fff;box-shadow:0 20px 42px rgba(43,31,87,.2)">
           <p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.2em;color:#8ee9f2">WEEKLY EXAM · {{ weeklyKey }}</p>
           <h2 style="margin:8px 0 6px;font-size:30px;font-weight:900">📝 每週考卷</h2>
@@ -2001,6 +2005,7 @@
           <div class="weekly-preflight-stats"><div class="weekly-preflight-stat time"><small>預計時間</small><strong>{{ weeklyMinutes }} 分鐘</strong></div><div class="weekly-preflight-stat xp"><small>最高學習經驗</small><strong>＋{{ weeklyMaxXp }} XP</strong></div><div class="weekly-preflight-stat coin"><small>最高星星幣</small><strong>＋{{ weeklyMaxCoins }} <img class="weekly-preflight-coin" src="images/math-master/v1/objects/coin-v1.png" alt="星星幣"></strong></div></div>
           <div style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap"><span style="font-size:14px;font-weight:900;color:#7c74a8">共 {{ weeklyTotal }} 題 · 每題 {{ weeklyTime }} 秒</span><button onClick="{{ startWeekly }}" style="border:0;border-radius:18px;padding:14px 26px;background:{{ weeklyBtnBg }};color:{{ weeklyBtnFg }};font-family:inherit;font-size:16px;font-weight:900;cursor:pointer">{{ weeklyBtnLabel }}</button></div>
         </section>
+        </sc-if>
       </div>
     </sc-if>
 
@@ -5741,7 +5746,7 @@ class Component extends DCLogic {
     gain: { xp: 0, coins: 0 },
     resultAnimation: { correct: 0, score: 0, xp: 0, coins: 0, totalXp: 0, ready: false },
     resultStartXp: 0, resultFinalXp: 0, resultLevelUp: false,
-    assigned: "u2", weeklyConfig: readWeeklyConfig(), weeklyTeacherGrade: 1,
+    assigned: "u2", weeklyConfig: readWeeklyConfig(), weeklyTeacherGrade: 1, weeklyMode: "weekly",
     examQs: [], examIndex: 0, examAnswers: [], examStartedAt: 0, examQuestionStartedAt: 0, examReview: [], examScore: 0,
     writingWord: null, writingFeedback: "沿著淡色字描寫，再按辨識。", writingFeedbackGood: false,
     junyiBank: [],
@@ -10977,7 +10982,7 @@ class Component extends DCLogic {
       dissolveRodPointerDown: (ev) => this.dissolveRodPointerDown(ev), dissolveRodPointerMove: (ev) => this.dissolveRodPointerMove(ev), dissolveRodPointerUp: (ev) => this.dissolveRodPointerUp(ev),
       dissolveKnobPointerDown: (ev) => this.dissolveKnobPointerDown(ev), dissolveKnobPointerMove: (ev) => this.dissolveKnobPointerMove(ev), dissolveKnobPointerUp: (ev) => this.dissolveKnobPointerUp(ev),
       dissolveCool: () => this.coolDissolveLab(), dissolveReset: () => this.resetDissolveLab(), dissolvePractice: () => this.startDissolvePractice(),
-      isQuiz: s.screen === "quiz", isResult: s.screen === "result", isWriting: s.screen === "writing", isWeekly: s.screen === "weekly", isWeeklyQuiz: s.screen === "weeklyQuiz", isWeeklyResult: s.screen === "weeklyResult", isShop: s.screen === "shop", isGacha: s.screen === "gacha", isCollection: s.screen === "collection",
+      isQuiz: s.screen === "quiz", isResult: s.screen === "result", isWriting: s.screen === "writing", isWeekly: s.screen === "weekly", isWeeklyNormal: s.weeklyMode !== "mock", isWeeklyMock: s.weeklyMode === "mock", showWeekly: () => this.setState({ weeklyMode: "weekly" }), showMock: () => this.setState({ weeklyMode: "mock" }), weeklyModeBg: s.weeklyMode !== "mock" ? "#b6f2e4" : "#263c58", weeklyModeFg: s.weeklyMode !== "mock" ? "#124a50" : "#fff", mockModeBg: s.weeklyMode === "mock" ? "#b6f2e4" : "#263c58", mockModeFg: s.weeklyMode === "mock" ? "#124a50" : "#fff", weeklyMockPanel: React.createElement("lp-mock-exam", { "learner-id": String(s.currentId || "") }), isWeeklyQuiz: s.screen === "weeklyQuiz", isWeeklyResult: s.screen === "weeklyResult", isShop: s.screen === "shop", isGacha: s.screen === "gacha", isCollection: s.screen === "collection",
       isGeoLesson: s.screen === "geoLesson",
       geoLessonTitle: s.geoLesson ? GEO_LESSON_TITLES[s.geoLesson.topic] || "幾何教學" : "",
       geoLessonTrail: s.geoLesson ? s.geoLesson.script.slice(0, s.geoLesson.revealIndex + 1).map((beat, index, rows) => ({ icon: beat.final ? "✅" : "📐", text: beat.narrate, bg: beat.final ? "#e6f7ee" : "#fbfaff", border: beat.final ? "#35c98a" : index === rows.length - 1 ? "#7c5cff" : "#ece7ff" })) : [],

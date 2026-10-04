@@ -1,0 +1,1686 @@
+{
+  "version": 1,
+  "categories": {
+    "operations": {
+      "title": "運算與位值",
+      "lesson": "math-teaching.html?lesson=sub",
+      "unit": "3-02、3-07、3-17",
+      "practice": "先畫十位、百位，再用逆運算檢查。"
+    },
+    "patterns": {
+      "title": "規律與數量推理",
+      "lesson": "math-concepts.html?unit=u119",
+      "unit": "3-18",
+      "practice": "寫出相鄰兩項的變化，再檢查整列。"
+    },
+    "measurement": {
+      "title": "單位與測量",
+      "lesson": "math-concepts.html?unit=u120",
+      "unit": "3-03、3-13、3-19",
+      "practice": "先統一單位，再比較或計算。"
+    },
+    "geometry": {
+      "title": "圖形與圓",
+      "lesson": "math-concepts.html?unit=u121",
+      "unit": "3-08、3-21",
+      "practice": "旋轉圖形不會改變角；半徑是直徑的一半。"
+    },
+    "fractions": {
+      "title": "分數與整體",
+      "lesson": "math-fractions.html?op=add&same=1",
+      "unit": "3-14～3-16",
+      "practice": "先找一個完整的整體，再看分成幾等份。"
+    },
+    "reading": {
+      "title": "讀題與多步驟",
+      "lesson": "math-concepts.html?unit=u118",
+      "unit": "2-21、3-24",
+      "practice": "圈出要問的量，刪掉用不到的數字，分兩步算。"
+    },
+    "estimation": {
+      "title": "估算與檢驗",
+      "lesson": "math-concepts.html?unit=u131",
+      "unit": "4-10（進階）",
+      "practice": "先用整十、整百估上下界，再檢驗答案。"
+    },
+    "space": {
+      "title": "空間與觀察",
+      "lesson": "math-geometry.html?mode=space",
+      "unit": "空間教學桌",
+      "practice": "從正面、側面、俯視看同一堆積木；逐柱數。"
+    },
+    "logic": {
+      "title": "條件與邏輯",
+      "lesson": "math-concepts.html?unit=u119",
+      "unit": "3-18（基礎）",
+      "practice": "畫關係箭頭或小表格，每個條件都要滿足。"
+    }
+  },
+  "forms": [
+    {
+      "id": "reasoning-a",
+      "title": "推理練習 A",
+      "subtitle": "起點診斷 · 每次換題",
+      "minutes": 25,
+      "source": "generated",
+      "questionIds": [
+        "rA-01",
+        "rA-02",
+        "rA-03",
+        "rA-04",
+        "rA-05",
+        "rA-06",
+        "rA-07",
+        "rA-08",
+        "rA-09",
+        "rA-10",
+        "rA-11",
+        "rA-12",
+        "rA-13",
+        "rA-14",
+        "rA-15",
+        "rA-16"
+      ],
+      "generator": "reasoning",
+      "generatedVersion": 1
+    },
+    {
+      "id": "reasoning-b",
+      "title": "推理練習 B",
+      "subtitle": "中段檢查 · 每次換題",
+      "minutes": 25,
+      "source": "generated",
+      "questionIds": [
+        "rB-01",
+        "rB-02",
+        "rB-03",
+        "rB-04",
+        "rB-05",
+        "rB-06",
+        "rB-07",
+        "rB-08",
+        "rB-09",
+        "rB-10",
+        "rB-11",
+        "rB-12",
+        "rB-13",
+        "rB-14",
+        "rB-15",
+        "rB-16"
+      ],
+      "generator": "reasoning",
+      "generatedVersion": 1
+    },
+    {
+      "id": "reasoning-c",
+      "title": "推理練習 C",
+      "subtitle": "綜合挑戰 · 每次換題",
+      "minutes": 25,
+      "source": "generated",
+      "questionIds": [
+        "rC-01",
+        "rC-02",
+        "rC-03",
+        "rC-04",
+        "rC-05",
+        "rC-06",
+        "rC-07",
+        "rC-08",
+        "rC-09",
+        "rC-10",
+        "rC-11",
+        "rC-12",
+        "rC-13",
+        "rC-14",
+        "rC-15",
+        "rC-16"
+      ],
+      "generator": "reasoning",
+      "generatedVersion": 1
+    },
+    {
+      "id": "history-115",
+      "title": "115 年數學學力檢測",
+      "subtitle": "三年級基礎診斷 · 原題重排",
+      "minutes": 40,
+      "source": "history115",
+      "questionIds": [
+        "h115-01",
+        "h115-02",
+        "h115-03",
+        "h115-04",
+        "h115-05",
+        "h115-06",
+        "h115-07",
+        "h115-08",
+        "h115-09",
+        "h115-10",
+        "h115-11",
+        "h115-12",
+        "h115-13",
+        "h115-14",
+        "h115-15",
+        "h115-16",
+        "h115-17",
+        "h115-18",
+        "h115-19",
+        "h115-20",
+        "h115-21",
+        "h115-22",
+        "h115-23",
+        "h115-24",
+        "h115-25"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "h115-01",
+      "stem": "71 根糖，每 9 根裝一袋。71 ÷ 9 ＝ 7 餘 8，哪個說法正確？",
+      "options": [
+        "8 袋，剩 7 根",
+        "7 袋，剩 8 根",
+        "每袋 8 根，9 袋剩 7 根",
+        "每袋 7 根，9 袋剩 8 根"
+      ],
+      "correct": 1,
+      "category": "operations",
+      "explain": "9 × 7 ＋ 8 ＝ 71。9 是每袋根數，7 是袋數，8 是剩下的根數。",
+      "check": "商與餘數代表不同的量，餘數要比除數小。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-02",
+      "stem": "圓圈按規則排列。被遮住的 4 個圓圈是哪一組？",
+      "options": [
+        "● ● ○ ○",
+        "● ○ ● ●",
+        "● ○ ○ ●",
+        "○ ○ ● ○"
+      ],
+      "correct": 0,
+      "category": "patterns",
+      "explain": "從左到右以「●○●●○○」六個一組重複。遮住的位置正好是第 3～6 個，所以是 ●●○○。",
+      "check": "先找完整重複單位，別只看遮住位置的前一個。",
+      "visual": {
+        "kind": "circles",
+        "tokens": "●○●●○○●○●●○○●○????●○"
+      },
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-03",
+      "stem": "忠孝國小有 5032 位學生，比仁愛國小多 1754 位。仁愛國小有幾位？",
+      "options": [
+        "6786 位",
+        "3378 位",
+        "3278 位",
+        "2378 位"
+      ],
+      "correct": 2,
+      "category": "reading",
+      "explain": "仁愛比較少：5032 − 1754 ＝ 3278。反查 3278 ＋ 1754 ＝ 5032。",
+      "check": "「比……多」要先確認問題在問誰，不能看到多就加。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-04",
+      "stem": "把 1 公升 650 毫升的水倒入容量 1250 毫升的空瓶，會溢出多少？",
+      "options": [
+        "400 毫升",
+        "900 毫升",
+        "2900 毫升",
+        "1 公升 40 毫升"
+      ],
+      "correct": 0,
+      "category": "measurement",
+      "explain": "1 公升 650 毫升 ＝ 1650 毫升。1650 − 1250 ＝ 400 毫升。",
+      "check": "水量和容量先換成相同單位。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-05",
+      "stem": "707 ÷ 6 的直式計算，哪個說法錯誤？",
+      "options": [
+        "第一層 117 是商",
+        "第二層 6 是 6 個百",
+        "第三層 6 是 6 個十",
+        "第四層 42 是餘數"
+      ],
+      "correct": 3,
+      "category": "operations",
+      "explain": "707 ÷ 6 ＝ 117 餘 5。最後取下 47，減掉 42，才剩 5。42 是 6 × 7 的乘積。",
+      "check": "問的是錯誤說法；最後的乘積不等於最後的餘數。",
+      "visual": {
+        "kind": "division"
+      },
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-06",
+      "stem": "5 人平均分攤 397 元，哪個金額最接近每人應付的錢？",
+      "options": [
+        "60 元",
+        "70 元",
+        "80 元",
+        "90 元"
+      ],
+      "correct": 2,
+      "category": "estimation",
+      "explain": "397 接近 400，400 ÷ 5 ＝ 80。實際是 79.4 元，最接近 80。",
+      "check": "先估算，不必做很長的計算。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-07",
+      "stem": "甲、乙、丙都是正方形，圖中標記的角，哪個最大？",
+      "options": [
+        "甲",
+        "乙",
+        "丙",
+        "一樣大"
+      ],
+      "correct": 3,
+      "category": "geometry",
+      "explain": "每個正方形的四個角都是直角。大小、方向改變，角仍是 90 度。",
+      "check": "角的大小看張開程度，不看邊長或圖形方向。",
+      "visual": {
+        "kind": "squares"
+      },
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-08",
+      "stem": "3 條蛋糕一樣大。甲拿 1 條，乙拿 8/8 條，丙拿 4/4 條。誰最多？",
+      "options": [
+        "甲",
+        "乙",
+        "丙",
+        "一樣多"
+      ],
+      "correct": 3,
+      "category": "fractions",
+      "explain": "8/8 和 4/4 都是完整的 1 條，所以三人一樣多。",
+      "check": "分子等於分母時，正好是 1 個整體。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-09",
+      "stem": "帽子上的數按規律排隊。有一人跑錯組，是幾號？",
+      "options": [
+        "55",
+        "67",
+        "69",
+        "76"
+      ],
+      "correct": 1,
+      "category": "patterns",
+      "explain": "48、55、62、69、76、83、90 都每次加 7。67 不符合這個規律。",
+      "check": "先排除多出的人，再確認整列仍符合規則。",
+      "visual": {
+        "kind": "sequence",
+        "values": [
+          48,
+          55,
+          62,
+          67,
+          69,
+          76,
+          83,
+          90
+        ]
+      },
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-10",
+      "stem": "每輛車最多坐 43 人。3 輛車各坐 36 人，每人發 2 瓶水，共發幾瓶？",
+      "options": [
+        "108 瓶",
+        "129 瓶",
+        "216 瓶",
+        "258 瓶"
+      ],
+      "correct": 2,
+      "category": "reading",
+      "explain": "實際人數是 36 × 3 ＝ 108，水是 108 × 2 ＝ 216 瓶。43 是容量，不是實際人數。",
+      "check": "把與所求無關的容量數字刪掉。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-11",
+      "stem": "青蛙從 A 向左跳 9 格到 32，再向右跳 12 格到 B。A 與 B 相距幾格？",
+      "options": [
+        "29 格",
+        "21 格",
+        "3 格",
+        "11 格"
+      ],
+      "correct": 2,
+      "category": "reading",
+      "explain": "A ＝ 32 ＋ 9 ＝ 41；B ＝ 32 ＋ 12 ＝ 44；44 − 41 ＝ 3。也可算向右淨移動 12 − 9。",
+      "check": "折返路程 21 格，不是起點到終點的距離。",
+      "visual": {
+        "kind": "jumps"
+      },
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-12",
+      "stem": "關於 3 公分與 27 毫米，哪個說法錯誤？",
+      "options": [
+        "3 公分比 27 毫米短",
+        "27 毫米是 2 公分 7 毫米",
+        "相差 3 毫米",
+        "接起來長 5 公分 7 毫米"
+      ],
+      "correct": 0,
+      "category": "measurement",
+      "explain": "3 公分 ＝ 30 毫米，比 27 毫米長 3 毫米。第一個說法錯誤。",
+      "check": "不能直接比較不同單位的數字 3 與 27。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-13",
+      "stem": "關於圓，哪個說法正確？",
+      "options": [
+        "半徑 4 公分，直徑 2 公分",
+        "直徑 4 公分比半徑 2 公分的圓周長大",
+        "圓規打開 4 公分，可畫直徑 8 公分的圓",
+        "圓規打開 3 公分，比直徑 6 公分的圓周長小"
+      ],
+      "correct": 2,
+      "category": "geometry",
+      "explain": "圓規針尖到筆尖的距離是半徑。半徑 4，直徑 4 × 2 ＝ 8。其他兩組圓其實一樣大。",
+      "check": "直徑 ＝ 2 × 半徑。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-14",
+      "stem": "乘法直式中，被遮住的數字是多少？",
+      "options": [
+        "1",
+        "6",
+        "3",
+        "8"
+      ],
+      "correct": 3,
+      "category": "operations",
+      "explain": "2748 ÷ 4 ＝ 687，所以十位是 8。檢查 687 × 4 ＝ 2748。",
+      "check": "也可從個位開始算：7 × 4 ＝ 28，要進 2。",
+      "visual": {
+        "kind": "hiddenmul"
+      },
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-15",
+      "stem": "果凍每顆 7 元，買滿 20 顆送 2 顆。用 175 元，最多拿到幾顆？",
+      "options": [
+        "18 顆",
+        "22 顆",
+        "25 顆",
+        "27 顆"
+      ],
+      "correct": 3,
+      "category": "reading",
+      "explain": "175 ÷ 7 ＝ 25 顆，已滿 20 顆，再加贈 2 顆，共 27 顆。",
+      "check": "花錢買的顆數與拿到的總顆數不同。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-16",
+      "stem": "596 × 4 被算成 2584。甲：答案應小於 600 × 4，所以錯。乙：大於 500 × 4，所以一定對。丙：個位是 4，所以一定對。誰說法正確？",
+      "options": [
+        "只有甲",
+        "只有乙",
+        "乙、丙",
+        "甲、乙、丙"
+      ],
+      "correct": 0,
+      "category": "estimation",
+      "explain": "596 小於 600，所以乘積一定小於 2400。2584 超過上界，必定錯。大於 2000 或個位相同都不足以證明整個答案正確。",
+      "check": "單一條件吻合，只能說可能，不代表必然。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-17",
+      "stem": "每格邊長 1 公分。甲：畫頭髮圓規開 10 公分。乙：臉半徑 3 公分。丙：畫嘴巴圓規開 1 公分。誰正確？",
+      "options": [
+        "甲、乙",
+        "甲、丙",
+        "乙、丙",
+        "甲、乙、丙"
+      ],
+      "correct": 2,
+      "category": "geometry",
+      "explain": "頭髮直徑 10，圓規應開半徑 5。臉直徑 6，半徑 3。嘴巴直徑 2，半徑 1。乙、丙正確。",
+      "check": "先數格得到直徑，再除以 2。",
+      "visual": {
+        "kind": "face"
+      },
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-18",
+      "stem": "用 2、3、7、9 各一次，排出最接近 3000 的四位數。與 3000 相差多少？",
+      "options": [
+        "27",
+        "279",
+        "621",
+        "972"
+      ],
+      "correct": 0,
+      "category": "operations",
+      "explain": "3000 以下最大的排法是 2973，差 27；3000 以上最小是 3279，差 279。比較後選 27。",
+      "check": "兩側都找最近的候選，不能只看千位。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-19",
+      "stem": "甲 ÷ 6 ＝ 9 餘乙。乙最大是多少？",
+      "options": [
+        "5",
+        "7",
+        "8",
+        "10"
+      ],
+      "correct": 0,
+      "category": "operations",
+      "explain": "整數除法的餘數必須比除數 6 小，所以最多 5。",
+      "check": "餘數若到 6，還能再分一組。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-20",
+      "stem": "10 枚 10 元硬幣疊起來，大約有多高？",
+      "options": [
+        "2 毫米",
+        "2 公分",
+        "10 公分",
+        "20 公分"
+      ],
+      "correct": 1,
+      "category": "measurement",
+      "explain": "單枚硬幣厚度約 2 毫米，10 枚約 20 毫米，也就是 2 公分。",
+      "check": "估量要從熟悉的一小份開始。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-21",
+      "stem": "7 個千、10 個百，拿走 4 個千、6 個百、7 個一。剩下各位數字的和是多少？",
+      "options": [
+        "196",
+        "18",
+        "17",
+        "10"
+      ],
+      "correct": 1,
+      "category": "operations",
+      "explain": "原來 7000 ＋ 1000 ＝ 8000，拿走 4607，剩 3393。位數和 3 ＋ 3 ＋ 9 ＋ 3 ＝ 18。",
+      "check": "問的是各位數字的和，不是剩下的數值。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-22",
+      "stem": "看天平。圓形寶石重 2 公斤 60 公克，方形重 3 公斤 90 公克。甲：心形可能重 340 公克。乙：可能重 2800 公克。誰正確？",
+      "options": [
+        "只有甲",
+        "只有乙",
+        "甲、乙",
+        "都不正確"
+      ],
+      "correct": 1,
+      "category": "measurement",
+      "explain": "心形比圓形重、比方形輕，所以 2060 ＜ 心形重量 ＜ 3090。2800 在範圍內，340 不在。",
+      "check": "天平低的一端較重；先把公斤換成公克。",
+      "visual": {
+        "kind": "balance"
+      },
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-23",
+      "stem": "有 4 根 10 公分、6 根 7 公分、2 根 3 公分竹籤。每邊用一根，不裁切也不接長，排成 3 個四邊形。哪種不可能？",
+      "options": [
+        "1 長方形、2 正方形",
+        "2 長方形、1 正方形",
+        "3 正方形",
+        "3 長方形"
+      ],
+      "correct": 2,
+      "category": "geometry",
+      "explain": "正方形每個要四根等長竹籤。10 公分可做 1 個，7 公分最多做 1 個，3 公分不足 4 根，無法做第三個。其餘組合可用成對等長邊排出。",
+      "check": "逐種長度檢查材料，不只看總共 12 根。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-24",
+      "stem": "繩子比 1 公尺長，平分 6 段，拿其中 5 段。哪個說法正確？",
+      "options": [
+        "5/6 條等於 5/6 公尺",
+        "5/6 條比 5/6 公尺長",
+        "5 段一定長 5/6 公尺",
+        "5 段是 6/5 條"
+      ],
+      "correct": 1,
+      "category": "fractions",
+      "explain": "一整條大於 1 公尺，各取其 5/6，前者仍較長。5 段是 5/6 條，不能直接當成 5/6 公尺。",
+      "check": "「條」表示這條繩子的比例；「公尺」表示固定長度。",
+      "visual": null,
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "h115-25",
+      "stem": "甲店每包 3 枝筆，售價 31□ 元；乙店每包 6 枝，630 元。買甲店 2 包比較便宜，□ 最大是多少？",
+      "options": [
+        "5",
+        "2",
+        "9",
+        "4"
+      ],
+      "correct": 3,
+      "category": "logic",
+      "explain": "2 包都共 6 枝。甲每包須小於 630 ÷ 2 ＝ 315 元，所以最多 314 元，□ ＝ 4。315 元是同價，不算便宜。",
+      "check": "「比較便宜」是嚴格小於；邊界不能算進去。",
+      "visual": {
+        "kind": "prices"
+      },
+      "source": "history115",
+      "level": "三年級診斷",
+      "seconds": 120
+    },
+    {
+      "id": "rA-01",
+      "stem": "依照規律，下一個數是？",
+      "options": [
+        "16",
+        "17",
+        "19",
+        "15"
+      ],
+      "correct": 0,
+      "category": "patterns",
+      "explain": "每次加 3，所以 13 ＋ 3 ＝ 16。",
+      "check": "把每一段差都寫出來。",
+      "visual": {
+        "kind": "sequence",
+        "values": [
+          4,
+          7,
+          10,
+          13,
+          "?"
+        ]
+      },
+      "source": "original",
+      "level": "基礎",
+      "seconds": 120
+    },
+    {
+      "id": "rA-02",
+      "stem": "兩種變化輪流出現，下一個數是？",
+      "options": [
+        "13",
+        "10",
+        "11",
+        "12"
+      ],
+      "correct": 2,
+      "category": "patterns",
+      "explain": "依次加 1、加 3，重複交替。下一步加 1，得到 11。",
+      "check": "別只用最後一段的變化。",
+      "visual": {
+        "kind": "sequence",
+        "values": [
+          2,
+          3,
+          6,
+          7,
+          10,
+          "?"
+        ]
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rA-03",
+      "stem": "每盒放 3 顆星星，共有 4 盒。再拿走 2 顆，共剩幾顆？",
+      "options": [
+        "12",
+        "11",
+        "14",
+        "10"
+      ],
+      "correct": 3,
+      "category": "patterns",
+      "explain": "3 × 4 − 2 ＝ 10。",
+      "check": "先求所有盒子，再扣掉拿走的。",
+      "visual": {
+        "kind": "groups",
+        "groups": 4,
+        "count": 3,
+        "asset": "star"
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rA-04",
+      "stem": "19 人搭車，每車最多 6 人。至少需要幾輛車？",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": 1,
+      "category": "patterns",
+      "explain": "3 輛最多坐 18 人，不夠；4 輛可坐 24 人。",
+      "check": "有剩下的人，也需要一輛車。",
+      "visual": null,
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rA-05",
+      "stem": "積木只排一列，每柱的高度如圖。共有幾塊？",
+      "options": [
+        "5",
+        "7",
+        "6",
+        "9"
+      ],
+      "correct": 2,
+      "category": "space",
+      "explain": "三柱高度相加：1 ＋ 3 ＋ 2 ＝ 6。",
+      "check": "每柱從底到頂數，避免只數看到的面。",
+      "visual": {
+        "kind": "columns",
+        "heights": [
+          1,
+          3,
+          2
+        ]
+      },
+      "source": "original",
+      "level": "基礎",
+      "seconds": 120
+    },
+    {
+      "id": "rA-06",
+      "stem": "排滿的積木，長 2 塊、寬 2 塊、高 2 塊。一共幾塊？",
+      "options": [
+        "8",
+        "4",
+        "10",
+        "7"
+      ],
+      "correct": 0,
+      "category": "space",
+      "explain": "一層 2 × 2 ＝ 4 塊，共 2 層，所以 8 塊。",
+      "check": "後面與底下看不到的，也要算。",
+      "visual": {
+        "kind": "block",
+        "x": 2,
+        "y": 2,
+        "z": 2
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rA-07",
+      "stem": "箭頭每次向右轉四分之一圈，下一個方向是？",
+      "options": [
+        "←",
+        "↑",
+        "→",
+        "↓"
+      ],
+      "correct": 1,
+      "category": "space",
+      "explain": "↑ → → → ↓ → ←，再轉一次回到 ↑。",
+      "check": "四次四分之一圈正好轉完一圈。",
+      "visual": {
+        "kind": "sequence",
+        "values": [
+          "↑",
+          "→",
+          "↓",
+          "←",
+          "?"
+        ]
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rA-08",
+      "stem": "左邊圖形照鏡子，右邊應是哪一個？",
+      "options": [
+        "↗",
+        "↘",
+        "↙",
+        "↖"
+      ],
+      "correct": 3,
+      "category": "space",
+      "explain": "左右鏡射會交換左與右，上下位置不變，所以 ↗ 變成 ↖。",
+      "check": "照鏡子和旋轉是不同變化。",
+      "visual": {
+        "kind": "mirror",
+        "arrow": "↗"
+      },
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rA-09",
+      "stem": "小安比小白高，小白比小青高。誰最高？",
+      "options": [
+        "小青",
+        "小白",
+        "小安",
+        "無法知道"
+      ],
+      "correct": 2,
+      "category": "logic",
+      "explain": "小安 ＞ 小白 ＞ 小青，所以小安最高。",
+      "check": "把兩個條件串成一條關係。",
+      "visual": null,
+      "source": "original",
+      "level": "基礎",
+      "seconds": 120
+    },
+    {
+      "id": "rA-10",
+      "stem": "有紅、藍、綠三張卡。紅不在中間，綠在紅的右邊，藍不是最右邊。左到右怎麼排？",
+      "options": [
+        "紅、藍、綠",
+        "藍、綠、紅",
+        "綠、紅、藍",
+        "紅、綠、藍"
+      ],
+      "correct": 0,
+      "category": "logic",
+      "explain": "紅不能在中間，又必須在綠左邊，只能在最左；藍不能最右，只能在中間。",
+      "check": "把每個條件都檢查一次。",
+      "visual": null,
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rA-11",
+      "stem": "天平平衡：2 顆蘋果和 1 顆星星一樣重。每顆蘋果重 2 個單位，1 顆星星多重？",
+      "options": [
+        "2",
+        "3",
+        "5",
+        "4"
+      ],
+      "correct": 3,
+      "category": "logic",
+      "explain": "兩顆蘋果重 2 ＋ 2 ＝ 4，星星也重 4。",
+      "check": "先看平衡的兩邊各有什麼。",
+      "visual": {
+        "kind": "equalbalance",
+        "weight": 2
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rA-12",
+      "stem": "袋子只有紅、藍這 2 種球。閉眼拿球，至少拿幾顆，才能保證有 2 顆同色？",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct": 1,
+      "category": "logic",
+      "explain": "前 2 顆可能各一種色；第 3 顆一定和其中一顆同色。",
+      "check": "「保證」要考慮最不利的拿法。",
+      "visual": null,
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rA-13",
+      "stem": "「鳥：天空」和「魚：？」表示相同關係。應選哪個？",
+      "options": [
+        "水中",
+        "翅膀",
+        "魚鰭",
+        "樹上"
+      ],
+      "correct": 0,
+      "category": "reading",
+      "explain": "前一組是動物與生活環境，所以選水中。",
+      "check": "找相同的關係，而不是只挑相關的詞。",
+      "visual": null,
+      "source": "original",
+      "level": "基礎",
+      "seconds": 120
+    },
+    {
+      "id": "rA-14",
+      "stem": "規則是：有星星的卡片，背面一定是紅色。哪張一定違反規則？",
+      "options": [
+        "星星／紅色",
+        "圓形／紅色",
+        "圓形／藍色",
+        "星星／藍色"
+      ],
+      "correct": 3,
+      "category": "reading",
+      "explain": "有星星卻是藍色，直接違反規則。規則沒有說紅色卡都必須有星星。",
+      "check": "「如果」的條件不能任意倒過來。",
+      "visual": null,
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rA-15",
+      "stem": "小安有 32 顆蘋果，比小白多 7 顆。小白有幾顆？",
+      "options": [
+        "39",
+        "25",
+        "26",
+        "32"
+      ],
+      "correct": 1,
+      "category": "reading",
+      "explain": "小白較少，用 32 − 7 ＝ 25。",
+      "check": "先分清比較多的是誰。",
+      "visual": {
+        "kind": "compare",
+        "large": 32,
+        "delta": 7
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rA-16",
+      "stem": "教室有 30 張椅子。今天坐了 3 桌，每桌 4 人，每人領 2 張卡。共領幾張？",
+      "options": [
+        "60",
+        "24",
+        "12",
+        "26"
+      ],
+      "correct": 1,
+      "category": "reading",
+      "explain": "今天共有 3 × 4 ＝ 12 人，再乘 2 張，得 24 張。",
+      "check": "椅子總數不是今天的人數。",
+      "visual": null,
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rB-01",
+      "stem": "依照規律，下一個數是？",
+      "options": [
+        "21",
+        "22",
+        "25",
+        "20"
+      ],
+      "correct": 0,
+      "category": "patterns",
+      "explain": "每次加 4，所以 17 ＋ 4 ＝ 21。",
+      "check": "把每一段差都寫出來。",
+      "visual": {
+        "kind": "sequence",
+        "values": [
+          5,
+          9,
+          13,
+          17,
+          "?"
+        ]
+      },
+      "source": "original",
+      "level": "基礎",
+      "seconds": 120
+    },
+    {
+      "id": "rB-02",
+      "stem": "兩種變化輪流出現，下一個數是？",
+      "options": [
+        "14",
+        "11",
+        "12",
+        "13"
+      ],
+      "correct": 2,
+      "category": "patterns",
+      "explain": "依次加 1、加 3，重複交替。下一步加 1，得到 12。",
+      "check": "別只用最後一段的變化。",
+      "visual": {
+        "kind": "sequence",
+        "values": [
+          3,
+          4,
+          7,
+          8,
+          11,
+          "?"
+        ]
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rB-03",
+      "stem": "每盒放 4 顆星星，共有 5 盒。再拿走 2 顆，共剩幾顆？",
+      "options": [
+        "20",
+        "19",
+        "22",
+        "18"
+      ],
+      "correct": 3,
+      "category": "patterns",
+      "explain": "4 × 5 − 2 ＝ 18。",
+      "check": "先求所有盒子，再扣掉拿走的。",
+      "visual": {
+        "kind": "groups",
+        "groups": 5,
+        "count": 4,
+        "asset": "star"
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rB-04",
+      "stem": "23 人搭車，每車最多 7 人。至少需要幾輛車？",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": 1,
+      "category": "patterns",
+      "explain": "3 輛最多坐 21 人，不夠；4 輛可坐 28 人。",
+      "check": "有剩下的人，也需要一輛車。",
+      "visual": null,
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rB-05",
+      "stem": "積木只排一列，每柱的高度如圖。共有幾塊？",
+      "options": [
+        "7",
+        "9",
+        "8",
+        "11"
+      ],
+      "correct": 2,
+      "category": "space",
+      "explain": "三柱高度相加：2 ＋ 3 ＋ 3 ＝ 8。",
+      "check": "每柱從底到頂數，避免只數看到的面。",
+      "visual": {
+        "kind": "columns",
+        "heights": [
+          2,
+          3,
+          3
+        ]
+      },
+      "source": "original",
+      "level": "基礎",
+      "seconds": 120
+    },
+    {
+      "id": "rB-06",
+      "stem": "排滿的積木，長 3 塊、寬 2 塊、高 2 塊。一共幾塊？",
+      "options": [
+        "12",
+        "6",
+        "14",
+        "11"
+      ],
+      "correct": 0,
+      "category": "space",
+      "explain": "一層 3 × 2 ＝ 6 塊，共 2 層，所以 12 塊。",
+      "check": "後面與底下看不到的，也要算。",
+      "visual": {
+        "kind": "block",
+        "x": 3,
+        "y": 2,
+        "z": 2
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rB-07",
+      "stem": "箭頭每次向右轉四分之一圈，下一個方向是？",
+      "options": [
+        "←",
+        "↑",
+        "→",
+        "↓"
+      ],
+      "correct": 2,
+      "category": "space",
+      "explain": "→ → ↓ → ← → ↑，再轉一次回到 →。",
+      "check": "四次四分之一圈正好轉完一圈。",
+      "visual": {
+        "kind": "sequence",
+        "values": [
+          "→",
+          "↓",
+          "←",
+          "↑",
+          "?"
+        ]
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rB-08",
+      "stem": "左邊圖形照鏡子，右邊應是哪一個？",
+      "options": [
+        "↗",
+        "↘",
+        "↙",
+        "↖"
+      ],
+      "correct": 2,
+      "category": "space",
+      "explain": "左右鏡射會交換左與右，上下位置不變，所以 ↘ 變成 ↙。",
+      "check": "照鏡子和旋轉是不同變化。",
+      "visual": {
+        "kind": "mirror",
+        "arrow": "↘"
+      },
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rB-09",
+      "stem": "小雨比小禾高，小禾比小樂高。誰最高？",
+      "options": [
+        "小樂",
+        "小禾",
+        "小雨",
+        "無法知道"
+      ],
+      "correct": 2,
+      "category": "logic",
+      "explain": "小雨 ＞ 小禾 ＞ 小樂，所以小雨最高。",
+      "check": "把兩個條件串成一條關係。",
+      "visual": null,
+      "source": "original",
+      "level": "基礎",
+      "seconds": 120
+    },
+    {
+      "id": "rB-10",
+      "stem": "有黃、紫、藍三張卡。黃不在中間，藍在黃的右邊，紫不是最右邊。左到右怎麼排？",
+      "options": [
+        "黃、紫、藍",
+        "紫、藍、黃",
+        "藍、黃、紫",
+        "黃、藍、紫"
+      ],
+      "correct": 0,
+      "category": "logic",
+      "explain": "黃不能在中間，又必須在藍左邊，只能在最左；紫不能最右，只能在中間。",
+      "check": "把每個條件都檢查一次。",
+      "visual": null,
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rB-11",
+      "stem": "天平平衡：2 顆蘋果和 1 顆星星一樣重。每顆蘋果重 3 個單位，1 顆星星多重？",
+      "options": [
+        "3",
+        "4",
+        "7",
+        "6"
+      ],
+      "correct": 3,
+      "category": "logic",
+      "explain": "兩顆蘋果重 3 ＋ 3 ＝ 6，星星也重 6。",
+      "check": "先看平衡的兩邊各有什麼。",
+      "visual": {
+        "kind": "equalbalance",
+        "weight": 3
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rB-12",
+      "stem": "袋子只有紅、藍、綠這 3 種球。閉眼拿球，至少拿幾顆，才能保證有 2 顆同色？",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": 1,
+      "category": "logic",
+      "explain": "前 3 顆可能各一種色；第 4 顆一定和其中一顆同色。",
+      "check": "「保證」要考慮最不利的拿法。",
+      "visual": null,
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rB-13",
+      "stem": "「汽車：陸地」和「船：？」表示相同關係。應選哪個？",
+      "options": [
+        "水上",
+        "方向盤",
+        "車輪",
+        "山上"
+      ],
+      "correct": 0,
+      "category": "reading",
+      "explain": "前一組是交通工具與行進環境，所以選水上。",
+      "check": "找相同的關係，而不是只挑相關的詞。",
+      "visual": null,
+      "source": "original",
+      "level": "基礎",
+      "seconds": 120
+    },
+    {
+      "id": "rB-14",
+      "stem": "規則是：有三角形的卡片，背面一定是綠色。哪張一定違反規則？",
+      "options": [
+        "三角形／綠色",
+        "圓形／綠色",
+        "圓形／黃色",
+        "三角形／黃色"
+      ],
+      "correct": 3,
+      "category": "reading",
+      "explain": "有三角形卻是黃色，直接違反規則。規則沒有說綠色卡都必須有三角形。",
+      "check": "「如果」的條件不能任意倒過來。",
+      "visual": null,
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rB-15",
+      "stem": "小安有 37 顆蘋果，比小白多 8 顆。小白有幾顆？",
+      "options": [
+        "45",
+        "29",
+        "30",
+        "37"
+      ],
+      "correct": 1,
+      "category": "reading",
+      "explain": "小白較少，用 37 − 8 ＝ 29。",
+      "check": "先分清比較多的是誰。",
+      "visual": {
+        "kind": "compare",
+        "large": 37,
+        "delta": 8
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rB-16",
+      "stem": "教室有 30 張椅子。今天坐了 4 桌，每桌 4 人，每人領 2 張卡。共領幾張？",
+      "options": [
+        "60",
+        "32",
+        "16",
+        "34"
+      ],
+      "correct": 1,
+      "category": "reading",
+      "explain": "今天共有 4 × 4 ＝ 16 人，再乘 2 張，得 32 張。",
+      "check": "椅子總數不是今天的人數。",
+      "visual": null,
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rC-01",
+      "stem": "依照規律，下一個數是？",
+      "options": [
+        "26",
+        "27",
+        "31",
+        "25"
+      ],
+      "correct": 0,
+      "category": "patterns",
+      "explain": "每次加 5，所以 21 ＋ 5 ＝ 26。",
+      "check": "把每一段差都寫出來。",
+      "visual": {
+        "kind": "sequence",
+        "values": [
+          6,
+          11,
+          16,
+          21,
+          "?"
+        ]
+      },
+      "source": "original",
+      "level": "基礎",
+      "seconds": 120
+    },
+    {
+      "id": "rC-02",
+      "stem": "兩種變化輪流出現，下一個數是？",
+      "options": [
+        "15",
+        "12",
+        "13",
+        "14"
+      ],
+      "correct": 2,
+      "category": "patterns",
+      "explain": "依次加 1、加 3，重複交替。下一步加 1，得到 13。",
+      "check": "別只用最後一段的變化。",
+      "visual": {
+        "kind": "sequence",
+        "values": [
+          4,
+          5,
+          8,
+          9,
+          12,
+          "?"
+        ]
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rC-03",
+      "stem": "每盒放 5 顆星星，共有 6 盒。再拿走 2 顆，共剩幾顆？",
+      "options": [
+        "30",
+        "29",
+        "32",
+        "28"
+      ],
+      "correct": 3,
+      "category": "patterns",
+      "explain": "5 × 6 − 2 ＝ 28。",
+      "check": "先求所有盒子，再扣掉拿走的。",
+      "visual": {
+        "kind": "groups",
+        "groups": 6,
+        "count": 5,
+        "asset": "star"
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rC-04",
+      "stem": "27 人搭車，每車最多 8 人。至少需要幾輛車？",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": 1,
+      "category": "patterns",
+      "explain": "3 輛最多坐 24 人，不夠；4 輛可坐 32 人。",
+      "check": "有剩下的人，也需要一輛車。",
+      "visual": null,
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rC-05",
+      "stem": "積木只排一列，每柱的高度如圖。共有幾塊？",
+      "options": [
+        "9",
+        "11",
+        "10",
+        "13"
+      ],
+      "correct": 2,
+      "category": "space",
+      "explain": "三柱高度相加：3 ＋ 3 ＋ 4 ＝ 10。",
+      "check": "每柱從底到頂數，避免只數看到的面。",
+      "visual": {
+        "kind": "columns",
+        "heights": [
+          3,
+          3,
+          4
+        ]
+      },
+      "source": "original",
+      "level": "基礎",
+      "seconds": 120
+    },
+    {
+      "id": "rC-06",
+      "stem": "排滿的積木，長 4 塊、寬 2 塊、高 2 塊。一共幾塊？",
+      "options": [
+        "16",
+        "8",
+        "18",
+        "15"
+      ],
+      "correct": 0,
+      "category": "space",
+      "explain": "一層 4 × 2 ＝ 8 塊，共 2 層，所以 16 塊。",
+      "check": "後面與底下看不到的，也要算。",
+      "visual": {
+        "kind": "block",
+        "x": 4,
+        "y": 2,
+        "z": 2
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rC-07",
+      "stem": "箭頭每次向右轉四分之一圈，下一個方向是？",
+      "options": [
+        "←",
+        "↑",
+        "→",
+        "↓"
+      ],
+      "correct": 3,
+      "category": "space",
+      "explain": "↓ → ← → ↑ → →，再轉一次回到 ↓。",
+      "check": "四次四分之一圈正好轉完一圈。",
+      "visual": {
+        "kind": "sequence",
+        "values": [
+          "↓",
+          "←",
+          "↑",
+          "→",
+          "?"
+        ]
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rC-08",
+      "stem": "左邊圖形照鏡子，右邊應是哪一個？",
+      "options": [
+        "↗",
+        "↘",
+        "↙",
+        "↖"
+      ],
+      "correct": 0,
+      "category": "space",
+      "explain": "左右鏡射會交換左與右，上下位置不變，所以 ↖ 變成 ↗。",
+      "check": "照鏡子和旋轉是不同變化。",
+      "visual": {
+        "kind": "mirror",
+        "arrow": "↖"
+      },
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rC-09",
+      "stem": "小玉比小文高，小文比小月高。誰最高？",
+      "options": [
+        "小月",
+        "小文",
+        "小玉",
+        "無法知道"
+      ],
+      "correct": 2,
+      "category": "logic",
+      "explain": "小玉 ＞ 小文 ＞ 小月，所以小玉最高。",
+      "check": "把兩個條件串成一條關係。",
+      "visual": null,
+      "source": "original",
+      "level": "基礎",
+      "seconds": 120
+    },
+    {
+      "id": "rC-10",
+      "stem": "有白、綠、紅三張卡。白不在中間，紅在白的右邊，綠不是最右邊。左到右怎麼排？",
+      "options": [
+        "白、綠、紅",
+        "綠、紅、白",
+        "紅、白、綠",
+        "白、紅、綠"
+      ],
+      "correct": 0,
+      "category": "logic",
+      "explain": "白不能在中間，又必須在紅左邊，只能在最左；綠不能最右，只能在中間。",
+      "check": "把每個條件都檢查一次。",
+      "visual": null,
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rC-11",
+      "stem": "天平平衡：2 顆蘋果和 1 顆星星一樣重。每顆蘋果重 4 個單位，1 顆星星多重？",
+      "options": [
+        "4",
+        "5",
+        "9",
+        "8"
+      ],
+      "correct": 3,
+      "category": "logic",
+      "explain": "兩顆蘋果重 4 ＋ 4 ＝ 8，星星也重 8。",
+      "check": "先看平衡的兩邊各有什麼。",
+      "visual": {
+        "kind": "equalbalance",
+        "weight": 4
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rC-12",
+      "stem": "袋子只有紅、藍、綠、黃這 4 種球。閉眼拿球，至少拿幾顆，才能保證有 2 顆同色？",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correct": 1,
+      "category": "logic",
+      "explain": "前 4 顆可能各一種色；第 5 顆一定和其中一顆同色。",
+      "check": "「保證」要考慮最不利的拿法。",
+      "visual": null,
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rC-13",
+      "stem": "「手套：手」和「鞋子：？」表示相同關係。應選哪個？",
+      "options": [
+        "腳",
+        "帽子",
+        "衣服",
+        "褲子"
+      ],
+      "correct": 0,
+      "category": "reading",
+      "explain": "前一組是用品與穿戴部位，所以選腳。",
+      "check": "找相同的關係，而不是只挑相關的詞。",
+      "visual": null,
+      "source": "original",
+      "level": "基礎",
+      "seconds": 120
+    },
+    {
+      "id": "rC-14",
+      "stem": "規則是：有圓形的卡片，背面一定是藍色。哪張一定違反規則？",
+      "options": [
+        "圓形／藍色",
+        "正方形／藍色",
+        "正方形／紅色",
+        "圓形／紅色"
+      ],
+      "correct": 3,
+      "category": "reading",
+      "explain": "有圓形卻是紅色，直接違反規則。規則沒有說藍色卡都必須有圓形。",
+      "check": "「如果」的條件不能任意倒過來。",
+      "visual": null,
+      "source": "original",
+      "level": "挑戰",
+      "seconds": 120
+    },
+    {
+      "id": "rC-15",
+      "stem": "小安有 42 顆蘋果，比小白多 9 顆。小白有幾顆？",
+      "options": [
+        "51",
+        "33",
+        "34",
+        "42"
+      ],
+      "correct": 1,
+      "category": "reading",
+      "explain": "小白較少，用 42 − 9 ＝ 33。",
+      "check": "先分清比較多的是誰。",
+      "visual": {
+        "kind": "compare",
+        "large": 42,
+        "delta": 9
+      },
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    },
+    {
+      "id": "rC-16",
+      "stem": "教室有 30 張椅子。今天坐了 5 桌，每桌 4 人，每人領 2 張卡。共領幾張？",
+      "options": [
+        "60",
+        "40",
+        "20",
+        "42"
+      ],
+      "correct": 1,
+      "category": "reading",
+      "explain": "今天共有 5 × 4 ＝ 20 人，再乘 2 張，得 40 張。",
+      "check": "椅子總數不是今天的人數。",
+      "visual": null,
+      "source": "original",
+      "level": "標準",
+      "seconds": 120
+    }
+  ]
+}
