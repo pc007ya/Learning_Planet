@@ -15,7 +15,9 @@
     "deploy": "npx -y firebase-tools@latest deploy --only hosting",
     "deploy:all": "npx -y firebase-tools@latest deploy",
     "build:little-star": "vite build --config vite.little-star.config.ts",
-    "build:fire-weather": "vite build --config vite.fire-weather.config.mjs"
+    "build:fire-weather": "vite build --config vite.fire-weather.config.mjs",
+    "build:chinese-practice": "vite build --config vite.chinese-practice.config.mjs",
+    "test:chinese-practice": "vitest run tests/chinese-practice.test.ts"
   },
   "dependencies": {
     "pixi.js": "^8.18.1",

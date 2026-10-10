@@ -1,0 +1,103 @@
+{
+  "checkedAt": "2026-10-09",
+  "officialIndex": "https://pedia.cloud.edu.tw/Bookmark/TextWord",
+  "availableSemesters": [
+    "107上",
+    "107下",
+    "108上",
+    "108下",
+    "109上",
+    "109下",
+    "110上",
+    "110下",
+    "111上",
+    "111下",
+    "112上",
+    "112下",
+    "113上",
+    "113下",
+    "114上",
+    "114下",
+    "115上"
+  ],
+  "missing115Lower": {
+    "status": "官方教材詞表未列115下；出版社公開入口尚未核實年度對應",
+    "borrowOldYear": false
+  },
+  "publishers": [
+    {
+      "publisher": "南一",
+      "sourceUrl": "https://trans.nani.com.tw/NaniTeacher/index.jsp",
+      "status": "公開教科書入口，未取得115下逐課詞表"
+    },
+    {
+      "publisher": "康軒",
+      "sourceUrl": "https://www.knsh.com.tw/service/plan",
+      "planFolder": "https://drive.google.com/drive/folders/1VjGyNCHi1Ilg9kqqgh-RhO9odaaS4Q8M",
+      "status": "公開新綱計畫有上下學期，資料夾未標115年度，不能作115下對應"
+    },
+    {
+      "publisher": "翰林",
+      "sourceUrl": "https://el.hle.com.tw/class/e_middle/index.html",
+      "status": "115教材博覽會；完整資源教師授權限定，未下載"
+    }
+  ],
+  "oldIndependentVersion": {
+    "year": 114,
+    "semester": "下",
+    "grade": 1,
+    "publisher": "南一",
+    "status": "課次索引已核，字詞及注音未逐課核，不載入練習",
+    "indexUrl": "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&year=114_2",
+    "lessons": [
+      {
+        "text": "第一課：太陽是充電機\n114學年度 | 一年級 | 國語 | 南一版",
+        "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011140201"
+      },
+      {
+        "text": "第二課：春雨是什麼顏色\n114學年度 | 一年級 | 國語 | 南一版",
+        "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011140202"
+      },
+      {
+        "text": "第三課：山中音樂會\n114學年度 | 一年級 | 國語 | 南一版",
+        "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011140203"
+      },
+      {
+        "text": "第四課：書是我的好朋友\n114學年度 | 一年級 | 國語 | 南一版",
+        "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011140204"
+      },
+      {
+        "text": "第五課：風喜歡和我玩\n114學年度 | 一年級 | 國語 | 南一版",
+        "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011140205"
+      },
+      {
+        "text": "第六課：鄰居的小孩\n114學年度 | 一年級 | 國語 | 南一版",
+        "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011140206"
+      },
+      {
+        "text": "第七課：畫畫\n114學年度 | 一年級 | 國語 | 南一版",
+        "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011140207"
+      },
+      {
+        "text": "第八課：給松鼠的卡片\n114學年度 | 一年級 | 國語 | 南一版",
+        "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011140208"
+      },
+      {
+        "text": "第九課：張奶奶的寶貝\n114學年度 | 一年級 | 國語 | 南一版",
+        "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011140209"
+      },
+      {
+        "text": "第十課：井裡的小青蛙\n114學年度 | 一年級 | 國語 | 南一版",
+        "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011140210"
+      },
+      {
+        "text": "第十一課：吃星星的小鴨子\n114學年度 | 一年級 | 國語 | 南一版",
+        "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011140211"
+      },
+      {
+        "text": "第十二課：快樂不止一半\n114學年度 | 一年級 | 國語 | 南一版",
+        "url": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011140212"
+      }
+    ]
+  }
+}

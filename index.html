@@ -1737,6 +1737,9 @@
           </sc-for>
         </div>
         </details></div>
+        <sc-if value="{{ isChineseMap }}" hint-placeholder-val="{{ false }}">
+          <a href="chinese-practice.html?from=map" target="_blank" rel="noopener noreferrer" aria-label="開啟國語生字練習簿" style="display:flex;align-items:center;gap:16px;margin:0 0 20px;padding:18px 24px;border:1px solid rgba(255,205,121,.5);border-radius:22px;background:rgba(76,42,96,.65);color:#fff;text-decoration:none;backdrop-filter:blur(12px)"><img src="images/subject-unit-icons/v1/chinese-writing-v1.png" alt="" style="width:60px;height:60px;object-fit:contain"><span><strong style="font-size:20px;display:block">國語生字練習簿 ↗</strong><small style="color:#ffe4ae">選教材・勾生字・自訂字・A4 列印／PDF</small></span></a>
+        </sc-if>
         <div class="subject-world-content">
         <div class="subject-world-grid">
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="6">
@@ -10712,7 +10715,7 @@ class Component extends DCLogic {
       showAppChrome: !isExperimentLabScreen && !isFocusedLearningScreen,
       appShellClass: isExperimentLabScreen ? "lab-focus" : isFocusedLearningScreen ? ("module-focus" + (s.screen === "quiz" && s.quizSubject === "math" ? " math-quiz-focus" : isLanguageFocus ? " language-quiz-focus" : "")) : ["gacha", "collection"].includes(s.screen) ? "gacha-focus" : s.screen === "home" ? "home-focus" : isCosmosHub ? "cosmos-focus" : s.screen === "profile" ? "profile-focus" : s.screen === "map" ? "subject-focus" : s.screen === "teacher" ? "admin-focus" : "",
       isCosmosHub,
-      isHome: s.screen === "home", isProfile: s.screen === "profile", isSignin: s.screen === "signin", isMap: s.screen === "map", isMemory: s.screen === "memory",
+      isHome: s.screen === "home", isProfile: s.screen === "profile", isSignin: s.screen === "signin", isMap: s.screen === "map", isChineseMap: s.screen === "map" && s.subject === "chinese", isMemory: s.screen === "memory",
       isEnglishPhonics: s.screen === "englishPhonics", phonicsGroup: s.phonicsGroup || "vowels",
       isEnglishLibrary: s.screen === "englishLibrary", isEnglishScramble: s.screen === "englishScramble", isEnglishMatch: s.screen === "englishMatch", isEnglishChain: s.screen === "englishChain", isEnglishGrammar: s.screen === "englishGrammar", isEnglishAssociation: s.screen === "englishAssociation",
       isMindmap: s.screen === "mindmap",

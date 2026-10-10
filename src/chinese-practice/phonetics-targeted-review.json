@@ -1,0 +1,634 @@
+{
+  "checkedAt": "2026-10-09",
+  "scope": "只查原剩餘21個詞條；不批次重抓、不更動其他課／詞條。",
+  "confirmedCount": 1,
+  "pendingCount": 20,
+  "entries": [
+    {
+      "lessonId": "0102011150104",
+      "title": "你好",
+      "category": "認讀字",
+      "text": "頭",
+      "year": 115,
+      "semester": "上",
+      "grade": 1,
+      "publisher": "南一",
+      "number": 4,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011150104",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "頭",
+          "sounds": [
+            "ㄊㄡˊ",
+            "˙ㄊㄡ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0003758&breadcrumbs=Search_%E9%A0%AD_one&dictSearchField=%E9%A0%AD"
+      ],
+      "missingEvidence": "缺本課含「頭」的原句／注音頁，需判斷獨立名詞或詞尾輕聲。"
+    },
+    {
+      "lessonId": "0102011150105",
+      "title": "外星人",
+      "category": "認讀字",
+      "text": "哪",
+      "year": 115,
+      "semester": "上",
+      "grade": 1,
+      "publisher": "南一",
+      "number": 5,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011150105",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "哪",
+          "sounds": [
+            "ㄋㄚˇ",
+            "˙ㄋㄚ",
+            "ㄋㄨㄛˊ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002693&breadcrumbs=Search_%E5%93%AA_one&dictSearchField=%E5%93%AA"
+      ],
+      "missingEvidence": "缺本課含「哪」的原句／注音頁，需辨疑問、語助詞或專名；不能僅憑課名選音。"
+    },
+    {
+      "lessonId": "0102011150105",
+      "title": "外星人",
+      "category": "語詞",
+      "text": "哪個",
+      "year": 115,
+      "semester": "上",
+      "grade": 1,
+      "publisher": "南一",
+      "number": 5,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011150105",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "哪",
+          "sounds": [
+            "ㄋㄚˇ",
+            "˙ㄋㄚ",
+            "ㄋㄨㄛˊ"
+          ]
+        },
+        {
+          "char": "個",
+          "sounds": [
+            "ㄍㄜˋ",
+            "ㄍㄜˇ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002693&breadcrumbs=Search_%E5%93%AA_one&dictSearchField=%E5%93%AA",
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0003067&breadcrumbs=Search_%E5%80%8B_one&dictSearchField=%E5%80%8B",
+        "https://dict.revised.moe.edu.tw/dictView.jsp?ID=2931",
+        "https://dict.revised.moe.edu.tw/dictView.jsp?ID=3969"
+      ],
+      "missingEvidence": "缺115上南一第5課詞語注音頁；需確認「哪」是否採合音，以及量詞「個」採輕聲或本音。",
+      "wordCandidatesNote": "疑問詞通常 ㄋㄚˇ；重編本另收合音 ㄋㄟˇ。量詞例句「個」讀 ˙ㄍㄜ，單字本音 ㄍㄜˋ；ㄍㄜˇ 是自個兒用法，不能套入此詞。未核教材標音前兩字留空。",
+      "override": {
+        "sounds": [
+          "",
+          ""
+        ],
+        "soundNote": "「哪個」詞音待確認：疑問詞「哪」及合音、量詞「個」輕聲均需教材注音頁；不沿用單字首音。"
+      }
+    },
+    {
+      "lessonId": "0102011150106",
+      "title": "小金魚",
+      "category": "認讀字",
+      "text": "吐",
+      "year": 115,
+      "semester": "上",
+      "grade": 1,
+      "publisher": "南一",
+      "number": 6,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011150106",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "吐",
+          "sounds": [
+            "ㄊㄨˇ",
+            "ㄊㄨˋ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0003629&breadcrumbs=Search_%E5%90%90_one&dictSearchField=%E5%90%90"
+      ],
+      "missingEvidence": "缺本課含「吐」的原句／注音頁，需區分吐出／吐氣與嘔吐。"
+    },
+    {
+      "lessonId": "0103011150102",
+      "title": "這是誰的?",
+      "category": "生字",
+      "text": "啊",
+      "year": 115,
+      "semester": "上",
+      "grade": 1,
+      "publisher": "康軒",
+      "number": 2,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103011150102",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "啊",
+          "sounds": [
+            "ㄚ",
+            "˙ㄚ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002233&breadcrumbs=Search_%E5%95%8A_one&dictSearchField=%E5%95%8A"
+      ],
+      "missingEvidence": "缺本課原句／注音頁，需區分獨立感嘆與句尾助詞。"
+    },
+    {
+      "lessonId": "0101011150104",
+      "title": "請問",
+      "category": "認讀字",
+      "text": "哪",
+      "year": 115,
+      "semester": "上",
+      "grade": 1,
+      "publisher": "翰林",
+      "number": 4,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101011150104",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "哪",
+          "sounds": [
+            "ㄋㄚˇ",
+            "˙ㄋㄚ",
+            "ㄋㄨㄛˊ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002693&breadcrumbs=Search_%E5%93%AA_one&dictSearchField=%E5%93%AA"
+      ],
+      "missingEvidence": "缺本課含「哪」的原句／注音頁，需辨疑問、語助詞或專名；不能僅憑課名選音。"
+    },
+    {
+      "lessonId": "0103021150101",
+      "title": "新學年新希望",
+      "category": "生字",
+      "text": "還",
+      "year": 115,
+      "semester": "上",
+      "grade": 2,
+      "publisher": "康軒",
+      "number": 1,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103021150101",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "還",
+          "sounds": [
+            "ㄏㄞˊ",
+            "ㄏㄨㄢˊ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0004254&breadcrumbs=Search_%E9%82%84_one&dictSearchField=%E9%82%84"
+      ],
+      "missingEvidence": "缺本課原句／注音頁，需區分仍然／另外與返回／歸還。"
+    },
+    {
+      "lessonId": "0103021150104",
+      "title": "運動會",
+      "category": "生字",
+      "text": "哇",
+      "year": 115,
+      "semester": "上",
+      "grade": 2,
+      "publisher": "康軒",
+      "number": 4,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103021150104",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "哇",
+          "sounds": [
+            "ㄨㄚ",
+            "˙ㄨㄚ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002702&breadcrumbs=Search_%E5%93%87_one&dictSearchField=%E5%93%87"
+      ],
+      "missingEvidence": "缺本課原句／注音頁，需區分感嘆、狀聲與語助詞輕聲。"
+    },
+    {
+      "lessonId": "0103021150107",
+      "title": "國王的新衣裳",
+      "category": "生字",
+      "text": "哪",
+      "year": 115,
+      "semester": "上",
+      "grade": 2,
+      "publisher": "康軒",
+      "number": 7,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103021150107",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "哪",
+          "sounds": [
+            "ㄋㄚˇ",
+            "˙ㄋㄚ",
+            "ㄋㄨㄛˊ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002693&breadcrumbs=Search_%E5%93%AA_one&dictSearchField=%E5%93%AA"
+      ],
+      "missingEvidence": "缺本課含「哪」的原句／注音頁，需辨疑問、語助詞或專名；不能僅憑課名選音。"
+    },
+    {
+      "lessonId": "0102021150101",
+      "title": "打招呼",
+      "category": "生字",
+      "text": "哇",
+      "year": 115,
+      "semester": "上",
+      "grade": 2,
+      "publisher": "南一",
+      "number": 1,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102021150101",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "哇",
+          "sounds": [
+            "ㄨㄚ",
+            "˙ㄨㄚ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002702&breadcrumbs=Search_%E5%93%87_one&dictSearchField=%E5%93%87"
+      ],
+      "missingEvidence": "缺本課原句／注音頁，需區分感嘆、狀聲與語助詞輕聲。"
+    },
+    {
+      "lessonId": "0102021150102",
+      "title": "爬梯子",
+      "category": "生字",
+      "text": "哪",
+      "year": 115,
+      "semester": "上",
+      "grade": 2,
+      "publisher": "南一",
+      "number": 2,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102021150102",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "哪",
+          "sounds": [
+            "ㄋㄚˇ",
+            "˙ㄋㄚ",
+            "ㄋㄨㄛˊ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002693&breadcrumbs=Search_%E5%93%AA_one&dictSearchField=%E5%93%AA"
+      ],
+      "missingEvidence": "缺本課含「哪」的原句／注音頁，需辨疑問、語助詞或專名；不能僅憑課名選音。"
+    },
+    {
+      "lessonId": "0102021150106",
+      "title": "從自己開始",
+      "category": "生字",
+      "text": "吧",
+      "year": 115,
+      "semester": "上",
+      "grade": 2,
+      "publisher": "南一",
+      "number": 6,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102021150106",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "吧",
+          "sounds": [
+            "ㄅㄚ",
+            "˙ㄅㄚ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0003617&breadcrumbs=Search_%E5%90%A7_one&dictSearchField=%E5%90%A7"
+      ],
+      "missingEvidence": "缺本課原句／注音頁，需確認助詞輕聲或其他用法。"
+    },
+    {
+      "lessonId": "0101021150109",
+      "title": "好味道",
+      "category": "生字",
+      "text": "哪",
+      "year": 115,
+      "semester": "上",
+      "grade": 2,
+      "publisher": "翰林",
+      "number": 9,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101021150109",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "哪",
+          "sounds": [
+            "ㄋㄚˇ",
+            "˙ㄋㄚ",
+            "ㄋㄨㄛˊ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002693&breadcrumbs=Search_%E5%93%AA_one&dictSearchField=%E5%93%AA"
+      ],
+      "missingEvidence": "缺本課含「哪」的原句／注音頁，需辨疑問、語助詞或專名；不能僅憑課名選音。"
+    },
+    {
+      "lessonId": "0102031150105",
+      "title": "火大了",
+      "category": "生字",
+      "text": "吐",
+      "year": 115,
+      "semester": "上",
+      "grade": 3,
+      "publisher": "南一",
+      "number": 5,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102031150105",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "吐",
+          "sounds": [
+            "ㄊㄨˇ",
+            "ㄊㄨˋ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0003629&breadcrumbs=Search_%E5%90%90_one&dictSearchField=%E5%90%90"
+      ],
+      "missingEvidence": "缺本課含「吐」的原句／注音頁，需區分吐出／吐氣與嘔吐。"
+    },
+    {
+      "lessonId": "0102031150105",
+      "title": "火大了",
+      "category": "生字",
+      "text": "轉",
+      "year": 115,
+      "semester": "上",
+      "grade": 3,
+      "publisher": "南一",
+      "number": 5,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102031150105",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "轉",
+          "sounds": [
+            "ㄓㄨㄢˇ",
+            "ㄓㄨㄢˋ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0001606&breadcrumbs=Search_%E8%BD%89_one&dictSearchField=%E8%BD%89"
+      ],
+      "missingEvidence": "缺本課原句／注音頁，需區分改變方向與旋轉。"
+    },
+    {
+      "lessonId": "0102031150111",
+      "title": "石虎的告白",
+      "category": "語詞",
+      "text": "石虎",
+      "year": 115,
+      "semester": "上",
+      "grade": 3,
+      "publisher": "南一",
+      "number": 11,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102031150111",
+      "status": "已確認",
+      "candidates": [
+        {
+          "char": "石",
+          "sounds": [
+            "ㄕˊ",
+            "ㄉㄢˋ"
+          ]
+        },
+        {
+          "char": "虎",
+          "sounds": [
+            "ㄏㄨˇ",
+            "ㄏㄨ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002254&breadcrumbs=Search_%E7%9F%B3_one&dictSearchField=%E7%9F%B3",
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0001401&breadcrumbs=Search_%E8%99%8E_one&dictSearchField=%E8%99%8E"
+      ],
+      "missingEvidence": "",
+      "confirmationMethod": "詞語交叉查核：教育百科中研院詞義為動物；教育部小字典逐字音值符合；南投縣環保局公開繪本第6頁完整標音 ㄕˊ ㄏㄨˇ。該繪本為學校組作品，不是教育部編輯辭典或115版出版社課文，故此為詞音確認，不宣稱出版社教材標音已逐頁比對。",
+      "evidence": [
+        {
+          "url": "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%9F%B3",
+          "scope": "教育部逐字音值（實讀小字典）"
+        },
+        {
+          "url": "https://pedia.cloud.edu.tw/Entry/Detail?title=%E8%99%8E",
+          "scope": "教育部逐字音值（實讀小字典）"
+        },
+        {
+          "url": "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%9F%B3%E8%99%8E",
+          "scope": "中研院臺灣生命大百科動物詞義，不採會員投稿"
+        },
+        {
+          "url": "https://www.ntepb.gov.tw/df_ufiles/ee/%E5%AD%B8%E6%A0%A1%E7%B5%84%E4%BD%B3%E4%BD%9C-%E4%BD%A0%E5%A5%BD%EF%BC%8C%E7%9F%B3%E8%99%8E%E5%85%88%E7%94%9F.pdf",
+          "scope": "第6頁完整詞語注音佐證；政府公開學校組作品，非115教材"
+        }
+      ],
+      "override": {
+        "sounds": [
+          "ㄕˊ",
+          "ㄏㄨˇ"
+        ],
+        "soundNote": "「石虎」動物詞音 ㄕˊ ㄏㄨˇ：教育部逐字音值＋教育百科中研院詞義＋政府公開繪本第6頁標音交叉核對；非115版課文注音抄錄。"
+      }
+    },
+    {
+      "lessonId": "0103031150110",
+      "title": "狐狸的故事",
+      "category": "生字",
+      "text": "呀",
+      "year": 115,
+      "semester": "上",
+      "grade": 3,
+      "publisher": "康軒",
+      "number": 10,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103031150110",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "呀",
+          "sounds": [
+            "ㄧㄚ",
+            "˙ㄧㄚ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0003441&breadcrumbs=Search_%E5%91%80_one&dictSearchField=%E5%91%80"
+      ],
+      "missingEvidence": "康軒官方「狐狸的故事」公開資源為課文引導動畫，本次所見片段未核得目標字原句；仍缺原課注音／助詞語境。"
+    },
+    {
+      "lessonId": "0103031150110",
+      "title": "狐狸的故事",
+      "category": "生字",
+      "text": "泥",
+      "year": 115,
+      "semester": "上",
+      "grade": 3,
+      "publisher": "康軒",
+      "number": 10,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103031150110",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "泥",
+          "sounds": [
+            "ㄋㄧˊ",
+            "ㄋㄧˋ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0003818&breadcrumbs=Search_%E6%B3%A5_one&dictSearchField=%E6%B3%A5"
+      ],
+      "missingEvidence": "康軒官方「狐狸的故事」公開資源為課文引導動畫，本次所見片段未核得目標字原句；仍缺泥土／拘泥等原課詞語。"
+    },
+    {
+      "lessonId": "0103031150111",
+      "title": "巨人的花園",
+      "category": "生字",
+      "text": "鑽",
+      "year": 115,
+      "semester": "上",
+      "grade": 3,
+      "publisher": "康軒",
+      "number": 11,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103031150111",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "鑽",
+          "sounds": [
+            "ㄗㄨㄢ",
+            "ㄗㄨㄢˋ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002250&breadcrumbs=Search_%E9%91%BD_one&dictSearchField=%E9%91%BD"
+      ],
+      "missingEvidence": "缺本課原句／注音頁，需辨穿入／鑽研與工具／鑽石；故事名稱不足以決定。"
+    },
+    {
+      "lessonId": "0101031150105",
+      "title": "為梨花撐傘用",
+      "category": "生字",
+      "text": "結",
+      "year": 115,
+      "semester": "上",
+      "grade": 3,
+      "publisher": "翰林",
+      "number": 5,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101031150105",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "結",
+          "sounds": [
+            "ㄐㄧㄝˊ",
+            "ㄐㄧㄝ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002431&breadcrumbs=Search_%E7%B5%90_one&dictSearchField=%E7%B5%90"
+      ],
+      "missingEvidence": "翰林115公開電子書為教材功能示範，未取得目標課含「結」的原句／注音頁；需辨結實、結合等詞義。"
+    },
+    {
+      "lessonId": "0101031150106",
+      "title": "小鉛筆大學問",
+      "category": "生字",
+      "text": "削",
+      "year": 115,
+      "semester": "上",
+      "grade": 3,
+      "publisher": "翰林",
+      "number": 6,
+      "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101031150106",
+      "status": "待確認",
+      "candidates": [
+        {
+          "char": "削",
+          "sounds": [
+            "ㄒㄧㄠ",
+            "ㄒㄩㄝˋ"
+          ]
+        }
+      ],
+      "dictionarySources": [
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002989&breadcrumbs=Search_%E5%89%8A_one&dictSearchField=%E5%89%8A"
+      ],
+      "missingEvidence": "翰林官方舊課前引導動畫未標115教材版本，本次未核得目標字原句；缺115課文原句／注音页，不能僅以鉛筆課名套用削鉛筆。"
+    }
+  ],
+  "publisherChecks": [
+    {
+      "publisher": "南一",
+      "url": "https://naniexpo.nani.com.tw/template/subject.php?grade=low",
+      "scope": "115公開教材簡介／配套示範；本次未取得目標課原句注音頁。"
+    },
+    {
+      "publisher": "康軒",
+      "url": "https://digitalmaster.knsh.com.tw/all/video/e/chinese_page.html?l1=3%E4%B8%8A&l2=%E7%AC%AC10%E8%AA%B2%E3%80%80%E7%8B%90%E7%8B%B8%E7%9A%84%E6%95%85%E4%BA%8B",
+      "scope": "公開課文引導動畫非逐字課文；未用改寫對白替代原課。"
+    },
+    {
+      "publisher": "翰林",
+      "url": "https://h5.hle.com.tw/books/edisc/1151/e/115E_CH_3D/PC/index.html",
+      "scope": "115公開功能示範；未取得目標課原句注音頁。"
+    },
+    {
+      "publisher": "翰林",
+      "url": "https://www.youtube.com/watch?v=uZ30fqFgS4I",
+      "scope": "官方小鉛筆大學問課前引導動畫，5年前影片未標115，未作115原課標音證據。"
+    }
+  ]
+}
