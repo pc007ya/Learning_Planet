@@ -1,6 +1,6 @@
 /* Public entry artwork only; revisions are SHA-256 prefixes of the committed files. */
 self.LP_ENTRY_IMAGE_MANIFEST = {
-  "revision": "2026-09-28-2",
+  "revision": "2026-10-10-on-demand-v1",
   "maxBytes": 67108864,
   "assets": {
     "images/brand/learning-planet-brand-v1.webp": "c0c0ecef9ba0f0a9",
@@ -225,6 +225,23 @@ self.LP_ENTRY_IMAGE_MANIFEST = {
     "images/ui/phonics-consonants.svg": "73d3805cb9db738b",
     "images/ui/phonics-reading.svg": "1dd27d27b1ddaebd",
     "images/ui/phonics-vowels.svg": "10f7aed978659191",
-    "images/ui/sound-rounded.svg": "225f08ab3d39e6cd"
+    "images/ui/sound-rounded.svg": "225f08ab3d39e6cd",
+    "images/science/plant-water/lesson-1-web-v1.webp": "f855fe2cc58cce43",
+    "images/science/earth-orbit/v0.1/background/space-clean-web-v1.webp": "73878805db1cfd42",
+    "images/science/magnet-ii/materials-guide-web-v1.webp": "ce34769ef5b008a3",
+    "images/science/magnet/magnet-tool-web-v1.webp": "6f95a3a9615f159d",
+    "images/science/plant-water/watering-can-web-v1.webp": "ef12ce06e6dea37e",
+    "images/login/cat-starfighter-web-v1.webp": "6308fa349e8f0e0d",
+    "images/login/dog-ufo-web-v1.webp": "3e0ee3e535cc99a3",
+    "images/login/teacher-satellite-web-v1.webp": "84bae95199495519",
+    "images/brand/learning-planet-brand-web-v1.webp": "1081fda167d4501b",
+    "images/home/hud/gacha-planet-card-v1.webp": "e609e6c09f071c64",
+    "images/home/planets/math-planet-v1-card.webp": "888e0ec1e47fc91b",
+    "images/home/planets/chinese-planet-v1-card.webp": "2bba0d52be14c565",
+    "images/home/planets/english-planet-v1-card.webp": "5976c4d4a53e9fae",
+    "images/home/learning-planet-hero-v1-card.webp": "d77611889742851b",
+    "images/home/planets/experiment-planet-v1-card.webp": "b140f558fe9263af",
+    "images/home/planets/story-planet-v1-card.webp": "c4abf62114cbeb8b",
+    "images/home/hud/weekly-planet-v1-card.webp": "5119e501dc985bbc"
   }
 };

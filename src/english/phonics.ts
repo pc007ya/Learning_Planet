@@ -6,9 +6,28 @@ const escape=(s:string)=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replac
 export class PhonicsLab{
   private group:Group;private page=0;private selected=0;private listen=false;private muted=false;private slow=false;
   private queue:SoundCard[]=[];private question=0;private gate?:AnswerGate;private options:SoundCard[]=[];private correct=0;private note='';private abort=new AbortController();
+  private imageRetries=new WeakSet<HTMLImageElement>();
   constructor(private host:HTMLElement){
     this.group=['vowels','consonants','reading'].includes(host.dataset.phonicsGroup||'')?host.dataset.phonicsGroup as Group:'vowels';
     host.addEventListener('click',e=>{const b=(e.target as HTMLElement).closest<HTMLButtonElement>('button');if(!b||b.disabled)return;const action=b.dataset.action||'';if(b.dataset.select){this.gate?.select(b.dataset.select);this.note='選好了，再按檢查';this.render();return;}if(b.dataset.preview){const c=this.options.find(c=>c.id===b.dataset.preview);if(c)this.say(c.word);return;}if(b.dataset.card){this.selected=Number(b.dataset.card);this.note='';this.render();this.say(this.cards()[this.selected].word);return;}this.action(action);},{signal:this.abort.signal});
+    host.addEventListener('error',e=>{
+      const img=e.target;if(!(img instanceof HTMLImageElement)||!host.contains(img))return;
+      const src=img.getAttribute('src');if(!src)return;
+      if(this.imageRetries.has(img)){
+        if(!host.querySelector('.ph-image-retry')){
+          const b=document.createElement('button');b.className='ph-image-retry';b.dataset.action='retry-images';b.setAttribute('aria-label','重新載入教材圖片');b.textContent='圖片重載';host.querySelector('.ph-shell')?.append(b);
+        }
+        return;
+      }
+      // A render can cancel an in-flight image shared with its replacement.
+      // Retry once at the unchanged URL; a microtask also runs in a background tab.
+      this.imageRetries.add(img);queueMicrotask(()=>{
+        if(!this.abort.signal.aborted&&host.contains(img))img.src=src;
+      });
+    },{capture:true,signal:this.abort.signal});
+    host.addEventListener('load',()=>{
+      if([...host.querySelectorAll('img')].every(i=>i.complete&&i.naturalWidth))host.querySelector('.ph-image-retry')?.remove();
+    },{capture:true,signal:this.abort.signal});
     document.addEventListener('visibilitychange',()=>{if(document.hidden)this.stopVoice();},{signal:this.abort.signal});this.render();
   }
   private cards(){return this.group==='reading'?uniqueWords(SOUND_CARDS):SOUND_CARDS.filter(c=>c.group===this.group);}
@@ -21,6 +40,7 @@ export class PhonicsLab{
   private newQuestion(){const q=this.queue[this.question];if(!q){this.gate=undefined;return;}this.options=shuffled([q,...shuffled(uniqueWords(this.cards()).filter(c=>c.word!==q.word)).slice(0,3)]);this.gate=new AnswerGate(q.id,this.options.map(c=>c.id));}
   private start(){this.listen=true;this.queue=shuffled(uniqueWords(this.cards())).slice(0,10);this.question=0;this.correct=0;this.note='先聽，再選一張';this.newQuestion();this.render();this.say(this.queue[0].word);}
   private action(a:string){
+    if(a==='retry-images'){this.render();return;}
     if(a==='back'){this.stopVoice();this.host.parentElement?.querySelector<HTMLButtonElement>('.phonics-back')?.click();return;}
     if(a in names){this.group=a as Group;this.queue=[];this.gate=undefined;this.listen=false;this.selected=0;this.page=0;this.note='';this.stopVoice();this.render();return;}
     if(a==='listen'){if(this.listen){this.listen=false;this.note='';this.render();}else if(this.queue.length&&this.gate){this.listen=true;this.render();}else this.start();return;}

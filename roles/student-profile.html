@@ -1,0 +1,85 @@
+<sc-if value="{{ isProfile }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="個人資料" class="student-profile-page">
+        <div class="student-profile-left" style="display:grid;gap:14px;min-width:0">
+          <section class="student-id-card theme-{{ profileCardTheme }}" aria-label="學員卡預覽" style="--profile-card-bg:url('{{ profileCardBackground }}')">
+            <img class="student-id-brand" src="images/brand/learning-planet-brand-v1.webp" alt="Learning Planet">
+            <div class="student-id-photo student-photo" style="{{ profileAvatarStyle }}"></div>
+            <div class="student-id-data">
+              <div class="student-id-row"><small>中文姓名</small><strong>{{ profileChineseName }}</strong></div>
+              <div class="student-id-row"><small>English Name</small><strong>{{ profileEnglishName }}</strong></div>
+              <div class="student-id-row"><small>年級／班級</small><strong>{{ profileClassZh }}</strong></div>
+              <div class="student-id-row"><small>Grade / Class</small><strong>{{ profileClassEn }}</strong></div>
+            </div>
+          </section>
+
+          <div class="profile-google-card" style="padding:14px 18px;border:1.5px solid {{ profileGoogleBoundBorder }};border-radius:20px;background:{{ profileGoogleBoundBg }};display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 8px 24px rgba(43,31,87,.04)">
+            <div style="display:flex;align-items:center;gap:12px;min-width:0">
+              <svg class="google-icon" viewBox="0 0 24 24" width="24" height="24" style="flex-shrink:0" aria-hidden="true">
+                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/>
+                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.33 24 12 24z"/>
+                <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/>
+                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
+              </svg>
+              <div style="min-width:0">
+                <strong style="display:block;font-size:14px;font-weight:900;color:{{ profileGoogleBoundColor }}">{{ profileGoogleStatusLabel }}</strong>
+                <span style="display:block;font-size:12px;font-weight:700;color:#7c74a8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ profileGoogleDetailLabel }}</span>
+              </div>
+            </div>
+            <sc-if value="{{ isGoogleBound }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ unbindGoogle }}" style="border:1px solid #ffccd7;background:#fff1f4;color:#d83b68;border-radius:12px;padding:8px 14px;font-size:12px;font-weight:900;cursor:pointer;white-space:nowrap">解除綁定</button>
+            </sc-if>
+            <sc-if value="{{ isNotGoogleBound }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ bindGoogle }}" style="border:0;background:linear-gradient(90deg,#4285F4,#34A853);color:#fff;border-radius:12px;padding:9px 16px;font-size:13px;font-weight:900;cursor:pointer;white-space:nowrap;box-shadow:0 4px 14px rgba(66,133,244,.35)">立即綁定</button>
+            </sc-if>
+          </div>
+        </div>
+
+        <aside class="profile-editor-panel">
+          <h2>我的個人資料</h2>
+          <p>切換 A–F 學員卡款式、選擇頭像，並設定英文姓名。</p>
+          <label class="profile-name-field">英文姓名
+            <input type="text" maxlength="30" value="{{ profileEnglishName }}" onInput="{{ updateProfileEnglishName }}" aria-label="英文姓名">
+          </label>
+          <section class="profile-account-card" aria-label="帳號與密碼">
+            <p class="profile-account-title">帳號與密碼</p>
+            <sc-if value="{{ profileAccountCanChange }}" hint-placeholder-val="{{ true }}">
+              <label class="profile-credential-field">新學員帳號
+                <span class="profile-credential-control"><input type="text" maxlength="32" autocomplete="username" value="{{ profileLoginAccountDraft }}" onInput="{{ updateProfileLoginAccount }}" aria-label="新學員帳號"></span>
+              </label>
+              <p class="profile-account-note">可使用 3–32 碼英文小寫、數字、句點、底線或連字號。帳號只能成功變更一次。</p>
+              <p class="profile-password-error" role="alert">{{ profileAccountError }}</p>
+              <button class="profile-account-submit" disabled="{{ profileAccountBusy }}" onClick="{{ submitProfileAccount }}">{{ profileAccountSubmitLabel }}</button>
+            </sc-if>
+            <sc-if value="{{ profileAccountLocked }}" hint-placeholder-val="{{ false }}">
+              <label class="profile-credential-field">學員帳號
+                <span class="profile-credential-control"><input type="text" value="{{ profileLoginAccount }}" readonly aria-label="學員帳號"></span>
+              </label>
+              <p class="profile-account-note">已使用過唯一一次帳號變更機會；如需協助，請聯絡管理者。</p>
+            </sc-if>
+            <div class="profile-password-grid">
+              <label class="profile-credential-field">新密碼
+                <span class="profile-credential-control"><input type="{{ profileNewPasswordType }}" minlength="6" autocomplete="new-password" value="{{ profileNewPassword }}" onInput="{{ updateProfileNewPassword }}" aria-label="新密碼"><button type="button" class="profile-password-toggle" onClick="{{ toggleProfileNewPassword }}">{{ profileNewPasswordToggleLabel }}</button></span>
+              </label>
+              <label class="profile-credential-field">確認新密碼
+                <span class="profile-credential-control"><input type="{{ profileConfirmPasswordType }}" minlength="6" autocomplete="new-password" value="{{ profileConfirmPassword }}" onInput="{{ updateProfileConfirmPassword }}" aria-label="確認新密碼"><button type="button" class="profile-password-toggle" onClick="{{ toggleProfileConfirmPassword }}">{{ profileConfirmPasswordToggleLabel }}</button></span>
+              </label>
+            </div>
+            <p class="profile-password-error" role="alert">{{ profilePasswordError }}</p>
+            <button class="profile-password-submit" disabled="{{ profilePasswordBusy }}" onClick="{{ submitProfilePassword }}">{{ profilePasswordSubmitLabel }}</button>
+          </section>
+          <p class="profile-section-label">學員卡款式</p>
+          <div class="profile-theme-grid" aria-label="選擇學員卡款式">
+            <sc-for list="{{ profileCardThemes }}" as="t" hint-placeholder-count="6">
+              <button class="profile-theme-option {{ t.activeClass }}" onClick="{{ t.pick }}" aria-label="選擇學員卡款式 {{ t.label }}">{{ t.label }}</button>
+            </sc-for>
+          </div>
+          <p class="profile-section-label">學員頭像</p>
+          <div class="profile-avatar-grid" aria-label="選擇學員頭像">
+            <sc-for list="{{ profileAvatarOptions }}" as="a" hint-placeholder-count="24">
+              <button class="profile-avatar-option student-photo {{ a.activeClass }}" style="{{ a.style }}" onClick="{{ a.pick }}" aria-label="{{ a.label }}"></button>
+            </sc-for>
+          </div>
+          <button class="profile-done" onClick="{{ goHome }}">完成並回首頁</button>
+        </aside>
+      </div>
+    </sc-if>

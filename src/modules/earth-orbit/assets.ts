@@ -1,5 +1,5 @@
 export const EARTH_ORBIT_ASSETS = {
-  background: 'images/science/earth-orbit/v0.1/background/space-clean-v01.png',
+  background: 'images/science/earth-orbit/v0.1/background/space-clean-web-v1.webp',
   sun: 'images/science/earth-orbit/v0.1/bodies/sun-v01.png',
   earth: 'images/science/earth-orbit/v0.1/bodies/earth-v01.png',
   earthSurface: 'images/science/earth-orbit/v0.1/bodies/earth-surface-equirect-v02.png',

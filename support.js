@@ -29,7 +29,7 @@
       scriptEl?.getAttribute("data-props") ?? null
     );
     return {
-      template: dc.innerHTML,
+      template: dc.querySelector(":scope > template[data-dc-template]")?.innerHTML ?? dc.innerHTML,
       js: scriptEl ? scriptEl.textContent || "" : "",
       props,
       preview
@@ -40,7 +40,9 @@
     if (!openMatch) return null;
     const close = src.lastIndexOf("</x-dc>");
     if (close === -1 || close < openMatch.index) return null;
-    const template = src.slice(openMatch.index + openMatch[0].length, close);
+    const rawTemplate = src.slice(openMatch.index + openMatch[0].length, close);
+    const inert = /^\s*<template\s+data-dc-template(?:="")?>\s*([\s\S]*)<\/template>\s*$/.exec(rawTemplate);
+    const template = inert ? inert[1] : rawTemplate;
     const doc = new DOMParser().parseFromString(src, "text/html");
     const scriptEl = doc.querySelector("script[data-dc-script]");
     const { props, preview } = parseDataProps(
@@ -155,7 +157,7 @@
     runtime.markFetched(rootName);
     runtime.setRootName(rootName);
     runtime.adoptParsed(rootName, parsed);
-    if (!window.__resources) {
+    if (!window.__resources && !doc.querySelector("x-dc > template[data-dc-template]")) {
       fetch(location.href).then((res) => res.ok ? res.text() : "").then((t) => {
         const raw = t ? parseDcText(t) : null;
         if (raw?.template) runtime.updateHtml(rootName, raw.template);
@@ -552,6 +554,7 @@
     if (node.nodeType !== Node.ELEMENT_NODE) return null;
     const el = node;
     const tag = el.tagName.toLowerCase();
+    if (tag === "sc-lazy") return walkLazy(el, host);
     if (tag === "sc-for") return walkFor(el, host);
     if (tag === "sc-if") return walkIf(el, host);
     if (tag === "x-import") return walkXImport(el, host);
@@ -657,6 +660,34 @@
         kids.map((b, j) => b(vals, ctx, j))
       ) : null;
     };
+  }
+  // Local fragments share the existing vals/state. Fetch begins only after sc-if mounts.
+  function walkLazy(el, host) {
+    const srcGet = compileAttr(el.getAttribute("src") || "");
+    function LazyFragment({ src, vals, ctx }) {
+      const R = getReact();
+      const [render, setRender] = R.useState(null);
+      const [failed, setFailed] = R.useState(false);
+      const [attempt, setAttempt] = R.useState(0);
+      R.useEffect(() => {
+        const controller = new AbortController();
+        setRender(null); setFailed(false);
+        const url = new URL(src, document.baseURI);
+        if (url.origin !== location.origin || !/^roles\/[a-z-]+\.html$/.test(src)) { setFailed(true); return; }
+        fetch(url, { signal: controller.signal }).then(response => {
+          if (!response.ok) throw new Error('Fragment unavailable');
+          return response.text();
+        }).then(html => {
+          if (!controller.signal.aborted) { const next = compileTemplate(html, host); setRender(() => next); }
+        }).catch(() => { if (!controller.signal.aborted) setFailed(true); });
+        return () => controller.abort();
+      }, [src, attempt]);
+      if (render) return h(R.Fragment, null, render(vals, ctx));
+      return h("div", { role: failed ? "alert" : "status", style: { minHeight: 120, padding: 20 } },
+        failed ? "載入失敗，請重試。 " : "正在準備畫面…",
+        failed ? h("button", { onClick: () => setAttempt(n => n + 1), style: { minHeight: 44 } }, "重試") : null);
+    }
+    return (vals, ctx, key) => h(LazyFragment, { key, src: srcGet(vals), vals, ctx });
   }
   function walkComponent(el, host) {
     const name = el.getAttribute("name") || el.getAttribute("component") || "";

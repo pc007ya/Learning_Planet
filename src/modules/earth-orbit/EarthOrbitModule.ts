@@ -100,6 +100,8 @@ export class EarthOrbitModule {
   private activePointerId: number | null = null;
   private previousPointerTime = 0;
   private destroyed = false;
+  private appReady = false;
+  private readonly controls = new AbortController();
   private readonly stageElement: HTMLElement;
 
   constructor(private readonly host: HTMLElement) {
@@ -121,12 +123,13 @@ export class EarthOrbitModule {
       backgroundAlpha: 0,
     });
 
-    if (this.destroyed) return;
+    this.appReady = true;
+    if (this.destroyed) { this.app.destroy({ removeView: true }, { children: true }); return; }
     this.app.canvas.className = 'earth-orbit-v01-canvas';
     this.app.canvas.setAttribute('aria-label', '可拖曳的地球公轉動畫');
     this.app.canvas.setAttribute('aria-description', '左右方向鍵移動地球，空白鍵播放或暫停，Home 鍵重設。');
     this.app.canvas.tabIndex = 0;
-    this.app.canvas.addEventListener('keydown', this.handleKeyDown);
+    this.app.canvas.addEventListener('keydown', this.handleKeyDown, { signal: this.controls.signal });
     this.stageElement.prepend(this.app.canvas);
 
     const textures = await this.loadTextures();
@@ -156,6 +159,7 @@ export class EarthOrbitModule {
   destroy(): void {
     if (this.destroyed) return;
     this.destroyed = true;
+    this.controls.abort();
     this.earth3D?.geometry.dispose();
     this.earth3D?.material.map?.dispose();
     this.earth3D?.material.dispose();
@@ -163,7 +167,7 @@ export class EarthOrbitModule {
     this.moon3D?.material.dispose();
     this.threeRenderer?.dispose();
     this.threeRenderer?.domElement.remove();
-    this.app.destroy({ removeView: true }, { children: true });
+    if (this.appReady) this.app.destroy({ removeView: true }, { children: true });
   }
 
   private async loadTextures(): Promise<LoadedTextures> {
@@ -253,6 +257,7 @@ export class EarthOrbitModule {
     this.threeCamera = camera;
 
     const earthMap = await new TextureLoader().loadAsync(EARTH_ORBIT_ASSETS.earthSurface);
+    if (this.destroyed) { earthMap.dispose(); return; }
     earthMap.colorSpace = SRGBColorSpace;
     earthMap.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
 
@@ -409,20 +414,20 @@ export class EarthOrbitModule {
       this.state.isPlaying = !this.state.isPlaying;
       this.state.orbitAngularSpeed = this.state.isPlaying ? ORBIT_SPEED : 0;
       this.renderState();
-    });
+    }, { signal: this.controls.signal });
     this.host.querySelector<HTMLElement>('[data-orbit-action="play"]')?.addEventListener('click', () => {
       this.state.isPlaying = true;
       this.state.orbitAngularSpeed = ORBIT_SPEED;
       this.renderState();
-    });
+    }, { signal: this.controls.signal });
     this.host.querySelector<HTMLElement>('[data-orbit-action="pause"]')?.addEventListener('click', () => {
       this.state.isPlaying = false;
       this.state.orbitAngularSpeed = 0;
       this.renderState();
-    });
+    }, { signal: this.controls.signal });
     this.host.querySelector<HTMLElement>('[data-orbit-action="reset"]')?.addEventListener('click', () => {
       this.resetState();
-    });
+    }, { signal: this.controls.signal });
     const tips = this.host.querySelector<HTMLElement>('[data-orbit-tips]');
     const tipsToggle = this.host.querySelector<HTMLElement>('[data-orbit-action="tips"]');
     const setTipsVisibility = (visible: boolean): void => {
@@ -431,10 +436,10 @@ export class EarthOrbitModule {
     };
     this.host.querySelector<HTMLElement>('[data-orbit-action="tips"]')?.addEventListener('click', () => {
       setTipsVisibility(true);
-    });
+    }, { signal: this.controls.signal });
     this.host.querySelector<HTMLElement>('[data-orbit-action="close-tips"]')?.addEventListener('click', () => {
       setTipsVisibility(false);
-    });
+    }, { signal: this.controls.signal });
     setTipsVisibility(!tips?.hidden);
   }
 

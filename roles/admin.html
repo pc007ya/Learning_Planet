@@ -1,0 +1,278 @@
+<sc-if value="{{ isTeacher }}" hint-placeholder-val="{{ true }}">
+      <div data-screen-label="教師後台">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+          <sc-for list="{{ adminTabs }}" as="t" hint-placeholder-count="4">
+            <button onClick="{{ t.go }}" style="border:1.5px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};border-radius:99px;padding:11px 22px;font-size:14px;font-weight:900;font-family:inherit;cursor:pointer">{{ t.label }}</button>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{ adminWeekly }}" hint-placeholder-val="{{ false }}">
+          <section class="teacher-settings-shell" style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+            <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap"><div><p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:#22c8d8">WEEKLY EXAM BUILDER</p><h2 style="margin:8px 0 4px;font-size:28px;font-weight:900">每週考卷設定</h2><p style="margin:0;font-size:13px;font-weight:700;color:#9a90c8">設定各模組題數與難度；0 題代表本週不出題。學生交卷後才會看到分數與檢討。</p></div><label style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:900;color:#4a3d7a">每題時間<select value="{{ weeklyTeacherTime }}" onChange="{{ changeWeeklyTime }}" style="border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;background:#fff;color:#5b3fe0;font-family:inherit;font-weight:900"><sc-for list="{{ weeklyTimeOptions }}" as="option" hint-placeholder-count="6"><option value="{{ option.value }}">{{ option.label }}</option></sc-for></select></label></div>
+            <div style="display:flex;gap:8px;margin-top:18px"><sc-for list="{{ weeklyTeacherGrades }}" as="grade" hint-placeholder-count="2"><button onClick="{{ grade.go }}" style="border:1.5px solid {{ grade.border }};background:{{ grade.bg }};color:{{ grade.fg }};border-radius:99px;padding:9px 18px;font-family:inherit;font-weight:900;cursor:pointer">{{ grade.label }}</button></sc-for></div>
+            <div style="margin-top:16px;display:grid;gap:9px"><sc-for list="{{ weeklyModuleRows }}" as="row" hint-placeholder-count="10"><div style="display:grid;grid-template-columns:minmax(180px,1fr) 130px 140px;gap:10px;align-items:center;padding:12px 14px;border-radius:18px;background:#fbfaff;border:1px solid #ece7ff"><span style="display:flex;align-items:center;gap:10px"><span style="font-size:22px">{{ row.icon }}</span><span><strong style="display:block;font-size:14px;font-weight:900">{{ row.title }}</strong><span style="font-size:11px;font-weight:700;color:#9a90c8">{{ row.subject }}</span></span></span><label style="font-size:12px;font-weight:900;color:#7c74a8">題數 <select value="{{ row.count }}" onChange="{{ row.changeCount }}" style="margin-left:4px;border:1px solid #ddd5ff;border-radius:9px;padding:7px;background:#fff;font-family:inherit"><sc-for list="{{ row.countOptions }}" as="option" hint-placeholder-count="6"><option value="{{ option.value }}">{{ option.label }}</option></sc-for></select></label><label style="font-size:12px;font-weight:900;color:#7c74a8">難度 <select value="{{ row.difficulty }}" onChange="{{ row.changeDifficulty }}" style="margin-left:4px;border:1px solid #ddd5ff;border-radius:9px;padding:7px;background:#fff;font-family:inherit"><sc-for list="{{ row.difficultyOptions }}" as="option" hint-placeholder-count="3"><option value="{{ option.value }}">{{ option.label }}</option></sc-for></select></label></div></sc-for></div>
+            <p style="margin:16px 0 0;padding:12px 15px;border-radius:16px;background:#e6f7ee;color:#1d7a55;font-size:13px;font-weight:900">目前 {{ weeklyTeacherTotal }} 題 · 設定會自動儲存到這台裝置。</p>
+          </section>
+        </sc-if>
+
+        <sc-if value="{{ adminStudents }}" hint-placeholder-val="{{ true }}">
+          <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+            <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap">
+              <div>
+                <p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:#22c8d8">TEACHER STUDIO</p>
+                <h2 style="margin:8px 0 0;font-size:28px;font-weight:900">學員維護</h2>
+              </div>
+              <div style="display:flex;gap:10px"><div style="background:rgba(255,255,255,.08);border:1px solid rgba(121,228,255,.22);border-radius:18px;padding:12px 18px;text-align:center"><p style="margin:0;font-size:11px;font-weight:900;color:#9cefff">學員帳號</p><p style="margin:4px 0 0;font-size:22px;font-weight:900;color:#fff">{{ studentCount }}</p></div></div>
+            </div>
+
+            <div style="margin-top:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+              <strong style="font-size:13px;color:#9cefff">顯示班級</strong>
+              <select value="{{ studentClassFilter }}" onChange="{{ onStudentClassFilter }}" style="min-width:150px;border:1px solid rgba(121,228,255,.35);border-radius:13px;padding:10px 14px;background:rgba(7,24,67,.82);color:#fff;font-family:inherit;font-size:14px;font-weight:900">
+                <sc-for list="{{ classOptions }}" as="co" hint-placeholder-count="18"><option value="{{ co.id }}">{{ co.name }}</option></sc-for>
+              </select>
+              <span style="font-size:12px;font-weight:800;color:#9cefff">名單僅顯示所選班級</span>
+            </div>
+
+            <div style="margin-top:18px;display:grid;gap:12px;background:#fbfaff;border:1px solid #ece7ff;border-radius:20px;padding:14px">
+              <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+                <input value="{{ newName }}" onChange="{{ onNewName }}" placeholder="學生姓名" style="flex:1;min-width:130px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57" />
+                <input value="{{ newSeat }}" onChange="{{ onNewSeat }}" inputMode="numeric" maxLength="2" placeholder="座號 1～99" style="width:120px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57" />
+                <select value="{{ newClass }}" onChange="{{ onNewClass }}" style="min-width:120px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57;background:#fff">
+                  <sc-for list="{{ classOptions }}" as="co" hint-placeholder-count="3">
+                    <option value="{{ co.id }}">{{ co.name }}</option>
+                  </sc-for>
+                </select>
+                <span style="font-size:12px;font-weight:900;color:{{ seatHintColor }};min-width:104px">{{ seatHint }}</span>
+                <button onClick="{{ addStudent }}" style="border:0;border-radius:14px;padding:12px 20px;font-size:15px;font-weight:900;font-family:inherit;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer">＋ 新增學員</button>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;min-width:0"><strong style="flex:0 0 auto;font-size:12px;color:#9cefff">選擇頭像</strong><div style="display:flex;gap:7px;overflow-x:auto;padding:2px 2px 5px;scrollbar-width:thin"><sc-for list="{{ newStudentAvatarOptions }}" as="avatar" hint-placeholder-count="24"><button onClick="{{ avatar.pick }}" title="{{ avatar.label }}" aria-label="{{ avatar.label }}" style="flex:0 0 auto;width:42px;height:42px;border:2px solid {{ avatar.border }};border-radius:12px;padding:2px;background:{{ avatar.bg }};cursor:pointer"><img src="{{ avatar.image }}" alt="" style="display:block;width:100%;height:100%;border-radius:8px;object-fit:cover"></button></sc-for></div></div>
+            </div>
+
+            <div style="margin-top:16px;overflow-x:auto">
+              <div style="min-width:900px">
+                <div class="teacher-student-head" style="display:grid;grid-template-columns:.4fr 1fr .65fr .85fr .75fr 1.1fr 1.35fr auto;gap:8px;padding:0 12px 10px;font-size:12px;font-weight:900;color:#b3a9d8"><span>座號</span><span>學生</span><span>班級</span><span>帳號</span><span>首次密碼</span><span>最後登入日</span><span>Google 綁定 / UID</span><span>維護</span></div>
+                <sc-for list="{{ teacherRows }}" as="row" hint-placeholder-count="8">
+                  <sc-if value="{{ row.viewing }}" hint-placeholder-val="{{ true }}">
+                    <div class="teacher-student-row" style="display:grid;grid-template-columns:.4fr 1fr .65fr .85fr .75fr 1.1fr 1.35fr auto;gap:8px;align-items:center;padding:12px;border-radius:18px;margin-bottom:6px;background:{{ row.bg }}">
+                      <span style="font-size:14px;font-weight:900;color:#7c74a8">{{ row.seat }}</span>
+                      <span style="display:flex;align-items:center;gap:10px"><img src="{{ row.avatarImage }}" alt="" style="width:34px;height:34px;border-radius:10px;object-fit:cover"><strong style="font-size:15px;font-weight:900">{{ row.name }}</strong></span>
+                      <span style="font-size:13px;font-weight:900;color:#5b3fe0">{{ row.className }}</span>
+                      <span style="font-size:13px;font-weight:900;color:#8feaff">{{ row.account }}</span>
+                      <span style="font-size:13px;font-weight:900;color:#ffe18a">{{ row.password }}</span>
+                      <span style="font-size:12px;font-weight:800;color:#c5d7ec">{{ row.lastLogin }}</span>
+                      <span style="font-size:12px;font-weight:800;min-width:0">
+                        <sc-if value="{{ row.googleBound }}" hint-placeholder-val="{{ true }}">
+                          <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(52,168,83,.2);border:1px solid rgba(52,168,83,.5);color:#58ffc7;border-radius:8px;padding:3px 7px;font-size:11px;font-weight:900" title="{{ row.googleEmail }}">✓ 已綁定</span>
+                          <small style="display:block;font-size:10px;color:#9cefff;margin-top:2px;font-family:monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="{{ row.googleUidFull }}">UID: {{ row.googleUidShort }}</small>
+                        </sc-if>
+                        <sc-if value="{{ row.googleNotBound }}" hint-placeholder-val="{{ false }}">
+                          <span style="color:#7c74a8;font-size:11px;font-weight:800">⚪ 未綁定</span>
+                        </sc-if>
+                      </span>
+                      <span style="display:flex;gap:6px">
+                        <button onClick="{{ row.edit }}" style="border:1px solid #ddd5ff;background:#fbfaff;border-radius:12px;padding:8px 12px;font-size:13px;font-weight:900;color:#5b3fe0;cursor:pointer;font-family:inherit">編輯</button>
+                        <button onClick="{{ row.remove }}" style="border:1px solid #ffd0e6;background:#fff5f9;border-radius:12px;padding:8px 12px;font-size:13px;font-weight:900;color:#b0316f;cursor:pointer;font-family:inherit">移除</button>
+                      </span>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ row.editing }}" hint-placeholder-val="{{ false }}">
+                    <div class="teacher-student-edit" style="display:grid;grid-template-columns:.4fr 1fr .65fr .85fr .75fr 1.1fr 1.35fr auto;gap:8px;align-items:center;padding:12px;border-radius:18px;margin-bottom:6px;background:#f6f2ff;border:2px solid #7c5cff">
+                      <input value="{{ editSeat }}" onChange="{{ onEditSeat }}" inputMode="numeric" maxLength="2" placeholder="座號" style="width:100%;min-width:0;border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;font-size:15px;font-family:inherit;color:#2b1f57" />
+                      <input value="{{ editName }}" onChange="{{ onEditName }}" placeholder="姓名" style="width:100%;min-width:0;border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;font-size:15px;font-family:inherit;color:#2b1f57" />
+                      <select value="{{ editClass }}" onChange="{{ onEditClass }}" style="width:100%;min-width:0;border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;font-size:15px;font-family:inherit;color:#2b1f57;background:#fff">
+                        <sc-for list="{{ classOptions }}" as="co" hint-placeholder-count="3">
+                          <option value="{{ co.id }}">{{ co.name }}</option>
+                        </sc-for>
+                      </select>
+                      <input value="{{ editAccount }}" onChange="{{ onEditAccount }}" placeholder="登入帳號" style="width:100%;min-width:0;border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;font-size:14px;font-family:inherit;color:#2b1f57" />
+                      <input value="{{ editPassword }}" onChange="{{ onEditPassword }}" placeholder="登入密碼" style="width:100%;min-width:0;border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;font-size:14px;font-family:inherit;color:#2b1f57" />
+                      <span style="font-size:12px;font-weight:900;color:{{ editHintColor }};min-width:0">{{ editHint }}</span>
+                      <span style="font-size:11px;font-weight:800;color:#9cefff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ editGoogleUidInfo }}</span>
+                      <span style="display:flex;gap:6px"><button onClick="{{ saveEdit }}" style="border:0;border-radius:12px;padding:10px 14px;font-size:13px;font-weight:900;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer;font-family:inherit">儲存</button><button onClick="{{ cancelEdit }}" style="border:1px solid #ddd5ff;background:#fff;border-radius:12px;padding:10px 12px;font-size:13px;font-weight:900;color:#7c74a8;cursor:pointer;font-family:inherit">取消</button></span>
+                    </div>
+                  </sc-if>
+                </sc-for>
+              </div>
+            </div>
+          </section>
+        </sc-if>
+
+        <sc-if value="{{ adminClasses }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+            <section class="teacher-class-panel" style="grid-column:1/-1;background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+              <h2 style="margin:0 0 4px;font-size:26px;font-weight:900">班級管理</h2>
+              <p style="margin:0 0 16px;font-size:13px;font-weight:700;color:#9a90c8">新增班級、改名稱，或把學生分配到別班</p>
+              <div class="teacher-admin-form" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#fbfaff;border:1px solid #ece7ff;border-radius:20px;padding:14px">
+                <input value="{{ newClassName }}" onChange="{{ onNewClassName }}" placeholder="班級名稱，例如 302 班" style="flex:1;min-width:180px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57" />
+                <button onClick="{{ addClass }}" style="border:0;border-radius:14px;padding:12px 20px;font-size:15px;font-weight:900;font-family:inherit;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer">＋ 新增班級</button>
+              </div>
+              <div style="margin-top:16px;display:grid;gap:10px">
+                <sc-for list="{{ classRows }}" as="c" hint-placeholder-count="3">
+                  <div class="teacher-class-row" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px;border-radius:20px;border:2px solid {{ c.border }};background:{{ c.bg }}">
+                    <sc-if value="{{ c.viewing }}" hint-placeholder-val="{{ true }}">
+                      <span style="display:flex;align-items:center;gap:12px;flex:1;min-width:200px">
+                        <span style="width:42px;height:42px;border-radius:16px;display:grid;place-items:center;font-size:20px;background:#f3f0ff">🏫</span>
+                        <span><strong style="display:block;font-size:17px;font-weight:900">{{ c.name }}</strong><span style="font-size:12px;font-weight:800;color:#9a90c8">{{ c.count }} 位學生 · 平均 Lv.{{ c.avgLevel }}</span></span>
+                      </span>
+                    </sc-if>
+                    <sc-if value="{{ c.editing }}" hint-placeholder-val="{{ false }}">
+                      <input value="{{ classEditName }}" onChange="{{ onClassEditName }}" style="flex:1;min-width:180px;border:1.5px solid #ddd5ff;border-radius:12px;padding:10px 12px;font-size:15px;font-family:inherit;color:#2b1f57" />
+                    </sc-if>
+                    <span style="display:flex;gap:6px">
+                      <button onClick="{{ c.primary }}" style="border:{{ c.primaryBorder }};background:{{ c.primaryBg }};border-radius:12px;padding:9px 14px;font-size:13px;font-weight:900;color:{{ c.primaryFg }};cursor:pointer;font-family:inherit">{{ c.primaryLabel }}</button>
+                      <button onClick="{{ c.secondary }}" style="border:1px solid #ffd0e6;background:#fff5f9;border-radius:12px;padding:9px 14px;font-size:13px;font-weight:900;color:#b0316f;cursor:pointer;font-family:inherit">{{ c.secondaryLabel }}</button>
+                    </span>
+                  </div>
+                </sc-for>
+              </div>
+            </section>
+
+            <section class="teacher-class-panel" style="grid-column:1/-1;background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+              <h3 style="margin:0 0 4px;font-size:20px;font-weight:900">分配成員</h3>
+              <p style="margin:0 0 14px;font-size:13px;font-weight:700;color:#9a90c8">每位學生右邊選一個班級就會立刻搬過去</p>
+              <div style="display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+                <sc-for list="{{ assignRows }}" as="a" hint-placeholder-count="8">
+                  <div class="teacher-assignment-row" style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:18px;background:#fbfaff;border:1px solid #ece7ff">
+                    <img class="teacher-assignment-avatar" src="{{ a.avatarImage }}" alt="{{ a.name }}的頭像">
+                    <span style="flex:1;min-width:0"><strong style="display:block;font-size:14px;font-weight:900">{{ a.name }}</strong><span style="font-size:11px;font-weight:800;color:#b3a9d8">{{ a.seat }}</span></span>
+                    <select value="{{ a.classId }}" onChange="{{ a.move }}" style="border:1.5px solid #ddd5ff;border-radius:12px;padding:8px 10px;font-size:13px;font-weight:800;font-family:inherit;color:#5b3fe0;background:#fff">
+                      <sc-for list="{{ classOptions }}" as="co" hint-placeholder-count="3">
+                        <option value="{{ co.id }}">{{ co.name }}</option>
+                      </sc-for>
+                    </select>
+                  </div>
+                </sc-for>
+              </div>
+            </section>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ adminVocab }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;gap:16px">
+            <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:24px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+              <h2 style="margin:0 0 4px;font-size:26px;font-weight:900">字彙維護</h2>
+              <p style="margin:0 0 16px;font-size:13px;font-weight:700;color:#9a90c8">新增的字會出現在國文學習庫與隨機測驗中（目前共 {{ vocabTotal }} 字，其中自訂 {{ vocabCustom }} 字）</p>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#fbfaff;border:1px solid #ece7ff;border-radius:20px;padding:14px">
+                <input value="{{ vChar }}" onChange="{{ onVChar }}" maxLength="1" placeholder="字" style="width:76px;text-align:center;border:1.5px solid #ece7ff;border-radius:14px;padding:12px;font-size:22px;font-weight:900;font-family:inherit;color:#2b1f57" />
+                <input value="{{ vZhuyin }}" onChange="{{ onVZhuyin }}" placeholder="注音 ㄔㄨㄣ" style="width:130px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57" />
+                <input value="{{ vWord }}" onChange="{{ onVWord }}" placeholder="語詞 春天" style="width:130px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57" />
+                <input value="{{ vRadical }}" onChange="{{ onVRadical }}" maxLength="1" placeholder="部首" style="width:82px;text-align:center;border:1.5px solid #ece7ff;border-radius:14px;padding:12px;font-size:15px;font-family:inherit;color:#2b1f57" />
+                <input value="{{ vPic }}" onChange="{{ onVPic }}" maxLength="2" placeholder="圖示" style="width:76px;text-align:center;border:1.5px solid #ece7ff;border-radius:14px;padding:12px;font-size:18px;font-family:inherit;color:#2b1f57" />
+                <select value="{{ vUnit }}" onChange="{{ onVUnit }}" style="min-width:150px;border:1.5px solid #ece7ff;border-radius:14px;padding:12px 14px;font-size:15px;font-family:inherit;color:#2b1f57;background:#fff">
+                  <sc-for list="{{ vocabUnits }}" as="vu" hint-placeholder-count="6">
+                    <option value="{{ vu }}">{{ vu }}</option>
+                  </sc-for>
+                </select>
+                <button onClick="{{ addVocab }}" style="border:0;border-radius:14px;padding:12px 20px;font-size:15px;font-weight:900;font-family:inherit;color:#fff;background:linear-gradient(90deg,#ffb020,#ff7ab8);cursor:pointer">＋ 新增字彙</button>
+              </div>
+              <p style="margin:12px 0 0;font-size:12px;font-weight:900;color:{{ vocabHintColor }}">{{ vocabHint }}</p>
+            </section>
+
+            <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:22px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+              <h3 style="margin:0 0 12px;font-size:19px;font-weight:900">自訂字彙</h3>
+              <div style="display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))">
+                <sc-for list="{{ customWords }}" as="w" hint-placeholder-count="4">
+                  <div style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:18px;background:#fbfaff;border:1px solid #ece7ff">
+                    <span style="font-size:30px;font-weight:900;color:#2b1f57">{{ w.char }}</span>
+                    <span style="flex:1;min-width:0"><strong style="display:block;font-size:13px;font-weight:900;color:#a06400">{{ w.zhuyin }}</strong><span style="font-size:12px;font-weight:800;color:#9a90c8">{{ w.word }}</span></span>
+                    <button onClick="{{ w.remove }}" style="border:1px solid #ffd0e6;background:#fff5f9;border-radius:10px;padding:6px 10px;font-size:12px;font-weight:900;color:#b0316f;cursor:pointer;font-family:inherit">刪</button>
+                  </div>
+                </sc-for>
+              </div>
+              <sc-if value="{{ noCustom }}" hint-placeholder-val="{{ true }}">
+                <p style="margin:0;font-size:13px;font-weight:800;color:#b3a9d8">還沒有自訂字彙。</p>
+              </sc-if>
+            </section>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ adminAssign }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+            <section style="background:#fff;border:1px solid #ece7ff;border-radius:28px;padding:22px;box-shadow:0 14px 30px rgba(43,31,87,.06)">
+              <h3 style="margin:0 0 6px;font-size:20px;font-weight:900">指派今日關卡</h3>
+              <p style="margin:0 0 14px;font-size:13px;font-weight:700;color:#9a90c8">選一個單元，全班首頁就會出現這個任務</p>
+              <sc-for list="{{ assignChoices }}" as="a" hint-placeholder-count="6">
+                <button onClick="{{ a.pick }}" style="width:100%;display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:18px;margin-bottom:8px;border:2px solid {{ a.border }};background:{{ a.bg }};cursor:pointer;font-family:inherit;text-align:left">
+                  <span style="width:38px;height:38px;border-radius:14px;display:grid;place-items:center;font-size:20px;background:{{ a.tint }}">{{ a.icon }}</span>
+                  <span style="flex:1"><strong style="display:block;font-size:15px;font-weight:900;color:#2b1f57">{{ a.title }}</strong><span style="font-size:12px;font-weight:700;color:#9a90c8">{{ a.sub }}</span></span>
+                  <span style="font-size:13px;font-weight:900;color:{{ a.fg }}">{{ a.state }}</span>
+                </button>
+              </sc-for>
+            </section>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ adminSettings }}" hint-placeholder-val="{{ false }}">
+          <section class="teacher-settings-shell" style="border-radius:28px;padding:18px">
+            <div class="teacher-settings-heading">
+              <div>
+                <p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:#57eaff">TEACHER PROFILE &amp; SECURITY</p>
+                <h2 style="margin:8px 0 0;font-size:28px;font-weight:900">{{ teacherSettingsTitle }}</h2>
+                <p style="margin:6px 0 0;font-size:13px;font-weight:700;color:#9a90c8">{{ teacherSettingsDescription }}</p>
+              </div>
+              <span class="teacher-settings-role-chip">{{ teacherSettingsTarget }}</span>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px">
+              <div class="teacher-settings-card" style="border-radius:22px;padding:16px">
+                <h3 style="margin:0 0 14px;font-size:17px;font-weight:900">{{ teacherProfileCardTitle }}</h3>
+                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800">
+                  老師稱謂／顯示名稱
+                  <input value="{{ editTeacherName }}" onChange="{{ onEditTeacherName }}" placeholder="例如：陳老師" style="display:block;width:100%;margin-top:6px;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit" />
+                </label>
+                <p style="margin:0 0 8px;font-size:13px;font-weight:800">選擇教師代表圖示</p>
+                <div style="display:flex;gap:10px;flex-wrap:wrap">
+                  <sc-for list="{{ teacherFaceOptions }}" as="f" hint-placeholder-count="6">
+                    <button class="teacher-avatar-choice" onClick="{{ f.pick }}" title="選擇教師頭像" style="width:46px;height:46px;border-radius:14px;border:2px solid {{ f.border }};background:{{ f.bg }};font-size:24px;cursor:pointer;display:grid;place-items:center"><img src="{{ f.image }}" alt=""></button>
+                  </sc-for>
+                </div>
+              </div>
+
+              <div class="teacher-settings-card" style="border-radius:22px;padding:16px">
+                <h3 style="margin:0 0 14px;font-size:17px;font-weight:900">{{ teacherCredentialCardTitle }}</h3>
+                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800">
+                  教師登入帳號
+                  <input value="{{ editTeacherAccount }}" onChange="{{ onEditTeacherAccount }}" placeholder="例如：teacher" style="display:block;width:100%;margin-top:6px;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit" />
+                </label>
+                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800">
+                  教師登入密碼
+                  <span class="password-field-wrap settings-password"><input type="{{ editTeacherPasswordType }}" value="{{ editTeacherPassword }}" onChange="{{ onEditTeacherPassword }}" placeholder="輸入新密碼" style="display:block;width:100%;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit" /><button type="button" class="password-eye" onClick="{{ toggleEditTeacherPassword }}" title="{{ editTeacherPasswordToggleTitle }}" aria-label="{{ editTeacherPasswordToggleTitle }}">{{ editTeacherPasswordEye }}</button></span>
+                </label>
+                <div class="teacher-google-compact" style="padding:10px 12px;border:1.5px solid {{ teacherGoogleBoundBorder }};border-radius:14px;background:{{ teacherGoogleBoundBg }};display:flex;align-items:center;justify-content:space-between;gap:10px">
+                  <div style="display:flex;align-items:center;gap:9px;min-width:0">
+                    <svg class="google-icon" viewBox="0 0 24 24" width="22" height="22" style="flex-shrink:0" aria-hidden="true"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.33 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/></svg>
+                    <div style="min-width:0"><strong style="display:block;font-size:13px;font-weight:900;color:{{ teacherGoogleBoundColor }}">{{ teacherGoogleStatusLabel }}</strong><span style="display:block;font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ teacherGoogleDetailLabel }}</span></div>
+                  </div>
+                  <sc-if value="{{ canBindOwnTeacherGoogle }}" hint-placeholder-val="{{ true }}"><button onClick="{{ bindTeacherGoogle }}" style="flex:0 0 auto;border:0;background:linear-gradient(90deg,#4285F4,#34A853);color:#fff;border-radius:10px;padding:8px 11px;font-size:11px;font-weight:900;cursor:pointer">綁定 Google</button></sc-if>
+                </div>
+              </div>
+            </div>
+
+            <sc-if value="{{ isNotTeacherManager }}" hint-placeholder-val="{{ true }}"><div style="margin-top:14px;display:flex;justify-content:flex-end"><button onClick="{{ saveTeacherSettings }}" style="border:0;border-radius:12px;padding:11px 20px;font-size:14px;font-weight:900;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer">儲存教師設定</button></div></sc-if>
+
+            <sc-if value="{{ isTeacherManager }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(120,210,255,.24)">
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap"><div><h3 style="margin:0 0 5px;font-size:20px;font-weight:900">管理者：教師帳號清單</h3><p style="margin:0 0 12px;font-size:12px;font-weight:700">建立教師、選取帳號並修改資料。</p></div><button onClick="{{ saveTeacherSettings }}" style="border:0;border-radius:12px;padding:10px 18px;font-size:13px;font-weight:900;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer;box-shadow:0 6px 16px rgba(124,92,255,.25)">儲存教師設定</button></div>
+                <div class="teacher-directory-create" style="display:grid;grid-template-columns:1.1fr 1fr 1fr auto;gap:10px;padding:14px;border-radius:18px">
+                  <input value="{{ newTeacherName }}" onChange="{{ changeNewTeacherName }}" placeholder="教師名稱" style="min-width:0;border-radius:11px;padding:11px;font:800 14px inherit">
+                  <input value="{{ newTeacherAccount }}" onChange="{{ changeNewTeacherAccount }}" placeholder="預設帳號" style="min-width:0;border-radius:11px;padding:11px;font:800 14px inherit">
+                  <span class="password-field-wrap"><input type="{{ newTeacherPasswordType }}" value="{{ newTeacherPassword }}" onChange="{{ changeNewTeacherPassword }}" placeholder="預設密碼" style="width:100%;min-width:0;border-radius:11px;padding:11px;font:800 14px inherit"><button type="button" class="password-eye" onClick="{{ toggleNewTeacherPassword }}" title="{{ newTeacherPasswordToggleTitle }}" aria-label="{{ newTeacherPasswordToggleTitle }}">{{ newTeacherPasswordEye }}</button></span>
+                  <button onClick="{{ addTeacherAccount }}" style="border:0;border-radius:11px;padding:11px 15px;background:linear-gradient(90deg,#7c5cff,#22c8d8);color:#fff;font:900 14px inherit;cursor:pointer">＋新增</button>
+                </div>
+                <div style="display:grid;gap:8px;margin-top:12px">
+                  <div class="teacher-directory-head" aria-hidden="true">
+                    <span>教師／角色</span><span>帳號</span><span>密碼</span><span>最後登入</span><span>Google Email／UID</span><span>操作</span>
+                  </div>
+                  <sc-for list="{{ teacherDirectory }}" as="teacher" hint-placeholder-count="2">
+                    <div class="teacher-directory-row {{ teacher.editing ? 'is-editing' : '' }}" style="display:grid;grid-template-columns:1.1fr .8fr .8fr 1fr 1fr auto;align-items:center;gap:10px;border-radius:15px;padding:12px 14px;text-align:left;font-family:inherit">
+                      <strong class="teacher-directory-name">{{ teacher.name }}<small style="display:block">{{ teacher.roleLabel }}</small></strong><span>{{ teacher.account }}</span><span aria-label="密碼已隱藏">••••••</span><span>{{ teacher.lastLogin }}</span><span class="teacher-directory-google">{{ teacher.google }}</span>
+                      <span style="display:flex;justify-content:flex-end;gap:7px"><button onClick="{{ teacher.select }}" style="border:0;border-radius:9px;padding:8px 10px;background:#eafbff;color:#3256c8;font:900 12px inherit;cursor:pointer">編輯</button><sc-if value="{{ teacher.canDelete }}"><button onClick="{{ teacher.remove }}" style="border:0;border-radius:9px;padding:8px 10px;background:#fff0f7;color:#c12e70;font:900 12px inherit;cursor:pointer">刪除</button></sc-if></span>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+          </section>
+        </sc-if>
+      </div>
+    </sc-if>

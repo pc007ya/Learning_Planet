@@ -9,9 +9,9 @@
   "theme_color": "#071333",
   "icons": [
     {
-      "src": "images/brand/learning-planet-brand-v1.png",
+      "src": "images/brand/learning-planet-brand-web-v1.webp",
       "sizes": "any",
-      "type": "image/png",
+      "type": "image/webp",
       "purpose": "any"
     }
   ]

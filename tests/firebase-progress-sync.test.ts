@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 
-const app = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-const firebaseClient = readFileSync(new URL('../auth-v2/firebase-client.js', import.meta.url), 'utf8');
+const app = ['index.html','roles/student-profile.html','roles/admin.html','roles/admin.js','roles/teacher.js'].map(path => readFileSync(new URL('../'+path, import.meta.url),'utf8')).join('\n');
+const firebaseClient = ['firebase-client.js','admin-api.mjs','teacher-api.mjs'].map(path => readFileSync(new URL('../auth-v2/'+path,import.meta.url),'utf8')).join('\n');
 const firebaseFunctions = readFileSync(new URL('../functions/index.js', import.meta.url), 'utf8');
 const firebaseDeploy = readFileSync(new URL('../.github/workflows/firebase-backend-deploy.yml', import.meta.url), 'utf8');
 

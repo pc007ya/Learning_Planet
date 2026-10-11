@@ -185,35 +185,11 @@ export async function changeMyPassword(newPassword) {
   return { ok: true };
 }
 
-export async function fetchTeachersList() {
-  const q = query(collection(db, 'teachers'));
-  const snap = await getDocs(q);
-  const teachers = [];
-  snap.forEach((d) => {
-    teachers.push({ id: d.id, ...d.data() });
-  });
-  return teachers;
-}
 
-export async function fetchStudentsList() {
-  if (await currentRole() === 'admin') {
-    await reconcileStudentGoogleLinks().catch((error) => console.warn('Student Google-link reconciliation failed:', error));
-  }
-  const snap = await getDocs(query(collection(db, 'students')));
-  const students = [];
-  snap.forEach((item) => students.push({ id: item.id, ...item.data() }));
-  return students;
-}
 
-export async function saveStudentPasswordMetadata(uid, passwordCustomized) {
-  if (await currentRole() !== 'admin') throw new Error('只有管理者可以更新密碼狀態');
-  if (!uid || typeof passwordCustomized !== 'boolean') throw new Error('密碼狀態不完整');
-  await setDoc(doc(db, 'students', uid), {
-    passwordCustomized,
-    updatedAt: serverTimestamp()
-  }, { merge: true });
-  return { saved: true };
-}
+
+
+
 
 // The learner may update only their own cloud save.  Credentials are never
 // included here: Firebase Authentication is the sole password store.
@@ -240,25 +216,12 @@ export async function saveMyStudentProgress(progress = {}) {
   return { saved: true };
 }
 
-export function subscribeStudentsList(callback) {
-  return onSnapshot(query(collection(db, 'students')), (snap) => {
-    const students = [];
-    snap.forEach((item) => students.push({ id: item.id, ...item.data() }));
-    callback(students);
-  }, (error) => console.warn('Cloud student directory subscription failed:', error));
-}
+
 
 // The roster is shared configuration, never a credential store.  Only an
 // administrator with a Firebase custom claim can write it (also enforced by
 // firestore.rules); teachers may read it for their assigned classes.
-export async function saveRosterSnapshot(roster = {}) {
-  if (await currentRole() !== 'admin') throw new Error('只有管理者可以更新雲端名冊');
-  await setDoc(doc(db, 'system', 'roster'), {
-    ...roster,
-    schemaVersion: 4,
-    updatedAt: serverTimestamp()
-  });
-}
+
 
 export async function saveWeeklyResult(result = {}) {
   if (!auth.currentUser || await currentRole() !== 'student') throw new Error('只有學員可以提交週考成績');
@@ -285,29 +248,22 @@ export async function saveWeeklyResult(result = {}) {
   await setDoc(doc(db, 'weekly_results', `${auth.currentUser.uid}_${safeTestId}`), payload, { merge: true });
 }
 
-export async function loadRosterSnapshot() {
-  const snap = await getDoc(doc(db, 'system', 'roster'));
-  return snap.exists() ? snap.data() : null;
-}
 
-export function subscribeRosterSnapshot(callback) {
-  return onSnapshot(doc(db, 'system', 'roster'), (snap) => {
-    callback(snap.exists() ? snap.data() : null);
-  }, (error) => console.warn('Cloud roster subscription failed:', error));
-}
 
-export const createTeacher = httpsCallable(functions, 'createTeacher');
-export const updateTeacher = httpsCallable(functions, 'updateTeacher');
-export const deleteTeacher = httpsCallable(functions, 'deleteTeacher');
-export const resetTeacherPassword = httpsCallable(functions, 'resetTeacherPassword');
-export const setTeacherEnabled = httpsCallable(functions, 'setTeacherEnabled');
-export const createStudent = httpsCallable(functions, 'createStudent');
-export const updateStudent = httpsCallable(functions, 'updateStudent');
-export const resetStudentPassword = httpsCallable(functions, 'resetStudentPassword');
-export const setStudentEnabled = httpsCallable(functions, 'setStudentEnabled');
-export const reconcileStudentGoogleLinks = httpsCallable(functions, 'reconcileStudentGoogleLinks');
+
+
+
+
+
+
+
+
+
+
+
+
 export const changeMyStudentUsername = httpsCallable(functions, 'changeMyStudentUsername');
-export const updateOwnTeacherSettings = httpsCallable(functions, 'updateOwnTeacherSettings');
+
 export const bootstrapFirstAdmin = httpsCallable(functions, 'bootstrapFirstAdmin');
 export const resolveGoogleLinkConflict = httpsCallable(functions, 'resolveGoogleLinkConflict');
 
@@ -325,7 +281,29 @@ export {
 };
 
 // Global export for vanilla runtime interoperability
+
+let roleApiNames = [], roleApiGeneration = 0;
+export function clearRoleApi() {
+  roleApiGeneration++;
+  for (const name of roleApiNames) delete window.LearningPlanetAuthV2[name];
+  roleApiNames = [];
+}
+export async function loadRoleApi(role) {
+  const generation = roleApiGeneration, uid = auth.currentUser?.uid;
+  if (!uid || !['teacher','admin'].includes(role) || await currentRole(true) !== role) throw new Error('Role refused');
+  const api = await import('./' + role + '-api.mjs');
+  if (generation !== roleApiGeneration || uid !== auth.currentUser?.uid || await currentRole(true) !== role) throw new Error('Session changed');
+  for (const name of roleApiNames) delete window.LearningPlanetAuthV2[name];
+  roleApiNames = Object.keys(api);
+  for (const [name, fn] of Object.entries(api)) {
+    window.LearningPlanetAuthV2[name] = (...args) => {
+      if (generation !== roleApiGeneration || uid !== auth.currentUser?.uid) throw new Error('Session changed');
+      return fn(...args);
+    };
+  }
+}
 window.LearningPlanetAuthV2 = {
+  loadRoleApi, clearRoleApi,
   auth,
   db,
   functions,
@@ -336,26 +314,9 @@ window.LearningPlanetAuthV2 = {
   touchProfileLogin,
   loadMyProfile,
   changeMyPassword,
-  fetchTeachersList,
-  fetchStudentsList,
-  saveStudentPasswordMetadata,
-  subscribeStudentsList,
   saveMyStudentProgress,
   saveWeeklyResult,
-  saveRosterSnapshot,
-  loadRosterSnapshot,
-  subscribeRosterSnapshot,
-  createTeacher,
-  updateTeacher,
-  deleteTeacher,
-  resetTeacherPassword,
-  setTeacherEnabled,
-  createStudent,
-  updateStudent,
-  resetStudentPassword,
-  setStudentEnabled,
   changeMyStudentUsername,
-  updateOwnTeacherSettings,
   bootstrapFirstAdmin,
   resolveGoogleLinkConflict,
   onAuthStateChanged,

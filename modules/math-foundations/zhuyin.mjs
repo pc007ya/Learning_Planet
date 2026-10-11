@@ -17,7 +17,7 @@ const entries=`
 const readings={};for(let i=0;i<entries.length;i+=2)readings[entries[i]]=entries[i+1];
 const phrases={'分子':['ㄈㄣ','ㄗˇ'],'分母':['ㄈㄣ','ㄇㄨˇ'],'等分':['ㄉㄥˇ','ㄈㄣ'],'部分':['ㄅㄨˋ','ㄈㄣˋ'],'成為':['ㄔㄥˊ','ㄨㄟˊ'],'因為':['ㄧㄣ','ㄨㄟˋ'],'數一數':['ㄕㄨˇ','ㄧ','ㄕㄨˇ'],'再數':['ㄗㄞˋ','ㄕㄨˇ'],'數留下':['ㄕㄨˇ','ㄌㄧㄡˊ','ㄒㄧㄚˋ'],'數覆蓋':['ㄕㄨˇ','ㄈㄨˋ','ㄍㄞˋ'],'量長度':['ㄌㄧㄤˊ','ㄔㄤˊ','ㄉㄨˋ'],'重疊':['ㄔㄨㄥˊ','ㄉㄧㄝˊ'],'重新':['ㄔㄨㄥˊ','ㄒㄧㄣ'],'重來':['ㄔㄨㄥˊ','ㄌㄞˊ'],'相同':['ㄒㄧㄤ','ㄊㄨㄥˊ'],'長大':['ㄓㄤˇ','ㄉㄚˋ']};
 const phraseKeys=Object.keys(phrases).sort((a,b)=>b.length-a.length);
-export function readingTokens(text){const out=[];for(let i=0;i<text.length;){const phrase=phraseKeys.find(p=>text.startsWith(p,i));if(phrase){[...phrase].forEach((char,n)=>out.push({char,reading:phrases[phrase][n]}));i+=phrase.length;}else{const char=text[i++];out.push({char,reading:readings[char]||''});}}return out;}
+export function readingTokens(text,{singleReadings=readings}={}){const out=[];for(let i=0;i<text.length;){const phrase=phraseKeys.find(p=>text.startsWith(p,i));if(phrase){[...phrase].forEach((char,n)=>out.push({char,reading:phrases[phrase][n]}));i+=phrase.length;}else{const char=text[i++];out.push({char,reading:singleReadings[char]||''});}}return out;}
 export function annotate(root,{includeControls=false}={}){
  annotateSvg(root);
  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode()){const node=walker.currentNode,p=node.parentElement;if(!p||p.closest(includeControls?'svg,ruby,script,style,.progress,small':'svg,ruby,script,style,[data-action],.progress,small')||!node.textContent.trim())continue;nodes.push(node);}

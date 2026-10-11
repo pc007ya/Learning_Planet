@@ -1,0 +1,10 @@
+    <div class="login-teacher-dialog" hidden="{{ teacherLoginHidden }}">
+      <section class="login-teacher-card" role="dialog" aria-modal="true" aria-label="老師登入">
+        <div class="login-teacher-head"><img src="images/login/teacher-satellite-v1.webp" alt=""><div><h2>老師登入</h2><p style="margin:5px 0 0;color:#9cefff;font-size:11px;font-weight:850">TEACHER CONTROL SATELLITE</p></div></div>
+        <label class="login-auth-field">老師帳號<input value="{{ teacherLoginAccount }}" onChange="{{ changeTeacherAccount }}" onKeyDown="{{ teacherLoginKey }}" autoComplete="username" placeholder="老師帳號"></label>
+        <label class="login-auth-field">密碼<span class="password-field-wrap"><input type="{{ teacherLoginPasswordType }}" value="{{ teacherLoginPassword }}" onChange="{{ changeTeacherPassword }}" onKeyDown="{{ teacherLoginKey }}" autoComplete="current-password" placeholder="輸入密碼"><button type="button" class="password-eye" onClick="{{ toggleTeacherLoginPassword }}" title="{{ teacherLoginPasswordToggleTitle }}" aria-label="{{ teacherLoginPasswordToggleTitle }}">{{ teacherLoginPasswordEye }}</button></span></label>
+        <p class="login-auth-error">{{ teacherLoginError }}</p>
+        <button class="login-forgot-btn" onClick="{{ openTeacherRecovery }}">忘記密碼？</button>
+        <div class="login-teacher-actions"><button onClick="{{ closeTeacherLogin }}">取消</button><button onClick="{{ submitTeacherLogin }}">進入工作台</button></div>
+      </section>
+    </div>

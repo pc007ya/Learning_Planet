@@ -11,13 +11,15 @@ document.addEventListener('click', event => {
   frame.src = link.href;
   frame.title = '故事星球';
   frame.style.cssText = 'width:100%;height:100%;border:0;display:block';
-  const close = () => { dialog.close(); dialog.remove(); window.removeEventListener('message', receive); link.focus(); };
+  const close = () => { if (!dialog.isConnected) return; dialog.close(); dialog.remove(); document.removeEventListener('lp-story-close', close); window.removeEventListener('message', receive); link.focus(); document.dispatchEvent(new Event("lp-story-route")); };
   const receive = event => {
     if (event.origin === location.origin && event.source === frame.contentWindow && event.data?.type === 'story-home') close();
   };
   window.addEventListener('message', receive);
+  document.addEventListener('lp-story-close', close);
   dialog.addEventListener('cancel', event => { event.preventDefault(); close(); });
   dialog.append(frame);
   document.body.append(dialog);
   dialog.showModal();
+  document.dispatchEvent(new Event("lp-story-route"));
 });

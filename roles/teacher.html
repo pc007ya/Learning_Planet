@@ -1,0 +1,71 @@
+<sc-if value="{{ isTeacher }}" hint-placeholder-val="{{ true }}">
+      <div data-screen-label="教師後台">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+          <sc-for list="{{ adminTabs }}" as="t" hint-placeholder-count="4">
+            <button onClick="{{ t.go }}" style="border:1.5px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};border-radius:99px;padding:11px 22px;font-size:14px;font-weight:900;font-family:inherit;cursor:pointer">{{ t.label }}</button>
+          </sc-for>
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        <sc-if value="{{ adminSettings }}" hint-placeholder-val="{{ false }}">
+          <section class="teacher-settings-shell" style="border-radius:28px;padding:18px">
+            <div class="teacher-settings-heading">
+              <div>
+                <p style="margin:0;font-size:12px;font-weight:900;letter-spacing:.2em;color:#57eaff">TEACHER PROFILE &amp; SECURITY</p>
+                <h2 style="margin:8px 0 0;font-size:28px;font-weight:900">{{ teacherSettingsTitle }}</h2>
+                <p style="margin:6px 0 0;font-size:13px;font-weight:700;color:#9a90c8">{{ teacherSettingsDescription }}</p>
+              </div>
+              <span class="teacher-settings-role-chip">{{ teacherSettingsTarget }}</span>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px">
+              <div class="teacher-settings-card" style="border-radius:22px;padding:16px">
+                <h3 style="margin:0 0 14px;font-size:17px;font-weight:900">{{ teacherProfileCardTitle }}</h3>
+                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800">
+                  老師稱謂／顯示名稱
+                  <input value="{{ editTeacherName }}" onChange="{{ onEditTeacherName }}" placeholder="例如：陳老師" style="display:block;width:100%;margin-top:6px;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit" />
+                </label>
+                <p style="margin:0 0 8px;font-size:13px;font-weight:800">選擇教師代表圖示</p>
+                <div style="display:flex;gap:10px;flex-wrap:wrap">
+                  <sc-for list="{{ teacherFaceOptions }}" as="f" hint-placeholder-count="6">
+                    <button class="teacher-avatar-choice" onClick="{{ f.pick }}" title="選擇教師頭像" style="width:46px;height:46px;border-radius:14px;border:2px solid {{ f.border }};background:{{ f.bg }};font-size:24px;cursor:pointer;display:grid;place-items:center"><img src="{{ f.image }}" alt=""></button>
+                  </sc-for>
+                </div>
+              </div>
+
+              <div class="teacher-settings-card" style="border-radius:22px;padding:16px">
+                <h3 style="margin:0 0 14px;font-size:17px;font-weight:900">{{ teacherCredentialCardTitle }}</h3>
+                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800">
+                  教師登入帳號
+                  <input value="{{ editTeacherAccount }}" onChange="{{ onEditTeacherAccount }}" placeholder="例如：teacher" style="display:block;width:100%;margin-top:6px;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit" />
+                </label>
+                <label style="display:block;margin-bottom:14px;font-size:13px;font-weight:800">
+                  教師登入密碼
+                  <span class="password-field-wrap settings-password"><input type="{{ editTeacherPasswordType }}" value="{{ editTeacherPassword }}" onChange="{{ onEditTeacherPassword }}" placeholder="輸入新密碼" style="display:block;width:100%;border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit" /><button type="button" class="password-eye" onClick="{{ toggleEditTeacherPassword }}" title="{{ editTeacherPasswordToggleTitle }}" aria-label="{{ editTeacherPasswordToggleTitle }}">{{ editTeacherPasswordEye }}</button></span>
+                </label>
+                <div class="teacher-google-compact" style="padding:10px 12px;border:1.5px solid {{ teacherGoogleBoundBorder }};border-radius:14px;background:{{ teacherGoogleBoundBg }};display:flex;align-items:center;justify-content:space-between;gap:10px">
+                  <div style="display:flex;align-items:center;gap:9px;min-width:0">
+                    <svg class="google-icon" viewBox="0 0 24 24" width="22" height="22" style="flex-shrink:0" aria-hidden="true"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.665-5.17 3.665-9.12z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.26 21.36 7.33 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.13z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/></svg>
+                    <div style="min-width:0"><strong style="display:block;font-size:13px;font-weight:900;color:{{ teacherGoogleBoundColor }}">{{ teacherGoogleStatusLabel }}</strong><span style="display:block;font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ teacherGoogleDetailLabel }}</span></div>
+                  </div>
+                  <sc-if value="{{ canBindOwnTeacherGoogle }}" hint-placeholder-val="{{ true }}"><button onClick="{{ bindTeacherGoogle }}" style="flex:0 0 auto;border:0;background:linear-gradient(90deg,#4285F4,#34A853);color:#fff;border-radius:10px;padding:8px 11px;font-size:11px;font-weight:900;cursor:pointer">綁定 Google</button></sc-if>
+                </div>
+              </div>
+            </div>
+
+            <sc-if value="{{ isNotTeacherManager }}" hint-placeholder-val="{{ true }}"><div style="margin-top:14px;display:flex;justify-content:flex-end"><button onClick="{{ saveTeacherSettings }}" style="border:0;border-radius:12px;padding:11px 20px;font-size:14px;font-weight:900;color:#fff;background:linear-gradient(90deg,#7c5cff,#22c8d8);cursor:pointer">儲存教師設定</button></div></sc-if>
+
+            
+          </section>
+        </sc-if>
+      </div>
+    </sc-if>
