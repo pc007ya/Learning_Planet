@@ -3,6 +3,7 @@ import type {ReadingLevel} from './dragon-text';
 import type {StoryQuestion} from './dragon-quiz';
 import type {StoryMotion} from './choreography';
 import {layeredThreeData,layeredThreeQuiz,layeredThreeQuestionScenes} from './layered-three-data';
+import {witchQuestions} from './witch-quiz';
 export type LayeredBook='witch'|'mirror'|'star-library';
 export const layeredBookFromPath=(path:string):LayeredBook|undefined=>(['witch','mirror','star-library'] as const).find(k=>path.endsWith(`/${k}-storybook.html`));
 const vocabulary:Record<LayeredBook,string>= {
@@ -30,13 +31,16 @@ export function layeredBook(key:LayeredBook){
   const answer=targets[key][i];
   return {title:row[0],scene:layout.scene,lines:row[li].split('|'),translation:row[li+3],words:row[7].split(' '),objects:items.map(o=>o.id),placements:Object.fromEntries(items.map(o=>[o.id,o])),mission:{type:'tap',answer,prompt:`Explore ${objects[answer]?.word||answer}.`,hint:'找找畫面中發亮的小星星，點物件聽單字。'},action:'explore'};
  });
- const questions=(level:ReadingLevel):StoryQuestion[]=>layeredThreeQuiz[key].map((row,i)=>{
+ const questions=(level:ReadingLevel):StoryQuestion[]=>{
+  const graded=key==='witch'?witchQuestions(level):undefined;
+  return layeredThreeQuiz[key].map((row,i)=>{
   const scene=pages(level)[layeredThreeQuestionScenes[key][i]-1];
   const assetBase=`images/story/${key}-v1/`;
   const sceneImage={background:scene.scene==='bedroom'?'images/story/shared-gail-v1/bedroom.png':assetBase+scene.scene+'.png',assetBase,objects:scene.objects.map(id=>({...objects[id],...scene.placements?.[id]}))};
+  if(graded)return {...graded[i],sceneImage};
   const options=row.slice(2),correct=options.shift()!;options.splice(i%4,0,correct);
   return {id:`${key}-${i}`,kind:'choice',sceneImage,imageAlt:scene.title,prompt:row[level==='A'?0:1],options:options.map(text=>({text})),answer:[i%4],explanation:correct};
- });
+ });};
  return {key,title:data.title,chineseTitle:data.chineseTitle,asset:`images/story/${key}-v1/`,objects,scenes,pages,words,questions,
   entries:words.map((w,i)=>[w,glosses[i],'✦']),chinese:(page:number,level:ReadingLevel)=>data.rows[page][{A:4,B:5,C:6}[level]].split('|'),
   choreography:(_level:ReadingLevel):Record<number,Record<number,StoryMotion[]>>=>({})};
