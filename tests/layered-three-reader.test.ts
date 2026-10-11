@@ -18,7 +18,23 @@ describe('three complete layered readers',()=>{
    expect(book.pages('A')[5].lines).not.toEqual(book.pages('C')[5].lines);
    expect(book.words).toHaveLength(20);expect(book.entries.every(e=>e[1]&&e[1]!==e[0])).toBe(true);
   });
-  it(`${key}: 16 answerable questions per level`,()=>{for(const level of ['A','B','C'] as ReadingLevel[]){const questions=book.questions(level);expect(questions).toHaveLength(16);for(const q of questions){expect(q.sceneImage).toBeTruthy();expect(existsSync(resolve(q.sceneImage!.background))).toBe(true);expect(q.sceneImage!.objects.length).toBeGreaterThan(1);for(const o of q.sceneImage!.objects)expect(existsSync(resolve(q.sceneImage!.assetBase,o.image!))).toBe(true);expect(q.options).toHaveLength(4);expect(new Set(q.options.map(o=>o.text)).size).toBe(4);expect(q.options[q.answer[0]].text).toBe(q.explanation);}}});
+  it(`${key}: 16 answerable questions per level`,()=>{
+   for(const level of ['A','B','C'] as ReadingLevel[]){
+    const questions=book.questions(level);expect(questions).toHaveLength(16);
+    for(const q of questions){
+     expect(q.sceneImage).toBeTruthy();expect(existsSync(resolve(q.sceneImage!.background))).toBe(true);
+     expect(q.sceneImage!.objects.length).toBeGreaterThan(1);
+     for(const o of q.sceneImage!.objects)expect(existsSync(resolve(q.sceneImage!.assetBase,o.image!))).toBe(true);
+     expect(q.options).toHaveLength(4);expect(new Set(q.options.map(o=>o.text)).size).toBe(4);
+     expect(q.answer).toHaveLength(1);expect(q.answer[0]).toBeGreaterThanOrEqual(0);expect(q.answer[0]).toBeLessThan(4);
+     if(key==='witch'){
+      // The repaired quiz explains the story evidence after submission.
+      expect(q.explanation).toMatch(/^Pages? \d/);
+      expect(q.explanation).not.toBe(q.options[q.answer[0]].text);
+     }else expect(q.options[q.answer[0]].text).toBe(q.explanation);
+    }
+   }
+  });
  }
  it('unknown routes do not select a new book',()=>expect(layeredBookFromPath('/mermaid-storybook.html')).toBeUndefined());
 });
