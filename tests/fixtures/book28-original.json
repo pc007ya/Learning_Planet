@@ -1,0 +1,538 @@
+{
+  "number": 28,
+  "title": "Gail and the Market with No Prices",
+  "titleZh": "瑜瑜與沒有價錢的魔法市集",
+  "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/sources/source_C.json",
+  "sourceSha256": "41f4ea54f4c0ced7242e966f48ec0629824fc2c715d7db6dbdd65fb05a3b0817",
+  "sourceC": [
+    [
+      "A small gold token rolls across the bedroom floor and stops beside Gail’s cream slipper.",
+      "She waits until it is still before touching it."
+    ],
+    [
+      "Only after the token rests does a ring of golden light spread across the floor.",
+      "A doorway to a busy market opens, and Gail steps through."
+    ],
+    [
+      "Beneath the colorful awnings, Gail visits a fruit shop and a food stall selling beef, pork, rice, and fresh salad.",
+      "Customers carry baskets along the stone path while the workers call out friendly greetings."
+    ],
+    [
+      "A gust sweeps the price cards from their hooks and scatters them across the stalls.",
+      "The fruit remains in place, but nobody can see what it costs."
+    ],
+    [
+      "A customer holds a basket of fruit in one hand and money in the other.",
+      "Without its price card, he cannot tell whether his offer is too much or too little."
+    ],
+    [
+      "The worker returns the coin to the tray instead of guessing a price.",
+      "“I want this trade to be fair to both of us,” she tells the customer."
+    ],
+    [
+      "On the worktable, Gail discovers the original order, a picture note showing fruit and their amounts.",
+      "Several loose price cards lie partly hidden beneath it."
+    ],
+    [
+      "Gail checks below the awning while the worker looks beside the fruit baskets.",
+      "They gather each scattered card before deciding where it belongs."
+    ],
+    [
+      "One card shows round red fruit, just like the apples in the basket.",
+      "Gail places it nearby but asks the worker to check before hanging it."
+    ],
+    [
+      "The picture order shows how many pieces belong in this basket.",
+      "Gail counts them one by one, then checks that the card names the same amount."
+    ],
+    [
+      "Rather than deciding for him, Gail asks the customer which basket he picked.",
+      "She listens until he finishes and points to the matching picture."
+    ],
+    [
+      "The worker compares the card with her original order and confirms the amount and fruit.",
+      "Only then does she return it to its hook."
+    ],
+    [
+      "Gail pauses before hanging a second card.",
+      "Although its color looks similar, the fruit shape does not match the basket beneath it."
+    ],
+    [
+      "The worker, customer, and Gail compare the two cards side by side, careful not to call one cheap or expensive without checking.",
+      "They check the pictures, the amount of fruit, and the order instead of trusting color alone."
+    ],
+    [
+      "After each person explains what they see, the customer and worker agree on the same matching card.",
+      "Gail helps them check, but the decision is theirs."
+    ],
+    [
+      "One by one, the workers replace the price cards above the right baskets.",
+      "They also clear the walkway so customers can see each stall."
+    ],
+    [
+      "Now that both sides can see the same card, the customer pays the agreed price.",
+      "The worker receives the coin and hands him the fresh fruit."
+    ],
+    [
+      "With the price cards back in place, the worker asks Gail, “Would you like beef or pork with your rice and salad?”",
+      "Gail chooses beef and checks the price before she buys her meal; friendly trade fills the market once more."
+    ],
+    [
+      "The worker thanks Gail for helping everyone ask and check rather than guess.",
+      "After they say goodbye, the golden token lights a path home."
+    ],
+    [
+      "Back in her familiar bedroom, Gail sets the still token on the table.",
+      "She remembers that a fair choice begins with looking carefully and asking the people involved."
+    ]
+  ],
+  "sourceZhC": [
+    [
+      "一枚小金代幣滾過臥室地板，停在瑜瑜的奶油白拖鞋旁。",
+      "她等它停穩才伸手。"
+    ],
+    [
+      "代幣停穩後，金光才沿地板擴散。",
+      "通往熱鬧市集的門打開，瑜瑜走了進去。"
+    ],
+    [
+      "彩色布棚下，瑜瑜逛了水果店，也看見賣牛肉、豬肉、白飯和新鮮沙拉的餐點攤。",
+      "顧客提著籃子走過石路，攤主親切地招呼大家。"
+    ],
+    [
+      "一陣風把價牌從掛鉤吹走，散落攤間。",
+      "水果還在原位，卻沒有人看得出價格。"
+    ],
+    [
+      "顧客一手拿水果籃，一手拿錢。",
+      "少了價牌，他無法知道自己提出的金額是太多還是太少。"
+    ],
+    [
+      "攤主把代幣放回托盤，不願隨意猜價。",
+      "她告訴顧客：「我希望這筆交易對我們雙方都公平。」"
+    ],
+    [
+      "瑜瑜在工作桌找到原始訂單，上面畫著水果與份量。",
+      "幾張散落的價牌半掩在訂單下。"
+    ],
+    [
+      "瑜瑜查看布棚下方，攤主搜尋果籃旁。",
+      "她們先撿齊每張卡片，再決定它該掛在哪裡。"
+    ],
+    [
+      "一張卡片畫著圓圓的紅色水果，和籃中蘋果相同。",
+      "瑜瑜先把卡片放在旁邊，請攤主確認後才掛上。"
+    ],
+    [
+      "圖像訂單標出這籃該有幾顆水果。",
+      "瑜瑜逐一點數，再確認價牌標示相同份量。"
+    ],
+    [
+      "瑜瑜沒有替顧客做決定，而是問他選了哪一籃。",
+      "她聽完他的回答，再指向相符的圖片。"
+    ],
+    [
+      "攤主拿價牌對照原始訂單，確認水果和份量。",
+      "這時她才把卡片掛回原來的鉤子。"
+    ],
+    [
+      "瑜瑜在掛第二張卡片前停下來。",
+      "雖然顏色相近，水果形狀卻和下方籃子不符。"
+    ],
+    [
+      "攤主、顧客和瑜瑜把兩張卡片並排比較。",
+      "他們核對圖案、份量和訂單，不只憑顏色判斷。"
+    ],
+    [
+      "每個人都說出自己的觀察後，顧客與攤主選了同一張相符卡片。",
+      "瑜瑜協助核對，決定仍由雙方作出。"
+    ],
+    [
+      "攤主逐張把價牌掛回正確的果籃上方。",
+      "他們也清出走道，讓顧客能看清每個攤位。"
+    ],
+    [
+      "雙方都能看見相同的價牌後，顧客按約定價格付款。",
+      "攤主收下代幣，把新鮮水果交給他。"
+    ],
+    [
+      "價牌都歸位後，攤主問瑜瑜：「妳的白飯和沙拉要配牛肉，還是豬肉？」",
+      "瑜瑜選了牛肉，買餐點前先確認價格；市集再次充滿友善的交易聲。"
+    ],
+    [
+      "攤主感謝瑜瑜幫大家先問、先查，而不是猜測。",
+      "她們道別後，金色代幣才亮起回家的路。"
+    ],
+    [
+      "回到熟悉的臥室，瑜瑜把停穩的代幣放在桌上。",
+      "她記得，公平的選擇從仔細看、向相關的人問清楚開始。"
+    ]
+  ],
+  "ABCSource": {
+    "A": [
+      [
+        "A gold token rolls to Gail."
+      ],
+      [
+        "The token opens a door."
+      ],
+      [
+        "I see beef and pork.",
+        "I see rice and salad."
+      ],
+      [
+        "Wind blows the cards away."
+      ],
+      [
+        "How much should he pay?"
+      ],
+      [
+        "The worker waits."
+      ],
+      [
+        "Gail finds an order."
+      ],
+      [
+        "They find the cards."
+      ],
+      [
+        "This card matches the apples."
+      ],
+      [
+        "Count the fruit."
+      ],
+      [
+        "The customer explains."
+      ],
+      [
+        "The worker checks too."
+      ],
+      [
+        "This card is not right."
+      ],
+      [
+        "Look at both cards."
+      ],
+      [
+        "They agree together."
+      ],
+      [
+        "The cards go home."
+      ],
+      [
+        "He pays the right price."
+      ],
+      [
+        "Beef or pork?",
+        "Gail buys beef, rice, and salad."
+      ],
+      [
+        "The worker thanks Gail."
+      ],
+      [
+        "Gail is home. She asks first."
+      ]
+    ],
+    "B": [
+      [
+        "A gold token rolls across Gail’s room.",
+        "It stops beside her slipper."
+      ],
+      [
+        "The token shines after it stops.",
+        "A golden door opens."
+      ],
+      [
+        "Gail sees beef and pork at a food stall.",
+        "The worker sells rice and fresh salad too."
+      ],
+      [
+        "A sudden wind sends the price cards flying.",
+        "The hooks are empty."
+      ],
+      [
+        "A customer holds fruit and money.",
+        "He does not know how much to pay."
+      ],
+      [
+        "The worker puts the money down.",
+        "She wants the trade to be fair."
+      ],
+      [
+        "Gail finds a picture order on the table.",
+        "Loose cards are under it."
+      ],
+      [
+        "Gail and the worker search near the awning.",
+        "They collect the missing cards."
+      ],
+      [
+        "Gail compares a red fruit picture with the apple basket.",
+        "They match."
+      ],
+      [
+        "Gail points to the order.",
+        "She counts the fruit in the basket."
+      ],
+      [
+        "Gail asks which basket the customer chose.",
+        "She listens to his answer."
+      ],
+      [
+        "The worker checks the old order.",
+        "She agrees that the card fits."
+      ],
+      [
+        "Another card has a similar color.",
+        "Its picture shows different fruit."
+      ],
+      [
+        "They put two cards side by side.",
+        "The pictures and amounts are different."
+      ],
+      [
+        "The customer and worker point to the same card.",
+        "Both agree."
+      ],
+      [
+        "The cards return to the correct stalls.",
+        "The path is clear again."
+      ],
+      [
+        "The customer pays the agreed price.",
+        "The worker gives him fresh fruit."
+      ],
+      [
+        "The price cards are back.",
+        "“Beef or pork?” asks the worker.",
+        "Gail checks the price.",
+        "She buys beef, rice, and salad."
+      ],
+      [
+        "The worker thanks Gail for helping.",
+        "The gold token begins to shine."
+      ],
+      [
+        "Gail puts the token on her table.",
+        "She remembers to ask before paying."
+      ]
+    ],
+    "C": [
+      [
+        "A small gold token rolls across the bedroom floor and stops beside Gail’s cream slipper.",
+        "She waits until it is still before touching it."
+      ],
+      [
+        "Only after the token rests does a ring of golden light spread across the floor.",
+        "A doorway to a busy market opens, and Gail steps through."
+      ],
+      [
+        "Beneath the colorful awnings, Gail visits a fruit shop and a food stall selling beef, pork, rice, and fresh salad.",
+        "Customers carry baskets along the stone path while the workers call out friendly greetings."
+      ],
+      [
+        "A gust sweeps the price cards from their hooks and scatters them across the stalls.",
+        "The fruit remains in place, but nobody can see what it costs."
+      ],
+      [
+        "A customer holds a basket of fruit in one hand and money in the other.",
+        "Without its price card, he cannot tell whether his offer is too much or too little."
+      ],
+      [
+        "The worker returns the coin to the tray instead of guessing a price.",
+        "“I want this trade to be fair to both of us,” she tells the customer."
+      ],
+      [
+        "On the worktable, Gail discovers the original order, a picture note showing fruit and their amounts.",
+        "Several loose price cards lie partly hidden beneath it."
+      ],
+      [
+        "Gail checks below the awning while the worker looks beside the fruit baskets.",
+        "They gather each scattered card before deciding where it belongs."
+      ],
+      [
+        "One card shows round red fruit, just like the apples in the basket.",
+        "Gail places it nearby but asks the worker to check before hanging it."
+      ],
+      [
+        "The picture order shows how many pieces belong in this basket.",
+        "Gail counts them one by one, then checks that the card names the same amount."
+      ],
+      [
+        "Rather than deciding for him, Gail asks the customer which basket he picked.",
+        "She listens until he finishes and points to the matching picture."
+      ],
+      [
+        "The worker compares the card with her original order and confirms the amount and fruit.",
+        "Only then does she return it to its hook."
+      ],
+      [
+        "Gail pauses before hanging a second card.",
+        "Although its color looks similar, the fruit shape does not match the basket beneath it."
+      ],
+      [
+        "The worker, customer, and Gail compare the two cards side by side, careful not to call one cheap or expensive without checking.",
+        "They check the pictures, the amount of fruit, and the order instead of trusting color alone."
+      ],
+      [
+        "After each person explains what they see, the customer and worker agree on the same matching card.",
+        "Gail helps them check, but the decision is theirs."
+      ],
+      [
+        "One by one, the workers replace the price cards above the right baskets.",
+        "They also clear the walkway so customers can see each stall."
+      ],
+      [
+        "Now that both sides can see the same card, the customer pays the agreed price.",
+        "The worker receives the coin and hands him the fresh fruit."
+      ],
+      [
+        "With the price cards back in place, the worker asks Gail, “Would you like beef or pork with your rice and salad?”",
+        "Gail chooses beef and checks the price before she buys her meal; friendly trade fills the market once more."
+      ],
+      [
+        "The worker thanks Gail for helping everyone ask and check rather than guess.",
+        "After they say goodbye, the golden token lights a path home."
+      ],
+      [
+        "Back in her familiar bedroom, Gail sets the still token on the table.",
+        "She remembers that a fair choice begins with looking carefully and asking the people involved."
+      ]
+    ]
+  },
+  "words": [
+    "shop",
+    "price",
+    "money",
+    "pay",
+    "buy",
+    "sell",
+    "cost",
+    "cheap",
+    "expensive",
+    "fair",
+    "trade",
+    "note",
+    "customer",
+    "worker",
+    "order",
+    "receive",
+    "offer",
+    "agree",
+    "fruit",
+    "fresh",
+    "beef",
+    "pork",
+    "rice",
+    "salad"
+  ],
+  "images": {
+    "1": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/01.jpg",
+      "sha256": "15bcc671ad4c926788b0880c86e26e1f286e3cda5fa8fd60a5e8951255f0c223",
+      "candidateURL": "images/story/market-original-v1/scene-01.jpg"
+    },
+    "2": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/02.jpg",
+      "sha256": "47606faa774bc4735187070800908447fd4f752922a951d154a594cf9e9f4f44",
+      "candidateURL": "images/story/market-original-v1/scene-02.jpg"
+    },
+    "3": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/03.jpg",
+      "sha256": "7a790325f246cc8f0d395441a1281ba5fb8f91a1409c015cada7993164e7257e",
+      "candidateURL": "images/story/market-original-v1/scene-03.jpg"
+    },
+    "4": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/04.jpg",
+      "sha256": "fe6ea9b481ca50ed8efe8b2f2eaf3ebb6baa245a9234907f5dcf5b409ea6a9ee",
+      "candidateURL": "images/story/market-original-v1/scene-04.jpg"
+    },
+    "5": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/05.jpg",
+      "sha256": "6be0c42200460e733cd5e10d8195ed49cbb31f93cef51a5f4a841bd740891612",
+      "candidateURL": "images/story/market-original-v1/scene-05.jpg"
+    },
+    "6": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/06.jpg",
+      "sha256": "38ff8f88778a52cf2962276e28a87c059b0a35b09a834f6d61f345144d44a61a",
+      "candidateURL": "images/story/market-original-v1/scene-06.jpg"
+    },
+    "7": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/07.jpg",
+      "sha256": "9db987ed6238b0d7f62cee0532b2152856520dafc478f44d65db02411553dce4",
+      "candidateURL": "images/story/market-original-v1/scene-07.jpg"
+    },
+    "8": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/08.jpg",
+      "sha256": "aabf4508bdd396a51591486f6997a39eab38f1d74a636ca969ff75b2849deac0",
+      "candidateURL": "images/story/market-original-v1/scene-08.jpg"
+    },
+    "9": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/09.jpg",
+      "sha256": "1982e2fc81d6e22757701e7c6000061e2065e47354e67af0b2e47f7d38d90fd3",
+      "candidateURL": "images/story/market-original-v1/scene-09.jpg"
+    },
+    "10": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/10.jpg",
+      "sha256": "a16fcc7d897ae3f0db986ab98d9909daeec22f92d0c99cc0421d3ced599e87ed",
+      "candidateURL": "images/story/market-original-v1/scene-10.jpg"
+    },
+    "11": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/11.jpg",
+      "sha256": "ddef397670b6244c9c2d2f37bd0518af56f9cc34149d47baa536aefe7773b265",
+      "candidateURL": "images/story/market-original-v1/scene-11.jpg"
+    },
+    "12": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/12.jpg",
+      "sha256": "61d686dfea8eea532c21b0f0bdef346272db519c9ce618d2467da3d02b6a89d6",
+      "candidateURL": "images/story/market-original-v1/scene-12.jpg"
+    },
+    "13": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/13.jpg",
+      "sha256": "66ee3665c35655f1f69c219e030da91e3847e1b3ffc121b2d9689ca5bb4c49e2",
+      "candidateURL": "images/story/market-original-v1/scene-13.jpg"
+    },
+    "14": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/14.jpg",
+      "sha256": "d99c77695d4b7ee97b5efb56686c4c259921a002e82b04eadf71faf35803e28e",
+      "candidateURL": "images/story/market-original-v1/scene-14.jpg"
+    },
+    "15": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/15.jpg",
+      "sha256": "ea9e5a0e0258e1a1d60c4b9cf640d4576c48026643558cfa9f6b5075401ff23c",
+      "candidateURL": "images/story/market-original-v1/scene-15.jpg"
+    },
+    "16": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/16.jpg",
+      "sha256": "b5a0ce6d9df6284f4907a7e5c6eeb9aa230e66ab62d69c855429e15a08e49be0",
+      "candidateURL": "images/story/market-original-v1/scene-16.jpg"
+    },
+    "17": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/17.jpg",
+      "sha256": "9daac66b912dbd3d07ac86e477a40a1cda65f51ea3a4ef07df20342b96eb7fcf",
+      "candidateURL": "images/story/market-original-v1/scene-17.jpg"
+    },
+    "18": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/18.jpg",
+      "sha256": "e59a1a8f6da01fe73870a9711784fe40edb0e6c174fadfb0ef4ee0801cea8271",
+      "candidateURL": "images/story/market-original-v1/scene-18.jpg"
+    },
+    "19": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/19.jpg",
+      "sha256": "9672708c08327ec10bf4e285e78ff67870d3b4bc4ddfc65b7519f5b478c2cd7f",
+      "candidateURL": "images/story/market-original-v1/scene-19.jpg"
+    },
+    "20": {
+      "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/scene/20.jpg",
+      "sha256": "292f8c31ffd99ee0248ac79d7eee8b595cb65c23808b9bcd8ae312088ed73079",
+      "candidateURL": "images/story/market-original-v1/scene-20.jpg"
+    }
+  },
+  "cover": {
+    "source": "/Users/ming/Desktop/小學學習系統/英文繪本/28.瑜瑜與沒有價錢的魔法市集/cover.png",
+    "sha256": "5d2039c063331f1cd892b11c002eb1adaf77fdeb5db79564401c00ca76294611",
+    "candidateURL": "images/story/market-original-v1/cover.png"
+  },
+  "imagesArePlannedURLsOnly": true,
+  "roleVisualBasis": "Original full scene artwork; old reader worker/customer excluded"
+}

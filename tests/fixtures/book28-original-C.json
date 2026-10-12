@@ -1,0 +1,670 @@
+{
+  "slug": "market",
+  "number": 28,
+  "title": "Gail and the Market with No Prices",
+  "chineseTitle": "瑜瑜與沒有價錢的魔法市集",
+  "scenes": [
+    {
+      "number": 1,
+      "title": "A golden token",
+      "scene": "bedroom",
+      "text": {
+        "C": [
+          "A small gold token rolls across the bedroom floor and stops beside Gail’s cream slipper.",
+          "She waits until it is still before touching it."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "一枚小金代幣滾過臥室地板，停在瑜瑜的奶油白拖鞋旁。",
+          "她等它停穩才伸手。"
+        ]
+      },
+      "cast": [
+        "gail"
+      ],
+      "props": [
+        "guide"
+      ],
+      "focus": [
+        "money"
+      ],
+      "C_original_string": "A small gold token rolls across the bedroom floor and stops beside Gail’s cream slipper.|She waits until it is still before touching it.",
+      "zh_original_string": "一枚小金代幣滾過臥室地板，停在瑜瑜的奶油白拖鞋旁。|她等它停穩才伸手。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 2,
+      "title": "A market doorway",
+      "scene": "bedroom",
+      "text": {
+        "C": [
+          "Only after the token rests does a ring of golden light spread across the floor.",
+          "A doorway to a busy market opens, and Gail steps through."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "代幣停穩後，金光才沿地板擴散。",
+          "通往熱鬧市集的門打開，瑜瑜走了進去。"
+        ]
+      },
+      "cast": [
+        "gail"
+      ],
+      "props": [
+        "guide",
+        "portal"
+      ],
+      "focus": [
+        "shop"
+      ],
+      "C_original_string": "Only after the token rests does a ring of golden light spread across the floor.|A doorway to a busy market opens, and Gail steps through.",
+      "zh_original_string": "代幣停穩後，金光才沿地板擴散。|通往熱鬧市集的門打開，瑜瑜走了進去。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 3,
+      "title": "A busy market",
+      "scene": "market",
+      "text": {
+        "C": [
+          "Beneath the colorful awnings, Gail visits a fruit shop and a food stall selling beef, pork, rice, and fresh salad.",
+          "Customers carry baskets along the stone path while the workers call out friendly greetings."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "彩色布棚下，瑜瑜逛了水果店，也看見賣牛肉、豬肉、白飯和新鮮沙拉的餐點攤。",
+          "顧客提著籃子走過石路，攤主親切地招呼大家。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker",
+        "customer"
+      ],
+      "props": [
+        "beef",
+        "pork",
+        "rice",
+        "salad",
+        "table"
+      ],
+      "focus": [
+        "shop",
+        "sell",
+        "fresh",
+        "beef",
+        "pork",
+        "rice",
+        "salad"
+      ],
+      "C_original_string": "Beneath the colorful awnings, Gail visits a fruit shop and a food stall selling beef, pork, rice, and fresh salad.|Customers carry baskets along the stone path while the workers call out friendly greetings.",
+      "zh_original_string": "彩色布棚下，瑜瑜逛了水果店，也看見賣牛肉、豬肉、白飯和新鮮沙拉的餐點攤。|顧客提著籃子走過石路，攤主親切地招呼大家。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 4,
+      "title": "Blank price cards",
+      "scene": "market",
+      "text": {
+        "C": [
+          "A gust sweeps the price cards from their hooks and scatters them across the stalls.",
+          "The fruit remains in place, but nobody can see what it costs."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "一陣風把價牌從掛鉤吹走，散落攤間。",
+          "水果還在原位，卻沒有人看得出價格。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker"
+      ],
+      "props": [
+        "card",
+        "card2"
+      ],
+      "focus": [
+        "price",
+        "cost"
+      ],
+      "C_original_string": "A gust sweeps the price cards from their hooks and scatters them across the stalls.|The fruit remains in place, but nobody can see what it costs.",
+      "zh_original_string": "一陣風把價牌從掛鉤吹走，散落攤間。|水果還在原位，卻沒有人看得出價格。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 5,
+      "title": "Too much or too little",
+      "scene": "market",
+      "text": {
+        "C": [
+          "A customer holds a basket of fruit in one hand and money in the other.",
+          "Without its price card, he cannot tell whether his offer is too much or too little."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "顧客一手拿水果籃，一手拿錢。",
+          "少了價牌，他無法知道自己提出的金額是太多還是太少。"
+        ]
+      },
+      "cast": [
+        "worker",
+        "customer"
+      ],
+      "props": [
+        "basket",
+        "coin"
+      ],
+      "focus": [
+        "customer",
+        "money",
+        "pay",
+        "offer"
+      ],
+      "C_original_string": "A customer holds a basket of fruit in one hand and money in the other.|Without its price card, he cannot tell whether his offer is too much or too little.",
+      "zh_original_string": "顧客一手拿水果籃，一手拿錢。|少了價牌，他無法知道自己提出的金額是太多還是太少。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 6,
+      "title": "The worried worker",
+      "scene": "market",
+      "text": {
+        "C": [
+          "The worker returns the coin to the tray instead of guessing a price.",
+          "“I want this trade to be fair to both of us,” she tells the customer."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "攤主把代幣放回托盤，不願隨意猜價。",
+          "她告訴顧客：「我希望這筆交易對我們雙方都公平。」"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker",
+        "customer"
+      ],
+      "props": [
+        "tray",
+        "coin"
+      ],
+      "focus": [
+        "worker",
+        "trade",
+        "fair"
+      ],
+      "C_original_string": "The worker returns the coin to the tray instead of guessing a price.|“I want this trade to be fair to both of us,” she tells the customer.",
+      "zh_original_string": "攤主把代幣放回托盤，不願隨意猜價。|她告訴顧客：「我希望這筆交易對我們雙方都公平。」",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 7,
+      "title": "A clue on the table",
+      "scene": "market",
+      "text": {
+        "C": [
+          "On the worktable, Gail discovers the original order, a picture note showing fruit and their amounts.",
+          "Several loose price cards lie partly hidden beneath it."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "瑜瑜在工作桌找到原始訂單，上面畫著水果與份量。",
+          "幾張散落的價牌半掩在訂單下。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker"
+      ],
+      "props": [
+        "order",
+        "card"
+      ],
+      "focus": [
+        "order",
+        "note"
+      ],
+      "C_original_string": "On the worktable, Gail discovers the original order, a picture note showing fruit and their amounts.|Several loose price cards lie partly hidden beneath it.",
+      "zh_original_string": "瑜瑜在工作桌找到原始訂單，上面畫著水果與份量。|幾張散落的價牌半掩在訂單下。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 8,
+      "title": "Find the missing cards",
+      "scene": "market",
+      "text": {
+        "C": [
+          "Gail checks below the awning while the worker looks beside the fruit baskets.",
+          "They gather each scattered card before deciding where it belongs."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "瑜瑜查看布棚下方，攤主搜尋果籃旁。",
+          "她們先撿齊每張卡片，再決定它該掛在哪裡。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker"
+      ],
+      "props": [
+        "card",
+        "card2",
+        "basket"
+      ],
+      "focus": [
+        "collect"
+      ],
+      "C_original_string": "Gail checks below the awning while the worker looks beside the fruit baskets.|They gather each scattered card before deciding where it belongs.",
+      "zh_original_string": "瑜瑜查看布棚下方，攤主搜尋果籃旁。|她們先撿齊每張卡片，再決定它該掛在哪裡。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 9,
+      "title": "Match the fruit",
+      "scene": "market",
+      "text": {
+        "C": [
+          "One card shows round red fruit, just like the apples in the basket.",
+          "Gail places it nearby but asks the worker to check before hanging it."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "一張卡片畫著圓圓的紅色水果，和籃中蘋果相同。",
+          "瑜瑜先把卡片放在旁邊，請攤主確認後才掛上。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker"
+      ],
+      "props": [
+        "basket",
+        "card"
+      ],
+      "focus": [
+        "fruit"
+      ],
+      "C_original_string": "One card shows round red fruit, just like the apples in the basket.|Gail places it nearby but asks the worker to check before hanging it.",
+      "zh_original_string": "一張卡片畫著圓圓的紅色水果，和籃中蘋果相同。|瑜瑜先把卡片放在旁邊，請攤主確認後才掛上。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 10,
+      "title": "Check the order",
+      "scene": "market",
+      "text": {
+        "C": [
+          "The picture order shows how many pieces belong in this basket.",
+          "Gail counts them one by one, then checks that the card names the same amount."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "圖像訂單標出這籃該有幾顆水果。",
+          "瑜瑜逐一點數，再確認價牌標示相同份量。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker"
+      ],
+      "props": [
+        "order",
+        "basket",
+        "card"
+      ],
+      "focus": [
+        "order",
+        "price"
+      ],
+      "C_original_string": "The picture order shows how many pieces belong in this basket.|Gail counts them one by one, then checks that the card names the same amount.",
+      "zh_original_string": "圖像訂單標出這籃該有幾顆水果。|瑜瑜逐一點數，再確認價牌標示相同份量。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 11,
+      "title": "Ask the customer",
+      "scene": "market",
+      "text": {
+        "C": [
+          "Rather than deciding for him, Gail asks the customer which basket he picked.",
+          "She listens until he finishes and points to the matching picture."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "瑜瑜沒有替顧客做決定，而是問他選了哪一籃。",
+          "她聽完他的回答，再指向相符的圖片。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "customer"
+      ],
+      "props": [
+        "basket",
+        "card"
+      ],
+      "focus": [
+        "customer",
+        "buy"
+      ],
+      "C_original_string": "Rather than deciding for him, Gail asks the customer which basket he picked.|She listens until he finishes and points to the matching picture.",
+      "zh_original_string": "瑜瑜沒有替顧客做決定，而是問他選了哪一籃。|她聽完他的回答，再指向相符的圖片。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 12,
+      "title": "Ask the worker",
+      "scene": "market",
+      "text": {
+        "C": [
+          "The worker compares the card with her original order and confirms the amount and fruit.",
+          "Only then does she return it to its hook."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "攤主拿價牌對照原始訂單，確認水果和份量。",
+          "這時她才把卡片掛回原來的鉤子。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker"
+      ],
+      "props": [
+        "order",
+        "card"
+      ],
+      "focus": [
+        "worker",
+        "agree"
+      ],
+      "C_original_string": "The worker compares the card with her original order and confirms the amount and fruit.|Only then does she return it to its hook.",
+      "zh_original_string": "攤主拿價牌對照原始訂單，確認水果和份量。|這時她才把卡片掛回原來的鉤子。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 13,
+      "title": "One card is wrong",
+      "scene": "market",
+      "text": {
+        "C": [
+          "Gail pauses before hanging a second card.",
+          "Although its color looks similar, the fruit shape does not match the basket beneath it."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "瑜瑜在掛第二張卡片前停下來。",
+          "雖然顏色相近，水果形狀卻和下方籃子不符。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker"
+      ],
+      "props": [
+        "card",
+        "card2",
+        "basket"
+      ],
+      "focus": [
+        "compare"
+      ],
+      "C_original_string": "Gail pauses before hanging a second card.|Although its color looks similar, the fruit shape does not match the basket beneath it.",
+      "zh_original_string": "瑜瑜在掛第二張卡片前停下來。|雖然顏色相近，水果形狀卻和下方籃子不符。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 14,
+      "title": "Compare carefully",
+      "scene": "market",
+      "text": {
+        "C": [
+          "The worker, customer, and Gail compare the two cards side by side, careful not to call one cheap or expensive without checking.",
+          "They check the pictures, the amount of fruit, and the order instead of trusting color alone."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "攤主、顧客和瑜瑜把兩張卡片並排比較。",
+          "他們核對圖案、份量和訂單，不只憑顏色判斷。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker",
+        "customer"
+      ],
+      "props": [
+        "card",
+        "card2",
+        "order"
+      ],
+      "focus": [
+        "price"
+      ],
+      "C_original_string": "The worker, customer, and Gail compare the two cards side by side, careful not to call one cheap or expensive without checking.|They check the pictures, the amount of fruit, and the order instead of trusting color alone.",
+      "zh_original_string": "攤主、顧客和瑜瑜把兩張卡片並排比較。|他們核對圖案、份量和訂單，不只憑顏色判斷。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 15,
+      "title": "Agree on the match",
+      "scene": "market",
+      "text": {
+        "C": [
+          "After each person explains what they see, the customer and worker agree on the same matching card.",
+          "Gail helps them check, but the decision is theirs."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "每個人都說出自己的觀察後，顧客與攤主選了同一張相符卡片。",
+          "瑜瑜協助核對，決定仍由雙方作出。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker",
+        "customer"
+      ],
+      "props": [
+        "card"
+      ],
+      "focus": [
+        "agree",
+        "fair"
+      ],
+      "C_original_string": "After each person explains what they see, the customer and worker agree on the same matching card.|Gail helps them check, but the decision is theirs.",
+      "zh_original_string": "每個人都說出自己的觀察後，顧客與攤主選了同一張相符卡片。|瑜瑜協助核對，決定仍由雙方作出。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 16,
+      "title": "Put the signs back",
+      "scene": "market",
+      "text": {
+        "C": [
+          "One by one, the workers replace the price cards above the right baskets.",
+          "They also clear the walkway so customers can see each stall."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "攤主逐張把價牌掛回正確的果籃上方。",
+          "他們也清出走道，讓顧客能看清每個攤位。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker"
+      ],
+      "props": [
+        "card",
+        "card2",
+        "basket"
+      ],
+      "focus": [
+        "shop",
+        "price"
+      ],
+      "C_original_string": "One by one, the workers replace the price cards above the right baskets.|They also clear the walkway so customers can see each stall.",
+      "zh_original_string": "攤主逐張把價牌掛回正確的果籃上方。|他們也清出走道，讓顧客能看清每個攤位。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 17,
+      "title": "A fair payment",
+      "scene": "market",
+      "text": {
+        "C": [
+          "Now that both sides can see the same card, the customer pays the agreed price.",
+          "The worker receives the coin and hands him the fresh fruit."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "雙方都能看見相同的價牌後，顧客按約定價格付款。",
+          "攤主收下代幣，把新鮮水果交給他。"
+        ]
+      },
+      "cast": [
+        "worker",
+        "customer"
+      ],
+      "props": [
+        "coin",
+        "tray",
+        "basket"
+      ],
+      "focus": [
+        "pay",
+        "receive",
+        "fresh"
+      ],
+      "C_original_string": "Now that both sides can see the same card, the customer pays the agreed price.|The worker receives the coin and hands him the fresh fruit.",
+      "zh_original_string": "雙方都能看見相同的價牌後，顧客按約定價格付款。|攤主收下代幣，把新鮮水果交給他。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 18,
+      "title": "The market opens",
+      "scene": "market",
+      "text": {
+        "C": [
+          "With the price cards back in place, the worker asks Gail, “Would you like beef or pork with your rice and salad?”",
+          "Gail chooses beef and checks the price before she buys her meal; friendly trade fills the market once more."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "價牌都歸位後，攤主問瑜瑜：「妳的白飯和沙拉要配牛肉，還是豬肉？」",
+          "瑜瑜選了牛肉，買餐點前先確認價格；市集再次充滿友善的交易聲。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker",
+        "customer"
+      ],
+      "props": [
+        "beef",
+        "pork",
+        "rice",
+        "salad",
+        "table",
+        "card"
+      ],
+      "focus": [
+        "buy",
+        "sell",
+        "trade",
+        "beef",
+        "pork",
+        "rice",
+        "salad"
+      ],
+      "C_original_string": "With the price cards back in place, the worker asks Gail, “Would you like beef or pork with your rice and salad?”|Gail chooses beef and checks the price before she buys her meal; friendly trade fills the market once more.",
+      "zh_original_string": "價牌都歸位後，攤主問瑜瑜：「妳的白飯和沙拉要配牛肉，還是豬肉？」|瑜瑜選了牛肉，買餐點前先確認價格；市集再次充滿友善的交易聲。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 19,
+      "title": "A golden goodbye",
+      "scene": "market",
+      "text": {
+        "C": [
+          "The worker thanks Gail for helping everyone ask and check rather than guess.",
+          "After they say goodbye, the golden token lights a path home."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "攤主感謝瑜瑜幫大家先問、先查，而不是猜測。",
+          "她們道別後，金色代幣才亮起回家的路。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "worker"
+      ],
+      "props": [
+        "guide",
+        "portal"
+      ],
+      "focus": [
+        "fair"
+      ],
+      "C_original_string": "The worker thanks Gail for helping everyone ask and check rather than guess.|After they say goodbye, the golden token lights a path home.",
+      "zh_original_string": "攤主感謝瑜瑜幫大家先問、先查，而不是猜測。|她們道別後，金色代幣才亮起回家的路。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 20,
+      "title": "Back in the bedroom",
+      "scene": "bedroom",
+      "text": {
+        "C": [
+          "Back in her familiar bedroom, Gail sets the still token on the table.",
+          "She remembers that a fair choice begins with looking carefully and asking the people involved."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "回到熟悉的臥室，瑜瑜把停穩的代幣放在桌上。",
+          "她記得，公平的選擇從仔細看、向相關的人問清楚開始。"
+        ]
+      },
+      "cast": [
+        "gail"
+      ],
+      "props": [
+        "guide"
+      ],
+      "focus": [
+        "fair"
+      ],
+      "C_original_string": "Back in her familiar bedroom, Gail sets the still token on the table.|She remembers that a fair choice begins with looking carefully and asking the people involved.",
+      "zh_original_string": "回到熟悉的臥室，瑜瑜把停穩的代幣放在桌上。|她記得，公平的選擇從仔細看、向相關的人問清楚開始。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    }
+  ],
+  "source_file": "production-four-content.ts",
+  "field_en": "productionContent[slug].rows[i].C, split on | without rewriting",
+  "field_zh": "productionContent[slug].rows[i].zh, as original C Chinese (translatedPage returns source C unchanged)",
+  "number_evidence": "Verified Library 涵蓋單字.md, libfile_dabccf2877948191ba099097ca66708a, uploaded 2026-09-30, exact numbered title and source path."
+}

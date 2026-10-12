@@ -1,0 +1,661 @@
+{
+  "slug": "magic-ball",
+  "number": 29,
+  "title": "Gail and the Ball with No Rules",
+  "chineseTitle": "瑜瑜與沒有規則的魔法球",
+  "scenes": [
+    {
+      "number": 1,
+      "title": "A new ball",
+      "scene": "bedroom",
+      "text": {
+        "C": [
+          "In her starry bedroom, Gail notices a soft blue ball rolling toward the broom charm Mira once gave her.",
+          "The ball and charm come to rest side by side."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "在星星臥室裡，瑜瑜看見一顆柔亮的藍球滾向 Mira 送她的舊掃帚吊飾。",
+          "球和吊飾並排停穩。"
+        ]
+      },
+      "cast": [
+        "gail"
+      ],
+      "props": [
+        "guide",
+        "ball"
+      ],
+      "focus": [
+        "ball"
+      ],
+      "C_original_string": "In her starry bedroom, Gail notices a soft blue ball rolling toward the broom charm Mira once gave her.|The ball and charm come to rest side by side.",
+      "zh_original_string": "在星星臥室裡，瑜瑜看見一顆柔亮的藍球滾向 Mira 送她的舊掃帚吊飾。|球和吊飾並排停穩。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 2,
+      "title": "Back to the roof",
+      "scene": "bedroom",
+      "text": {
+        "C": [
+          "Once both objects have stopped, their lights join in one circle.",
+          "The doorway opens onto the familiar rooftop school where Mira learned her first low flight."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "兩件物品都停穩後，光合成一圈。",
+          "門外是熟悉的屋頂學校，Mira 曾在那裡學會第一次低飛。"
+        ]
+      },
+      "cast": [
+        "gail"
+      ],
+      "props": [
+        "guide",
+        "ball",
+        "portal"
+      ],
+      "focus": [
+        "game"
+      ],
+      "C_original_string": "Once both objects have stopped, their lights join in one circle.|The doorway opens onto the familiar rooftop school where Mira learned her first low flight.",
+      "zh_original_string": "兩件物品都停穩後，光合成一圈。|門外是熟悉的屋頂學校，Mira 曾在那裡學會第一次低飛。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 3,
+      "title": "Hello again, Mira",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "Mira finishes a careful low circle and lands safely on the thick cushion.",
+          "She still practices small steps, and she is delighted to see Gail again."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "Mira 小心繞完一個低圈，安全落在厚墊上。",
+          "她仍在一步步練習，很高興再次見到瑜瑜。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "teacher"
+      ],
+      "props": [
+        "cushion"
+      ],
+      "focus": [
+        "move"
+      ],
+      "C_original_string": "Mira finishes a careful low circle and lands safely on the thick cushion.|She still practices small steps, and she is delighted to see Gail again.",
+      "zh_original_string": "Mira 小心繞完一個低圈，安全落在厚墊上。|她仍在一步步練習，很高興再次見到瑜瑜。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 4,
+      "title": "A new game",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "The teacher brings out a magic ball for a game on the marked rooftop field.",
+          "It gives a gentle bounce and waits for the children to begin."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "老師把魔法球帶到標好的安全練習區。",
+          "球輕輕彈一下，等孩子們開始。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "teacher"
+      ],
+      "props": [
+        "ball",
+        "cushion"
+      ],
+      "focus": [
+        "game",
+        "ball",
+        "begin"
+      ],
+      "C_original_string": "The teacher brings out a magic ball for a game on the marked rooftop field.|It gives a gentle bounce and waits for the children to begin.",
+      "zh_original_string": "老師把魔法球帶到標好的安全練習區。|球輕輕彈一下，等孩子們開始。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 5,
+      "title": "Many ideas",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "Mira suggests passing the ball, while another player wants to kick it toward the low hoop.",
+          "A third child wants everyone to throw first; the ball remains still."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "Mira 建議傳球，另一位玩家想把球踢向低光圈。",
+          "第三個孩子想先用丟的，球仍待在原地。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "friend",
+        "teacher"
+      ],
+      "props": [
+        "ball",
+        "hoop"
+      ],
+      "focus": [
+        "throw",
+        "kick",
+        "player"
+      ],
+      "C_original_string": "Mira suggests passing the ball, while another player wants to kick it toward the low hoop.|A third child wants everyone to throw first; the ball remains still.",
+      "zh_original_string": "Mira 建議傳球，另一位玩家想把球踢向低光圈。|第三個孩子想先用丟的，球仍待在原地。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 6,
+      "title": "Too many calls",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "The players call out different instructions at the same time, but the ball does not hit anyone.",
+          "The ball darts left and right, unable to follow two rules at once, so the teacher keeps everyone back."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "玩家們同時喊出不同指令。",
+          "球忽左忽右，無法同時遵守兩套規則，老師讓大家先退開。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "friend",
+        "teacher"
+      ],
+      "props": [
+        "ball",
+        "cushion"
+      ],
+      "focus": [
+        "rule",
+        "move"
+      ],
+      "C_original_string": "The players call out different instructions at the same time, but the ball does not hit anyone.|The ball darts left and right, unable to follow two rules at once, so the teacher keeps everyone back.",
+      "zh_original_string": "玩家們同時喊出不同指令。|球忽左忽右，無法同時遵守兩套規則，老師讓大家先退開。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 7,
+      "title": "No shared goal",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "The ball circles the low goal without going through it and rolls back to the starting point. No one can score a point.",
+          "The children look at one another; no one knows what counts."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "球繞過低矮的目標圈，沒有穿過去，又滾回起點。",
+          "孩子們面面相覷，沒有人知道什麼才算完成。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "friend"
+      ],
+      "props": [
+        "ball",
+        "hoop"
+      ],
+      "focus": [
+        "goal",
+        "score"
+      ],
+      "C_original_string": "The ball circles the low goal without going through it and rolls back to the starting point. No one can score a point.|The children look at one another; no one knows what counts.",
+      "zh_original_string": "球繞過低矮的目標圈，沒有穿過去，又滾回起點。|孩子們面面相覷，沒有人知道什麼才算完成。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 8,
+      "title": "Pause the game",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "Gail asks the players to pause before anyone runs after the ball.",
+          "It slows beside the cushion, and the teacher checks that the play area is safe."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "瑜瑜請玩家們先暫停，不要追著球跑。",
+          "球在厚墊旁慢下來，老師確認場地安全。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "teacher"
+      ],
+      "props": [
+        "ball",
+        "cushion"
+      ],
+      "focus": [
+        "game"
+      ],
+      "C_original_string": "Gail asks the players to pause before anyone runs after the ball.|It slows beside the cushion, and the teacher checks that the play area is safe.",
+      "zh_original_string": "瑜瑜請玩家們先暫停，不要追著球跑。|球在厚墊旁慢下來，老師確認場地安全。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 9,
+      "title": "Listen to each player",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "Instead of calling over one another, each player in the small crowd describes the game they hoped to play.",
+          "Gail and Mira listen until everyone has had a turn."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "玩家們不再互相蓋過聲音，而是輪流說出自己希望怎麼玩。",
+          "瑜瑜和 Mira 聽到每個人都說完。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "friend"
+      ],
+      "props": [
+        "ball"
+      ],
+      "focus": [
+        "player",
+        "crowd"
+      ],
+      "C_original_string": "Instead of calling over one another, each player in the small crowd describes the game they hoped to play.|Gail and Mira listen until everyone has had a turn.",
+      "zh_original_string": "玩家們不再互相蓋過聲音，而是輪流說出自己希望怎麼玩。|瑜瑜和 Mira 聽到每個人都說完。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 10,
+      "title": "Mira remembers",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "Mira recalls how one small practice step helped her learn a safe low flight.",
+          "She suggests agreeing on just one rule before adding anything else."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "Mira 想起當初一個小步驟幫她學會安全低飛。",
+          "她建議先同意一條規則，之後再加其他內容。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "teacher"
+      ],
+      "props": [
+        "card"
+      ],
+      "focus": [
+        "rule"
+      ],
+      "C_original_string": "Mira recalls how one small practice step helped her learn a safe low flight.|She suggests agreeing on just one rule before adding anything else.",
+      "zh_original_string": "Mira 想起當初一個小步驟幫她學會安全低飛。|她建議先同意一條規則，之後再加其他內容。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 11,
+      "title": "Draw the first rule",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "On a card without words, the teacher draws a ball traveling from one child to the next.",
+          "Nobody grabs it from another player’s hands."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "老師在無字圖卡上畫出球從一個孩子傳給下一個孩子。",
+          "沒有人從別人手中搶球。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "teacher"
+      ],
+      "props": [
+        "card",
+        "ball"
+      ],
+      "focus": [
+        "pass"
+      ],
+      "C_original_string": "On a card without words, the teacher draws a ball traveling from one child to the next.|Nobody grabs it from another player’s hands.",
+      "zh_original_string": "老師在無字圖卡上畫出球從一個孩子傳給下一個孩子。|沒有人從別人手中搶球。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 12,
+      "title": "Agree to try",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "After each player has seen the picture card, everyone agrees to try the pass-first rule.",
+          "The ball shines softly, yet it stays still until they are ready."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "每位玩家都看過圖卡後，一起同意先傳球。",
+          "球柔柔發光，但仍等大家準備好才動。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "friend"
+      ],
+      "props": [
+        "card",
+        "ball"
+      ],
+      "focus": [
+        "agree",
+        "rule"
+      ],
+      "C_original_string": "After each player has seen the picture card, everyone agrees to try the pass-first rule.|The ball shines softly, yet it stays still until they are ready.",
+      "zh_original_string": "每位玩家都看過圖卡後，一起同意先傳球。|球柔柔發光，但仍等大家準備好才動。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 13,
+      "title": "One careful pass",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "Mira looks toward Gail, then sends the ball along a short arc for her to catch.",
+          "For the first time, the magic ball has one clear instruction to follow."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "Mira 望向瑜瑜，再讓球沿短弧傳過去。",
+          "魔法球第一次有了單一明確的指令。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira"
+      ],
+      "props": [
+        "ball"
+      ],
+      "focus": [
+        "pass",
+        "catch"
+      ],
+      "C_original_string": "Mira looks toward Gail, then sends the ball along a short arc for her to catch.|For the first time, the magic ball has one clear instruction to follow.",
+      "zh_original_string": "Mira 望向瑜瑜，再讓球沿短弧傳過去。|魔法球第一次有了單一明確的指令。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 14,
+      "title": "Wait for a turn",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "Gail catches the ball and holds it steady before making the next pass.",
+          "Her friend waits instead of reaching in, so everyone can follow the game."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "瑜瑜先接穩球，再傳下一棒。",
+          "朋友沒有伸手搶，大家都能跟上遊戲。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "friend"
+      ],
+      "props": [
+        "ball"
+      ],
+      "focus": [
+        "catch",
+        "player"
+      ],
+      "C_original_string": "Gail catches the ball and holds it steady before making the next pass.|Her friend waits instead of reaching in, so everyone can follow the game.",
+      "zh_original_string": "瑜瑜先接穩球，再傳下一棒。|朋友沒有伸手搶，大家都能跟上遊戲。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 15,
+      "title": "Add a goal",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "Once the passing rule works, everyone agrees to send the ball through the low hoop at the end.",
+          "The teacher keeps the thick cushion in place beneath it."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "傳球規則順利後，大家同意最後讓球穿過低光圈。",
+          "老師把厚墊留在圈下。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "teacher"
+      ],
+      "props": [
+        "ball",
+        "hoop",
+        "cushion"
+      ],
+      "focus": [
+        "goal",
+        "rule"
+      ],
+      "C_original_string": "Once the passing rule works, everyone agrees to send the ball through the low hoop at the end.|The teacher keeps the thick cushion in place beneath it.",
+      "zh_original_string": "傳球規則順利後，大家同意最後讓球穿過低光圈。|老師把厚墊留在圈下。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 16,
+      "title": "Try the whole game",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "In their friendly match, the ball travels from player to player in order.",
+          "After the last careful pass, it glides through the low hoop and returns to the starting area."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "這次球依順序在玩家之間傳遞。",
+          "最後一次穩穩的傳球後，它滑過低光圈，回到起點。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "friend"
+      ],
+      "props": [
+        "ball",
+        "hoop"
+      ],
+      "focus": [
+        "pass",
+        "goal"
+      ],
+      "C_original_string": "In their friendly match, the ball travels from player to player in order.|After the last careful pass, it glides through the low hoop and returns to the starting area.",
+      "zh_original_string": "這次球依順序在玩家之間傳遞。|最後一次穩穩的傳球後，它滑過低光圈，回到起點。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 17,
+      "title": "Change one rule",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "When one pass comes too quickly, the children pause again instead of blaming anyone; they want a fair game.",
+          "They add a simple picture of eyes: look at your partner before sending the ball."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "一次傳球太快，孩子們再次暫停，沒有責怪誰。",
+          "他們在圖卡加上眼睛：傳球前先看同伴。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "friend"
+      ],
+      "props": [
+        "ball",
+        "card"
+      ],
+      "focus": [
+        "rule",
+        "fair"
+      ],
+      "C_original_string": "When one pass comes too quickly, the children pause again instead of blaming anyone; they want a fair game.|They add a simple picture of eyes: look at your partner before sending the ball.",
+      "zh_original_string": "一次傳球太快，孩子們再次暫停，沒有責怪誰。|他們在圖卡加上眼睛：傳球前先看同伴。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 18,
+      "title": "Play together",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "Mira, Gail, and their friends follow the rule they all helped make.",
+          "The ball moves smoothly through the low hoop, and every player gets a turn."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "Mira、瑜瑜與朋友遵守大家一起訂出的規則。",
+          "球平穩穿過低光圈，每位玩家都有回合。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "friend",
+        "teacher"
+      ],
+      "props": [
+        "ball",
+        "hoop"
+      ],
+      "focus": [
+        "game",
+        "player"
+      ],
+      "C_original_string": "Mira, Gail, and their friends follow the rule they all helped make.|The ball moves smoothly through the low hoop, and every player gets a turn.",
+      "zh_original_string": "Mira、瑜瑜與朋友遵守大家一起訂出的規則。|球平穩穿過低光圈，每位玩家都有回合。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 19,
+      "title": "A rule everyone knows",
+      "scene": "rooftop",
+      "text": {
+        "C": [
+          "The teacher asks each child to demonstrate the agreed steps.",
+          "Mira can explain them clearly, and the quiet ball returns to Gail’s hands."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "老師請每個孩子示範共同約定的步驟。",
+          "Mira 能清楚說明，安靜的球回到瑜瑜手上。"
+        ]
+      },
+      "cast": [
+        "gail",
+        "mira",
+        "teacher"
+      ],
+      "props": [
+        "ball",
+        "card"
+      ],
+      "focus": [
+        "rule",
+        "end"
+      ],
+      "C_original_string": "The teacher asks each child to demonstrate the agreed steps.|Mira can explain them clearly, and the quiet ball returns to Gail’s hands.",
+      "zh_original_string": "老師請每個孩子示範共同約定的步驟。|Mira 能清楚說明，安靜的球回到瑜瑜手上。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    },
+    {
+      "number": 20,
+      "title": "A shared memory",
+      "scene": "bedroom",
+      "text": {
+        "C": [
+          "Back in her familiar bedroom, Gail places the magic ball beside Mira’s old broom charm.",
+          "She remembers that a good game begins when everyone can help decide how to play."
+        ]
+      },
+      "chinese": {
+        "C": [
+          "回到熟悉的臥室，瑜瑜把魔法球放在 Mira 的舊掃帚吊飾旁。",
+          "她記得，好玩的遊戲從大家一起決定玩法開始。"
+        ]
+      },
+      "cast": [
+        "gail"
+      ],
+      "props": [
+        "ball",
+        "guide"
+      ],
+      "focus": [
+        "game",
+        "fair"
+      ],
+      "C_original_string": "Back in her familiar bedroom, Gail places the magic ball beside Mira’s old broom charm.|She remembers that a good game begins when everyone can help decide how to play.",
+      "zh_original_string": "回到熟悉的臥室，瑜瑜把魔法球放在 Mira 的舊掃帚吊飾旁。|她記得，好玩的遊戲從大家一起決定玩法開始。",
+      "visual": "以本幕原文情節、場景、角色與道具規劃獨立畫面；未新增原文情節"
+    }
+  ],
+  "source_file": "production-four-content.ts",
+  "field_en": "productionContent[slug].rows[i].C, split on | without rewriting",
+  "field_zh": "productionContent[slug].rows[i].zh, as original C Chinese (translatedPage returns source C unchanged)",
+  "number_evidence": "Verified Library 涵蓋單字.md, libfile_dabccf2877948191ba099097ca66708a, uploaded 2026-09-30, exact numbered title and source path."
+}
