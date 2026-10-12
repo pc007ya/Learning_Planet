@@ -1,0 +1,886 @@
+{
+  "schemaVersion": 2,
+  "id": "red-hood",
+  "title": "Gail and the Big Bad Wolf",
+  "titleZh": "瑜瑜與大野狼",
+  "defaultLevel": null,
+  "availableLevels": [
+    "original"
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "title": "The red hood",
+      "scene": "home",
+      "words": [
+        "hood",
+        "Gail"
+      ],
+      "mission": {
+        "type": "find",
+        "answer": "hood",
+        "prompt": "Find the hood.",
+        "hint": "依序點選：hood"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "Gail has a red hood.",
+            "She puts it on.",
+            "Today she will visit Grandma."
+          ],
+          "zh": [
+            "瑜瑜有一件紅斗篷。",
+            "她穿上它。",
+            "今天她要去看奶奶。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 2,
+      "title": "A warm lunch",
+      "scene": "kitchen",
+      "words": [
+        "bread",
+        "bag",
+        "Gail"
+      ],
+      "mission": {
+        "type": "drag",
+        "answer": "bread",
+        "target": "bag",
+        "prompt": "Put the bread in the bag.",
+        "hint": "把麵包拖進袋子，或先點麵包再點袋子。"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "Mom makes some soup.",
+            "Gail puts bread in a bag.",
+            "The lunch is for Grandma."
+          ],
+          "zh": [
+            "媽媽煮了湯。",
+            "瑜瑜把麵包放進袋子。",
+            "這份午餐是要給奶奶的。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 3,
+      "title": "Ready to go",
+      "scene": "home",
+      "words": [
+        "phone",
+        "map",
+        "Gail"
+      ],
+      "mission": {
+        "type": "sequence",
+        "answer": "map",
+        "prompt": "Tap phone, then map.",
+        "hint": "依序點選：phone → map",
+        "steps": [
+          "phone",
+          "map"
+        ]
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "Gail takes her phone.",
+            "Mom shows her the way.",
+            "“Stay on the main path,” says Mom."
+          ],
+          "zh": [
+            "瑜瑜帶上手機。",
+            "媽媽指給她看路線。",
+            "「要走主要道路。」媽媽說。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 4,
+      "title": "Stop and look",
+      "scene": "street",
+      "words": [
+        "left",
+        "right",
+        "Gail"
+      ],
+      "mission": {
+        "type": "sequence",
+        "answer": "right",
+        "prompt": "Tap left, then right.",
+        "hint": "依序點選：left → right",
+        "steps": [
+          "left",
+          "right"
+        ]
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "Gail stops at the crossing.",
+            "She looks both ways.",
+            "Now she can cross."
+          ],
+          "zh": [
+            "瑜瑜在人行穿越道前停下，看看兩邊。",
+            "現在可以過馬路了。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 5,
+      "title": "Into the park",
+      "scene": "park",
+      "words": [
+        "bird",
+        "Gail"
+      ],
+      "mission": {
+        "type": "find",
+        "answer": "bird",
+        "prompt": "Find the bird.",
+        "hint": "依序點選：bird"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "Gail walks into the park.",
+            "Tall trees grow by the path.",
+            "Birds sing above her."
+          ],
+          "zh": [
+            "瑜瑜走進公園。",
+            "小路旁長著高大的樹，鳥兒在她上方唱歌。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 6,
+      "title": "A hungry wolf",
+      "scene": "park",
+      "words": [
+        "wolf",
+        "Gail"
+      ],
+      "mission": {
+        "type": "find",
+        "answer": "wolf",
+        "prompt": "Find the wolf.",
+        "hint": "依序點選：wolf"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "A wolf sits on a bench.",
+            "His tummy makes a loud noise.",
+            "He smells the warm soup."
+          ],
+          "zh": [
+            "一隻狼坐在長椅上。",
+            "牠的肚子發出很大的聲音。",
+            "牠聞到了熱湯的香味。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 7,
+      "title": "Hello, Gail",
+      "scene": "park",
+      "words": [
+        "path",
+        "Gail"
+      ],
+      "mission": {
+        "type": "find",
+        "answer": "path",
+        "prompt": "Find the path.",
+        "hint": "依序點選：path"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "“Hello! Where are you going?” asks the wolf.",
+            "“To see my grandma,” says Gail.",
+            "She keeps walking."
+          ],
+          "zh": [
+            "「你好！",
+            "你要去哪裡？」狼問。",
+            "「去看我奶奶。」瑜瑜說。",
+            "她繼續往前走。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 8,
+      "title": "The long way",
+      "scene": "fork",
+      "words": [
+        "map",
+        "path",
+        "Gail"
+      ],
+      "mission": {
+        "type": "sequence",
+        "answer": "path",
+        "prompt": "Tap map, then path.",
+        "hint": "依序點選：map → path",
+        "steps": [
+          "map",
+          "path"
+        ]
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "The wolf points to a small path.",
+            "“Try this way!” he says.",
+            "Gail looks at her map."
+          ],
+          "zh": [
+            "狼指向一條小路。",
+            "「走這邊吧！」牠說。",
+            "瑜瑜看了看地圖。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 9,
+      "title": "The right path",
+      "scene": "fork",
+      "words": [
+        "path",
+        "Gail"
+      ],
+      "mission": {
+        "type": "find",
+        "answer": "path",
+        "prompt": "Find the path.",
+        "hint": "依序點選：path"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "“No, thank you,” says Gail.",
+            "She stays on the main path.",
+            "The wolf runs away."
+          ],
+          "zh": [
+            "「不用了，謝謝。」瑜瑜說。",
+            "她繼續走主要道路。",
+            "狼跑走了。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 10,
+      "title": "Grandma goes out",
+      "scene": "lobby",
+      "words": [
+        "coat",
+        "mail",
+        "Gail"
+      ],
+      "mission": {
+        "type": "sequence",
+        "answer": "mail",
+        "prompt": "Tap coat, then mail.",
+        "hint": "依序點選：coat → mail",
+        "steps": [
+          "coat",
+          "mail"
+        ]
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "Grandma puts on her coat.",
+            "She goes downstairs to get her mail.",
+            "Her door clicks shut."
+          ],
+          "zh": [
+            "奶奶穿上外套，下樓拿信。",
+            "她的門喀噠一聲關上了。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 11,
+      "title": "A sneaky visitor",
+      "scene": "entrance",
+      "words": [
+        "door",
+        "Gail"
+      ],
+      "mission": {
+        "type": "find",
+        "answer": "door",
+        "prompt": "Find the door.",
+        "hint": "依序點選：door"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "The wolf reaches the door.",
+            "It is not quite closed.",
+            "He slips inside."
+          ],
+          "zh": [
+            "狼來到門前。",
+            "門沒有完全關緊，牠悄悄溜了進去。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 12,
+      "title": "A silly plan",
+      "scene": "bedroom",
+      "words": [
+        "cap",
+        "glasses",
+        "blanket"
+      ],
+      "mission": {
+        "type": "sequence",
+        "answer": "blanket",
+        "prompt": "Tap cap, then glasses, then blanket.",
+        "hint": "依序點選：cap → glasses → blanket",
+        "steps": [
+          "cap",
+          "glasses",
+          "blanket"
+        ]
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "The wolf finds a cap.",
+            "He puts on Grandma’s glasses.",
+            "Then he hides under a blanket."
+          ],
+          "zh": [
+            "狼找到一頂帽子，戴上奶奶的眼鏡，然後躲進毯子裡。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 13,
+      "title": "Here at last",
+      "scene": "entrance",
+      "words": [
+        "number",
+        "Gail"
+      ],
+      "mission": {
+        "type": "find",
+        "answer": "number",
+        "prompt": "Find the number.",
+        "hint": "依序點選：number"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "Gail comes to Grandma’s building.",
+            "She checks the number.",
+            "Yes, this is the right place."
+          ],
+          "zh": [
+            "瑜瑜來到奶奶住的大樓，查看門牌號碼。",
+            "沒錯，就是這裡。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 14,
+      "title": "Ding-dong!",
+      "scene": "entrance",
+      "words": [
+        "bell",
+        "Gail"
+      ],
+      "mission": {
+        "type": "find",
+        "answer": "bell",
+        "prompt": "Find the bell.",
+        "hint": "依序點選：bell"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "Gail rings the bell.",
+            "“Come in!” calls a deep voice.",
+            "Gail stays by the open door."
+          ],
+          "zh": [
+            "瑜瑜按了門鈴。",
+            "「進來！」一個低沉的聲音喊道。",
+            "瑜瑜留在敞開的門旁。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 15,
+      "title": "What big ears!",
+      "scene": "bedroom",
+      "words": [
+        "ears",
+        "Gail"
+      ],
+      "mission": {
+        "type": "find",
+        "answer": "ears",
+        "prompt": "Find the ears.",
+        "hint": "依序點選：ears"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "“Grandma, what big ears you have!” says Gail.",
+            "“To hear you better,” says the wolf.",
+            "One ear pops out."
+          ],
+          "zh": [
+            "「奶奶，妳的耳朵好大！」瑜瑜說。",
+            "「這樣才能聽得更清楚。」狼說。",
+            "一隻耳朵露了出來。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 16,
+      "title": "What big eyes!",
+      "scene": "bedroom",
+      "words": [
+        "eyes",
+        "Gail"
+      ],
+      "mission": {
+        "type": "find",
+        "answer": "eyes",
+        "prompt": "Find the eyes.",
+        "hint": "依序點選：eyes"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "“What big eyes you have!” says Gail.",
+            "“To see you better,” says the wolf.",
+            "His glasses slide down."
+          ],
+          "zh": [
+            "「妳的眼睛好大！」瑜瑜說。",
+            "「這樣才能看得更清楚。」狼說。",
+            "牠的眼鏡滑了下來。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 17,
+      "title": "What big teeth!",
+      "scene": "bedroom",
+      "words": [
+        "teeth",
+        "away",
+        "Gail"
+      ],
+      "mission": {
+        "type": "sequence",
+        "answer": "away",
+        "prompt": "Tap teeth, then away.",
+        "hint": "依序點選：teeth → away",
+        "steps": [
+          "teeth",
+          "away"
+        ]
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "“What big teeth you have!” says Gail.",
+            "The wolf gives a wide smile.",
+            "Gail takes a step back."
+          ],
+          "zh": [
+            "「妳的牙齒好大！」瑜瑜說。",
+            "狼咧嘴一笑。",
+            "瑜瑜往後退了一步。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 18,
+      "title": "That is not Grandma",
+      "scene": "bedroom",
+      "words": [
+        "tail",
+        "away",
+        "Gail"
+      ],
+      "mission": {
+        "type": "sequence",
+        "answer": "away",
+        "prompt": "Tap tail, then away.",
+        "hint": "依序點選：tail → away",
+        "steps": [
+          "tail",
+          "away"
+        ]
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "Gail sees a furry tail.",
+            "Grandma does not have a tail!",
+            "Gail walks away from the door."
+          ],
+          "zh": [
+            "瑜瑜看見一條毛茸茸的尾巴。",
+            "奶奶沒有尾巴！",
+            "瑜瑜離開門口。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 19,
+      "title": "A quick call",
+      "scene": "entrance",
+      "words": [
+        "phone",
+        "Gail"
+      ],
+      "mission": {
+        "type": "find",
+        "answer": "phone",
+        "prompt": "Find the phone.",
+        "hint": "依序點選：phone"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "Gail calls Grandma.",
+            "“Are you in bed?” she asks.",
+            "“No, I am downstairs!” says Grandma."
+          ],
+          "zh": [
+            "瑜瑜打電話給奶奶。",
+            "「妳在床上嗎？」她問。",
+            "「沒有，我在樓下！」奶奶說。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 20,
+      "title": "Help is here",
+      "scene": "lobby",
+      "words": [
+        "Grandma",
+        "manager",
+        "Gail"
+      ],
+      "mission": {
+        "type": "sequence",
+        "answer": "manager",
+        "prompt": "Tap grandma, then manager.",
+        "hint": "依序點選：grandma → manager",
+        "steps": [
+          "grandma",
+          "manager"
+        ]
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "Gail meets Grandma downstairs.",
+            "They tell the building manager.",
+            "The three go upstairs together."
+          ],
+          "zh": [
+            "瑜瑜在樓下找到奶奶。",
+            "她們告訴大樓管理員，三個人一起上樓。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 21,
+      "title": "We can see you",
+      "scene": "bedroom",
+      "words": [
+        "cap",
+        "Gail"
+      ],
+      "mission": {
+        "type": "find",
+        "answer": "cap",
+        "prompt": "Find the cap.",
+        "hint": "依序點選：cap"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "“Come out, Wolf,” says Grandma.",
+            "The wolf drops the blanket.",
+            "His cap falls to the floor."
+          ],
+          "zh": [
+            "「狼，出來吧。」奶奶說。",
+            "狼放下毯子，帽子掉到地上。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 22,
+      "title": "Ask first",
+      "scene": "dining",
+      "words": [
+        "bread",
+        "bag",
+        "Gail"
+      ],
+      "mission": {
+        "type": "drag",
+        "answer": "bread",
+        "target": "bag",
+        "prompt": "Put the bread in the bag.",
+        "hint": "把麵包拖進袋子，或先點麵包再點袋子。"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "“I wanted your lunch,” says the wolf.",
+            "“You must ask first,” says Gail.",
+            "The wolf gives back the bread."
+          ],
+          "zh": [
+            "「我想吃妳的午餐。」狼說。",
+            "「你必須先問。」瑜瑜說。",
+            "狼把麵包還回來。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 23,
+      "title": "May I have some?",
+      "scene": "dining",
+      "words": [
+        "bowl",
+        "Gail"
+      ],
+      "mission": {
+        "type": "find",
+        "answer": "bowl",
+        "prompt": "Find the bowl.",
+        "hint": "依序點選：bowl"
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "“I am sorry,” says the wolf.",
+            "“May I have some soup?”",
+            "Grandma brings one more bowl."
+          ],
+          "zh": [
+            "「對不起。」狼說。",
+            "「我可以喝一點湯嗎？」奶奶多拿來一個碗。"
+          ]
+        }
+      }
+    },
+    {
+      "number": 24,
+      "title": "A better ending",
+      "scene": "dining",
+      "words": [
+        "Gail",
+        "Grandma",
+        "wolf"
+      ],
+      "mission": {
+        "type": "sequence",
+        "answer": "wolf",
+        "prompt": "Tap gail, then grandma, then wolf.",
+        "hint": "依序點選：gail → grandma → wolf",
+        "steps": [
+          "gail",
+          "grandma",
+          "wolf"
+        ]
+      },
+      "action": "red",
+      "text": {
+        "original": {
+          "en": [
+            "Gail, Grandma, and the wolf share lunch.",
+            "Gail calls Mom.",
+            "“I am here with Grandma. We are all fine!”"
+          ],
+          "zh": [
+            "瑜瑜、奶奶和狼一起吃午餐。",
+            "瑜瑜打電話給媽媽。",
+            "「我和奶奶在一起，我們都很好！」"
+          ]
+        }
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "word": "hood",
+      "zh": "連帽斗篷"
+    },
+    {
+      "word": "gail",
+      "zh": "瑜瑜"
+    },
+    {
+      "word": "bread",
+      "zh": "麵包"
+    },
+    {
+      "word": "bag",
+      "zh": "袋子"
+    },
+    {
+      "word": "phone",
+      "zh": "電話"
+    },
+    {
+      "word": "map",
+      "zh": "地圖"
+    },
+    {
+      "word": "left",
+      "zh": "左邊"
+    },
+    {
+      "word": "right",
+      "zh": "右邊"
+    },
+    {
+      "word": "bird",
+      "zh": "鳥"
+    },
+    {
+      "word": "wolf",
+      "zh": "狼"
+    },
+    {
+      "word": "path",
+      "zh": "小路"
+    },
+    {
+      "word": "coat",
+      "zh": "外套"
+    },
+    {
+      "word": "mail",
+      "zh": "信件"
+    },
+    {
+      "word": "door",
+      "zh": "門"
+    },
+    {
+      "word": "cap",
+      "zh": "帽子"
+    },
+    {
+      "word": "glasses",
+      "zh": "眼鏡"
+    },
+    {
+      "word": "blanket",
+      "zh": "毯子"
+    },
+    {
+      "word": "number",
+      "zh": "數字"
+    },
+    {
+      "word": "bell",
+      "zh": "鈴；門鈴"
+    },
+    {
+      "word": "ears",
+      "zh": "耳朵"
+    },
+    {
+      "word": "eyes",
+      "zh": "眼睛"
+    },
+    {
+      "word": "teeth",
+      "zh": "牙齒"
+    },
+    {
+      "word": "away",
+      "zh": "離開"
+    },
+    {
+      "word": "tail",
+      "zh": "尾巴"
+    },
+    {
+      "word": "grandma",
+      "zh": "奶奶"
+    },
+    {
+      "word": "manager",
+      "zh": "管理員"
+    },
+    {
+      "word": "bowl",
+      "zh": "碗"
+    }
+  ],
+  "sourceRepo": "/Users/ming/Desktop/小學學習系統/Learning_Planet-mini4wd",
+  "productionStatus": "C script absent — original source only"
+}

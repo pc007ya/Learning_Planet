@@ -4,6 +4,7 @@ import type {ObjectSpec,SceneSpec,StoryPage} from './book';
 import type {ReadingLevel} from './dragon-text';
 import type {StoryQuestion} from './dragon-quiz';
 import type {StoryMotion} from './choreography';
+import {unicornQuestions} from './unicorn-quiz';
 
 const asset='images/story/unicorn-v1/';
 const glosses=['獨角獸','樹林','微光；發光','奔馳','鬃毛','路標','小樹林','捷徑','岔路','樹冠','彎曲的','小跑','下垂','林地的','蹄子','長滿青苔的','閃爍','輕聲嘶鳴','詢問','方向；指引'];
@@ -82,10 +83,12 @@ export function unicornBook(){
   const layout=layouts[i];const placements=Object.fromEntries(layout.objects.map(id=>[id,{...base[id],...layout.positions?.[id]}]));
   return {title:row.title,scene:layout.scene,lines:row[level],translation:row[`zh${level}`].join(' '),words:pageWords[i],objects:layout.objects,placements,mission:{type:'tap',answer:layout.target,prompt:pagePrompts[i],hint:pageHints[i]},action:'explore'};
  });
- const questions=(level:ReadingLevel):StoryQuestion[]=>quizRows.map(([number,a,b,c,choices],i)=>{
-  const p=pages(level)[number-1],layout=layouts[number-1],shift=(i*3+1)%4;
-  const options=[...choices.slice(1)];options.splice(shift,0,choices[0]);
-  return {id:`unicorn-${i+1}`,kind:'choice',prompt:level==='A'?a:level==='B'?b:c,options:options.map(text=>({text})),answer:[shift],explanation:choices[0],imageAlt:p.title,sceneImage:{background:asset+p.scene+'.png',assetBase:asset,objects:p.objects.map(id=>({...base[id],...layout.positions?.[id]}))}};
- });
+ const questions=(level:ReadingLevel):StoryQuestion[]=>{
+  const graded=unicornQuestions(level);
+  return quizRows.map(([number],i)=>{
+   const p=pages(level)[number-1],layout=layouts[number-1];
+   return {...graded[i],sceneImage:{background:asset+p.scene+'.png',assetBase:asset,objects:p.objects.map(id=>({...base[id],...layout.positions?.[id]}))}};
+  });
+ };
  return {key:'unicorn' as const,title:'Gail and the Lost Unicorn',chineseTitle:'瑜瑜與迷路的獨角獸',asset,objects,scenes,pages,words:vocabulary,questions,entries:vocabulary.map((word,i)=>[word,glosses[i],'✦']),chinese:(page:number,level:ReadingLevel)=>rows[page][`zh${level}`],choreography:(_level:ReadingLevel):Record<number,Record<number,StoryMotion[]>>=>({})};
 }
