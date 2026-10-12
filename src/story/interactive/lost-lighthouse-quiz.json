@@ -1,0 +1,1647 @@
+{
+  "A": [
+    {
+      "id": "book32-A01",
+      "kind": "choice",
+      "prompt": "What stands on the small stool?",
+      "chinesePrompt": "小矮凳上立著什麼？",
+      "options": [
+        {
+          "text": "A window"
+        },
+        {
+          "text": "A lamp"
+        },
+        {
+          "text": "A lighthouse"
+        },
+        {
+          "text": "A boat"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Scene 1 says a little lighthouse blinks. The small tower is beside Gail. 第1幕的小燈塔在閃光；圖中瑜瑜身旁可見小燈塔。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "A little lighthouse blinks.",
+          "chinese": "小燈塔閃了一下。"
+        }
+      ],
+      "image": "images/story/lost-lighthouse-v1/scene/01.webp",
+      "imageAlt": "A tiny lighthouse"
+    },
+    {
+      "id": "book32-A02",
+      "kind": "choice",
+      "prompt": "The light makes a ____.",
+      "chinesePrompt": "光做出什麼？",
+      "options": [
+        {
+          "text": "path"
+        },
+        {
+          "text": "mark"
+        },
+        {
+          "text": "circle"
+        },
+        {
+          "text": "boat"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Scene 2 says the light makes a path. A mark or circle is not the path Gail follows. 第2幕明說光做出一條路，並非記號或圓圈。",
+      "skill": "word",
+      "evidence": [
+        {
+          "scene": 2,
+          "quote": "The light makes a path.",
+          "chinese": "光做出一條路。"
+        }
+      ]
+    },
+    {
+      "id": "book32-A03",
+      "kind": "choice",
+      "prompt": "What place does Gail see?",
+      "chinesePrompt": "瑜瑜看見哪個地方？",
+      "options": [
+        {
+          "text": "The bedroom"
+        },
+        {
+          "text": "The workroom"
+        },
+        {
+          "text": "The hill"
+        },
+        {
+          "text": "The harbor"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Scene 3 says Gail sees the harbor. Her bedroom is where the story starts and ends. 第3幕寫瑜瑜看見港口；臥室是故事開始和結束的地方。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 3,
+          "quote": "Gail sees the harbor.",
+          "chinese": "瑜瑜看見港口。"
+        }
+      ]
+    },
+    {
+      "id": "book32-A04",
+      "kind": "choice",
+      "prompt": "How do the boats move before the fix?",
+      "chinesePrompt": "修好前，小船怎麼移動？",
+      "options": [
+        {
+          "text": "Into the harbor"
+        },
+        {
+          "text": "In circles"
+        },
+        {
+          "text": "In a line"
+        },
+        {
+          "text": "Onto the shore"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Scene 5 says the boats go in circles. They enter the harbor later in Scene 17. 第5幕的小船繞圈；第17幕才進港。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 5,
+          "quote": "The boats go in circles.",
+          "chinese": "小船繞圈圈。"
+        }
+      ]
+    },
+    {
+      "id": "book32-A05",
+      "kind": "choice",
+      "prompt": "Who comes to Gail?",
+      "chinesePrompt": "誰來到瑜瑜身邊？",
+      "options": [
+        {
+          "text": "A sailor"
+        },
+        {
+          "text": "A keeper"
+        },
+        {
+          "text": "A farmer"
+        },
+        {
+          "text": "A builder"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Scene 6 says a keeper comes. He looks after the lighthouse. 第6幕明說守護員來了，他照顧燈塔。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "A keeper comes.",
+          "chinese": "守護員來了。"
+        }
+      ]
+    },
+    {
+      "id": "book32-A06",
+      "kind": "choice",
+      "prompt": "More ____ is not the answer.",
+      "chinesePrompt": "增加什麼也不是解答？",
+      "options": [
+        {
+          "text": "glass"
+        },
+        {
+          "text": "paper"
+        },
+        {
+          "text": "water"
+        },
+        {
+          "text": "light"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Scene 7 says more light is not the answer. The story needs a change in direction. 第7幕明說加亮也不行，故事需要調整方向。",
+      "skill": "word",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "More light is not the answer.",
+          "chinese": "加亮也不行。"
+        }
+      ]
+    },
+    {
+      "id": "book32-A07",
+      "kind": "choice",
+      "prompt": "What does Gail look at in Scene 8?",
+      "chinesePrompt": "第8幕瑜瑜看什麼？",
+      "options": [
+        {
+          "text": "The glass"
+        },
+        {
+          "text": "The card"
+        },
+        {
+          "text": "The boat"
+        },
+        {
+          "text": "The mark"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Scene 8 says Gail looks at the glass. The card is used later. 第8幕寫瑜瑜看玻璃；卡片在後面的場景才使用。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "Gail looks at the glass.",
+          "chinese": "瑜瑜看玻璃。"
+        }
+      ]
+    },
+    {
+      "id": "book32-A08",
+      "kind": "choice",
+      "prompt": "What has moved in Scene 9?",
+      "chinesePrompt": "第9幕什麼移動了？",
+      "options": [
+        {
+          "text": "The bed"
+        },
+        {
+          "text": "The boat"
+        },
+        {
+          "text": "The lens"
+        },
+        {
+          "text": "The card"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Scene 9 says the lens has moved. It is the part they need to adjust. 第9幕寫鏡片移動了，這是他們需要調整的部分。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "The lens has moved.",
+          "chinese": "鏡片歪了。"
+        }
+      ]
+    },
+    {
+      "id": "book32-A09",
+      "kind": "choice",
+      "prompt": "Where is the bright spot in this picture?",
+      "chinesePrompt": "這張圖的亮光斑在哪裡？",
+      "options": [
+        {
+          "text": "On the cap"
+        },
+        {
+          "text": "On the table"
+        },
+        {
+          "text": "On the window"
+        },
+        {
+          "text": "On the card"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Scene 10 says the light hits the card. The picture shows a bright spot on the white card held by the keeper. 第10幕寫光照在卡片上；圖中守護員手持白卡，卡上有光斑。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "The light hits the card.",
+          "chinese": "光照在卡片上。"
+        }
+      ],
+      "image": "images/story/lost-lighthouse-v1/scene/10.webp",
+      "imageAlt": "Follow the reflection"
+    },
+    {
+      "id": "book32-A10",
+      "kind": "choice",
+      "prompt": "How much do they turn it?",
+      "chinesePrompt": "他們轉動多少？",
+      "options": [
+        {
+          "text": "A little"
+        },
+        {
+          "text": "A full turn"
+        },
+        {
+          "text": "A lot"
+        },
+        {
+          "text": "Not at all"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Scene 12 says to turn it a little. A large turn or no turn does not match that line. 第12幕說轉一點點，並非轉很多或完全不轉。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "Turn it a little.",
+          "chinese": "轉一點點。"
+        }
+      ]
+    },
+    {
+      "id": "book32-A11",
+      "kind": "choice",
+      "prompt": "What happens to the beam in Scene 13?",
+      "chinesePrompt": "第13幕光束怎麼了？",
+      "options": [
+        {
+          "text": "It stops."
+        },
+        {
+          "text": "It dims."
+        },
+        {
+          "text": "It misses."
+        },
+        {
+          "text": "It reaches."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Scene 13 says the beam misses. It reaches the sea only later in Scene 15. 第13幕光還没對準；第15幕才照到海面。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "The beam misses.",
+          "chinese": "光還沒對準。"
+        }
+      ]
+    },
+    {
+      "id": "book32-A12",
+      "kind": "choice",
+      "prompt": "What is Gail holding in this picture?",
+      "chinesePrompt": "圖中瑜瑜拿著什麼？",
+      "options": [
+        {
+          "text": "A boat"
+        },
+        {
+          "text": "A card"
+        },
+        {
+          "text": "A book"
+        },
+        {
+          "text": "A model"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Scene 14 says the marks are different. Gail holds the white card with two colored marks; the model stays on the table. 第14幕說兩個記號不同。瑜瑜拿著有兩個色點的白卡，模型仍在桌上。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 14,
+          "quote": "The marks are different.",
+          "chinese": "兩個記號不同。"
+        }
+      ],
+      "image": "images/story/lost-lighthouse-v1/scene/14.webp",
+      "imageAlt": "Compare two marks"
+    },
+    {
+      "id": "book32-A13",
+      "kind": "choice",
+      "prompt": "In Scene 15, the beam reaches the ____.",
+      "chinesePrompt": "第15幕光束照到哪裡？",
+      "options": [
+        {
+          "text": "sea"
+        },
+        {
+          "text": "hill"
+        },
+        {
+          "text": "bed"
+        },
+        {
+          "text": "wall"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Scene 15 says the beam reaches the sea. This follows the earlier missed beam. 第15幕寫光照到海面，是在前一次沒對準之後。",
+      "skill": "word",
+      "evidence": [
+        {
+          "scene": 15,
+          "quote": "The beam reaches the sea.",
+          "chinese": "光照到海面了。"
+        }
+      ]
+    },
+    {
+      "id": "book32-A14",
+      "kind": "choice",
+      "prompt": "How does the lighthouse shine in Scene 16?",
+      "chinesePrompt": "第16幕燈塔如何發亮？",
+      "options": [
+        {
+          "text": "With fading light"
+        },
+        {
+          "text": "With no light"
+        },
+        {
+          "text": "With steady light"
+        },
+        {
+          "text": "With failing light"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Scene 16 says the lighthouse shines steadily. The light is steady rather than changing. 第16幕寫燈塔穩定發亮，因此不是忽亮忽暗。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 16,
+          "quote": "The lighthouse shines steadily.",
+          "chinese": "燈塔穩定發亮。"
+        }
+      ]
+    },
+    {
+      "id": "book32-A15",
+      "kind": "choice",
+      "prompt": "What does the keeper save?",
+      "chinesePrompt": "守護員留下什麼？",
+      "options": [
+        {
+          "text": "The glass"
+        },
+        {
+          "text": "The mark"
+        },
+        {
+          "text": "The boat"
+        },
+        {
+          "text": "The model"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Scene 18 says the keeper saves the mark. The useful mark is kept for checking the light. 第18幕寫守護員留下記號，方便之後檢查光。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 18,
+          "quote": "The keeper saves the mark.",
+          "chinese": "守護員留下記號。"
+        }
+      ]
+    },
+    {
+      "id": "book32-A16",
+      "kind": "choice",
+      "prompt": "Where is Gail at the end?",
+      "chinesePrompt": "最後瑜瑜在哪裡？",
+      "options": [
+        {
+          "text": "At the harbor"
+        },
+        {
+          "text": "In the tower"
+        },
+        {
+          "text": "On the coast"
+        },
+        {
+          "text": "In her bedroom"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Scene 20 says Gail is home. The picture shows her familiar bed and starry window, so she is back in her bedroom. 第20幕寫瑜瑜回家了；圖中可見熟悉的床與星空窗戶，她已回到臥室。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 20,
+          "quote": "Gail is home.",
+          "chinese": "瑜瑜回家了。"
+        }
+      ],
+      "image": "images/story/lost-lighthouse-v1/scene/20.webp",
+      "imageAlt": "Back in the bedroom"
+    }
+  ],
+  "B": [
+    {
+      "id": "book32-B01",
+      "kind": "choice",
+      "prompt": "Where is the model before Gail follows its light?",
+      "chinesePrompt": "瑜瑜跟光走之前，模型在哪裡？",
+      "options": [
+        {
+          "text": "Inside the tower"
+        },
+        {
+          "text": "On the test card"
+        },
+        {
+          "text": "Beside her bed"
+        },
+        {
+          "text": "Near the shore"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Scene 1 puts the model beside Gail's bed. Scene 2 then has her follow its light. 第1幕模型在床邊，第2幕瑜瑜才跟著它的光走。",
+      "skill": "linked-detail",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "A tiny lighthouse model blinks beside Gail's bed.",
+          "chinese": "一座迷你燈塔在瑜瑜床邊閃光。"
+        },
+        {
+          "scene": 2,
+          "quote": "Its light spreads across the bedroom floor. Gail follows the glowing path.",
+          "chinese": "燈光沿著臥室地板延伸。瑜瑜跟著亮路走。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B02",
+      "kind": "choice",
+      "prompt": "What does Gail do next after the light spreads on the floor?",
+      "chinesePrompt": "光在地板延伸後，瑜瑜緊接著做什麼？",
+      "options": [
+        {
+          "text": "She follows the path."
+        },
+        {
+          "text": "She turns the lens."
+        },
+        {
+          "text": "She marks the card."
+        },
+        {
+          "text": "She checks the glass."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Scene 2 puts following the path immediately after the light spreads. Checking glass and turning the lens happen later, so neither is the next action. 第2幕光延伸後緊接著寫瑜瑜跟著亮路走；查玻璃與轉鏡片是更後面的動作，不是下一步。",
+      "skill": "sequence",
+      "evidence": [
+        {
+          "scene": 2,
+          "quote": "Its light spreads across the bedroom floor. Gail follows the glowing path.",
+          "chinese": "燈光沿著臥室地板延伸。瑜瑜跟著亮路走。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B03",
+      "kind": "choice",
+      "prompt": "Where are the paper boats when Gail first arrives?",
+      "chinesePrompt": "瑜瑜剛到時紙船在哪裡？",
+      "options": [
+        {
+          "text": "Behind the hill"
+        },
+        {
+          "text": "Near the shore"
+        },
+        {
+          "text": "Inside the tower"
+        },
+        {
+          "text": "Beside the bed"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Scene 3 says paper boats float near the shore when Gail steps into the harbor. 第3幕瑜瑜走進港口時，紙船漂在岸邊。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 3,
+          "quote": "Gail steps into a quiet harbor. Paper boats float near the shore.",
+          "chinese": "瑜瑜走進安靜的港口。紙船漂在岸邊。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B04",
+      "kind": "choice",
+      "prompt": "At first, which place does the beam fail to reach?",
+      "chinesePrompt": "一開始光束沒有照到哪裡？",
+      "options": [
+        {
+          "text": "The inland hill"
+        },
+        {
+          "text": "The high ground"
+        },
+        {
+          "text": "The land nearby"
+        },
+        {
+          "text": "The water below"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Scene 4 says the beam shines toward a hill and does not reach the water. The other places describe land. 第4幕光照山坡，沒有照到水面；其餘選項都指陸地。",
+      "skill": "contrast",
+      "evidence": [
+        {
+          "scene": 4,
+          "quote": "The lighthouse beam shines toward a hill. It does not reach the water.",
+          "chinese": "燈塔光束照向山坡，沒有照到水面。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B05",
+      "kind": "choice",
+      "prompt": "What does Gail notice about the circling boats?",
+      "chinesePrompt": "瑜瑜注意到繞圈的小船怎麼了？",
+      "options": [
+        {
+          "text": "They are not moving in."
+        },
+        {
+          "text": "They rest on the shore."
+        },
+        {
+          "text": "They stop beside her."
+        },
+        {
+          "text": "They keep moving out."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Scene 5 says the boats circle and Gail notices they are not moving in. Circling is movement, so they have not stopped. 第5幕小船繞圈，瑜瑜注意到它們沒有進港；繞圈仍在移動。",
+      "skill": "observation",
+      "evidence": [
+        {
+          "scene": 5,
+          "quote": "The paper boats circle near the harbor. Gail notices that they are not moving in.",
+          "chinese": "紙船在港口附近繞圈。瑜瑜發現它們沒有進港。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B06",
+      "kind": "choice",
+      "prompt": "What does the keeper want to find out?",
+      "chinesePrompt": "守護員想找出什麼？",
+      "options": [
+        {
+          "text": "Where Gail lives"
+        },
+        {
+          "text": "How boats are made"
+        },
+        {
+          "text": "What has changed"
+        },
+        {
+          "text": "When Gail will leave"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Scene 6 says the keeper wants to find what changed. His question is about the lighthouse problem. 第6幕守護員想找出哪裡改變了，目的是查燈塔的問題。",
+      "skill": "purpose",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "The lighthouse keeper meets Gail. He wants to find what changed.",
+          "chinese": "燈塔守護員遇見瑜瑜。他想找出哪裡改變了。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B07",
+      "kind": "choice",
+      "prompt": "What stays the same when the lamp gets brighter?",
+      "chinesePrompt": "把燈調亮後，什麼仍沒改變？",
+      "options": [
+        {
+          "text": "The lamp's brightness"
+        },
+        {
+          "text": "The model's angle mark"
+        },
+        {
+          "text": "The card's light spot"
+        },
+        {
+          "text": "The beam's direction"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Scene 7 says the brighter lamp still points at the hill. Brightness changes, but the beam's direction does not. 第7幕燈變亮仍照山坡，因此亮度改變，方向未改。",
+      "skill": "cause-result",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "The keeper makes the lamp brighter. The beam still points at the hill.",
+          "chinese": "守護員把燈調亮。光仍照向山坡。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B08",
+      "kind": "choice",
+      "prompt": "What do they learn from checking the clean glass?",
+      "chinesePrompt": "檢查乾淨玻璃後得知什麼？",
+      "options": [
+        {
+          "text": "The boats are inside."
+        },
+        {
+          "text": "The light is not blocked."
+        },
+        {
+          "text": "The lens is straight."
+        },
+        {
+          "text": "The beam is in place."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Scene 8 says the glass is clean and nothing blocks the light. It does not say the direction is correct yet. 第8幕玻璃乾淨、光未被擋住，還沒有說方向已正確。",
+      "skill": "conclusion",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "Gail and the keeper check the clean glass. Nothing blocks the light.",
+          "chinese": "瑜瑜和守護員查看乾淨的玻璃。光沒有被擋住。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B09",
+      "kind": "choice",
+      "prompt": "Which item lets Gail watch the tilted lens safely?",
+      "chinesePrompt": "什麼讓瑜瑜安全觀察歪鏡片？",
+      "options": [
+        {
+          "text": "The real tower lamp"
+        },
+        {
+          "text": "The safe display model"
+        },
+        {
+          "text": "The paper harbor boat"
+        },
+        {
+          "text": "The keeper's angle note"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Scene 9 places the tilted lens inside a safe display model. Gail watches that model rather than the real lamp. 第9幕歪鏡片在安全展示模型裡，瑜瑜觀察的是模型。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "A lens inside the safe display model is tilted. Gail sees where the beam goes.",
+          "chinese": "安全模型裡的鏡片歪了。瑜瑜看見光照向哪裡。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B10",
+      "kind": "choice",
+      "prompt": "What does the reflection on the white card show?",
+      "chinesePrompt": "白卡上的反射顯示什麼？",
+      "options": [
+        {
+          "text": "The hill height"
+        },
+        {
+          "text": "The water depth"
+        },
+        {
+          "text": "The boat speed"
+        },
+        {
+          "text": "The light's path"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Scene 10 says the reflection shows the light's path. The card helps Gail follow the beam. 第10幕反射顯示光的路徑，幫助瑜瑜追蹤光束。",
+      "skill": "purpose",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "Gail follows the light on a white card. The reflection shows its path.",
+          "chinese": "瑜瑜沿著白卡上的光看。反射顯示光的路徑。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B11",
+      "kind": "choice",
+      "prompt": "What does Gail compare with the old angle?",
+      "chinesePrompt": "瑜瑜把舊角度和什麼比較？",
+      "options": [
+        {
+          "text": "The sea's direction"
+        },
+        {
+          "text": "The card's color"
+        },
+        {
+          "text": "The boat's size"
+        },
+        {
+          "text": "The lamp's warmth"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Scene 11 says the keeper marks the old angle and Gail compares it with the sea. 第11幕守護員標出舊角度，瑜瑜把它與海面方向比較。",
+      "skill": "comparison",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "The keeper marks the old angle on the model. Gail compares it with the sea.",
+          "chinese": "守護員在模型上標出舊角度。瑜瑜拿它與海面方向比較。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B12",
+      "kind": "choice",
+      "prompt": "What changes after Gail rotates the model lens?",
+      "chinesePrompt": "瑜瑜轉動模型鏡片後什麼改變？",
+      "options": [
+        {
+          "text": "The lamp gets brighter."
+        },
+        {
+          "text": "The boat moves closer."
+        },
+        {
+          "text": "The light crosses the card."
+        },
+        {
+          "text": "The card turns over."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Scene 12 links a small lens turn with light moving across the card. It does not describe a brightness change. 第12幕轉鏡片後光沿卡片移動，沒有寫亮度改變。",
+      "skill": "action-result",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "Gail rotates the model lens a little. The light moves across the card.",
+          "chinese": "瑜瑜稍微轉動模型鏡片。光沿著卡片移動。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B13",
+      "kind": "choice",
+      "prompt": "Why does Gail ask to try again?",
+      "chinesePrompt": "瑜瑜為何想再試一次？",
+      "options": [
+        {
+          "text": "The model is still dark."
+        },
+        {
+          "text": "The boats have gone home."
+        },
+        {
+          "text": "The glass is still dirty."
+        },
+        {
+          "text": "The test beam goes too far."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Scene 13 says the test beam points past the harbor, then Gail asks to try again. It has gone too far. 第13幕測試光越過港口，接著瑜瑜想再試，因為光超過了目標。",
+      "skill": "cause",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "The test beam now points past the harbor. Gail asks to try again.",
+          "chinese": "測試光束越過港口。瑜瑜想再試一次。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B14",
+      "kind": "choice",
+      "prompt": "What helps the keeper see a gap?",
+      "chinesePrompt": "什麼讓守護員看見差距？",
+      "options": [
+        {
+          "text": "Two flashes at the window"
+        },
+        {
+          "text": "Two marks on the card"
+        },
+        {
+          "text": "Two lamps in the tower"
+        },
+        {
+          "text": "Two boats near the shore"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Scene 14 says Gail points to two marks on the card and the keeper sees their gap. 第14幕瑜瑜指出卡片兩記號，守護員由此看見差距。",
+      "skill": "comparison",
+      "evidence": [
+        {
+          "scene": 14,
+          "quote": "Gail points to two marks on the card. The keeper sees the gap.",
+          "chinese": "瑜瑜指出卡片上的兩個記號。守護員看見差距。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B15",
+      "kind": "choice",
+      "prompt": "Why does the keeper record the angle?",
+      "chinesePrompt": "守護員為何記下角度？",
+      "options": [
+        {
+          "text": "To make it brighter next time"
+        },
+        {
+          "text": "To turn it faster next time"
+        },
+        {
+          "text": "To check it quickly next time"
+        },
+        {
+          "text": "To move it farther next time"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Scene 18 says he records the angle so he can check it quickly next time. The note is for checking, not automatically changing it. 第18幕記角度是為下次快速核對，並非直接改變它。",
+      "skill": "purpose",
+      "evidence": [
+        {
+          "scene": 18,
+          "quote": "The keeper records the angle. Next time he can check it quickly.",
+          "chinese": "守護員記下角度，下次就能快速核對。"
+        }
+      ]
+    },
+    {
+      "id": "book32-B16",
+      "kind": "choice",
+      "prompt": "What opens the way home after the keeper says thanks?",
+      "chinesePrompt": "守護員道謝後，什麼打開回家路？",
+      "options": [
+        {
+          "text": "The little model flashes."
+        },
+        {
+          "text": "The paper boats circle."
+        },
+        {
+          "text": "The real lens turns."
+        },
+        {
+          "text": "The white card moves."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Scene 19 says the keeper thanks Gail, then the little model flashes and opens the path home. 第19幕守護員道謝後，小模型閃光並打開回家的路。",
+      "skill": "sequence",
+      "evidence": [
+        {
+          "scene": 19,
+          "quote": "The keeper thanks Gail. The little model flashes and opens the path home.",
+          "chinese": "守護員謝謝瑜瑜。小模型閃光，打開回家的路。"
+        }
+      ]
+    }
+  ],
+  "C": [
+    {
+      "id": "book32-C01",
+      "kind": "choice",
+      "prompt": "Which detail links the model's first signal with its goodbye signal?",
+      "chinesePrompt": "哪個細節連結模型開場與告別的訊號？",
+      "options": [
+        {
+          "text": "It points toward the hill both times."
+        },
+        {
+          "text": "It flashes twice on both occasions."
+        },
+        {
+          "text": "It lights a white card both times."
+        },
+        {
+          "text": "It marks the starting angle both times."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Scenes 1 and 19 both say the tiny model flashes twice. The repeated two-flash pattern links the start and return. 第1、19幕都寫模型閃兩下，重複的訊號連結出發與回程。",
+      "skill": "cross-scene-evidence",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "A tiny lighthouse model blinks twice beside Gail's bed. She watches it pause before the next flash.",
+          "chinese": "一座迷你燈塔模型在瑜瑜床邊閃了兩下。她看見它停頓後才再次發亮。"
+        },
+        {
+          "scene": 19,
+          "quote": "After the keeper thanks Gail, the tiny model flashes twice again. Its light scatters gently into a path back to her bedroom.",
+          "chinese": "守護員向瑜瑜道謝後，迷你模型再次閃兩下。柔和光點散開，形成通往她臥室的路。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C02",
+      "kind": "choice",
+      "prompt": "Suppose the light path stops halfway across the floor. Using this story's doorway rule, what should Gail expect?",
+      "chinesePrompt": "假設光路停在地板中途。依這個故事開門的方式，瑜瑜應預期什麼？",
+      "options": [
+        {
+          "text": "The doorway should appear as soon as the model blinks."
+        },
+        {
+          "text": "The doorway should appear as soon as Gail sees the path."
+        },
+        {
+          "text": "The doorway should appear when Gail looks toward the coast."
+        },
+        {
+          "text": "She should wait for the light path to reach the window."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Scene 2 connects the doorway appearing with the light reaching the window. A path stopped halfway has not met that condition, so Gail should not expect the doorway yet. Blinking or seeing the path alone is not the trigger shown. 第2幕把門出現與光到窗邊連結。中途停下還沒達到這個條件，因此不能預期門已出現；閃光或看見光路本身都不是此幕的開門條件。",
+      "skill": "conditional-prediction",
+      "evidence": [
+        {
+          "scene": 2,
+          "quote": "The model's light traces a glowing path across the familiar bedroom floor. When it reaches the window, a doorway to the coast appears.",
+          "chinese": "模型的光沿著熟悉的臥室地板畫出亮路。光到達窗邊時，一道通往海岸的門出現了。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C03",
+      "kind": "choice",
+      "prompt": "Which explanation fits boats circling in calm, sheltered water?",
+      "chinesePrompt": "哪個原因符合小船在平靜避風水域繞圈？",
+      "options": [
+        {
+          "text": "The usual harbor light is pointing inland."
+        },
+        {
+          "text": "The water is too rough to cross the entrance."
+        },
+        {
+          "text": "The keeper has turned off every harbor light."
+        },
+        {
+          "text": "The boats are waiting for a stronger lamp."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Scene 4 places the beam inland so the boats cannot see the usual way in. Scene 5 explicitly calls the water sheltered and safe, which rules out rough water. 第4幕光照內陸，船看不見進港方向；第5幕水域安全避風，排除大浪。",
+      "skill": "combined-cause",
+      "evidence": [
+        {
+          "scene": 4,
+          "quote": "The lighthouse sends its bright beam toward an inland hill instead of across the sea. The boats cannot see the usual way into the harbor.",
+          "chinese": "燈塔明亮的光束照向內陸山坡，沒有照到海面。紙船看不見平常進港的方向。"
+        },
+        {
+          "scene": 5,
+          "quote": "Several paper boats circle safely in the sheltered water. Gail notices that each one turns before reaching the harbor entrance.",
+          "chinese": "幾艘紙船在避風水域安全地繞圈。瑜瑜發現它們每次到港口入口前都轉回去。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C04",
+      "kind": "choice",
+      "prompt": "Why begin by looking for a change after hearing about yesterday?",
+      "chinesePrompt": "聽到昨天的情況後，為何先找改變？",
+      "options": [
+        {
+          "text": "Yesterday's light was already pointing inland."
+        },
+        {
+          "text": "Yesterday's boats had already lost the signal."
+        },
+        {
+          "text": "Yesterday's beacon worked, so a change may explain today."
+        },
+        {
+          "text": "Yesterday's note proves the lens needs no test today."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Scene 6 says the beacon was steady yesterday. Comparing a working earlier state with today can identify what changed; it does not prove what changed yet. 第6幕說昨天燈光穩定；比較前後可找改變，但尚未證實是哪個部分。",
+      "skill": "diagnostic-inference",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "The adult lighthouse keeper joins Gail at the shore. He says the beacon was steady yesterday, so they begin by looking for what changed.",
+          "chinese": "一位成年燈塔守護員來到瑜瑜身邊。他說昨天的燈光還很穩定，於是兩人先找出哪裡改變了。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C05",
+      "kind": "choice",
+      "prompt": "Suppose a bright lamp and clean glass still leave the beam on the hill. Which next test best investigates its direction?",
+      "chinesePrompt": "假設燈已明亮、玻璃乾淨，光仍照山坡。哪個下一步測試最能查方向問題？",
+      "options": [
+        {
+          "text": "Keep brightness fixed; turn only the safe model lens and check direction."
+        },
+        {
+          "text": "Turn the model lens and brighten its lamp together, then check direction."
+        },
+        {
+          "text": "Keep the lens fixed; brighten the lamp again and check direction."
+        },
+        {
+          "text": "Keep all settings fixed; wipe the clear glass again and check direction."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Scenes 7 and 8 remove extra brightness and dirty glass as useful explanations for this case. Scene 9 makes lens direction a testable possibility; Scene 12 changes just the safe model lens. Holding brightness fixed lets this next test investigate lens angle without mixing two changes. 第7、8幕顯示不能靠加亮修方向，乾淨玻璃也不是擋光原因；第9幕提供鏡片方向的可測可能，第12幕只改安全模型鏡片。固定亮度再單改鏡片，才能查角度而不混入兩個改變。",
+      "skill": "choose-controlled-diagnostic-test",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "The keeper tries a brighter setting, but the beam still lands on the hill. Gail sees that a dim or bright beam cannot fix the wrong direction.",
+          "chinese": "守護員試著把燈調亮，光束仍落在山坡。瑜瑜看見，無論光線暗或亮，都無法單靠亮度修正方向。"
+        },
+        {
+          "scene": 8,
+          "quote": "Gail checks the outer glass while the keeper inspects the lamp safely. The glass is clear, so a dirty window is not the cause.",
+          "chinese": "瑜瑜查看外側玻璃，守護員安全地檢查燈具。玻璃乾淨，因此不是髒窗擋住了光。"
+        },
+        {
+          "scene": 9,
+          "quote": "The keeper shows Gail a small working model of the lighthouse lens. Its tilted lens bends the test beam toward the hill.",
+          "chinese": "守護員給瑜瑜看一個可操作的燈塔鏡片模型。傾斜的鏡片把測試光束導向山坡。"
+        },
+        {
+          "scene": 12,
+          "quote": "With the keeper beside her, Gail rotates only the safe model lens a little. They watch the beam move across the card instead of changing several things at once.",
+          "chinese": "守護員在旁陪同，瑜瑜只稍微轉動安全模型的鏡片。他們看光束沿白卡移動，沒有同時改動多個地方。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C06",
+      "kind": "choice",
+      "prompt": "Suppose the glass is clear but the beam is wrong. Turning only the model lens moves its spot nearer the target. Which conclusion is supported?",
+      "chinesePrompt": "假設玻璃乾淨但光照錯。只轉模型鏡片讓光斑更接近目標，哪個結論有支持？",
+      "options": [
+        {
+          "text": "The clear glass must have caused the wrong beam direction."
+        },
+        {
+          "text": "The lens angle affects direction, but alignment still needs checking."
+        },
+        {
+          "text": "The moving spot proves the real lighthouse has already been fixed."
+        },
+        {
+          "text": "The lens cannot affect direction because the outer glass is clear."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Scene 8 rules out dirty glass. Scene 12 links a single model-lens turn with a moving beam, while Scene 13 checks the result against the target before accepting success. The new near-target result supports an angle effect; it does not prove exact alignment or a repair to the real lighthouse. 第8幕排除髒玻璃；第12幕單轉模型鏡片後光移動，第13幕則對照目標才判斷是否成功。因此新結果支持角度會影響方向，但更接近不等於已對準，更不證明真燈塔已修好。",
+      "skill": "infer-limited-test-conclusion",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "Gail checks the outer glass while the keeper inspects the lamp safely. The glass is clear, so a dirty window is not the cause.",
+          "chinese": "瑜瑜查看外側玻璃，守護員安全地檢查燈具。玻璃乾淨，因此不是髒窗擋住了光。"
+        },
+        {
+          "scene": 12,
+          "quote": "With the keeper beside her, Gail rotates only the safe model lens a little. They watch the beam move across the card instead of changing several things at once.",
+          "chinese": "守護員在旁陪同，瑜瑜只稍微轉動安全模型的鏡片。他們看光束沿白卡移動，沒有同時改動多個地方。"
+        },
+        {
+          "scene": 13,
+          "quote": "Their first test sends the beam beyond the harbor entrance. Gail does not call it finished; she compares the new position with the marked target.",
+          "chinese": "第一次測試讓光束越過港口入口。瑜瑜沒有急著說完成，而是把新位置與標出的目標比較。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C07",
+      "kind": "choice",
+      "prompt": "Two model tests move the beam toward water. Test 1 turns only the lens; Test 2 changes lens and brightness. Which better shows what caused the move?",
+      "chinesePrompt": "兩個模型測試都讓光朝水面移動：測試1只轉鏡片，測試2改鏡片和亮度。哪個較能辨認移動原因？",
+      "options": [
+        {
+          "text": "Test 2, because changing two settings identifies which one mattered."
+        },
+        {
+          "text": "Test 2, because a brighter beam must point in the right direction."
+        },
+        {
+          "text": "Both equally, because matching results prove an identical cause."
+        },
+        {
+          "text": "Test 1, because its single change connects the move to the lens."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Scene 12 changes one part and observes the beam; Scene 7 shows brightness is not a reliable way to fix direction. Applied to these two new tests, Test 1 gives clearer causal evidence because its lens is the only changed setting. Test 2 mixes two changes, so the shared result does not identify a cause by itself. 第12幕只改一處並觀察光，第7幕也顯示亮度不能保證方向正確。套到這兩個新測試，測試1只有鏡片改變，因果線索較清楚；測試2混入兩個改變，相同結果本身不能辨認原因。",
+      "skill": "compare-causal-evidence",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "The keeper tries a brighter setting, but the beam still lands on the hill. Gail sees that a dim or bright beam cannot fix the wrong direction.",
+          "chinese": "守護員試著把燈調亮，光束仍落在山坡。瑜瑜看見，無論光線暗或亮，都無法單靠亮度修正方向。"
+        },
+        {
+          "scene": 12,
+          "quote": "With the keeper beside her, Gail rotates only the safe model lens a little. They watch the beam move across the card instead of changing several things at once.",
+          "chinese": "守護員在旁陪同，瑜瑜只稍微轉動安全模型的鏡片。他們看光束沿白卡移動，沒有同時改動多個地方。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C08",
+      "kind": "choice",
+      "prompt": "Suppose the card is removed. Gail sees the keeper beside her and only a small model-lens turn, but no beam spot. Which claim can she no longer check?",
+      "chinesePrompt": "假設白卡被移走。瑜瑜看得見身旁守護員與模型鏡片的小幅轉動，卻看不到光斑。哪個說法無法再核對？",
+      "options": [
+        {
+          "text": "The keeper stayed beside Gail while she made the test."
+        },
+        {
+          "text": "Gail turned only the safe model lens during the test."
+        },
+        {
+          "text": "The new beam position is closer to the marked target."
+        },
+        {
+          "text": "Gail made a small turn rather than a full turn."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Scene 10 uses the card spot to make the beam visible, and Scene 13 compares its new position with the target. Without seeing the spot in this new arrangement, Gail cannot verify whether the beam moved closer. She can still see the keeper and the specified small lens turn; those observations do not verify the beam result. 第10幕用白卡光斑看清光，第13幕再把新位置與目標比較。新安排看不到光斑，就無法證實光是否更靠近目標；仍看得見守護員和指定的鏡片小轉動，也不能取代光束結果的核對。",
+      "skill": "infer-missing-verification-evidence",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "They place a white card beside the model and follow the reflected light. The bright patch makes the beam's path easy to see.",
+          "chinese": "兩人把白卡放在模型旁，沿著反射的光看。明亮的光斑讓光束走向變得清楚。"
+        },
+        {
+          "scene": 12,
+          "quote": "With the keeper beside her, Gail rotates only the safe model lens a little. They watch the beam move across the card instead of changing several things at once.",
+          "chinese": "守護員在旁陪同，瑜瑜只稍微轉動安全模型的鏡片。他們看光束沿白卡移動，沒有同時改動多個地方。"
+        },
+        {
+          "scene": 13,
+          "quote": "Their first test sends the beam beyond the harbor entrance. Gail does not call it finished; she compares the new position with the marked target.",
+          "chinese": "第一次測試讓光束越過港口入口。瑜瑜沒有急著說完成，而是把新位置與標出的目標比較。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C09",
+      "kind": "choice",
+      "prompt": "Why mark the starting angle before changing the lens?",
+      "chinesePrompt": "為何調鏡片之前先標原角度？",
+      "options": [
+        {
+          "text": "It lets them skip observing the next test beam."
+        },
+        {
+          "text": "It makes a brighter lamp unnecessary to inspect."
+        },
+        {
+          "text": "It keeps a baseline to compare with the target."
+        },
+        {
+          "text": "It guarantees the next test will hit the target."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Scene 11 preserves the starting angle and compares the mark with the harbor entrance direction. That gives a reference; it does not guarantee success or replace testing. 第11幕保留原角度並對照港口入口，提供比較基準，不能保證成功或省略測試。",
+      "skill": "baseline-inference",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "The keeper marks the model's starting angle before changing anything. Gail compares that mark with the direction of the harbor entrance.",
+          "chinese": "守護員在調整前先標出模型原本的角度。瑜瑜拿這個記號對照港口入口的方向。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C10",
+      "kind": "choice",
+      "prompt": "Why change only the safe model lens in one test?",
+      "chinesePrompt": "一次測試為何只改安全模型鏡片？",
+      "options": [
+        {
+          "text": "To connect the beam's change with one adjustment"
+        },
+        {
+          "text": "To avoid keeping any earlier angle marks"
+        },
+        {
+          "text": "To avoid watching the beam move on the card"
+        },
+        {
+          "text": "To change the real lamp and model together"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Scene 12 changes only the model lens and watches the beam move, rather than changing several things at once. One change makes the result easier to trace. 第12幕只改模型鏡片並觀察光移動；一次改一處較能辨認結果來自什麼調整。",
+      "skill": "controlled-change-inference",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "With the keeper beside her, Gail rotates only the safe model lens a little. They watch the beam move across the card instead of changing several things at once.",
+          "chinese": "守護員在旁陪同，瑜瑜只稍微轉動安全模型的鏡片。他們看光束沿白卡移動，沒有同時改動多個地方。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C11",
+      "kind": "choice",
+      "prompt": "Why does Gail refuse to call the first lens test finished?",
+      "chinesePrompt": "為何瑜瑜不說第一次鏡片測試完成了？",
+      "options": [
+        {
+          "text": "The keeper never marked a starting position."
+        },
+        {
+          "text": "The beam went beyond the marked harbor target."
+        },
+        {
+          "text": "The boats had already followed the clear signal."
+        },
+        {
+          "text": "The model never produced a visible test beam."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Scene 13 says the beam goes beyond the entrance and Gail compares its new position with the marked target. A visible beam alone is not success. 第13幕光越過入口，瑜瑜把新位置和目標比較；有光不等於已對準。",
+      "skill": "success-criterion",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "Their first test sends the beam beyond the harbor entrance. Gail does not call it finished; she compares the new position with the marked target.",
+          "chinese": "第一次測試讓光束越過港口入口。瑜瑜沒有急著說完成，而是把新位置與標出的目標比較。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C12",
+      "kind": "choice",
+      "prompt": "Suppose another small test moves the spot nearer the target, but it is still past it. What should Gail do before calling the work finished?",
+      "chinesePrompt": "假設另一次小調整讓光斑更近目標，卻仍超過。瑜瑜在說完成前應做什麼？",
+      "options": [
+        {
+          "text": "Keep this angle and record it as the working angle without another test."
+        },
+        {
+          "text": "Turn the lens farther the same way and compare the new spot again."
+        },
+        {
+          "text": "Brighten the lamp and keep the latest angle without another test."
+        },
+        {
+          "text": "Turn the lens back slightly and compare a new test with the target."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Scene 13 does not accept a beam beyond the target. Scene 14 uses marks to judge how far to turn back, and Scene 15 tests a smaller correction. In this new near-but-still-past result, slight back-turning and another comparison are needed; being closer alone does not justify a finished record. 第13幕超過目標不能算完成，第14幕用記號判斷轉回幅度，第15幕再測小修正。這次雖更近卻仍超過，仍應小幅轉回並再比較，不能僅憑接近就記作完成。",
+      "skill": "apply-overshoot-correction",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "Their first test sends the beam beyond the harbor entrance. Gail does not call it finished; she compares the new position with the marked target.",
+          "chinese": "第一次測試讓光束越過港口入口。瑜瑜沒有急著說完成，而是把新位置與標出的目標比較。"
+        },
+        {
+          "scene": 14,
+          "quote": "Gail places the first and second marks side by side. The distance between them shows how much the lens needs to turn back.",
+          "chinese": "瑜瑜把前後兩個記號並排看。記號之間的距離顯示鏡片還要轉回多少。"
+        },
+        {
+          "scene": 15,
+          "quote": "They make one smaller adjustment and test again. This time the model beam crosses the water toward the harbor entrance.",
+          "chinese": "他們做了更小的調整，再測一次。這次模型光束越過水面，指向港口入口。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C13",
+      "kind": "choice",
+      "prompt": "Why is a smaller adjustment sensible after the first test overshoots?",
+      "chinesePrompt": "第一次超過目標後，為何更小調整合理？",
+      "options": [
+        {
+          "text": "The first result proves that marks should be removed."
+        },
+        {
+          "text": "The first result proves that the lens should not move."
+        },
+        {
+          "text": "The first result shows the lamp needs more brightness."
+        },
+        {
+          "text": "The first result shows the beam must be brought back."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "Scene 13 goes beyond the target; Scene 14 shows how far to turn back; Scene 15 uses a smaller adjustment and reaches the entrance. The correction follows those results. 第13幕超過目標，第14幕比較轉回距離，第15幕小調整後成功，修正依據來自測試結果。",
+      "skill": "compare-tests",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "Their first test sends the beam beyond the harbor entrance. Gail does not call it finished; she compares the new position with the marked target.",
+          "chinese": "第一次測試讓光束越過港口入口。瑜瑜沒有急著說完成，而是把新位置與標出的目標比較。"
+        },
+        {
+          "scene": 14,
+          "quote": "Gail places the first and second marks side by side. The distance between them shows how much the lens needs to turn back.",
+          "chinese": "瑜瑜把前後兩個記號並排看。記號之間的距離顯示鏡片還要轉回多少。"
+        },
+        {
+          "scene": 15,
+          "quote": "They make one smaller adjustment and test again. This time the model beam crosses the water toward the harbor entrance.",
+          "chinese": "他們做了更小的調整，再測一次。這次模型光束越過水面，指向港口入口。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C14",
+      "kind": "choice",
+      "prompt": "Another child visits the keeper. A safe-model test has found a working angle. Which job plan follows the story for putting that result into use?",
+      "chinesePrompt": "另一個孩子拜訪守護員，安全模型已測出有效角度。哪個工作安排符合故事中把結果用到真燈塔的方式？",
+      "options": [
+        {
+          "text": "The child sets the real lens while the keeper watches nearby; the keeper then records the model result."
+        },
+        {
+          "text": "The keeper guesses a real-lens angle for the lighthouse; the child checks the model with the keeper afterward."
+        },
+        {
+          "text": "The child checks the model with the keeper nearby; the keeper sets the real lens from its tested mark."
+        },
+        {
+          "text": "The child changes the model and real lens together; the keeper checks the boats and records the new angle."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Scene 12 limits the child to the safe model with the keeper beside her. Scene 16 has the keeper transfer the tested mark to the real lens. Applying both parts to a new child keeps model checking supervised and real-lens work with the adult, using evidence rather than a guess. 第12幕孩子在守護員身旁只操作安全模型；第16幕由守護員把測試記號用到真鏡片。套到新孩子的安排，需保留陪同的模型核對、成人處理真鏡片，而且依測試結果而非猜測。",
+      "skill": "apply-role-and-tested-transfer",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "With the keeper beside her, Gail rotates only the safe model lens a little. They watch the beam move across the card instead of changing several things at once.",
+          "chinese": "守護員在旁陪同，瑜瑜只稍微轉動安全模型的鏡片。他們看光束沿白卡移動，沒有同時改動多個地方。"
+        },
+        {
+          "scene": 16,
+          "quote": "Using the tested mark, the keeper safely sets the real lighthouse lens. A steady flash now crosses the water where the boats can see it.",
+          "chinese": "守護員依測試記號安全地調整真正的燈塔鏡片。穩定的閃光越過水面，紙船都看得見。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C15",
+      "kind": "choice",
+      "prompt": "Why record the working angle and test one more flash?",
+      "chinesePrompt": "為何記錄有效角度並再測一次閃光？",
+      "options": [
+        {
+          "text": "To keep a useful reference and check it still works"
+        },
+        {
+          "text": "To avoid ever observing the lighthouse again"
+        },
+        {
+          "text": "To show that the first overshoot needed no correction"
+        },
+        {
+          "text": "To prove that every future angle will work"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Scene 18 records the working angle, tests another flash, and explains that a note helps with the next check. The record supports later checking; it is not a guarantee for every angle. 第18幕記有效角度再測閃光，紀錄能幫下次檢查，但不能保證所有角度都有效。",
+      "skill": "record-and-verify",
+      "evidence": [
+        {
+          "scene": 18,
+          "quote": "The keeper records the working angle and tests one more flash. Gail sees how a careful note can help them check the beacon next time.",
+          "chinese": "守護員記下有效的角度，又測了一次閃光。瑜瑜看見，仔細記錄能幫助下次檢查燈塔。"
+        }
+      ]
+    },
+    {
+      "id": "book32-C16",
+      "kind": "choice",
+      "prompt": "If the model beam misses tomorrow, which plan follows Gail's lesson?",
+      "chinesePrompt": "如果明天模型光又沒對準，哪個做法符合瑜瑜學到的方法？",
+      "options": [
+        {
+          "text": "Use yesterday's angle, then skip checking where the beam goes."
+        },
+        {
+          "text": "Observe the beam, test one change, then compare the result."
+        },
+        {
+          "text": "Make the lamp brighter, then call the direction problem solved."
+        },
+        {
+          "text": "Turn several parts, then keep whichever beam looks brightest."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Scene 20 says to observe, test one change, and check where the light goes. Scenes 7 and 13 show why brightness or an unverified first try is insufficient. 第20幕總結先觀察、一次測一個改變、確認光照哪裡；第7、13幕顯示加亮或第一次試驗都不足以直接宣告完成。",
+      "skill": "apply-method",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "The keeper tries a brighter setting, but the beam still lands on the hill. Gail sees that a dim or bright beam cannot fix the wrong direction.",
+          "chinese": "守護員試著把燈調亮，光束仍落在山坡。瑜瑜看見，無論光線暗或亮，都無法單靠亮度修正方向。"
+        },
+        {
+          "scene": 12,
+          "quote": "With the keeper beside her, Gail rotates only the safe model lens a little. They watch the beam move across the card instead of changing several things at once.",
+          "chinese": "守護員在旁陪同，瑜瑜只稍微轉動安全模型的鏡片。他們看光束沿白卡移動，沒有同時改動多個地方。"
+        },
+        {
+          "scene": 13,
+          "quote": "Their first test sends the beam beyond the harbor entrance. Gail does not call it finished; she compares the new position with the marked target.",
+          "chinese": "第一次測試讓光束越過港口入口。瑜瑜沒有急著說完成，而是把新位置與標出的目標比較。"
+        },
+        {
+          "scene": 20,
+          "quote": "Back in her familiar bedroom, Gail sets the little lighthouse beside her bed. She remembers to observe, test one change, and check where the light goes.",
+          "chinese": "回到熟悉臥室，瑜瑜把小燈塔放在床邊。她記得先觀察、一次測一個改變，再確認光照到哪裡。"
+        }
+      ]
+    }
+  ]
+}

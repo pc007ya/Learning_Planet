@@ -1,0 +1,145 @@
+{
+  "cover": "images/story/lost-lighthouse-v1/cover.webp",
+  "pages": [
+    {
+      "number": 1,
+      "image": "images/story/lost-lighthouse-v1/scene/01.webp",
+      "alt": "A tiny lighthouse · 固定房間；床邊獨立燈塔模型",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 2,
+      "image": "images/story/lost-lighthouse-v1/scene/02.webp",
+      "alt": "The light path · 模型先亮、粒子從模型散出，再開海岸入口",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 3,
+      "image": "images/story/lost-lighthouse-v1/scene/03.webp",
+      "alt": "At the harbor · 平靜港灣、小紙船、遠處燈塔",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 4,
+      "image": "images/story/lost-lighthouse-v1/scene/04.webp",
+      "alt": "The wrong beam · 光束清楚照山坡，海面沒有燈光",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 5,
+      "image": "images/story/lost-lighthouse-v1/scene/05.webp",
+      "alt": "Circling boats · 紙船繞圈，沒有危險大浪",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 6,
+      "image": "images/story/lost-lighthouse-v1/scene/06.webp",
+      "alt": "Meet the keeper · 守護員登場，一起看燈塔",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 7,
+      "image": "images/story/lost-lighthouse-v1/scene/07.webp",
+      "alt": "Not just brighter · 燈變亮但照錯位置",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 8,
+      "image": "images/story/lost-lighthouse-v1/scene/08.webp",
+      "alt": "Check the glass · 安全觀察外玻璃；電器由大人檢查",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 9,
+      "image": "images/story/lost-lighthouse-v1/scene/09.webp",
+      "alt": "A tilted lens · 桌上安全模型，真燈器材由大人處理",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 10,
+      "image": "images/story/lost-lighthouse-v1/scene/10.webp",
+      "alt": "Follow the reflection · 白卡上的反射光斑",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 11,
+      "image": "images/story/lost-lighthouse-v1/scene/11.webp",
+      "alt": "Mark an angle · 模型角度記號與港口方向",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 12,
+      "image": "images/story/lost-lighthouse-v1/scene/12.webp",
+      "alt": "One small turn · 只轉模型鏡片，光斑移動",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 13,
+      "image": "images/story/lost-lighthouse-v1/scene/13.webp",
+      "alt": "Still too far · 光斑超過目標，仍需修正",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 14,
+      "image": "images/story/lost-lighthouse-v1/scene/14.webp",
+      "alt": "Compare two marks · 白卡兩個色點，清楚可比",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 15,
+      "image": "images/story/lost-lighthouse-v1/scene/15.webp",
+      "alt": "The right direction · 模型測試成功",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 16,
+      "image": "images/story/lost-lighthouse-v1/scene/16.webp",
+      "alt": "The real lighthouse · 大人調整真燈，穩定光束照海",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 17,
+      "image": "images/story/lost-lighthouse-v1/scene/17.webp",
+      "alt": "Boats come home · 紙船循光依次入港",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 18,
+      "image": "images/story/lost-lighthouse-v1/scene/18.webp",
+      "alt": "Remember the mark · 守護員記錄角度，無須可讀細字",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 19,
+      "image": "images/story/lost-lighthouse-v1/scene/19.webp",
+      "alt": "The goodbye flash · 模型回家光路",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 20,
+      "image": "images/story/lost-lighthouse-v1/scene/20.webp",
+      "alt": "Back in the bedroom · 固定房間與模型收尾",
+      "width": 960,
+      "height": 640
+    }
+  ]
+}

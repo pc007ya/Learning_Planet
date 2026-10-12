@@ -1,0 +1,151 @@
+{
+  "images": [
+    {
+      "number": 0,
+      "sha256": "c2eddfc97c7c242aca3e3994e31c5d6f216f1588c55d2f33e8efb25bb3b58f3d",
+      "width": 800,
+      "height": 1200,
+      "path": "images/story/lost-lighthouse-v1/cover.webp"
+    },
+    {
+      "number": 1,
+      "sha256": "a34046762aa42c189678323db65f86c1a30ba1beb8e0199a4b080533e9c8388e",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/01.webp"
+    },
+    {
+      "number": 2,
+      "sha256": "2f5bc6bb4ce6c61ad6e951fb33e6eb36a8e4ee4680c22398f1c28a27deb42a79",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/02.webp"
+    },
+    {
+      "number": 3,
+      "sha256": "3051ad6369ecc68adac8ff3204cfdaa490a574293ee0b7e6295627628c84ca7c",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/03.webp"
+    },
+    {
+      "number": 4,
+      "sha256": "99ed103674dce38ea4c9b114f235b2be39a7422fff279b39852b887507c0c0df",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/04.webp"
+    },
+    {
+      "number": 5,
+      "sha256": "905b9d82f46d25075c82c8adb2b71aa9d5366dac1341dbfce38654da6f9e81e8",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/05.webp"
+    },
+    {
+      "number": 6,
+      "sha256": "88c72b6e6a08fdca93ddbc7f491197148d8e145d2dc0dd5333683ec9ba098007",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/06.webp"
+    },
+    {
+      "number": 7,
+      "sha256": "9dda6db35d7cc8904f9e4f8575fa92f54236102856bd3fdab8438f7977d4f0b4",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/07.webp"
+    },
+    {
+      "number": 8,
+      "sha256": "23487c26de0bbb6dd768297fdace8f5e34a0bb46a33b70c2bfcc2e9cdd22853f",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/08.webp"
+    },
+    {
+      "number": 9,
+      "sha256": "e18598a6b90c7389e3eb2add38ac35dce6db359f36c52fe693034c527c92febc",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/09.webp"
+    },
+    {
+      "number": 10,
+      "sha256": "f36091a86432cb9a2ea706f8d21630dc9211007f655eb02848571ab71c4c92b2",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/10.webp"
+    },
+    {
+      "number": 11,
+      "sha256": "77e3b9a94632fda7a733063522b8ca6c955efd94d733cf86c42dc384cb09637d",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/11.webp"
+    },
+    {
+      "number": 12,
+      "sha256": "b37aad7db5e82a43cbfcb82635554bf3efa1c5e116779d4f39f11d4a123960c4",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/12.webp"
+    },
+    {
+      "number": 13,
+      "sha256": "b6bbb55f826aae18741cc0f2a0f5e1fd94ef57edcebae8c10085bd71c2d49dc4",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/13.webp"
+    },
+    {
+      "number": 14,
+      "sha256": "8c036a200e710f7e26f82a0b25d49d2849d018c1751cad5c4c6f207a840ed7f7",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/14.webp"
+    },
+    {
+      "number": 15,
+      "sha256": "c50348fcba82d777baf4144e7a5a27a4351cb6e49c2ab36e1f836ec784502fa4",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/15.webp"
+    },
+    {
+      "number": 16,
+      "sha256": "a60bf8317a0ac63d6d997b67b41b9b8b8ce5aab5077667d21c23e32a5e37be28",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/16.webp"
+    },
+    {
+      "number": 17,
+      "sha256": "26f8808a5350bd714383c916eb2310ab0a6e025ddba16cf2652d2b9d64da51ae",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/17.webp"
+    },
+    {
+      "number": 18,
+      "sha256": "b3bc7e513b7b61d7659b15ff67e94070ce21728f24e7d2edadfa86f700dc6afe",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/18.webp"
+    },
+    {
+      "number": 19,
+      "sha256": "f4b05b5d8291ec2d4fb8d5da953fbbcad34f7b7a1ca314d262f59ca80325f8f0",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/19.webp"
+    },
+    {
+      "number": 20,
+      "sha256": "4706a0dd77c692645f8d7972e63e9d6eb7a50d2d9da8bc8b20acb00e993af6e2",
+      "width": 960,
+      "height": 640,
+      "path": "images/story/lost-lighthouse-v1/scene/20.webp"
+    }
+  ]
+}

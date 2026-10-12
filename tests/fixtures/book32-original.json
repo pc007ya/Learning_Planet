@@ -1,0 +1,404 @@
+{
+  "levels": {
+    "A": {
+      "english": [
+        [
+          "A little lighthouse blinks."
+        ],
+        [
+          "The light makes a path."
+        ],
+        [
+          "Gail sees the harbor."
+        ],
+        [
+          "The light points away."
+        ],
+        [
+          "The boats go in circles."
+        ],
+        [
+          "A keeper comes."
+        ],
+        [
+          "More light is not the answer."
+        ],
+        [
+          "Gail looks at the glass."
+        ],
+        [
+          "The lens has moved."
+        ],
+        [
+          "The light hits the wall."
+        ],
+        [
+          "Gail sees the angle."
+        ],
+        [
+          "Turn it a little."
+        ],
+        [
+          "The beam misses."
+        ],
+        [
+          "The marks are different."
+        ],
+        [
+          "The beam reaches the sea."
+        ],
+        [
+          "The lighthouse shines steadily."
+        ],
+        [
+          "The boats enter the harbor."
+        ],
+        [
+          "The keeper saves the mark."
+        ],
+        [
+          "The model glows again."
+        ],
+        [
+          "Gail is home."
+        ]
+      ],
+      "chinese": [
+        [
+          "小燈塔閃了一下。"
+        ],
+        [
+          "光做出一條路。"
+        ],
+        [
+          "瑜瑜看見港口。"
+        ],
+        [
+          "光照錯方向了。"
+        ],
+        [
+          "小船繞圈圈。"
+        ],
+        [
+          "守護員來了。"
+        ],
+        [
+          "加亮也不行。"
+        ],
+        [
+          "瑜瑜看玻璃。"
+        ],
+        [
+          "鏡片歪了。"
+        ],
+        [
+          "光照在卡片上。"
+        ],
+        [
+          "瑜瑜看角度。"
+        ],
+        [
+          "轉一點點。"
+        ],
+        [
+          "光還沒對準。"
+        ],
+        [
+          "兩個記號不同。"
+        ],
+        [
+          "光照到海面了。"
+        ],
+        [
+          "燈塔穩定發亮。"
+        ],
+        [
+          "小船進港了。"
+        ],
+        [
+          "守護員留下記號。"
+        ],
+        [
+          "模型又發光了。"
+        ],
+        [
+          "瑜瑜回家了。"
+        ]
+      ]
+    },
+    "B": {
+      "english": [
+        [
+          "A tiny lighthouse model blinks beside Gail's bed."
+        ],
+        [
+          "Its light spreads across the bedroom floor. Gail follows the glowing path."
+        ],
+        [
+          "Gail steps into a quiet harbor. Paper boats float near the shore."
+        ],
+        [
+          "The lighthouse beam shines toward a hill. It does not reach the water."
+        ],
+        [
+          "The paper boats circle near the harbor. Gail notices that they are not moving in."
+        ],
+        [
+          "The lighthouse keeper meets Gail. He wants to find what changed."
+        ],
+        [
+          "The keeper makes the lamp brighter. The beam still points at the hill."
+        ],
+        [
+          "Gail and the keeper check the clean glass. Nothing blocks the light."
+        ],
+        [
+          "A lens inside the safe display model is tilted. Gail sees where the beam goes."
+        ],
+        [
+          "Gail follows the light on a white card. The reflection shows its path."
+        ],
+        [
+          "The keeper marks the old angle on the model. Gail compares it with the sea."
+        ],
+        [
+          "Gail rotates the model lens a little. The light moves across the card."
+        ],
+        [
+          "The test beam now points past the harbor. Gail asks to try again."
+        ],
+        [
+          "Gail points to two marks on the card. The keeper sees the gap."
+        ],
+        [
+          "They adjust the model again. Its beam points across the water."
+        ],
+        [
+          "The keeper sets the real lens safely. The lighthouse gives a steady flash."
+        ],
+        [
+          "The paper boats follow the signal. One by one, they reach the harbor."
+        ],
+        [
+          "The keeper records the angle. Next time he can check it quickly."
+        ],
+        [
+          "The keeper thanks Gail. The little model flashes and opens the path home."
+        ],
+        [
+          "Gail sets the model by her bed. She remembers to look and test."
+        ]
+      ],
+      "chinese": [
+        [
+          "一座迷你燈塔在瑜瑜床邊閃光。"
+        ],
+        [
+          "燈光沿著臥室地板延伸。瑜瑜跟著亮路走。"
+        ],
+        [
+          "瑜瑜走進安靜的港口。紙船漂在岸邊。"
+        ],
+        [
+          "燈塔光束照向山坡，沒有照到水面。"
+        ],
+        [
+          "紙船在港口附近繞圈。瑜瑜發現它們沒有進港。"
+        ],
+        [
+          "燈塔守護員遇見瑜瑜。他想找出哪裡改變了。"
+        ],
+        [
+          "守護員把燈調亮。光仍照向山坡。"
+        ],
+        [
+          "瑜瑜和守護員查看乾淨的玻璃。光沒有被擋住。"
+        ],
+        [
+          "安全模型裡的鏡片歪了。瑜瑜看見光照向哪裡。"
+        ],
+        [
+          "瑜瑜沿著白卡上的光看。反射顯示光的路徑。"
+        ],
+        [
+          "守護員在模型上標出舊角度。瑜瑜拿它與海面方向比較。"
+        ],
+        [
+          "瑜瑜稍微轉動模型鏡片。光沿著卡片移動。"
+        ],
+        [
+          "測試光束越過港口。瑜瑜想再試一次。"
+        ],
+        [
+          "瑜瑜指出卡片上的兩個記號。守護員看見差距。"
+        ],
+        [
+          "他們再次調整模型。光束指向水面。"
+        ],
+        [
+          "守護員安全地調整真鏡片。燈塔穩定閃光。"
+        ],
+        [
+          "紙船跟著訊號，一艘接一艘進港。"
+        ],
+        [
+          "守護員記下角度，下次就能快速核對。"
+        ],
+        [
+          "守護員謝謝瑜瑜。小模型閃光，打開回家的路。"
+        ],
+        [
+          "瑜瑜把模型放在床邊。她記得先觀察再測試。"
+        ]
+      ]
+    },
+    "C": {
+      "english": [
+        [
+          "A tiny lighthouse model blinks twice beside Gail's bed. She watches it pause before the next flash."
+        ],
+        [
+          "The model's light traces a glowing path across the familiar bedroom floor. When it reaches the window, a doorway to the coast appears."
+        ],
+        [
+          "Gail arrives at a quiet harbor where small paper boats and a toy ship drift on calm water. A tall lighthouse stands beyond the stone wall."
+        ],
+        [
+          "The lighthouse sends its bright beam toward an inland hill instead of across the sea. The boats cannot see the usual way into the harbor."
+        ],
+        [
+          "Several paper boats circle safely in the sheltered water. Gail notices that each one turns before reaching the harbor entrance."
+        ],
+        [
+          "The adult lighthouse keeper joins Gail at the shore. He says the beacon was steady yesterday, so they begin by looking for what changed."
+        ],
+        [
+          "The keeper tries a brighter setting, but the beam still lands on the hill. Gail sees that a dim or bright beam cannot fix the wrong direction."
+        ],
+        [
+          "Gail checks the outer glass while the keeper inspects the lamp safely. The glass is clear, so a dirty window is not the cause."
+        ],
+        [
+          "The keeper shows Gail a small working model of the lighthouse lens. Its tilted lens bends the test beam toward the hill."
+        ],
+        [
+          "They place a white card beside the model and follow the reflected light. The bright patch makes the beam's path easy to see."
+        ],
+        [
+          "The keeper marks the model's starting angle before changing anything. Gail compares that mark with the direction of the harbor entrance."
+        ],
+        [
+          "With the keeper beside her, Gail rotates only the safe model lens a little. They watch the beam move across the card instead of changing several things at once."
+        ],
+        [
+          "Their first test sends the beam beyond the harbor entrance. Gail does not call it finished; she compares the new position with the marked target."
+        ],
+        [
+          "Gail places the first and second marks side by side. The distance between them shows how much the lens needs to turn back."
+        ],
+        [
+          "They make one smaller adjustment and test again. This time the model beam crosses the water toward the harbor entrance."
+        ],
+        [
+          "Using the tested mark, the keeper safely sets the real lighthouse lens. A steady flash now crosses the water where the boats can see it."
+        ],
+        [
+          "The clear signal can guide the paper boats through the calm entrance. One by one, they reach the sheltered harbor without circling again."
+        ],
+        [
+          "The keeper records the working angle and tests one more flash. Gail sees how a careful note can help them check the beacon next time."
+        ],
+        [
+          "After the keeper thanks Gail, the tiny model flashes twice again. Its light scatters gently into a path back to her bedroom."
+        ],
+        [
+          "Back in her familiar bedroom, Gail sets the little lighthouse beside her bed. She remembers to observe, test one change, and check where the light goes."
+        ]
+      ],
+      "chinese": [
+        [
+          "一座迷你燈塔模型在瑜瑜床邊閃了兩下。她看見它停頓後才再次發亮。"
+        ],
+        [
+          "模型的光沿著熟悉的臥室地板畫出亮路。光到達窗邊時，一道通往海岸的門出現了。"
+        ],
+        [
+          "瑜瑜來到安靜的港口，小紙船與一艘玩具小船漂在平靜水面上。一座高燈塔立在石牆後。"
+        ],
+        [
+          "燈塔明亮的光束照向內陸山坡，沒有照到海面。紙船看不見平常進港的方向。"
+        ],
+        [
+          "幾艘紙船在避風水域安全地繞圈。瑜瑜發現它們每次到港口入口前都轉回去。"
+        ],
+        [
+          "一位成年燈塔守護員來到瑜瑜身邊。他說昨天的燈光還很穩定，於是兩人先找出哪裡改變了。"
+        ],
+        [
+          "守護員試著把燈調亮，光束仍落在山坡。瑜瑜看見，無論光線暗或亮，都無法單靠亮度修正方向。"
+        ],
+        [
+          "瑜瑜查看外側玻璃，守護員安全地檢查燈具。玻璃乾淨，因此不是髒窗擋住了光。"
+        ],
+        [
+          "守護員給瑜瑜看一個可操作的燈塔鏡片模型。傾斜的鏡片把測試光束導向山坡。"
+        ],
+        [
+          "兩人把白卡放在模型旁，沿著反射的光看。明亮的光斑讓光束走向變得清楚。"
+        ],
+        [
+          "守護員在調整前先標出模型原本的角度。瑜瑜拿這個記號對照港口入口的方向。"
+        ],
+        [
+          "守護員在旁陪同，瑜瑜只稍微轉動安全模型的鏡片。他們看光束沿白卡移動，沒有同時改動多個地方。"
+        ],
+        [
+          "第一次測試讓光束越過港口入口。瑜瑜沒有急著說完成，而是把新位置與標出的目標比較。"
+        ],
+        [
+          "瑜瑜把前後兩個記號並排看。記號之間的距離顯示鏡片還要轉回多少。"
+        ],
+        [
+          "他們做了更小的調整，再測一次。這次模型光束越過水面，指向港口入口。"
+        ],
+        [
+          "守護員依測試記號安全地調整真正的燈塔鏡片。穩定的閃光越過水面，紙船都看得見。"
+        ],
+        [
+          "紙船沿著清楚的訊號穿過平靜入口。它們一艘接一艘進入避風港，不再繞圈。"
+        ],
+        [
+          "守護員記下有效的角度，又測了一次閃光。瑜瑜看見，仔細記錄能幫助下次檢查燈塔。"
+        ],
+        [
+          "守護員向瑜瑜道謝後，迷你模型再次閃兩下。柔和光點散開，形成通往她臥室的路。"
+        ],
+        [
+          "回到熟悉臥室，瑜瑜把小燈塔放在床邊。她記得先觀察、一次測一個改變，再確認光照到哪裡。"
+        ]
+      ]
+    }
+  },
+  "words": [
+    "lighthouse",
+    "beacon",
+    "beam",
+    "blink",
+    "signal",
+    "coast",
+    "harbor",
+    "ship",
+    "glass",
+    "lens",
+    "rotate",
+    "direction",
+    "reflect",
+    "dim",
+    "bright",
+    "guide",
+    "test",
+    "angle",
+    "flash",
+    "steady"
+  ]
+}

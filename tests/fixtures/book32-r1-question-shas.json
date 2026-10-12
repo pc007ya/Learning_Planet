@@ -1,0 +1,392 @@
+{
+  "r1Commit": "15038c7e306d473b24efa90f30a0c233c85ba0db",
+  "qaPassSnapshotPythonCompactSHA256": "06286a416fdf541656c495046d1d5e9a8828ced5ad3b22a511c911f8573b40d0",
+  "questionCanonicalHashMethod": "SHA256 UTF8 compact JSON with recursively sorted object keys; not the QA unsorted Python snapshot hash",
+  "r1SharedIndexSHA256": "fb899b51f0a50ce3ce1ef37a0e9b6911ffcc54dbea6d44043b71da53c7806599",
+  "questions": [
+    {
+      "id": "book32-A01",
+      "independentR1PASS": true,
+      "canonicalSHA256": "b68ea0ff57a4c69f37ad0fdb5a2841b01e8bb471c56d2a3276e36be4c4da7ecd",
+      "answer": [
+        2
+      ]
+    },
+    {
+      "id": "book32-A02",
+      "independentR1PASS": true,
+      "canonicalSHA256": "f403219d7fa4a7de913621889ac3a1d4f9ec7442405362eaeced4f8127254ae3",
+      "answer": [
+        0
+      ]
+    },
+    {
+      "id": "book32-A03",
+      "independentR1PASS": true,
+      "canonicalSHA256": "9a289c614689838a26224ce64b732aaba980d6fb448e9ef8ca6b66787b15f422",
+      "answer": [
+        3
+      ]
+    },
+    {
+      "id": "book32-A04",
+      "independentR1PASS": true,
+      "canonicalSHA256": "aea3cef799fb5200d942b07762bb4984e0c37cd3a9810967736628f870b38620",
+      "answer": [
+        1
+      ]
+    },
+    {
+      "id": "book32-A05",
+      "independentR1PASS": true,
+      "canonicalSHA256": "58ded1fb08772861ff93eb1b41690e211b00a5ecc1b411a368193f21c17db72a",
+      "answer": [
+        1
+      ]
+    },
+    {
+      "id": "book32-A06",
+      "independentR1PASS": true,
+      "canonicalSHA256": "2e2588bc08ce9037f3fbf891423cfc7a67e4379c1402bbd16d74e55631af74fc",
+      "answer": [
+        3
+      ]
+    },
+    {
+      "id": "book32-A07",
+      "independentR1PASS": true,
+      "canonicalSHA256": "056c058fc8eaed20aff118b191278285a50dc11c341103b4e0a55f84be299e11",
+      "answer": [
+        0
+      ]
+    },
+    {
+      "id": "book32-A08",
+      "independentR1PASS": true,
+      "canonicalSHA256": "cbff4eeb4e00702c04c698a5d322d82c97033e8bdc1d488b535315b2a424a380",
+      "answer": [
+        2
+      ]
+    },
+    {
+      "id": "book32-A09",
+      "independentR1PASS": true,
+      "canonicalSHA256": "728e4e335c45ad75837cd8ca520ff980533838c4500b36bf4defdd4a84458e3f",
+      "answer": [
+        3
+      ]
+    },
+    {
+      "id": "book32-A10",
+      "independentR1PASS": true,
+      "canonicalSHA256": "53f698846f3c5e946480cc67e6b4a30433ea33810ee5b368c44a5f797f5d1372",
+      "answer": [
+        0
+      ]
+    },
+    {
+      "id": "book32-A11",
+      "independentR1PASS": true,
+      "canonicalSHA256": "caa80caf6934b11d1c9d229e5e060eeab1211c1f2bd0f11ef18c0fa18c886387",
+      "answer": [
+        2
+      ]
+    },
+    {
+      "id": "book32-A12",
+      "independentR1PASS": true,
+      "canonicalSHA256": "e67c19a897ccc38bd71d70c61b807765ace0d7902b05ddf00954f5e4266a021a",
+      "answer": [
+        1
+      ]
+    },
+    {
+      "id": "book32-A13",
+      "independentR1PASS": true,
+      "canonicalSHA256": "1892c1b5cd5e6f7069bcb5689b5cc7081baf36259e9c1201000044ffe4688c62",
+      "answer": [
+        0
+      ]
+    },
+    {
+      "id": "book32-A14",
+      "independentR1PASS": true,
+      "canonicalSHA256": "824ea9ced742c6ad65883ecdfcb6dbd0e2fcbd16a70f892c15d708232e4fd2c1",
+      "answer": [
+        2
+      ]
+    },
+    {
+      "id": "book32-A15",
+      "independentR1PASS": true,
+      "canonicalSHA256": "440cc20b29fff36f68d9a2616f993174c22c4df231229d1fe1c0ac9ae479baca",
+      "answer": [
+        1
+      ]
+    },
+    {
+      "id": "book32-A16",
+      "independentR1PASS": true,
+      "canonicalSHA256": "4654c55482543a7e8cd28d4cca0821a53acc2f172d9bc58db52bfb4240a56426",
+      "answer": [
+        3
+      ]
+    },
+    {
+      "id": "book32-B01",
+      "independentR1PASS": true,
+      "canonicalSHA256": "13dab48784dd30722c4a89ea5d3f5ba23cf9f5d9be82992ab9c521844f8275f0",
+      "answer": [
+        2
+      ]
+    },
+    {
+      "id": "book32-B02",
+      "independentR1PASS": false,
+      "canonicalSHA256": "eec9d4eb74bdf8e3e4ab5c8bff9d3c5ee586dee7fcbf4dab3f83c5dec58523da",
+      "answer": [
+        0
+      ]
+    },
+    {
+      "id": "book32-B03",
+      "independentR1PASS": true,
+      "canonicalSHA256": "c0575d1d8b549d26eef367965d277bd15b2f3a70538f1b0c0673b0a3f90f7587",
+      "answer": [
+        1
+      ]
+    },
+    {
+      "id": "book32-B04",
+      "independentR1PASS": true,
+      "canonicalSHA256": "514ec968651852fa25978a9523cc64db5ca0b949dc65acab1dc0c202c8d5d8a8",
+      "answer": [
+        3
+      ]
+    },
+    {
+      "id": "book32-B05",
+      "independentR1PASS": true,
+      "canonicalSHA256": "12d8084be8c7ee63f2ef2d5baf0ce1b8834e0f129308b8705cb3ed810c82e8cc",
+      "answer": [
+        0
+      ]
+    },
+    {
+      "id": "book32-B06",
+      "independentR1PASS": true,
+      "canonicalSHA256": "50c61003e05534e71044b6a4721c223e066cea89ecc11236b6d14d691376c60d",
+      "answer": [
+        2
+      ]
+    },
+    {
+      "id": "book32-B07",
+      "independentR1PASS": true,
+      "canonicalSHA256": "dcd2e6469791f9315708d2eaaeea8f07ac1ad25e75fabc547e4cdc261f65d81d",
+      "answer": [
+        3
+      ]
+    },
+    {
+      "id": "book32-B08",
+      "independentR1PASS": true,
+      "canonicalSHA256": "2f49dbac7403b40df774935e82a60f230779fe4a3a3eb6d58573688c1065c993",
+      "answer": [
+        1
+      ]
+    },
+    {
+      "id": "book32-B09",
+      "independentR1PASS": true,
+      "canonicalSHA256": "9b10ee915f5c176ec580a2c4f1a30fcac21f71fe583e6f41dbfb554ef2fe5ccb",
+      "answer": [
+        1
+      ]
+    },
+    {
+      "id": "book32-B10",
+      "independentR1PASS": true,
+      "canonicalSHA256": "bef88db3b49ce92a01b038b681f2c478da077181f1d3167fc1de61664b3fd984",
+      "answer": [
+        3
+      ]
+    },
+    {
+      "id": "book32-B11",
+      "independentR1PASS": true,
+      "canonicalSHA256": "6aa159efbf956752db720f3437d0106fcb37c73a2d58097ca524d40002a9ca41",
+      "answer": [
+        0
+      ]
+    },
+    {
+      "id": "book32-B12",
+      "independentR1PASS": true,
+      "canonicalSHA256": "19bdfe200e29c82ccc3665fa595ae55aa03b2c29f3299f4d46ae614f4e3f5f16",
+      "answer": [
+        2
+      ]
+    },
+    {
+      "id": "book32-B13",
+      "independentR1PASS": true,
+      "canonicalSHA256": "bd3bca28b97112568774d49cd21d1f1dda0ebb8888cd13eddb91485ab586ad4f",
+      "answer": [
+        3
+      ]
+    },
+    {
+      "id": "book32-B14",
+      "independentR1PASS": true,
+      "canonicalSHA256": "2e2d78a0527f4f95d3a5f25c6927ba5722d4cb5ed1002ec1f3807963e87f648b",
+      "answer": [
+        1
+      ]
+    },
+    {
+      "id": "book32-B15",
+      "independentR1PASS": true,
+      "canonicalSHA256": "ee11827c2a88ced88c464361c6bf0ad8a3759ce044c612e0847f2a4ad0b17a21",
+      "answer": [
+        2
+      ]
+    },
+    {
+      "id": "book32-B16",
+      "independentR1PASS": true,
+      "canonicalSHA256": "ca0384b014304684d25240920f51de99283fc351e7c452a54885ebd2624332ad",
+      "answer": [
+        0
+      ]
+    },
+    {
+      "id": "book32-C01",
+      "independentR1PASS": true,
+      "canonicalSHA256": "d3f4984ad6ffda27f93d361b06fdac794fdcbad2d4997a16fe29a013ed3ba343",
+      "answer": [
+        1
+      ]
+    },
+    {
+      "id": "book32-C02",
+      "independentR1PASS": false,
+      "canonicalSHA256": "4011a6f9e5239480f10daa9b3e37e26abc9a9420b33fa29397e5b5e763422279",
+      "answer": [
+        3
+      ]
+    },
+    {
+      "id": "book32-C03",
+      "independentR1PASS": true,
+      "canonicalSHA256": "b17d105b9322dc2c7ba108c1f2fafe78e9bd10454a5d2bc1e0bed426f8a8cff1",
+      "answer": [
+        0
+      ]
+    },
+    {
+      "id": "book32-C04",
+      "independentR1PASS": true,
+      "canonicalSHA256": "94cb3590fbb6b793be4bfdfc2e5138fa24cc42aad3ac4a2386b7bcb64077d42b",
+      "answer": [
+        2
+      ]
+    },
+    {
+      "id": "book32-C05",
+      "independentR1PASS": false,
+      "canonicalSHA256": "7f3e4ad40a8847a4f7f7be145146c3218b53f29d7d5fe7f6b56154cf931c1c4c",
+      "answer": [
+        0
+      ]
+    },
+    {
+      "id": "book32-C06",
+      "independentR1PASS": false,
+      "canonicalSHA256": "cd773beeca56ce2936f131c3011e36838d1ac3f33d54145bb3f1fc30e1e348f9",
+      "answer": [
+        1
+      ]
+    },
+    {
+      "id": "book32-C07",
+      "independentR1PASS": false,
+      "canonicalSHA256": "7a5a3020e69ed2b5be9e7b8d6ce47cdfd682b43ce4eeff648cdf0b776181ca30",
+      "answer": [
+        3
+      ]
+    },
+    {
+      "id": "book32-C08",
+      "independentR1PASS": false,
+      "canonicalSHA256": "91503dc597340aa1d4756da3a900553134b86e76a920f9453c3dae5a8d49c4e9",
+      "answer": [
+        2
+      ]
+    },
+    {
+      "id": "book32-C09",
+      "independentR1PASS": true,
+      "canonicalSHA256": "bcf3ca0d86a560f33155da00a45bccac7f8a4c84abd8efd30cddb5c4e81ae483",
+      "answer": [
+        2
+      ]
+    },
+    {
+      "id": "book32-C10",
+      "independentR1PASS": true,
+      "canonicalSHA256": "e0747836b829ac6c0aa452cd070c5759fc61803aa2a7cf9ed8439c4004c189fb",
+      "answer": [
+        0
+      ]
+    },
+    {
+      "id": "book32-C11",
+      "independentR1PASS": true,
+      "canonicalSHA256": "8e6fa6b994eb1ac19e3adda86608bc01e57921e9779db526c3abf7aca964ccc7",
+      "answer": [
+        1
+      ]
+    },
+    {
+      "id": "book32-C12",
+      "independentR1PASS": false,
+      "canonicalSHA256": "0c0117bba76a8dac724fc06c08bde973cc18469304d7d1a34ff8a5d38bf69be5",
+      "answer": [
+        3
+      ]
+    },
+    {
+      "id": "book32-C13",
+      "independentR1PASS": true,
+      "canonicalSHA256": "f511b07e19dc9927957222cfec6bbd47c68b42e1f8581126934b075f23ebc783",
+      "answer": [
+        3
+      ]
+    },
+    {
+      "id": "book32-C14",
+      "independentR1PASS": false,
+      "canonicalSHA256": "61b455467c8a339b6644db4d254c24d7f75b5880c69d411a65090f4710c3123e",
+      "answer": [
+        2
+      ]
+    },
+    {
+      "id": "book32-C15",
+      "independentR1PASS": true,
+      "canonicalSHA256": "6adffeb728e8c179a605cfedda75b29031801c1ff209d814d5145b5f8f88cef7",
+      "answer": [
+        0
+      ]
+    },
+    {
+      "id": "book32-C16",
+      "independentR1PASS": true,
+      "canonicalSHA256": "7e806584394e099fcfa2d0e6d63bf738fae881e980d7bd65c93d15711bff8a1c",
+      "answer": [
+        1
+      ]
+    }
+  ]
+}

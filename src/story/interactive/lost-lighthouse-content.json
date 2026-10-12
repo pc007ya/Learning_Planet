@@ -1,0 +1,1050 @@
+{
+  "number": 32,
+  "key": "lost-lighthouse",
+  "title": "Gail and the Lighthouse That Lost Its Way",
+  "chineseTitle": "瑜瑜與迷失方向的燈塔",
+  "asset": "images/story/lost-lighthouse-v1/",
+  "words": [
+    "lighthouse",
+    "beacon",
+    "beam",
+    "blink",
+    "signal",
+    "coast",
+    "harbor",
+    "ship",
+    "glass",
+    "lens",
+    "rotate",
+    "direction",
+    "reflect",
+    "dim",
+    "bright",
+    "guide",
+    "test",
+    "angle",
+    "flash",
+    "steady"
+  ],
+  "entries": [
+    [
+      "lighthouse",
+      "燈塔",
+      "✦"
+    ],
+    [
+      "beacon",
+      "導航燈",
+      "✦"
+    ],
+    [
+      "beam",
+      "光束",
+      "✦"
+    ],
+    [
+      "blink",
+      "閃爍",
+      "✦"
+    ],
+    [
+      "signal",
+      "信號",
+      "✦"
+    ],
+    [
+      "coast",
+      "海岸",
+      "✦"
+    ],
+    [
+      "harbor",
+      "港口",
+      "✦"
+    ],
+    [
+      "ship",
+      "船",
+      "✦"
+    ],
+    [
+      "glass",
+      "玻璃",
+      "✦"
+    ],
+    [
+      "lens",
+      "透鏡",
+      "✦"
+    ],
+    [
+      "rotate",
+      "旋轉",
+      "✦"
+    ],
+    [
+      "direction",
+      "方向",
+      "✦"
+    ],
+    [
+      "reflect",
+      "反射",
+      "✦"
+    ],
+    [
+      "dim",
+      "昏暗的",
+      "✦"
+    ],
+    [
+      "bright",
+      "明亮的",
+      "✦"
+    ],
+    [
+      "guide",
+      "引導",
+      "✦"
+    ],
+    [
+      "test",
+      "測試",
+      "✦"
+    ],
+    [
+      "angle",
+      "角度",
+      "✦"
+    ],
+    [
+      "flash",
+      "閃光",
+      "✦"
+    ],
+    [
+      "steady",
+      "穩定的",
+      "✦"
+    ]
+  ],
+  "scenes": {
+    "bedroom": {
+      "name": "瑜瑜的星星房間",
+      "caption": "BEDROOM",
+      "alt": "固定的星星房間"
+    },
+    "harbor": {
+      "name": "安靜港口",
+      "caption": "HARBOR",
+      "alt": "紙船與燈塔的安靜港口"
+    },
+    "lighthouse": {
+      "name": "燈塔工作室",
+      "caption": "LIGHTHOUSE",
+      "alt": "燈塔內的安全模型工作桌"
+    }
+  },
+  "levels": {
+    "A": {
+      "pages": [
+        {
+          "title": "A tiny lighthouse",
+          "scene": "bedroom",
+          "lines": [
+            "A little lighthouse blinks."
+          ],
+          "translation": "小燈塔閃了一下。",
+          "words": [
+            "lighthouse",
+            "blink",
+            "flash"
+          ]
+        },
+        {
+          "title": "The light path",
+          "scene": "bedroom",
+          "lines": [
+            "The light makes a path."
+          ],
+          "translation": "光做出一條路。",
+          "words": [
+            "coast",
+            "guide"
+          ]
+        },
+        {
+          "title": "At the harbor",
+          "scene": "harbor",
+          "lines": [
+            "Gail sees the harbor."
+          ],
+          "translation": "瑜瑜看見港口。",
+          "words": [
+            "harbor",
+            "ship"
+          ]
+        },
+        {
+          "title": "The wrong beam",
+          "scene": "harbor",
+          "lines": [
+            "The light points away."
+          ],
+          "translation": "光照錯方向了。",
+          "words": [
+            "beam",
+            "direction"
+          ]
+        },
+        {
+          "title": "Circling boats",
+          "scene": "harbor",
+          "lines": [
+            "The boats go in circles."
+          ],
+          "translation": "小船繞圈圈。",
+          "words": [
+            "ship",
+            "harbor"
+          ]
+        },
+        {
+          "title": "Meet the keeper",
+          "scene": "harbor",
+          "lines": [
+            "A keeper comes."
+          ],
+          "translation": "守護員來了。",
+          "words": [
+            "beacon"
+          ]
+        },
+        {
+          "title": "Not just brighter",
+          "scene": "lighthouse",
+          "lines": [
+            "More light is not the answer."
+          ],
+          "translation": "加亮也不行。",
+          "words": [
+            "dim",
+            "bright"
+          ]
+        },
+        {
+          "title": "Check the glass",
+          "scene": "lighthouse",
+          "lines": [
+            "Gail looks at the glass."
+          ],
+          "translation": "瑜瑜看玻璃。",
+          "words": [
+            "glass"
+          ]
+        },
+        {
+          "title": "A tilted lens",
+          "scene": "lighthouse",
+          "lines": [
+            "The lens has moved."
+          ],
+          "translation": "鏡片歪了。",
+          "words": [
+            "lens"
+          ]
+        },
+        {
+          "title": "Follow the reflection",
+          "scene": "lighthouse",
+          "lines": [
+            "The light hits the card."
+          ],
+          "translation": "光照在卡片上。",
+          "words": [
+            "reflect"
+          ]
+        },
+        {
+          "title": "Mark an angle",
+          "scene": "lighthouse",
+          "lines": [
+            "Gail sees the angle."
+          ],
+          "translation": "瑜瑜看角度。",
+          "words": [
+            "angle"
+          ]
+        },
+        {
+          "title": "One small turn",
+          "scene": "lighthouse",
+          "lines": [
+            "Turn it a little."
+          ],
+          "translation": "轉一點點。",
+          "words": [
+            "rotate",
+            "test"
+          ]
+        },
+        {
+          "title": "Still too far",
+          "scene": "lighthouse",
+          "lines": [
+            "The beam misses."
+          ],
+          "translation": "光還沒對準。",
+          "words": [
+            "test"
+          ]
+        },
+        {
+          "title": "Compare two marks",
+          "scene": "lighthouse",
+          "lines": [
+            "The marks are different."
+          ],
+          "translation": "兩個記號不同。",
+          "words": [
+            "angle"
+          ]
+        },
+        {
+          "title": "The right direction",
+          "scene": "lighthouse",
+          "lines": [
+            "The beam reaches the sea."
+          ],
+          "translation": "光照到海面了。",
+          "words": [
+            "beam",
+            "direction"
+          ]
+        },
+        {
+          "title": "The real lighthouse",
+          "scene": "harbor",
+          "lines": [
+            "The lighthouse shines steadily."
+          ],
+          "translation": "燈塔穩定發亮。",
+          "words": [
+            "steady",
+            "flash"
+          ]
+        },
+        {
+          "title": "Boats come home",
+          "scene": "harbor",
+          "lines": [
+            "The boats enter the harbor."
+          ],
+          "translation": "小船進港了。",
+          "words": [
+            "signal",
+            "guide"
+          ]
+        },
+        {
+          "title": "Remember the mark",
+          "scene": "lighthouse",
+          "lines": [
+            "The keeper saves the mark."
+          ],
+          "translation": "守護員留下記號。",
+          "words": [
+            "angle",
+            "beacon"
+          ]
+        },
+        {
+          "title": "The goodbye flash",
+          "scene": "harbor",
+          "lines": [
+            "The model glows again."
+          ],
+          "translation": "模型又發光了。",
+          "words": [
+            "blink",
+            "flash"
+          ]
+        },
+        {
+          "title": "Back in the bedroom",
+          "scene": "bedroom",
+          "lines": [
+            "Gail is home."
+          ],
+          "translation": "瑜瑜回家了。",
+          "words": [
+            "lighthouse",
+            "test"
+          ]
+        }
+      ],
+      "chinese": [
+        [
+          "小燈塔閃了一下。"
+        ],
+        [
+          "光做出一條路。"
+        ],
+        [
+          "瑜瑜看見港口。"
+        ],
+        [
+          "光照錯方向了。"
+        ],
+        [
+          "小船繞圈圈。"
+        ],
+        [
+          "守護員來了。"
+        ],
+        [
+          "加亮也不行。"
+        ],
+        [
+          "瑜瑜看玻璃。"
+        ],
+        [
+          "鏡片歪了。"
+        ],
+        [
+          "光照在卡片上。"
+        ],
+        [
+          "瑜瑜看角度。"
+        ],
+        [
+          "轉一點點。"
+        ],
+        [
+          "光還沒對準。"
+        ],
+        [
+          "兩個記號不同。"
+        ],
+        [
+          "光照到海面了。"
+        ],
+        [
+          "燈塔穩定發亮。"
+        ],
+        [
+          "小船進港了。"
+        ],
+        [
+          "守護員留下記號。"
+        ],
+        [
+          "模型又發光了。"
+        ],
+        [
+          "瑜瑜回家了。"
+        ]
+      ]
+    },
+    "B": {
+      "pages": [
+        {
+          "title": "A tiny lighthouse",
+          "scene": "bedroom",
+          "lines": [
+            "A tiny lighthouse model blinks beside Gail's bed."
+          ],
+          "translation": "一座迷你燈塔在瑜瑜床邊閃光。",
+          "words": [
+            "lighthouse",
+            "blink",
+            "flash"
+          ]
+        },
+        {
+          "title": "The light path",
+          "scene": "bedroom",
+          "lines": [
+            "Its light spreads across the bedroom floor. Gail follows the glowing path."
+          ],
+          "translation": "燈光沿著臥室地板延伸。瑜瑜跟著亮路走。",
+          "words": [
+            "coast",
+            "guide"
+          ]
+        },
+        {
+          "title": "At the harbor",
+          "scene": "harbor",
+          "lines": [
+            "Gail steps into a quiet harbor. Paper boats float near the shore."
+          ],
+          "translation": "瑜瑜走進安靜的港口。紙船漂在岸邊。",
+          "words": [
+            "harbor",
+            "ship"
+          ]
+        },
+        {
+          "title": "The wrong beam",
+          "scene": "harbor",
+          "lines": [
+            "The lighthouse beam shines toward a hill. It does not reach the water."
+          ],
+          "translation": "燈塔光束照向山坡，沒有照到水面。",
+          "words": [
+            "beam",
+            "direction"
+          ]
+        },
+        {
+          "title": "Circling boats",
+          "scene": "harbor",
+          "lines": [
+            "The paper boats circle near the harbor. Gail notices that they are not moving in."
+          ],
+          "translation": "紙船在港口附近繞圈。瑜瑜發現它們沒有進港。",
+          "words": [
+            "ship",
+            "harbor"
+          ]
+        },
+        {
+          "title": "Meet the keeper",
+          "scene": "harbor",
+          "lines": [
+            "The lighthouse keeper meets Gail. He wants to find what changed."
+          ],
+          "translation": "燈塔守護員遇見瑜瑜。他想找出哪裡改變了。",
+          "words": [
+            "beacon"
+          ]
+        },
+        {
+          "title": "Not just brighter",
+          "scene": "lighthouse",
+          "lines": [
+            "The keeper makes the lamp brighter. The beam still points at the hill."
+          ],
+          "translation": "守護員把燈調亮。光仍照向山坡。",
+          "words": [
+            "dim",
+            "bright"
+          ]
+        },
+        {
+          "title": "Check the glass",
+          "scene": "lighthouse",
+          "lines": [
+            "Gail and the keeper check the clean glass. Nothing blocks the light."
+          ],
+          "translation": "瑜瑜和守護員查看乾淨的玻璃。光沒有被擋住。",
+          "words": [
+            "glass"
+          ]
+        },
+        {
+          "title": "A tilted lens",
+          "scene": "lighthouse",
+          "lines": [
+            "A lens inside the safe display model is tilted. Gail sees where the beam goes."
+          ],
+          "translation": "安全模型裡的鏡片歪了。瑜瑜看見光照向哪裡。",
+          "words": [
+            "lens"
+          ]
+        },
+        {
+          "title": "Follow the reflection",
+          "scene": "lighthouse",
+          "lines": [
+            "Gail follows the light on a white card. The reflection shows its path."
+          ],
+          "translation": "瑜瑜沿著白卡上的光看。反射顯示光的路徑。",
+          "words": [
+            "reflect"
+          ]
+        },
+        {
+          "title": "Mark an angle",
+          "scene": "lighthouse",
+          "lines": [
+            "The keeper marks the old angle on the model. Gail compares it with the sea."
+          ],
+          "translation": "守護員在模型上標出舊角度。瑜瑜拿它與海面方向比較。",
+          "words": [
+            "angle"
+          ]
+        },
+        {
+          "title": "One small turn",
+          "scene": "lighthouse",
+          "lines": [
+            "Gail rotates the model lens a little. The light moves across the card."
+          ],
+          "translation": "瑜瑜稍微轉動模型鏡片。光沿著卡片移動。",
+          "words": [
+            "rotate",
+            "test"
+          ]
+        },
+        {
+          "title": "Still too far",
+          "scene": "lighthouse",
+          "lines": [
+            "The test beam now points past the harbor. Gail asks to try again."
+          ],
+          "translation": "測試光束越過港口。瑜瑜想再試一次。",
+          "words": [
+            "test"
+          ]
+        },
+        {
+          "title": "Compare two marks",
+          "scene": "lighthouse",
+          "lines": [
+            "Gail points to two marks on the card. The keeper sees the gap."
+          ],
+          "translation": "瑜瑜指出卡片上的兩個記號。守護員看見差距。",
+          "words": [
+            "angle"
+          ]
+        },
+        {
+          "title": "The right direction",
+          "scene": "lighthouse",
+          "lines": [
+            "They adjust the model again. Its beam points across the water."
+          ],
+          "translation": "他們再次調整模型。光束指向水面。",
+          "words": [
+            "beam",
+            "direction"
+          ]
+        },
+        {
+          "title": "The real lighthouse",
+          "scene": "harbor",
+          "lines": [
+            "The keeper sets the real lens safely. The lighthouse gives a steady flash."
+          ],
+          "translation": "守護員安全地調整真鏡片。燈塔穩定閃光。",
+          "words": [
+            "steady",
+            "flash"
+          ]
+        },
+        {
+          "title": "Boats come home",
+          "scene": "harbor",
+          "lines": [
+            "The paper boats follow the signal. One by one, they reach the harbor."
+          ],
+          "translation": "紙船跟著訊號，一艘接一艘進港。",
+          "words": [
+            "signal",
+            "guide"
+          ]
+        },
+        {
+          "title": "Remember the mark",
+          "scene": "lighthouse",
+          "lines": [
+            "The keeper records the angle. Next time he can check it quickly."
+          ],
+          "translation": "守護員記下角度，下次就能快速核對。",
+          "words": [
+            "angle",
+            "beacon"
+          ]
+        },
+        {
+          "title": "The goodbye flash",
+          "scene": "harbor",
+          "lines": [
+            "The keeper thanks Gail. The little model flashes and opens the path home."
+          ],
+          "translation": "守護員謝謝瑜瑜。小模型閃光，打開回家的路。",
+          "words": [
+            "blink",
+            "flash"
+          ]
+        },
+        {
+          "title": "Back in the bedroom",
+          "scene": "bedroom",
+          "lines": [
+            "Gail sets the model by her bed. She remembers to look and test."
+          ],
+          "translation": "瑜瑜把模型放在床邊。她記得先觀察再測試。",
+          "words": [
+            "lighthouse",
+            "test"
+          ]
+        }
+      ],
+      "chinese": [
+        [
+          "一座迷你燈塔在瑜瑜床邊閃光。"
+        ],
+        [
+          "燈光沿著臥室地板延伸。瑜瑜跟著亮路走。"
+        ],
+        [
+          "瑜瑜走進安靜的港口。紙船漂在岸邊。"
+        ],
+        [
+          "燈塔光束照向山坡，沒有照到水面。"
+        ],
+        [
+          "紙船在港口附近繞圈。瑜瑜發現它們沒有進港。"
+        ],
+        [
+          "燈塔守護員遇見瑜瑜。他想找出哪裡改變了。"
+        ],
+        [
+          "守護員把燈調亮。光仍照向山坡。"
+        ],
+        [
+          "瑜瑜和守護員查看乾淨的玻璃。光沒有被擋住。"
+        ],
+        [
+          "安全模型裡的鏡片歪了。瑜瑜看見光照向哪裡。"
+        ],
+        [
+          "瑜瑜沿著白卡上的光看。反射顯示光的路徑。"
+        ],
+        [
+          "守護員在模型上標出舊角度。瑜瑜拿它與海面方向比較。"
+        ],
+        [
+          "瑜瑜稍微轉動模型鏡片。光沿著卡片移動。"
+        ],
+        [
+          "測試光束越過港口。瑜瑜想再試一次。"
+        ],
+        [
+          "瑜瑜指出卡片上的兩個記號。守護員看見差距。"
+        ],
+        [
+          "他們再次調整模型。光束指向水面。"
+        ],
+        [
+          "守護員安全地調整真鏡片。燈塔穩定閃光。"
+        ],
+        [
+          "紙船跟著訊號，一艘接一艘進港。"
+        ],
+        [
+          "守護員記下角度，下次就能快速核對。"
+        ],
+        [
+          "守護員謝謝瑜瑜。小模型閃光，打開回家的路。"
+        ],
+        [
+          "瑜瑜把模型放在床邊。她記得先觀察再測試。"
+        ]
+      ]
+    },
+    "C": {
+      "pages": [
+        {
+          "title": "A tiny lighthouse",
+          "scene": "bedroom",
+          "lines": [
+            "A tiny lighthouse model blinks twice beside Gail's bed. She watches it pause before the next flash."
+          ],
+          "translation": "一座迷你燈塔模型在瑜瑜床邊閃了兩下。她看見它停頓後才再次發亮。",
+          "words": [
+            "lighthouse",
+            "blink",
+            "flash"
+          ]
+        },
+        {
+          "title": "The light path",
+          "scene": "bedroom",
+          "lines": [
+            "The model's light traces a glowing path across the familiar bedroom floor. When it reaches the window, a doorway to the coast appears."
+          ],
+          "translation": "模型的光沿著熟悉的臥室地板畫出亮路。光到達窗邊時，一道通往海岸的門出現了。",
+          "words": [
+            "coast",
+            "guide"
+          ]
+        },
+        {
+          "title": "At the harbor",
+          "scene": "harbor",
+          "lines": [
+            "Gail arrives at a quiet harbor where small paper boats and a toy ship drift on calm water. A tall lighthouse stands beyond the stone wall."
+          ],
+          "translation": "瑜瑜來到安靜的港口，小紙船與一艘玩具小船漂在平靜水面上。一座高燈塔立在石牆後。",
+          "words": [
+            "harbor",
+            "ship"
+          ]
+        },
+        {
+          "title": "The wrong beam",
+          "scene": "harbor",
+          "lines": [
+            "The lighthouse sends its bright beam toward an inland hill instead of across the sea. The boats cannot see the usual way into the harbor."
+          ],
+          "translation": "燈塔明亮的光束照向內陸山坡，沒有照到海面。紙船看不見平常進港的方向。",
+          "words": [
+            "beam",
+            "direction"
+          ]
+        },
+        {
+          "title": "Circling boats",
+          "scene": "harbor",
+          "lines": [
+            "Several paper boats circle safely in the sheltered water. Gail notices that each one turns before reaching the harbor entrance."
+          ],
+          "translation": "幾艘紙船在避風水域安全地繞圈。瑜瑜發現它們每次到港口入口前都轉回去。",
+          "words": [
+            "ship",
+            "harbor"
+          ]
+        },
+        {
+          "title": "Meet the keeper",
+          "scene": "harbor",
+          "lines": [
+            "The adult lighthouse keeper joins Gail at the shore. He says the beacon was steady yesterday, so they begin by looking for what changed."
+          ],
+          "translation": "一位成年燈塔守護員來到瑜瑜身邊。他說昨天的燈光還很穩定，於是兩人先找出哪裡改變了。",
+          "words": [
+            "beacon"
+          ]
+        },
+        {
+          "title": "Not just brighter",
+          "scene": "lighthouse",
+          "lines": [
+            "The keeper tries a brighter setting, but the beam still lands on the hill. Gail sees that a dim or bright beam cannot fix the wrong direction."
+          ],
+          "translation": "守護員試著把燈調亮，光束仍落在山坡。瑜瑜看見，無論光線暗或亮，都無法單靠亮度修正方向。",
+          "words": [
+            "dim",
+            "bright"
+          ]
+        },
+        {
+          "title": "Check the glass",
+          "scene": "lighthouse",
+          "lines": [
+            "Gail checks the outer glass while the keeper inspects the lamp safely. The glass is clear, so a dirty window is not the cause."
+          ],
+          "translation": "瑜瑜查看外側玻璃，守護員安全地檢查燈具。玻璃乾淨，因此不是髒窗擋住了光。",
+          "words": [
+            "glass"
+          ]
+        },
+        {
+          "title": "A tilted lens",
+          "scene": "lighthouse",
+          "lines": [
+            "The keeper shows Gail a small working model of the lighthouse lens. Its tilted lens bends the test beam toward the hill."
+          ],
+          "translation": "守護員給瑜瑜看一個可操作的燈塔鏡片模型。傾斜的鏡片把測試光束導向山坡。",
+          "words": [
+            "lens"
+          ]
+        },
+        {
+          "title": "Follow the reflection",
+          "scene": "lighthouse",
+          "lines": [
+            "They place a white card beside the model and follow the reflected light. The bright patch makes the beam's path easy to see."
+          ],
+          "translation": "兩人把白卡放在模型旁，沿著反射的光看。明亮的光斑讓光束走向變得清楚。",
+          "words": [
+            "reflect"
+          ]
+        },
+        {
+          "title": "Mark an angle",
+          "scene": "lighthouse",
+          "lines": [
+            "The keeper marks the model's starting angle before changing anything. Gail compares that mark with the direction of the harbor entrance."
+          ],
+          "translation": "守護員在調整前先標出模型原本的角度。瑜瑜拿這個記號對照港口入口的方向。",
+          "words": [
+            "angle"
+          ]
+        },
+        {
+          "title": "One small turn",
+          "scene": "lighthouse",
+          "lines": [
+            "With the keeper beside her, Gail rotates only the safe model lens a little. They watch the beam move across the card instead of changing several things at once."
+          ],
+          "translation": "守護員在旁陪同，瑜瑜只稍微轉動安全模型的鏡片。他們看光束沿白卡移動，沒有同時改動多個地方。",
+          "words": [
+            "rotate",
+            "test"
+          ]
+        },
+        {
+          "title": "Still too far",
+          "scene": "lighthouse",
+          "lines": [
+            "Their first test sends the beam beyond the harbor entrance. Gail does not call it finished; she compares the new position with the marked target."
+          ],
+          "translation": "第一次測試讓光束越過港口入口。瑜瑜沒有急著說完成，而是把新位置與標出的目標比較。",
+          "words": [
+            "test"
+          ]
+        },
+        {
+          "title": "Compare two marks",
+          "scene": "lighthouse",
+          "lines": [
+            "Gail places the first and second marks side by side. The distance between them shows how much the lens needs to turn back."
+          ],
+          "translation": "瑜瑜把前後兩個記號並排看。記號之間的距離顯示鏡片還要轉回多少。",
+          "words": [
+            "angle"
+          ]
+        },
+        {
+          "title": "The right direction",
+          "scene": "lighthouse",
+          "lines": [
+            "They make one smaller adjustment and test again. This time the model beam crosses the water toward the harbor entrance."
+          ],
+          "translation": "他們做了更小的調整，再測一次。這次模型光束越過水面，指向港口入口。",
+          "words": [
+            "beam",
+            "direction"
+          ]
+        },
+        {
+          "title": "The real lighthouse",
+          "scene": "harbor",
+          "lines": [
+            "Using the tested mark, the keeper safely sets the real lighthouse lens. A steady flash now crosses the water where the boats can see it."
+          ],
+          "translation": "守護員依測試記號安全地調整真正的燈塔鏡片。穩定的閃光越過水面，紙船都看得見。",
+          "words": [
+            "steady",
+            "flash"
+          ]
+        },
+        {
+          "title": "Boats come home",
+          "scene": "harbor",
+          "lines": [
+            "The clear signal can guide the paper boats through the calm entrance. One by one, they reach the sheltered harbor without circling again."
+          ],
+          "translation": "紙船沿著清楚的訊號穿過平靜入口。它們一艘接一艘進入避風港，不再繞圈。",
+          "words": [
+            "signal",
+            "guide"
+          ]
+        },
+        {
+          "title": "Remember the mark",
+          "scene": "lighthouse",
+          "lines": [
+            "The keeper records the working angle and tests one more flash. Gail sees how a careful note can help them check the beacon next time."
+          ],
+          "translation": "守護員記下有效的角度，又測了一次閃光。瑜瑜看見，仔細記錄能幫助下次檢查燈塔。",
+          "words": [
+            "angle",
+            "beacon"
+          ]
+        },
+        {
+          "title": "The goodbye flash",
+          "scene": "harbor",
+          "lines": [
+            "After the keeper thanks Gail, the tiny model flashes twice again. Its light scatters gently into a path back to her bedroom."
+          ],
+          "translation": "守護員向瑜瑜道謝後，迷你模型再次閃兩下。柔和光點散開，形成通往她臥室的路。",
+          "words": [
+            "blink",
+            "flash"
+          ]
+        },
+        {
+          "title": "Back in the bedroom",
+          "scene": "bedroom",
+          "lines": [
+            "Back in her familiar bedroom, Gail sets the little lighthouse beside her bed. She remembers to observe, test one change, and check where the light goes."
+          ],
+          "translation": "回到熟悉臥室，瑜瑜把小燈塔放在床邊。她記得先觀察、一次測一個改變，再確認光照到哪裡。",
+          "words": [
+            "lighthouse",
+            "test"
+          ]
+        }
+      ],
+      "chinese": [
+        [
+          "一座迷你燈塔模型在瑜瑜床邊閃了兩下。她看見它停頓後才再次發亮。"
+        ],
+        [
+          "模型的光沿著熟悉的臥室地板畫出亮路。光到達窗邊時，一道通往海岸的門出現了。"
+        ],
+        [
+          "瑜瑜來到安靜的港口，小紙船與一艘玩具小船漂在平靜水面上。一座高燈塔立在石牆後。"
+        ],
+        [
+          "燈塔明亮的光束照向內陸山坡，沒有照到海面。紙船看不見平常進港的方向。"
+        ],
+        [
+          "幾艘紙船在避風水域安全地繞圈。瑜瑜發現它們每次到港口入口前都轉回去。"
+        ],
+        [
+          "一位成年燈塔守護員來到瑜瑜身邊。他說昨天的燈光還很穩定，於是兩人先找出哪裡改變了。"
+        ],
+        [
+          "守護員試著把燈調亮，光束仍落在山坡。瑜瑜看見，無論光線暗或亮，都無法單靠亮度修正方向。"
+        ],
+        [
+          "瑜瑜查看外側玻璃，守護員安全地檢查燈具。玻璃乾淨，因此不是髒窗擋住了光。"
+        ],
+        [
+          "守護員給瑜瑜看一個可操作的燈塔鏡片模型。傾斜的鏡片把測試光束導向山坡。"
+        ],
+        [
+          "兩人把白卡放在模型旁，沿著反射的光看。明亮的光斑讓光束走向變得清楚。"
+        ],
+        [
+          "守護員在調整前先標出模型原本的角度。瑜瑜拿這個記號對照港口入口的方向。"
+        ],
+        [
+          "守護員在旁陪同，瑜瑜只稍微轉動安全模型的鏡片。他們看光束沿白卡移動，沒有同時改動多個地方。"
+        ],
+        [
+          "第一次測試讓光束越過港口入口。瑜瑜沒有急著說完成，而是把新位置與標出的目標比較。"
+        ],
+        [
+          "瑜瑜把前後兩個記號並排看。記號之間的距離顯示鏡片還要轉回多少。"
+        ],
+        [
+          "他們做了更小的調整，再測一次。這次模型光束越過水面，指向港口入口。"
+        ],
+        [
+          "守護員依測試記號安全地調整真正的燈塔鏡片。穩定的閃光越過水面，紙船都看得見。"
+        ],
+        [
+          "紙船沿著清楚的訊號穿過平靜入口。它們一艘接一艘進入避風港，不再繞圈。"
+        ],
+        [
+          "守護員記下有效的角度，又測了一次閃光。瑜瑜看見，仔細記錄能幫助下次檢查燈塔。"
+        ],
+        [
+          "守護員向瑜瑜道謝後，迷你模型再次閃兩下。柔和光點散開，形成通往她臥室的路。"
+        ],
+        [
+          "回到熟悉臥室，瑜瑜把小燈塔放在床邊。她記得先觀察、一次測一個改變，再確認光照到哪裡。"
+        ]
+      ]
+    }
+  }
+}
