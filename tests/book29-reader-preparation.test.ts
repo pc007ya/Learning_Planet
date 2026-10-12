@@ -36,7 +36,7 @@ describe('Book29 complete local reader candidate',()=>{
    expect(q.kind).toBe('choice');expect(q.options).toHaveLength(4);expect(new Set(q.options.map(o=>o.text.toLowerCase().trim())).size).toBe(4);
    expect(q.answer).toHaveLength(1);expect(q.options[q.answer[0]].text).toBe(magicBallQuizRows[i].tracks[level].choices[0]);
    expect(q.prompt).toMatch(/^In this story,/);expect(q.explanation).toMatch(/^Pages? \d/);expect(q.explanation).not.toBe(q.options[q.answer[0]].text);
-   const art=source.originalArt[String(magicBallQuizRows[i].imageScene) as keyof typeof source.originalArt];expect(q.image).toBeUndefined();expect(q.sceneImage?.objects.length).toBeGreaterThan(0);expect(q.sceneImage?.background).toMatch(/\.webp$/);expect(q.imageAlt).toBe('故事回顧插圖');
+   expect(q.image).toBeUndefined();expect(q.sceneImage?.objects.length).toBeGreaterThan(0);expect(q.sceneImage?.background).toMatch(/\.webp$/);expect(q.imageAlt).toBe('故事回顧插圖');
   });
  });
  it('has genuinely different tracks and short A choices without claims of measured Lexile',()=>{
