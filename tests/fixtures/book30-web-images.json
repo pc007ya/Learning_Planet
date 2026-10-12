@@ -1,0 +1,172 @@
+{
+  "images": [
+    {
+      "number": 0,
+      "path": "images/story/snow-before-v1/cover.webp",
+      "sha256": "8ea64e9b9de3f4d0522cb6ba82b8d85c99fe8af15511cdad18f10772e0faec50",
+      "width": 800,
+      "height": 1200,
+      "sourceSHA256": "596f53203c762aa004e7e5c671da70bf1d9286d4a7e9f60a2700048ba5d3bdce"
+    },
+    {
+      "number": 1,
+      "path": "images/story/snow-before-v1/scene/01.webp",
+      "sha256": "3c14f33f3a23b64b7b76a6f5286ce7245aa3e22014880aa587b9a707248e2365",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "6fc0df1274091735d013f8feb0e9b806290730d3d0b2b29ba701d97aaf6f8757"
+    },
+    {
+      "number": 2,
+      "path": "images/story/snow-before-v1/scene/02.webp",
+      "sha256": "44e937148f105e03d4dee73bde046f808b41564ba84f64babaa9f3963fce82c4",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "4047f7748b5daa782b60b64e68398c855b0f4e849243403d593a46c6109565ee"
+    },
+    {
+      "number": 3,
+      "path": "images/story/snow-before-v1/scene/03.webp",
+      "sha256": "195ab64e2b337700682dea28928e1297f57bb098328409c3c16cfebefd487a6b",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "7f1b4169edb9a0629a3749522523b93ad0060a6445ef58894781333775df390b"
+    },
+    {
+      "number": 4,
+      "path": "images/story/snow-before-v1/scene/04.webp",
+      "sha256": "d9700957140456e33c6d3b6d9a60b40e1f2d41ce157b7d19ac0c45ac101266e5",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "35a8cdb912b19eb9d6f60a5418e07b699810cd9932e5222f840c8515c088bb5f"
+    },
+    {
+      "number": 5,
+      "path": "images/story/snow-before-v1/scene/05.webp",
+      "sha256": "4b208a01eb749383c4141a959ca3a6d56a37164ec7373dd05e162d244165e009",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "606bfa6a9ac75360a121e9fc876945eb6ff75d8f19e6a7e4ce0a08ea4386ef29"
+    },
+    {
+      "number": 6,
+      "path": "images/story/snow-before-v1/scene/06.webp",
+      "sha256": "0dfdf54f93d2fecd883ec41680e512e67c3096a6cbbc7eb03a43ecb938a17caf",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "b5ca98590bb5d4fb1b3d03866891e88f9e79e146a9d421105bb0419787764604"
+    },
+    {
+      "number": 7,
+      "path": "images/story/snow-before-v1/scene/07.webp",
+      "sha256": "ed190f697a5f7f622498b801f85d2d93050017d68818805f91db0eb0258c0492",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "0288fa9590ac19c22d3f54e2ca6d51adada0f42750b90fce12f412b11c7579b2"
+    },
+    {
+      "number": 8,
+      "path": "images/story/snow-before-v1/scene/08.webp",
+      "sha256": "c41584111744293301c9abc85af04c8431458d28de55d40eb8d3f967e114c5de",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "7f53bfd6e0c36544a0aaf83c1cacacc09464290207101790ccff1a0b7872db1b"
+    },
+    {
+      "number": 9,
+      "path": "images/story/snow-before-v1/scene/09.webp",
+      "sha256": "504cf79fa46247e742fa1704f0718aa9f4af01b0c4266a8e523956af18f19ea3",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "8615b16c28318af605acef8111dc178a40aa636f9bc0c251c7ae89626067a1c8"
+    },
+    {
+      "number": 10,
+      "path": "images/story/snow-before-v1/scene/10.webp",
+      "sha256": "e12277c2dd4271b07157316f25d05f26b4dab0a417adc8e7f332ccc2d0695d26",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "90726719b2bb4fa4efae6eb2fc94ef4a2d721707d44710c2b404ff3a57d6844b"
+    },
+    {
+      "number": 11,
+      "path": "images/story/snow-before-v1/scene/11.webp",
+      "sha256": "4d81b6b83c1665ef2b055113f0ab8002d61e5734f586379123d127aa8e6c1495",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "e02cbdd5d2175c9831f648da47e9bf4cb462189f696e5526cecbe661a68d9a3f"
+    },
+    {
+      "number": 12,
+      "path": "images/story/snow-before-v1/scene/12.webp",
+      "sha256": "94133091732ce0deb20d849c7469f38e6fc0ce47fc9429e1c0d3c5f7d461afe9",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "753c09a174fe037145460a794f9086019854f1a891a8849effa844563588cef6"
+    },
+    {
+      "number": 13,
+      "path": "images/story/snow-before-v1/scene/13.webp",
+      "sha256": "65e23d17c678f19d88ce127a3d720735d2d18618410ffcbbf787be718cbb6f6e",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "9c63cee8f8bd12feded162d3f98d7b588389a7ba5c7f36cb6c653a37e0388627"
+    },
+    {
+      "number": 14,
+      "path": "images/story/snow-before-v1/scene/14.webp",
+      "sha256": "df181fe8bfffda9fd0a5ffb3468e1c7b0f1cf094a6ad869cbcee26344b9b1775",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "35236c6271da19d1b4cc58a4eca37294c74ae8f656739c89cf7efbb49c29c53b"
+    },
+    {
+      "number": 15,
+      "path": "images/story/snow-before-v1/scene/15.webp",
+      "sha256": "53c5ec7af85d00b31a8908c25ab2992086f09bd08e45146e3039096a52e942c5",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "2e62c4a1bfbcf3987b29494d78d22255ea759f996476d2cdf5b3844a0b9736e6"
+    },
+    {
+      "number": 16,
+      "path": "images/story/snow-before-v1/scene/16.webp",
+      "sha256": "da102d43f34b36879dbcdf2265e615428890373fa249f48f37e7c6de4bc6c84e",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "f5936bb562917c9aed498e142b8931f6ea32e27c627de3c859ef7397b13cd503"
+    },
+    {
+      "number": 17,
+      "path": "images/story/snow-before-v1/scene/17.webp",
+      "sha256": "1a7c6b0cdf1f9ecc3baa2a6022613e03e50e31f1222e01e5aa06d46ae95df5a7",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "5ed41a58927a77b56babdb4b93177502a0ad02a1bd77e19fa86544a93927b1ea"
+    },
+    {
+      "number": 18,
+      "path": "images/story/snow-before-v1/scene/18.webp",
+      "sha256": "6d27805ab5e516101271bbb1e3720c28d2ce7763ffca29106b0f20b6e33b6b81",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "db7f017c7196913870e42ccdb86711451aac8fa2b5f02fdc58a547286109e37c"
+    },
+    {
+      "number": 19,
+      "path": "images/story/snow-before-v1/scene/19.webp",
+      "sha256": "2b84cbdb29806726ac912f007169f338e16ffcca5282426dbd1d71754e3eb5a4",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "5c84f12c32215a82bfd6161e2163070197a94fb64856f3d2f8ede5cf3486a8ab"
+    },
+    {
+      "number": 20,
+      "path": "images/story/snow-before-v1/scene/20.webp",
+      "sha256": "1f2487d715858569f968a9d265f358fb6e7f0362b8c57b80db54639069c06fc9",
+      "width": 960,
+      "height": 640,
+      "sourceSHA256": "f5fb5b531951adb7f7644c94c137e11e2cbe247dea5ee35b323666c607a5d05e"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "version": "book30-full-image-r2",
+  "cover": "images/story/snow-before-v1/cover.webp",
+  "pages": [
+    {
+      "number": 1,
+      "image": "images/story/snow-before-v1/scene/01.webp",
+      "alt": "A snowflake at the window",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 2,
+      "image": "images/story/snow-before-v1/scene/02.webp",
+      "alt": "Before winter",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 3,
+      "image": "images/story/snow-before-v1/scene/03.webp",
+      "alt": "The last warm days",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 4,
+      "image": "images/story/snow-before-v1/scene/04.webp",
+      "alt": "A full orchard",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 5,
+      "image": "images/story/snow-before-v1/scene/05.webp",
+      "alt": "Pick with care",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 6,
+      "image": "images/story/snow-before-v1/scene/06.webp",
+      "alt": "Bring in the crop",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 7,
+      "image": "images/story/snow-before-v1/scene/07.webp",
+      "alt": "Grapes for the adults",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 8,
+      "image": "images/story/snow-before-v1/scene/08.webp",
+      "alt": "Press and seal",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 9,
+      "image": "images/story/snow-before-v1/scene/09.webp",
+      "alt": "Eat now or save?",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 10,
+      "image": "images/story/snow-before-v1/scene/10.webp",
+      "alt": "Dry the fruit",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 11,
+      "image": "images/story/snow-before-v1/scene/11.webp",
+      "alt": "Fill the jars",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 12,
+      "image": "images/story/snow-before-v1/scene/12.webp",
+      "alt": "Shelves for winter",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 13,
+      "image": "images/story/snow-before-v1/scene/13.webp",
+      "alt": "Check the house",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 14,
+      "image": "images/story/snow-before-v1/scene/14.webp",
+      "alt": "Wood for warmth",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 15,
+      "image": "images/story/snow-before-v1/scene/15.webp",
+      "alt": "An empty shelf",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 16,
+      "image": "images/story/snow-before-v1/scene/16.webp",
+      "alt": "Share the harvest",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 17,
+      "image": "images/story/snow-before-v1/scene/17.webp",
+      "alt": "One last check",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 18,
+      "image": "images/story/snow-before-v1/scene/18.webp",
+      "alt": "The first flake",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 19,
+      "image": "images/story/snow-before-v1/scene/19.webp",
+      "alt": "Ready together",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 20,
+      "image": "images/story/snow-before-v1/scene/20.webp",
+      "alt": "A promise to return",
+      "width": 960,
+      "height": 640
+    }
+  ]
+}

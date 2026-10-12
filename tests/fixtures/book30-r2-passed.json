@@ -1,0 +1,1661 @@
+[
+  {
+    "track": "A01",
+    "index": 0,
+    "question": {
+      "id": "snow-before-A-01",
+      "kind": "choice",
+      "prompt": "What comes to Gail?",
+      "options": [
+        {
+          "text": "A basket."
+        },
+        {
+          "text": "A snowflake."
+        },
+        {
+          "text": "A jar."
+        },
+        {
+          "text": "A cart."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第1幕直接說一片雪花來到瑜瑜身邊；籃子、罐子與木車是後來小鎮的物品。",
+      "evidencePages": [
+        1
+      ],
+      "evidenceText": [
+        {
+          "page": 1,
+          "lines": [
+            "A snowflake comes to Gail."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "d5e98487a1fde774e88ca7115aeccb4946a7e57700823e3b2ed96fdbe3446f27",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A02",
+    "index": 1,
+    "question": {
+      "id": "snow-before-A-02",
+      "kind": "choice",
+      "prompt": "What opens a door?",
+      "options": [
+        {
+          "text": "The fruit."
+        },
+        {
+          "text": "The cart."
+        },
+        {
+          "text": "The jar."
+        },
+        {
+          "text": "The snowflake."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第2幕說雪花打開一扇門，所以開門的是雪花。",
+      "evidencePages": [
+        2
+      ],
+      "evidenceText": [
+        {
+          "page": 2,
+          "lines": [
+            "The snowflake opens a door."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "573ad469ffb793605e4288dd3551da0fc66909f6f75dba2f01ebf5b884002708",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A03",
+    "index": 2,
+    "question": {
+      "id": "snow-before-A-03",
+      "kind": "choice",
+      "prompt": "What do the trees have?",
+      "options": [
+        {
+          "text": "Fruit."
+        },
+        {
+          "text": "Jars."
+        },
+        {
+          "text": "Boxes."
+        },
+        {
+          "text": "Wood piles."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第4幕說樹上有水果；罐子與箱子出現在保存食物的情節中。",
+      "evidencePages": [
+        4
+      ],
+      "evidenceText": [
+        {
+          "page": 4,
+          "lines": [
+            "The trees have fruit."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "053c5eede105810758a63e4d6094a8754b54f6a8f995409085ebeaae4d1223b5",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A04",
+    "index": 3,
+    "question": {
+      "id": "snow-before-A-04",
+      "kind": "choice",
+      "prompt": "What do they pick?",
+      "options": [
+        {
+          "text": "Grapes."
+        },
+        {
+          "text": "Green apples."
+        },
+        {
+          "text": "Ripe apples."
+        },
+        {
+          "text": "Apple slices."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第5幕說他們摘成熟蘋果；圖中摘下的是紅蘋果，綠蘋果仍留在樹上。",
+      "evidencePages": [
+        5
+      ],
+      "evidenceText": [
+        {
+          "page": 5,
+          "lines": [
+            "They pick ripe apples."
+          ]
+        }
+      ],
+      "image": "images/story/snow-before-v1/scene/05.webp",
+      "imageAlt": "Pick with care"
+    },
+    "completeSerializedQuestionSHA256": "1bc8e93f17c1139a90691d5aa89828056ee3ec46eedc15d601b9db3cf3813441",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A05",
+    "index": 4,
+    "question": {
+      "id": "snow-before-A-05",
+      "kind": "choice",
+      "prompt": "What takes the food?",
+      "options": [
+        {
+          "text": "A jar."
+        },
+        {
+          "text": "A tray."
+        },
+        {
+          "text": "A cart."
+        },
+        {
+          "text": "A box."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第6幕說木車運送食物；罐子和托盤用在後續保存步驟。",
+      "evidencePages": [
+        6
+      ],
+      "evidenceText": [
+        {
+          "page": 6,
+          "lines": [
+            "A cart takes food home."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "ac6020f1d409b99232654da8a8061bd677c19ecaa62899215ece89260c678110",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A06",
+    "index": 5,
+    "question": {
+      "id": "snow-before-A-06",
+      "kind": "choice",
+      "prompt": "What do they gather?",
+      "options": [
+        {
+          "text": "Grapes."
+        },
+        {
+          "text": "Apple slices."
+        },
+        {
+          "text": "Wood."
+        },
+        {
+          "text": "Jars."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第7幕直接說他們採集葡萄；蘋果片、木柴和罐子屬於其他步驟。",
+      "evidencePages": [
+        7
+      ],
+      "evidenceText": [
+        {
+          "page": 7,
+          "lines": [
+            "They gather grapes."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "ba07b30ad2da8ff690f6b984ef6e63956722311d3d4479de73c6c8432ba9cade",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A07",
+    "index": 6,
+    "question": {
+      "id": "snow-before-A-07",
+      "kind": "choice",
+      "prompt": "What does Gail make?",
+      "options": [
+        {
+          "text": "Wine."
+        },
+        {
+          "text": "Dry fruit."
+        },
+        {
+          "text": "A wood pile."
+        },
+        {
+          "text": "Juice."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第8幕明說大人做酒，瑜瑜做果汁；圖中瑜瑜在自己的食物桌處理葡萄。",
+      "evidencePages": [
+        8
+      ],
+      "evidenceText": [
+        {
+          "page": 8,
+          "lines": [
+            "Adults make wine. Gail makes juice."
+          ]
+        }
+      ],
+      "image": "images/story/snow-before-v1/scene/08.webp",
+      "imageAlt": "Press and seal"
+    },
+    "completeSerializedQuestionSHA256": "727993bec4013298f0c285d36e45c6971b888c3893ea394d868d31ee65e343f2",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A08",
+    "index": 7,
+    "question": {
+      "id": "snow-before-A-08",
+      "kind": "choice",
+      "prompt": "How many baskets hold the fruit?",
+      "options": [
+        {
+          "text": "One."
+        },
+        {
+          "text": "Two."
+        },
+        {
+          "text": "Three."
+        },
+        {
+          "text": "Four."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第9幕直接說兩個籃子裝著水果，答案是兩個。",
+      "evidencePages": [
+        9
+      ],
+      "evidenceText": [
+        {
+          "page": 9,
+          "lines": [
+            "Two baskets hold the fruit."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "3d55a95ece8eaaa4f2673125ea40234fd6bb97f451ab31edec789852a7b3eddc",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A09",
+    "index": 8,
+    "question": {
+      "id": "snow-before-A-09",
+      "kind": "choice",
+      "prompt": "Where does the fruit dry?",
+      "options": [
+        {
+          "text": "On a tray."
+        },
+        {
+          "text": "In a cart."
+        },
+        {
+          "text": "In a box."
+        },
+        {
+          "text": "In a wine barrel."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第10幕說水果在托盤上晾乾；圖中切好的蘋果片排在托盤上。",
+      "evidencePages": [
+        10
+      ],
+      "evidenceText": [
+        {
+          "page": 10,
+          "lines": [
+            "Fruit dries on a tray."
+          ]
+        }
+      ],
+      "image": "images/story/snow-before-v1/scene/10.webp",
+      "imageAlt": "Dry the fruit"
+    },
+    "completeSerializedQuestionSHA256": "37bcf74bbf34ec81c37fe6d140d501e9b223c319bf71c27781c2db5d8bc75b67",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A10",
+    "index": 9,
+    "question": {
+      "id": "snow-before-A-10",
+      "kind": "choice",
+      "prompt": "What do they fill?",
+      "options": [
+        {
+          "text": "Wood carts."
+        },
+        {
+          "text": "Empty shelves."
+        },
+        {
+          "text": "Clean jars."
+        },
+        {
+          "text": "Wine barrels."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第11幕說他們裝滿乾淨的罐子；木車是用來運送作物的。",
+      "evidencePages": [
+        11
+      ],
+      "evidenceText": [
+        {
+          "page": 11,
+          "lines": [
+            "They fill clean jars."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "45c048500ef5e286c02053d8b42a74f0147106e0fce8f77b761981637f4112bb",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A11",
+    "index": 10,
+    "question": {
+      "id": "snow-before-A-11",
+      "kind": "choice",
+      "prompt": "What does Gail set down?",
+      "options": [
+        {
+          "text": "A box."
+        },
+        {
+          "text": "A jar."
+        },
+        {
+          "text": "A basket."
+        },
+        {
+          "text": "A tray."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第12幕直接說瑜瑜放下一個罐子，沒有說她放箱子或托盤。",
+      "evidencePages": [
+        12
+      ],
+      "evidenceText": [
+        {
+          "page": 12,
+          "lines": [
+            "Gail sets down a jar."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "141cbd5840e2a3f5b5401c3f115262b52d244f9faf8a7fd97f0ac23c94ef16ce",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A12",
+    "index": 11,
+    "question": {
+      "id": "snow-before-A-12",
+      "kind": "choice",
+      "prompt": "Who stacks the wood?",
+      "options": [
+        {
+          "text": "Gail."
+        },
+        {
+          "text": "Gail and her friend."
+        },
+        {
+          "text": "The whole town."
+        },
+        {
+          "text": "The adults."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第14幕說大人堆木柴，因此負責這件事的是大人。",
+      "evidencePages": [
+        14
+      ],
+      "evidenceText": [
+        {
+          "page": 14,
+          "lines": [
+            "The adults stack wood."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "f5d20dcbf99f62e437c5d087c59cefc6b564a82c2328a8343b4bc491c404a765",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A13",
+    "index": 12,
+    "question": {
+      "id": "snow-before-A-13",
+      "kind": "choice",
+      "prompt": "What does one neighbor need?",
+      "options": [
+        {
+          "text": "Wood."
+        },
+        {
+          "text": "A tray."
+        },
+        {
+          "text": "A cart."
+        },
+        {
+          "text": "Food."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第15幕直接說一位鄰居需要食物；圖中她的食物架幾乎空了。",
+      "evidencePages": [
+        15
+      ],
+      "evidenceText": [
+        {
+          "page": 15,
+          "lines": [
+            "One neighbor needs food."
+          ]
+        }
+      ],
+      "image": "images/story/snow-before-v1/scene/15.webp",
+      "imageAlt": "An empty shelf"
+    },
+    "completeSerializedQuestionSHA256": "b563809682f0d4735a3169e6fe5f57b79380a8c99ef5b06150fd33ea222aebe0",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A14",
+    "index": 13,
+    "question": {
+      "id": "snow-before-A-14",
+      "kind": "choice",
+      "prompt": "What does the town share?",
+      "options": [
+        {
+          "text": "Wood."
+        },
+        {
+          "text": "Food."
+        },
+        {
+          "text": "Carts."
+        },
+        {
+          "text": "Windows."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第16幕說小鎮分享食物，接續前一幕鄰居需要食物的情節。",
+      "evidencePages": [
+        16
+      ],
+      "evidenceText": [
+        {
+          "page": 16,
+          "lines": [
+            "The town shares food."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "d76801e9a82ca63bac35a31788b74d258761c9d8614cb97337eb4ed0cf94dd63",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A15",
+    "index": 14,
+    "question": {
+      "id": "snow-before-A-15",
+      "kind": "choice",
+      "prompt": "What lands?",
+      "options": [
+        {
+          "text": "One apple."
+        },
+        {
+          "text": "One grape."
+        },
+        {
+          "text": "One snowflake."
+        },
+        {
+          "text": "One jar."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第18幕直接說一片雪花落下；沒有說水果或罐子落下。",
+      "evidencePages": [
+        18
+      ],
+      "evidenceText": [
+        {
+          "page": 18,
+          "lines": [
+            "One snowflake lands."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "77fb32f0c175fc55ff24770717fdd4897c07a1039d005fa3517e047f196510b1",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "A16",
+    "index": 15,
+    "question": {
+      "id": "snow-before-A-16",
+      "kind": "choice",
+      "prompt": "Where does Gail go?",
+      "options": [
+        {
+          "text": "Home."
+        },
+        {
+          "text": "To the farm."
+        },
+        {
+          "text": "To the food shelf."
+        },
+        {
+          "text": "To the workshop."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第20幕說瑜瑜回家了，是故事最後的動作。",
+      "evidencePages": [
+        20
+      ],
+      "evidenceText": [
+        {
+          "page": 20,
+          "lines": [
+            "Gail goes home."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "a3f81150896437c2eefe7d33bf74dc62a5fc14df4b62457eae9c4d57380cd863",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "B02",
+    "index": 1,
+    "question": {
+      "id": "snow-before-B-02",
+      "kind": "choice",
+      "prompt": "Why do people bring in the last crop?",
+      "options": [
+        {
+          "text": "They are taking fruit back to the trees."
+        },
+        {
+          "text": "They are clearing a table for juice."
+        },
+        {
+          "text": "They are preparing for winter."
+        },
+        {
+          "text": "They are bringing Gail home."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第3幕大家為冬天準備，第6幕農夫把最後一批作物帶到倉房；運作物是冬前準備的一部分。",
+      "evidencePages": [
+        3,
+        6
+      ],
+      "evidenceText": [
+        {
+          "page": 3,
+          "lines": [
+            "Gail reaches the town square.",
+            "People are preparing for winter."
+          ]
+        },
+        {
+          "page": 6,
+          "lines": [
+            "A farmer brings the last crop to the storehouse.",
+            "The cart moves slowly."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "745b066750d5fd132295c17333e7b565cf8d9cea0508fba943b13195c12b553f",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "B04",
+    "index": 3,
+    "question": {
+      "id": "snow-before-B-04",
+      "kind": "choice",
+      "prompt": "What do they do after picking each apple?",
+      "options": [
+        {
+          "text": "Put it on a shelf."
+        },
+        {
+          "text": "Cut it into slices."
+        },
+        {
+          "text": "Give it to the older neighbor."
+        },
+        {
+          "text": "Place it in a basket."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第5幕的順序是輕摘成熟蘋果，再把每個蘋果放進籃子；切片與分享在後面。",
+      "evidencePages": [
+        5
+      ],
+      "evidenceText": [
+        {
+          "page": 5,
+          "lines": [
+            "The children pick ripe apples gently.",
+            "They place each one in a basket."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "fc629aa8ba85ba9c93c6e72a53e250462e8e4cd3163247bc80c11d30a8b85eb6",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "B05",
+    "index": 4,
+    "question": {
+      "id": "snow-before-B-05",
+      "kind": "choice",
+      "prompt": "After the cart brings in the crop, who receives the grape baskets?",
+      "options": [
+        {
+          "text": "The older neighbor."
+        },
+        {
+          "text": "The adults."
+        },
+        {
+          "text": "Gail alone."
+        },
+        {
+          "text": "Gail’s friend alone."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第6幕作物運到倉房，第7幕孩子把葡萄籃交給大人，接著由大人處理。",
+      "evidencePages": [
+        6,
+        7
+      ],
+      "evidenceText": [
+        {
+          "page": 6,
+          "lines": [
+            "A farmer brings the last crop to the storehouse.",
+            "The cart moves slowly."
+          ]
+        },
+        {
+          "page": 7,
+          "lines": [
+            "The children collect whole grapes.",
+            "They give the baskets to the adults."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "2d0267382dcb1af94beeb8ae837b326abc8ba2a04b90bebe809d885244258f75",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "B07",
+    "index": 6,
+    "question": {
+      "id": "snow-before-B-07",
+      "kind": "choice",
+      "prompt": "How is Gail’s work different from the adults’ work?",
+      "options": [
+        {
+          "text": "She seals the wine barrel."
+        },
+        {
+          "text": "She makes juice at their table."
+        },
+        {
+          "text": "She makes juice at another table."
+        },
+        {
+          "text": "She carries the wine barrel."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第8幕大人處理酒桶，瑜瑜在另一張桌子做葡萄汁，兩邊的工作分開。",
+      "evidencePages": [
+        8
+      ],
+      "evidenceText": [
+        {
+          "page": 8,
+          "lines": [
+            "Adults press grapes and seal a wine barrel.",
+            "Gail makes grape juice at another table."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "c37913f20a2b159f24b5d820c58b5da5586ab3c3b2779dade240502a6312ddf3",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "B08",
+    "index": 7,
+    "question": {
+      "id": "snow-before-B-08",
+      "kind": "choice",
+      "prompt": "Why is one fruit basket kept for winter?",
+      "options": [
+        {
+          "text": "To put all fruit on today’s table."
+        },
+        {
+          "text": "To keep food for the coming season."
+        },
+        {
+          "text": "To leave the trees full of fruit."
+        },
+        {
+          "text": "To make the cart lighter."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第3幕在為冬天準備，第9幕一籃今天吃、另一籃留給冬天，留下食物對應未來的需要。",
+      "evidencePages": [
+        3,
+        9
+      ],
+      "evidenceText": [
+        {
+          "page": 3,
+          "lines": [
+            "Gail reaches the town square.",
+            "People are preparing for winter."
+          ]
+        },
+        {
+          "page": 9,
+          "lines": [
+            "One basket is for today.",
+            "The other is for winter."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "435a4215621016e7cad059bcd423b4197e38919850b09eb51db44e262957a425",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "B09",
+    "index": 8,
+    "question": {
+      "id": "snow-before-B-09",
+      "kind": "choice",
+      "prompt": "What happens before the children spread fruit slices?",
+      "options": [
+        {
+          "text": "The children close every jar."
+        },
+        {
+          "text": "Gail checks the doors."
+        },
+        {
+          "text": "The adults stack wood."
+        },
+        {
+          "text": "An adult cuts the fruit."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第10幕先由大人切水果，再由孩子把切好的果片鋪到托盤上。",
+      "evidencePages": [
+        10
+      ],
+      "evidenceText": [
+        {
+          "page": 10,
+          "lines": [
+            "An adult cuts the fruit.",
+            "The children spread safe slices on a tray."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "74cd746c7dc5171b09964609d780f318de03f13313599585286c5f8dfe85f794",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "B10",
+    "index": 9,
+    "question": {
+      "id": "snow-before-B-10",
+      "kind": "choice",
+      "prompt": "What happens after food goes into clean jars?",
+      "options": [
+        {
+          "text": "Gail checks the window."
+        },
+        {
+          "text": "The children gather more grapes."
+        },
+        {
+          "text": "The farmer takes the cart outside."
+        },
+        {
+          "text": "The neighbors close each lid."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第11幕先把食物放進乾淨罐子，再關好每個蓋子；兩個動作在同一幕依序發生。",
+      "evidencePages": [
+        11
+      ],
+      "evidenceText": [
+        {
+          "page": 11,
+          "lines": [
+            "The neighbors put food into clean jars.",
+            "They close each lid."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "bd76072124e52620af49c6ac661da55a60eace8df0f04c1ada30723ae1f72a70",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "B11",
+    "index": 10,
+    "question": {
+      "id": "snow-before-B-11",
+      "kind": "choice",
+      "prompt": "What does Gail do after the jars are closed?",
+      "options": [
+        {
+          "text": "Put a jar on the fruit tree."
+        },
+        {
+          "text": "Put a light jar on a low shelf."
+        },
+        {
+          "text": "Leave a jar in the walkway."
+        },
+        {
+          "text": "Put a heavy box on a high shelf."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第11幕先關蓋，第12幕瑜瑜把輕罐放到低架，走道仍保持暢通。",
+      "evidencePages": [
+        11,
+        12
+      ],
+      "evidenceText": [
+        {
+          "page": 11,
+          "lines": [
+            "The neighbors put food into clean jars.",
+            "They close each lid."
+          ]
+        },
+        {
+          "page": 12,
+          "lines": [
+            "Gail places a light jar on a low shelf.",
+            "The walkway stays clear."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "2376f4eb0d54fcd7261db70dcdd5a201f8a09c27a54225168c13428a581fb5bd",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "B12",
+    "index": 11,
+    "question": {
+      "id": "snow-before-B-12",
+      "kind": "choice",
+      "prompt": "What do the adults do after checking doors and windows?",
+      "options": [
+        {
+          "text": "Harvest grapes."
+        },
+        {
+          "text": "Sort fruit into two baskets."
+        },
+        {
+          "text": "Carry and stack dry firewood."
+        },
+        {
+          "text": "Take Gail back to her bedroom."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第13幕檢查門窗，第14幕由大人搬運並堆放乾柴；採葡萄與分果籃發生在前面。",
+      "evidencePages": [
+        13,
+        14
+      ],
+      "evidenceText": [
+        {
+          "page": 13,
+          "lines": [
+            "Adults check the door and windows.",
+            "Gail notices a draft."
+          ]
+        },
+        {
+          "page": 14,
+          "lines": [
+            "Adults carry and stack dry firewood.",
+            "Gail stays away from the fire."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "fb341997627fcbd9cd2cdb3ad69a97c0cba86da3805d93fe2cad0de302ca1526",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "B13",
+    "index": 12,
+    "question": {
+      "id": "snow-before-B-13",
+      "kind": "choice",
+      "prompt": "Why do neighbors bring fruit and jars next door?",
+      "options": [
+        {
+          "text": "Gail has seen an empty food shelf."
+        },
+        {
+          "text": "Gail has found a window draft."
+        },
+        {
+          "text": "The fruit tray is full."
+        },
+        {
+          "text": "The stone road has snow."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第15幕瑜瑜看見鄰居空的食物架並告訴大家，第16幕鄰居們送水果與罐子來幫忙。",
+      "evidencePages": [
+        15,
+        16
+      ],
+      "evidenceText": [
+        {
+          "page": 15,
+          "lines": [
+            "Gail sees an empty shelf next door.",
+            "She tells the other neighbors."
+          ]
+        },
+        {
+          "page": 16,
+          "lines": [
+            "Neighbors bring fruit and jars.",
+            "The older neighbor thanks them."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "5046b310670d28b668034d0027bc8a5bc4af7a19de92e982c940d6e5b1c6a073",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "B14",
+    "index": 13,
+    "question": {
+      "id": "snow-before-B-14",
+      "kind": "choice",
+      "prompt": "Which happens after the town is ready?",
+      "options": [
+        {
+          "text": "The neighbors start filling jars."
+        },
+        {
+          "text": "A snowflake lands on Gail’s hand."
+        },
+        {
+          "text": "The farmer brings in the crop."
+        },
+        {
+          "text": "Gail first visits the orchard."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第17幕已檢查食物、門和路，第18幕第一片雪花才落到瑜瑜手上，呈現先準備、再下雪的順序。",
+      "evidencePages": [
+        17,
+        18
+      ],
+      "evidenceText": [
+        {
+          "page": 17,
+          "lines": [
+            "Gail checks the food, doors, and path.",
+            "Everything is ready."
+          ]
+        },
+        {
+          "page": 18,
+          "lines": [
+            "A first snowflake lands on Gail’s hand.",
+            "The stone road is still clear."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "5dbcfe75433183d49acf7a4ca89155720256cacb259a9eb9625f4d753c9202b3",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "B15",
+    "index": 14,
+    "question": {
+      "id": "snow-before-B-15",
+      "kind": "choice",
+      "prompt": "Why does “No one is forgotten” fit the ending?",
+      "options": [
+        {
+          "text": "The older neighbor has been left outside."
+        },
+        {
+          "text": "Everyone has kept only their own food."
+        },
+        {
+          "text": "The food has been taken out of the town."
+        },
+        {
+          "text": "Food has been shared with the older neighbor."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第16幕食物送到年長鄰居家，第19幕鄰居們帶著食物在室內相聚，因此沒有人被遺忘。",
+      "evidencePages": [
+        16,
+        19
+      ],
+      "evidenceText": [
+        {
+          "page": 16,
+          "lines": [
+            "Neighbors bring fruit and jars.",
+            "The older neighbor thanks them."
+          ]
+        },
+        {
+          "page": 19,
+          "lines": [
+            "Neighbors gather indoors with food.",
+            "No one is forgotten."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "9ae0c21d4c4f1fac329ee37d7c1a92f73ef9356ef8dbd49be37988554cf124d2",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "B16",
+    "index": 15,
+    "question": {
+      "id": "snow-before-B-16",
+      "kind": "choice",
+      "prompt": "What happens after the neighbors gather indoors?",
+      "options": [
+        {
+          "text": "Gail returns to her bedroom."
+        },
+        {
+          "text": "The farmer first brings in the crop."
+        },
+        {
+          "text": "The adults start cutting fruit."
+        },
+        {
+          "text": "Gail first sees the empty shelf."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第19幕大家在室內相聚，第20幕瑜瑜回到自己的臥室；運作物、切果和發現空架都在前面。",
+      "evidencePages": [
+        19,
+        20
+      ],
+      "evidenceText": [
+        {
+          "page": 19,
+          "lines": [
+            "Neighbors gather indoors with food.",
+            "No one is forgotten."
+          ]
+        },
+        {
+          "page": 20,
+          "lines": [
+            "Gail is back in her bedroom.",
+            "The snowflake stays by the window."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "cf48c09d3b5c94190af2794fc7a93f71aa8c2b4bdad6e8e2b05fb8ab5a915438",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "C01",
+    "index": 0,
+    "question": {
+      "id": "snow-before-C-01",
+      "kind": "choice",
+      "prompt": "What do the first two scenes suggest about Gail’s response to the snowflake?",
+      "options": [
+        {
+          "text": "She takes it straight to the orchard."
+        },
+        {
+          "text": "She observes it before following its light."
+        },
+        {
+          "text": "She hides it before the doorway opens."
+        },
+        {
+          "text": "She asks the neighbors to move it."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第1幕瑜瑜觀看雪花而沒有伸手，第2幕等雪花停穩、發光開門；可推知她先觀察，再看它引向哪裡。",
+      "evidencePages": [
+        1,
+        2
+      ],
+      "evidenceText": [
+        {
+          "page": 1,
+          "lines": [
+            "On an autumn evening, a single snowflake drifts past Gail’s starry window and rests on its ledge.",
+            "She watches it without reaching out."
+          ]
+        },
+        {
+          "page": 2,
+          "lines": [
+            "After the snowflake becomes still, its light opens a doorway.",
+            "Beyond it lies a familiar-looking town in the last warm days before winter, with no snow on the road."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "e187e814bd88bfaadafa4faad309e2f93362d8c5e59faa16f9ceeb62fb3f8178",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "C02",
+    "index": 1,
+    "question": {
+      "id": "snow-before-C-02",
+      "kind": "choice",
+      "prompt": "Which detail best supports that the town prepares ahead of time?",
+      "options": [
+        {
+          "text": "The final checks are done before the first snowflake lands."
+        },
+        {
+          "text": "The families go indoors after the first snowflake."
+        },
+        {
+          "text": "Gail visits the town through a doorway."
+        },
+        {
+          "text": "The older neighbor joins the families indoors."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第17幕已完成最後檢查，第18幕第一片雪花才落下；這個先後證據最直接支持小鎮在雪前完成準備。",
+      "evidencePages": [
+        3,
+        17,
+        18
+      ],
+      "evidenceText": [
+        {
+          "page": 3,
+          "lines": [
+            "At the bell tower, Gail sees neighbors carrying baskets and closing open crates.",
+            "Everyone is preparing for cold weather before the first real snowfall."
+          ]
+        },
+        {
+          "page": 17,
+          "lines": [
+            "Before dusk, the townspeople make one last round: food is stored, doors are secure, and the route to the older neighbor’s home is clear."
+          ]
+        },
+        {
+          "page": 18,
+          "lines": [
+            "As Gail raises her hand, the first snowflake lands on her palm.",
+            "The roofs, bridge, and stone road remain bare; the town is ready before the snow begins."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "4757b135f29e8c24df96bc47668f38c0db206323726441171dca8de3b70f855c",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "C05",
+    "index": 4,
+    "question": {
+      "id": "snow-before-C-05",
+      "kind": "choice",
+      "prompt": "What does the handoff of grapes show about the workshop plan?",
+      "options": [
+        {
+          "text": "Children will seal the wine barrel next."
+        },
+        {
+          "text": "Adults will leave all pressing to Gail."
+        },
+        {
+          "text": "Everyone will use Gail’s small juice bowl."
+        },
+        {
+          "text": "Children and adults have separate tasks."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第7幕孩子交葡萄給大人，第8幕大人處理酒、瑜瑜在安全食物桌做果汁；交接顯示分開安排工作。",
+      "evidencePages": [
+        7,
+        8
+      ],
+      "evidenceText": [
+        {
+          "page": 7,
+          "lines": [
+            "Gail and her friend gather and collect whole bunches of grapes, then pass the baskets to the adults.",
+            "The grown-ups will take them into the separate wine-making area."
+          ]
+        },
+        {
+          "page": 8,
+          "lines": [
+            "Inside the workshop, the grown-ups press grapes and seal a wine barrel in their work area.",
+            "At the safe food table, Gail presses a small bowl of grapes for her own juice."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "e1e4dd969e8c68fede85b6cd0fbc8da42c17718f79b267c2e0e0f24c297e60a5",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "C07",
+    "index": 6,
+    "question": {
+      "id": "snow-before-C-07",
+      "kind": "choice",
+      "prompt": "What connects sorting, drying, and sealing the fruit?",
+      "options": [
+        {
+          "text": "They put the whole harvest into today’s meal."
+        },
+        {
+          "text": "They help keep part of the harvest for later."
+        },
+        {
+          "text": "They prepare all the fruit for wine-making."
+        },
+        {
+          "text": "They return the crop to the orchard."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第9幕分出留給寒冷日子的水果，第10幕曬果片留冬，第11幕封保存食品；共同目的可推知是為以後留糧。",
+      "evidencePages": [
+        9,
+        10,
+        11
+      ],
+      "evidenceText": [
+        {
+          "page": 9,
+          "lines": [
+            "Back at the food table, Gail helps sort fresh fruit into two baskets: some to eat now and some to save for the cold weeks ahead."
+          ]
+        },
+        {
+          "page": 10,
+          "lines": [
+            "An adult carefully cuts the apples into thin pieces.",
+            "Gail and her friend lay the ready slices in neat rows so they can dry for winter."
+          ]
+        },
+        {
+          "page": 11,
+          "lines": [
+            "The neighbors fill clean jars with preserved food and seal each one carefully.",
+            "Gail checks that every closed jar can stand steady on the table."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "697aed91f96ddd02526fc3ba2520a9dd3ace28801e358db66fe3d637d51cecdb",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "C09",
+    "index": 8,
+    "question": {
+      "id": "snow-before-C-09",
+      "kind": "choice",
+      "prompt": "Why does checking that jars stand steadily matter for the next step?",
+      "options": [
+        {
+          "text": "The jars will be moved to shelves for storage."
+        },
+        {
+          "text": "The jars will be opened for grape pressing."
+        },
+        {
+          "text": "The jars will be put in the orchard branches."
+        },
+        {
+          "text": "The jars will be used to close the window gap."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第11幕確認封罐站穩，第12幕再搬輕罐到低架；可推知站穩與下一步安放儲存有關。",
+      "evidencePages": [
+        11,
+        12
+      ],
+      "evidenceText": [
+        {
+          "page": 11,
+          "lines": [
+            "The neighbors fill clean jars with preserved food and seal each one carefully.",
+            "Gail checks that every closed jar can stand steady on the table."
+          ]
+        },
+        {
+          "page": 12,
+          "lines": [
+            "Gail carries only the light jars to a low shelf and leaves room between them.",
+            "No box blocks the walkway, so people can reach the food supply safely."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "bf2b8d7fc22f96edcd8878ba59042ecdd85bdcb65c1e006f89aa68cbca944546",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "C10",
+    "index": 9,
+    "question": {
+      "id": "snow-before-C-10",
+      "kind": "choice",
+      "prompt": "Which storage change would work against the town’s plan?",
+      "options": [
+        {
+          "text": "Leaving space between jars."
+        },
+        {
+          "text": "Putting a box in the walkway."
+        },
+        {
+          "text": "Keeping light jars on a low shelf."
+        },
+        {
+          "text": "Keeping the route to the food clear."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第12幕說沒有箱子擋路，大家才可安全拿食物；將箱子放到走道會破壞文中明示的安全取用條件。",
+      "evidencePages": [
+        12
+      ],
+      "evidenceText": [
+        {
+          "page": 12,
+          "lines": [
+            "Gail carries only the light jars to a low shelf and leaves room between them.",
+            "No box blocks the walkway, so people can reach the food supply safely."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "088874c000f46da334437a90e4d92c9f51b8a1bd3764269973b744acf2bb73c2",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "C11",
+    "index": 10,
+    "question": {
+      "id": "snow-before-C-11",
+      "kind": "choice",
+      "prompt": "What do the house preparations and the food preparations have in common?",
+      "options": [
+        {
+          "text": "They begin only after the road fills with snow."
+        },
+        {
+          "text": "They leave the work entirely to Gail."
+        },
+        {
+          "text": "They serve only people at the workshop."
+        },
+        {
+          "text": "They meet needs before cold weather arrives."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第13幕在寒冷前檢查門窗，第14幕收乾柴；前面的存糧也面向冷天，共同點是提前準備生活需要。",
+      "evidencePages": [
+        13,
+        14
+      ],
+      "evidenceText": [
+        {
+          "page": 13,
+          "lines": [
+            "At one house, adults prepare for the cold by examining the door and window.",
+            "Gail points out a small gap where chilly air can enter."
+          ]
+        },
+        {
+          "page": 14,
+          "lines": [
+            "The adults put dry wood in a safe place near the house and handle the fireplace themselves.",
+            "Gail helps by pointing to a fallen small piece from a safe distance."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "9814c9c34d2d81545c14486843325f553d78eda2f6f3398af96c68973c863427",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  },
+  {
+    "track": "C14",
+    "index": 13,
+    "question": {
+      "id": "snow-before-C-14",
+      "kind": "choice",
+      "prompt": "How does sharing change what it means for the town to be ready?",
+      "options": [
+        {
+          "text": "Only the orchard’s crop matters."
+        },
+        {
+          "text": "Each home must prepare without help."
+        },
+        {
+          "text": "The older neighbor’s needs become part of the preparation."
+        },
+        {
+          "text": "Gail alone becomes responsible for every shelf."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第15幕發現年長鄰居缺糧，第16幕補食物，第19幕她也加入大家；「準備好」因而包括照顧鄰居。",
+      "evidencePages": [
+        15,
+        16,
+        19
+      ],
+      "evidenceText": [
+        {
+          "page": 15,
+          "lines": [
+            "When Gail visits the older neighbor, she notices that the food shelf is nearly empty.",
+            "She asks whether more food from the town supply would help before making a plan."
+          ]
+        },
+        {
+          "page": 16,
+          "lines": [
+            "The neighbors offer some of the harvest they prepared together.",
+            "They bring fruit and sealed jars to the older woman, making sure her winter shelf has enough food too."
+          ]
+        },
+        {
+          "page": 19,
+          "lines": [
+            "The families go inside to warm rooms, where saved food waits on the shelves.",
+            "The older neighbor joins them, and everyone knows they have prepared together."
+          ]
+        }
+      ]
+    },
+    "completeSerializedQuestionSHA256": "51242d581f1fe5c48200a0015e3fb79b1362faf276708fce20c53d41993e94d3",
+    "hashSerialization": "Python compact UTF8 JSON; includes complete runtime question"
+  }
+]

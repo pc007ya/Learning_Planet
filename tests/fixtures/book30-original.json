@@ -1,0 +1,489 @@
+{
+  "book": 30,
+  "officialSourceCommit": "a767e1d483d58fada85931a1b30aa59092db4f46",
+  "sourceHashes": {
+    "production-four.ts": "5c02b65239684ec60d984e4c7a6a42bd6142448d6f6ce8dfd1a4d17b32958866",
+    "production-four-content.ts": "f7872d66d843a8815a9eb2ace27d4d53ba8945c952086ac37e4026eaec78fa99",
+    "production-four-translations.ts": "8bcf02eda457678b7a04d84a5b8674d01c7e3ad9b0e540e2398d33904e052641",
+    "production-four-effects.ts": "8b5526353210c6b84a20f4a587bab26690a001e8c1c4083b8bb31db52bcd9b7b",
+    "production-four-vocabulary.ts": "1195ce03165fa36acdb3be14f9d99a872ccbdf2ce76fae6f56f606f09df530ea"
+  },
+  "words": [
+    "town",
+    "food",
+    "crop",
+    "wine",
+    "store",
+    "prepare",
+    "neighbor",
+    "house",
+    "weather",
+    "cold",
+    "box",
+    "snow",
+    "farm",
+    "farmer",
+    "pick",
+    "gather",
+    "collect",
+    "sort",
+    "supply",
+    "save"
+  ],
+  "levels": {
+    "A": {
+      "english": [
+        [
+          "A snowflake comes to Gail."
+        ],
+        [
+          "The snowflake opens a door."
+        ],
+        [
+          "The town gets ready."
+        ],
+        [
+          "The trees have fruit."
+        ],
+        [
+          "They pick ripe apples."
+        ],
+        [
+          "A cart takes food home."
+        ],
+        [
+          "They gather grapes."
+        ],
+        [
+          "Adults make wine. Gail makes juice."
+        ],
+        [
+          "Two baskets hold the fruit."
+        ],
+        [
+          "Fruit dries on a tray."
+        ],
+        [
+          "They fill clean jars."
+        ],
+        [
+          "Gail sets down a jar."
+        ],
+        [
+          "The window has a gap."
+        ],
+        [
+          "The adults stack wood."
+        ],
+        [
+          "One neighbor needs food."
+        ],
+        [
+          "The town shares food."
+        ],
+        [
+          "They check the town again."
+        ],
+        [
+          "One snowflake lands."
+        ],
+        [
+          "Everyone has a warm place."
+        ],
+        [
+          "Gail goes home."
+        ]
+      ],
+      "chinese": [
+        [
+          "一片雪花來到瑜瑜身邊。"
+        ],
+        [
+          "雪花打開一道門。"
+        ],
+        [
+          "小鎮在準備。"
+        ],
+        [
+          "樹上有水果。"
+        ],
+        [
+          "她們摘成熟的蘋果。"
+        ],
+        [
+          "木車把食物運回去。"
+        ],
+        [
+          "她們收集葡萄。"
+        ],
+        [
+          "大人釀酒。瑜瑜做果汁。"
+        ],
+        [
+          "兩個籃子裝著水果。"
+        ],
+        [
+          "水果放在托盤上晾乾。"
+        ],
+        [
+          "她們裝滿乾淨的罐子。"
+        ],
+        [
+          "瑜瑜放下一個罐子。"
+        ],
+        [
+          "窗戶有一條縫。"
+        ],
+        [
+          "大人堆放木柴。"
+        ],
+        [
+          "一位鄰居需要食物。"
+        ],
+        [
+          "小鎮分享食物。"
+        ],
+        [
+          "他們再次檢查小鎮。"
+        ],
+        [
+          "一片雪花落下。"
+        ],
+        [
+          "每個人都有溫暖的地方。"
+        ],
+        [
+          "瑜瑜回家了。"
+        ]
+      ]
+    },
+    "B": {
+      "english": [
+        [
+          "One snowflake drifts to Gail’s window.",
+          "It rests on the ledge."
+        ],
+        [
+          "The still snowflake begins to glow.",
+          "Gail sees a town without snow."
+        ],
+        [
+          "Gail reaches the town square.",
+          "People are preparing for winter."
+        ],
+        [
+          "Gail visits the orchard with a friend.",
+          "Ripe apples hang from the trees."
+        ],
+        [
+          "The girls pick ripe apples gently.",
+          "They place each one in a basket."
+        ],
+        [
+          "A farmer brings the last crop to the storehouse.",
+          "The cart moves slowly."
+        ],
+        [
+          "The children collect whole grapes.",
+          "They give the baskets to the adults."
+        ],
+        [
+          "Adults press grapes and seal a wine barrel.",
+          "Gail makes grape juice at another table."
+        ],
+        [
+          "One basket is for today.",
+          "The other is for winter."
+        ],
+        [
+          "An adult cuts the fruit.",
+          "The children spread safe slices on a tray."
+        ],
+        [
+          "The neighbors put food into clean jars.",
+          "They close each lid."
+        ],
+        [
+          "Gail places a light jar on a low shelf.",
+          "The walkway stays clear."
+        ],
+        [
+          "Adults check the door and windows.",
+          "Gail notices a draft."
+        ],
+        [
+          "Adults carry and stack dry firewood.",
+          "Gail stays away from the fire."
+        ],
+        [
+          "Gail sees an empty shelf next door.",
+          "She tells the other neighbors."
+        ],
+        [
+          "Neighbors bring fruit and jars.",
+          "The older neighbor thanks them."
+        ],
+        [
+          "Gail checks the food, doors, and path.",
+          "Everything is ready."
+        ],
+        [
+          "A first snowflake lands on Gail’s hand.",
+          "The stone road is still clear."
+        ],
+        [
+          "Neighbors gather indoors with food.",
+          "No one is forgotten."
+        ],
+        [
+          "Gail is back in her bedroom.",
+          "The snowflake stays by the window."
+        ]
+      ],
+      "chinese": [
+        [
+          "一片雪花飄到瑜瑜的窗邊。",
+          "它停在窗沿。"
+        ],
+        [
+          "停穩的雪花開始發光。",
+          "瑜瑜看見一座還沒下雪的小鎮。"
+        ],
+        [
+          "瑜瑜來到鎮上的廣場。",
+          "人們正在準備過冬。"
+        ],
+        [
+          "瑜瑜和朋友走進果園。",
+          "成熟的蘋果掛在樹上。"
+        ],
+        [
+          "女孩們輕輕摘下成熟蘋果。",
+          "她們把蘋果放進籃子。"
+        ],
+        [
+          "農夫把最後的收成運往倉房。",
+          "木車慢慢前進。"
+        ],
+        [
+          "孩子們收集完整的葡萄。",
+          "她們把籃子交給大人。"
+        ],
+        [
+          "大人壓葡萄並封好酒桶。",
+          "瑜瑜在另一張桌上做葡萄汁。"
+        ],
+        [
+          "一籃今天吃。",
+          "另一籃留到冬天。"
+        ],
+        [
+          "大人切水果。",
+          "孩子們把安全的果片排在托盤上。"
+        ],
+        [
+          "鄰居們把食物裝進乾淨的罐子。",
+          "她們蓋好每個罐蓋。"
+        ],
+        [
+          "瑜瑜把輕罐子放在低架上。",
+          "走道保持暢通。"
+        ],
+        [
+          "大人檢查門窗。",
+          "瑜瑜注意到有冷風吹進來。"
+        ],
+        [
+          "大人搬來乾木柴並疊好。",
+          "瑜瑜遠離火源。"
+        ],
+        [
+          "瑜瑜看到隔壁空空的架子。",
+          "她告訴其他鄰居。"
+        ],
+        [
+          "鄰居們帶來水果和罐子。",
+          "年長鄰居謝謝他們。"
+        ],
+        [
+          "瑜瑜檢查食物、門和道路。",
+          "一切都準備好了。"
+        ],
+        [
+          "第一片雪花落在瑜瑜手上。",
+          "石路仍然暢通。"
+        ],
+        [
+          "鄰居們帶著食物在室內相聚。",
+          "沒有人被遺忘。"
+        ],
+        [
+          "瑜瑜回到臥室。",
+          "雪花留在窗邊。"
+        ]
+      ]
+    },
+    "C": {
+      "english": [
+        [
+          "On an autumn evening, a single snowflake drifts past Gail’s starry window and rests on its ledge.",
+          "She watches it without reaching out."
+        ],
+        [
+          "After the snowflake becomes still, its light opens a doorway.",
+          "Beyond it lies a familiar-looking town in the last warm days before winter, with no snow on the road."
+        ],
+        [
+          "At the bell tower, Gail sees neighbors carrying baskets and closing open crates.",
+          "Everyone is preparing for cold weather before the first real snowfall."
+        ],
+        [
+          "Gail and her new friend walk through the farm orchard to see which fruit is ready.",
+          "Ripe apples and grapes still hang from the branches and vines."
+        ],
+        [
+          "Gail picks fruit that is ripe and lets the small green apples stay on the tree.",
+          "Her friend shows her how to lower each apple gently into the basket."
+        ],
+        [
+          "Before the weather turns, a farmer loads the final crop onto a wooden cart.",
+          "Gail and her friend walk beside it as the food goes to the storehouse, where the adults will store it."
+        ],
+        [
+          "Gail and her friend gather and collect whole bunches of grapes, then pass the baskets to the adults.",
+          "The grown-ups will take them into the separate wine-making area."
+        ],
+        [
+          "Inside the workshop, the grown-ups press grapes and seal a wine barrel in their work area.",
+          "At the safe food table, Gail presses a small bowl of grapes for her own juice."
+        ],
+        [
+          "Back at the food table, Gail helps sort fresh fruit into two baskets: some to eat now and some to save for the cold weeks ahead."
+        ],
+        [
+          "An adult carefully cuts the apples into thin pieces.",
+          "Gail and her friend lay the ready slices in neat rows so they can dry for winter."
+        ],
+        [
+          "The neighbors fill clean jars with preserved food and seal each one carefully.",
+          "Gail checks that every closed jar can stand steady on the table."
+        ],
+        [
+          "Gail carries only the light jars to a low shelf and leaves room between them.",
+          "No box blocks the walkway, so people can reach the food supply safely."
+        ],
+        [
+          "At one house, adults prepare for the cold by examining the door and window.",
+          "Gail points out a small gap where chilly air can enter."
+        ],
+        [
+          "The adults put dry wood in a safe place near the house and handle the fireplace themselves.",
+          "Gail helps by pointing to a fallen small piece from a safe distance."
+        ],
+        [
+          "When Gail visits the older neighbor, she notices that the food shelf is nearly empty.",
+          "She asks whether more food from the town supply would help before making a plan."
+        ],
+        [
+          "The neighbors offer some of the harvest they prepared together.",
+          "They bring fruit and sealed jars to the older woman, making sure her winter shelf has enough food too."
+        ],
+        [
+          "Before dusk, the townspeople make one last round: food is stored, doors are secure, and the route to the older neighbor’s home is clear."
+        ],
+        [
+          "As Gail raises her hand, the first snowflake lands on her palm.",
+          "The roofs, bridge, and stone road remain bare; the town is ready before the snow begins."
+        ],
+        [
+          "The families go inside to warm rooms, where saved food waits on the shelves.",
+          "The older neighbor joins them, and everyone knows they have prepared together."
+        ],
+        [
+          "Gail returns to her familiar room, leaving the quiet snowflake by the window.",
+          "She hopes to visit the town again and see how everyone helps after the snow."
+        ]
+      ],
+      "chinese": [
+        [
+          "秋天的傍晚，唯一的一片雪花飄過瑜瑜的星星窗戶，停在窗沿。",
+          "她靜靜看著，沒有立刻伸手。"
+        ],
+        [
+          "雪花停穩後，亮光打開一道門。",
+          "門外是冬天前最後幾個暖日的小鎮，路上還沒有積雪。"
+        ],
+        [
+          "瑜瑜在鐘塔旁看見鄰居們搬運籃子、收好木箱。",
+          "大家在第一場真正的雪到來前，為寒冷天氣作準備。"
+        ],
+        [
+          "瑜瑜與新朋友走進小鎮果園，查看哪些水果成熟了。",
+          "蘋果與葡萄仍掛在枝頭和藤上。"
+        ],
+        [
+          "瑜瑜只摘成熟的果子，把還小的青蘋果留在樹上。",
+          "朋友教她把蘋果輕輕放進籃子。"
+        ],
+        [
+          "天氣轉變前，農夫把最後一批作物裝上木車。",
+          "瑜瑜與朋友走在旁邊，看食物運往倉房。"
+        ],
+        [
+          "瑜瑜和朋友採下完整的一串串葡萄，將籃子交給大人。",
+          "大人會帶葡萄去分開的釀酒工作區。"
+        ],
+        [
+          "在工作坊裡，大人在自己的工作區壓葡萄、封好酒桶。",
+          "瑜瑜則在安全的食物桌上，把少量葡萄壓成自己的果汁。"
+        ],
+        [
+          "回到食物桌前，瑜瑜把新鮮水果分進兩個籃子：一些今天吃，一些留給接下來寒冷的日子。"
+        ],
+        [
+          "大人小心把蘋果切成薄片。",
+          "瑜瑜和朋友把已切好的果片整齊排開，準備曬乾留到冬天。"
+        ],
+        [
+          "鄰居們把保存的食物放入乾淨的罐子，小心封好。",
+          "瑜瑜確認每個罐子都能穩穩站在桌上。"
+        ],
+        [
+          "瑜瑜只搬輕罐子到低架，罐與罐間留空。",
+          "沒有箱子擋住走道，大家能安全拿取物資。"
+        ],
+        [
+          "在一棟屋裡，大人在寒冷來臨前檢查門窗。",
+          "瑜瑜指出一處會讓冷風鑽進來的小縫。"
+        ],
+        [
+          "大人把乾柴收在屋旁安全處，也由他們處理壁爐。",
+          "瑜瑜保持距離，指出一塊掉落的小木片。"
+        ],
+        [
+          "瑜瑜探訪年長鄰居時，看見食物架幾乎空了。",
+          "她先問對方是否需要補充物資，才開始想辦法。"
+        ],
+        [
+          "鄰居們拿出大家一起準備的收成。",
+          "他們送去水果和封好的罐子，讓年長鄰居的冬天食物架也足夠。"
+        ],
+        [
+          "黃昏前，鎮民最後巡看一次：食物已收好、門窗安全、通往年長鄰居家的路也暢通。"
+        ],
+        [
+          "瑜瑜舉起手，第一片雪花落在掌心。",
+          "屋頂、橋和石路還沒有積雪；小鎮已在下雪前準備好。"
+        ],
+        [
+          "家家戶戶回到溫暖室內，架上有保存好的食物。",
+          "年長鄰居也加入，大家知道自己是一起準備好的。"
+        ],
+        [
+          "瑜瑜回到熟悉的房間，把安靜的雪花留在窗邊。",
+          "她期待下雪後再探訪小鎮，看大家如何互相幫忙。"
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"extends":"./tsconfig.json","include":["src/story/**/*.ts","tests/book30*.ts"],"exclude":[]}

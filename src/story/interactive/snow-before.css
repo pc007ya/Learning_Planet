@@ -1,0 +1,17 @@
+.snow-before-book .scene-world.snow-full-image-world{background:#182b37;transform:none;overflow:hidden}
+.snow-before-book .snow-full-image-frame{position:absolute;left:50%;top:50%;translate:-50% -50%;aspect-ratio:3/2;isolation:isolate;overflow:hidden}
+.snow-before-book .snow-full-image{display:block;width:100%;height:100%;max-width:none;object-fit:contain;object-position:center;transform:none}
+.snow-before-book .snow-picture-tap{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:transparent;z-index:2;cursor:pointer}
+.snow-before-book .snow-picture-tap:focus-visible{outline:3px solid #fce5a2;outline-offset:-4px}
+.snow-before-book .snow-picture-tap .hotspot-spark{position:absolute;translate:-50% -50%;font-size:22px;line-height:1;opacity:0;color:#fff1a4;text-shadow:0 0 8px #54421f;pointer-events:none}
+.snow-before-book.show-hints .snow-picture-tap .hotspot-spark,.snow-before-book .snow-picture-tap:focus-visible .hotspot-spark{opacity:1}
+.snow-before-book .snow-image-focus{position:absolute;width:10%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;opacity:0;background:radial-gradient(circle,#fff8cfb0,#dfefff30 45%,transparent 70%);pointer-events:none;z-index:3}
+.snow-before-book .snow-image-particle{position:absolute;width:6px;height:6px;border-radius:50%;background:#fff6be;box-shadow:0 0 5px #fff8df;pointer-events:none;z-index:4}
+.snow-before-book .snow-narration-cue{position:absolute;transform:translate(-50%,-50%);border:2px solid #fff4c3;border-radius:35%;box-shadow:0 0 9px #fff8da66;opacity:0;pointer-events:none;z-index:4}
+.snow-before-book .snow-draft-cue{border-color:#dff4ff;border-style:dashed;box-shadow:0 0 8px #d8f4ff55}
+.snow-before-book .snow-image-status{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;background:#182b37e6;color:white;z-index:5;padding:16px}
+.snow-before-book .snow-image-status[hidden]{display:none}
+.snow-before-book .snow-image-status button{padding:8px 14px;border-radius:20px;border:1px solid #dcc18a;background:#fff7df;color:#52432a}
+.snow-before-book .layered-cover .cover-border{background-size:100% 100%}
+.snow-before-book .cover-border h2{position:relative;font-size:clamp(22px,2.7vw,40px);margin:5% 7% 0;top:auto;left:auto;right:auto;line-height:1.05;text-shadow:0 2px 6px #2e2117,0 0 12px #30261e}
+.snow-before-book .cover-border>p{position:relative;margin:8px 7% 0;font-size:clamp(12px,1.2vw,17px);line-height:1.25;color:#fff5ce;text-shadow:0 2px 6px #2e2117;z-index:2}
