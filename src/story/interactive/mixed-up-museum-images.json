@@ -1,0 +1,145 @@
+{
+  "cover": "images/story/mixed-up-museum-v1/cover.webp",
+  "pages": [
+    {
+      "number": 1,
+      "image": "images/story/mixed-up-museum-v1/scene/01.webp",
+      "alt": "A museum ticket · 一張小小的博物館票券在瑜瑜熟悉的臥室裡升起。彩色紙屑從票邊飄出，在窗邊聚集。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 2,
+      "image": "images/story/mixed-up-museum-v1/scene/02.webp",
+      "alt": "Paper doorway · 票券先發光，彩色紙屑才組成一道門。瑜瑜從門的另一端看見溫暖的博物館展廳。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 3,
+      "image": "images/story/mixed-up-museum-v1/scene/03.webp",
+      "alt": "Many exhibits · 瑜瑜走進擺滿化石、雕像與其他展品的展廳。親切的管理員正在準備新展覽。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 4,
+      "image": "images/story/mixed-up-museum-v1/scene/04.webp",
+      "alt": "Labels fly · 一陣短短的魔法風把圖像標籤吹離原位。它們落下時，已和上方展品對不上了。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 5,
+      "image": "images/story/mixed-up-museum-v1/scene/05.webp",
+      "alt": "A mixed-up room · 化石旁貼著雕像圖卡，光滑的木製品旁卻貼著化石圖卡。管理員請瑜瑜幫忙整理。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 6,
+      "image": "images/story/mixed-up-museum-v1/scene/06.webp",
+      "alt": "Look before moving · 瑜瑜沒有隨意交換標籤。她和管理員先仔細觀察一件展品，再決定哪張圖該放在旁邊。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 7,
+      "image": "images/story/mixed-up-museum-v1/scene/07.webp",
+      "alt": "Rough and smooth · 管理員提供可安全觸摸的樣本。瑜瑜比較粗糙石面與光滑雕刻面，發現兩者材質不同。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 8,
+      "image": "images/story/mixed-up-museum-v1/scene/08.webp",
+      "alt": "Wood and metal · 瑜瑜把木框放在其他木製品旁，把小金屬工具放在金屬品旁。每個材質類別都縮小了標籤的可能範圍。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 9,
+      "image": "images/story/mixed-up-museum-v1/scene/09.webp",
+      "alt": "The fossil shell · 瑜瑜觀察一件有清楚螺旋紋的化石。一張圖卡畫著相同形狀，但她先放在展品旁，等管理員核對。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 10,
+      "image": "images/story/mixed-up-museum-v1/scene/10.webp",
+      "alt": "A footprint · 附近有一個保存在石頭裡的腳印。雖然兩件展品都很古老，腳印是痕跡，不是一塊散落的骨頭。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 11,
+      "image": "images/story/mixed-up-museum-v1/scene/11.webp",
+      "alt": "Two close pictures · 兩張圖卡顏色相同，一張畫腳掌輪廓，另一張畫骨頭。瑜瑜比較形狀，沒有只憑顏色判斷。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 12,
+      "image": "images/story/mixed-up-museum-v1/scene/12.webp",
+      "alt": "The statue's base · 小雕像立在方形底座上，其中一張圖卡也畫了同樣底座。瑜瑜先配對，再請管理員確認。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 13,
+      "image": "images/story/mixed-up-museum-v1/scene/13.webp",
+      "alt": "One unknown object · 一件圓形物品和剩下的圖卡都不相符。瑜瑜沒有編出答案，而是保留空位，問管理員還能查什麼。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 14,
+      "image": "images/story/mixed-up-museum-v1/scene/14.webp",
+      "alt": "The record drawer · 管理員打開存放原始展品紀錄的抽屜。每張紀錄都有物品簡圖與原先展示位置。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 15,
+      "image": "images/story/mixed-up-museum-v1/scene/15.webp",
+      "alt": "Find the drawing · 瑜瑜找到一張畫，畫上的把手和圓頂都與未知物相符。管理員核對兩處細節後，才說出物品名稱。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 16,
+      "image": "images/story/mixed-up-museum-v1/scene/16.webp",
+      "alt": "Put labels back · 兩人只把確認過的圖像標籤放回展品旁。未知物的紀錄查清楚後，才補上它的標籤。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 17,
+      "image": "images/story/mixed-up-museum-v1/scene/17.webp",
+      "alt": "An orderly gallery · 每張標籤都回到正確展品旁，展廳又容易參觀了。訪客能清楚比較化石、雕像與各種材質。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 18,
+      "image": "images/story/mixed-up-museum-v1/scene/18.webp",
+      "alt": "How we knew · 瑜瑜告訴管理員，她如何用形狀、材質與原始紀錄辨認物品。管理員謝謝她先查證、沒有亂猜。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 19,
+      "image": "images/story/mixed-up-museum-v1/scene/19.webp",
+      "alt": "The ticket returns · 兩人道別後，博物館票券再次發光。彩色紙屑聚成一道安靜的門，通往瑜瑜的房間。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 20,
+      "image": "images/story/mixed-up-museum-v1/scene/20.webp",
+      "alt": "Back in her room · 回到熟悉臥室，瑜瑜把票券放在床邊。她記得，沒有答案的問題可以先保留，找到可靠線索再回答。",
+      "width": 960,
+      "height": 640
+    }
+  ]
+}

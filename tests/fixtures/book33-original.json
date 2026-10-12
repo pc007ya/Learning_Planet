@@ -1,0 +1,404 @@
+{
+  "levels": {
+    "A": {
+      "english": [
+        [
+          "A ticket glows."
+        ],
+        [
+          "The flecks make a door."
+        ],
+        [
+          "Gail sees the museum."
+        ],
+        [
+          "The labels fly away."
+        ],
+        [
+          "This label is wrong."
+        ],
+        [
+          "Gail looks closely."
+        ],
+        [
+          "One is rough."
+        ],
+        [
+          "This is wood."
+        ],
+        [
+          "Here is a fossil."
+        ],
+        [
+          "A foot made this mark."
+        ],
+        [
+          "These pictures are close."
+        ],
+        [
+          "The statue stands here."
+        ],
+        [
+          "Gail is not sure."
+        ],
+        [
+          "Open the drawer."
+        ],
+        [
+          "This drawing fits."
+        ],
+        [
+          "The labels go back."
+        ],
+        [
+          "The room is clear."
+        ],
+        [
+          "Gail tells the curator."
+        ],
+        [
+          "The ticket glows again."
+        ],
+        [
+          "Gail is home."
+        ]
+      ],
+      "chinese": [
+        [
+          "票券發光了。"
+        ],
+        [
+          "紙屑做出一道門。"
+        ],
+        [
+          "瑜瑜看見博物館。"
+        ],
+        [
+          "標籤飛走了。"
+        ],
+        [
+          "這張標籤錯了。"
+        ],
+        [
+          "瑜瑜仔細看。"
+        ],
+        [
+          "這個很粗糙。"
+        ],
+        [
+          "這是木頭。"
+        ],
+        [
+          "這是化石。"
+        ],
+        [
+          "這是腳印。"
+        ],
+        [
+          "兩張圖很像。"
+        ],
+        [
+          "雕像站在這裡。"
+        ],
+        [
+          "瑜瑜還不確定。"
+        ],
+        [
+          "打開抽屜。"
+        ],
+        [
+          "這張圖相符。"
+        ],
+        [
+          "標籤回去了。"
+        ],
+        [
+          "展廳清楚了。"
+        ],
+        [
+          "瑜瑜告訴管理員。"
+        ],
+        [
+          "票券又發光了。"
+        ],
+        [
+          "瑜瑜回家了。"
+        ]
+      ]
+    },
+    "B": {
+      "english": [
+        [
+          "A little museum ticket glows in Gail's room. Colored flecks drift from it."
+        ],
+        [
+          "The colored flecks open a doorway. Gail sees a museum beyond it."
+        ],
+        [
+          "Gail sees fossils, statues, and picture labels. A curator waves hello."
+        ],
+        [
+          "A magical breeze lifts the picture labels. They land under the wrong exhibits."
+        ],
+        [
+          "A fossil has a statue label. The curator asks Gail to help."
+        ],
+        [
+          "Gail does not move every label at once. She looks at one object first."
+        ],
+        [
+          "Gail feels a safe sample. One surface is rough and another is smooth."
+        ],
+        [
+          "Gail groups a wooden frame and a metal tool. They belong in different groups."
+        ],
+        [
+          "Gail spots a spiral in a fossil. A picture card shows the same spiral."
+        ],
+        [
+          "Gail finds a footprint pressed into stone. It is not the same as a loose bone."
+        ],
+        [
+          "Two cards look similar. Gail compares the shape inside each frame."
+        ],
+        [
+          "Gail finds a statue with a square base. Its picture card shows the same base."
+        ],
+        [
+          "One object does not fit any card. Gail sets it aside to ask about it."
+        ],
+        [
+          "The curator opens a record drawer. Old picture cards are inside."
+        ],
+        [
+          "Gail finds a drawing of the round object. The curator checks it too."
+        ],
+        [
+          "Gail and the curator return the checked picture labels to the right displays."
+        ],
+        [
+          "The museum display is clear again. Visitors can see what each object is."
+        ],
+        [
+          "Gail explains how she used shape and material. The curator thanks her."
+        ],
+        [
+          "The ticket lifts from Gail's hand. Colored flecks show her the way home."
+        ],
+        [
+          "Gail keeps the ticket by her bed. She remembers to ask when she is unsure."
+        ]
+      ],
+      "chinese": [
+        [
+          "小小的博物館票券在瑜瑜房裡發光。彩色紙屑飄出來。"
+        ],
+        [
+          "彩色紙屑打開一道門。瑜瑜看見博物館。"
+        ],
+        [
+          "瑜瑜看見化石、雕像和圖像標籤。管理員揮手。"
+        ],
+        [
+          "魔法風捲起圖像標籤，它們落在錯誤展品下。"
+        ],
+        [
+          "化石旁有雕像標籤。管理員請瑜瑜幫忙。"
+        ],
+        [
+          "瑜瑜沒有一下移動所有標籤。她先看一件物品。"
+        ],
+        [
+          "瑜瑜摸安全樣本。一種表面粗糙，另一種光滑。"
+        ],
+        [
+          "瑜瑜把木框與金屬工具分組。它們屬於不同組。"
+        ],
+        [
+          "瑜瑜看見化石的螺旋紋，一張圖卡也有同樣圖案。"
+        ],
+        [
+          "瑜瑜找到留在石頭上的腳印。它和骨頭不同。"
+        ],
+        [
+          "兩張卡片看起來相近。瑜瑜比較其中的形狀。"
+        ],
+        [
+          "瑜瑜找到有方形底座的雕像。圖卡也畫了同樣底座。"
+        ],
+        [
+          "一件物品對不上任何圖卡。瑜瑜先放著，再詢問。"
+        ],
+        [
+          "管理員打開紀錄抽屜，裡面有舊圖卡。"
+        ],
+        [
+          "瑜瑜找到未知物的圖。管理員也核對。"
+        ],
+        [
+          "瑜瑜和管理員把核對過的標籤放回正確展品旁。"
+        ],
+        [
+          "博物館展覽又清楚了。訪客能看懂每件物品。"
+        ],
+        [
+          "瑜瑜說明如何看形狀和材質。管理員謝謝她。"
+        ],
+        [
+          "票券從瑜瑜手中升起。彩色紙屑帶她回家。"
+        ],
+        [
+          "瑜瑜把票券放在床邊。她記得不確定時要提問。"
+        ]
+      ]
+    },
+    "C": {
+      "english": [
+        [
+          "A little museum ticket rises beside Gail in her familiar bedroom. Colored flecks lift from its edge and gather near the window."
+        ],
+        [
+          "Only after the ticket begins to glow do its paper flecks form a doorway. Gail sees a warm museum gallery on the other side."
+        ],
+        [
+          "Gail enters a gallery filled with fossils, statues, and other exhibits. The friendly curator is preparing a new display."
+        ],
+        [
+          "A brief magical breeze lifts the picture labels from their places. When they land, the labels no longer match the exhibits above them."
+        ],
+        [
+          "A fossil now has the picture label for a statue, while a smooth wooden object has a fossil label. The curator asks Gail to help sort them."
+        ],
+        [
+          "Gail resists swapping labels at random. She and the curator inspect one exhibit before deciding which picture belongs beside it."
+        ],
+        [
+          "The curator offers safe touch samples. Gail compares a rough stone surface with a smooth carved surface and notices they are not the same material."
+        ],
+        [
+          "Gail helps group a wooden frame with other wooden objects and a small metal tool with metal ones. Each material category narrows the possible labels."
+        ],
+        [
+          "Gail inspects a fossil with a clear spiral shape. One picture card shows the same shape, but she leaves it beside the exhibit until the curator checks it."
+        ],
+        [
+          "Nearby, Gail finds a footprint preserved in stone. Although both exhibits come from long ago, a footprint is a trace, not a loose bone."
+        ],
+        [
+          "Two picture cards share the same color, but one shows the outline of a foot and the other a bone. Gail compares shapes rather than colors alone."
+        ],
+        [
+          "The small statue stands on a square base that appears on one picture card. Gail pairs them, then asks the curator to confirm the match."
+        ],
+        [
+          "A round object fits none of the remaining pictures. Gail does not invent an answer; she keeps its place open and asks the curator what they can check."
+        ],
+        [
+          "The curator opens a drawer of original exhibit records. Each record includes a simple drawing of an object and where it was displayed."
+        ],
+        [
+          "Gail finds a drawing whose handle and round top match the unknown object. The curator checks both details before naming it."
+        ],
+        [
+          "Together they return only the confirmed picture labels to their exhibits. The unknown object's label is added after its record has been checked."
+        ],
+        [
+          "With each label beside the right exhibit, the gallery is easy to explore again. Visitors can compare the fossil, statue, and materials without confusion."
+        ],
+        [
+          "Gail tells the curator how shape, material, and the original records helped identify the objects. The curator thanks her for checking rather than guessing."
+        ],
+        [
+          "After they say goodbye, the museum ticket glows again. Its colored flecks gather into a quiet doorway back to Gail's room."
+        ],
+        [
+          "Back in her familiar bedroom, Gail places the ticket beside her bed. She remembers that an unanswered question can stay open until she finds good evidence."
+        ]
+      ],
+      "chinese": [
+        [
+          "一張小小的博物館票券在瑜瑜熟悉的臥室裡升起。彩色紙屑從票邊飄出，在窗邊聚集。"
+        ],
+        [
+          "票券先發光，彩色紙屑才組成一道門。瑜瑜從門的另一端看見溫暖的博物館展廳。"
+        ],
+        [
+          "瑜瑜走進擺滿化石、雕像與其他展品的展廳。親切的管理員正在準備新展覽。"
+        ],
+        [
+          "一陣短短的魔法風把圖像標籤吹離原位。它們落下時，已和上方展品對不上了。"
+        ],
+        [
+          "化石旁貼著雕像圖卡，光滑的木製品旁卻貼著化石圖卡。管理員請瑜瑜幫忙整理。"
+        ],
+        [
+          "瑜瑜沒有隨意交換標籤。她和管理員先仔細觀察一件展品，再決定哪張圖該放在旁邊。"
+        ],
+        [
+          "管理員提供可安全觸摸的樣本。瑜瑜比較粗糙石面與光滑雕刻面，發現兩者材質不同。"
+        ],
+        [
+          "瑜瑜把木框放在其他木製品旁，把小金屬工具放在金屬品旁。每個材質類別都縮小了標籤的可能範圍。"
+        ],
+        [
+          "瑜瑜觀察一件有清楚螺旋紋的化石。一張圖卡畫著相同形狀，但她先放在展品旁，等管理員核對。"
+        ],
+        [
+          "附近有一個保存在石頭裡的腳印。雖然兩件展品都很古老，腳印是痕跡，不是一塊散落的骨頭。"
+        ],
+        [
+          "兩張圖卡顏色相同，一張畫腳掌輪廓，另一張畫骨頭。瑜瑜比較形狀，沒有只憑顏色判斷。"
+        ],
+        [
+          "小雕像立在方形底座上，其中一張圖卡也畫了同樣底座。瑜瑜先配對，再請管理員確認。"
+        ],
+        [
+          "一件圓形物品和剩下的圖卡都不相符。瑜瑜沒有編出答案，而是保留空位，問管理員還能查什麼。"
+        ],
+        [
+          "管理員打開存放原始展品紀錄的抽屜。每張紀錄都有物品簡圖與原先展示位置。"
+        ],
+        [
+          "瑜瑜找到一張畫，畫上的把手和圓頂都與未知物相符。管理員核對兩處細節後，才說出物品名稱。"
+        ],
+        [
+          "兩人只把確認過的圖像標籤放回展品旁。未知物的紀錄查清楚後，才補上它的標籤。"
+        ],
+        [
+          "每張標籤都回到正確展品旁，展廳又容易參觀了。訪客能清楚比較化石、雕像與各種材質。"
+        ],
+        [
+          "瑜瑜告訴管理員，她如何用形狀、材質與原始紀錄辨認物品。管理員謝謝她先查證、沒有亂猜。"
+        ],
+        [
+          "兩人道別後，博物館票券再次發光。彩色紙屑聚成一道安靜的門，通往瑜瑜的房間。"
+        ],
+        [
+          "回到熟悉臥室，瑜瑜把票券放在床邊。她記得，沒有答案的問題可以先保留，找到可靠線索再回答。"
+        ]
+      ]
+    }
+  },
+  "words": [
+    "museum",
+    "exhibit",
+    "label",
+    "fossil",
+    "bone",
+    "footprint",
+    "statue",
+    "frame",
+    "display",
+    "drawer",
+    "group",
+    "category",
+    "material",
+    "wooden",
+    "metal",
+    "smooth",
+    "rough",
+    "inspect",
+    "identify",
+    "pair"
+  ]
+}

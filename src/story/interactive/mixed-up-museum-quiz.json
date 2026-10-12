@@ -1,0 +1,1643 @@
+{
+  "A": [
+    {
+      "id": "book33-A01",
+      "kind": "choice",
+      "prompt": "What floats beside Gail in this picture?",
+      "chinesePrompt": "圖中什麼浮在瑜瑜身旁？",
+      "options": [
+        {
+          "text": "A bone"
+        },
+        {
+          "text": "A frame"
+        },
+        {
+          "text": "A ticket"
+        },
+        {
+          "text": "A statue"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第1幕 / Scene 1: The floating ticket is beside Gail’s hand. It glows among colored flecks; the bone, frame and statue belong to museum scenes. 圖中票券浮在瑜瑜手旁並發光；骨頭、木框與雕像是博物館裡的展品。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "A ticket glows.",
+          "chinese": "票券發光了。"
+        }
+      ],
+      "image": "images/story/mixed-up-museum-v1/scene/01.webp",
+      "imageAlt": "A museum ticket"
+    },
+    {
+      "id": "book33-A02",
+      "kind": "choice",
+      "prompt": "What do the flecks make?",
+      "chinesePrompt": "紙屑做出什麼？",
+      "options": [
+        {
+          "text": "A door"
+        },
+        {
+          "text": "A label"
+        },
+        {
+          "text": "A drawer"
+        },
+        {
+          "text": "A frame"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第2幕 / Scene 2: The flecks make a door, so Gail can enter the story. A label, drawer and frame appear later in the museum. 紙屑組成一道門，讓瑜瑜進入故事；標籤、抽屜與木框是後來的博物館物件。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 2,
+          "quote": "The flecks make a door.",
+          "chinese": "紙屑做出一道門。"
+        }
+      ]
+    },
+    {
+      "id": "book33-A03",
+      "kind": "choice",
+      "prompt": "Where is Gail in this picture?",
+      "chinesePrompt": "這張圖中瑜瑜在哪個地方？",
+      "options": [
+        {
+          "text": "The bedroom"
+        },
+        {
+          "text": "The drawer"
+        },
+        {
+          "text": "The ticket"
+        },
+        {
+          "text": "The museum"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第3幕 / Scene 3: The fossils, statues and exhibit displays place Gail in the museum. The picture does not show her bedroom; a drawer or ticket is an object, not this gallery. 圖中化石、雕像與展示台顯示她進入博物館；沒有臥室的床或窗景，抽屜與票券也不是圖中的展廳。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 3,
+          "quote": "Gail sees the museum.",
+          "chinese": "瑜瑜看見博物館。"
+        }
+      ],
+      "image": "images/story/mixed-up-museum-v1/scene/03.webp",
+      "imageAlt": "Gail enters the museum gallery"
+    },
+    {
+      "id": "book33-A04",
+      "kind": "choice",
+      "prompt": "What flies away?",
+      "chinesePrompt": "什麼飛走了？",
+      "options": [
+        {
+          "text": "The statues"
+        },
+        {
+          "text": "The labels"
+        },
+        {
+          "text": "The fossils"
+        },
+        {
+          "text": "The frames"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第4幕 / Scene 4: The labels fly away. The story does not say the statues, fossils or frames fly with them. 飛走的是標籤；本頁沒有說雕像、化石或木框一起飛走。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 4,
+          "quote": "The labels fly away.",
+          "chinese": "標籤飛走了。"
+        }
+      ]
+    },
+    {
+      "id": "book33-A05",
+      "kind": "choice",
+      "prompt": "What is wrong beside the fossil in this picture?",
+      "chinesePrompt": "圖中化石旁的什麼配錯了？",
+      "options": [
+        {
+          "text": "The label"
+        },
+        {
+          "text": "The door"
+        },
+        {
+          "text": "The ticket"
+        },
+        {
+          "text": "The drawer"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第5幕 / Scene 5: The fossil has a statue picture label beside it, so that label is wrong. The door, ticket and drawer do not form this mistaken exhibit-and-label pair. 化石旁放的是雕像圖卡，因此配錯的是標籤；門、票券與抽屜不是這組展品和圖卡的錯配。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 5,
+          "quote": "This label is wrong.",
+          "chinese": "這張標籤錯了。"
+        }
+      ],
+      "image": "images/story/mixed-up-museum-v1/scene/05.webp",
+      "imageAlt": "The fossil has a statue picture label"
+    },
+    {
+      "id": "book33-A06",
+      "kind": "choice",
+      "prompt": "What does Gail do closely?",
+      "chinesePrompt": "瑜瑜仔細做什麼？",
+      "options": [
+        {
+          "text": "Groups"
+        },
+        {
+          "text": "Tells"
+        },
+        {
+          "text": "Looks"
+        },
+        {
+          "text": "Opens"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第6幕 / Scene 6: Gail looks closely before the later sorting and checking. Grouping, telling and opening are other actions in the story. 瑜瑜此時仔細看；分組、說明與打開抽屜是故事其他時候的動作。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "Gail looks closely.",
+          "chinese": "瑜瑜仔細看。"
+        }
+      ]
+    },
+    {
+      "id": "book33-A07",
+      "kind": "choice",
+      "prompt": "How is one surface described here?",
+      "chinesePrompt": "這頁說一種表面怎樣？",
+      "options": [
+        {
+          "text": "Clear"
+        },
+        {
+          "text": "Rough"
+        },
+        {
+          "text": "Wrong"
+        },
+        {
+          "text": "Close"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第7幕 / Scene 7: The page uses rough for a surface. Clear describes the room, wrong describes a label, and close describes pictures elsewhere. 本頁用 rough 描述表面；clear、wrong 與 close 在其他頁分別描述展廳、標籤與圖片。",
+      "skill": "vocabulary",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "One is rough.",
+          "chinese": "這個很粗糙。"
+        }
+      ]
+    },
+    {
+      "id": "book33-A08",
+      "kind": "choice",
+      "prompt": "What is Gail holding in this picture?",
+      "chinesePrompt": "這張圖中瑜瑜拿著什麼？",
+      "options": [
+        {
+          "text": "A metal tool"
+        },
+        {
+          "text": "A fossil"
+        },
+        {
+          "text": "A ticket"
+        },
+        {
+          "text": "A wooden frame"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第8幕 / Scene 8: Gail holds the wooden frame with both hands. The metal objects sit on the other mat; she is not holding them. 瑜瑜雙手拿著木框；金屬物件在另一張墊子上，不在她手裡。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "This is wood.",
+          "chinese": "這是木頭。"
+        }
+      ],
+      "image": "images/story/mixed-up-museum-v1/scene/08.webp",
+      "imageAlt": "Wood and metal"
+    },
+    {
+      "id": "book33-A09",
+      "kind": "choice",
+      "prompt": "What is Gail pointing at in this picture?",
+      "chinesePrompt": "圖中瑜瑜指著什麼？",
+      "options": [
+        {
+          "text": "A drawer"
+        },
+        {
+          "text": "A ticket"
+        },
+        {
+          "text": "A fossil"
+        },
+        {
+          "text": "A frame"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第9幕 / Scene 9: Gail points at the large fossil with a spiral shape. The displayed picture fixes the moment: she is not pointing at a drawer, ticket or wooden frame. 圖中瑜瑜的手指向有螺旋紋的大化石；這個明確時點不是開抽屜、看票券或拿木框。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "Here is a fossil.",
+          "chinese": "這是化石。"
+        }
+      ],
+      "image": "images/story/mixed-up-museum-v1/scene/09.webp",
+      "imageAlt": "Gail points at the spiral fossil"
+    },
+    {
+      "id": "book33-A10",
+      "kind": "choice",
+      "prompt": "What made this mark?",
+      "chinesePrompt": "什麼留下這個痕跡？",
+      "options": [
+        {
+          "text": "A frame"
+        },
+        {
+          "text": "A foot"
+        },
+        {
+          "text": "A label"
+        },
+        {
+          "text": "A drawer"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第10幕 / Scene 10: The sentence says a foot made the mark. The other choices are objects from the museum, not what made this footprint. 句子直接說腳留下痕跡；其他選項是博物館物件，不是留下腳印的東西。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "A foot made this mark.",
+          "chinese": "這是腳印。"
+        }
+      ]
+    },
+    {
+      "id": "book33-A11",
+      "kind": "choice",
+      "prompt": "What do Gail’s two cards show in this picture?",
+      "chinesePrompt": "圖中瑜瑜的兩張卡畫著什麼？",
+      "options": [
+        {
+          "text": "A fossil and a statue"
+        },
+        {
+          "text": "A frame and a tool"
+        },
+        {
+          "text": "A ticket and a drawer"
+        },
+        {
+          "text": "A foot and a bone"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第11幕 / Scene 11: One card shows a foot shape and the other shows a bone. Those visible drawings, not their similar card backgrounds, distinguish them. 一張畫腳掌形狀，另一張畫骨頭；辨認依據是卡上可見的圖案。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "These pictures are close.",
+          "chinese": "兩張圖很像。"
+        }
+      ],
+      "image": "images/story/mixed-up-museum-v1/scene/11.webp",
+      "imageAlt": "Two close pictures"
+    },
+    {
+      "id": "book33-A12",
+      "kind": "choice",
+      "prompt": "What stands here?",
+      "chinesePrompt": "什麼立在這裡？",
+      "options": [
+        {
+          "text": "The statue"
+        },
+        {
+          "text": "The ticket"
+        },
+        {
+          "text": "The label"
+        },
+        {
+          "text": "The drawer"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第12幕 / Scene 12: This page says the statue stands here. It names the standing exhibit, not the ticket, label or drawer used elsewhere. 本頁寫雕像立在這裡，介紹的是展品，不是其他頁的票券、標籤或抽屜。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "The statue stands here.",
+          "chinese": "雕像站在這裡。"
+        }
+      ]
+    },
+    {
+      "id": "book33-A13",
+      "kind": "choice",
+      "prompt": "Before the drawer opens, is Gail sure about the round object?",
+      "chinesePrompt": "打開紀錄抽屜之前，瑜瑜確定圓形未知物的答案了嗎？",
+      "options": [
+        {
+          "text": "It fits"
+        },
+        {
+          "text": "Not sure"
+        },
+        {
+          "text": "It is clear"
+        },
+        {
+          "text": "It is wrong"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第13幕 / Scene 13: Before the record drawer is opened, the round object has no matching card and Gail is not sure. A fit or confirmed answer comes only after they check the record. 打開紀錄抽屜之前，圓形未知物還找不到相符圖卡，瑜瑜還不確定；不能把後來核對成功的狀態提前套用。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "Gail is not sure.",
+          "chinese": "瑜瑜還不確定。"
+        }
+      ]
+    },
+    {
+      "id": "book33-A14",
+      "kind": "choice",
+      "prompt": "What is opened?",
+      "chinesePrompt": "什麼被打開？",
+      "options": [
+        {
+          "text": "The frame"
+        },
+        {
+          "text": "The label"
+        },
+        {
+          "text": "The statue"
+        },
+        {
+          "text": "The drawer"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第14幕 / Scene 14: Open the drawer names the opened object. The frame, label and statue are exhibits or cards rather than this storage place. 「打開抽屜」直接指出物件；其他選項是展品或卡片，不是此處的收納處。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 14,
+          "quote": "Open the drawer.",
+          "chinese": "打開抽屜。"
+        }
+      ]
+    },
+    {
+      "id": "book33-A15",
+      "kind": "choice",
+      "prompt": "What goes back beside the exhibits?",
+      "chinesePrompt": "什麼被放回展品旁？",
+      "options": [
+        {
+          "text": "The labels"
+        },
+        {
+          "text": "The flecks"
+        },
+        {
+          "text": "The ticket"
+        },
+        {
+          "text": "The drawer"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第16幕 / Scene 16: The checked labels go back beside the exhibits. The ticket later returns to Gail’s bedroom, while the flecks make the doorway; neither is returned as an exhibit label. 放回展品旁的是核對過的標籤；票券之後回到瑜瑜房間，紙屑組成門，都不是展品旁歸位的標籤。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 16,
+          "quote": "The labels go back.",
+          "chinese": "標籤回去了。"
+        }
+      ]
+    },
+    {
+      "id": "book33-A16",
+      "kind": "choice",
+      "prompt": "Where is Gail in the last picture?",
+      "chinesePrompt": "最後一張圖中瑜瑜在哪裡？",
+      "options": [
+        {
+          "text": "The gallery"
+        },
+        {
+          "text": "The record area"
+        },
+        {
+          "text": "Her bedroom"
+        },
+        {
+          "text": "The exhibit table"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第20幕 / Scene 20: The bed, moonlit window and bedside furniture show Gail’s bedroom. She has returned home rather than standing among exhibits. 床、月亮窗景與床邊家具顯示她回到臥室，身旁不是博物館展品。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 20,
+          "quote": "Gail is home.",
+          "chinese": "瑜瑜回家了。"
+        }
+      ],
+      "image": "images/story/mixed-up-museum-v1/scene/20.webp",
+      "imageAlt": "Back in her room"
+    }
+  ],
+  "B": [
+    {
+      "id": "book33-B01",
+      "kind": "choice",
+      "prompt": "Where does the little ticket glow?",
+      "chinesePrompt": "小票券在哪裡發光？",
+      "options": [
+        {
+          "text": "In the record drawer"
+        },
+        {
+          "text": "In Gail’s room"
+        },
+        {
+          "text": "Under a fossil"
+        },
+        {
+          "text": "Beside a metal tool"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第1幕 / Scene 1: The ticket glows in Gail’s room, and colored flecks drift from it. The other places belong to the later museum visit. 票券在瑜瑜房裡發光並飄出紙屑；其他位置屬於後來的博物館情節。",
+      "skill": "linked-detail",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "A little museum ticket glows in Gail's room. Colored flecks drift from it.",
+          "chinese": "小小的博物館票券在瑜瑜房裡發光。彩色紙屑飄出來。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B02",
+      "kind": "choice",
+      "prompt": "Where do the picture labels land after the breeze?",
+      "chinesePrompt": "風吹過後，圖像標籤落在哪裡？",
+      "options": [
+        {
+          "text": "Inside the record drawer"
+        },
+        {
+          "text": "Beside Gail’s bed"
+        },
+        {
+          "text": "On the touch samples"
+        },
+        {
+          "text": "Under the wrong exhibits"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第4幕 / Scene 4: The breeze lifts the labels, then they land under the wrong exhibits. This explains why the display needs sorting. 風先吹起標籤，再讓它們落到錯的展品下，因此展覽需要整理。",
+      "skill": "cause-result",
+      "evidence": [
+        {
+          "scene": 4,
+          "quote": "A magical breeze lifts the picture labels. They land under the wrong exhibits.",
+          "chinese": "魔法風捲起圖像標籤，它們落在錯誤展品下。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B03",
+      "kind": "choice",
+      "prompt": "What does Gail do first when she helps with the labels?",
+      "chinesePrompt": "瑜瑜幫忙整理標籤時先做什麼？",
+      "options": [
+        {
+          "text": "Looks at one object"
+        },
+        {
+          "text": "Moves every label"
+        },
+        {
+          "text": "Opens the record drawer"
+        },
+        {
+          "text": "Explains the finished display"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第5、6幕 / Scene 5、6: The curator asks for help, but Gail does not move all labels at once. She first looks at one object; the drawer and explanation come later. 管理員請她幫忙後，她先看一件物品；開抽屜和最後說明都在後面。",
+      "skill": "sequence",
+      "evidence": [
+        {
+          "scene": 5,
+          "quote": "A fossil has a statue label. The curator asks Gail to help.",
+          "chinese": "化石旁有雕像標籤。管理員請瑜瑜幫忙。"
+        },
+        {
+          "scene": 6,
+          "quote": "Gail does not move every label at once. She looks at one object first.",
+          "chinese": "瑜瑜沒有一下移動所有標籤。她先看一件物品。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B04",
+      "kind": "choice",
+      "prompt": "How are the two safe sample surfaces different?",
+      "chinesePrompt": "兩種安全樣本表面有何不同？",
+      "options": [
+        {
+          "text": "One has a foot and one has a bone"
+        },
+        {
+          "text": "One is a frame and one is a tool"
+        },
+        {
+          "text": "One is rough and one is smooth"
+        },
+        {
+          "text": "One fits and one has no card"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第7幕 / Scene 7: The safe samples let Gail feel a rough surface and a smooth one. The other contrasts concern later objects or cards. 安全樣本讓她感受粗糙與光滑；其他差異是在別的展品或圖卡上看到。",
+      "skill": "compare",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "Gail feels a safe sample. One surface is rough and another is smooth.",
+          "chinese": "瑜瑜摸安全樣本。一種表面粗糙，另一種光滑。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B05",
+      "kind": "choice",
+      "prompt": "Why do the frame and tool go in different groups?",
+      "chinesePrompt": "木框與工具為什麼放在不同組？",
+      "options": [
+        {
+          "text": "The frame is rough and the tool is smooth"
+        },
+        {
+          "text": "The frame is old and the tool is new"
+        },
+        {
+          "text": "The frame is wooden and the tool is metal"
+        },
+        {
+          "text": "The frame fits and the tool is unknown"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第8幕 / Scene 8: This page calls them a wooden frame and a metal tool, then puts them in different groups. Material is the stated difference. 本頁明說木框與金屬工具分在不同組，依據是材質，而非另外推測的表面或年代。",
+      "skill": "classify",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "Gail groups a wooden frame and a metal tool. They belong in different groups.",
+          "chinese": "瑜瑜把木框與金屬工具分組。它們屬於不同組。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B06",
+      "kind": "choice",
+      "prompt": "What matches the fossil and its picture card?",
+      "chinesePrompt": "化石和圖卡哪個細節相同？",
+      "options": [
+        {
+          "text": "Their spiral shape"
+        },
+        {
+          "text": "Their square base"
+        },
+        {
+          "text": "Their round handle"
+        },
+        {
+          "text": "Their foot outline"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第9幕 / Scene 9: Gail spots a spiral in the fossil, and the card shows the same spiral. The base, handle and foot belong to other exhibits. 化石與圖卡都有螺旋紋；底座、把手與腳掌輪廓是其他展品的線索。",
+      "skill": "matching-detail",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "Gail spots a spiral in a fossil. A picture card shows the same spiral.",
+          "chinese": "瑜瑜看見化石的螺旋紋，一張圖卡也有同樣圖案。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B07",
+      "kind": "choice",
+      "prompt": "What does Gail find pressed into stone?",
+      "chinesePrompt": "瑜瑜在石頭上找到什麼？",
+      "options": [
+        {
+          "text": "A loose bone"
+        },
+        {
+          "text": "A wooden frame"
+        },
+        {
+          "text": "A round object"
+        },
+        {
+          "text": "A footprint"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第10幕 / Scene 10: The footprint is pressed into stone, and the page explicitly says it differs from a loose bone. 木框與未知物也不是這件展品；第10幕明確說石頭上留著腳印，並把它和散落骨頭區分。",
+      "skill": "contrast",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "Gail finds a footprint pressed into stone. It is not the same as a loose bone.",
+          "chinese": "瑜瑜找到留在石頭上的腳印。它和骨頭不同。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B08",
+      "kind": "choice",
+      "prompt": "What does Gail compare inside the similar cards?",
+      "chinesePrompt": "瑜瑜比較相近卡片中的什麼？",
+      "options": [
+        {
+          "text": "The materials"
+        },
+        {
+          "text": "The shapes"
+        },
+        {
+          "text": "The display places"
+        },
+        {
+          "text": "The record dates"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第11幕 / Scene 11: The cards look similar, so Gail compares the shape inside each frame. This page does not say she uses material, position or dates. 卡片外觀看似相近，她便比較框內的形狀；本頁沒有用材質、位置或日期作判斷。",
+      "skill": "clue",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "Two cards look similar. Gail compares the shape inside each frame.",
+          "chinese": "兩張卡片看起來相近。瑜瑜比較其中的形狀。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B09",
+      "kind": "choice",
+      "prompt": "Which detail appears on the statue and its card?",
+      "chinesePrompt": "雕像和圖卡都有哪個細節？",
+      "options": [
+        {
+          "text": "A square base"
+        },
+        {
+          "text": "A spiral mark"
+        },
+        {
+          "text": "A foot shape"
+        },
+        {
+          "text": "A round handle"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第12幕 / Scene 12: Gail finds a statue with a square base, and its card shows that same base. The other features are clues from other objects. 雕像與圖卡都顯示方形底座；其他形狀屬於別的展品。",
+      "skill": "matching-detail",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "Gail finds a statue with a square base. Its picture card shows the same base.",
+          "chinese": "瑜瑜找到有方形底座的雕像。圖卡也畫了同樣底座。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B10",
+      "kind": "choice",
+      "prompt": "Why does Gail set one object aside?",
+      "chinesePrompt": "瑜瑜為什麼先把一件物品放著？",
+      "options": [
+        {
+          "text": "It has a matching spiral"
+        },
+        {
+          "text": "It belongs with the metal tools"
+        },
+        {
+          "text": "It does not fit any card"
+        },
+        {
+          "text": "It already has a checked label"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第13幕 / Scene 13: No card fits that object, so Gail sets it aside to ask. The story does not give it a confirmed card or group yet. 沒有圖卡相符，她先放著再詢問；此時還不能當成已確認的配對。",
+      "skill": "cause-action",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "One object does not fit any card. Gail sets it aside to ask about it.",
+          "chinese": "一件物品對不上任何圖卡。瑜瑜先放著，再詢問。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B11",
+      "kind": "choice",
+      "prompt": "What is inside the record drawer?",
+      "chinesePrompt": "紀錄抽屜裡有什麼？",
+      "options": [
+        {
+          "text": "Safe touch samples"
+        },
+        {
+          "text": "Old picture cards"
+        },
+        {
+          "text": "Wooden frames"
+        },
+        {
+          "text": "Metal tools"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第14幕 / Scene 14: The curator opens a record drawer with old picture cards inside. Those stored cards supply information, rather than another sample or tool. 管理員打開存有舊圖卡的抽屜；裡面是可查閱的紀錄，非另一批觸摸樣本或工具。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 14,
+          "quote": "The curator opens a record drawer. Old picture cards are inside.",
+          "chinese": "管理員打開紀錄抽屜，裡面有舊圖卡。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B12",
+      "kind": "choice",
+      "prompt": "Who also checks the drawing Gail finds?",
+      "chinesePrompt": "誰也核對瑜瑜找到的圖？",
+      "options": [
+        {
+          "text": "A visitor"
+        },
+        {
+          "text": "Gail alone"
+        },
+        {
+          "text": "Nobody else"
+        },
+        {
+          "text": "The curator"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第15幕 / Scene 15: Gail finds the drawing of the round object, and the curator checks it too. The word too shows that the checking is shared. 瑜瑜找到圓形未知物的圖，管理員也核對；too 表示不是她獨自判斷。",
+      "skill": "agent-link",
+      "evidence": [
+        {
+          "scene": 15,
+          "quote": "Gail finds a drawing of the round object. The curator checks it too.",
+          "chinese": "瑜瑜找到未知物的圖。管理員也核對。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B13",
+      "kind": "choice",
+      "prompt": "Which labels do Gail and the curator put back?",
+      "chinesePrompt": "瑜瑜和管理員放回哪些標籤？",
+      "options": [
+        {
+          "text": "The nearest picture labels"
+        },
+        {
+          "text": "All the similar picture cards"
+        },
+        {
+          "text": "The unconfirmed picture cards"
+        },
+        {
+          "text": "The checked picture labels"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第16幕 / Scene 16: They return checked picture labels to the right displays. Being near or similar is not the checking condition given here. 他們把核對過的標籤放回正確展品旁；位置近或看來相似，並不等於已核對。",
+      "skill": "condition",
+      "evidence": [
+        {
+          "scene": 16,
+          "quote": "Gail and the curator return the checked picture labels to the right displays.",
+          "chinese": "瑜瑜和管理員把核對過的標籤放回正確展品旁。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B14",
+      "kind": "choice",
+      "prompt": "What can visitors do when the display is clear again?",
+      "chinesePrompt": "展覽清楚後，訪客可以做什麼？",
+      "options": [
+        {
+          "text": "Feel every exhibit"
+        },
+        {
+          "text": "See what each object is"
+        },
+        {
+          "text": "Move all the cards"
+        },
+        {
+          "text": "Open the ticket doorway"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第17幕 / Scene 17: A clear display lets visitors see what each object is. The page does not authorize touching, moving labels or using Gail’s doorway. 清楚的展覽讓訪客看懂物品；這頁沒有說要摸展品、搬卡片或開瑜瑜的門。",
+      "skill": "result",
+      "evidence": [
+        {
+          "scene": 17,
+          "quote": "The museum display is clear again. Visitors can see what each object is.",
+          "chinese": "博物館展覽又清楚了。訪客能看懂每件物品。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B15",
+      "kind": "choice",
+      "prompt": "What does Gail say she used to sort the objects?",
+      "chinesePrompt": "瑜瑜說她用了什麼整理物品？",
+      "options": [
+        {
+          "text": "Color and position"
+        },
+        {
+          "text": "Age and size"
+        },
+        {
+          "text": "Shape and material"
+        },
+        {
+          "text": "Light and sound"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第18幕 / Scene 18: Gail explains how she used shape and material. These are the two clues named on this page, not the other suggested pairs. 本頁明列形狀和材質，其他選項的線索組合並未出現在這段說明。",
+      "skill": "linked-detail",
+      "evidence": [
+        {
+          "scene": 18,
+          "quote": "Gail explains how she used shape and material. The curator thanks her.",
+          "chinese": "瑜瑜說明如何看形狀和材質。管理員謝謝她。"
+        }
+      ]
+    },
+    {
+      "id": "book33-B16",
+      "kind": "choice",
+      "prompt": "What does Gail remember after she follows the flecks home?",
+      "chinesePrompt": "瑜瑜跟紙屑回家後記得什麼？",
+      "options": [
+        {
+          "text": "Ask when she is unsure"
+        },
+        {
+          "text": "Move every label first"
+        },
+        {
+          "text": "Use the nearest picture card"
+        },
+        {
+          "text": "Feel each exhibit herself"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第19、20幕 / Scene 19、20: The flecks show the way home. Back by her bed, Gail remembers to ask when unsure, connecting the museum problem to what she learned. 紙屑帶她回家後，她記得不確定就提問，把博物館經驗帶回生活。",
+      "skill": "lesson-sequence",
+      "evidence": [
+        {
+          "scene": 19,
+          "quote": "The ticket lifts from Gail's hand. Colored flecks show her the way home.",
+          "chinese": "票券從瑜瑜手中升起。彩色紙屑帶她回家。"
+        },
+        {
+          "scene": 20,
+          "quote": "Gail keeps the ticket by her bed. She remembers to ask when she is unsure.",
+          "chinese": "瑜瑜把票券放在床邊。她記得不確定時要提問。"
+        }
+      ]
+    }
+  ],
+  "C": [
+    {
+      "id": "book33-C01",
+      "kind": "choice",
+      "prompt": "Which action must happen before the museum doorway forms?",
+      "chinesePrompt": "博物館入口形成前，哪個動作必須先發生？",
+      "options": [
+        {
+          "text": "Gail pairs an exhibit with a card"
+        },
+        {
+          "text": "The curator checks an original record"
+        },
+        {
+          "text": "Gail puts the ticket beside her bed"
+        },
+        {
+          "text": "The ticket begins to glow"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第1、2幕 / Scene 1、2: The first scene starts the glowing ticket; scene2 explicitly says the doorway forms only afterward. Pairing, checking records and putting the ticket away are later events. 第1、2幕明示票券先發光才組成門，另外三個動作都在之後。",
+      "skill": "cross-scene-sequence",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "A little museum ticket rises beside Gail in her familiar bedroom. Colored flecks lift from its edge and gather near the window.",
+          "chinese": "一張小小的博物館票券在瑜瑜熟悉的臥室裡升起。彩色紙屑從票邊飄出，在窗邊聚集。"
+        },
+        {
+          "scene": 2,
+          "quote": "Only after the ticket begins to glow do its paper flecks form a doorway. Gail sees a warm museum gallery on the other side.",
+          "chinese": "票券先發光，彩色紙屑才組成一道門。瑜瑜從門的另一端看見溫暖的博物館展廳。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C02",
+      "kind": "choice",
+      "prompt": "Why does the curator need Gail’s help after the breeze?",
+      "chinesePrompt": "風吹過後管理員為什麼需要瑜瑜幫忙？",
+      "options": [
+        {
+          "text": "The exhibits have all changed their material"
+        },
+        {
+          "text": "The cards no longer identify the exhibits correctly"
+        },
+        {
+          "text": "The records no longer contain any drawings"
+        },
+        {
+          "text": "The gallery has no places left for the objects"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第4、5幕 / Scene 4、5: The breeze moves labels away from their exhibits. The fossil gets a statue card and the wooden object gets a fossil card, so the identification is mixed up. 第4、5幕的問題是圖卡與展品錯配，沒有證據說材質、紀錄或展示空間變了。",
+      "skill": "cause-evidence",
+      "evidence": [
+        {
+          "scene": 4,
+          "quote": "A brief magical breeze lifts the picture labels from their places. When they land, the labels no longer match the exhibits above them.",
+          "chinese": "一陣短短的魔法風把圖像標籤吹離原位。它們落下時，已和上方展品對不上了。"
+        },
+        {
+          "scene": 5,
+          "quote": "A fossil now has the picture label for a statue, while a smooth wooden object has a fossil label. The curator asks Gail to help sort them.",
+          "chinese": "化石旁貼著雕像圖卡，光滑的木製品旁卻貼著化石圖卡。管理員請瑜瑜幫忙整理。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C03",
+      "kind": "choice",
+      "prompt": "Which pattern best describes how Gail chooses a label?",
+      "chinesePrompt": "哪個步驟模式最符合瑜瑜選標籤的方法？",
+      "options": [
+        {
+          "text": "Choose a color, return the card, then inspect the feature"
+        },
+        {
+          "text": "Swap all cards, compare positions, then keep the nearest one"
+        },
+        {
+          "text": "Inspect a feature, propose a match, then seek confirmation"
+        },
+        {
+          "text": "Name the object, open a drawer, then choose any similar card"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第6、9、12幕 / Scene 6、9、12: Scene6 begins with inspection. The spiral and square base lead to possible matches in scenes9 and12, but Gail still asks for the curator’s check. 第6、9、12幕依序呈現觀察特徵、暫時配對和請管理員確認，沒有先貼好再找理由。",
+      "skill": "method-sequence",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "Gail resists swapping labels at random. She and the curator inspect one exhibit before deciding which picture belongs beside it.",
+          "chinese": "瑜瑜沒有隨意交換標籤。她和管理員先仔細觀察一件展品，再決定哪張圖該放在旁邊。"
+        },
+        {
+          "scene": 9,
+          "quote": "Gail inspects a fossil with a clear spiral shape. One picture card shows the same shape, but she leaves it beside the exhibit until the curator checks it.",
+          "chinese": "瑜瑜觀察一件有清楚螺旋紋的化石。一張圖卡畫著相同形狀，但她先放在展品旁，等管理員核對。"
+        },
+        {
+          "scene": 12,
+          "quote": "The small statue stands on a square base that appears on one picture card. Gail pairs them, then asks the curator to confirm the match.",
+          "chinese": "小雕像立在方形底座上，其中一張圖卡也畫了同樣底座。瑜瑜先配對，再請管理員確認。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C04",
+      "kind": "choice",
+      "prompt": "How does comparing the safe samples help the next sorting step?",
+      "chinesePrompt": "比較安全樣本如何幫助下一步分組？",
+      "options": [
+        {
+          "text": "It highlights material differences that guide the groups"
+        },
+        {
+          "text": "It shows that every smooth object needs a statue label"
+        },
+        {
+          "text": "It proves that wooden and metal objects share one category"
+        },
+        {
+          "text": "It replaces the curator’s later checks of the picture cards"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第7、8幕 / Scene 7、8: The samples reveal different materials; the next scene groups wood with wood and metal with metal. Surface comparison helps narrow choices, but does not replace later checks. 第7、8幕從材質差異走向材質分組，並沒有讓光滑表面自動等於雕像或免除核對。",
+      "skill": "linked-inference",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "The curator offers safe touch samples. Gail compares a rough stone surface with a smooth carved surface and notices they are not the same material.",
+          "chinese": "管理員提供可安全觸摸的樣本。瑜瑜比較粗糙石面與光滑雕刻面，發現兩者材質不同。"
+        },
+        {
+          "scene": 8,
+          "quote": "Gail helps group a wooden frame with other wooden objects and a small metal tool with metal ones. Each material category narrows the possible labels.",
+          "chinese": "瑜瑜把木框放在其他木製品旁，把小金屬工具放在金屬品旁。每個材質類別都縮小了標籤的可能範圍。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C05",
+      "kind": "choice",
+      "prompt": "What does a material category accomplish at this stage?",
+      "chinesePrompt": "這個階段材質類別有什麼作用？",
+      "options": [
+        {
+          "text": "It establishes an object’s exact display position"
+        },
+        {
+          "text": "It narrows the possible labels for an object"
+        },
+        {
+          "text": "It confirms an object’s name without a record"
+        },
+        {
+          "text": "It makes the drawings on every card identical"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第8幕 / Scene 8: Scene8 says each material category narrows possible labels. It is a useful filter, but exact identification still requires features and checks. 第8幕明說類別縮小標籤可能範圍，並不是直接確認名字、位置或更改圖卡。",
+      "skill": "scope-of-evidence",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "Gail helps group a wooden frame with other wooden objects and a small metal tool with metal ones. Each material category narrows the possible labels.",
+          "chinese": "瑜瑜把木框放在其他木製品旁，把小金屬工具放在金屬品旁。每個材質類別都縮小了標籤的可能範圍。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C06",
+      "kind": "choice",
+      "prompt": "Why does Gail leave the spiral card beside the fossil at first?",
+      "chinesePrompt": "瑜瑜為什麼先把螺旋圖卡放在化石旁？",
+      "options": [
+        {
+          "text": "A similar shape suggests a match that still needs checking"
+        },
+        {
+          "text": "The matching spiral proves the card is in the wrong group"
+        },
+        {
+          "text": "A matching picture must stay separate from its exhibit forever"
+        },
+        {
+          "text": "The curator has already rejected the card’s spiral shape"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第9、16幕 / Scene 9、16: Scene9 treats the shared spiral as a proposed match awaiting the curator. Scene16 returns only confirmed labels. Similarity is evidence to check, not a final decision by itself. 第9、16幕區分可能相符與已確認，先等核對才能放回。",
+      "skill": "confirmation",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "Gail inspects a fossil with a clear spiral shape. One picture card shows the same shape, but she leaves it beside the exhibit until the curator checks it.",
+          "chinese": "瑜瑜觀察一件有清楚螺旋紋的化石。一張圖卡畫著相同形狀，但她先放在展品旁，等管理員核對。"
+        },
+        {
+          "scene": 16,
+          "quote": "Together they return only the confirmed picture labels to their exhibits. The unknown object's label is added after its record has been checked.",
+          "chinese": "兩人只把確認過的圖像標籤放回展品旁。未知物的紀錄查清楚後，才補上它的標籤。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C07",
+      "kind": "choice",
+      "prompt": "Which clue best separates the footprint from the loose bone?",
+      "chinesePrompt": "哪個線索最能區分腳印和散落骨頭？",
+      "options": [
+        {
+          "text": "Both exhibits come from long ago in the same gallery"
+        },
+        {
+          "text": "Both picture cards share the same background color"
+        },
+        {
+          "text": "Both exhibits have a picture card placed nearby"
+        },
+        {
+          "text": "The foot outline is a trace, while the bone is an object"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第10、11幕 / Scene 10、11: Scene10 distinguishes a preserved trace from a loose bone; scene11 distinguishes their shapes even though card colors match. Age, color and having cards are shared features, so they do not separate them. 第10、11幕用痕跡和形狀分辨；年代、卡色與都有圖卡是共同點。",
+      "skill": "discriminating-clue",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "Nearby, Gail finds a footprint preserved in stone. Although both exhibits come from long ago, a footprint is a trace, not a loose bone.",
+          "chinese": "附近有一個保存在石頭裡的腳印。雖然兩件展品都很古老，腳印是痕跡，不是一塊散落的骨頭。"
+        },
+        {
+          "scene": 11,
+          "quote": "Two picture cards share the same color, but one shows the outline of a foot and the other a bone. Gail compares shapes rather than colors alone.",
+          "chinese": "兩張圖卡顏色相同，一張畫腳掌輪廓，另一張畫骨頭。瑜瑜比較形狀，沒有只憑顏色判斷。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C08",
+      "kind": "choice",
+      "prompt": "Why is color alone insufficient for choosing between these cards?",
+      "chinesePrompt": "為什麼只看顏色不足以選這兩張圖卡？",
+      "options": [
+        {
+          "text": "Each card changes color when the breeze moves it"
+        },
+        {
+          "text": "The foot and bone have been painted the same material"
+        },
+        {
+          "text": "The cards share a color but represent different shapes"
+        },
+        {
+          "text": "The curator has removed the outlines from both drawings"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第11幕 / Scene 11: The same card color cannot tell Gail which drawing is a foot and which is a bone. Comparing the represented shapes supplies the missing distinction. 第11幕兩卡同色卻畫不同形狀，因此必須看腳掌和骨頭的輪廓；其他說法沒有故事證據。",
+      "skill": "contrast-evidence",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "Two picture cards share the same color, but one shows the outline of a foot and the other a bone. Gail compares shapes rather than colors alone.",
+          "chinese": "兩張圖卡顏色相同，一張畫腳掌輪廓，另一張畫骨頭。瑜瑜比較形狀，沒有只憑顏色判斷。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C09",
+      "kind": "choice",
+      "prompt": "What supports Gail’s proposed match for the small statue?",
+      "chinesePrompt": "什麼支持瑜瑜替小雕像提出的配對？",
+      "options": [
+        {
+          "text": "The object and card both show a square base"
+        },
+        {
+          "text": "The card is the same color as the nearby fossil card"
+        },
+        {
+          "text": "The card is the first one she finds in the drawer"
+        },
+        {
+          "text": "The object is round like the still-unknown exhibit"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第12幕 / Scene 12: The square base appears on the statue and on one picture card. Gail uses that shared feature, then requests confirmation. 第12幕兩者的方形底座相同，才形成待確認的配對；卡色、抽屜順序或圓形未知物都不是依據。",
+      "skill": "feature-evidence",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "The small statue stands on a square base that appears on one picture card. Gail pairs them, then asks the curator to confirm the match.",
+          "chinese": "小雕像立在方形底座上，其中一張圖卡也畫了同樣底座。瑜瑜先配對，再請管理員確認。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C10",
+      "kind": "choice",
+      "prompt": "What changes the investigation when no remaining card fits?",
+      "chinesePrompt": "剩下圖卡都不合時，哪一步改變了查找方向？",
+      "options": [
+        {
+          "text": "They group all the remaining objects under the same round label"
+        },
+        {
+          "text": "They return the closest-looking card before checking its details"
+        },
+        {
+          "text": "They choose a name from the empty places in the display"
+        },
+        {
+          "text": "They consult original exhibit records while keeping the answer open"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第13、14幕 / Scene 13、14: Gail keeps the place open in scene13 and asks what to check. Scene14 supplies original records with object drawings and display places, adding another source of evidence. 第13、14幕先保留空位，再查原始紀錄，並非用相近圖卡或空位猜名。",
+      "skill": "uncertainty-and-evidence",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "A round object fits none of the remaining pictures. Gail does not invent an answer; she keeps its place open and asks the curator what they can check.",
+          "chinese": "一件圓形物品和剩下的圖卡都不相符。瑜瑜沒有編出答案，而是保留空位，問管理員還能查什麼。"
+        },
+        {
+          "scene": 14,
+          "quote": "The curator opens a drawer of original exhibit records. Each record includes a simple drawing of an object and where it was displayed.",
+          "chinese": "管理員打開存放原始展品紀錄的抽屜。每張紀錄都有物品簡圖與原先展示位置。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C11",
+      "kind": "choice",
+      "prompt": "Which record details support identifying the round unknown object?",
+      "chinesePrompt": "原始紀錄中的哪些細節支持辨認圓形未知物？",
+      "options": [
+        {
+          "text": "The drawing is stored next to a card with a square base"
+        },
+        {
+          "text": "The drawing’s color matches every label in the gallery"
+        },
+        {
+          "text": "The drawing’s handle and round top match the object"
+        },
+        {
+          "text": "The drawing has the same spiral as the fossil’s card"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第14、15幕 / Scene 14、15: Records provide object drawings. Scene15 checks the unknown object’s handle and round top against one drawing; these two details distinguish the match. 第14、15幕用紀錄圖上的把手與圓頂核對未知物，其他卡片的底座、顏色與螺旋不是其依據。",
+      "skill": "combined-details",
+      "evidence": [
+        {
+          "scene": 14,
+          "quote": "The curator opens a drawer of original exhibit records. Each record includes a simple drawing of an object and where it was displayed.",
+          "chinese": "管理員打開存放原始展品紀錄的抽屜。每張紀錄都有物品簡圖與原先展示位置。"
+        },
+        {
+          "scene": 15,
+          "quote": "Gail finds a drawing whose handle and round top match the unknown object. The curator checks both details before naming it.",
+          "chinese": "瑜瑜找到一張畫，畫上的把手和圓頂都與未知物相符。管理員核對兩處細節後，才說出物品名稱。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C12",
+      "kind": "choice",
+      "prompt": "When is it justified to add the unknown object’s label?",
+      "chinesePrompt": "何時才有依據補上未知物標籤？",
+      "options": [
+        {
+          "text": "As soon as its round shape is noticed"
+        },
+        {
+          "text": "After its original record has been checked"
+        },
+        {
+          "text": "When only one empty display place remains"
+        },
+        {
+          "text": "After a nearby card is moved out of the way"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第13、16幕 / Scene 13、16: Keeping the answer open in scene13 avoids inventing a name. Scene16 adds the label only after the record check, so neither shape alone nor an empty place is enough. 第13、16幕以查清紀錄為條件，僅看圓形或剩空位仍不足以確認。",
+      "skill": "evidence-condition",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "A round object fits none of the remaining pictures. Gail does not invent an answer; she keeps its place open and asks the curator what they can check.",
+          "chinese": "一件圓形物品和剩下的圖卡都不相符。瑜瑜沒有編出答案，而是保留空位，問管理員還能查什麼。"
+        },
+        {
+          "scene": 16,
+          "quote": "Together they return only the confirmed picture labels to their exhibits. The unknown object's label is added after its record has been checked.",
+          "chinese": "兩人只把確認過的圖像標籤放回展品旁。未知物的紀錄查清楚後，才補上它的標籤。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C13",
+      "kind": "choice",
+      "prompt": "Why is the gallery easier for visitors to explore at the end?",
+      "chinesePrompt": "最後展廳為什麼更容易讓訪客參觀？",
+      "options": [
+        {
+          "text": "Every object has been placed in the wooden material group"
+        },
+        {
+          "text": "All of the original records have replaced the exhibits"
+        },
+        {
+          "text": "Confirmed labels now sit beside the correct exhibits"
+        },
+        {
+          "text": "The cards have been removed so no comparison is needed"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第16、17幕 / Scene 16、17: Scene16 restores checked labels; scene17 says correct labels let visitors compare exhibits without confusion. The improvement comes from accurate identification, not removing evidence. 第16、17幕核對後標籤回到正確展品旁，使訪客能清楚比較，並不是撤掉圖卡或改用單一材質分類。",
+      "skill": "cause-result-inference",
+      "evidence": [
+        {
+          "scene": 16,
+          "quote": "Together they return only the confirmed picture labels to their exhibits. The unknown object's label is added after its record has been checked.",
+          "chinese": "兩人只把確認過的圖像標籤放回展品旁。未知物的紀錄查清楚後，才補上它的標籤。"
+        },
+        {
+          "scene": 17,
+          "quote": "With each label beside the right exhibit, the gallery is easy to explore again. Visitors can compare the fossil, statue, and materials without confusion.",
+          "chinese": "每張標籤都回到正確展品旁，展廳又容易參觀了。訪客能清楚比較化石、雕像與各種材質。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C14",
+      "kind": "choice",
+      "prompt": "What does the curator’s thanks recognize about Gail’s approach?",
+      "chinesePrompt": "管理員的道謝肯定了瑜瑜方法的什麼特點？",
+      "options": [
+        {
+          "text": "She moved every label quickly before studying any exhibit"
+        },
+        {
+          "text": "She used evidence to check instead of swapping labels at random"
+        },
+        {
+          "text": "She used only the original position without comparing features"
+        },
+        {
+          "text": "She decided every answer herself before asking the curator"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第6、18幕 / Scene 6、18: Scene6 rejects random swapping. In scene18 Gail explains shape, material and records, and the curator thanks her for checking rather than guessing. 第6、18幕共同肯定先查證，其他選項忽略了觀察或共同核對。",
+      "skill": "evaluate-method",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "Gail resists swapping labels at random. She and the curator inspect one exhibit before deciding which picture belongs beside it.",
+          "chinese": "瑜瑜沒有隨意交換標籤。她和管理員先仔細觀察一件展品，再決定哪張圖該放在旁邊。"
+        },
+        {
+          "scene": 18,
+          "quote": "Gail tells the curator how shape, material, and the original records helped identify the objects. The curator thanks her for checking rather than guessing.",
+          "chinese": "瑜瑜告訴管理員，她如何用形狀、材質與原始紀錄辨認物品。管理員謝謝她先查證、沒有亂猜。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C15",
+      "kind": "choice",
+      "prompt": "How does the ending extend Gail’s response to the unknown object?",
+      "chinesePrompt": "結尾如何延續瑜瑜面對未知物的做法？",
+      "options": [
+        {
+          "text": "An unanswered question can remain open while she seeks evidence"
+        },
+        {
+          "text": "An unanswered question should take the name of the nearest object"
+        },
+        {
+          "text": "An unanswered question is settled when most other labels fit"
+        },
+        {
+          "text": "An unanswered question means the available records are useless"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第13、20幕 / Scene 13、20: Scene13 keeps the object’s place open, and scene20 turns that action into a lesson: wait for good evidence. Uncertainty is a reason to continue checking, not to guess or discard records. 第13、20幕都容許暫時沒有答案，等待可靠線索才回答。",
+      "skill": "cross-scene-lesson",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "A round object fits none of the remaining pictures. Gail does not invent an answer; she keeps its place open and asks the curator what they can check.",
+          "chinese": "一件圓形物品和剩下的圖卡都不相符。瑜瑜沒有編出答案，而是保留空位，問管理員還能查什麼。"
+        },
+        {
+          "scene": 20,
+          "quote": "Back in her familiar bedroom, Gail places the ticket beside her bed. She remembers that an unanswered question can stay open until she finds good evidence.",
+          "chinese": "回到熟悉臥室，瑜瑜把票券放在床邊。她記得，沒有答案的問題可以先保留，找到可靠線索再回答。"
+        }
+      ]
+    },
+    {
+      "id": "book33-C16",
+      "kind": "choice",
+      "prompt": "Two new cards share a color and neither clearly fits. What should Gail do?",
+      "chinesePrompt": "兩張新卡同色又都不明確相符，瑜瑜應怎麼做？",
+      "options": [
+        {
+          "text": "Choose the nearer card and confirm the name immediately"
+        },
+        {
+          "text": "Use the shared color and ignore differences in the drawing"
+        },
+        {
+          "text": "Move both labels first and inspect the exhibit afterward"
+        },
+        {
+          "text": "Compare their features and seek a record before deciding"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第11、14、20幕 / Scene 11、14、20: Scene11 uses shapes instead of color alone; scene14 checks records, and scene20 permits an open question. Applied together, those steps call for more evidence before deciding. 第11、14、20幕的方法合用：比較特徵、查紀錄，未確定先保留問題。",
+      "skill": "apply-method",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "Two picture cards share the same color, but one shows the outline of a foot and the other a bone. Gail compares shapes rather than colors alone.",
+          "chinese": "兩張圖卡顏色相同，一張畫腳掌輪廓，另一張畫骨頭。瑜瑜比較形狀，沒有只憑顏色判斷。"
+        },
+        {
+          "scene": 14,
+          "quote": "The curator opens a drawer of original exhibit records. Each record includes a simple drawing of an object and where it was displayed.",
+          "chinese": "管理員打開存放原始展品紀錄的抽屜。每張紀錄都有物品簡圖與原先展示位置。"
+        },
+        {
+          "scene": 20,
+          "quote": "Back in her familiar bedroom, Gail places the ticket beside her bed. She remembers that an unanswered question can stay open until she finds good evidence.",
+          "chinese": "回到熟悉臥室，瑜瑜把票券放在床邊。她記得，沒有答案的問題可以先保留，找到可靠線索再回答。"
+        }
+      ]
+    }
+  ]
+}
