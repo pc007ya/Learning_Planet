@@ -1,0 +1,13 @@
+.magic-potion-book .scene-world.potion-full-image-world{background:#182b37;transform:none;overflow:hidden}
+.magic-potion-book .potion-full-image-frame{position:absolute;left:50%;top:50%;translate:-50% -50%;aspect-ratio:3/2;isolation:isolate;overflow:hidden}
+.magic-potion-book .potion-full-image{display:block;width:100%;height:100%;max-width:none;object-fit:contain;object-position:center;transform:none}
+.magic-potion-book .potion-picture-tap{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:transparent;z-index:2;cursor:pointer}
+.magic-potion-book .potion-picture-tap:focus-visible{outline:3px solid #fce5a2;outline-offset:-4px}
+.magic-potion-book .potion-picture-tap .hotspot-spark{position:absolute;translate:-50% -50%;font-size:22px;line-height:1;opacity:0;color:#fff1a4;text-shadow:0 0 8px #54421f;pointer-events:none}
+.magic-potion-book.show-hints .potion-picture-tap .hotspot-spark,.magic-potion-book .potion-picture-tap:focus-visible .hotspot-spark{opacity:1}
+.magic-potion-book .potion-image-focus{position:absolute;width:10%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;opacity:0;background:radial-gradient(circle,#fff8cfb0,#dfefff30 45%,transparent 70%);pointer-events:none;z-index:3}
+.magic-potion-book .potion-image-particle{position:absolute;width:5px;height:10px;border-radius:100% 0 100% 0;rotate:30deg;background:#fff6be;box-shadow:0 0 5px #fff8df;pointer-events:none;z-index:4}
+.magic-potion-book .potion-image-status{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;background:#182b37e6;color:white;z-index:5;padding:16px}
+.magic-potion-book .potion-image-status[hidden]{display:none}
+.magic-potion-book .potion-image-status button{padding:8px 14px;border-radius:20px;border:1px solid #dcc18a;background:#fff7df;color:#52432a}
+.magic-potion-book .layered-cover .cover-border{background-size:contain;background-position:center;background-repeat:no-repeat}

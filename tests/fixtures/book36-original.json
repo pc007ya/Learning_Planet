@@ -1,0 +1,404 @@
+{
+  "levels": {
+    "A": {
+      "english": [
+        [
+          "A silver herb arrives."
+        ],
+        [
+          "The leaves open a door."
+        ],
+        [
+          "Mira lands safely."
+        ],
+        [
+          "The potion lights lamps."
+        ],
+        [
+          "They need three things."
+        ],
+        [
+          "Gail looks at the leaves."
+        ],
+        [
+          "They follow the path."
+        ],
+        [
+          "Gail does not pick it."
+        ],
+        [
+          "The teacher says yes."
+        ],
+        [
+          "Mist covers the signs."
+        ],
+        [
+          "Mira flies low."
+        ],
+        [
+          "The leaf smells sweet."
+        ],
+        [
+          "Gail catches one drop."
+        ],
+        [
+          "They check the order."
+        ],
+        [
+          "Mira crushes a leaf."
+        ],
+        [
+          "The first vial is cloudy."
+        ],
+        [
+          "They find a missing leaf."
+        ],
+        [
+          "The new potion glows."
+        ],
+        [
+          "The path lights up."
+        ],
+        [
+          "Gail checks what changed."
+        ]
+      ],
+      "chinese": [
+        [
+          "一枝銀色藥草來了。"
+        ],
+        [
+          "葉片打開一扇門。"
+        ],
+        [
+          "米拉安全落地。"
+        ],
+        [
+          "靈藥會點亮燈。"
+        ],
+        [
+          "她們需要三樣材料。"
+        ],
+        [
+          "瑜瑜看著葉子。"
+        ],
+        [
+          "她們沿著小路走。"
+        ],
+        [
+          "瑜瑜沒有摘它。"
+        ],
+        [
+          "老師說找對了。"
+        ],
+        [
+          "霧遮住了標記。"
+        ],
+        [
+          "米拉低低飛起。"
+        ],
+        [
+          "葉子聞起來香香的。"
+        ],
+        [
+          "瑜瑜接住一滴露珠。"
+        ],
+        [
+          "她們核對順序。"
+        ],
+        [
+          "米拉壓碎葉子。"
+        ],
+        [
+          "第一瓶變混濁了。"
+        ],
+        [
+          "她們找到漏掉的葉子。"
+        ],
+        [
+          "新靈藥發亮了。"
+        ],
+        [
+          "小路亮起來了。"
+        ],
+        [
+          "瑜瑜記得檢查變化。"
+        ]
+      ]
+    },
+    "B": {
+      "english": [
+        [
+          "A silver herb and a note arrive from Mira."
+        ],
+        [
+          "The moonmint opens. Leaf lights make a doorway to school."
+        ],
+        [
+          "Mira lands low and welcomes Gail at the academy."
+        ],
+        [
+          "The teacher says their potion will light the path, not be drunk."
+        ],
+        [
+          "The guide shows two leaves and one dew crystal."
+        ],
+        [
+          "Gail compares the leaves and finds silver moon shapes."
+        ],
+        [
+          "The friends follow a marked path with the teacher nearby."
+        ],
+        [
+          "Gail checks a look-alike leaf and asks the teacher first."
+        ],
+        [
+          "After the teacher checks, Gail takes one moonmint leaf."
+        ],
+        [
+          "Cool mist hides the signs, so everyone stays together."
+        ],
+        [
+          "Mira hovers low, finds blue sage, and lands safely."
+        ],
+        [
+          "The teacher checks blue sage by its tip and sweet smell."
+        ],
+        [
+          "Gail catches a dew crystal by the covered fountain."
+        ],
+        [
+          "Gail and Mira agree on the recipe before they mix."
+        ],
+        [
+          "Mira crushes the leaf, and Gail adds measured dew."
+        ],
+        [
+          "A bubble rises, but the first mixture turns cloudy."
+        ],
+        [
+          "Gail finds the missing blue sage step in the recipe."
+        ],
+        [
+          "They measure again. The new potion shines blue."
+        ],
+        [
+          "The teacher fills covered lanterns, and the path glows."
+        ],
+        [
+          "Gail remembers to identify, measure, and check together."
+        ]
+      ],
+      "chinese": [
+        [
+          "米拉送來銀色藥草和字條。"
+        ],
+        [
+          "月薄荷展開，葉形光點打開校門。"
+        ],
+        [
+          "米拉在學校低空落地，迎接瑜瑜。"
+        ],
+        [
+          "老師說靈藥用來點亮小路，不可以喝。"
+        ],
+        [
+          "圖鑑畫著兩片葉和一顆露晶。"
+        ],
+        [
+          "瑜瑜比較葉片，找到銀色月牙紋。"
+        ],
+        [
+          "老師在附近，朋友們沿標記小路走。"
+        ],
+        [
+          "瑜瑜再次核對相似葉片，先問老師。"
+        ],
+        [
+          "老師確認後，瑜瑜取下一片月薄荷。"
+        ],
+        [
+          "涼霧遮住路標，大家仍一起走。"
+        ],
+        [
+          "米拉低飛找到藍鼠尾草，安全落地。"
+        ],
+        [
+          "老師看藍色葉尖，也聞一聞香氣。"
+        ],
+        [
+          "瑜瑜在有遮棚的噴泉旁接住露晶。"
+        ],
+        [
+          "瑜瑜和米拉調製前先核對配方。"
+        ],
+        [
+          "米拉壓碎葉子，瑜瑜加入量好的露珠。"
+        ],
+        [
+          "泡泡冒出，第一瓶混合液卻變混濁。"
+        ],
+        [
+          "瑜瑜在配方中找到漏掉的藍鼠尾草。"
+        ],
+        [
+          "她們重新測量，新靈藥發出藍光。"
+        ],
+        [
+          "老師裝好有罩燈籠，小路亮起來了。"
+        ],
+        [
+          "瑜瑜記得一起辨認、測量、檢查變化。"
+        ]
+      ]
+    },
+    "C": {
+      "english": [
+        [
+          "Beside Mira's old broom charm and the magic ball, a silver moonmint herb arrives with a note from her academy. Its leaves are still folded."
+        ],
+        [
+          "The moonmint opens one leaf, then another. Leaf-shaped lights rise from it and form a doorway to the familiar school roof."
+        ],
+        [
+          "Mira is a student at the academy. She welcomes Gail after a careful low landing. Their teacher invites both friends into the potion classroom beside the roof."
+        ],
+        [
+          "Today's recipe will make a potion for the greenhouse path lanterns. The teacher explains that this brew is for lights, not for drinking."
+        ],
+        [
+          "They need three ingredients: one moonmint leaf, one blue sage leaf, and a crystal of dew. The teacher gives them a picture guide and three small vials."
+        ],
+        [
+          "Gail compares the moonmint drawing with a similar green herb. The silver crescent veins tell her which plant to leave untouched."
+        ],
+        [
+          "Mira and Gail follow the marked garden path with their teacher nearby. They look beneath a shaded arch where moonmint grows."
+        ],
+        [
+          "A look-alike leaf points the wrong way, but Gail does not pick it. She checks the silver veins again before asking the teacher."
+        ],
+        [
+          "The teacher confirms the moonmint. Gail takes one leaf from the planted herb and places it safely in the first vial."
+        ],
+        [
+          "A cool mist drifts across the path and softens the painted signs. Everyone stays together while they look for the blue sage patch."
+        ],
+        [
+          "With the teacher watching, Mira makes one low hover above the path. She spots a blue-tipped leaf beyond the next bend and lands before pointing it out."
+        ],
+        [
+          "The teacher identifies the blue sage. When she gently crushes a sample leaf, its sweet aroma matches the picture guide's clue."
+        ],
+        [
+          "At a covered fountain, a dew crystal hangs above the water. Gail catches one droplet in the third vial without reaching over the edge."
+        ],
+        [
+          "Back in class, the teacher sets a small cauldron beside the recipe cards. Remembering their ball game, Gail and Mira agree on the order and measure each ingredient before they brew."
+        ],
+        [
+          "Mira uses a mortar and pestle to crush the moonmint leaf. Gail adds the measured dew while the teacher checks the order."
+        ],
+        [
+          "The teacher adds warm water so the crystal can dissolve. One little bubble rises, but the first mixture turns cloudy instead of bright."
+        ],
+        [
+          "Gail compares this small sample with the recipe. They find the missing blue sage step. It is smart to check before trying again, so they begin a fresh vial rather than guessing at the cloudy one."
+        ],
+        [
+          "This time they add each part in order and measure the dew again. The new potion begins to shimmer with a gentle blue light."
+        ],
+        [
+          "The teacher pours the finished potion into covered lanterns. Light travels along the greenhouse path, and Mira and Gail can see where every turn leads."
+        ],
+        [
+          "Back in her bedroom, Gail sets the folded moonmint beside Mira's broom charm and magic ball. She remembers to identify, measure, and check a change together."
+        ]
+      ],
+      "chinese": [
+        [
+          "在米拉留下的掃帚吊飾與魔法球旁，一枝銀色月薄荷和魔法學校的字條來了。葉片還合著。"
+        ],
+        [
+          "月薄荷先展開一片葉，再展開另一片。葉形光點從它身上升起，打開通往熟悉校舍屋頂的門。"
+        ],
+        [
+          "米拉是魔法學校的學生。她小心完成低空落地後迎接瑜瑜，老師請兩位朋友進入屋頂旁的靈藥教室。"
+        ],
+        [
+          "今天的配方要做一瓶點亮溫室小路燈籠的靈藥。老師說明，這瓶藥水只供燈籠使用，不拿來喝。"
+        ],
+        [
+          "她們需要三種材料：一片月薄荷葉、一片藍鼠尾草葉和一顆露晶。老師給她們圖鑑與三個小瓶。"
+        ],
+        [
+          "瑜瑜比較圖鑑上的月薄荷與旁邊相似的綠葉藥草。銀色月牙形葉脈幫她辨認，也讓她不去碰不確定的植物。"
+        ],
+        [
+          "米拉與瑜瑜沿著有記號的園路走，老師就在附近。她們到陰涼拱門下找月薄荷。"
+        ],
+        [
+          "一片相似的葉子讓人差點認錯，瑜瑜沒有摘下它。她再次核對銀色葉脈，然後請老師確認。"
+        ],
+        [
+          "老師確認找到了月薄荷。瑜瑜從栽種區取下一片葉，妥善放進第一個小瓶。"
+        ],
+        [
+          "一陣涼霧飄過園路，讓彩繪標記變得模糊。大家結伴找藍鼠尾草，不各自走散。"
+        ],
+        [
+          "老師看顧下，米拉沿路低低懸停一次。她看見轉彎後的藍尖葉，先安全落地，再指給大家看。"
+        ],
+        [
+          "老師辨認出藍鼠尾草。她輕輕捻開一片樣本葉，柔和香氣也符合圖鑑線索。"
+        ],
+        [
+          "在有遮棚的噴泉旁，一顆露晶懸在水面上。瑜瑜站在安全處，讓一滴露珠落入第三個小瓶。"
+        ],
+        [
+          "回到教室，老師把小坩堝放在配方卡旁。想起上次魔法球的遊戲，瑜瑜與米拉先說好順序、量好每份材料，才開始調製。"
+        ],
+        [
+          "米拉用研缽與杵把月薄荷葉輕輕壓碎。瑜瑜加入量好的露珠，老師在旁核對順序。"
+        ],
+        [
+          "老師加入溫水，讓露晶溶解。一顆小泡泡冒起，第一瓶混合液卻變得混濁，沒有發亮。"
+        ],
+        [
+          "瑜瑜拿這一小瓶樣本對照配方，發現漏了藍鼠尾草那一步。再試之前先檢查，是聰明的做法；她們重新用一個小瓶調製，沒有對混濁的那瓶亂加材料。"
+        ],
+        [
+          "這次她們按順序加入材料，也重新量好露珠。新靈藥開始閃著柔和藍光。"
+        ],
+        [
+          "老師把完成的靈藥倒入有罩的燈籠。光沿溫室小路延伸，米拉與瑜瑜看得清每個轉彎。"
+        ],
+        [
+          "回到房間，瑜瑜把收攏的月薄荷放在米拉的掃帚吊飾和魔法球旁。她記得一起辨認、測量，再檢查變化。"
+        ]
+      ]
+    }
+  },
+  "words": [
+    "potion",
+    "academy",
+    "herb",
+    "ingredient",
+    "recipe",
+    "cauldron",
+    "vial",
+    "mortar",
+    "pestle",
+    "crush",
+    "dissolve",
+    "mixture",
+    "bubble",
+    "aroma",
+    "sample",
+    "brew",
+    "crystal",
+    "measure",
+    "dew",
+    "shimmer"
+  ]
+}

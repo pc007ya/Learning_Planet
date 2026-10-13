@@ -1,0 +1,145 @@
+{
+  "cover": "images/story/magic-potion-v1/cover.webp",
+  "pages": [
+    {
+      "number": 1,
+      "image": "images/story/magic-potion-v1/scene/01.webp",
+      "alt": "A silver herb · 在米拉留下的掃帚吊飾與魔法球旁，一枝銀色月薄荷和魔法學校的字條來了。葉片還合著。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 2,
+      "image": "images/story/magic-potion-v1/scene/02.webp",
+      "alt": "A leafy doorway · 月薄荷先展開一片葉，再展開另一片。葉形光點從它身上升起，打開通往熟悉校舍屋頂的門。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 3,
+      "image": "images/story/magic-potion-v1/scene/03.webp",
+      "alt": "Mira on the roof · 米拉是魔法學校的學生。她小心完成低空落地後迎接瑜瑜，老師請兩位朋友進入屋頂旁的靈藥教室。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 4,
+      "image": "images/story/magic-potion-v1/scene/04.webp",
+      "alt": "A lantern lesson · 今天的配方要做一瓶點亮溫室小路燈籠的靈藥。老師說明，這瓶藥水只供燈籠使用，不拿來喝。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 5,
+      "image": "images/story/magic-potion-v1/scene/05.webp",
+      "alt": "Three ingredients · 她們需要三種材料：一片月薄荷葉、一片藍鼠尾草葉和一顆露晶。老師給她們圖鑑與三個小瓶。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 6,
+      "image": "images/story/magic-potion-v1/scene/06.webp",
+      "alt": "Silver veins · 瑜瑜比較圖鑑上的月薄荷與旁邊相似的綠葉藥草。銀色月牙形葉脈幫她辨認，也讓她不去碰不確定的植物。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 7,
+      "image": "images/story/magic-potion-v1/scene/07.webp",
+      "alt": "The marked path · 米拉與瑜瑜沿著有記號的園路走，老師就在附近。她們到陰涼拱門下找月薄荷。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 8,
+      "image": "images/story/magic-potion-v1/scene/08.webp",
+      "alt": "Check again · 一片相似的葉子讓人差點認錯，瑜瑜沒有摘下它。她再次核對銀色葉脈，然後請老師確認。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 9,
+      "image": "images/story/magic-potion-v1/scene/09.webp",
+      "alt": "One moonmint leaf · 老師確認找到了月薄荷。瑜瑜從栽種區取下一片葉，妥善放進第一個小瓶。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 10,
+      "image": "images/story/magic-potion-v1/scene/10.webp",
+      "alt": "A cool mist · 一陣涼霧飄過園路，讓彩繪標記變得模糊。大家結伴找藍鼠尾草，不各自走散。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 11,
+      "image": "images/story/magic-potion-v1/scene/11.webp",
+      "alt": "One low hover · 老師看顧下，米拉沿路低低懸停一次。她看見轉彎後的藍尖葉，先安全落地，再指給大家看。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 12,
+      "image": "images/story/magic-potion-v1/scene/12.webp",
+      "alt": "The blue leaf · 老師辨認出藍鼠尾草。她輕輕捻開一片樣本葉，柔和香氣也符合圖鑑線索。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 13,
+      "image": "images/story/magic-potion-v1/scene/13.webp",
+      "alt": "A dew crystal · 在有遮棚的噴泉旁，一顆露晶懸在水面上。瑜瑜站在安全處，讓一滴露珠落入第三個小瓶。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 14,
+      "image": "images/story/magic-potion-v1/scene/14.webp",
+      "alt": "Check the recipe · 回到教室，老師把小坩堝放在配方卡旁。想起上次魔法球的遊戲，瑜瑜與米拉先說好順序、量好每份材料，才開始調製。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 15,
+      "image": "images/story/magic-potion-v1/scene/15.webp",
+      "alt": "Mortar and pestle · 米拉用研缽與杵把月薄荷葉輕輕壓碎。瑜瑜加入量好的露珠，老師在旁核對順序。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 16,
+      "image": "images/story/magic-potion-v1/scene/16.webp",
+      "alt": "A cloudy sample · 老師加入溫水，讓露晶溶解。一顆小泡泡冒起，第一瓶混合液卻變得混濁，沒有發亮。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 17,
+      "image": "images/story/magic-potion-v1/scene/17.webp",
+      "alt": "Find the missing step · 瑜瑜拿這一小瓶樣本對照配方，發現漏了藍鼠尾草那一步。再試之前先檢查，是聰明的做法；她們重新用一個小瓶調製，沒有對混濁的那瓶亂加材料。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 18,
+      "image": "images/story/magic-potion-v1/scene/18.webp",
+      "alt": "A bright new potion · 這次她們按順序加入材料，也重新量好露珠。新靈藥開始閃著柔和藍光。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 19,
+      "image": "images/story/magic-potion-v1/scene/19.webp",
+      "alt": "Lanterns on the path · 老師把完成的靈藥倒入有罩的燈籠。光沿溫室小路延伸，米拉與瑜瑜看得清每個轉彎。",
+      "width": 960,
+      "height": 640
+    },
+    {
+      "number": 20,
+      "image": "images/story/magic-potion-v1/scene/20.webp",
+      "alt": "Back in her room · 回到房間，瑜瑜把收攏的月薄荷放在米拉的掃帚吊飾和魔法球旁。她記得一起辨認、測量，再檢查變化。",
+      "width": 960,
+      "height": 640
+    }
+  ]
+}

@@ -1,0 +1,424 @@
+{
+  "levels": {
+    "A": {
+      "english": [
+        [
+          "A gear turns."
+        ],
+        [
+          "The lights make a door."
+        ],
+        [
+          "Gail meets a robot."
+        ],
+        [
+          "Make a pretty path."
+        ],
+        [
+          "The lanterns pile up."
+        ],
+        [
+          "Gail asks the robot."
+        ],
+        [
+          "Check: thirty, forty, fifty, sixty percent."
+        ],
+        [
+          "Seventy, eighty, ninety, one hundred percent. Ready!"
+        ],
+        [
+          "One step at a time."
+        ],
+        [
+          "Start here. Zero steps."
+        ],
+        [
+          "Red, blue, yellow."
+        ],
+        [
+          "Twenty steps. Stop at the flag."
+        ],
+        [
+          "The code is ready."
+        ],
+        [
+          "Eleven, twelve, thirteen, fourteen, fifteen. Go!"
+        ],
+        [
+          "The middle light is wrong."
+        ],
+        [
+          "Change this card."
+        ],
+        [
+          "Reset. Try again. Sixteen, seventeen, eighteen, nineteen, twenty. Stop!"
+        ],
+        [
+          "The lights shine in order."
+        ],
+        [
+          "The gear glows again."
+        ],
+        [
+          "Gail is home."
+        ]
+      ],
+      "chinese": [
+        [
+          "齒輪轉了。"
+        ],
+        [
+          "光做出一道門。"
+        ],
+        [
+          "瑜瑜遇見機器人。"
+        ],
+        [
+          "排漂亮的路吧。"
+        ],
+        [
+          "燈籠堆在一起。"
+        ],
+        [
+          "瑜瑜問機器人。"
+        ],
+        [
+          "檢查進度：百分之三十、四十、五十、六十。"
+        ],
+        [
+          "百分之七十、八十、九十、一百。準備好了！"
+        ],
+        [
+          "一次做一步。"
+        ],
+        [
+          "從這裡開始，零步。"
+        ],
+        [
+          "紅、藍、黃。"
+        ],
+        [
+          "二十步，在旗子旁停止。"
+        ],
+        [
+          "圖像指令準備好了。"
+        ],
+        [
+          "十一、十二、十三、十四、十五。前進！"
+        ],
+        [
+          "中間顏色錯了。"
+        ],
+        [
+          "改這張卡。"
+        ],
+        [
+          "重設，再試。十六、十七、十八、十九、二十。停！"
+        ],
+        [
+          "燈依序亮了。"
+        ],
+        [
+          "齒輪回來了。"
+        ],
+        [
+          "瑜瑜回家了。"
+        ]
+      ]
+    },
+    "B": {
+      "english": [
+        [
+          "A tiny gear turns on Gail's bedroom floor. It glows softly."
+        ],
+        [
+          "Light points glow one after another. A doorway to a workshop opens."
+        ],
+        [
+          "A little robot waves to Gail in the toy workshop. Lanterns wait on a shelf."
+        ],
+        [
+          "The workshop needs a lantern path. Someone says, “Make it pretty.”"
+        ],
+        [
+          "The robot puts every lantern in one corner. Gail sees no path."
+        ],
+        [
+          "Gail asks, “What did you hear?” The robot shows one picture card."
+        ],
+        [
+          "The robot checks its parts. Thirty, forty, fifty, sixty percent."
+        ],
+        [
+          "Seventy, eighty, ninety, one hundred percent. The check is done. The battery and sensor work."
+        ],
+        [
+          "Gail makes a short list of steps with pictures. The robot can follow them."
+        ],
+        [
+          "Gail puts the start card by the toy house. The step count starts at zero."
+        ],
+        [
+          "Gail puts the color cards in order. Red comes before blue, then yellow."
+        ],
+        [
+          "Gail puts a stop card by the flag. The robot will stop after twenty small steps."
+        ],
+        [
+          "The cards make a little code. Gail checks every command before pressing the button."
+        ],
+        [
+          "The robot starts at the house. After ten steps, it counts: eleven, twelve, thirteen, fourteen, fifteen."
+        ],
+        [
+          "The robot puts yellow in the middle. Gail expected blue."
+        ],
+        [
+          "Gail changes just the second color card. The robot waits."
+        ],
+        [
+          "Gail resets the robot to zero. It tries the whole route again. At the end it counts: sixteen, seventeen, eighteen, nineteen, twenty. Stop!"
+        ],
+        [
+          "The lantern path lights up. The robot responds with a happy beep."
+        ],
+        [
+          "The robot thanks Gail. The little gear makes a path home."
+        ],
+        [
+          "Gail puts the gear by her bed. She remembers to give clear steps."
+        ]
+      ],
+      "chinese": [
+        [
+          "小齒輪在瑜瑜房間的地板上轉動，柔和發光。"
+        ],
+        [
+          "光點一個接一個亮起，通往工坊的門開了。"
+        ],
+        [
+          "小機器人在玩具工坊向瑜瑜揮手。燈籠放在架上。"
+        ],
+        [
+          "工坊需要燈路。有人說：「排漂亮一點。」"
+        ],
+        [
+          "機器人把所有燈籠放在角落。瑜瑜看見路還空著。"
+        ],
+        [
+          "瑜瑜問：「你聽到什麼？」機器人拿出一張圖卡。"
+        ],
+        [
+          "機器人檢查零件，進度到百分之三十、四十、五十、六十。"
+        ],
+        [
+          "百分之七十、八十、九十、一百。檢查完成，電池與感測器正常。"
+        ],
+        [
+          "瑜瑜用圖片列出短步驟，機器人能照著做。"
+        ],
+        [
+          "瑜瑜把起點卡放在玩具屋旁，步數從零開始。"
+        ],
+        [
+          "瑜瑜依序排好顏色圖卡：紅色、藍色、黃色。"
+        ],
+        [
+          "瑜瑜把停止卡放在旗子旁，機器人要走二十小步後停下。"
+        ],
+        [
+          "圖卡組成小小的程式。按鈕前，瑜瑜核對每個指令。"
+        ],
+        [
+          "機器人從玩具屋出發，走十步後接著數：十一、十二、十三、十四、十五。"
+        ],
+        [
+          "機器人把黃色放在中間，瑜瑜原本要藍色。"
+        ],
+        [
+          "瑜瑜只改第二張顏色卡。機器人等著。"
+        ],
+        [
+          "瑜瑜把機器人歸零，重新走完整條路，最後數：十六、十七、十八、十九、二十。停！"
+        ],
+        [
+          "燈路亮起，機器人開心地嗶了一聲。"
+        ],
+        [
+          "機器人謝謝瑜瑜。小齒輪打開回家的路。"
+        ],
+        [
+          "瑜瑜把齒輪放在床邊。她記得要給清楚步驟。"
+        ]
+      ]
+    },
+    "C": {
+      "english": [
+        [
+          "In Gail's familiar bedroom, a tiny brass gear begins to turn by itself. Soft points of light appear around its teeth."
+        ],
+        [
+          "The gear glows first; then its light points rise in order and make a doorway. Gail sees a toy workshop beyond the opening."
+        ],
+        [
+          "In the warm toy workshop, a small brass-and-blue robot waves to Gail. Red, blue, and yellow lanterns wait beside an empty path."
+        ],
+        [
+          "The workshop wants a three-color lantern path for its evening display. Someone gives the robot only the command, “Make it pretty.”"
+        ],
+        [
+          "Following the vague command as best it can, the robot carries every lantern into one corner. The path remains empty even though the robot completed its task."
+        ],
+        [
+          "Gail asks the robot what instruction it received. It shows her one picture card with a bright pile but no starting point or color order."
+        ],
+        [
+          "Its self-check moves through thirty, forty, fifty, and sixty percent. The wheels, switch, and lever all work."
+        ],
+        [
+          "The check reaches seventy, eighty, ninety, then one hundred percent. The battery has enough charge and the sensor works, so Gail checks the instructions next."
+        ],
+        [
+          "Gail turns the large task into a sequence of small picture instructions. Each card tells the robot one action it can follow."
+        ],
+        [
+          "Gail places a start card beside the toy house. The robot sets its step count to zero, so they can test the same route again."
+        ],
+        [
+          "Gail lays out red, blue, and yellow picture cards in that order. The simple sequence tells the robot which lantern to place first, second, and third."
+        ],
+        [
+          "Gail adds a stop card beside the flag. She sets the route to twenty small steps, with a clear starting place and finish point."
+        ],
+        [
+          "Together, the cards form a small picture code for the robot's program. Gail checks each command before she presses the test button."
+        ],
+        [
+          "Gail presses the test button. The robot starts at the house and counts its steps. After ten, it says, “Eleven, twelve, thirteen, fourteen, fifteen,” as it carries the lanterns along the route."
+        ],
+        [
+          "At the second place, the robot sets down a yellow lantern instead of blue. Gail pauses the test and looks at that command rather than starting the whole plan over."
+        ],
+        [
+          "Gail replaces only the second picture card and leaves the other steps in place. A single precise change will show whether that command caused the mistake."
+        ],
+        [
+          "Gail resets the count to zero and tests the whole route again. This time the colors are right. Near the end the robot counts, “Sixteen, seventeen, eighteen, nineteen, twenty,” then stops beside the flag."
+        ],
+        [
+          "When the three-color path lights up in order, the little robot responds with one happy beep. Gail checks that the lights reach the stop flag."
+        ],
+        [
+          "The robot shows the finished picture instructions and thanks Gail. The tiny gear turns again, sending ordered light points toward her bedroom."
+        ],
+        [
+          "Back in her familiar bedroom, Gail sets the gear beside her bed. She remembers that a clear task has a start, an order, and a way to check the result."
+        ]
+      ],
+      "chinese": [
+        [
+          "在瑜瑜熟悉的臥室，一枚小銅齒輪自己轉了起來。柔和光點出現在齒邊。"
+        ],
+        [
+          "齒輪先發光，光點才依序升起並形成一道門。瑜瑜看見門後的玩具工坊。"
+        ],
+        [
+          "在溫暖的玩具工坊裡，一個黃銅與藍色的小機器人向瑜瑜揮手。紅、藍、黃三色燈籠放在空路旁。"
+        ],
+        [
+          "工坊想為晚間展示做一條三色燈路。有人卻只給機器人一句指令：「排漂亮一點。」"
+        ],
+        [
+          "機器人盡力照著模糊指令，把所有燈籠搬到同一角。它完成了任務，路卻仍然空著。"
+        ],
+        [
+          "瑜瑜問機器人收到什麼指令。它拿出一張只畫著亮燈堆、沒有起點與顏色順序的圖卡。"
+        ],
+        [
+          "自我檢查進度依序到百分之三十、四十、五十、六十。輪子、開關與控制桿都正常。"
+        ],
+        [
+          "檢查進度到百分之七十、八十、九十，最後是一百。電池電量足夠、感測器正常，所以瑜瑜接著檢查指令。"
+        ],
+        [
+          "瑜瑜把大任務拆成一串小小的圖像步驟。每張卡只告訴機器人一個能照做的動作。"
+        ],
+        [
+          "瑜瑜把起點卡放在玩具屋旁。機器人把步數歸零，這樣就能再次測試同一條路。"
+        ],
+        [
+          "瑜瑜把紅、藍、黃圖卡依序排好。這個簡單順序讓機器人知道第一、第二、第三個要放哪種燈。"
+        ],
+        [
+          "瑜瑜在旗子旁加上停止卡，把路線設為二十小步，起點與終點都清楚了。"
+        ],
+        [
+          "這些圖卡組成機器人程式的一段圖像指令。瑜瑜按測試鈕前，先核對每一項命令。"
+        ],
+        [
+          "瑜瑜按下測試鈕。機器人從玩具屋出發，一邊數步數。十步之後，它說：「十一、十二、十三、十四、十五。」一邊沿路搬燈籠。"
+        ],
+        [
+          "第二個位置上，機器人放了黃燈而不是藍燈。瑜瑜暫停測試，檢查那一步指令，沒有推翻整個計畫。"
+        ],
+        [
+          "瑜瑜只換掉第二張圖卡，其他步驟保持原樣。一次精確的改動能看出錯誤是否來自那個指令。"
+        ],
+        [
+          "瑜瑜把步數歸零，再測試整條路。這次顏色正確，快到終點時機器人数：「十六、十七、十八、十九、二十。」然後停在旗子旁。"
+        ],
+        [
+          "三色燈路依序亮起時，小機器人用一聲開心的嗶聲回應。瑜瑜確認燈路一直到停止小旗。"
+        ],
+        [
+          "機器人展示完成的圖像指令，並向瑜瑜道謝。小齒輪再次轉動，依序送出通往臥室的光點。"
+        ],
+        [
+          "回到熟悉臥室，瑜瑜把齒輪放在床邊。她記得清楚的任務要有起點、順序，也要有檢查結果的方法。"
+        ]
+      ]
+    }
+  },
+  "words": [
+    "robot",
+    "button",
+    "switch",
+    "lever",
+    "gear",
+    "machine",
+    "press",
+    "command",
+    "program",
+    "sequence",
+    "code",
+    "instruction",
+    "task",
+    "sensor",
+    "battery",
+    "charge",
+    "reset",
+    "respond",
+    "exact",
+    "follow"
+  ],
+  "extensionWords": [
+    "zero",
+    "eleven",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+    "twenty",
+    "thirty",
+    "forty",
+    "fifty",
+    "seventy",
+    "eighty",
+    "ninety",
+    "hundred"
+  ],
+  "extensionNote": "2026-09-28新增17個未涵蓋數字詞；twelve與sixty為複習。保留原20核心詞。百分比是自我檢查進度，非電量；路線共20步。"
+}

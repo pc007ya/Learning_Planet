@@ -1,0 +1,1096 @@
+{
+  "number": 36,
+  "key": "magic-potion",
+  "title": "Gail and the Magic Potion",
+  "chineseTitle": "瑜瑜與魔法靈藥",
+  "asset": "images/story/magic-potion-v1/",
+  "words": [
+    "potion",
+    "academy",
+    "herb",
+    "ingredient",
+    "recipe",
+    "cauldron",
+    "vial",
+    "mortar",
+    "pestle",
+    "crush",
+    "dissolve",
+    "mixture",
+    "bubble",
+    "aroma",
+    "sample",
+    "brew",
+    "crystal",
+    "measure",
+    "dew",
+    "shimmer"
+  ],
+  "entries": [
+    [
+      "potion",
+      "靈藥",
+      "✦"
+    ],
+    [
+      "academy",
+      "學院",
+      "✦"
+    ],
+    [
+      "herb",
+      "藥草",
+      "✦"
+    ],
+    [
+      "ingredient",
+      "材料",
+      "✦"
+    ],
+    [
+      "recipe",
+      "配方",
+      "✦"
+    ],
+    [
+      "cauldron",
+      "坩堝",
+      "✦"
+    ],
+    [
+      "vial",
+      "小玻璃瓶",
+      "✦"
+    ],
+    [
+      "mortar",
+      "研缽",
+      "✦"
+    ],
+    [
+      "pestle",
+      "杵",
+      "✦"
+    ],
+    [
+      "crush",
+      "壓碎",
+      "✦"
+    ],
+    [
+      "dissolve",
+      "溶解",
+      "✦"
+    ],
+    [
+      "mixture",
+      "混合液",
+      "✦"
+    ],
+    [
+      "bubble",
+      "氣泡",
+      "✦"
+    ],
+    [
+      "aroma",
+      "香氣",
+      "✦"
+    ],
+    [
+      "sample",
+      "樣本",
+      "✦"
+    ],
+    [
+      "brew",
+      "調製",
+      "✦"
+    ],
+    [
+      "crystal",
+      "晶體",
+      "✦"
+    ],
+    [
+      "measure",
+      "測量",
+      "✦"
+    ],
+    [
+      "dew",
+      "露珠",
+      "✦"
+    ],
+    [
+      "shimmer",
+      "微微發光",
+      "✦"
+    ]
+  ],
+  "scenes": {
+    "bedroom": {
+      "name": "瑜瑜的星星房間",
+      "caption": "BEDROOM",
+      "alt": "瑜瑜的星星房間"
+    },
+    "rooftop": {
+      "name": "魔法學院屋頂",
+      "caption": "ROOFTOP",
+      "alt": "魔法學院屋頂"
+    },
+    "classroom": {
+      "name": "靈藥教室",
+      "caption": "CLASSROOM",
+      "alt": "靈藥教室"
+    },
+    "garden": {
+      "name": "藥草園",
+      "caption": "GARDEN",
+      "alt": "藥草園"
+    },
+    "greenhouse": {
+      "name": "溫室燈籠小路",
+      "caption": "GREENHOUSE",
+      "alt": "溫室燈籠小路"
+    }
+  },
+  "levels": {
+    "A": {
+      "pages": [
+        {
+          "title": "A silver herb",
+          "scene": "bedroom",
+          "lines": [
+            "A silver herb arrives."
+          ],
+          "translation": "一枝銀色藥草來了。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "A leafy doorway",
+          "scene": "bedroom",
+          "lines": [
+            "The leaves open a door."
+          ],
+          "translation": "葉片打開一扇門。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "Mira on the roof",
+          "scene": "rooftop",
+          "lines": [
+            "Mira lands safely."
+          ],
+          "translation": "米拉安全落地。",
+          "words": [
+            "academy"
+          ]
+        },
+        {
+          "title": "A lantern lesson",
+          "scene": "classroom",
+          "lines": [
+            "The potion lights lamps."
+          ],
+          "translation": "靈藥會點亮燈。",
+          "words": [
+            "potion",
+            "recipe",
+            "brew"
+          ]
+        },
+        {
+          "title": "Three ingredients",
+          "scene": "classroom",
+          "lines": [
+            "They need three things."
+          ],
+          "translation": "她們需要三樣材料。",
+          "words": [
+            "ingredient",
+            "vial",
+            "crystal",
+            "dew"
+          ]
+        },
+        {
+          "title": "Silver veins",
+          "scene": "garden",
+          "lines": [
+            "Gail looks at the leaves."
+          ],
+          "translation": "瑜瑜看著葉子。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "The marked path",
+          "scene": "garden",
+          "lines": [
+            "They follow the path."
+          ],
+          "translation": "她們沿著小路走。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "Check again",
+          "scene": "garden",
+          "lines": [
+            "Gail does not pick it."
+          ],
+          "translation": "瑜瑜沒有摘它。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "One moonmint leaf",
+          "scene": "garden",
+          "lines": [
+            "The teacher says yes."
+          ],
+          "translation": "老師說找對了。",
+          "words": [
+            "vial",
+            "herb"
+          ]
+        },
+        {
+          "title": "A cool mist",
+          "scene": "garden",
+          "lines": [
+            "Mist covers the signs."
+          ],
+          "translation": "霧遮住了標記。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "One low hover",
+          "scene": "garden",
+          "lines": [
+            "Mira flies low."
+          ],
+          "translation": "米拉低低飛起。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "The blue leaf",
+          "scene": "garden",
+          "lines": [
+            "The leaf smells sweet."
+          ],
+          "translation": "葉子聞起來香香的。",
+          "words": [
+            "aroma",
+            "sample",
+            "crush"
+          ]
+        },
+        {
+          "title": "A dew crystal",
+          "scene": "garden",
+          "lines": [
+            "Gail catches one drop."
+          ],
+          "translation": "瑜瑜接住一滴露珠。",
+          "words": [
+            "dew",
+            "crystal",
+            "vial"
+          ]
+        },
+        {
+          "title": "Check the recipe",
+          "scene": "classroom",
+          "lines": [
+            "They check the order."
+          ],
+          "translation": "她們核對順序。",
+          "words": [
+            "recipe",
+            "cauldron",
+            "brew",
+            "measure"
+          ]
+        },
+        {
+          "title": "Mortar and pestle",
+          "scene": "classroom",
+          "lines": [
+            "Mira crushes a leaf."
+          ],
+          "translation": "米拉壓碎葉子。",
+          "words": [
+            "mortar",
+            "pestle",
+            "crush",
+            "dew",
+            "measure"
+          ]
+        },
+        {
+          "title": "A cloudy sample",
+          "scene": "classroom",
+          "lines": [
+            "The first vial is cloudy."
+          ],
+          "translation": "第一瓶變混濁了。",
+          "words": [
+            "dissolve",
+            "bubble",
+            "mixture",
+            "crystal"
+          ]
+        },
+        {
+          "title": "Find the missing step",
+          "scene": "classroom",
+          "lines": [
+            "They find a missing leaf."
+          ],
+          "translation": "她們找到漏掉的葉子。",
+          "words": [
+            "sample",
+            "recipe",
+            "vial"
+          ]
+        },
+        {
+          "title": "A bright new potion",
+          "scene": "classroom",
+          "lines": [
+            "The new potion glows."
+          ],
+          "translation": "新靈藥發亮了。",
+          "words": [
+            "potion",
+            "measure",
+            "shimmer"
+          ]
+        },
+        {
+          "title": "Lanterns on the path",
+          "scene": "greenhouse",
+          "lines": [
+            "The path lights up."
+          ],
+          "translation": "小路亮起來了。",
+          "words": [
+            "potion",
+            "shimmer"
+          ]
+        },
+        {
+          "title": "Back in her room",
+          "scene": "bedroom",
+          "lines": [
+            "Gail checks what changed."
+          ],
+          "translation": "瑜瑜記得檢查變化。",
+          "words": [
+            "herb",
+            "measure"
+          ]
+        }
+      ],
+      "chinese": [
+        [
+          "一枝銀色藥草來了。"
+        ],
+        [
+          "葉片打開一扇門。"
+        ],
+        [
+          "米拉安全落地。"
+        ],
+        [
+          "靈藥會點亮燈。"
+        ],
+        [
+          "她們需要三樣材料。"
+        ],
+        [
+          "瑜瑜看著葉子。"
+        ],
+        [
+          "她們沿著小路走。"
+        ],
+        [
+          "瑜瑜沒有摘它。"
+        ],
+        [
+          "老師說找對了。"
+        ],
+        [
+          "霧遮住了標記。"
+        ],
+        [
+          "米拉低低飛起。"
+        ],
+        [
+          "葉子聞起來香香的。"
+        ],
+        [
+          "瑜瑜接住一滴露珠。"
+        ],
+        [
+          "她們核對順序。"
+        ],
+        [
+          "米拉壓碎葉子。"
+        ],
+        [
+          "第一瓶變混濁了。"
+        ],
+        [
+          "她們找到漏掉的葉子。"
+        ],
+        [
+          "新靈藥發亮了。"
+        ],
+        [
+          "小路亮起來了。"
+        ],
+        [
+          "瑜瑜記得檢查變化。"
+        ]
+      ]
+    },
+    "B": {
+      "pages": [
+        {
+          "title": "A silver herb",
+          "scene": "bedroom",
+          "lines": [
+            "A silver herb and a note arrive from Mira."
+          ],
+          "translation": "米拉送來銀色藥草和字條。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "A leafy doorway",
+          "scene": "bedroom",
+          "lines": [
+            "The moonmint opens. Leaf lights make a doorway to school."
+          ],
+          "translation": "月薄荷展開，葉形光點打開校門。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "Mira on the roof",
+          "scene": "rooftop",
+          "lines": [
+            "Mira lands low and welcomes Gail at the academy."
+          ],
+          "translation": "米拉在學校低空落地，迎接瑜瑜。",
+          "words": [
+            "academy"
+          ]
+        },
+        {
+          "title": "A lantern lesson",
+          "scene": "classroom",
+          "lines": [
+            "The teacher says their potion will light the path, not be drunk."
+          ],
+          "translation": "老師說靈藥用來點亮小路，不可以喝。",
+          "words": [
+            "potion",
+            "recipe",
+            "brew"
+          ]
+        },
+        {
+          "title": "Three ingredients",
+          "scene": "classroom",
+          "lines": [
+            "The guide shows two leaves and one dew crystal."
+          ],
+          "translation": "圖鑑畫著兩片葉和一顆露晶。",
+          "words": [
+            "ingredient",
+            "vial",
+            "crystal",
+            "dew"
+          ]
+        },
+        {
+          "title": "Silver veins",
+          "scene": "garden",
+          "lines": [
+            "Gail compares the leaves and finds silver moon shapes."
+          ],
+          "translation": "瑜瑜比較葉片，找到銀色月牙紋。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "The marked path",
+          "scene": "garden",
+          "lines": [
+            "The friends follow a marked path with the teacher nearby."
+          ],
+          "translation": "老師在附近，朋友們沿標記小路走。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "Check again",
+          "scene": "garden",
+          "lines": [
+            "Gail checks a look-alike leaf and asks the teacher first."
+          ],
+          "translation": "瑜瑜再次核對相似葉片，先問老師。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "One moonmint leaf",
+          "scene": "garden",
+          "lines": [
+            "After the teacher checks, Gail takes one moonmint leaf."
+          ],
+          "translation": "老師確認後，瑜瑜取下一片月薄荷。",
+          "words": [
+            "vial",
+            "herb"
+          ]
+        },
+        {
+          "title": "A cool mist",
+          "scene": "garden",
+          "lines": [
+            "Cool mist hides the signs, so everyone stays together."
+          ],
+          "translation": "涼霧遮住路標，大家仍一起走。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "One low hover",
+          "scene": "garden",
+          "lines": [
+            "Mira hovers low, finds blue sage, and lands safely."
+          ],
+          "translation": "米拉低飛找到藍鼠尾草，安全落地。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "The blue leaf",
+          "scene": "garden",
+          "lines": [
+            "The teacher checks blue sage by its tip and sweet smell."
+          ],
+          "translation": "老師看藍色葉尖，也聞一聞香氣。",
+          "words": [
+            "aroma",
+            "sample",
+            "crush"
+          ]
+        },
+        {
+          "title": "A dew crystal",
+          "scene": "garden",
+          "lines": [
+            "Gail catches a dew crystal by the covered fountain."
+          ],
+          "translation": "瑜瑜在有遮棚的噴泉旁接住露晶。",
+          "words": [
+            "dew",
+            "crystal",
+            "vial"
+          ]
+        },
+        {
+          "title": "Check the recipe",
+          "scene": "classroom",
+          "lines": [
+            "Gail and Mira agree on the recipe before they mix."
+          ],
+          "translation": "瑜瑜和米拉調製前先核對配方。",
+          "words": [
+            "recipe",
+            "cauldron",
+            "brew",
+            "measure"
+          ]
+        },
+        {
+          "title": "Mortar and pestle",
+          "scene": "classroom",
+          "lines": [
+            "Mira crushes the leaf, and Gail adds measured dew."
+          ],
+          "translation": "米拉壓碎葉子，瑜瑜加入量好的露珠。",
+          "words": [
+            "mortar",
+            "pestle",
+            "crush",
+            "dew",
+            "measure"
+          ]
+        },
+        {
+          "title": "A cloudy sample",
+          "scene": "classroom",
+          "lines": [
+            "A bubble rises, but the first mixture turns cloudy."
+          ],
+          "translation": "泡泡冒出，第一瓶混合液卻變混濁。",
+          "words": [
+            "dissolve",
+            "bubble",
+            "mixture",
+            "crystal"
+          ]
+        },
+        {
+          "title": "Find the missing step",
+          "scene": "classroom",
+          "lines": [
+            "Gail finds the missing blue sage step in the recipe."
+          ],
+          "translation": "瑜瑜在配方中找到漏掉的藍鼠尾草。",
+          "words": [
+            "sample",
+            "recipe",
+            "vial"
+          ]
+        },
+        {
+          "title": "A bright new potion",
+          "scene": "classroom",
+          "lines": [
+            "They measure again. The new potion shines blue."
+          ],
+          "translation": "她們重新測量，新靈藥發出藍光。",
+          "words": [
+            "potion",
+            "measure",
+            "shimmer"
+          ]
+        },
+        {
+          "title": "Lanterns on the path",
+          "scene": "greenhouse",
+          "lines": [
+            "The teacher fills covered lanterns, and the path glows."
+          ],
+          "translation": "老師裝好有罩燈籠，小路亮起來了。",
+          "words": [
+            "potion",
+            "shimmer"
+          ]
+        },
+        {
+          "title": "Back in her room",
+          "scene": "bedroom",
+          "lines": [
+            "Gail remembers to identify, measure, and check together."
+          ],
+          "translation": "瑜瑜記得一起辨認、測量、檢查變化。",
+          "words": [
+            "herb",
+            "measure"
+          ]
+        }
+      ],
+      "chinese": [
+        [
+          "米拉送來銀色藥草和字條。"
+        ],
+        [
+          "月薄荷展開，葉形光點打開校門。"
+        ],
+        [
+          "米拉在學校低空落地，迎接瑜瑜。"
+        ],
+        [
+          "老師說靈藥用來點亮小路，不可以喝。"
+        ],
+        [
+          "圖鑑畫著兩片葉和一顆露晶。"
+        ],
+        [
+          "瑜瑜比較葉片，找到銀色月牙紋。"
+        ],
+        [
+          "老師在附近，朋友們沿標記小路走。"
+        ],
+        [
+          "瑜瑜再次核對相似葉片，先問老師。"
+        ],
+        [
+          "老師確認後，瑜瑜取下一片月薄荷。"
+        ],
+        [
+          "涼霧遮住路標，大家仍一起走。"
+        ],
+        [
+          "米拉低飛找到藍鼠尾草，安全落地。"
+        ],
+        [
+          "老師看藍色葉尖，也聞一聞香氣。"
+        ],
+        [
+          "瑜瑜在有遮棚的噴泉旁接住露晶。"
+        ],
+        [
+          "瑜瑜和米拉調製前先核對配方。"
+        ],
+        [
+          "米拉壓碎葉子，瑜瑜加入量好的露珠。"
+        ],
+        [
+          "泡泡冒出，第一瓶混合液卻變混濁。"
+        ],
+        [
+          "瑜瑜在配方中找到漏掉的藍鼠尾草。"
+        ],
+        [
+          "她們重新測量，新靈藥發出藍光。"
+        ],
+        [
+          "老師裝好有罩燈籠，小路亮起來了。"
+        ],
+        [
+          "瑜瑜記得一起辨認、測量、檢查變化。"
+        ]
+      ]
+    },
+    "C": {
+      "pages": [
+        {
+          "title": "A silver herb",
+          "scene": "bedroom",
+          "lines": [
+            "Beside Mira's old broom charm and the magic ball, a silver moonmint herb arrives with a note from her academy. Its leaves are still folded."
+          ],
+          "translation": "在米拉留下的掃帚吊飾與魔法球旁，一枝銀色月薄荷和魔法學校的字條來了。葉片還合著。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "A leafy doorway",
+          "scene": "bedroom",
+          "lines": [
+            "The moonmint opens one leaf, then another. Leaf-shaped lights rise from it and form a doorway to the familiar school roof."
+          ],
+          "translation": "月薄荷先展開一片葉，再展開另一片。葉形光點從它身上升起，打開通往熟悉校舍屋頂的門。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "Mira on the roof",
+          "scene": "rooftop",
+          "lines": [
+            "Mira is a student at the academy. She welcomes Gail after a careful low landing. Their teacher invites both friends into the potion classroom beside the roof."
+          ],
+          "translation": "米拉是魔法學校的學生。她小心完成低空落地後迎接瑜瑜，老師請兩位朋友進入屋頂旁的靈藥教室。",
+          "words": [
+            "academy"
+          ]
+        },
+        {
+          "title": "A lantern lesson",
+          "scene": "classroom",
+          "lines": [
+            "Today's recipe will make a potion for the greenhouse path lanterns. The teacher explains that this brew is for lights, not for drinking."
+          ],
+          "translation": "今天的配方要做一瓶點亮溫室小路燈籠的靈藥。老師說明，這瓶藥水只供燈籠使用，不拿來喝。",
+          "words": [
+            "potion",
+            "recipe",
+            "brew"
+          ]
+        },
+        {
+          "title": "Three ingredients",
+          "scene": "classroom",
+          "lines": [
+            "They need three ingredients: one moonmint leaf, one blue sage leaf, and a crystal of dew. The teacher gives them a picture guide and three small vials."
+          ],
+          "translation": "她們需要三種材料：一片月薄荷葉、一片藍鼠尾草葉和一顆露晶。老師給她們圖鑑與三個小瓶。",
+          "words": [
+            "ingredient",
+            "vial",
+            "crystal",
+            "dew"
+          ]
+        },
+        {
+          "title": "Silver veins",
+          "scene": "garden",
+          "lines": [
+            "Gail compares the moonmint drawing with a similar green herb. The silver crescent veins tell her which plant to leave untouched."
+          ],
+          "translation": "瑜瑜比較圖鑑上的月薄荷與旁邊相似的綠葉藥草。銀色月牙形葉脈幫她辨認，也讓她不去碰不確定的植物。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "The marked path",
+          "scene": "garden",
+          "lines": [
+            "Mira and Gail follow the marked garden path with their teacher nearby. They look beneath a shaded arch where moonmint grows."
+          ],
+          "translation": "米拉與瑜瑜沿著有記號的園路走，老師就在附近。她們到陰涼拱門下找月薄荷。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "Check again",
+          "scene": "garden",
+          "lines": [
+            "A look-alike leaf points the wrong way, but Gail does not pick it. She checks the silver veins again before asking the teacher."
+          ],
+          "translation": "一片相似的葉子讓人差點認錯，瑜瑜沒有摘下它。她再次核對銀色葉脈，然後請老師確認。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "One moonmint leaf",
+          "scene": "garden",
+          "lines": [
+            "The teacher confirms the moonmint. Gail takes one leaf from the planted herb and places it safely in the first vial."
+          ],
+          "translation": "老師確認找到了月薄荷。瑜瑜從栽種區取下一片葉，妥善放進第一個小瓶。",
+          "words": [
+            "vial",
+            "herb"
+          ]
+        },
+        {
+          "title": "A cool mist",
+          "scene": "garden",
+          "lines": [
+            "A cool mist drifts across the path and softens the painted signs. Everyone stays together while they look for the blue sage patch."
+          ],
+          "translation": "一陣涼霧飄過園路，讓彩繪標記變得模糊。大家結伴找藍鼠尾草，不各自走散。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "One low hover",
+          "scene": "garden",
+          "lines": [
+            "With the teacher watching, Mira makes one low hover above the path. She spots a blue-tipped leaf beyond the next bend and lands before pointing it out."
+          ],
+          "translation": "老師看顧下，米拉沿路低低懸停一次。她看見轉彎後的藍尖葉，先安全落地，再指給大家看。",
+          "words": [
+            "herb"
+          ]
+        },
+        {
+          "title": "The blue leaf",
+          "scene": "garden",
+          "lines": [
+            "The teacher identifies the blue sage. When she gently crushes a sample leaf, its sweet aroma matches the picture guide's clue."
+          ],
+          "translation": "老師辨認出藍鼠尾草。她輕輕捻開一片樣本葉，柔和香氣也符合圖鑑線索。",
+          "words": [
+            "aroma",
+            "sample",
+            "crush"
+          ]
+        },
+        {
+          "title": "A dew crystal",
+          "scene": "garden",
+          "lines": [
+            "At a covered fountain, a dew crystal hangs above the water. Gail catches one droplet in the third vial without reaching over the edge."
+          ],
+          "translation": "在有遮棚的噴泉旁，一顆露晶懸在水面上。瑜瑜站在安全處，讓一滴露珠落入第三個小瓶。",
+          "words": [
+            "dew",
+            "crystal",
+            "vial"
+          ]
+        },
+        {
+          "title": "Check the recipe",
+          "scene": "classroom",
+          "lines": [
+            "Back in class, the teacher sets a small cauldron beside the recipe cards. Remembering their ball game, Gail and Mira agree on the order and measure each ingredient before they brew."
+          ],
+          "translation": "回到教室，老師把小坩堝放在配方卡旁。想起上次魔法球的遊戲，瑜瑜與米拉先說好順序、量好每份材料，才開始調製。",
+          "words": [
+            "recipe",
+            "cauldron",
+            "brew",
+            "measure"
+          ]
+        },
+        {
+          "title": "Mortar and pestle",
+          "scene": "classroom",
+          "lines": [
+            "Mira uses a mortar and pestle to crush the moonmint leaf. Gail adds the measured dew while the teacher checks the order."
+          ],
+          "translation": "米拉用研缽與杵把月薄荷葉輕輕壓碎。瑜瑜加入量好的露珠，老師在旁核對順序。",
+          "words": [
+            "mortar",
+            "pestle",
+            "crush",
+            "dew",
+            "measure"
+          ]
+        },
+        {
+          "title": "A cloudy sample",
+          "scene": "classroom",
+          "lines": [
+            "The teacher adds warm water so the crystal can dissolve. One little bubble rises, but the first mixture turns cloudy instead of bright."
+          ],
+          "translation": "老師加入溫水，讓露晶溶解。一顆小泡泡冒起，第一瓶混合液卻變得混濁，沒有發亮。",
+          "words": [
+            "dissolve",
+            "bubble",
+            "mixture",
+            "crystal"
+          ]
+        },
+        {
+          "title": "Find the missing step",
+          "scene": "classroom",
+          "lines": [
+            "Gail compares this small sample with the recipe. They find the missing blue sage step. It is smart to check before trying again, so they begin a fresh vial rather than guessing at the cloudy one."
+          ],
+          "translation": "瑜瑜拿這一小瓶樣本對照配方，發現漏了藍鼠尾草那一步。再試之前先檢查，是聰明的做法；她們重新用一個小瓶調製，沒有對混濁的那瓶亂加材料。",
+          "words": [
+            "sample",
+            "recipe",
+            "vial"
+          ]
+        },
+        {
+          "title": "A bright new potion",
+          "scene": "classroom",
+          "lines": [
+            "This time they add each part in order and measure the dew again. The new potion begins to shimmer with a gentle blue light."
+          ],
+          "translation": "這次她們按順序加入材料，也重新量好露珠。新靈藥開始閃著柔和藍光。",
+          "words": [
+            "potion",
+            "measure",
+            "shimmer"
+          ]
+        },
+        {
+          "title": "Lanterns on the path",
+          "scene": "greenhouse",
+          "lines": [
+            "The teacher pours the finished potion into covered lanterns. Light travels along the greenhouse path, and Mira and Gail can see where every turn leads."
+          ],
+          "translation": "老師把完成的靈藥倒入有罩的燈籠。光沿溫室小路延伸，米拉與瑜瑜看得清每個轉彎。",
+          "words": [
+            "potion",
+            "shimmer"
+          ]
+        },
+        {
+          "title": "Back in her room",
+          "scene": "bedroom",
+          "lines": [
+            "Back in her bedroom, Gail sets the folded moonmint beside Mira's broom charm and magic ball. She remembers to identify, measure, and check a change together."
+          ],
+          "translation": "回到房間，瑜瑜把收攏的月薄荷放在米拉的掃帚吊飾和魔法球旁。她記得一起辨認、測量，再檢查變化。",
+          "words": [
+            "herb",
+            "measure"
+          ]
+        }
+      ],
+      "chinese": [
+        [
+          "在米拉留下的掃帚吊飾與魔法球旁，一枝銀色月薄荷和魔法學校的字條來了。葉片還合著。"
+        ],
+        [
+          "月薄荷先展開一片葉，再展開另一片。葉形光點從它身上升起，打開通往熟悉校舍屋頂的門。"
+        ],
+        [
+          "米拉是魔法學校的學生。她小心完成低空落地後迎接瑜瑜，老師請兩位朋友進入屋頂旁的靈藥教室。"
+        ],
+        [
+          "今天的配方要做一瓶點亮溫室小路燈籠的靈藥。老師說明，這瓶藥水只供燈籠使用，不拿來喝。"
+        ],
+        [
+          "她們需要三種材料：一片月薄荷葉、一片藍鼠尾草葉和一顆露晶。老師給她們圖鑑與三個小瓶。"
+        ],
+        [
+          "瑜瑜比較圖鑑上的月薄荷與旁邊相似的綠葉藥草。銀色月牙形葉脈幫她辨認，也讓她不去碰不確定的植物。"
+        ],
+        [
+          "米拉與瑜瑜沿著有記號的園路走，老師就在附近。她們到陰涼拱門下找月薄荷。"
+        ],
+        [
+          "一片相似的葉子讓人差點認錯，瑜瑜沒有摘下它。她再次核對銀色葉脈，然後請老師確認。"
+        ],
+        [
+          "老師確認找到了月薄荷。瑜瑜從栽種區取下一片葉，妥善放進第一個小瓶。"
+        ],
+        [
+          "一陣涼霧飄過園路，讓彩繪標記變得模糊。大家結伴找藍鼠尾草，不各自走散。"
+        ],
+        [
+          "老師看顧下，米拉沿路低低懸停一次。她看見轉彎後的藍尖葉，先安全落地，再指給大家看。"
+        ],
+        [
+          "老師辨認出藍鼠尾草。她輕輕捻開一片樣本葉，柔和香氣也符合圖鑑線索。"
+        ],
+        [
+          "在有遮棚的噴泉旁，一顆露晶懸在水面上。瑜瑜站在安全處，讓一滴露珠落入第三個小瓶。"
+        ],
+        [
+          "回到教室，老師把小坩堝放在配方卡旁。想起上次魔法球的遊戲，瑜瑜與米拉先說好順序、量好每份材料，才開始調製。"
+        ],
+        [
+          "米拉用研缽與杵把月薄荷葉輕輕壓碎。瑜瑜加入量好的露珠，老師在旁核對順序。"
+        ],
+        [
+          "老師加入溫水，讓露晶溶解。一顆小泡泡冒起，第一瓶混合液卻變得混濁，沒有發亮。"
+        ],
+        [
+          "瑜瑜拿這一小瓶樣本對照配方，發現漏了藍鼠尾草那一步。再試之前先檢查，是聰明的做法；她們重新用一個小瓶調製，沒有對混濁的那瓶亂加材料。"
+        ],
+        [
+          "這次她們按順序加入材料，也重新量好露珠。新靈藥開始閃著柔和藍光。"
+        ],
+        [
+          "老師把完成的靈藥倒入有罩的燈籠。光沿溫室小路延伸，米拉與瑜瑜看得清每個轉彎。"
+        ],
+        [
+          "回到房間，瑜瑜把收攏的月薄荷放在米拉的掃帚吊飾和魔法球旁。她記得一起辨認、測量，再檢查變化。"
+        ]
+      ]
+    }
+  }
+}

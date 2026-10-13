@@ -1,0 +1,22 @@
+{
+  "r1Commit": "21bfdca4f3fbc36c904266fef1a214f5179d7d14",
+  "r1SharedIndexSHA256": "be6601472ed1b79f735cf8a6e7ca5d49a8f4d8fd1e7987f31abbd9254083d044",
+  "unchangedFiles": [
+    {
+      "path": "src/story/interactive/little-robot-content.json",
+      "sha256": "46d9561d82fa77147cbee89db207754c555dce243980edf5a5b778757adeed68"
+    },
+    {
+      "path": "src/story/interactive/little-robot-quiz.json",
+      "sha256": "b0df4d7748a27a7876229b758d65936e0daba9d2472f074cb9063c82b80f02a9"
+    },
+    {
+      "path": "src/story/interactive/little-robot-images.json",
+      "sha256": "cbe1845b3b79f8ee79278f5fcc9470ae380d7c93401b6e356e2bda919dfa845c"
+    },
+    {
+      "path": "tests/fixtures/book35-original.json",
+      "sha256": "aff04d51d71bebe8a8140a8e27d1f19308e53b14d9eecacb056696cbbfd009b9"
+    }
+  ]
+}

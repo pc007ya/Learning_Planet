@@ -1,0 +1,110 @@
+{
+  "r1Commit": "40fe84a7764e37442ff8706f5aa1cc22d45f3cc2",
+  "r1SharedIndexSHA256": "774f41a0a2f55f0400f30c4775972ac19d086849ec8917b9b6e72c10c29b554f",
+  "unchangedFiles": [
+    {
+      "path": "src/story/interactive/bridge-construction-content.json",
+      "sha256": "b5a5df59cf74fe1a7d637b9becf81588a034c1d897be5dab110a1c189eeb331c"
+    },
+    {
+      "path": "src/story/interactive/bridge-construction-quiz.json",
+      "sha256": "aea3e544f96b5bcacbf25afe6d4fb06a7235a3f917a31d8ae54e356aab02624a"
+    },
+    {
+      "path": "src/story/interactive/bridge-construction-images.json",
+      "sha256": "ec7d8fb12d36dd31412176f12d4c0a0e474924f6039f86bea310d5627d7aa886"
+    },
+    {
+      "path": "tests/fixtures/book34-original.json",
+      "sha256": "aa7da5320107527e659c7efe08f33c0e2ef3039ff0a9458c0a4eeccddcb4dda1"
+    },
+    {
+      "path": "tests/fixtures/book34-web-images.json",
+      "sha256": "7bc35e101941f5159b228aece50b5274839f1af177eab8980188d591cdabb303"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/cover.webp",
+      "sha256": "f828f8c309c4feb955706c91829403c9e0cac335c4e95080fb77e94976bae15b"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/01.webp",
+      "sha256": "4968f1911a08b9f13ea58fd46e7d35899e0a1edf73c5130d3c9dc987d25734ea"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/02.webp",
+      "sha256": "90737a57f7ca6e1fbd1af3e1e64b47f82d6db4788dc8265ca60b9b11a439ad50"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/03.webp",
+      "sha256": "73773d69d9f1978c87049244205ad5a9cbd7b303983c6f938978e26f3249f832"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/04.webp",
+      "sha256": "d71dd766b3d5c551f73d531df9244708031d9c89cbfcf5f3d4c9f230417621c4"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/05.webp",
+      "sha256": "4aa8c90f3c4fdea5a60ff8a089b3a1879bf0cb8b447a3de48d0861b5601c3315"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/06.webp",
+      "sha256": "857098669461db2c0f927987fa8093e7029752e1fb22ca4f8fff5888fb50b37b"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/07.webp",
+      "sha256": "a2fe3737da87e619ab3046e4efa097c636eb4db1de37a209d73a62cf2f04822a"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/08.webp",
+      "sha256": "dfe34a175ebdc51c0b0081adfe8a3cb5833e52eeab5a3c1089fb1cdc145f5ae2"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/09.webp",
+      "sha256": "56d0492edff2244eff38ce3e44dd9c619fb82acf413f47a951affda4e6f7c109"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/10.webp",
+      "sha256": "48b5843891128dd26b2cf537eb2c9b32ddc280b5f567eab4a6453481a7a238fb"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/11.webp",
+      "sha256": "e11d0fd51cbf86d80634f363c76a188e1edaf90968c543125641ef61a946b8e9"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/12.webp",
+      "sha256": "b9d79c8c98f5e791ebaf3e6928269669ee3dbba687b36003fb98490174de2b8d"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/13.webp",
+      "sha256": "9b5ea377bd965c354ca897729388a9b60bd06dbc38aef8246ea722f5f92ee164"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/14.webp",
+      "sha256": "2bcac8f8356f93318786877a16afc48d0caaf84e5f5444da244b6d9398d58c2d"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/15.webp",
+      "sha256": "0e8ab3c13f389e4255aab83a89df0ff4b3f29d501a7575770adc5bf2e8d425b1"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/16.webp",
+      "sha256": "19518531473b832648bee9c7e40174cf2550211da85a7dbe4947248271255ed3"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/17.webp",
+      "sha256": "a5443c4b35d3110771121e0e33eeaabe1c934c58f1edd356bbd3f5b801288590"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/18.webp",
+      "sha256": "8fad404c6bc00a9c7185fa2b347acadb4260b24eaa635cd5bd442aaaad5495eb"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/19.webp",
+      "sha256": "f5ea99b196af18ddb9566872610dc15c655347d2662b827fc99cee39f8d7f3cd"
+    },
+    {
+      "path": "images/story/bridge-construction-v1/scene/20.webp",
+      "sha256": "30299b9d819909f396b4068a6eaaf053fcc2df1b7cdf294e7f0569f50ec8a3ef"
+    }
+  ]
+}

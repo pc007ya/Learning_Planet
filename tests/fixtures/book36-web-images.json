@@ -1,0 +1,151 @@
+{
+  "images": [
+    {
+      "path": "images/story/magic-potion-v1/cover.webp",
+      "sha256": "204d4c7f1e64b505708ad79a1af7842dca80e3102a857085658fbcfc80701629",
+      "number": 0,
+      "width": 800,
+      "height": 1200
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/01.webp",
+      "sha256": "3846f4d5478917fd029f1c081f735797772a81a5e625b70e3132a1897dc0c0ab",
+      "number": 1,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/02.webp",
+      "sha256": "ee8304887da82bed0802b555b006ddfbb22e30dc4d00d79da1a5bfde86376a9d",
+      "number": 2,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/03.webp",
+      "sha256": "4f7ac829a9a5c77245f731ac8e7dc93f6d66df7f51c4801408f45f3bcc017667",
+      "number": 3,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/04.webp",
+      "sha256": "e27d1a9a2926952fa3d6ffbf140a31e7723194932595b6aa141802c7f71b27e3",
+      "number": 4,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/05.webp",
+      "sha256": "a7fd310a088c1d8985f74066a2feb956fa32ef8fc734f8814c4db2c1d1ba1c64",
+      "number": 5,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/06.webp",
+      "sha256": "c0fd3ce663e74f8ea794f8ee84cea940d59f9082402026b5936c0d9927c7de1f",
+      "number": 6,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/07.webp",
+      "sha256": "76405c55bc4e375dacb304f2e182cfd2cbeef528c1df8055ef70a637838809fa",
+      "number": 7,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/08.webp",
+      "sha256": "9ed9d6e206eea93c21d6bd064b5ce699c88404979a0b55972b6f96fce1af9679",
+      "number": 8,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/09.webp",
+      "sha256": "c834542aa3c525eb14dc65b2f841f5db823acb684ba58cd52a44df295b2d3f55",
+      "number": 9,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/10.webp",
+      "sha256": "b024124aa32a7f783f2308884cbf9b5613481290214b0a396c67c00375c25680",
+      "number": 10,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/11.webp",
+      "sha256": "7a5b6b97825dd1e1badcb2f057a54fa41ab10d7dbfe916122a3523d306675839",
+      "number": 11,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/12.webp",
+      "sha256": "d2998dcdc90c1c83ca717ace36197afaff658448e68f793902e12d918687ccf9",
+      "number": 12,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/13.webp",
+      "sha256": "3d61787f932a06f05c7ee350c160c8aa7fef15a1e59270bb98682c5c0f4115bb",
+      "number": 13,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/14.webp",
+      "sha256": "6a44fcb3c9db92e4c43b29ff9dd0258c627af6f585cdb8976ea23614582b2b1f",
+      "number": 14,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/15.webp",
+      "sha256": "8cddf0a7803f05a2364d2daf95d3f467ec5eb7e7c8ab8096a01e995f0bfdf4d7",
+      "number": 15,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/16.webp",
+      "sha256": "9593442d3375ac70a48628e4177c4d7fb44e131d20439d673cba424197c894de",
+      "number": 16,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/17.webp",
+      "sha256": "8b0d7f857a8de22ea57c14b1165ee3a6ade74923f07ef32e3514b97cf7ce7aaa",
+      "number": 17,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/18.webp",
+      "sha256": "99a9a02393e49ee5495a4d0a28a12b3718a95b3d034d7bed05f46d96fbe111bb",
+      "number": 18,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/19.webp",
+      "sha256": "4918f0d33f0efb93a13cdcaccd880cdbb985ed9159b2f85dcc8733dfac03098d",
+      "number": 19,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/magic-potion-v1/scene/20.webp",
+      "sha256": "2dd7451a0a9b53b61916f4e8920c648d88729533b3eceb34d42dce33a56433fd",
+      "number": 20,
+      "width": 960,
+      "height": 640
+    }
+  ]
+}

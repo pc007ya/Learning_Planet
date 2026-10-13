@@ -1,0 +1,13 @@
+.bridge-construction-book .scene-world.bridge-full-image-world{background:#182b37;transform:none;overflow:hidden}
+.bridge-construction-book .bridge-full-image-frame{position:absolute;left:50%;top:50%;translate:-50% -50%;aspect-ratio:3/2;isolation:isolate;overflow:hidden}
+.bridge-construction-book .bridge-full-image{display:block;width:100%;height:100%;max-width:none;object-fit:contain;object-position:center;transform:none}
+.bridge-construction-book .bridge-picture-tap{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:transparent;z-index:2;cursor:pointer}
+.bridge-construction-book .bridge-picture-tap:focus-visible{outline:3px solid #fce5a2;outline-offset:-4px}
+.bridge-construction-book .bridge-picture-tap .hotspot-spark{position:absolute;translate:-50% -50%;font-size:22px;line-height:1;opacity:0;color:#fff1a4;text-shadow:0 0 8px #54421f;pointer-events:none}
+.bridge-construction-book.show-hints .bridge-picture-tap .hotspot-spark,.bridge-construction-book .bridge-picture-tap:focus-visible .hotspot-spark{opacity:1}
+.bridge-construction-book .bridge-image-focus{position:absolute;width:10%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;opacity:0;background:radial-gradient(circle,#fff8cfb0,#dfefff30 45%,transparent 70%);pointer-events:none;z-index:3}
+.bridge-construction-book .bridge-image-particle{position:absolute;width:3px;height:9px;border-radius:1px;rotate:25deg;background:#fff6be;box-shadow:0 0 5px #fff8df;pointer-events:none;z-index:4}
+.bridge-construction-book .bridge-image-status{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;background:#182b37e6;color:white;z-index:5;padding:16px}
+.bridge-construction-book .bridge-image-status[hidden]{display:none}
+.bridge-construction-book .bridge-image-status button{padding:8px 14px;border-radius:20px;border:1px solid #dcc18a;background:#fff7df;color:#52432a}
+.bridge-construction-book .layered-cover .cover-border{background-size:contain;background-position:center;background-repeat:no-repeat}

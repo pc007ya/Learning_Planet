@@ -1,0 +1,151 @@
+{
+  "images": [
+    {
+      "path": "images/story/little-robot-v1/cover.webp",
+      "sha256": "8c23a46f241248284e5a59bb5d7ac1a84b68af3d2268ccf0ded70462ce05cfdd",
+      "number": 0,
+      "width": 800,
+      "height": 1200
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/01.webp",
+      "sha256": "2da63f8ac062f5e0cb28049f29535f3da72e75a740e21bf7dfe3bac73d8cdfbb",
+      "number": 1,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/02.webp",
+      "sha256": "61153c23e3f63430431c3471a2c58c69bcde12c86de294a5030c8c635a6e9e6c",
+      "number": 2,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/03.webp",
+      "sha256": "7e58f1e358ec7d7f307bf765c3e0f9d68757ed6136c1022ca2a4adfca1b2089b",
+      "number": 3,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/04.webp",
+      "sha256": "5a7cfc0773f231071e0a832df433129d7c65fdcc53128348795abe95332ed754",
+      "number": 4,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/05.webp",
+      "sha256": "0998d73cb05e3a304ed41dcd5c63794368546db276bcb69f0c39c7ed34819516",
+      "number": 5,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/06.webp",
+      "sha256": "b420e089c3c988dba145a1ad18ad118938b41bfe093bb9f03a1a2173412e9107",
+      "number": 6,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/07.webp",
+      "sha256": "0ddb2a842feb77ab578ed0f437fecb4e20f16333a63bd19c9257c52a6985de91",
+      "number": 7,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/08.webp",
+      "sha256": "38f821f4d3b65f403a74b027086c4b681a7f8cca02eb707e7b2aa9ab5a6521f9",
+      "number": 8,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/09.webp",
+      "sha256": "b2ec3cd679636bbca79462ce98370198ff7526297a646747adf05d616432e0b9",
+      "number": 9,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/10.webp",
+      "sha256": "7e270da02fc4b3afddc377454ca95d258af4bdaab72eb1f5b178265f0317d4d2",
+      "number": 10,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/11.webp",
+      "sha256": "5cbd31eb8ab543e4aefb77fc97b4946566c7dc8aead09faca1c5b82a583284a2",
+      "number": 11,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/12.webp",
+      "sha256": "a8a2ad1c84cd228d29e09567d1f2b30b34e0858bd54762557b206daec0d947ec",
+      "number": 12,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/13.webp",
+      "sha256": "ecfe36ff75297c407a7e2bc057edcb60421566022561c0159c52927a1041db80",
+      "number": 13,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/14.webp",
+      "sha256": "66bcad17f9d5d4c7ad8b38f0156139b4784ba9f9f06922c6279f7e662bf9d1df",
+      "number": 14,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/15.webp",
+      "sha256": "79bbb6808cc1a9704444f01647f58025b7bb78dda9c44122f9dfa219b65d99ec",
+      "number": 15,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/16.webp",
+      "sha256": "0e9ebf151e74f0c8846d0e782119d6d5432283b1ae4b8efac00b93eba5a35b6a",
+      "number": 16,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/17.webp",
+      "sha256": "0455d351a6e476a89eac5d80768dddf78ec09a168c15a48ce57314ed2f59bed9",
+      "number": 17,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/18.webp",
+      "sha256": "35f26d937135a95ae6f24012141577182db008a80a80505c9df6854c23c77fcf",
+      "number": 18,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/19.webp",
+      "sha256": "7b97817ce5e0a9b8998c939652ebc1f76d7feee906752462fa1f1c0dc1d8d949",
+      "number": 19,
+      "width": 960,
+      "height": 640
+    },
+    {
+      "path": "images/story/little-robot-v1/scene/20.webp",
+      "sha256": "fda822fb1f5f8b68cd099799c18960733bcc90ea15824972baaba94ea2cb0c9a",
+      "number": 20,
+      "width": 960,
+      "height": 640
+    }
+  ]
+}

@@ -17,8 +17,9 @@ function firstCoverDOM(fullImage:boolean,newBook:unknown,asset:string){
  const productionPrefix=index.slice(begin,end)+';return cover;';
  const assignments:string[]=[];const requests:string[]=[];
  const node={set innerHTML(html:string){assignments.push(html);for(const m of html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g))requests.push(m[1]);}};
- const execute=new Function('el','isMuseum','museumCoverMarkup','pages','asset','newBook','isRed','isSnowBefore','isLighthouse','lighthouseCoverMarkup',productionPrefix);
- execute(()=>node,fullImage,museumCoverMarkup,Array(20),asset,newBook,false,false,false,()=>null);
+ const flags=Object.fromEntries([...new Set(productionPrefix.match(/\bis[A-Z]\w*/g)||[])].map(key=>[key,false]));
+ const env={...flags,isMuseum:fullImage,museumCoverMarkup,el:()=>node,pages:Array(20),asset,newBook};
+ new Function(...Object.keys(env),productionPrefix)(...Object.values(env));
  return {assignments,requests};
 }
 describe('book33 R2 minimal independent-QA repairs (source/mock; no browser)',()=>{

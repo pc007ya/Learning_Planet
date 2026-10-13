@@ -1,0 +1,1976 @@
+{
+  "r2Commit": "a13cb2392ba20581e0e0fe846cdb0515dd3157e6",
+  "independentBaseline": {
+    "candidateCommit": "a13cb2392ba20581e0e0fe846cdb0515dd3157e6",
+    "PASS": 46,
+    "NG": 2,
+    "questions": [
+      {
+        "id": "book35-A01",
+        "independentR2PASS": true,
+        "canonicalSHA256": "f107c6bbb51cca85b3db62c6052926208ba7ea32bc4c185f518d5fa6de47a121",
+        "question": {
+          "id": "book35-A01",
+          "kind": "choice",
+          "prompt": "What glows on the floor in this picture?",
+          "chinesePrompt": "圖中地板上什麼在發光？",
+          "options": [
+            {
+              "text": "A stop flag"
+            },
+            {
+              "text": "A toy house"
+            },
+            {
+              "text": "A small gear"
+            },
+            {
+              "text": "A blue light"
+            }
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "第1幕 / Scene 1: The small round object has gear teeth and glows on the floor. The flag, house and blue lantern belong to the workshop, and are not this glowing object. 地板上發光的圓形物件有齒輪的齒；停止旗、玩具屋與藍燈是工坊物件，不是圖中引路物。\n故事證據 / Evidence: A gear turns. / 齒輪轉了。",
+          "skill": "picture",
+          "evidence": [
+            {
+              "scene": 1,
+              "quote": "A gear turns.",
+              "chinese": "齒輪轉了。"
+            }
+          ],
+          "image": "images/story/little-robot-v1/scene/01.webp",
+          "imageAlt": "A tiny gear"
+        }
+      },
+      {
+        "id": "book35-A02",
+        "independentR2PASS": true,
+        "canonicalSHA256": "e10f25ebc158611fd89bedd46a719d41a29efe4ea2ee8080985a538b4fa7467f",
+        "question": {
+          "id": "book35-A02",
+          "kind": "choice",
+          "prompt": "What do the lights make?",
+          "chinesePrompt": "光做出了什麼？",
+          "options": [
+            {
+              "text": "A door"
+            },
+            {
+              "text": "A path"
+            },
+            {
+              "text": "A pile"
+            },
+            {
+              "text": "A card"
+            }
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "第2幕 / Scene 2: The sentence says the lights make a door. A lantern path, pile and picture card appear later; they are not what the lights make here. 句子直接說光做出一道門；燈路、燈堆與图卡在後面出現，不是這頁光做的東西。\n故事證據 / Evidence: The lights make a door. / 光做出一道門。",
+          "skill": "detail",
+          "evidence": [
+            {
+              "scene": 2,
+              "quote": "The lights make a door.",
+              "chinese": "光做出一道門。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-A03",
+        "independentR2PASS": true,
+        "canonicalSHA256": "79de33ca49193d23a8451eca36dd6761c3557e70fa63f41dc37a6780a7863ef7",
+        "question": {
+          "id": "book35-A03",
+          "kind": "choice",
+          "prompt": "Who stands beside Gail in this picture?",
+          "chinesePrompt": "圖中誰站在瑜瑜旁邊？",
+          "options": [
+            {
+              "text": "A young builder"
+            },
+            {
+              "text": "A little witch"
+            },
+            {
+              "text": "A toy shopkeeper"
+            },
+            {
+              "text": "A little robot"
+            }
+          ],
+          "answer": [
+            3
+          ],
+          "explanation": "第3幕 / Scene 3: The brass-and-blue figure with wheels beside Gail is the little robot. There is no builder, witch or shopkeeper standing next to her in this picture. 瑜瑜旁邊有輪子、黃銅藍色身體的是小機器人；此圖旁邊沒有工匠、女巫或店主。\n故事證據 / Evidence: Gail meets a robot. / 瑜瑜遇見機器人。",
+          "skill": "picture",
+          "evidence": [
+            {
+              "scene": 3,
+              "quote": "Gail meets a robot.",
+              "chinese": "瑜瑜遇見機器人。"
+            }
+          ],
+          "image": "images/story/little-robot-v1/scene/03.webp",
+          "imageAlt": "The little robot"
+        }
+      },
+      {
+        "id": "book35-A04",
+        "independentR2PASS": true,
+        "canonicalSHA256": "9de05142af4cfc0c6dbe54f3c9a298f944ab0db681347b43907bdf8de006cff1",
+        "question": {
+          "id": "book35-A04",
+          "kind": "choice",
+          "prompt": "What happens to the lanterns?",
+          "chinesePrompt": "燈籠怎麼了？",
+          "options": [
+            {
+              "text": "They go out"
+            },
+            {
+              "text": "They pile up"
+            },
+            {
+              "text": "They roll home"
+            },
+            {
+              "text": "They turn blue"
+            }
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "第5幕 / Scene 5: Pile up means the lanterns gather in a pile. The sentence does not say they go dark, go home or all become blue. pile up 表示堆在一起；原句沒有說熄滅、滾回家或全部變藍。\n故事證據 / Evidence: The lanterns pile up. / 燈籠堆在一起。",
+          "skill": "vocabulary",
+          "evidence": [
+            {
+              "scene": 5,
+              "quote": "The lanterns pile up.",
+              "chinese": "燈籠堆在一起。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-A05",
+        "independentR2PASS": true,
+        "canonicalSHA256": "4ded9edbf55b6096bcbd29025e54b645d95e995fa597b33aef466b4d48630283",
+        "question": {
+          "id": "book35-A05",
+          "kind": "choice",
+          "prompt": "Which check number comes after forty?",
+          "chinesePrompt": "檢查進度中，四十後是哪個數字？",
+          "options": [
+            {
+              "text": "Fifty"
+            },
+            {
+              "text": "Thirty"
+            },
+            {
+              "text": "Sixty"
+            },
+            {
+              "text": "Twenty"
+            }
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "第7幕 / Scene 7: The list is thirty, forty, fifty, sixty percent. Fifty follows forty; thirty comes before it and sixty comes after fifty. Twenty is not in this list. 依句中的三十、四十、五十、六十，四十後是五十；三十在前，六十再下一步，沒有二十。\n故事證據 / Evidence: Check: thirty, forty, fifty, sixty percent. / 檢查進度：百分之三十、四十、五十、六十。",
+          "skill": "number-sequence",
+          "evidence": [
+            {
+              "scene": 7,
+              "quote": "Check: thirty, forty, fifty, sixty percent.",
+              "chinese": "檢查進度：百分之三十、四十、五十、六十。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-A06",
+        "independentR2PASS": false,
+        "canonicalSHA256": "1b4c4d17ac980960742494dd4ae5ce0feb2d4427acef4d1a9b7990e1182badc3",
+        "question": {
+          "id": "book35-A06",
+          "kind": "choice",
+          "prompt": "What is the last check number here?",
+          "chinesePrompt": "本頁檢查最後是哪個數字？",
+          "options": [
+            {
+              "text": "Seventy"
+            },
+            {
+              "text": "Eighty"
+            },
+            {
+              "text": "One hundred"
+            },
+            {
+              "text": "Ninety"
+            }
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "第8幕 / Scene 8: The check list ends at one hundred percent before Ready. Seventy, eighty and ninety are earlier numbers in that same list. 檢查在準備好前到一百；七十、八十、九十都在一百之前。\n故事證據 / Evidence: Seventy, eighty, ninety, one hundred percent. Ready! / 百分之七十、八十、九十、一百。準備好了！",
+          "skill": "number-detail",
+          "evidence": [
+            {
+              "scene": 8,
+              "quote": "Seventy, eighty, ninety, one hundred percent. Ready!",
+              "chinese": "百分之七十、八十、九十、一百。準備好了！"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-A07",
+        "independentR2PASS": true,
+        "canonicalSHA256": "dd262fb53a5f26126555c762d5dccac5dc756ae06cce33f2462e0b7199c8ed0b",
+        "question": {
+          "id": "book35-A07",
+          "kind": "choice",
+          "prompt": "How many steps at a time?",
+          "chinesePrompt": "一次做幾步？",
+          "options": [
+            {
+              "text": "Two steps"
+            },
+            {
+              "text": "One step"
+            },
+            {
+              "text": "Ten steps"
+            },
+            {
+              "text": "All steps"
+            }
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "第9幕 / Scene 9: One step at a time asks for one step. It does not ask for two, ten, or every step together. one step at a time 是一次一步，不是兩步、十步或全部一起做。\n故事證據 / Evidence: One step at a time. / 一次做一步。",
+          "skill": "detail",
+          "evidence": [
+            {
+              "scene": 9,
+              "quote": "One step at a time.",
+              "chinese": "一次做一步。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-A08",
+        "independentR2PASS": true,
+        "canonicalSHA256": "2ef10258b196160ce456acd1c4608399b7f3ea17dc81ddfd0a4299db8ab7b096",
+        "question": {
+          "id": "book35-A08",
+          "kind": "choice",
+          "prompt": "How many steps at the start?",
+          "chinesePrompt": "開始時是幾步？",
+          "options": [
+            {
+              "text": "Ten"
+            },
+            {
+              "text": "Twenty"
+            },
+            {
+              "text": "Fifty"
+            },
+            {
+              "text": "Zero"
+            }
+          ],
+          "answer": [
+            3
+          ],
+          "explanation": "第10幕 / Scene 10: The starting instruction says Zero steps. Ten, twenty and fifty are different numbers, not the count at the start. 開始指令直接寫零步，並非十、二十或五十。\n故事證據 / Evidence: Start here. Zero steps. / 從這裡開始，零步。",
+          "skill": "number-detail",
+          "evidence": [
+            {
+              "scene": 10,
+              "quote": "Start here. Zero steps.",
+              "chinese": "從這裡開始，零步。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-A09",
+        "independentR2PASS": true,
+        "canonicalSHA256": "4b0c888242a8e8ef307af8d5f4072b9053aa5ef7618d0750cd28b25f2f49fc29",
+        "question": {
+          "id": "book35-A09",
+          "kind": "choice",
+          "prompt": "What color is on the middle card in this picture?",
+          "chinesePrompt": "圖中中間的顏色圖卡是哪一色？",
+          "options": [
+            {
+              "text": "Red"
+            },
+            {
+              "text": "Yellow"
+            },
+            {
+              "text": "Blue"
+            },
+            {
+              "text": "Green"
+            }
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "第11幕 / Scene 11: The three color cards show a red lantern, then a blue lantern, then a yellow lantern. Blue is between red and yellow; green is on the house, not the middle color card. 三張顏色卡依序紅、藍、黃，藍卡在紅與黃中間；綠色在玩具屋，不是中間顏色卡。\n故事證據 / Evidence: Red, blue, yellow. / 紅、藍、黃。",
+          "skill": "picture",
+          "evidence": [
+            {
+              "scene": 11,
+              "quote": "Red, blue, yellow.",
+              "chinese": "紅、藍、黃。"
+            }
+          ],
+          "image": "images/story/little-robot-v1/scene/11.webp",
+          "imageAlt": "Choose the order"
+        }
+      },
+      {
+        "id": "book35-A10",
+        "independentR2PASS": true,
+        "canonicalSHA256": "287d445b9b28e1a94055cbf4f85b6ec26e6ddd1d91a7f893e17162ee9f3aff22",
+        "question": {
+          "id": "book35-A10",
+          "kind": "choice",
+          "prompt": "Where should the robot stop?",
+          "chinesePrompt": "機器人要停在哪裡？",
+          "options": [
+            {
+              "text": "At the house"
+            },
+            {
+              "text": "At the flag"
+            },
+            {
+              "text": "By the shelf"
+            },
+            {
+              "text": "By the door"
+            }
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "第12幕 / Scene 12: Stop at the flag names the finish point. The house is the start in the story; the shelf and door are not the stop named here. 原句指定在旗子旁停止；玩具屋是起點，架子與門並非此頁指定終點。\n故事證據 / Evidence: Twenty steps. Stop at the flag. / 二十步，在旗子旁停止。",
+          "skill": "detail",
+          "evidence": [
+            {
+              "scene": 12,
+              "quote": "Twenty steps. Stop at the flag.",
+              "chinese": "二十步，在旗子旁停止。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-A11",
+        "independentR2PASS": false,
+        "canonicalSHA256": "656f32735396245617d049e47f2f9ca3fc1228df7c50456fa0759cfbade1eb5b",
+        "question": {
+          "id": "book35-A11",
+          "kind": "choice",
+          "prompt": "What is ready on this page?",
+          "chinesePrompt": "本頁什麼準備好了？",
+          "options": [
+            {
+              "text": "The door"
+            },
+            {
+              "text": "The bed"
+            },
+            {
+              "text": "The light"
+            },
+            {
+              "text": "The code"
+            }
+          ],
+          "answer": [
+            3
+          ],
+          "explanation": "第13幕 / Scene 13: The code is ready names the code. A door, bed and light are story objects but are not the subject of this sentence. 本句主詞是圖像指令code，門、床與燈不是句中準備好的主詞。\n故事證據 / Evidence: The code is ready. / 圖像指令準備好了。",
+          "skill": "vocabulary",
+          "evidence": [
+            {
+              "scene": 13,
+              "quote": "The code is ready.",
+              "chinese": "圖像指令準備好了。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-A12",
+        "independentR2PASS": true,
+        "canonicalSHA256": "0b1c16c31f1d64b5cb641d27aa74cfcc79a32b78ccae2285d5db3b75bbba58dc",
+        "question": {
+          "id": "book35-A12",
+          "kind": "choice",
+          "prompt": "Which light is wrong?",
+          "chinesePrompt": "哪個燈的顏色錯了？",
+          "options": [
+            {
+              "text": "The middle light"
+            },
+            {
+              "text": "The first light"
+            },
+            {
+              "text": "The last light"
+            },
+            {
+              "text": "Every path light"
+            }
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "第15幕 / Scene 15: The sentence identifies the middle light. It does not say the first, last or every light is wrong. 原句只指出中間燈錯了，沒有說第一盞、最後一盞或全部都錯。\n故事證據 / Evidence: The middle light is wrong. / 中間顏色錯了。",
+          "skill": "detail",
+          "evidence": [
+            {
+              "scene": 15,
+              "quote": "The middle light is wrong.",
+              "chinese": "中間顏色錯了。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-A13",
+        "independentR2PASS": true,
+        "canonicalSHA256": "d9f5348ea2e9c5d4d7649a0f9c5c09401767f1548e529ac3073354f63fd2ba45",
+        "question": {
+          "id": "book35-A13",
+          "kind": "choice",
+          "prompt": "What should Gail change?",
+          "chinesePrompt": "瑜瑜要改什麼？",
+          "options": [
+            {
+              "text": "This house"
+            },
+            {
+              "text": "This card"
+            },
+            {
+              "text": "This flag"
+            },
+            {
+              "text": "This gear"
+            }
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "第16幕 / Scene 16: Change this card names a card as the thing to change. The house, flag and gear are different objects, not the one in the instruction. change this card 明確指定圖卡，不是玩具屋、旗子或齒輪。\n故事證據 / Evidence: Change this card. / 改這張卡。",
+          "skill": "detail",
+          "evidence": [
+            {
+              "scene": 16,
+              "quote": "Change this card.",
+              "chinese": "改這張卡。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-A14",
+        "independentR2PASS": true,
+        "canonicalSHA256": "da9882d0cc2922e0902c3f4ace0aa8cd42b1851b308b3496a1ae86f8eb521d7e",
+        "question": {
+          "id": "book35-A14",
+          "kind": "choice",
+          "prompt": "What number comes just before Stop?",
+          "chinesePrompt": "停下前最後數到哪個數字？",
+          "options": [
+            {
+              "text": "Sixteen"
+            },
+            {
+              "text": "Seventeen"
+            },
+            {
+              "text": "Nineteen"
+            },
+            {
+              "text": "Twenty"
+            }
+          ],
+          "answer": [
+            3
+          ],
+          "explanation": "第17幕 / Scene 17: The final list runs sixteen, seventeen, eighteen, nineteen, twenty, then Stop. Twenty is last; the other choices occur earlier. 最後依序十六、十七、十八、十九、二十再停，二十在最後，其他選項在前面。\n故事證據 / Evidence: Reset. Try again. Sixteen, seventeen, eighteen, nineteen, twenty. Stop! / 重設，再試。十六、十七、十八、十九、二十。停！",
+          "skill": "number-sequence",
+          "evidence": [
+            {
+              "scene": 17,
+              "quote": "Reset. Try again. Sixteen, seventeen, eighteen, nineteen, twenty. Stop!",
+              "chinese": "重設，再試。十六、十七、十八、十九、二十。停！"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-A15",
+        "independentR2PASS": true,
+        "canonicalSHA256": "6a1a2577d2697a8b24e50d3295f547e3f800a77418adfad74eb8ec841ad33d88",
+        "question": {
+          "id": "book35-A15",
+          "kind": "choice",
+          "prompt": "How do the lights shine?",
+          "chinesePrompt": "燈怎樣亮起？",
+          "options": [
+            {
+              "text": "In order"
+            },
+            {
+              "text": "In a pile"
+            },
+            {
+              "text": "Under the bed"
+            },
+            {
+              "text": "Inside a box"
+            }
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "第18幕 / Scene 18: The lights shine in order describes their sequence. A pile describes the earlier problem; a bed and box are not how this line says they shine. in order 表示按順序；燈堆是前面的問題，床下與盒內不是本句的亮燈方式。\n故事證據 / Evidence: The lights shine in order. / 燈依序亮了。",
+          "skill": "vocabulary",
+          "evidence": [
+            {
+              "scene": 18,
+              "quote": "The lights shine in order.",
+              "chinese": "燈依序亮了。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-A16",
+        "independentR2PASS": true,
+        "canonicalSHA256": "27bbf6739b761cbec50bf783899c1d019a580f8cdcac874a48a8cb8cb0284d46",
+        "question": {
+          "id": "book35-A16",
+          "kind": "choice",
+          "prompt": "Where is Gail in the last picture?",
+          "chinesePrompt": "最後一張圖裡瑜瑜在哪裡？",
+          "options": [
+            {
+              "text": "The workshop"
+            },
+            {
+              "text": "The worktable"
+            },
+            {
+              "text": "Her bedroom"
+            },
+            {
+              "text": "The lantern path"
+            }
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "第20幕 / Scene 20: The bed, moonlit window and bedside cabinet identify her bedroom. The workshop, code table and lantern path are in the place she has left. 床、月亮窗景與床邊櫃顯示她在臥室；工坊、指令桌和燈路是她已離開的場景。\n故事證據 / Evidence: Gail is home. / 瑜瑜回家了。",
+          "skill": "picture",
+          "evidence": [
+            {
+              "scene": 20,
+              "quote": "Gail is home.",
+              "chinese": "瑜瑜回家了。"
+            }
+          ],
+          "image": "images/story/little-robot-v1/scene/20.webp",
+          "imageAlt": "Back in the bedroom"
+        }
+      },
+      {
+        "id": "book35-B01",
+        "independentR2PASS": true,
+        "canonicalSHA256": "11276245930d6c0450b86b29596a9a5ee6d1259ad4c1f506b2b1428da4119578",
+        "question": {
+          "id": "book35-B01",
+          "kind": "choice",
+          "prompt": "Where does the tiny gear turn?",
+          "chinesePrompt": "小齒輪在哪裡轉？",
+          "options": [
+            {
+              "text": "On the workshop shelf"
+            },
+            {
+              "text": "On the bedroom floor"
+            },
+            {
+              "text": "Beside the stop flag"
+            },
+            {
+              "text": "Under the picture cards"
+            }
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "第1幕 / Scene 1: The gear turns on Gail’s bedroom floor. The shelf, stop flag and picture cards belong to the workshop visit that follows. 齒輪先在臥室地板轉動；架子、停止旗與圖卡屬於之後工坊的情節。\n故事證據 / Evidence: A tiny gear turns on Gail's bedroom floor. It glows softly. / 小齒輪在瑜瑜房間的地板上轉動，柔和發光。",
+          "skill": "linked-detail",
+          "evidence": [
+            {
+              "scene": 1,
+              "quote": "A tiny gear turns on Gail's bedroom floor. It glows softly.",
+              "chinese": "小齒輪在瑜瑜房間的地板上轉動，柔和發光。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B02",
+        "independentR2PASS": true,
+        "canonicalSHA256": "570410d22501b70b0e56c79d58ae254e9dfa7848ef624ecfc655af65adbebf6e",
+        "question": {
+          "id": "book35-B02",
+          "kind": "choice",
+          "prompt": "What opens after the light points glow?",
+          "chinesePrompt": "光點依序亮起後，什麼打開？",
+          "options": [
+            {
+              "text": "A box for the lanterns"
+            },
+            {
+              "text": "A card for the colors"
+            },
+            {
+              "text": "A door to a classroom"
+            },
+            {
+              "text": "A way to the workshop"
+            }
+          ],
+          "answer": [
+            3
+          ],
+          "explanation": "第2幕 / Scene 2: A doorway to a workshop opens. The text does not open a lantern box, color card or classroom doorway. 原文打開通往工坊的門，不是燈籠箱、顏色卡或教室的門。\n故事證據 / Evidence: Light points glow one after another. A doorway to a workshop opens. / 光點一個接一個亮起，通往工坊的門開了。",
+          "skill": "sequence",
+          "evidence": [
+            {
+              "scene": 2,
+              "quote": "Light points glow one after another. A doorway to a workshop opens.",
+              "chinese": "光點一個接一個亮起，通往工坊的門開了。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B03",
+        "independentR2PASS": true,
+        "canonicalSHA256": "a32746269fde8e7c0a2bf15932f0ba8168697290200f655b48156c23d02e90ce",
+        "question": {
+          "id": "book35-B03",
+          "kind": "choice",
+          "prompt": "Why can Gail see no lantern path yet?",
+          "chinesePrompt": "為什麼瑜瑜還看不到燈路？",
+          "options": [
+            {
+              "text": "Every lantern is in one corner"
+            },
+            {
+              "text": "Every lantern is on the path"
+            },
+            {
+              "text": "The robot has reached the flag"
+            },
+            {
+              "text": "The robot has changed its card"
+            }
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "第4、5幕 / Scene 4、5: The workshop needs a path, but the robot places every lantern in one corner. Reaching the flag and changing a card occur later, and the lights are not along the path yet. 第4、5幕需要燈路，卻把燈放同一角；到旗子與改卡在後面，燈此時尚未沿路排。\n故事證據 / Evidence: The workshop needs a lantern path. Someone says, “Make it pretty.” / 工坊需要燈路。有人說：「排漂亮一點。」 | The robot puts every lantern in one corner. Gail sees no path. / 機器人把所有燈籠放在角落。瑜瑜看見路還空著。",
+          "skill": "cause-result",
+          "evidence": [
+            {
+              "scene": 4,
+              "quote": "The workshop needs a lantern path. Someone says, “Make it pretty.”",
+              "chinese": "工坊需要燈路。有人說：「排漂亮一點。」"
+            },
+            {
+              "scene": 5,
+              "quote": "The robot puts every lantern in one corner. Gail sees no path.",
+              "chinese": "機器人把所有燈籠放在角落。瑜瑜看見路還空著。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B04",
+        "independentR2PASS": true,
+        "canonicalSHA256": "78d0e734046b8c5e947bd0c80b0faf20bccb22348d05613eda29549e1ac5aad7",
+        "question": {
+          "id": "book35-B04",
+          "kind": "choice",
+          "prompt": "What does Gail ask before making new steps?",
+          "chinesePrompt": "做新步驟前，瑜瑜先問什麼？",
+          "options": [
+            {
+              "text": "Where is the flag?"
+            },
+            {
+              "text": "Is the path ready?"
+            },
+            {
+              "text": "What did you hear?"
+            },
+            {
+              "text": "May I take a lamp?"
+            }
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "第6幕 / Scene 6: Gail asks what the robot heard, and it shows a picture card. The other questions may concern story objects but are not what she asks here. 她問機器人聽到什麼，它才展示圖卡；其餘問題並非本頁對話。\n故事證據 / Evidence: Gail asks, “What did you hear?” The robot shows one picture card. / 瑜瑜問：「你聽到什麼？」機器人拿出一張圖卡。",
+          "skill": "dialogue",
+          "evidence": [
+            {
+              "scene": 6,
+              "quote": "Gail asks, “What did you hear?” The robot shows one picture card.",
+              "chinese": "瑜瑜問：「你聽到什麼？」機器人拿出一張圖卡。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B05",
+        "independentR2PASS": true,
+        "canonicalSHA256": "0df2b274c2a7c6a8bd02a1b2396246f8e34d837a6150f9537b71393b1ee81f0e",
+        "question": {
+          "id": "book35-B05",
+          "kind": "choice",
+          "prompt": "What do thirty through sixty percent describe?",
+          "chinesePrompt": "三十到六十百分比在說什麼？",
+          "options": [
+            {
+              "text": "The charge left in its cell"
+            },
+            {
+              "text": "The count of route steps"
+            },
+            {
+              "text": "The check of robot parts"
+            },
+            {
+              "text": "The order of color cards"
+            }
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "第7幕 / Scene 7: The robot checks its parts as the percentages rise. These numbers mark a check, not battery charge, walking steps or the three color cards. 此頁是零件檢查的進度，並非電量、路線步數或三色圖卡順序。\n故事證據 / Evidence: The robot checks its parts. Thirty, forty, fifty, sixty percent. / 機器人檢查零件，進度到百分之三十、四十、五十、六十。",
+          "skill": "number-meaning",
+          "evidence": [
+            {
+              "scene": 7,
+              "quote": "The robot checks its parts. Thirty, forty, fifty, sixty percent.",
+              "chinese": "機器人檢查零件，進度到百分之三十、四十、五十、六十。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B06",
+        "independentR2PASS": true,
+        "canonicalSHA256": "c00ed62fbf827c0f5930f104ff75e5549fa7d57a0cc30545f00aed128fc93b54",
+        "question": {
+          "id": "book35-B06",
+          "kind": "choice",
+          "prompt": "What works when the check is done?",
+          "chinesePrompt": "檢查完成時，什麼正常？",
+          "options": [
+            {
+              "text": "The battery and sensor"
+            },
+            {
+              "text": "The house and lanterns"
+            },
+            {
+              "text": "The doorway and flag"
+            },
+            {
+              "text": "The cards and shelves"
+            }
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "第8幕 / Scene 8: The text names the battery and sensor as working. It does not identify the house, doorway, cards or shelves as the checked robot parts. 文本指定電池與感測器正常，其他選项不是此頁檢查的機器人零件。\n故事證據 / Evidence: Seventy, eighty, ninety, one hundred percent. The check is done. The battery and sensor work. / 百分之七十、八十、九十、一百。檢查完成，電池與感測器正常。",
+          "skill": "linked-detail",
+          "evidence": [
+            {
+              "scene": 8,
+              "quote": "Seventy, eighty, ninety, one hundred percent. The check is done. The battery and sensor work.",
+              "chinese": "百分之七十、八十、九十、一百。檢查完成，電池與感測器正常。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B07",
+        "independentR2PASS": true,
+        "canonicalSHA256": "cd687e34880486e35654d4c3aecd9cd9884dab192b3a90a85c827a9cf278ab46",
+        "question": {
+          "id": "book35-B07",
+          "kind": "choice",
+          "prompt": "How does Gail make steps the robot can follow?",
+          "chinesePrompt": "瑜瑜怎樣做出機器人能照做的步驟？",
+          "options": [
+            {
+              "text": "She piles up the color lanterns"
+            },
+            {
+              "text": "She moves away the start card"
+            },
+            {
+              "text": "She puts a gear on every lamp"
+            },
+            {
+              "text": "She makes a short picture list"
+            }
+          ],
+          "answer": [
+            3
+          ],
+          "explanation": "第9幕 / Scene 9: She makes a short list with pictures. Piling lamps repeats the earlier problem; moving the start card away or putting gears on lamps is not her method. 她用圖片列出短步驟；堆燈是之前問題，搬走起點或给每燈裝齒輪並非她的方法。\n故事證據 / Evidence: Gail makes a short list of steps with pictures. The robot can follow them. / 瑜瑜用圖片列出短步驟，機器人能照著做。",
+          "skill": "method",
+          "evidence": [
+            {
+              "scene": 9,
+              "quote": "Gail makes a short list of steps with pictures. The robot can follow them.",
+              "chinese": "瑜瑜用圖片列出短步驟，機器人能照著做。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B08",
+        "independentR2PASS": true,
+        "canonicalSHA256": "48949419886f3938508f07b322d01a694e5548487f0480d253314ecaa1fa227d",
+        "question": {
+          "id": "book35-B08",
+          "kind": "choice",
+          "prompt": "Where does the step count begin at zero?",
+          "chinesePrompt": "步數從零開始的地點在哪裡？",
+          "options": [
+            {
+              "text": "By the stop flag"
+            },
+            {
+              "text": "By the toy house"
+            },
+            {
+              "text": "Under the shelf"
+            },
+            {
+              "text": "Near Gail’s bed"
+            }
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "第10幕 / Scene 10: The start card goes by the toy house, and the step count starts at zero. The flag is the finish, while the shelf and bed are not the route’s start. 起點卡在玩具屋旁，步數由零開始；旗子是終點，架子與床不是路線起點。\n故事證據 / Evidence: Gail puts the start card by the toy house. The step count starts at zero. / 瑜瑜把起點卡放在玩具屋旁，步數從零開始。",
+          "skill": "linked-detail",
+          "evidence": [
+            {
+              "scene": 10,
+              "quote": "Gail puts the start card by the toy house. The step count starts at zero.",
+              "chinese": "瑜瑜把起點卡放在玩具屋旁，步數從零開始。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B09",
+        "independentR2PASS": true,
+        "canonicalSHA256": "0d73e60ac7d407c1fc18b34908226697ae38ecc78475a1c9370cde36a3af01c8",
+        "question": {
+          "id": "book35-B09",
+          "kind": "choice",
+          "prompt": "Which color comes after red in Gail’s plan?",
+          "chinesePrompt": "瑜瑜的計畫中，紅色後是哪一色？",
+          "options": [
+            {
+              "text": "Blue"
+            },
+            {
+              "text": "Yellow"
+            },
+            {
+              "text": "Green"
+            },
+            {
+              "text": "White"
+            }
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "第11幕 / Scene 11: The order is red, blue, then yellow. Blue follows red; yellow follows blue. Green and white are not colors in this three-color plan. 原順序紅、藍、黃，紅後是藍，黃再接藍；綠與白不在三色計畫中。\n故事證據 / Evidence: Gail puts the color cards in order. Red comes before blue, then yellow. / 瑜瑜依序排好顏色圖卡：紅色、藍色、黃色。",
+          "skill": "sequence",
+          "evidence": [
+            {
+              "scene": 11,
+              "quote": "Gail puts the color cards in order. Red comes before blue, then yellow.",
+              "chinese": "瑜瑜依序排好顏色圖卡：紅色、藍色、黃色。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B10",
+        "independentR2PASS": true,
+        "canonicalSHA256": "84e717526b20f0f356dd1ea5ad54f05f5b4f4b677e622c52fa8fb81fd39d9486",
+        "question": {
+          "id": "book35-B10",
+          "kind": "choice",
+          "prompt": "What does the stop card tell the robot to do?",
+          "chinesePrompt": "停止卡告訴機器人做什麼？",
+          "options": [
+            {
+              "text": "Start after twenty small steps"
+            },
+            {
+              "text": "Turn after thirty small steps"
+            },
+            {
+              "text": "Stop after twenty small steps"
+            },
+            {
+              "text": "Run after one hundred steps"
+            }
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "第12幕 / Scene 12: The card by the flag sets a stop after twenty small steps. Other choices change the action or use check numbers as route steps. 旗子旁的卡指定二十小步後停止；錯項换動作，或把檢查進度數字當作步數。\n故事證據 / Evidence: Gail puts a stop card by the flag. The robot will stop after twenty small steps. / 瑜瑜把停止卡放在旗子旁，機器人要走二十小步後停下。",
+          "skill": "instruction",
+          "evidence": [
+            {
+              "scene": 12,
+              "quote": "Gail puts a stop card by the flag. The robot will stop after twenty small steps.",
+              "chinese": "瑜瑜把停止卡放在旗子旁，機器人要走二十小步後停下。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B11",
+        "independentR2PASS": true,
+        "canonicalSHA256": "74e2cc4274adf9ceb456ea5ae62ef21d9563b9a52ed94becced19e9e590f24e0",
+        "question": {
+          "id": "book35-B11",
+          "kind": "choice",
+          "prompt": "What does Gail do before pressing the button?",
+          "chinesePrompt": "按鈕之前，瑜瑜做什麼？",
+          "options": [
+            {
+              "text": "Changes every lantern"
+            },
+            {
+              "text": "Checks each command"
+            },
+            {
+              "text": "Leaves the workshop"
+            },
+            {
+              "text": "Moves the stop flag"
+            }
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "第13幕 / Scene 13: She checks every command before pressing. Changing all lights, leaving and moving the stop flag are not this pre-test check. 文本說按之前核對每個指令，沒有說換全部燈、離開工坊或搬停止旗。\n故事證據 / Evidence: The cards make a little code. Gail checks every command before pressing the button. / 圖卡組成小小的程式。按鈕前，瑜瑜核對每個指令。",
+          "skill": "sequence",
+          "evidence": [
+            {
+              "scene": 13,
+              "quote": "The cards make a little code. Gail checks every command before pressing the button.",
+              "chinese": "圖卡組成小小的程式。按鈕前，瑜瑜核對每個指令。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B12",
+        "independentR2PASS": true,
+        "canonicalSHA256": "efbc2e99f07040ee249027754b3aa177970755d80a5437a16a51520fdddd57d3",
+        "question": {
+          "id": "book35-B12",
+          "kind": "choice",
+          "prompt": "Which count follows ten in the first test?",
+          "chinesePrompt": "第一次測試中，十步後接著數什麼？",
+          "options": [
+            {
+              "text": "Sixteen, seventeen, eighteen"
+            },
+            {
+              "text": "Thirty, forty, fifty"
+            },
+            {
+              "text": "Seventy, eighty, ninety"
+            },
+            {
+              "text": "Eleven, twelve, thirteen"
+            }
+          ],
+          "answer": [
+            3
+          ],
+          "explanation": "第14幕 / Scene 14: The first test begins eleven, twelve, thirteen after ten. Sixteen to eighteen belongs near the later finish; the tens are self-check percentages. 第14幕十後從十一、十二、十三接數；十六等在後來近終點，整十數是自我檢查百分比。\n故事證據 / Evidence: The robot starts at the house. After ten steps, it counts: eleven, twelve, thirteen, fourteen, fifteen. / 機器人從玩具屋出發，走十步後接著數：十一、十二、十三、十四、十五。",
+          "skill": "number-sequence",
+          "evidence": [
+            {
+              "scene": 14,
+              "quote": "The robot starts at the house. After ten steps, it counts: eleven, twelve, thirteen, fourteen, fifteen.",
+              "chinese": "機器人從玩具屋出發，走十步後接著數：十一、十二、十三、十四、十五。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B13",
+        "independentR2PASS": true,
+        "canonicalSHA256": "460fae833996a4fcfb77ac8f3ee2843590630635ab342d7dba17a564fb9fbb55",
+        "question": {
+          "id": "book35-B13",
+          "kind": "choice",
+          "prompt": "Which card does Gail change after the wrong color?",
+          "chinesePrompt": "顏色錯了之後，瑜瑜換哪张卡？",
+          "options": [
+            {
+              "text": "Only the first start card"
+            },
+            {
+              "text": "All three of the color cards"
+            },
+            {
+              "text": "Both the start and stop cards"
+            },
+            {
+              "text": "Only the second color card"
+            }
+          ],
+          "answer": [
+            3
+          ],
+          "explanation": "第15、16幕 / Scene 15、16: Yellow appears in the middle where Gail expects blue. She changes just the second color card, not the start, all colors or both endpoints. 第15、16幕中間黃燈應是藍，只改第二張顏色卡，沒有改起點、全色或兩端。\n故事證據 / Evidence: The robot puts yellow in the middle. Gail expected blue. / 機器人把黃色放在中間，瑜瑜原本要藍色。 | Gail changes just the second color card. The robot waits. / 瑜瑜只改第二張顏色卡。機器人等著。",
+          "skill": "problem-repair",
+          "evidence": [
+            {
+              "scene": 15,
+              "quote": "The robot puts yellow in the middle. Gail expected blue.",
+              "chinese": "機器人把黃色放在中間，瑜瑜原本要藍色。"
+            },
+            {
+              "scene": 16,
+              "quote": "Gail changes just the second color card. The robot waits.",
+              "chinese": "瑜瑜只改第二張顏色卡。機器人等著。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B14",
+        "independentR2PASS": true,
+        "canonicalSHA256": "fbb8aade82ea431843416eb666012343c637470ca740eb71562aa08435174cd4",
+        "question": {
+          "id": "book35-B14",
+          "kind": "choice",
+          "prompt": "What does the robot do after Gail resets it?",
+          "chinesePrompt": "瑜瑜重設後，機器人做什麼？",
+          "options": [
+            {
+              "text": "Skips the start and last step"
+            },
+            {
+              "text": "Tries the whole route again"
+            },
+            {
+              "text": "Moves all lights to a corner"
+            },
+            {
+              "text": "Checks only the first lantern"
+            }
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "第17幕 / Scene 17: The reset returns the count to zero and the robot tries the whole route again. It does not skip parts, repeat the corner pile or check only one lamp. 歸零後重走完整路線，沒有跳過起終點、再堆角落或只查第一盞。\n故事證據 / Evidence: Gail resets the robot to zero. It tries the whole route again. At the end it counts: sixteen, seventeen, eighteen, nineteen, twenty. Stop! / 瑜瑜把機器人歸零，重新走完整條路，最後數：十六、十七、十八、十九、二十。停！",
+          "skill": "sequence",
+          "evidence": [
+            {
+              "scene": 17,
+              "quote": "Gail resets the robot to zero. It tries the whole route again. At the end it counts: sixteen, seventeen, eighteen, nineteen, twenty. Stop!",
+              "chinese": "瑜瑜把機器人歸零，重新走完整條路，最後數：十六、十七、十八、十九、二十。停！"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B15",
+        "independentR2PASS": true,
+        "canonicalSHA256": "37b7301773d895d3a763d43cfac63097feba19184afe3dc5121798ad4ed3ea01",
+        "question": {
+          "id": "book35-B15",
+          "kind": "choice",
+          "prompt": "How does the robot respond to the lit path?",
+          "chinesePrompt": "燈路亮起時，機器人怎樣回應？",
+          "options": [
+            {
+              "text": "With another wrong card"
+            },
+            {
+              "text": "With a pile of lights"
+            },
+            {
+              "text": "With a happy beep"
+            },
+            {
+              "text": "With a new stop flag"
+            }
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "第18幕 / Scene 18: The text names a happy beep as the response. A wrong card and pile relate to earlier problems; no new flag is named as its response. 原句以開心嗶聲回應，錯卡與燈堆是前面問題，新旗子不是本頁回應。\n故事證據 / Evidence: The lantern path lights up. The robot responds with a happy beep. / 燈路亮起，機器人開心地嗶了一聲。",
+          "skill": "linked-detail",
+          "evidence": [
+            {
+              "scene": 18,
+              "quote": "The lantern path lights up. The robot responds with a happy beep.",
+              "chinese": "燈路亮起，機器人開心地嗶了一聲。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-B16",
+        "independentR2PASS": true,
+        "canonicalSHA256": "a87bdbcbe1c5fb79f2b49f1b72405cd469b51fc26dcf21070cfdcd6888c0a458",
+        "question": {
+          "id": "book35-B16",
+          "kind": "choice",
+          "prompt": "What does Gail remember after going home?",
+          "chinesePrompt": "回家後瑜瑜記得什麼？",
+          "options": [
+            {
+              "text": "To give clear steps"
+            },
+            {
+              "text": "To pile up the lamps"
+            },
+            {
+              "text": "To change every card"
+            },
+            {
+              "text": "To skip the first test"
+            }
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "第19、20幕 / Scene 19、20: The gear takes her home, where she remembers clear steps. A pile caused the earlier problem; changing every card and skipping testing oppose the actions in the visit. 第19、20幕回家記住清楚步驟；堆燈是問題，改全部卡與略過測試不符合先前做法。\n故事證據 / Evidence: The robot thanks Gail. The little gear makes a path home. / 機器人謝謝瑜瑜。小齒輪打開回家的路。 | Gail puts the gear by her bed. She remembers to give clear steps. / 瑜瑜把齒輪放在床邊。她記得要給清楚步驟。",
+          "skill": "lesson",
+          "evidence": [
+            {
+              "scene": 19,
+              "quote": "The robot thanks Gail. The little gear makes a path home.",
+              "chinese": "機器人謝謝瑜瑜。小齒輪打開回家的路。"
+            },
+            {
+              "scene": 20,
+              "quote": "Gail puts the gear by her bed. She remembers to give clear steps.",
+              "chinese": "瑜瑜把齒輪放在床邊。她記得要給清楚步驟。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C01",
+        "independentR2PASS": true,
+        "canonicalSHA256": "d3d8f3d1c2f06f1b8b9511893bc8ae3d43dfc873d70d0859ff39cec745c19cb9",
+        "question": {
+          "id": "book35-C01",
+          "kind": "choice",
+          "prompt": "Which order opens the way to the workshop?",
+          "chinesePrompt": "哪個順序打開通往工坊的路？",
+          "options": [
+            {
+              "text": "The doorway forms, the robot checks, the gear glows"
+            },
+            {
+              "text": "The lights form a path, the robot stops, Gail leaves"
+            },
+            {
+              "text": "The picture cards glow, Gail resets, a doorway forms"
+            },
+            {
+              "text": "The gear glows, light points rise, a doorway forms"
+            }
+          ],
+          "answer": [
+            3
+          ],
+          "explanation": "第1、2幕 / Scene 1、2: The gear begins turning in scene1. Scene2 explicitly puts gear glow before rising light points and the doorway. The other choices bring in later tests or substitute picture cards for the gear. 第1、2幕是齒輪先亮、光點升起再成門；其他選項混入後續測試或把引路物換成圖卡。\n故事證據 / Evidence: In Gail's familiar bedroom, a tiny brass gear begins to turn by itself. Soft points of light appear around its teeth. / 在瑜瑜熟悉的臥室，一枚小銅齒輪自己轉了起來。柔和光點出現在齒邊。 | The gear glows first; then its light points rise in order and make a doorway. Gail sees a toy workshop beyond the opening. / 齒輪先發光，光點才依序升起並形成一道門。瑜瑜看見門後的玩具工坊。",
+          "skill": "cross-scene-sequence",
+          "evidence": [
+            {
+              "scene": 1,
+              "quote": "In Gail's familiar bedroom, a tiny brass gear begins to turn by itself. Soft points of light appear around its teeth.",
+              "chinese": "在瑜瑜熟悉的臥室，一枚小銅齒輪自己轉了起來。柔和光點出現在齒邊。"
+            },
+            {
+              "scene": 2,
+              "quote": "The gear glows first; then its light points rise in order and make a doorway. Gail sees a toy workshop beyond the opening.",
+              "chinese": "齒輪先發光，光點才依序升起並形成一道門。瑜瑜看見門後的玩具工坊。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C02",
+        "independentR2PASS": true,
+        "canonicalSHA256": "49a0ad1b9e425e4aa2cbff963bcd96db81189f45a175f95d0214cb539303a5b3",
+        "question": {
+          "id": "book35-C02",
+          "kind": "choice",
+          "prompt": "What best explains the empty path after the first task?",
+          "chinesePrompt": "第一次任務後路還空著，哪個解釋最有依據？",
+          "options": [
+            {
+              "text": "The route’s stop card asked for more than twenty steps"
+            },
+            {
+              "text": "The instruction left out a start and color order"
+            },
+            {
+              "text": "The battery lacked power to carry the three lanterns"
+            },
+            {
+              "text": "The sensor asked Gail to remove the finished program"
+            }
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "第4、5、6幕 / Scene 4、5、6: The vague command and pile-only card give no start or color order. The robot completes that instruction, yet the intended path is empty. No long stop route, weak battery or sensor request is described. 第4至6幕模糊指令與燈堆卡缺起點及顏色順序；機器人完成收到的任務卻未成燈路，沒有長路、弱電池或感測器要求的證據。\n故事證據 / Evidence: The workshop wants a three-color lantern path for its evening display. Someone gives the robot only the command, “Make it pretty.” / 工坊想為晚間展示做一條三色燈路。有人卻只給機器人一句指令：「排漂亮一點。」 | Following the vague command as best it can, the robot carries every lantern into one corner. The path remains empty even though the robot completed its task. / 機器人盡力照著模糊指令，把所有燈籠搬到同一角。它完成了任務，路卻仍然空著。 | Gail asks the robot what instruction it received. It shows her one picture card with a bright pile but no starting point or color order. / 瑜瑜問機器人收到什麼指令。它拿出一張只畫著亮燈堆、沒有起點與顏色順序的圖卡。",
+          "skill": "cause-evidence",
+          "evidence": [
+            {
+              "scene": 4,
+              "quote": "The workshop wants a three-color lantern path for its evening display. Someone gives the robot only the command, “Make it pretty.”",
+              "chinese": "工坊想為晚間展示做一條三色燈路。有人卻只給機器人一句指令：「排漂亮一點。」"
+            },
+            {
+              "scene": 5,
+              "quote": "Following the vague command as best it can, the robot carries every lantern into one corner. The path remains empty even though the robot completed its task.",
+              "chinese": "機器人盡力照著模糊指令，把所有燈籠搬到同一角。它完成了任務，路卻仍然空著。"
+            },
+            {
+              "scene": 6,
+              "quote": "Gail asks the robot what instruction it received. It shows her one picture card with a bright pile but no starting point or color order.",
+              "chinese": "瑜瑜問機器人收到什麼指令。它拿出一張只畫著亮燈堆、沒有起點與顏色順序的圖卡。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C03",
+        "independentR2PASS": true,
+        "canonicalSHA256": "4968bb14ab4f6498fc44b41f4c837c7680f17910fd5e343807ce5e1ecf3fffd5",
+        "question": {
+          "id": "book35-C03",
+          "kind": "choice",
+          "prompt": "What can Gail conclude from the completed self-check?",
+          "chinesePrompt": "完成自我檢查後，瑜瑜能得出什麼結論？",
+          "options": [
+            {
+              "text": "The color order is right, so no route test will be needed"
+            },
+            {
+              "text": "The lantern route is finished, so she can return home now"
+            },
+            {
+              "text": "The checked parts work, so she next examines instructions"
+            },
+            {
+              "text": "The battery reads one hundred, so every command is exact"
+            }
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "第7、8幕 / Scene 7、8: The check verifies wheels, switch, lever, sufficient battery charge and sensor operation. It does not verify color order or the program. One hundred is check progress, not a battery reading. 第7、8幕核對零件、电量足够与感测器，不核對顏色順序或程式；一百是檢查進度，不是電池讀值。\n故事證據 / Evidence: Its self-check moves through thirty, forty, fifty, and sixty percent. The wheels, switch, and lever all work. / 自我檢查進度依序到百分之三十、四十、五十、六十。輪子、開關與控制桿都正常。 | The check reaches seventy, eighty, ninety, then one hundred percent. The battery has enough charge and the sensor works, so Gail checks the instructions next. / 檢查進度到百分之七十、八十、九十，最後是一百。電池電量足夠、感測器正常，所以瑜瑜接著檢查指令。",
+          "skill": "scope-of-evidence",
+          "evidence": [
+            {
+              "scene": 7,
+              "quote": "Its self-check moves through thirty, forty, fifty, and sixty percent. The wheels, switch, and lever all work.",
+              "chinese": "自我檢查進度依序到百分之三十、四十、五十、六十。輪子、開關與控制桿都正常。"
+            },
+            {
+              "scene": 8,
+              "quote": "The check reaches seventy, eighty, ninety, then one hundred percent. The battery has enough charge and the sensor works, so Gail checks the instructions next.",
+              "chinese": "檢查進度到百分之七十、八十、九十，最後是一百。電池電量足夠、感測器正常，所以瑜瑜接著檢查指令。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C04",
+        "independentR2PASS": true,
+        "canonicalSHA256": "652896a691f748e84270c8b3d90c2fffc5040f67e47cef2244c503bf1c6a10e8",
+        "question": {
+          "id": "book35-C04",
+          "kind": "choice",
+          "prompt": "Why do the picture cards make the task easier to follow?",
+          "chinesePrompt": "圖卡為什麼使任務更容易遵循？",
+          "options": [
+            {
+              "text": "Each card gives one action in a checked sequence"
+            },
+            {
+              "text": "Each card repeats the same broad wish to make it pretty"
+            },
+            {
+              "text": "Each card lets the robot choose any order it prefers"
+            },
+            {
+              "text": "Each card removes the need for a test of the whole route"
+            }
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "第9、13幕 / Scene 9、13: Each card specifies one action; Gail then checks the commands before testing. This is more precise than the broad wish, but still needs a route test and an agreed order. 第9、13幕每卡一動作，再核對指令；不是重複模糊願望、任選順序或免測試。\n故事證據 / Evidence: Gail turns the large task into a sequence of small picture instructions. Each card tells the robot one action it can follow. / 瑜瑜把大任務拆成一串小小的圖像步驟。每張卡只告訴機器人一個能照做的動作。 | Together, the cards form a small picture code for the robot's program. Gail checks each command before she presses the test button. / 這些圖卡組成機器人程式的一段圖像指令。瑜瑜按測試鈕前，先核對每一項命令。",
+          "skill": "method",
+          "evidence": [
+            {
+              "scene": 9,
+              "quote": "Gail turns the large task into a sequence of small picture instructions. Each card tells the robot one action it can follow.",
+              "chinese": "瑜瑜把大任務拆成一串小小的圖像步驟。每張卡只告訴機器人一個能照做的動作。"
+            },
+            {
+              "scene": 13,
+              "quote": "Together, the cards form a small picture code for the robot's program. Gail checks each command before she presses the test button.",
+              "chinese": "這些圖卡組成機器人程式的一段圖像指令。瑜瑜按測試鈕前，先核對每一項命令。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C05",
+        "independentR2PASS": true,
+        "canonicalSHA256": "4b61c8f2ca1f429bc89225de1e9be60af9e0294d67a6e07b0614e478e17569fa",
+        "question": {
+          "id": "book35-C05",
+          "kind": "choice",
+          "prompt": "What does specifying both endpoints add to the plan?",
+          "chinesePrompt": "同時指定兩端，為計畫增加什麼？",
+          "options": [
+            {
+              "text": "A promise that all three colors will be correct already"
+            },
+            {
+              "text": "A repeatable route with a clear start and finish"
+            },
+            {
+              "text": "A reason to use percentage values as walking steps"
+            },
+            {
+              "text": "A way to keep the robot moving without a stopping rule"
+            }
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "第10、12幕 / Scene 10、12: The toy-house start resets the count to zero, and the flag defines twenty-step completion. These endpoints make a route to retest; they do not by themselves confirm colors or replace stopping with percentages. 第10、12幕屋旁起點归零，旗子界定二十步终点，能重測同路；不代表颜色已对，也不是百分比步数或不停走。\n故事證據 / Evidence: Gail places a start card beside the toy house. The robot sets its step count to zero, so they can test the same route again. / 瑜瑜把起點卡放在玩具屋旁。機器人把步數歸零，這樣就能再次測試同一條路。 | Gail adds a stop card beside the flag. She sets the route to twenty small steps, with a clear starting place and finish point. / 瑜瑜在旗子旁加上停止卡，把路線設為二十小步，起點與終點都清楚了。",
+          "skill": "integrate-evidence",
+          "evidence": [
+            {
+              "scene": 10,
+              "quote": "Gail places a start card beside the toy house. The robot sets its step count to zero, so they can test the same route again.",
+              "chinese": "瑜瑜把起點卡放在玩具屋旁。機器人把步數歸零，這樣就能再次測試同一條路。"
+            },
+            {
+              "scene": 12,
+              "quote": "Gail adds a stop card beside the flag. She sets the route to twenty small steps, with a clear starting place and finish point.",
+              "chinese": "瑜瑜在旗子旁加上停止卡，把路線設為二十小步，起點與終點都清楚了。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C06",
+        "independentR2PASS": true,
+        "canonicalSHA256": "5b3fcc84e024abc8204ce2eda2ccde37d582fc06b14a203016e01469af55b214",
+        "question": {
+          "id": "book35-C06",
+          "kind": "choice",
+          "prompt": "What information does red, blue, yellow give the robot?",
+          "chinesePrompt": "紅、藍、黃順序給機器人什麼資訊？",
+          "options": [
+            {
+              "text": "Which lantern to place first, second, and third"
+            },
+            {
+              "text": "Which battery reading to reach before the test starts"
+            },
+            {
+              "text": "How many small steps to count between house and flag"
+            },
+            {
+              "text": "How much charge to give each of the three lanterns"
+            }
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "第11幕 / Scene 11: The sequence specifies placement order for the three colors. It says nothing about battery readings, step totals or charging individual lanterns. 本頁指定三色燈第一、第二、第三的排放順序，沒有指定電池讀值、步數總量或各燈充電量。\n故事證據 / Evidence: Gail lays out red, blue, and yellow picture cards in that order. The simple sequence tells the robot which lantern to place first, second, and third. / 瑜瑜把紅、藍、黃圖卡依序排好。這個簡單順序讓機器人知道第一、第二、第三個要放哪種燈。",
+          "skill": "representation",
+          "evidence": [
+            {
+              "scene": 11,
+              "quote": "Gail lays out red, blue, and yellow picture cards in that order. The simple sequence tells the robot which lantern to place first, second, and third.",
+              "chinese": "瑜瑜把紅、藍、黃圖卡依序排好。這個簡單順序讓機器人知道第一、第二、第三個要放哪種燈。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C07",
+        "independentR2PASS": true,
+        "canonicalSHA256": "238523858dd3ad66729dacc147bdd5886ed260fe84f30f3378026f2a5bc54420",
+        "question": {
+          "id": "book35-C07",
+          "kind": "choice",
+          "prompt": "Which statement keeps route steps separate from self-check progress?",
+          "chinesePrompt": "哪句正確區分路線步數與自我檢查進度？",
+          "options": [
+            {
+              "text": "The route ends at one hundred; its test counts rise by tens each time"
+            },
+            {
+              "text": "The route begins at thirty; the flag marks sixty steps along the route"
+            },
+            {
+              "text": "The route uses seventy through ninety to select each lantern color"
+            },
+            {
+              "text": "The route ends at twenty; its test counts include eleven through nineteen"
+            }
+          ],
+          "answer": [
+            3
+          ],
+          "explanation": "第12、14、17幕 / Scene 12、14、17: Scene12 sets twenty small steps. Scene14 counts eleven through fifteen and scene17 ends sixteen through twenty; tens up to one hundred belong to the earlier self-check. 第12、14、17幕路線二十步，實測接數十一至二十；整十到一百屬於先前自我檢查，不能混為路程或顏色。\n故事證據 / Evidence: Gail adds a stop card beside the flag. She sets the route to twenty small steps, with a clear starting place and finish point. / 瑜瑜在旗子旁加上停止卡，把路線設為二十小步，起點與終點都清楚了。 | Gail presses the test button. The robot starts at the house and counts its steps. After ten, it says, “Eleven, twelve, thirteen, fourteen, fifteen,” as it carries the lanterns along the route. / 瑜瑜按下測試鈕。機器人從玩具屋出發，一邊數步數。十步之後，它說：「十一、十二、十三、十四、十五。」一邊沿路搬燈籠。 | Gail resets the count to zero and tests the whole route again. This time the colors are right. Near the end the robot counts, “Sixteen, seventeen, eighteen, nineteen, twenty,” then stops beside the flag. / 瑜瑜把步數歸零，再測試整條路。這次顏色正確，快到終點時機器人数：「十六、十七、十八、十九、二十。」然後停在旗子旁。",
+          "skill": "number-context",
+          "evidence": [
+            {
+              "scene": 12,
+              "quote": "Gail adds a stop card beside the flag. She sets the route to twenty small steps, with a clear starting place and finish point.",
+              "chinese": "瑜瑜在旗子旁加上停止卡，把路線設為二十小步，起點與終點都清楚了。"
+            },
+            {
+              "scene": 14,
+              "quote": "Gail presses the test button. The robot starts at the house and counts its steps. After ten, it says, “Eleven, twelve, thirteen, fourteen, fifteen,” as it carries the lanterns along the route.",
+              "chinese": "瑜瑜按下測試鈕。機器人從玩具屋出發，一邊數步數。十步之後，它說：「十一、十二、十三、十四、十五。」一邊沿路搬燈籠。"
+            },
+            {
+              "scene": 17,
+              "quote": "Gail resets the count to zero and tests the whole route again. This time the colors are right. Near the end the robot counts, “Sixteen, seventeen, eighteen, nineteen, twenty,” then stops beside the flag.",
+              "chinese": "瑜瑜把步數歸零，再測試整條路。這次顏色正確，快到終點時機器人数：「十六、十七、十八、十九、二十。」然後停在旗子旁。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C08",
+        "independentR2PASS": true,
+        "canonicalSHA256": "0b40f8540fe3d5f401e885178abb4eef3de9b8cd8e00a137156dfec7481f1eb7",
+        "question": {
+          "id": "book35-C08",
+          "kind": "choice",
+          "prompt": "Which event separates checking the plan from trying it?",
+          "chinesePrompt": "哪個事件區分核對計畫和實際試走？",
+          "options": [
+            {
+              "text": "Gail stacks the lanterns after checking the stop flag"
+            },
+            {
+              "text": "The robot opens the portal after checking the battery"
+            },
+            {
+              "text": "Gail presses the test button after checking commands"
+            },
+            {
+              "text": "The robot thanks Gail after checking the picture pile"
+            }
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "第13、14幕 / Scene 13、14: Scene13 checks each command before the button press. Scene14 begins the test with that press and the house start. Stacking, portal opening and thanks belong to other stages. 第13幕先核對指令，第14幕按鈕後由屋旁試走；堆燈、開門与道謝是不同階段。\n故事證據 / Evidence: Together, the cards form a small picture code for the robot's program. Gail checks each command before she presses the test button. / 這些圖卡組成機器人程式的一段圖像指令。瑜瑜按測試鈕前，先核對每一項命令。 | Gail presses the test button. The robot starts at the house and counts its steps. After ten, it says, “Eleven, twelve, thirteen, fourteen, fifteen,” as it carries the lanterns along the route. / 瑜瑜按下測試鈕。機器人從玩具屋出發，一邊數步數。十步之後，它說：「十一、十二、十三、十四、十五。」一邊沿路搬燈籠。",
+          "skill": "sequence",
+          "evidence": [
+            {
+              "scene": 13,
+              "quote": "Together, the cards form a small picture code for the robot's program. Gail checks each command before she presses the test button.",
+              "chinese": "這些圖卡組成機器人程式的一段圖像指令。瑜瑜按測試鈕前，先核對每一項命令。"
+            },
+            {
+              "scene": 14,
+              "quote": "Gail presses the test button. The robot starts at the house and counts its steps. After ten, it says, “Eleven, twelve, thirteen, fourteen, fifteen,” as it carries the lanterns along the route.",
+              "chinese": "瑜瑜按下測試鈕。機器人從玩具屋出發，一邊數步數。十步之後，它說：「十一、十二、十三、十四、十五。」一邊沿路搬燈籠。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C09",
+        "independentR2PASS": true,
+        "canonicalSHA256": "58a776a629d15e5dcaa230977ec94ba03b07dcbe9b508dde30124cc8a913f757",
+        "question": {
+          "id": "book35-C09",
+          "kind": "choice",
+          "prompt": "How does Gail recognize the second placement as an error?",
+          "chinesePrompt": "瑜瑜怎樣確認第二個排放是錯誤？",
+          "options": [
+            {
+              "text": "She compares yellow in that place with the planned blue"
+            },
+            {
+              "text": "She treats every yellow lantern as unusable in the path"
+            },
+            {
+              "text": "She compares a step count of fifteen with battery charge"
+            },
+            {
+              "text": "She treats any lantern placed after red as an error"
+            }
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "第11、15幕 / Scene 11、15: The planned second color is blue, but the robot places yellow there. Yellow is still required in the third position; neither count comparisons nor a ban on all later colors identifies this mismatch. 第11、15幕用預定第二色藍對照實際黃；黃仍應在第三位，數字比較或禁止紅後所有色不能辨認此錯。\n故事證據 / Evidence: Gail lays out red, blue, and yellow picture cards in that order. The simple sequence tells the robot which lantern to place first, second, and third. / 瑜瑜把紅、藍、黃圖卡依序排好。這個簡單順序讓機器人知道第一、第二、第三個要放哪種燈。 | At the second place, the robot sets down a yellow lantern instead of blue. Gail pauses the test and looks at that command rather than starting the whole plan over. / 第二個位置上，機器人放了黃燈而不是藍燈。瑜瑜暫停測試，檢查那一步指令，沒有推翻整個計畫。",
+          "skill": "compare-evidence",
+          "evidence": [
+            {
+              "scene": 11,
+              "quote": "Gail lays out red, blue, and yellow picture cards in that order. The simple sequence tells the robot which lantern to place first, second, and third.",
+              "chinese": "瑜瑜把紅、藍、黃圖卡依序排好。這個簡單順序讓機器人知道第一、第二、第三個要放哪種燈。"
+            },
+            {
+              "scene": 15,
+              "quote": "At the second place, the robot sets down a yellow lantern instead of blue. Gail pauses the test and looks at that command rather than starting the whole plan over.",
+              "chinese": "第二個位置上，機器人放了黃燈而不是藍燈。瑜瑜暫停測試，檢查那一步指令，沒有推翻整個計畫。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C10",
+        "independentR2PASS": true,
+        "canonicalSHA256": "4d0b9eecc14ea9d89c72ea242f7cecb8f8828dbb7f6cc393241140310baa480f",
+        "question": {
+          "id": "book35-C10",
+          "kind": "choice",
+          "prompt": "Why does Gail replace only the second card?",
+          "chinesePrompt": "瑜瑜為什麼只替換第二張卡？",
+          "options": [
+            {
+              "text": "To prove the robot must need a new battery and sensor"
+            },
+            {
+              "text": "To ensure a new route starts without any picture cards"
+            },
+            {
+              "text": "To change the starting place and all three color choices"
+            },
+            {
+              "text": "To test whether that command caused the color mistake"
+            }
+          ],
+          "answer": [
+            3
+          ],
+          "explanation": "第15、16幕 / Scene 15、16: Scene15 locates the wrong second color. Scene16 keeps the other steps fixed, so one precise change can test that command. Replacing parts, removing cards or changing the entire route would answer other questions. 第15、16幕定位第二色錯，保持其他步驟，單改該卡來查指令原因；換零件、去掉圖卡或全改路線查的是不同問題。\n故事證據 / Evidence: At the second place, the robot sets down a yellow lantern instead of blue. Gail pauses the test and looks at that command rather than starting the whole plan over. / 第二個位置上，機器人放了黃燈而不是藍燈。瑜瑜暫停測試，檢查那一步指令，沒有推翻整個計畫。 | Gail replaces only the second picture card and leaves the other steps in place. A single precise change will show whether that command caused the mistake. / 瑜瑜只換掉第二張圖卡，其他步驟保持原樣。一次精確的改動能看出錯誤是否來自那個指令。",
+          "skill": "controlled-change-inference",
+          "evidence": [
+            {
+              "scene": 15,
+              "quote": "At the second place, the robot sets down a yellow lantern instead of blue. Gail pauses the test and looks at that command rather than starting the whole plan over.",
+              "chinese": "第二個位置上，機器人放了黃燈而不是藍燈。瑜瑜暫停測試，檢查那一步指令，沒有推翻整個計畫。"
+            },
+            {
+              "scene": 16,
+              "quote": "Gail replaces only the second picture card and leaves the other steps in place. A single precise change will show whether that command caused the mistake.",
+              "chinese": "瑜瑜只換掉第二張圖卡，其他步驟保持原樣。一次精確的改動能看出錯誤是否來自那個指令。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C11",
+        "independentR2PASS": true,
+        "canonicalSHA256": "a5bd1d8fc67a7527502ee7ed075b768a0f61bd5939f8f6971edaffc96e397128",
+        "question": {
+          "id": "book35-C11",
+          "kind": "choice",
+          "prompt": "Why reset to zero before testing the whole route again?",
+          "chinesePrompt": "重測整條路之前，為什麼先歸零？",
+          "options": [
+            {
+              "text": "To avoid checking whether the changed card affects the middle color"
+            },
+            {
+              "text": "To replace the twenty-step stopping rule with the last battery reading"
+            },
+            {
+              "text": "To compare the revised command on the same route from its start"
+            },
+            {
+              "text": "To let the robot keep the old count and begin beside the finish flag"
+            }
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "第10、16、17幕 / Scene 10、16、17: The start card makes the route repeatable; after one card change, Gail resets and tests it again from zero. Skipping the middle or keeping an old count would not repeat that full route. 第10、16、17幕用同一起點归零重走，能比較改卡结果；跳過中間、用電量替步數或保留舊計數都不符合完整重測。\n故事證據 / Evidence: Gail places a start card beside the toy house. The robot sets its step count to zero, so they can test the same route again. / 瑜瑜把起點卡放在玩具屋旁。機器人把步數歸零，這樣就能再次測試同一條路。 | Gail replaces only the second picture card and leaves the other steps in place. A single precise change will show whether that command caused the mistake. / 瑜瑜只換掉第二張圖卡，其他步驟保持原樣。一次精確的改動能看出錯誤是否來自那個指令。 | Gail resets the count to zero and tests the whole route again. This time the colors are right. Near the end the robot counts, “Sixteen, seventeen, eighteen, nineteen, twenty,” then stops beside the flag. / 瑜瑜把步數歸零，再測試整條路。這次顏色正確，快到終點時機器人数：「十六、十七、十八、十九、二十。」然後停在旗子旁。",
+          "skill": "comparison-method",
+          "evidence": [
+            {
+              "scene": 10,
+              "quote": "Gail places a start card beside the toy house. The robot sets its step count to zero, so they can test the same route again.",
+              "chinese": "瑜瑜把起點卡放在玩具屋旁。機器人把步數歸零，這樣就能再次測試同一條路。"
+            },
+            {
+              "scene": 16,
+              "quote": "Gail replaces only the second picture card and leaves the other steps in place. A single precise change will show whether that command caused the mistake.",
+              "chinese": "瑜瑜只換掉第二張圖卡，其他步驟保持原樣。一次精確的改動能看出錯誤是否來自那個指令。"
+            },
+            {
+              "scene": 17,
+              "quote": "Gail resets the count to zero and tests the whole route again. This time the colors are right. Near the end the robot counts, “Sixteen, seventeen, eighteen, nineteen, twenty,” then stops beside the flag.",
+              "chinese": "瑜瑜把步數歸零，再測試整條路。這次顏色正確，快到終點時機器人数：「十六、十七、十八、十九、二十。」然後停在旗子旁。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C12",
+        "independentR2PASS": true,
+        "canonicalSHA256": "aa21d6234b7c26e9718bd7323830dc3f2e26028e3d1ba5680f338b0c2c50a6d7",
+        "question": {
+          "id": "book35-C12",
+          "kind": "choice",
+          "prompt": "What confirms more than a happy beep at the end?",
+          "chinesePrompt": "最後什麼證據比一聲開心嗶聲更能確認成果？",
+          "options": [
+            {
+              "text": "The robot waves and its wheels move across the table"
+            },
+            {
+              "text": "The colors are right and the lights reach the stop flag"
+            },
+            {
+              "text": "The gear turns and the picture cards are kept in one pile"
+            },
+            {
+              "text": "The robot says fifteen and no final stopping point is checked"
+            }
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "第17、18幕 / Scene 17、18: Scene17 reports correct colors and a stop by the flag. Scene18 checks that the ordered lights reach the flag. A beep alone, a wave, a card pile or an unfinished count does not verify those results. 第17、18幕顏色正確、停在旗旁且燈路到旗子；嗶聲、揮手、卡堆或未完成計數都不能確認這兩項結果。\n故事證據 / Evidence: Gail resets the count to zero and tests the whole route again. This time the colors are right. Near the end the robot counts, “Sixteen, seventeen, eighteen, nineteen, twenty,” then stops beside the flag. / 瑜瑜把步數歸零，再測試整條路。這次顏色正確，快到終點時機器人数：「十六、十七、十八、十九、二十。」然後停在旗子旁。 | When the three-color path lights up in order, the little robot responds with one happy beep. Gail checks that the lights reach the stop flag. / 三色燈路依序亮起時，小機器人用一聲開心的嗶聲回應。瑜瑜確認燈路一直到停止小旗。",
+          "skill": "result-evidence",
+          "evidence": [
+            {
+              "scene": 17,
+              "quote": "Gail resets the count to zero and tests the whole route again. This time the colors are right. Near the end the robot counts, “Sixteen, seventeen, eighteen, nineteen, twenty,” then stops beside the flag.",
+              "chinese": "瑜瑜把步數歸零，再測試整條路。這次顏色正確，快到終點時機器人数：「十六、十七、十八、十九、二十。」然後停在旗子旁。"
+            },
+            {
+              "scene": 18,
+              "quote": "When the three-color path lights up in order, the little robot responds with one happy beep. Gail checks that the lights reach the stop flag.",
+              "chinese": "三色燈路依序亮起時，小機器人用一聲開心的嗶聲回應。瑜瑜確認燈路一直到停止小旗。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C13",
+        "independentR2PASS": true,
+        "canonicalSHA256": "693775da1dab1e87b81c069a97f54a82debe4f60af5f0f6449978e8a6ea0cda1",
+        "question": {
+          "id": "book35-C13",
+          "kind": "choice",
+          "prompt": "What does Gail’s final lesson add to “Make it pretty”?",
+          "chinesePrompt": "瑜瑜最後學到的，比「排漂亮一點」多了什麼？",
+          "options": [
+            {
+              "text": "A brighter lamp, a bigger gear, and a new battery"
+            },
+            {
+              "text": "A color wish, a lamp pile, and a way to skip the test"
+            },
+            {
+              "text": "A start, an order, and a way to check the result"
+            },
+            {
+              "text": "A longer route, a faster robot, and a missing stop card"
+            }
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "第4、9、20幕 / Scene 4、9、20: The first command is vague. Small steps and the final reflection supply a start, order and result check. Brighter parts, speed, skipping tests and missing stop rules are not the lesson. 第4、9、20幕從模糊願望改成有起點、順序和檢查；增亮、加速、跳過測試或少停止卡不是故事方法。\n故事證據 / Evidence: The workshop wants a three-color lantern path for its evening display. Someone gives the robot only the command, “Make it pretty.” / 工坊想為晚間展示做一條三色燈路。有人卻只給機器人一句指令：「排漂亮一點。」 | Gail turns the large task into a sequence of small picture instructions. Each card tells the robot one action it can follow. / 瑜瑜把大任務拆成一串小小的圖像步驟。每張卡只告訴機器人一個能照做的動作。 | Back in her familiar bedroom, Gail sets the gear beside her bed. She remembers that a clear task has a start, an order, and a way to check the result. / 回到熟悉臥室，瑜瑜把齒輪放在床邊。她記得清楚的任務要有起點、順序，也要有檢查結果的方法。",
+          "skill": "synthesis",
+          "evidence": [
+            {
+              "scene": 4,
+              "quote": "The workshop wants a three-color lantern path for its evening display. Someone gives the robot only the command, “Make it pretty.”",
+              "chinese": "工坊想為晚間展示做一條三色燈路。有人卻只給機器人一句指令：「排漂亮一點。」"
+            },
+            {
+              "scene": 9,
+              "quote": "Gail turns the large task into a sequence of small picture instructions. Each card tells the robot one action it can follow.",
+              "chinese": "瑜瑜把大任務拆成一串小小的圖像步驟。每張卡只告訴機器人一個能照做的動作。"
+            },
+            {
+              "scene": 20,
+              "quote": "Back in her familiar bedroom, Gail sets the gear beside her bed. She remembers that a clear task has a start, an order, and a way to check the result.",
+              "chinese": "回到熟悉臥室，瑜瑜把齒輪放在床邊。她記得清楚的任務要有起點、順序，也要有檢查結果的方法。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C14",
+        "independentR2PASS": true,
+        "canonicalSHA256": "afa1ce124e54c310b0a22b5ba27044a737bb8a69a8cdacc312525f4c292f62e9",
+        "question": {
+          "id": "book35-C14",
+          "kind": "choice",
+          "prompt": "A robot passes its part check but puts red in the second place. What fits Gail’s next step?",
+          "chinesePrompt": "另一機器人零件檢查正常，卻在第二位放紅燈，哪個下一步符合瑜瑜方法？",
+          "options": [
+            {
+              "text": "Change the battery and ignore the second picture instruction"
+            },
+            {
+              "text": "Compare that color command with the intended second color"
+            },
+            {
+              "text": "Remove every route card because one placement was different"
+            },
+            {
+              "text": "Accept the route because a completed part check proves its colors"
+            }
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "第8、15、16幕 / Scene 8、15、16: Scene8 moves from working parts to instructions; scenes15/16 locate and revise the mistaken command. A part check does not prove a color plan, and a single error does not require discarding all cards. 第8、15、16幕零件正常後查指令、定位並修改錯卡；不能凭零件檢查接受顏色或因此丟棄所有卡。\n故事證據 / Evidence: The check reaches seventy, eighty, ninety, then one hundred percent. The battery has enough charge and the sensor works, so Gail checks the instructions next. / 檢查進度到百分之七十、八十、九十，最後是一百。電池電量足夠、感測器正常，所以瑜瑜接著檢查指令。 | At the second place, the robot sets down a yellow lantern instead of blue. Gail pauses the test and looks at that command rather than starting the whole plan over. / 第二個位置上，機器人放了黃燈而不是藍燈。瑜瑜暫停測試，檢查那一步指令，沒有推翻整個計畫。 | Gail replaces only the second picture card and leaves the other steps in place. A single precise change will show whether that command caused the mistake. / 瑜瑜只換掉第二張圖卡，其他步驟保持原樣。一次精確的改動能看出錯誤是否來自那個指令。",
+          "skill": "apply-method",
+          "evidence": [
+            {
+              "scene": 8,
+              "quote": "The check reaches seventy, eighty, ninety, then one hundred percent. The battery has enough charge and the sensor works, so Gail checks the instructions next.",
+              "chinese": "檢查進度到百分之七十、八十、九十，最後是一百。電池電量足夠、感測器正常，所以瑜瑜接著檢查指令。"
+            },
+            {
+              "scene": 15,
+              "quote": "At the second place, the robot sets down a yellow lantern instead of blue. Gail pauses the test and looks at that command rather than starting the whole plan over.",
+              "chinese": "第二個位置上，機器人放了黃燈而不是藍燈。瑜瑜暫停測試，檢查那一步指令，沒有推翻整個計畫。"
+            },
+            {
+              "scene": 16,
+              "quote": "Gail replaces only the second picture card and leaves the other steps in place. A single precise change will show whether that command caused the mistake.",
+              "chinese": "瑜瑜只換掉第二張圖卡，其他步驟保持原樣。一次精確的改動能看出錯誤是否來自那個指令。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C15",
+        "independentR2PASS": true,
+        "canonicalSHA256": "f9b012b8e213e9d503efd213f616a98d6eb8f595510a21bb7b33584ad51e0f63",
+        "question": {
+          "id": "book35-C15",
+          "kind": "choice",
+          "prompt": "A retest has the right colors but stops before the flag. What remains to check?",
+          "chinesePrompt": "重測顏色正確卻提前停在旗子前，還要查什麼？",
+          "options": [
+            {
+              "text": "The start, step count, and stop instruction for the route"
+            },
+            {
+              "text": "The lantern colors only, since any stopping place will do"
+            },
+            {
+              "text": "The gear’s glow only, since that determines the route length"
+            },
+            {
+              "text": "The old picture pile only, since the robot should stack lights"
+            }
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "第10、12、17、18幕 / Scene 10、12、17、18: The story specifies a zero start, twenty steps and flag finish, then checks both colors and reach. Right colors answer one question; an early stop still calls for checking route and stop instructions. 第10、12、17、18幕同時核对起点、步数、停止旗和颜色；颜色正确未解答提前停止，光亮或旧灯堆不能查停点。\n故事證據 / Evidence: Gail places a start card beside the toy house. The robot sets its step count to zero, so they can test the same route again. / 瑜瑜把起點卡放在玩具屋旁。機器人把步數歸零，這樣就能再次測試同一條路。 | Gail adds a stop card beside the flag. She sets the route to twenty small steps, with a clear starting place and finish point. / 瑜瑜在旗子旁加上停止卡，把路線設為二十小步，起點與終點都清楚了。 | Gail resets the count to zero and tests the whole route again. This time the colors are right. Near the end the robot counts, “Sixteen, seventeen, eighteen, nineteen, twenty,” then stops beside the flag. / 瑜瑜把步數歸零，再測試整條路。這次顏色正確，快到終點時機器人数：「十六、十七、十八、十九、二十。」然後停在旗子旁。 | When the three-color path lights up in order, the little robot responds with one happy beep. Gail checks that the lights reach the stop flag. / 三色燈路依序亮起時，小機器人用一聲開心的嗶聲回應。瑜瑜確認燈路一直到停止小旗。",
+          "skill": "apply-independent-checks",
+          "evidence": [
+            {
+              "scene": 10,
+              "quote": "Gail places a start card beside the toy house. The robot sets its step count to zero, so they can test the same route again.",
+              "chinese": "瑜瑜把起點卡放在玩具屋旁。機器人把步數歸零，這樣就能再次測試同一條路。"
+            },
+            {
+              "scene": 12,
+              "quote": "Gail adds a stop card beside the flag. She sets the route to twenty small steps, with a clear starting place and finish point.",
+              "chinese": "瑜瑜在旗子旁加上停止卡，把路線設為二十小步，起點與終點都清楚了。"
+            },
+            {
+              "scene": 17,
+              "quote": "Gail resets the count to zero and tests the whole route again. This time the colors are right. Near the end the robot counts, “Sixteen, seventeen, eighteen, nineteen, twenty,” then stops beside the flag.",
+              "chinese": "瑜瑜把步數歸零，再測試整條路。這次顏色正確，快到終點時機器人数：「十六、十七、十八、十九、二十。」然後停在旗子旁。"
+            },
+            {
+              "scene": 18,
+              "quote": "When the three-color path lights up in order, the little robot responds with one happy beep. Gail checks that the lights reach the stop flag.",
+              "chinese": "三色燈路依序亮起時，小機器人用一聲開心的嗶聲回應。瑜瑜確認燈路一直到停止小旗。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "book35-C16",
+        "independentR2PASS": true,
+        "canonicalSHA256": "be2089623e37d026ca5ab56f5815f64f8ca64847f21a168c553dbe826e634987",
+        "question": {
+          "id": "book35-C16",
+          "kind": "choice",
+          "prompt": "Which evidence trail best describes how Gail repairs the instructions?",
+          "chinesePrompt": "哪條證據順序最符合瑜瑜修正指令的方法？",
+          "options": [
+            {
+              "text": "Inspect the finished path, discard all steps, replace parts, leave home"
+            },
+            {
+              "text": "Inspect the battery, keep a vague wish, pile lamps, skip the route test"
+            },
+            {
+              "text": "Inspect the stop flag, remove the start, ignore colors, repeat the pile"
+            },
+            {
+              "text": "Inspect the received card, make steps, check them, revise one error"
+            }
+          ],
+          "answer": [
+            3
+          ],
+          "explanation": "第6、9、13、16幕 / Scene 6、9、13、16: Gail first asks what instruction was received, makes specific steps, checks commands, then changes the faulty second card. Each wrong trail drops or reverses these evidence-led steps. 第6、9、13、16幕先查收到的卡、拆步骤、核对指令再修单项；錯项省略或倒转这些依据，回到堆灯或模糊愿望。\n故事證據 / Evidence: Gail asks the robot what instruction it received. It shows her one picture card with a bright pile but no starting point or color order. / 瑜瑜問機器人收到什麼指令。它拿出一張只畫著亮燈堆、沒有起點與顏色順序的圖卡。 | Gail turns the large task into a sequence of small picture instructions. Each card tells the robot one action it can follow. / 瑜瑜把大任務拆成一串小小的圖像步驟。每張卡只告訴機器人一個能照做的動作。 | Together, the cards form a small picture code for the robot's program. Gail checks each command before she presses the test button. / 這些圖卡組成機器人程式的一段圖像指令。瑜瑜按測試鈕前，先核對每一項命令。 | Gail replaces only the second picture card and leaves the other steps in place. A single precise change will show whether that command caused the mistake. / 瑜瑜只換掉第二張圖卡，其他步驟保持原樣。一次精確的改動能看出錯誤是否來自那個指令。",
+          "skill": "trace-evidence",
+          "evidence": [
+            {
+              "scene": 6,
+              "quote": "Gail asks the robot what instruction it received. It shows her one picture card with a bright pile but no starting point or color order.",
+              "chinese": "瑜瑜問機器人收到什麼指令。它拿出一張只畫著亮燈堆、沒有起點與顏色順序的圖卡。"
+            },
+            {
+              "scene": 9,
+              "quote": "Gail turns the large task into a sequence of small picture instructions. Each card tells the robot one action it can follow.",
+              "chinese": "瑜瑜把大任務拆成一串小小的圖像步驟。每張卡只告訴機器人一個能照做的動作。"
+            },
+            {
+              "scene": 13,
+              "quote": "Together, the cards form a small picture code for the robot's program. Gail checks each command before she presses the test button.",
+              "chinese": "這些圖卡組成機器人程式的一段圖像指令。瑜瑜按測試鈕前，先核對每一項命令。"
+            },
+            {
+              "scene": 16,
+              "quote": "Gail replaces only the second picture card and leaves the other steps in place. A single precise change will show whether that command caused the mistake.",
+              "chinese": "瑜瑜只換掉第二張圖卡，其他步驟保持原樣。一次精確的改動能看出錯誤是否來自那個指令。"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "b03Correction": {
+    "scene": 3,
+    "level": "B",
+    "beforeEnglish": [
+      "A little robot waves to Gail in the toy workshop. Lanterns wait on a shelf."
+    ],
+    "beforeChinese": [
+      "小機器人在玩具工坊向瑜瑜揮手。燈籠放在架上。"
+    ],
+    "afterEnglish": [
+      "A little robot waves to Gail in the toy workshop. Lanterns wait by the path."
+    ],
+    "afterChinese": [
+      "小機器人在玩具工坊向瑜瑜揮手。燈籠放在路旁。"
+    ],
+    "reason": "Formal B said shelf; formal Scene03 art shows red/blue/yellow lanterns on the floor by the path. Candidate B rewrite to match art; formal C and original art unchanged."
+  },
+  "r2CoverFileSHAs": [
+    {
+      "path": "src/story/interactive/index.ts",
+      "sha256": "093b071e6561fa0daae60a28e42ea5de3f2408cb0bdc939a06e56e47466cb309"
+    },
+    {
+      "path": "src/story/interactive/little-robot.ts",
+      "sha256": "3ca51fad9bb912d0243fd61c6b065b2acac194b3b2eb1d26f24988ae8fd3a0a5"
+    },
+    {
+      "path": "little-robot-storybook.html",
+      "sha256": "2461c687f05068a5eba1a6db3c39b4d9b43ab8b6a790e6140e441fd9dd3c1d2d"
+    },
+    {
+      "path": "src/story/interactive/little-robot-image.ts",
+      "sha256": "a385bab3b8636b39b2fbd63b7ce4877780cbcdcc38ec5fe3b766b8910346100e"
+    },
+    {
+      "path": "src/story/interactive/little-robot-effects.ts",
+      "sha256": "6728153fb455aa3b0729c0366e853fe4be2d70439dad8380890811610d7ddf91"
+    },
+    {
+      "path": "src/story/interactive/little-robot.css",
+      "sha256": "9b3728d76ec906fa297115f67230aeee0bed7b16ddbd406c63b5a30d3b54607a"
+    }
+  ],
+  "questionRepairFields": [
+    "prompt",
+    "chinesePrompt"
+  ]
+}

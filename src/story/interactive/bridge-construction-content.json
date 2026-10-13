@@ -1,0 +1,1077 @@
+{
+  "number": 34,
+  "key": "bridge-construction",
+  "title": "Gail and the Bridge Under Construction",
+  "chineseTitle": "瑜瑜與搭建中的橋",
+  "asset": "images/story/bridge-construction-v1/",
+  "words": [
+    "bridge",
+    "measure",
+    "span",
+    "plank",
+    "bolt",
+    "support",
+    "weight",
+    "sturdy",
+    "bend",
+    "joint",
+    "arch",
+    "model",
+    "plan",
+    "base",
+    "platform",
+    "connect",
+    "across",
+    "distance",
+    "length",
+    "level"
+  ],
+  "entries": [
+    [
+      "bridge",
+      "橋",
+      "✦"
+    ],
+    [
+      "measure",
+      "測量",
+      "✦"
+    ],
+    [
+      "span",
+      "跨度",
+      "✦"
+    ],
+    [
+      "plank",
+      "木板",
+      "✦"
+    ],
+    [
+      "bolt",
+      "螺栓",
+      "✦"
+    ],
+    [
+      "support",
+      "支撐",
+      "✦"
+    ],
+    [
+      "weight",
+      "重量",
+      "✦"
+    ],
+    [
+      "sturdy",
+      "堅固的",
+      "✦"
+    ],
+    [
+      "bend",
+      "彎曲",
+      "✦"
+    ],
+    [
+      "joint",
+      "接點",
+      "✦"
+    ],
+    [
+      "arch",
+      "拱形",
+      "✦"
+    ],
+    [
+      "model",
+      "模型",
+      "✦"
+    ],
+    [
+      "plan",
+      "計畫",
+      "✦"
+    ],
+    [
+      "base",
+      "基座",
+      "✦"
+    ],
+    [
+      "platform",
+      "平台",
+      "✦"
+    ],
+    [
+      "connect",
+      "連接",
+      "✦"
+    ],
+    [
+      "across",
+      "跨越",
+      "✦"
+    ],
+    [
+      "distance",
+      "距離",
+      "✦"
+    ],
+    [
+      "length",
+      "長度",
+      "✦"
+    ],
+    [
+      "level",
+      "水平的",
+      "✦"
+    ]
+  ],
+  "scenes": {
+    "bedroom": {
+      "name": "瑜瑜的星星房間",
+      "caption": "BEDROOM",
+      "alt": "固定星星房間中的折疊尺"
+    },
+    "stream": {
+      "name": "搭橋的小溪",
+      "caption": "STREAM",
+      "alt": "成年工匠量測、施工和驗收；孩子在安全區觀看"
+    },
+    "worktable": {
+      "name": "模型工作桌",
+      "caption": "MODEL TABLE",
+      "alt": "瑜瑜在成人陪同下比較長度和測試橋梁模型"
+    }
+  },
+  "levels": {
+    "A": {
+      "pages": [
+        {
+          "title": "A folding ruler",
+          "scene": "bedroom",
+          "lines": [
+            "A ruler unfolds."
+          ],
+          "translation": "尺子展開了。",
+          "words": [
+            "measure"
+          ]
+        },
+        {
+          "title": "Across the room",
+          "scene": "bedroom",
+          "lines": [
+            "Gail sees a stream."
+          ],
+          "translation": "瑜瑜看見小溪。",
+          "words": [
+            "across"
+          ]
+        },
+        {
+          "title": "The unfinished bridge",
+          "scene": "stream",
+          "lines": [
+            "The bridge is not done."
+          ],
+          "translation": "橋還沒搭好。",
+          "words": [
+            "bridge"
+          ]
+        },
+        {
+          "title": "A visible gap",
+          "scene": "stream",
+          "lines": [
+            "The plank is too short."
+          ],
+          "translation": "木板太短了。",
+          "words": [
+            "plank",
+            "span"
+          ]
+        },
+        {
+          "title": "Stay on shore",
+          "scene": "stream",
+          "lines": [
+            "Gail stays back."
+          ],
+          "translation": "瑜瑜留在岸邊。",
+          "words": [
+            "plan"
+          ]
+        },
+        {
+          "title": "Measure the span",
+          "scene": "stream",
+          "lines": [
+            "How wide is the stream?"
+          ],
+          "translation": "小溪有多寬？",
+          "words": [
+            "measure",
+            "span",
+            "distance"
+          ]
+        },
+        {
+          "title": "Measure the plank",
+          "scene": "stream",
+          "lines": [
+            "How long is the plank?"
+          ],
+          "translation": "木板有多長？",
+          "words": [
+            "measure",
+            "plank",
+            "length"
+          ]
+        },
+        {
+          "title": "Two lengths",
+          "scene": "worktable",
+          "lines": [
+            "The lengths do not match."
+          ],
+          "translation": "兩個長度不同。",
+          "words": [
+            "length",
+            "distance"
+          ]
+        },
+        {
+          "title": "Try a model",
+          "scene": "worktable",
+          "lines": [
+            "Let's make a model."
+          ],
+          "translation": "來做模型吧。",
+          "words": [
+            "model"
+          ]
+        },
+        {
+          "title": "A bending plank",
+          "scene": "worktable",
+          "lines": [
+            "This plank bends."
+          ],
+          "translation": "這塊板彎了。",
+          "words": [
+            "weight",
+            "bend",
+            "sturdy"
+          ]
+        },
+        {
+          "title": "Add a support",
+          "scene": "worktable",
+          "lines": [
+            "A support helps."
+          ],
+          "translation": "支柱有幫助。",
+          "words": [
+            "support",
+            "weight",
+            "bend"
+          ]
+        },
+        {
+          "title": "Look at an arch",
+          "scene": "worktable",
+          "lines": [
+            "An arch helps too."
+          ],
+          "translation": "橋拱也有幫助。",
+          "words": [
+            "arch",
+            "base"
+          ]
+        },
+        {
+          "title": "Check each joint",
+          "scene": "worktable",
+          "lines": [
+            "Check this join."
+          ],
+          "translation": "檢查這個接點。",
+          "words": [
+            "joint",
+            "connect"
+          ]
+        },
+        {
+          "title": "Choose a plan",
+          "scene": "worktable",
+          "lines": [
+            "They have a plan."
+          ],
+          "translation": "他們有計畫了。",
+          "words": [
+            "plan",
+            "platform",
+            "sturdy"
+          ]
+        },
+        {
+          "title": "Bring the right plank",
+          "scene": "stream",
+          "lines": [
+            "This plank can reach."
+          ],
+          "translation": "這塊板跨得過去。",
+          "words": [
+            "plank",
+            "span"
+          ]
+        },
+        {
+          "title": "Build the platform",
+          "scene": "stream",
+          "lines": [
+            "Adults build the bridge."
+          ],
+          "translation": "大人搭橋。",
+          "words": [
+            "bolt",
+            "platform",
+            "joint"
+          ]
+        },
+        {
+          "title": "Test it first",
+          "scene": "stream",
+          "lines": [
+            "The builder tests it."
+          ],
+          "translation": "工匠先測試。",
+          "words": [
+            "level",
+            "sturdy",
+            "support"
+          ]
+        },
+        {
+          "title": "Walk across",
+          "scene": "stream",
+          "lines": [
+            "They cross the bridge."
+          ],
+          "translation": "他們過橋了。",
+          "words": [
+            "across",
+            "bridge"
+          ]
+        },
+        {
+          "title": "The ruler glows",
+          "scene": "stream",
+          "lines": [
+            "Time to go home."
+          ],
+          "translation": "該回家了。",
+          "words": [
+            "measure",
+            "model"
+          ]
+        },
+        {
+          "title": "Back in the bedroom",
+          "scene": "bedroom",
+          "lines": [
+            "Gail is home."
+          ],
+          "translation": "瑜瑜回家了。",
+          "words": [
+            "measure",
+            "model",
+            "plan"
+          ]
+        }
+      ],
+      "chinese": [
+        [
+          "尺子展開了。"
+        ],
+        [
+          "瑜瑜看見小溪。"
+        ],
+        [
+          "橋還沒搭好。"
+        ],
+        [
+          "木板太短了。"
+        ],
+        [
+          "瑜瑜留在岸邊。"
+        ],
+        [
+          "小溪有多寬？"
+        ],
+        [
+          "木板有多長？"
+        ],
+        [
+          "兩個長度不同。"
+        ],
+        [
+          "來做模型吧。"
+        ],
+        [
+          "這塊板彎了。"
+        ],
+        [
+          "支柱有幫助。"
+        ],
+        [
+          "橋拱也有幫助。"
+        ],
+        [
+          "檢查這個接點。"
+        ],
+        [
+          "他們有計畫了。"
+        ],
+        [
+          "這塊板跨得過去。"
+        ],
+        [
+          "大人搭橋。"
+        ],
+        [
+          "工匠先測試。"
+        ],
+        [
+          "他們過橋了。"
+        ],
+        [
+          "該回家了。"
+        ],
+        [
+          "瑜瑜回家了。"
+        ]
+      ]
+    },
+    "B": {
+      "pages": [
+        {
+          "title": "A folding ruler",
+          "scene": "bedroom",
+          "lines": [
+            "A folding ruler glows on Gail's floor. It opens like a little door."
+          ],
+          "translation": "折疊尺在瑜瑜的地板上發光，像小門一樣打開。",
+          "words": [
+            "measure"
+          ]
+        },
+        {
+          "title": "Across the room",
+          "scene": "bedroom",
+          "lines": [
+            "The ruler's light stretches across the room. Gail sees a stream through it."
+          ],
+          "translation": "尺子的光穿過房間。瑜瑜從中看見小溪。",
+          "words": [
+            "across"
+          ]
+        },
+        {
+          "title": "The unfinished bridge",
+          "scene": "stream",
+          "lines": [
+            "Gail meets the builder by a small stream. The bridge is not ready to cross."
+          ],
+          "translation": "瑜瑜在小溪旁遇見工匠。橋還不能走。",
+          "words": [
+            "bridge"
+          ]
+        },
+        {
+          "title": "A visible gap",
+          "scene": "stream",
+          "lines": [
+            "One plank ends before the other bank. A gap is easy to see."
+          ],
+          "translation": "一塊木板到不了對岸，缺口很清楚。",
+          "words": [
+            "plank",
+            "span"
+          ]
+        },
+        {
+          "title": "Stay on shore",
+          "scene": "stream",
+          "lines": [
+            "Gail and her friends stay in the safe area. The builders stop work to check."
+          ],
+          "translation": "瑜瑜與朋友待在安全區。工匠停下來檢查。",
+          "words": [
+            "plan"
+          ]
+        },
+        {
+          "title": "Measure the span",
+          "scene": "stream",
+          "lines": [
+            "The builder measures between the two supports. Gail watches the number on the ruler."
+          ],
+          "translation": "工匠量兩個支座之間的距離。瑜瑜看著尺子。",
+          "words": [
+            "measure",
+            "span",
+            "distance"
+          ]
+        },
+        {
+          "title": "Measure the plank",
+          "scene": "stream",
+          "lines": [
+            "They measure the plank too. It is shorter than the space it must cross."
+          ],
+          "translation": "他們也量木板。它比需要跨越的距離短。",
+          "words": [
+            "measure",
+            "plank",
+            "length"
+          ]
+        },
+        {
+          "title": "Two lengths",
+          "scene": "worktable",
+          "lines": [
+            "Gail puts two colored strips side by side. One is shorter."
+          ],
+          "translation": "瑜瑜把兩條彩帶並排。一條比較短。",
+          "words": [
+            "length",
+            "distance"
+          ]
+        },
+        {
+          "title": "Try a model",
+          "scene": "worktable",
+          "lines": [
+            "The builder gives Gail a little bridge model. They can test ideas on the table."
+          ],
+          "translation": "工匠給瑜瑜一個小橋模型。他們能在桌上試想法。",
+          "words": [
+            "model"
+          ]
+        },
+        {
+          "title": "A bending plank",
+          "scene": "worktable",
+          "lines": [
+            "A thin model plank bends under a small weight. Gail sees it needs support."
+          ],
+          "translation": "薄模型木板在小重物下彎曲。瑜瑜看見它需要支撐。",
+          "words": [
+            "weight",
+            "bend",
+            "sturdy"
+          ]
+        },
+        {
+          "title": "Add a support",
+          "scene": "worktable",
+          "lines": [
+            "They put a support under the model. The plank bends less."
+          ],
+          "translation": "他們在模型下加支柱，木板彎得比較少。",
+          "words": [
+            "support",
+            "weight",
+            "bend"
+          ]
+        },
+        {
+          "title": "Look at an arch",
+          "scene": "worktable",
+          "lines": [
+            "The model has an arch. Gail sees how its shape holds the top."
+          ],
+          "translation": "模型有橋拱。瑜瑜看見這個形狀如何撐住上方。",
+          "words": [
+            "arch",
+            "base"
+          ]
+        },
+        {
+          "title": "Check each joint",
+          "scene": "worktable",
+          "lines": [
+            "Gail points to a loose joint on the model. The builder connects it again."
+          ],
+          "translation": "瑜瑜指出模型鬆開的接點。工匠把它重新接好。",
+          "words": [
+            "joint",
+            "connect"
+          ]
+        },
+        {
+          "title": "Choose a plan",
+          "scene": "worktable",
+          "lines": [
+            "The builders choose a longer plank and strong supports. Gail shows them the model."
+          ],
+          "translation": "工匠選擇較長木板與穩固支柱。瑜瑜展示模型。",
+          "words": [
+            "plan",
+            "platform",
+            "sturdy"
+          ]
+        },
+        {
+          "title": "Bring the right plank",
+          "scene": "stream",
+          "lines": [
+            "Adults bring a plank that reaches both supports. Gail stays back."
+          ],
+          "translation": "大人搬來能跨到兩側支座的木板。瑜瑜留在後方。",
+          "words": [
+            "plank",
+            "span"
+          ]
+        },
+        {
+          "title": "Build the platform",
+          "scene": "stream",
+          "lines": [
+            "The builders fix the platform and bolts. Children wait behind the line."
+          ],
+          "translation": "工匠固定橋面與螺栓。孩子們在線後等待。",
+          "words": [
+            "bolt",
+            "platform",
+            "joint"
+          ]
+        },
+        {
+          "title": "Test it first",
+          "scene": "stream",
+          "lines": [
+            "An adult checks the level and steps on the bridge first. It feels steady."
+          ],
+          "translation": "大人檢查水平並先走上橋，橋很穩。",
+          "words": [
+            "level",
+            "sturdy",
+            "support"
+          ]
+        },
+        {
+          "title": "Walk across",
+          "scene": "stream",
+          "lines": [
+            "The builder says the bridge is ready. Gail crosses with an adult."
+          ],
+          "translation": "工匠說橋可以走了。瑜瑜和大人一起過橋。",
+          "words": [
+            "across",
+            "bridge"
+          ]
+        },
+        {
+          "title": "The ruler glows",
+          "scene": "stream",
+          "lines": [
+            "The builder thanks Gail for comparing the lengths. Her ruler glows again."
+          ],
+          "translation": "工匠謝謝瑜瑜比較長度。她的尺又發光了。",
+          "words": [
+            "measure",
+            "model"
+          ]
+        },
+        {
+          "title": "Back in the bedroom",
+          "scene": "bedroom",
+          "lines": [
+            "Gail folds the ruler by her bed. She remembers to measure before building."
+          ],
+          "translation": "瑜瑜把尺放在床邊。她記得搭建前先測量。",
+          "words": [
+            "measure",
+            "model",
+            "plan"
+          ]
+        }
+      ],
+      "chinese": [
+        [
+          "折疊尺在瑜瑜的地板上發光，像小門一樣打開。"
+        ],
+        [
+          "尺子的光穿過房間。瑜瑜從中看見小溪。"
+        ],
+        [
+          "瑜瑜在小溪旁遇見工匠。橋還不能走。"
+        ],
+        [
+          "一塊木板到不了對岸，缺口很清楚。"
+        ],
+        [
+          "瑜瑜與朋友待在安全區。工匠停下來檢查。"
+        ],
+        [
+          "工匠量兩個支座之間的距離。瑜瑜看著尺子。"
+        ],
+        [
+          "他們也量木板。它比需要跨越的距離短。"
+        ],
+        [
+          "瑜瑜把兩條彩帶並排。一條比較短。"
+        ],
+        [
+          "工匠給瑜瑜一個小橋模型。他們能在桌上試想法。"
+        ],
+        [
+          "薄模型木板在小重物下彎曲。瑜瑜看見它需要支撐。"
+        ],
+        [
+          "他們在模型下加支柱，木板彎得比較少。"
+        ],
+        [
+          "模型有橋拱。瑜瑜看見這個形狀如何撐住上方。"
+        ],
+        [
+          "瑜瑜指出模型鬆開的接點。工匠把它重新接好。"
+        ],
+        [
+          "工匠選擇較長木板與穩固支柱。瑜瑜展示模型。"
+        ],
+        [
+          "大人搬來能跨到兩側支座的木板。瑜瑜留在後方。"
+        ],
+        [
+          "工匠固定橋面與螺栓。孩子們在線後等待。"
+        ],
+        [
+          "大人檢查水平並先走上橋，橋很穩。"
+        ],
+        [
+          "工匠說橋可以走了。瑜瑜和大人一起過橋。"
+        ],
+        [
+          "工匠謝謝瑜瑜比較長度。她的尺又發光了。"
+        ],
+        [
+          "瑜瑜把尺放在床邊。她記得搭建前先測量。"
+        ]
+      ]
+    },
+    "C": {
+      "pages": [
+        {
+          "title": "A folding ruler",
+          "scene": "bedroom",
+          "lines": [
+            "In Gail's familiar bedroom, a folding ruler begins to glow. Its sections unfold slowly and make a bright outline on the floor."
+          ],
+          "translation": "在瑜瑜熟悉的臥室，一把折疊尺開始發光。尺節慢慢展開，在地板上畫出亮亮的輪廓。",
+          "words": [
+            "measure"
+          ]
+        },
+        {
+          "title": "Across the room",
+          "scene": "bedroom",
+          "lines": [
+            "Light travels from the ruler across the bedroom floor before a doorway opens. Gail sees a shallow stream and an unfinished bridge beyond it."
+          ],
+          "translation": "光從尺子沿著臥室地板延伸，接著才打開入口。瑜瑜看見一條淺溪和一座搭建中的橋。",
+          "words": [
+            "across"
+          ]
+        },
+        {
+          "title": "The unfinished bridge",
+          "scene": "stream",
+          "lines": [
+            "At the stream, Gail meets an adult builder beside an unfinished footbridge. Everyone waits on the shore because the crossing is not ready."
+          ],
+          "translation": "瑜瑜在小溪旁遇見一位成年工匠。行人橋還沒完工，大家都留在岸邊等待。",
+          "words": [
+            "bridge"
+          ]
+        },
+        {
+          "title": "A visible gap",
+          "scene": "stream",
+          "lines": [
+            "A wooden plank stops before it reaches the support on the far bank. The visible gap shows why no one should step onto the bridge yet."
+          ],
+          "translation": "一塊木板還沒碰到對岸支座就停住了。明顯的缺口讓大家知道目前不能上橋。",
+          "words": [
+            "plank",
+            "span"
+          ]
+        },
+        {
+          "title": "Stay on shore",
+          "scene": "stream",
+          "lines": [
+            "Gail stays with the other children behind the marked work area. The builders pause instead of trying to cover the gap by guesswork."
+          ],
+          "translation": "瑜瑜和其他孩子待在標示的工作區外。工匠暫停施工，沒有憑猜測掩蓋缺口。",
+          "words": [
+            "plan"
+          ]
+        },
+        {
+          "title": "Measure the span",
+          "scene": "stream",
+          "lines": [
+            "The builder stretches a tape between the two bridge supports and measures the full span. Gail watches where the tape begins and ends."
+          ],
+          "translation": "工匠把量尺拉到橋的兩個支座之間，量出完整跨距。瑜瑜觀察尺子從哪裡開始、在哪裡結束。",
+          "words": [
+            "measure",
+            "span",
+            "distance"
+          ]
+        },
+        {
+          "title": "Measure the plank",
+          "scene": "stream",
+          "lines": [
+            "They then measure the plank from one end to the other. Its length is shorter than the distance between the supports, confirming the problem."
+          ],
+          "translation": "接著他們量木板從一端到另一端的長度。木板短於兩個支座之間的距離，問題因此確定。",
+          "words": [
+            "measure",
+            "plank",
+            "length"
+          ]
+        },
+        {
+          "title": "Two lengths",
+          "scene": "worktable",
+          "lines": [
+            "Gail uses colored strips on a table to compare the measured span and plank length. Their ends do not line up, so the difference is easy to see."
+          ],
+          "translation": "瑜瑜在桌上用兩條彩帶比較量得的跨距與木板長度。兩端沒有對齊，差距很清楚。",
+          "words": [
+            "length",
+            "distance"
+          ]
+        },
+        {
+          "title": "Try a model",
+          "scene": "worktable",
+          "lines": [
+            "The builder brings a small bridge model to the worktable. Testing a model lets Gail see possible changes without touching the real construction."
+          ],
+          "translation": "工匠拿來一個小橋模型。先測試模型，瑜瑜就能看見不同改法，而不用碰真正的工地。",
+          "words": [
+            "model"
+          ]
+        },
+        {
+          "title": "A bending plank",
+          "scene": "worktable",
+          "lines": [
+            "When they set a small weight at the center, the thin model plank bends. Gail sees that reaching across is only one part of making a sturdy bridge."
+          ],
+          "translation": "他們把小重物放在中央時，薄薄的模型木板彎了。瑜瑜發現，跨得過去只是穩固橋梁的一部分。",
+          "words": [
+            "weight",
+            "bend",
+            "sturdy"
+          ]
+        },
+        {
+          "title": "Add a support",
+          "scene": "worktable",
+          "lines": [
+            "Gail adds a support beneath the model's center while the builder watches. With the same weight, the plank bends less than before."
+          ],
+          "translation": "工匠在旁看著，瑜瑜在模型中央下方加上支柱。同樣的重量放上去，木板比剛才彎得少。",
+          "words": [
+            "support",
+            "weight",
+            "bend"
+          ]
+        },
+        {
+          "title": "Look at an arch",
+          "scene": "worktable",
+          "lines": [
+            "The builder shows how a small arch can carry weight toward both sides of the model base. Gail compares this shape with the straight plank they first tested."
+          ],
+          "translation": "工匠示範小橋拱如何把重量帶向模型底座兩端。瑜瑜拿它和最初測試的直木板比較。",
+          "words": [
+            "arch",
+            "base"
+          ]
+        },
+        {
+          "title": "Check each joint",
+          "scene": "worktable",
+          "lines": [
+            "One model joint slips when they lift the bridge. Gail points it out, and the builder helps connect the pieces before another test."
+          ],
+          "translation": "他們抬起模型時，一處接點滑開了。瑜瑜指出問題，工匠幫忙把兩塊連好才再測試。",
+          "words": [
+            "joint",
+            "connect"
+          ]
+        },
+        {
+          "title": "Choose a plan",
+          "scene": "worktable",
+          "lines": [
+            "The builders plan a correctly sized platform with sturdy supports and secure joints. Gail uses the model to show which measurements they checked."
+          ],
+          "translation": "工匠計畫使用尺寸正確的橋面、穩固支柱與牢靠接點。瑜瑜用模型指出他們核對過的測量結果。",
+          "words": [
+            "plan",
+            "platform",
+            "sturdy"
+          ]
+        },
+        {
+          "title": "Bring the right plank",
+          "scene": "stream",
+          "lines": [
+            "The adults bring a plank of the measured length to the bridge site. It spans both supports while Gail watches from the safe area."
+          ],
+          "translation": "大人把依量測長度準備的木板送到橋邊。它跨到兩側支座，瑜瑜在安全區觀看。",
+          "words": [
+            "plank",
+            "span"
+          ]
+        },
+        {
+          "title": "Build the platform",
+          "scene": "stream",
+          "lines": [
+            "Adult builders fasten the platform and its bolts, then check each joint. The children remain behind the marked work line during construction."
+          ],
+          "translation": "成年工匠固定橋面與螺栓，再檢查每個接點。施工時孩子們始終留在標示的工作線後。",
+          "words": [
+            "bolt",
+            "platform",
+            "joint"
+          ]
+        },
+        {
+          "title": "Test it first",
+          "scene": "stream",
+          "lines": [
+            "Before inviting anyone across, the builder checks that the bridge is level and tests its support. The finished platform stays steady under his steps."
+          ],
+          "translation": "工匠邀請其他人過橋前，先檢查橋面是否平整並測試支撐。他走上去時，完工橋面保持穩固。",
+          "words": [
+            "level",
+            "sturdy",
+            "support"
+          ]
+        },
+        {
+          "title": "Walk across",
+          "scene": "stream",
+          "lines": [
+            "After the builder says the bridge is ready, Gail walks across with an adult. She can see the stream safely flowing beneath the new platform."
+          ],
+          "translation": "工匠確認橋已可通行後，瑜瑜才和大人一起走過。她看見溪水安全地從新橋面下方流過。",
+          "words": [
+            "across",
+            "bridge"
+          ]
+        },
+        {
+          "title": "The ruler glows",
+          "scene": "stream",
+          "lines": [
+            "The builder thanks Gail for helping compare the lengths and test the model. The folding ruler glows and opens the route back to her bedroom."
+          ],
+          "translation": "工匠謝謝瑜瑜協助比較長度、測試模型。折疊尺發光，打開回臥室的路。",
+          "words": [
+            "measure",
+            "model"
+          ]
+        },
+        {
+          "title": "Back in the bedroom",
+          "scene": "bedroom",
+          "lines": [
+            "Back in her familiar bedroom, Gail folds the ruler and sets it beside her bed. She remembers to measure, make a model, and revise a plan before building."
+          ],
+          "translation": "回到熟悉臥室，瑜瑜把尺折好放在床邊。她記得搭建前先測量、做模型，並修正計畫。",
+          "words": [
+            "measure",
+            "model",
+            "plan"
+          ]
+        }
+      ],
+      "chinese": [
+        [
+          "在瑜瑜熟悉的臥室，一把折疊尺開始發光。尺節慢慢展開，在地板上畫出亮亮的輪廓。"
+        ],
+        [
+          "光從尺子沿著臥室地板延伸，接著才打開入口。瑜瑜看見一條淺溪和一座搭建中的橋。"
+        ],
+        [
+          "瑜瑜在小溪旁遇見一位成年工匠。行人橋還沒完工，大家都留在岸邊等待。"
+        ],
+        [
+          "一塊木板還沒碰到對岸支座就停住了。明顯的缺口讓大家知道目前不能上橋。"
+        ],
+        [
+          "瑜瑜和其他孩子待在標示的工作區外。工匠暫停施工，沒有憑猜測掩蓋缺口。"
+        ],
+        [
+          "工匠把量尺拉到橋的兩個支座之間，量出完整跨距。瑜瑜觀察尺子從哪裡開始、在哪裡結束。"
+        ],
+        [
+          "接著他們量木板從一端到另一端的長度。木板短於兩個支座之間的距離，問題因此確定。"
+        ],
+        [
+          "瑜瑜在桌上用兩條彩帶比較量得的跨距與木板長度。兩端沒有對齊，差距很清楚。"
+        ],
+        [
+          "工匠拿來一個小橋模型。先測試模型，瑜瑜就能看見不同改法，而不用碰真正的工地。"
+        ],
+        [
+          "他們把小重物放在中央時，薄薄的模型木板彎了。瑜瑜發現，跨得過去只是穩固橋梁的一部分。"
+        ],
+        [
+          "工匠在旁看著，瑜瑜在模型中央下方加上支柱。同樣的重量放上去，木板比剛才彎得少。"
+        ],
+        [
+          "工匠示範小橋拱如何把重量帶向模型底座兩端。瑜瑜拿它和最初測試的直木板比較。"
+        ],
+        [
+          "他們抬起模型時，一處接點滑開了。瑜瑜指出問題，工匠幫忙把兩塊連好才再測試。"
+        ],
+        [
+          "工匠計畫使用尺寸正確的橋面、穩固支柱與牢靠接點。瑜瑜用模型指出他們核對過的測量結果。"
+        ],
+        [
+          "大人把依量測長度準備的木板送到橋邊。它跨到兩側支座，瑜瑜在安全區觀看。"
+        ],
+        [
+          "成年工匠固定橋面與螺栓，再檢查每個接點。施工時孩子們始終留在標示的工作線後。"
+        ],
+        [
+          "工匠邀請其他人過橋前，先檢查橋面是否平整並測試支撐。他走上去時，完工橋面保持穩固。"
+        ],
+        [
+          "工匠確認橋已可通行後，瑜瑜才和大人一起走過。她看見溪水安全地從新橋面下方流過。"
+        ],
+        [
+          "工匠謝謝瑜瑜協助比較長度、測試模型。折疊尺發光，打開回臥室的路。"
+        ],
+        [
+          "回到熟悉臥室，瑜瑜把尺折好放在床邊。她記得搭建前先測量、做模型，並修正計畫。"
+        ]
+      ]
+    }
+  }
+}

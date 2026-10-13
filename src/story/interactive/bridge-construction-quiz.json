@@ -1,0 +1,1722 @@
+{
+  "A": [
+    {
+      "id": "book34-A01",
+      "kind": "choice",
+      "prompt": "What glows on the floor in this picture?",
+      "chinesePrompt": "圖中地板上什麼在發光？",
+      "options": [
+        {
+          "text": "A wooden plank"
+        },
+        {
+          "text": "A bridge model"
+        },
+        {
+          "text": "A folding ruler"
+        },
+        {
+          "text": "A small weight"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第1幕 / Scene 1: The glowing object has connected ruler sections on the bedroom floor. It is not the plank, bridge model or weight used later at the worktable. 地板上發光的是多節相連的折疊尺；木板、橋模型和重物是後面的施工或模型物件。\n故事證據 / Evidence: A ruler unfolds. / 尺子展開了。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "A ruler unfolds.",
+          "chinese": "尺子展開了。"
+        }
+      ],
+      "image": "images/story/bridge-construction-v1/scene/01.webp",
+      "imageAlt": "A folding ruler"
+    },
+    {
+      "id": "book34-A02",
+      "kind": "choice",
+      "prompt": "What does Gail see through the ruler’s light?",
+      "chinesePrompt": "瑜瑜從尺子的光中看見什麼？",
+      "options": [
+        {
+          "text": "A stream"
+        },
+        {
+          "text": "A support"
+        },
+        {
+          "text": "A model"
+        },
+        {
+          "text": "A plank"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第2幕 / Scene 2: The sentence names a stream. The other choices are bridge parts or a model, rather than the place Gail sees through the light. 句子指出小溪；支柱、模型和木板是橋梁相關物件，不是她此時看見的地點。\n故事證據 / Evidence: Gail sees a stream. / 瑜瑜看見小溪。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 2,
+          "quote": "Gail sees a stream.",
+          "chinese": "瑜瑜看見小溪。"
+        }
+      ]
+    },
+    {
+      "id": "book34-A03",
+      "kind": "choice",
+      "prompt": "Gail first sees the bridge. Is it done?",
+      "chinesePrompt": "瑜瑜第一次看見橋時，橋搭好了嗎？",
+      "options": [
+        {
+          "text": "All done"
+        },
+        {
+          "text": "Just tested"
+        },
+        {
+          "text": "Ready now"
+        },
+        {
+          "text": "Not yet"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第3幕 / Scene 3: Not done means the bridge is still unfinished. It has not reached the later testing or ready-to-cross stage. not done 表示尚未完工，還沒有到後來測試或可以通行的階段。\n故事證據 / Evidence: The bridge is not done. / 橋還沒搭好。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 3,
+          "quote": "The bridge is not done.",
+          "chinese": "橋還沒搭好。"
+        }
+      ]
+    },
+    {
+      "id": "book34-A04",
+      "kind": "choice",
+      "prompt": "How is the plank described?",
+      "chinesePrompt": "這頁說木板怎樣？",
+      "options": [
+        {
+          "text": "Too long"
+        },
+        {
+          "text": "Too short"
+        },
+        {
+          "text": "Too wide"
+        },
+        {
+          "text": "Too heavy"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第4幕 / Scene 4: Too short describes its length. This page does not identify extra length, width or weight as the problem. 本页問題是長度太短，沒有說太長、太寬或太重。\n故事證據 / Evidence: The plank is too short. / 木板太短了。",
+      "skill": "vocabulary",
+      "evidence": [
+        {
+          "scene": 4,
+          "quote": "The plank is too short.",
+          "chinese": "木板太短了。"
+        }
+      ]
+    },
+    {
+      "id": "book34-A05",
+      "kind": "choice",
+      "prompt": "The builders stop to check. What does Gail do?",
+      "chinesePrompt": "工匠停下來檢查時，瑜瑜做什麼？",
+      "options": [
+        {
+          "text": "Stays back"
+        },
+        {
+          "text": "Walks across"
+        },
+        {
+          "text": "Adds support"
+        },
+        {
+          "text": "Checks a join"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第5幕 / Scene 5: Gail stays back at this point. Crossing, adding a support and checking a joint are other actions introduced later. 本頁瑜瑜留在後方；過橋、加支柱和檢查接點屬於後面的情節。\n故事證據 / Evidence: Gail stays back. / 瑜瑜留在岸邊。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 5,
+          "quote": "Gail stays back.",
+          "chinese": "瑜瑜留在岸邊。"
+        }
+      ]
+    },
+    {
+      "id": "book34-A06",
+      "kind": "choice",
+      "prompt": "What does wide ask about?",
+      "chinesePrompt": "wide 問的是什麼？",
+      "options": [
+        {
+          "text": "Weight"
+        },
+        {
+          "text": "Color"
+        },
+        {
+          "text": "Width"
+        },
+        {
+          "text": "Shape"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第6幕 / Scene 6: How wide asks for the width of the stream. It does not ask how heavy it is, what color it is or what shape it has. how wide 問小溪的寬度，不是重量、顏色或形狀。\n故事證據 / Evidence: How wide is the stream? / 小溪有多寬？",
+      "skill": "vocabulary",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "How wide is the stream?",
+          "chinese": "小溪有多寬？"
+        }
+      ]
+    },
+    {
+      "id": "book34-A07",
+      "kind": "choice",
+      "prompt": "What is measured in this sentence?",
+      "chinesePrompt": "這句詢問哪件物品的長度？",
+      "options": [
+        {
+          "text": "The arch"
+        },
+        {
+          "text": "The plank"
+        },
+        {
+          "text": "The model"
+        },
+        {
+          "text": "The joint"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第7幕 / Scene 7: How long is the plank names the plank. Arch, model and joint are other bridge words, but are not named in this question. 本句直接問木板有多長；橋拱、模型和接點並非句中所問的物品。\n故事證據 / Evidence: How long is the plank? / 木板有多長？",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "How long is the plank?",
+          "chinese": "木板有多長？"
+        }
+      ]
+    },
+    {
+      "id": "book34-A08",
+      "kind": "choice",
+      "prompt": "What is Gail comparing in this picture?",
+      "chinesePrompt": "圖中瑜瑜比較什麼？",
+      "options": [
+        {
+          "text": "Two folding rulers"
+        },
+        {
+          "text": "Two bridge models"
+        },
+        {
+          "text": "Two wooden supports"
+        },
+        {
+          "text": "Two colored strips"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第8幕 / Scene 8: Two colored strips lie side by side with different endpoints. They are not rulers, models or upright supports. 桌上兩條彩帶並排，末端位置不同；這兩條不是折疊尺、小橋模型或直立支柱。\n故事證據 / Evidence: The lengths do not match. / 兩個長度不同。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "The lengths do not match.",
+          "chinese": "兩個長度不同。"
+        }
+      ],
+      "image": "images/story/bridge-construction-v1/scene/08.webp",
+      "imageAlt": "Two lengths"
+    },
+    {
+      "id": "book34-A09",
+      "kind": "choice",
+      "prompt": "What do they want to make?",
+      "chinesePrompt": "他們想做什麼？",
+      "options": [
+        {
+          "text": "A doorway"
+        },
+        {
+          "text": "A ruler"
+        },
+        {
+          "text": "A model"
+        },
+        {
+          "text": "A line"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第9幕 / Scene 9: Let’s make a model names the object to make. A doorway, ruler and line appear in other parts of the story. 句子要做的是模型；入口、尺子和界線是故事其他位置的物件。\n故事證據 / Evidence: Let's make a model. / 來做模型吧。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "Let's make a model.",
+          "chinese": "來做模型吧。"
+        }
+      ]
+    },
+    {
+      "id": "book34-A10",
+      "kind": "choice",
+      "prompt": "What happens to this plank?",
+      "chinesePrompt": "這塊板怎麼了？",
+      "options": [
+        {
+          "text": "It glows"
+        },
+        {
+          "text": "It bends"
+        },
+        {
+          "text": "It folds"
+        },
+        {
+          "text": "It slips"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第10幕 / Scene 10: The plank bends. Glowing and folding describe the ruler, while slipping describes a later loose joint. 此頁木板彎曲；發光、折疊是尺子的動作，滑開則是後面接點的問題。\n故事證據 / Evidence: This plank bends. / 這塊板彎了。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "This plank bends.",
+          "chinese": "這塊板彎了。"
+        }
+      ]
+    },
+    {
+      "id": "book34-A11",
+      "kind": "choice",
+      "prompt": "The model plank bends. What goes under it to help?",
+      "chinesePrompt": "模型板彎曲時，加在下面幫忙的是什麼？",
+      "options": [
+        {
+          "text": "A ruler"
+        },
+        {
+          "text": "A platform"
+        },
+        {
+          "text": "A bolt"
+        },
+        {
+          "text": "A support"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第11幕 / Scene 11: A support helps names a support. The sentence does not name a ruler, platform or bolt as this page’s helpful addition. 句子直接指出支柱有幫助；尺、橋面和螺栓不是此頁說的新增支撐。\n故事證據 / Evidence: A support helps. / 支柱有幫助。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "A support helps.",
+          "chinese": "支柱有幫助。"
+        }
+      ]
+    },
+    {
+      "id": "book34-A12",
+      "kind": "choice",
+      "prompt": "Which shape is in the model in this picture?",
+      "chinesePrompt": "圖中模型裡有哪種形狀？",
+      "options": [
+        {
+          "text": "An arch"
+        },
+        {
+          "text": "A star"
+        },
+        {
+          "text": "A circle"
+        },
+        {
+          "text": "A spiral"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第12幕 / Scene 12: The model has a curved arch beneath its top. The arch shape is visible; a star, circle or spiral is not the model’s support shape. 模型上方下面有彎曲橋拱，可從圖中看見；支撐形狀不是星形、圓圈或螺旋。\n故事證據 / Evidence: An arch helps too. / 橋拱也有幫助。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "An arch helps too.",
+          "chinese": "橋拱也有幫助。"
+        }
+      ],
+      "image": "images/story/bridge-construction-v1/scene/12.webp",
+      "imageAlt": "Look at an arch"
+    },
+    {
+      "id": "book34-A13",
+      "kind": "choice",
+      "prompt": "What should they check here?",
+      "chinesePrompt": "這頁要檢查什麼？",
+      "options": [
+        {
+          "text": "A stream"
+        },
+        {
+          "text": "A join"
+        },
+        {
+          "text": "A ruler"
+        },
+        {
+          "text": "A weight"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第13幕 / Scene 13: Check this join focuses on a connection between parts. The stream, ruler and weight are different story objects. join 是物件相接之處；本句要檢查接點，而非小溪、尺子或重物。\n故事證據 / Evidence: Check this join. / 檢查這個接點。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "Check this join.",
+          "chinese": "檢查這個接點。"
+        }
+      ]
+    },
+    {
+      "id": "book34-A14",
+      "kind": "choice",
+      "prompt": "Who builds the bridge?",
+      "chinesePrompt": "誰搭建橋梁？",
+      "options": [
+        {
+          "text": "Children"
+        },
+        {
+          "text": "Gail alone"
+        },
+        {
+          "text": "Her friends"
+        },
+        {
+          "text": "Adults"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第16幕 / Scene 16: Adults build the bridge assigns construction to adults. Gail and the other children are not the builders named here. 本句明說由大人搭橋，沒有把真正施工交给瑜瑜或其他孩子。\n故事證據 / Evidence: Adults build the bridge. / 大人搭橋。",
+      "skill": "agent",
+      "evidence": [
+        {
+          "scene": 16,
+          "quote": "Adults build the bridge.",
+          "chinese": "大人搭橋。"
+        }
+      ]
+    },
+    {
+      "id": "book34-A15",
+      "kind": "choice",
+      "prompt": "The bridge is ready. What do they do next?",
+      "chinesePrompt": "橋已確認可以走，大家接著做什麼？",
+      "options": [
+        {
+          "text": "Cross the bridge"
+        },
+        {
+          "text": "Build the bridge"
+        },
+        {
+          "text": "Make the model"
+        },
+        {
+          "text": "Check the join"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第18幕 / Scene 18: They cross the bridge describes crossing. Building, making the model and checking a join are earlier steps. 本頁動作是過橋；搭橋、做模型和檢查接點是之前的工作。\n故事證據 / Evidence: They cross the bridge. / 他們過橋了。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 18,
+          "quote": "They cross the bridge.",
+          "chinese": "他們過橋了。"
+        }
+      ]
+    },
+    {
+      "id": "book34-A16",
+      "kind": "choice",
+      "prompt": "Where is Gail in the last picture?",
+      "chinesePrompt": "最後一張圖裡瑜瑜在哪裡？",
+      "options": [
+        {
+          "text": "The worktable"
+        },
+        {
+          "text": "The riverbank"
+        },
+        {
+          "text": "Her bedroom"
+        },
+        {
+          "text": "The footbridge"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第20幕 / Scene 20: The bed, moonlit window and bedside cabinet identify Gail’s bedroom. There is no outdoor worktable, riverbank or bridge around her. 床、月亮窗景和床邊櫃顯示她在臥室；身旁不是戶外工作桌、河岸或行人橋。\n故事證據 / Evidence: Gail is home. / 瑜瑜回家了。",
+      "skill": "picture",
+      "evidence": [
+        {
+          "scene": 20,
+          "quote": "Gail is home.",
+          "chinese": "瑜瑜回家了。"
+        }
+      ],
+      "image": "images/story/bridge-construction-v1/scene/20.webp",
+      "imageAlt": "Back in the bedroom"
+    }
+  ],
+  "B": [
+    {
+      "id": "book34-B01",
+      "kind": "choice",
+      "prompt": "Where does the folding ruler glow?",
+      "chinesePrompt": "折疊尺在哪裡發光？",
+      "options": [
+        {
+          "text": "On the bridge top"
+        },
+        {
+          "text": "On Gail’s floor"
+        },
+        {
+          "text": "Under the model"
+        },
+        {
+          "text": "Beside the stream"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第1幕 / Scene 1: The ruler glows on Gail’s floor and opens like a little door. The bridge, model and stream belong to the visit that follows. 尺子先在瑜瑜地板上發光；橋、模型和小溪是之後的故事場景。\n故事證據 / Evidence: A folding ruler glows on Gail's floor. It opens like a little door. / 折疊尺在瑜瑜的地板上發光，像小門一樣打開。",
+      "skill": "linked-detail",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "A folding ruler glows on Gail's floor. It opens like a little door.",
+          "chinese": "折疊尺在瑜瑜的地板上發光，像小門一樣打開。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B02",
+      "kind": "choice",
+      "prompt": "Why is the bridge not ready to cross?",
+      "chinesePrompt": "橋為什麼還不能走？",
+      "options": [
+        {
+          "text": "A model bends under a small weight"
+        },
+        {
+          "text": "A ruler folds beside Gail’s bed"
+        },
+        {
+          "text": "A joint comes loose on the model"
+        },
+        {
+          "text": "A plank stops before the other bank"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第3、4幕 / Scene 3、4: The bridge is not ready, and the next page shows a plank ending before the other bank. Model bending and loose joints are later model tests; folding the ruler is at home. 第3、4幕的原因是木板到不了對岸；模型彎曲、接點鬆開是之後桌上的測試，收尺在家裡。\n故事證據 / Evidence: Gail meets the builder by a small stream. The bridge is not ready to cross. / 瑜瑜在小溪旁遇見工匠。橋還不能走。 | One plank ends before the other bank. A gap is easy to see. / 一塊木板到不了對岸，缺口很清楚。",
+      "skill": "cause-result",
+      "evidence": [
+        {
+          "scene": 3,
+          "quote": "Gail meets the builder by a small stream. The bridge is not ready to cross.",
+          "chinese": "瑜瑜在小溪旁遇見工匠。橋還不能走。"
+        },
+        {
+          "scene": 4,
+          "quote": "One plank ends before the other bank. A gap is easy to see.",
+          "chinese": "一塊木板到不了對岸，缺口很清楚。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B03",
+      "kind": "choice",
+      "prompt": "What happens while the builders stop to check?",
+      "chinesePrompt": "工匠停下檢查時，孩子們怎麼做？",
+      "options": [
+        {
+          "text": "Stay in the safe area"
+        },
+        {
+          "text": "Step onto the bridge"
+        },
+        {
+          "text": "Move the long plank"
+        },
+        {
+          "text": "Fix the platform bolts"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第5幕 / Scene 5: Gail and her friends remain in the safe area. The story reserves construction for adults and crossing for after testing. 此時孩子留在安全區；搬板與固定螺栓是成人施工，過橋在驗收後。\n故事證據 / Evidence: Gail and her friends stay in the safe area. The builders stop work to check. / 瑜瑜與朋友待在安全區。工匠停下來檢查。",
+      "skill": "parallel-actions",
+      "evidence": [
+        {
+          "scene": 5,
+          "quote": "Gail and her friends stay in the safe area. The builders stop work to check.",
+          "chinese": "瑜瑜與朋友待在安全區。工匠停下來檢查。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B04",
+      "kind": "choice",
+      "prompt": "What does the builder measure first?",
+      "chinesePrompt": "工匠先測量什麼？",
+      "options": [
+        {
+          "text": "The curve under the model"
+        },
+        {
+          "text": "The bolts in the platform"
+        },
+        {
+          "text": "The space between supports"
+        },
+        {
+          "text": "The weight on the model"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第6幕 / Scene 6: The builder measures between the two supports. This gives the crossing distance, rather than a model curve, bolt size or model weight. 本頁量兩支座之間的距離，不是模型的曲線、螺栓尺寸或重物重量。\n故事證據 / Evidence: The builder measures between the two supports. Gail watches the number on the ruler. / 工匠量兩個支座之間的距離。瑜瑜看著尺子。",
+      "skill": "detail",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "The builder measures between the two supports. Gail watches the number on the ruler.",
+          "chinese": "工匠量兩個支座之間的距離。瑜瑜看著尺子。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B05",
+      "kind": "choice",
+      "prompt": "How does the plank compare with the space?",
+      "chinesePrompt": "木板和需跨越的距離比起來怎樣？",
+      "options": [
+        {
+          "text": "The plank is longer"
+        },
+        {
+          "text": "They are equal lengths"
+        },
+        {
+          "text": "The plank is shorter"
+        },
+        {
+          "text": "They are equal weights"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第7幕 / Scene 7: The text says the plank is shorter than the space it must cross. This is a length comparison, not a statement about weight. 文本明說木板較短；不是較長或等長，也沒有比較重量。\n故事證據 / Evidence: They measure the plank too. It is shorter than the space it must cross. / 他們也量木板。它比需要跨越的距離短。",
+      "skill": "compare",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "They measure the plank too. It is shorter than the space it must cross.",
+          "chinese": "他們也量木板。它比需要跨越的距離短。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B06",
+      "kind": "choice",
+      "prompt": "How does Gail compare the colored strips?",
+      "chinesePrompt": "瑜瑜怎樣比較彩帶？",
+      "options": [
+        {
+          "text": "Puts them side by side"
+        },
+        {
+          "text": "Puts one under a weight"
+        },
+        {
+          "text": "Connects them at a joint"
+        },
+        {
+          "text": "Folds them beside her bed"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第8幕 / Scene 8: Putting strips side by side shows that one is shorter. Weight tests, joint repairs and folding are other story actions. 本頁用並排方式看出一條較短；重物測試、接點修理和折尺是其他情節。\n故事證據 / Evidence: Gail puts two colored strips side by side. One is shorter. / 瑜瑜把兩條彩帶並排。一條比較短。",
+      "skill": "method",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "Gail puts two colored strips side by side. One is shorter.",
+          "chinese": "瑜瑜把兩條彩帶並排。一條比較短。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B07",
+      "kind": "choice",
+      "prompt": "Why do they use a little bridge model?",
+      "chinesePrompt": "他們為什麼使用小橋模型？",
+      "options": [
+        {
+          "text": "To cross the stream together"
+        },
+        {
+          "text": "To measure Gail’s bedroom"
+        },
+        {
+          "text": "To mark the builders’ line"
+        },
+        {
+          "text": "To test ideas on the table"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第9幕 / Scene 9: The model lets them test ideas on the table. It is not a real crossing, a room measurement or the marked work boundary. 模型是桌上試想法的工具，不是實際過溪的橋、量臥室的工具或施工界線。\n故事證據 / Evidence: The builder gives Gail a little bridge model. They can test ideas on the table. / 工匠給瑜瑜一個小橋模型。他們能在桌上試想法。",
+      "skill": "purpose",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "The builder gives Gail a little bridge model. They can test ideas on the table.",
+          "chinese": "工匠給瑜瑜一個小橋模型。他們能在桌上試想法。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B08",
+      "kind": "choice",
+      "prompt": "What makes the thin model plank bend?",
+      "chinesePrompt": "什麼使薄模型板彎曲？",
+      "options": [
+        {
+          "text": "A folded ruler"
+        },
+        {
+          "text": "A small weight"
+        },
+        {
+          "text": "A colored strip"
+        },
+        {
+          "text": "A loose bolt"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第10幕 / Scene 10: The plank bends under a small weight. The page does not place a ruler, colored strip or loose bolt on it as the load. 本頁明說小重物讓板彎曲；沒有說負載是尺、彩帶或鬆螺栓。\n故事證據 / Evidence: A thin model plank bends under a small weight. Gail sees it needs support. / 薄模型木板在小重物下彎曲。瑜瑜看見它需要支撐。",
+      "skill": "cause",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "A thin model plank bends under a small weight. Gail sees it needs support.",
+          "chinese": "薄模型木板在小重物下彎曲。瑜瑜看見它需要支撐。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B09",
+      "kind": "choice",
+      "prompt": "What changes after they add a support?",
+      "chinesePrompt": "加支柱之後有什麼改變？",
+      "options": [
+        {
+          "text": "The plank bends less"
+        },
+        {
+          "text": "The plank grows longer"
+        },
+        {
+          "text": "The arch folds closed"
+        },
+        {
+          "text": "The joint slips again"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第11幕 / Scene 11: Adding a support under the model reduces bending. It does not lengthen the plank, fold an arch or cause the later joint problem. 支柱讓板彎得較少，沒有讓板變長、橋拱折起或使接點再次滑開。\n故事證據 / Evidence: They put a support under the model. The plank bends less. / 他們在模型下加支柱，木板彎得比較少。",
+      "skill": "change-result",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "They put a support under the model. The plank bends less.",
+          "chinese": "他們在模型下加支柱，木板彎得比較少。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B10",
+      "kind": "choice",
+      "prompt": "What does the arch shape hold?",
+      "chinesePrompt": "橋拱形狀撐住什麼？",
+      "options": [
+        {
+          "text": "The ruler by the bed"
+        },
+        {
+          "text": "The line on the shore"
+        },
+        {
+          "text": "The top of the model"
+        },
+        {
+          "text": "The strips on the table"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第12幕 / Scene 12: The arch holds the model’s top. The ruler, marked line and strips serve different purposes elsewhere. 橋拱支撐模型上方；尺、岸上界線和彩帶在別頁有不同用途。\n故事證據 / Evidence: The model has an arch. Gail sees how its shape holds the top. / 模型有橋拱。瑜瑜看見這個形狀如何撐住上方。",
+      "skill": "linked-detail",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "The model has an arch. Gail sees how its shape holds the top.",
+          "chinese": "模型有橋拱。瑜瑜看見這個形狀如何撐住上方。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B11",
+      "kind": "choice",
+      "prompt": "What happens next after Gail points to the loose joint?",
+      "chinesePrompt": "瑜瑜指出鬆接點後，緊接著發生什麼？",
+      "options": [
+        {
+          "text": "The builder crosses the bridge"
+        },
+        {
+          "text": "The builder connects it again"
+        },
+        {
+          "text": "The children fix the platform"
+        },
+        {
+          "text": "Gail folds the glowing ruler"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第13幕 / Scene 13: The builder reconnects the model joint. Crossing, real construction and folding the ruler happen at different times. 本頁工匠重新連好模型接點；過橋、真正施工和折尺都在其他時點。\n故事證據 / Evidence: Gail points to a loose joint on the model. The builder connects it again. / 瑜瑜指出模型鬆開的接點。工匠把它重新接好。",
+      "skill": "sequence",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "Gail points to a loose joint on the model. The builder connects it again.",
+          "chinese": "瑜瑜指出模型鬆開的接點。工匠把它重新接好。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B12",
+      "kind": "choice",
+      "prompt": "Which parts do the builders choose for the plan?",
+      "chinesePrompt": "工匠的計畫選用什麼？",
+      "options": [
+        {
+          "text": "A shorter plank and colored strips"
+        },
+        {
+          "text": "A folding ruler and a loose joint"
+        },
+        {
+          "text": "A small weight and a glowing door"
+        },
+        {
+          "text": "A longer plank and strong supports"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第14幕 / Scene 14: A longer plank and strong supports address reach and support. The other pairs mix story items but do not describe the selected plan. 計畫明列較長木板與穩固支柱；其他組合雖含故事物件，並非所選方案。\n故事證據 / Evidence: The builders choose a longer plank and strong supports. Gail shows them the model. / 工匠選擇較長木板與穩固支柱。瑜瑜展示模型。",
+      "skill": "linked-detail",
+      "evidence": [
+        {
+          "scene": 14,
+          "quote": "The builders choose a longer plank and strong supports. Gail shows them the model.",
+          "chinese": "工匠選擇較長木板與穩固支柱。瑜瑜展示模型。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B13",
+      "kind": "choice",
+      "prompt": "Who works at the real bridge while children wait?",
+      "chinesePrompt": "孩子等候時，誰在真正的橋上施工？",
+      "options": [
+        {
+          "text": "Gail and her friends"
+        },
+        {
+          "text": "Gail by herself"
+        },
+        {
+          "text": "The waiting children"
+        },
+        {
+          "text": "The adult builders"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第15、16幕 / Scene 15、16: Adults bring the right plank, then builders fix the platform and bolts while children wait behind the line. 第15、16幕把搬板與固定橋面交给大人，孩子在界線後等待，沒有參與真正施工。\n故事證據 / Evidence: Adults bring a plank that reaches both supports. Gail stays back. / 大人搬來能跨到兩側支座的木板。瑜瑜留在後方。 | The builders fix the platform and bolts. Children wait behind the line. / 工匠固定橋面與螺栓。孩子們在線後等待。",
+      "skill": "cross-scene-agent",
+      "evidence": [
+        {
+          "scene": 15,
+          "quote": "Adults bring a plank that reaches both supports. Gail stays back.",
+          "chinese": "大人搬來能跨到兩側支座的木板。瑜瑜留在後方。"
+        },
+        {
+          "scene": 16,
+          "quote": "The builders fix the platform and bolts. Children wait behind the line.",
+          "chinese": "工匠固定橋面與螺栓。孩子們在線後等待。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B14",
+      "kind": "choice",
+      "prompt": "What does the adult do before the others cross?",
+      "chinesePrompt": "其他人過橋前，大人做什麼？",
+      "options": [
+        {
+          "text": "Folds the ruler and leaves the shore"
+        },
+        {
+          "text": "Checks the level and steps on first"
+        },
+        {
+          "text": "Adds a weight to the table model"
+        },
+        {
+          "text": "Puts the strips beside the plank"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第17幕 / Scene 17: An adult checks the level and steps onto the bridge first. Folding the ruler and table activities are not this finished-bridge test. 本頁先由成人檢查水平並上橋；折尺或桌上活動不是完工橋的測試。\n故事證據 / Evidence: An adult checks the level and steps on the bridge first. It feels steady. / 大人檢查水平並先走上橋，橋很穩。",
+      "skill": "sequence",
+      "evidence": [
+        {
+          "scene": 17,
+          "quote": "An adult checks the level and steps on the bridge first. It feels steady.",
+          "chinese": "大人檢查水平並先走上橋，橋很穩。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B15",
+      "kind": "choice",
+      "prompt": "When does Gail cross with an adult?",
+      "chinesePrompt": "瑜瑜什麼時候和大人一起過橋？",
+      "options": [
+        {
+          "text": "When the short plank leaves a gap"
+        },
+        {
+          "text": "Before the builders fix the bolts"
+        },
+        {
+          "text": "After the builder says it is ready"
+        },
+        {
+          "text": "While the model joint is loose"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第18幕 / Scene 18: The builder first says the bridge is ready, then Gail crosses with an adult. The other moments occur before the crossing is ready. 工匠確認可以走後，她才和大人過橋；其餘時點都還未完成準備。\n故事證據 / Evidence: The builder says the bridge is ready. Gail crosses with an adult. / 工匠說橋可以走了。瑜瑜和大人一起過橋。",
+      "skill": "condition",
+      "evidence": [
+        {
+          "scene": 18,
+          "quote": "The builder says the bridge is ready. Gail crosses with an adult.",
+          "chinese": "工匠說橋可以走了。瑜瑜和大人一起過橋。"
+        }
+      ]
+    },
+    {
+      "id": "book34-B16",
+      "kind": "choice",
+      "prompt": "What lesson does Gail remember back at home?",
+      "chinesePrompt": "瑜瑜回家後記得什麼？",
+      "options": [
+        {
+          "text": "Measure before building"
+        },
+        {
+          "text": "Cross before checking"
+        },
+        {
+          "text": "Build before comparing"
+        },
+        {
+          "text": "Guess before measuring"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第19、20幕 / Scene 19、20: The builder thanks her for comparing lengths; at home she remembers to measure before building. Each other option reverses or replaces that order. 工匠謝謝她比較長度，回家她記得先量再搭；其他選項把順序倒置或改成猜測。\n故事證據 / Evidence: The builder thanks Gail for comparing the lengths. Her ruler glows again. / 工匠謝謝瑜瑜比較長度。她的尺又發光了。 | Gail folds the ruler by her bed. She remembers to measure before building. / 瑜瑜把尺放在床邊。她記得搭建前先測量。",
+      "skill": "lesson-sequence",
+      "evidence": [
+        {
+          "scene": 19,
+          "quote": "The builder thanks Gail for comparing the lengths. Her ruler glows again.",
+          "chinese": "工匠謝謝瑜瑜比較長度。她的尺又發光了。"
+        },
+        {
+          "scene": 20,
+          "quote": "Gail folds the ruler by her bed. She remembers to measure before building.",
+          "chinese": "瑜瑜把尺放在床邊。她記得搭建前先測量。"
+        }
+      ]
+    }
+  ],
+  "C": [
+    {
+      "id": "book34-C01",
+      "kind": "choice",
+      "prompt": "Which sequence opens the way to the stream?",
+      "chinesePrompt": "哪個順序打開通往小溪的路？",
+      "options": [
+        {
+          "text": "A doorway opens, Gail crosses, the ruler glows"
+        },
+        {
+          "text": "Gail measures, the builder tests, light travels"
+        },
+        {
+          "text": "The ruler folds, a joint slips, a doorway opens"
+        },
+        {
+          "text": "The ruler glows, light travels, a doorway opens"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第1、2幕 / Scene 1、2: The ruler begins to glow in scene1; scene2 says its light travels before the doorway opens. Crossing, measuring and folding occur later, so their proposed orders do not fit. 第1、2幕先發光、光延伸再開門；過橋、量測與收尺都在之後。\n故事證據 / Evidence: In Gail's familiar bedroom, a folding ruler begins to glow. Its sections unfold slowly and make a bright outline on the floor. / 在瑜瑜熟悉的臥室，一把折疊尺開始發光。尺節慢慢展開，在地板上畫出亮亮的輪廓。 | Light travels from the ruler across the bedroom floor before a doorway opens. Gail sees a shallow stream and an unfinished bridge beyond it. / 光從尺子沿著臥室地板延伸，接著才打開入口。瑜瑜看見一條淺溪和一座搭建中的橋。",
+      "skill": "cross-scene-sequence",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "In Gail's familiar bedroom, a folding ruler begins to glow. Its sections unfold slowly and make a bright outline on the floor.",
+          "chinese": "在瑜瑜熟悉的臥室，一把折疊尺開始發光。尺節慢慢展開，在地板上畫出亮亮的輪廓。"
+        },
+        {
+          "scene": 2,
+          "quote": "Light travels from the ruler across the bedroom floor before a doorway opens. Gail sees a shallow stream and an unfinished bridge beyond it.",
+          "chinese": "光從尺子沿著臥室地板延伸，接著才打開入口。瑜瑜看見一條淺溪和一座搭建中的橋。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C02",
+      "kind": "choice",
+      "prompt": "A new plan adds railings but leaves the gap before the far support. Which judgment follows Gail’s checks?",
+      "chinesePrompt": "新計畫加了欄杆，卻仍留下到對岸支座的缺口。依瑜瑜的檢查方法，應怎樣判斷？",
+      "options": [
+        {
+          "text": "Approve it after fitting the new rails, without checking the remaining gap."
+        },
+        {
+          "text": "Keep it closed until the gap is fixed and an adult checks the bridge."
+        },
+        {
+          "text": "Approve it if the bolts are fastened, without checking the full support span."
+        },
+        {
+          "text": "Approve it after a table model test, without changing the gap in the real bridge."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第3、4、5、17幕 / Scene 3、4、5、17: In this new plan the reach problem still exists. Scene4 links the gap to not stepping onto the bridge, and scene17 adds an adult check before anyone is invited across. Rails alone, bolts alone, or a model result cannot close the stated real gap or replace that adult check. 新計畫仍跨不到支座。第4幕把缺口和不能上橋連結，第17幕要求通行前成人檢查；只加欄杆、只固定螺栓或只做模型測試，都沒有消除這個真橋缺口，也不能代替成人驗收。\n故事證據 / Evidence: At the stream, Gail meets an adult builder beside an unfinished footbridge. Everyone waits on the shore because the crossing is not ready. / 瑜瑜在小溪旁遇見一位成年工匠。行人橋還沒完工，大家都留在岸邊等待。 | A wooden plank stops before it reaches the support on the far bank. The visible gap shows why no one should step onto the bridge yet. / 一塊木板還沒碰到對岸支座就停住了。明顯的缺口讓大家知道目前不能上橋。 | Gail stays with the other children behind the marked work area. The builders pause instead of trying to cover the gap by guesswork. / 瑜瑜和其他孩子待在標示的工作區外。工匠暫停施工，沒有憑猜測掩蓋缺口。 | Before inviting anyone across, the builder checks that the bridge is level and tests its support. The finished platform stays steady under his steps. / 工匠邀請其他人過橋前，先檢查橋面是否平整並測試支撐。他走上去時，完工橋面保持穩固。",
+      "skill": "apply-multiple-conditions",
+      "evidence": [
+        {
+          "scene": 3,
+          "quote": "At the stream, Gail meets an adult builder beside an unfinished footbridge. Everyone waits on the shore because the crossing is not ready.",
+          "chinese": "瑜瑜在小溪旁遇見一位成年工匠。行人橋還沒完工，大家都留在岸邊等待。"
+        },
+        {
+          "scene": 4,
+          "quote": "A wooden plank stops before it reaches the support on the far bank. The visible gap shows why no one should step onto the bridge yet.",
+          "chinese": "一塊木板還沒碰到對岸支座就停住了。明顯的缺口讓大家知道目前不能上橋。"
+        },
+        {
+          "scene": 5,
+          "quote": "Gail stays with the other children behind the marked work area. The builders pause instead of trying to cover the gap by guesswork.",
+          "chinese": "瑜瑜和其他孩子待在標示的工作區外。工匠暫停施工，沒有憑猜測掩蓋缺口。"
+        },
+        {
+          "scene": 17,
+          "quote": "Before inviting anyone across, the builder checks that the bridge is level and tests its support. The finished platform stays steady under his steps.",
+          "chinese": "工匠邀請其他人過橋前，先檢查橋面是否平整並測試支撐。他走上去時，完工橋面保持穩固。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C03",
+      "kind": "choice",
+      "prompt": "A helper measures only the middle of a new plank, but measures the full span between supports. Which comparison would be fair?",
+      "chinesePrompt": "助手只量新木板中段，卻量了兩支座間完整跨距。怎樣比較才公平？",
+      "options": [
+        {
+          "text": "Compare only the middle plank section against the full support span."
+        },
+        {
+          "text": "Shorten the measured span until it matches the middle plank section."
+        },
+        {
+          "text": "Measure the full plank end to end against the full support span."
+        },
+        {
+          "text": "Compare the whole plank with only the near half of the support span."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第6、7幕 / Scene 6、7: The proposed measurements use a part for one item and the whole for the other. Scenes6 and7 use the full support span and the plank end to end. Repeating a partial measure does not fix its scope; shortening the recorded span or using half of it hides the actual distance to cross. 新情境把一件物品的部分和另一件的全部比較。第6、7幕量完整跨距和木板兩端；只用中段、縮短跨距紀錄或改比半個跨距，都未公平比較實際要跨的完整距離。\n故事證據 / Evidence: The builder stretches a tape between the two bridge supports and measures the full span. Gail watches where the tape begins and ends. / 工匠把量尺拉到橋的兩個支座之間，量出完整跨距。瑜瑜觀察尺子從哪裡開始、在哪裡結束。 | They then measure the plank from one end to the other. Its length is shorter than the distance between the supports, confirming the problem. / 接著他們量木板從一端到另一端的長度。木板短於兩個支座之間的距離，問題因此確定。",
+      "skill": "apply-measurement-boundaries",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "The builder stretches a tape between the two bridge supports and measures the full span. Gail watches where the tape begins and ends.",
+          "chinese": "工匠把量尺拉到橋的兩個支座之間，量出完整跨距。瑜瑜觀察尺子從哪裡開始、在哪裡結束。"
+        },
+        {
+          "scene": 7,
+          "quote": "They then measure the plank from one end to the other. Its length is shorter than the distance between the supports, confirming the problem.",
+          "chinese": "接著他們量木板從一端到另一端的長度。木板短於兩個支座之間的距離，問題因此確定。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C04",
+      "kind": "choice",
+      "prompt": "Two new length strips start at different places on the table. One far end sticks out. What should Gail do before deciding which strip is longer?",
+      "chinesePrompt": "桌上兩條新彩帶的起點不同，其中一條末端突出。判斷哪條較長前，瑜瑜應先做什麼？",
+      "options": [
+        {
+          "text": "Align their starting ends, then compare their far ends."
+        },
+        {
+          "text": "Keep their starts apart, then compare only their far ends."
+        },
+        {
+          "text": "Stretch the shorter-looking strip until both far ends match."
+        },
+        {
+          "text": "Cut the longer-looking strip until the shifted far ends match."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第6、7、8幕 / Scene 6、7、8: In the new arrangement an end can stick out because the entire strip is shifted, not because it is longer. Scenes6 and7 establish complete endpoints; scene8 uses strips to represent those lengths. A common starting point allows a fair far-end comparison. Leaving the shift, stretching, or cutting changes or confuses the represented measurement. 新安排的突出末端可能只是整條彩帶平移，不能直接當成較長。第6、7幕核對完整兩端，第8幕用彩帶代表長度；先對齊起點才能比較另一端。保留錯位、拉長或剪短都會混淆或改動原來要表示的量測結果。\n故事證據 / Evidence: The builder stretches a tape between the two bridge supports and measures the full span. Gail watches where the tape begins and ends. / 工匠把量尺拉到橋的兩個支座之間，量出完整跨距。瑜瑜觀察尺子從哪裡開始、在哪裡結束。 | They then measure the plank from one end to the other. Its length is shorter than the distance between the supports, confirming the problem. / 接著他們量木板從一端到另一端的長度。木板短於兩個支座之間的距離，問題因此確定。 | Gail uses colored strips on a table to compare the measured span and plank length. Their ends do not line up, so the difference is easy to see. / 瑜瑜在桌上用兩條彩帶比較量得的跨距與木板長度。兩端沒有對齊，差距很清楚。",
+      "skill": "apply-representation-control",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "The builder stretches a tape between the two bridge supports and measures the full span. Gail watches where the tape begins and ends.",
+          "chinese": "工匠把量尺拉到橋的兩個支座之間，量出完整跨距。瑜瑜觀察尺子從哪裡開始、在哪裡結束。"
+        },
+        {
+          "scene": 7,
+          "quote": "They then measure the plank from one end to the other. Its length is shorter than the distance between the supports, confirming the problem.",
+          "chinese": "接著他們量木板從一端到另一端的長度。木板短於兩個支座之間的距離，問題因此確定。"
+        },
+        {
+          "scene": 8,
+          "quote": "Gail uses colored strips on a table to compare the measured span and plank length. Their ends do not line up, so the difference is easy to see.",
+          "chinese": "瑜瑜在桌上用兩條彩帶比較量得的跨距與木板長度。兩端沒有對齊，差距很清楚。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C05",
+      "kind": "choice",
+      "prompt": "A revised table model holds the test weight without bending. Which conclusion about the real bridge is supported?",
+      "chinesePrompt": "改過的桌上模型承受測試重物而沒有彎曲。這支持對真正橋梁作出哪個結論？",
+      "options": [
+        {
+          "text": "The real bridge is approved; the table model held the same test weight."
+        },
+        {
+          "text": "That model held this load; the real bridge still needs adult checks."
+        },
+        {
+          "text": "No span measurement is needed; the model already held the test weight."
+        },
+        {
+          "text": "Children may test the real crossing first; the model stayed steady on the table."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第9、10、17幕 / Scene 9、10、17: The new result supports the model under this test load. Scene9 keeps model work separate from real construction, scene10 separates reach from sturdiness, and scene17 requires an adult to test the finished bridge. One model result cannot approve the real crossing, remove its span measurement, or assign the first real test to children. 新結果只證明該模型在這次負載下的表現。第9幕區分模型和真工地，第10幕區分跨距與穩固，第17幕要求成人先驗真橋；不能因此批准通行、取消真跨距量測或讓孩子先測真橋。\n故事證據 / Evidence: The builder brings a small bridge model to the worktable. Testing a model lets Gail see possible changes without touching the real construction. / 工匠拿來一個小橋模型。先測試模型，瑜瑜就能看見不同改法，而不用碰真正的工地。 | When they set a small weight at the center, the thin model plank bends. Gail sees that reaching across is only one part of making a sturdy bridge. / 他們把小重物放在中央時，薄薄的模型木板彎了。瑜瑜發現，跨得過去只是穩固橋梁的一部分。 | Before inviting anyone across, the builder checks that the bridge is level and tests its support. The finished platform stays steady under his steps. / 工匠邀請其他人過橋前，先檢查橋面是否平整並測試支撐。他走上去時，完工橋面保持穩固。",
+      "skill": "apply-evidence-limits",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "The builder brings a small bridge model to the worktable. Testing a model lets Gail see possible changes without touching the real construction.",
+          "chinese": "工匠拿來一個小橋模型。先測試模型，瑜瑜就能看見不同改法，而不用碰真正的工地。"
+        },
+        {
+          "scene": 10,
+          "quote": "When they set a small weight at the center, the thin model plank bends. Gail sees that reaching across is only one part of making a sturdy bridge.",
+          "chinese": "他們把小重物放在中央時，薄薄的模型木板彎了。瑜瑜發現，跨得過去只是穩固橋梁的一部分。"
+        },
+        {
+          "scene": 17,
+          "quote": "Before inviting anyone across, the builder checks that the bridge is level and tests its support. The finished platform stays steady under his steps.",
+          "chinese": "工匠邀請其他人過橋前，先檢查橋面是否平整並測試支撐。他走上去時，完工橋面保持穩固。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C06",
+      "kind": "choice",
+      "prompt": "What makes the support comparison more informative?",
+      "chinesePrompt": "加支柱的比較為什麼較能說明問題？",
+      "options": [
+        {
+          "text": "The same weight is used before and after adding support"
+        },
+        {
+          "text": "A heavier weight replaces the earlier weight and support"
+        },
+        {
+          "text": "The ruler glows brighter as the children lift the model"
+        },
+        {
+          "text": "A longer real plank replaces the model before testing"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第10、11幕 / Scene 10、11: Scene11 keeps the weight the same while adding support, and bending decreases. The change in support can therefore be compared; changing the load or replacing the model would test a different combination. 第11幕保持同樣重量、只新增支柱，便能比較彎曲；换重量或换成真橋是另一組變化，尺的亮度無關。\n故事證據 / Evidence: When they set a small weight at the center, the thin model plank bends. Gail sees that reaching across is only one part of making a sturdy bridge. / 他們把小重物放在中央時，薄薄的模型木板彎了。瑜瑜發現，跨得過去只是穩固橋梁的一部分。 | Gail adds a support beneath the model's center while the builder watches. With the same weight, the plank bends less than before. / 工匠在旁看著，瑜瑜在模型中央下方加上支柱。同樣的重量放上去，木板比剛才彎得少。",
+      "skill": "controlled-change-inference",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "When they set a small weight at the center, the thin model plank bends. Gail sees that reaching across is only one part of making a sturdy bridge.",
+          "chinese": "他們把小重物放在中央時，薄薄的模型木板彎了。瑜瑜發現，跨得過去只是穩固橋梁的一部分。"
+        },
+        {
+          "scene": 11,
+          "quote": "Gail adds a support beneath the model's center while the builder watches. With the same weight, the plank bends less than before.",
+          "chinese": "工匠在旁看著，瑜瑜在模型中央下方加上支柱。同樣的重量放上去，木板比剛才彎得少。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C07",
+      "kind": "choice",
+      "prompt": "Why is a correctly sized plank alone not the whole plan?",
+      "chinesePrompt": "尺寸正確的木板為什麼不是完整計畫？",
+      "options": [
+        {
+          "text": "Reaching across guarantees no adult test will be needed"
+        },
+        {
+          "text": "A glowing ruler can replace the sturdy platform joints"
+        },
+        {
+          "text": "A model’s bending proves that a bridge must stay closed"
+        },
+        {
+          "text": "Reaching across still leaves support and joint questions"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第10、11、14幕 / Scene 10、11、14: Scene10 separates reach from sturdiness; scene11 improves support, and scene14 also requires secure joints. The story neither skips testing nor declares every bridge unusable. 第10、11、14幕区分跨距、支撐與接點；不能跨得過就省略驗收，也不是所有橋永遠不能走。\n故事證據 / Evidence: When they set a small weight at the center, the thin model plank bends. Gail sees that reaching across is only one part of making a sturdy bridge. / 他們把小重物放在中央時，薄薄的模型木板彎了。瑜瑜發現，跨得過去只是穩固橋梁的一部分。 | Gail adds a support beneath the model's center while the builder watches. With the same weight, the plank bends less than before. / 工匠在旁看著，瑜瑜在模型中央下方加上支柱。同樣的重量放上去，木板比剛才彎得少。 | The builders plan a correctly sized platform with sturdy supports and secure joints. Gail uses the model to show which measurements they checked. / 工匠計畫使用尺寸正確的橋面、穩固支柱與牢靠接點。瑜瑜用模型指出他們核對過的測量結果。",
+      "skill": "integrate-evidence",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "When they set a small weight at the center, the thin model plank bends. Gail sees that reaching across is only one part of making a sturdy bridge.",
+          "chinese": "他們把小重物放在中央時，薄薄的模型木板彎了。瑜瑜發現，跨得過去只是穩固橋梁的一部分。"
+        },
+        {
+          "scene": 11,
+          "quote": "Gail adds a support beneath the model's center while the builder watches. With the same weight, the plank bends less than before.",
+          "chinese": "工匠在旁看著，瑜瑜在模型中央下方加上支柱。同樣的重量放上去，木板比剛才彎得少。"
+        },
+        {
+          "scene": 14,
+          "quote": "The builders plan a correctly sized platform with sturdy supports and secure joints. Gail uses the model to show which measurements they checked.",
+          "chinese": "工匠計畫使用尺寸正確的橋面、穩固支柱與牢靠接點。瑜瑜用模型指出他們核對過的測量結果。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C08",
+      "kind": "choice",
+      "prompt": "A new arch model has a base at only one end. Why should Gail check the unsupported end before adding weight?",
+      "chinesePrompt": "新橋拱模型只有一端有底座。瑜瑜為什麼應在加重物前檢查沒有支撐的另一端？",
+      "options": [
+        {
+          "text": "The arch sends weight only to its middle, so both end bases are unused."
+        },
+        {
+          "text": "The arch sends every load only to the supported end, so one base is enough."
+        },
+        {
+          "text": "The arch sends weight toward both sides, and one side has no base."
+        },
+        {
+          "text": "The arch height alone sets the plank’s reach, so missing bases affect only length."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第12幕 / Scene 12: Scene12 says the arch carries weight toward both sides of its base. Applying that principle to the new one-base model leaves one side of the support path unprovided, so it needs checking before loading. The other options assume center-only or one-side-only transfer, or confuse weight support with plank reach; none follows the stated two-sided principle. 第12幕說重量往底座兩端傳遞。新模型少一端底座，就有一側承重路徑沒有支撐，應先檢查；錯項把重量當成只到中央、永遠只到有底座那端，或把承重問題換成木板跨距，均不符合兩端承重原理。\n故事證據 / Evidence: The builder shows how a small arch can carry weight toward both sides of the model base. Gail compares this shape with the straight plank they first tested. / 工匠示範小橋拱如何把重量帶向模型底座兩端。瑜瑜拿它和最初測試的直木板比較。",
+      "skill": "apply-support-path",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "The builder shows how a small arch can carry weight toward both sides of the model base. Gail compares this shape with the straight plank they first tested.",
+          "chinese": "工匠示範小橋拱如何把重量帶向模型底座兩端。瑜瑜拿它和最初測試的直木板比較。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C09",
+      "kind": "choice",
+      "prompt": "A builder reconnects a slipped model joint but wants to build before retesting. Why should Gail ask for another model test first?",
+      "chinesePrompt": "工匠重新接好滑開的模型接點，卻想不重測就動工。瑜瑜為什麼應要求先再測模型？",
+      "options": [
+        {
+          "text": "Repair changed the connection; another test must check whether it holds."
+        },
+        {
+          "text": "The earlier failed test already verifies the connection after it was repaired."
+        },
+        {
+          "text": "Once pieces are reconnected, their joint cannot slip under any test load."
+        },
+        {
+          "text": "After reconnecting pieces, plank length is the only feature that still matters."
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第11、13幕 / Scene 11、13: The earlier result described the old connection, not the repaired one. Scene13 reconnects before another test, while scene11 shows comparison after a change using the same weight. The repair must be checked; the old failure does not verify it, reconnection does not guarantee every load, and reach alone does not answer a joint problem. 先前結果來自修理前的接點，不能證明修理後的表現。第13幕先重接再測，第11幕示範改動後用同重比較；舊失敗不會驗證新接點，接好也非所有負載都保證不滑，板長更不能代答接點問題。\n故事證據 / Evidence: Gail adds a support beneath the model's center while the builder watches. With the same weight, the plank bends less than before. / 工匠在旁看著，瑜瑜在模型中央下方加上支柱。同樣的重量放上去，木板比剛才彎得少。 | One model joint slips when they lift the bridge. Gail points it out, and the builder helps connect the pieces before another test. / 他們抬起模型時，一處接點滑開了。瑜瑜指出問題，工匠幫忙把兩塊連好才再測試。",
+      "skill": "apply-repair-verification",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "Gail adds a support beneath the model's center while the builder watches. With the same weight, the plank bends less than before.",
+          "chinese": "工匠在旁看著，瑜瑜在模型中央下方加上支柱。同樣的重量放上去，木板比剛才彎得少。"
+        },
+        {
+          "scene": 13,
+          "quote": "One model joint slips when they lift the bridge. Gail points it out, and the builder helps connect the pieces before another test.",
+          "chinese": "他們抬起模型時，一處接點滑開了。瑜瑜指出問題，工匠幫忙把兩塊連好才再測試。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C10",
+      "kind": "choice",
+      "prompt": "A new bridge has supports farther apart than before. The adults have a plank chosen using the old span. What should they do about its reach?",
+      "chinesePrompt": "新橋的兩支座比以前更遠，大人手上木板是依舊跨距挑的。應怎樣檢查它能否跨到兩側？",
+      "options": [
+        {
+          "text": "Keep the old span measurement because the plank fitted the previous supports."
+        },
+        {
+          "text": "Add a center support and assume that this makes the old plank longer."
+        },
+        {
+          "text": "Repeat a model weight test and use it as the only check of the new reach."
+        },
+        {
+          "text": "Remeasure the new span and compare it with the plank’s full length."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第6、7、15幕 / Scene 6、7、15: The old match applies to the old support spacing. Scenes6 and7 compare actual full span with full plank length, and scene15 uses that measured fit. A farther-apart pair changes the required reach. The old fit, added support, or a load test cannot establish that the unchanged plank reaches the new far support. 舊配對只適用舊支座間距。第6、7幕比較實際完整跨距與板長，第15幕依量得的尺寸選板；支座變遠就改變所需跨距。舊板曾合適、增加支柱或做負載測試，都不能證明它跨到新的對岸支座。\n故事證據 / Evidence: The builder stretches a tape between the two bridge supports and measures the full span. Gail watches where the tape begins and ends. / 工匠把量尺拉到橋的兩個支座之間，量出完整跨距。瑜瑜觀察尺子從哪裡開始、在哪裡結束。 | They then measure the plank from one end to the other. Its length is shorter than the distance between the supports, confirming the problem. / 接著他們量木板從一端到另一端的長度。木板短於兩個支座之間的距離，問題因此確定。 | The adults bring a plank of the measured length to the bridge site. It spans both supports while Gail watches from the safe area. / 大人把依量測長度準備的木板送到橋邊。它跨到兩側支座，瑜瑜在安全區觀看。",
+      "skill": "apply-changed-measurement",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "The builder stretches a tape between the two bridge supports and measures the full span. Gail watches where the tape begins and ends.",
+          "chinese": "工匠把量尺拉到橋的兩個支座之間，量出完整跨距。瑜瑜觀察尺子從哪裡開始、在哪裡結束。"
+        },
+        {
+          "scene": 7,
+          "quote": "They then measure the plank from one end to the other. Its length is shorter than the distance between the supports, confirming the problem.",
+          "chinese": "接著他們量木板從一端到另一端的長度。木板短於兩個支座之間的距離，問題因此確定。"
+        },
+        {
+          "scene": 15,
+          "quote": "The adults bring a plank of the measured length to the bridge site. It spans both supports while Gail watches from the safe area.",
+          "chinese": "大人把依量測長度準備的木板送到橋邊。它跨到兩側支座，瑜瑜在安全區觀看。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C11",
+      "kind": "choice",
+      "prompt": "In a new adult check, the platform bolts are fastened but one joint still moves. Has the plan for secure joints been met, and what is needed?",
+      "chinesePrompt": "新的成人檢查發現：橋面螺栓已固定，卻仍有接點會動。牢靠接點的計畫達成了嗎？還需做什麼？",
+      "options": [
+        {
+          "text": "Yes; fastened bolts make checking the movement of each joint unnecessary."
+        },
+        {
+          "text": "Yes; a plank that reaches both supports proves every joint is secure."
+        },
+        {
+          "text": "Not yet; fix the moving joint and check the repaired connection again."
+        },
+        {
+          "text": "Not yet; change only the plank length and leave the moving joint as it is."
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第13、14、16幕 / Scene 13、14、16: The new movement is evidence that one planned secure joint is not yet verified. Scene14 requires secure joints, scene16 checks each joint after fastening, and scene13 reconnects then retests a slipping joint. Bolt fastening and correct reach are separate observations; changing only length leaves this observed connection problem unresolved. 新檢查的移動表示該接點尚未證實牢靠。第14幕要求牢靠接點，第16幕固定後逐一檢查，第13幕重接後再測；固定螺栓和跨得過是另外的觀察，只改板長也未處理這個會動的接點。\n故事證據 / Evidence: One model joint slips when they lift the bridge. Gail points it out, and the builder helps connect the pieces before another test. / 他們抬起模型時，一處接點滑開了。瑜瑜指出問題，工匠幫忙把兩塊連好才再測試。 | The builders plan a correctly sized platform with sturdy supports and secure joints. Gail uses the model to show which measurements they checked. / 工匠計畫使用尺寸正確的橋面、穩固支柱與牢靠接點。瑜瑜用模型指出他們核對過的測量結果。 | Adult builders fasten the platform and its bolts, then check each joint. The children remain behind the marked work line during construction. / 成年工匠固定橋面與螺栓，再檢查每個接點。施工時孩子們始終留在標示的工作線後。",
+      "skill": "apply-plan-acceptance",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "One model joint slips when they lift the bridge. Gail points it out, and the builder helps connect the pieces before another test.",
+          "chinese": "他們抬起模型時，一處接點滑開了。瑜瑜指出問題，工匠幫忙把兩塊連好才再測試。"
+        },
+        {
+          "scene": 14,
+          "quote": "The builders plan a correctly sized platform with sturdy supports and secure joints. Gail uses the model to show which measurements they checked.",
+          "chinese": "工匠計畫使用尺寸正確的橋面、穩固支柱與牢靠接點。瑜瑜用模型指出他們核對過的測量結果。"
+        },
+        {
+          "scene": 16,
+          "quote": "Adult builders fasten the platform and its bolts, then check each joint. The children remain behind the marked work line during construction.",
+          "chinese": "成年工匠固定橋面與螺栓，再檢查每個接點。施工時孩子們始終留在標示的工作線後。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C12",
+      "kind": "choice",
+      "prompt": "Which condition separates construction from Gail’s crossing?",
+      "chinesePrompt": "哪個條件区分施工階段和瑜瑜過橋？",
+      "options": [
+        {
+          "text": "The colored strips are put on the table for comparison"
+        },
+        {
+          "text": "The adult checks stability and declares the bridge ready"
+        },
+        {
+          "text": "The folding ruler first lights up the bedroom floor"
+        },
+        {
+          "text": "The unfinished plank stops short of the far support"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第17、18幕 / Scene 17、18: The builder checks level and support before inviting anyone, then confirms readiness. Only after that does Gail cross with an adult. The other events precede approval. 第17、18幕先檢查穩固並確認可走，瑜瑜才和大人過橋；其他事件沒有通行確認。\n故事證據 / Evidence: Before inviting anyone across, the builder checks that the bridge is level and tests its support. The finished platform stays steady under his steps. / 工匠邀請其他人過橋前，先檢查橋面是否平整並測試支撐。他走上去時，完工橋面保持穩固。 | After the builder says the bridge is ready, Gail walks across with an adult. She can see the stream safely flowing beneath the new platform. / 工匠確認橋已可通行後，瑜瑜才和大人一起走過。她看見溪水安全地從新橋面下方流過。",
+      "skill": "condition-evidence",
+      "evidence": [
+        {
+          "scene": 17,
+          "quote": "Before inviting anyone across, the builder checks that the bridge is level and tests its support. The finished platform stays steady under his steps.",
+          "chinese": "工匠邀請其他人過橋前，先檢查橋面是否平整並測試支撐。他走上去時，完工橋面保持穩固。"
+        },
+        {
+          "scene": 18,
+          "quote": "After the builder says the bridge is ready, Gail walks across with an adult. She can see the stream safely flowing beneath the new platform.",
+          "chinese": "工匠確認橋已可通行後，瑜瑜才和大人一起走過。她看見溪水安全地從新橋面下方流過。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C13",
+      "kind": "choice",
+      "prompt": "Which statement best describes Gail’s role across these stages?",
+      "chinesePrompt": "哪句最符合瑜瑜在這些階段的角色？",
+      "options": [
+        {
+          "text": "She builds the real platform while the adults watch her"
+        },
+        {
+          "text": "She approves the new bridge before the builder tests it"
+        },
+        {
+          "text": "She tests a table model and later crosses with an adult"
+        },
+        {
+          "text": "She fastens the bolts while children wait at the table"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第9、16、18幕 / Scene 9、16、18: Gail explores changes on a model, adults do real construction, and she crosses with an adult after approval. She is neither the real builder nor the person approving the crossing. 第9、16、18幕由瑜瑜試模型、成人施工，她获确认後随成人过桥；不是由她施工或宣布验收。\n故事證據 / Evidence: The builder brings a small bridge model to the worktable. Testing a model lets Gail see possible changes without touching the real construction. / 工匠拿來一個小橋模型。先測試模型，瑜瑜就能看見不同改法，而不用碰真正的工地。 | Adult builders fasten the platform and its bolts, then check each joint. The children remain behind the marked work line during construction. / 成年工匠固定橋面與螺栓，再檢查每個接點。施工時孩子們始終留在標示的工作線後。 | After the builder says the bridge is ready, Gail walks across with an adult. She can see the stream safely flowing beneath the new platform. / 工匠確認橋已可通行後，瑜瑜才和大人一起走過。她看見溪水安全地從新橋面下方流過。",
+      "skill": "cross-scene-role",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "The builder brings a small bridge model to the worktable. Testing a model lets Gail see possible changes without touching the real construction.",
+          "chinese": "工匠拿來一個小橋模型。先測試模型，瑜瑜就能看見不同改法，而不用碰真正的工地。"
+        },
+        {
+          "scene": 16,
+          "quote": "Adult builders fasten the platform and its bolts, then check each joint. The children remain behind the marked work line during construction.",
+          "chinese": "成年工匠固定橋面與螺栓，再檢查每個接點。施工時孩子們始終留在標示的工作線後。"
+        },
+        {
+          "scene": 18,
+          "quote": "After the builder says the bridge is ready, Gail walks across with an adult. She can see the stream safely flowing beneath the new platform.",
+          "chinese": "工匠確認橋已可通行後，瑜瑜才和大人一起走過。她看見溪水安全地從新橋面下方流過。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C14",
+      "kind": "choice",
+      "prompt": "A new plan has the right plank length but skips the model test. Which extra evidence would address what Gail learned about a sturdy bridge?",
+      "chinesePrompt": "新計畫的木板長度正確，卻省略模型測試。還需要哪種證據，才能回應瑜瑜學到的穩固橋梁問題？",
+      "options": [
+        {
+          "text": "Compare the length strips again, treating a length match as proof of stability."
+        },
+        {
+          "text": "Test model support and joints, then revise any weak parts of the plan."
+        },
+        {
+          "text": "Measure the plank end to end again, assuming that every joint must be secure."
+        },
+        {
+          "text": "Make a model for display only, relying on the first reach measurement for all checks."
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第9、10、13、14、20幕 / Scene 9、10、13、14、20: The new plan answers reach but supplies no model evidence about bending or connections. Scene10 shows that a reaching plank can bend, scene13 exposes a loose model joint, and scenes14 and20 connect those checks to revising the plan before construction. Model testing addresses the missing evidence; repeated length checks or a display-only model do not establish support or secure joints. 新計畫只回答跨距，沒有模型的彎曲或接點證據。第10幕顯示跨得過仍可能彎，第13幕發現鬆接點，第14、20幕把檢查與施工前修正連結；重複量長度或只做展示模型，都未證實支撐與牢靠接點。\n故事證據 / Evidence: The builder brings a small bridge model to the worktable. Testing a model lets Gail see possible changes without touching the real construction. / 工匠拿來一個小橋模型。先測試模型，瑜瑜就能看見不同改法，而不用碰真正的工地。 | When they set a small weight at the center, the thin model plank bends. Gail sees that reaching across is only one part of making a sturdy bridge. / 他們把小重物放在中央時，薄薄的模型木板彎了。瑜瑜發現，跨得過去只是穩固橋梁的一部分。 | One model joint slips when they lift the bridge. Gail points it out, and the builder helps connect the pieces before another test. / 他們抬起模型時，一處接點滑開了。瑜瑜指出問題，工匠幫忙把兩塊連好才再測試。 | The builders plan a correctly sized platform with sturdy supports and secure joints. Gail uses the model to show which measurements they checked. / 工匠計畫使用尺寸正確的橋面、穩固支柱與牢靠接點。瑜瑜用模型指出他們核對過的測量結果。 | Back in her familiar bedroom, Gail folds the ruler and sets it beside her bed. She remembers to measure, make a model, and revise a plan before building. / 回到熟悉臥室，瑜瑜把尺折好放在床邊。她記得搭建前先測量、做模型，並修正計畫。",
+      "skill": "apply-missing-evidence",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "The builder brings a small bridge model to the worktable. Testing a model lets Gail see possible changes without touching the real construction.",
+          "chinese": "工匠拿來一個小橋模型。先測試模型，瑜瑜就能看見不同改法，而不用碰真正的工地。"
+        },
+        {
+          "scene": 10,
+          "quote": "When they set a small weight at the center, the thin model plank bends. Gail sees that reaching across is only one part of making a sturdy bridge.",
+          "chinese": "他們把小重物放在中央時，薄薄的模型木板彎了。瑜瑜發現，跨得過去只是穩固橋梁的一部分。"
+        },
+        {
+          "scene": 13,
+          "quote": "One model joint slips when they lift the bridge. Gail points it out, and the builder helps connect the pieces before another test.",
+          "chinese": "他們抬起模型時，一處接點滑開了。瑜瑜指出問題，工匠幫忙把兩塊連好才再測試。"
+        },
+        {
+          "scene": 14,
+          "quote": "The builders plan a correctly sized platform with sturdy supports and secure joints. Gail uses the model to show which measurements they checked.",
+          "chinese": "工匠計畫使用尺寸正確的橋面、穩固支柱與牢靠接點。瑜瑜用模型指出他們核對過的測量結果。"
+        },
+        {
+          "scene": 20,
+          "quote": "Back in her familiar bedroom, Gail folds the ruler and sets it beside her bed. She remembers to measure, make a model, and revise a plan before building.",
+          "chinese": "回到熟悉臥室，瑜瑜把尺折好放在床邊。她記得搭建前先測量、做模型，並修正計畫。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C15",
+      "kind": "choice",
+      "prompt": "A new model does not reach its second support. Which next step fits Gail’s method?",
+      "chinesePrompt": "新模型跨不到第二個支座，哪個下一步符合瑜瑜的方法？",
+      "options": [
+        {
+          "text": "Measure the gap and plank, then revise the model plan"
+        },
+        {
+          "text": "Choose a heavier load, then keep the plank unchanged"
+        },
+        {
+          "text": "Fasten more bolts, then invite everyone onto the model"
+        },
+        {
+          "text": "Fold the ruler away, then select a plank by its color"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第6、7、9、14、20幕 / Scene 6、7、9、14、20: The earlier method compares span and plank length, uses a model, and revises the plan. A reach problem calls for that comparison; more weight, color or premature invitations do not address length. 先前方法比较跨距和板长，再改模型与计划；加重量、看颜色或先邀通行都未解决长度问题。\n故事證據 / Evidence: The builder stretches a tape between the two bridge supports and measures the full span. Gail watches where the tape begins and ends. / 工匠把量尺拉到橋的兩個支座之間，量出完整跨距。瑜瑜觀察尺子從哪裡開始、在哪裡結束。 | They then measure the plank from one end to the other. Its length is shorter than the distance between the supports, confirming the problem. / 接著他們量木板從一端到另一端的長度。木板短於兩個支座之間的距離，問題因此確定。 | The builder brings a small bridge model to the worktable. Testing a model lets Gail see possible changes without touching the real construction. / 工匠拿來一個小橋模型。先測試模型，瑜瑜就能看見不同改法，而不用碰真正的工地。 | The builders plan a correctly sized platform with sturdy supports and secure joints. Gail uses the model to show which measurements they checked. / 工匠計畫使用尺寸正確的橋面、穩固支柱與牢靠接點。瑜瑜用模型指出他們核對過的測量結果。 | Back in her familiar bedroom, Gail folds the ruler and sets it beside her bed. She remembers to measure, make a model, and revise a plan before building. / 回到熟悉臥室，瑜瑜把尺折好放在床邊。她記得搭建前先測量、做模型，並修正計畫。",
+      "skill": "apply-method",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "The builder stretches a tape between the two bridge supports and measures the full span. Gail watches where the tape begins and ends.",
+          "chinese": "工匠把量尺拉到橋的兩個支座之間，量出完整跨距。瑜瑜觀察尺子從哪裡開始、在哪裡結束。"
+        },
+        {
+          "scene": 7,
+          "quote": "They then measure the plank from one end to the other. Its length is shorter than the distance between the supports, confirming the problem.",
+          "chinese": "接著他們量木板從一端到另一端的長度。木板短於兩個支座之間的距離，問題因此確定。"
+        },
+        {
+          "scene": 9,
+          "quote": "The builder brings a small bridge model to the worktable. Testing a model lets Gail see possible changes without touching the real construction.",
+          "chinese": "工匠拿來一個小橋模型。先測試模型，瑜瑜就能看見不同改法，而不用碰真正的工地。"
+        },
+        {
+          "scene": 14,
+          "quote": "The builders plan a correctly sized platform with sturdy supports and secure joints. Gail uses the model to show which measurements they checked.",
+          "chinese": "工匠計畫使用尺寸正確的橋面、穩固支柱與牢靠接點。瑜瑜用模型指出他們核對過的測量結果。"
+        },
+        {
+          "scene": 20,
+          "quote": "Back in her familiar bedroom, Gail folds the ruler and sets it beside her bed. She remembers to measure, make a model, and revise a plan before building.",
+          "chinese": "回到熟悉臥室，瑜瑜把尺折好放在床邊。她記得搭建前先測量、做模型，並修正計畫。"
+        }
+      ]
+    },
+    {
+      "id": "book34-C16",
+      "kind": "choice",
+      "prompt": "The revised model bends less but a joint still slips. What does the story support doing next?",
+      "chinesePrompt": "改過的模型較少彎曲，但接點仍滑開，故事支持下一步做什麼？",
+      "options": [
+        {
+          "text": "Treat reduced bending as approval to cross immediately"
+        },
+        {
+          "text": "Keep the loose joint and add a brighter colored strip"
+        },
+        {
+          "text": "Move the children onto the bridge to test that joint"
+        },
+        {
+          "text": "Secure the joint and test the revised model again"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第10、11、13、17幕 / Scene 10、11、13、17: Less bending answers a support question but not the separate loose-joint problem. Scene13 reconnects before retesting; scene17 keeps final real-bridge testing with adults. 彎得較少解答支撐問題，尚未解決接點；第13幕先接好再測，第17幕由成人驗收真橋，不能直接让孩子上橋。\n故事證據 / Evidence: When they set a small weight at the center, the thin model plank bends. Gail sees that reaching across is only one part of making a sturdy bridge. / 他們把小重物放在中央時，薄薄的模型木板彎了。瑜瑜發現，跨得過去只是穩固橋梁的一部分。 | Gail adds a support beneath the model's center while the builder watches. With the same weight, the plank bends less than before. / 工匠在旁看著，瑜瑜在模型中央下方加上支柱。同樣的重量放上去，木板比剛才彎得少。 | One model joint slips when they lift the bridge. Gail points it out, and the builder helps connect the pieces before another test. / 他們抬起模型時，一處接點滑開了。瑜瑜指出問題，工匠幫忙把兩塊連好才再測試。 | Before inviting anyone across, the builder checks that the bridge is level and tests its support. The finished platform stays steady under his steps. / 工匠邀請其他人過橋前，先檢查橋面是否平整並測試支撐。他走上去時，完工橋面保持穩固。",
+      "skill": "apply-independent-checks",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "When they set a small weight at the center, the thin model plank bends. Gail sees that reaching across is only one part of making a sturdy bridge.",
+          "chinese": "他們把小重物放在中央時，薄薄的模型木板彎了。瑜瑜發現，跨得過去只是穩固橋梁的一部分。"
+        },
+        {
+          "scene": 11,
+          "quote": "Gail adds a support beneath the model's center while the builder watches. With the same weight, the plank bends less than before.",
+          "chinese": "工匠在旁看著，瑜瑜在模型中央下方加上支柱。同樣的重量放上去，木板比剛才彎得少。"
+        },
+        {
+          "scene": 13,
+          "quote": "One model joint slips when they lift the bridge. Gail points it out, and the builder helps connect the pieces before another test.",
+          "chinese": "他們抬起模型時，一處接點滑開了。瑜瑜指出問題，工匠幫忙把兩塊連好才再測試。"
+        },
+        {
+          "scene": 17,
+          "quote": "Before inviting anyone across, the builder checks that the bridge is level and tests its support. The finished platform stays steady under his steps.",
+          "chinese": "工匠邀請其他人過橋前，先檢查橋面是否平整並測試支撐。他走上去時，完工橋面保持穩固。"
+        }
+      ]
+    }
+  ]
+}
