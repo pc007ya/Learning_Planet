@@ -18,6 +18,10 @@ try {
   const reader = new URL(source, document.baseURI);
   const allowed = ['modules/little-star/little-star.js', 'modules/story-planet/story-planet.js']
     .map(path => new URL(path, document.baseURI).pathname);
+  // Book49 has a dedicated bundle; admit it only from its own guarded entry.
+  if (location.pathname === new URL('princess-weekend-storybook.html', document.baseURI).pathname) {
+    allowed.push(new URL('modules/book-49/reader.js', document.baseURI).pathname);
+  }
   if (reader.origin !== location.origin || !allowed.includes(reader.pathname)) throw new Error('Invalid reader');
   if (hasStoryParentSession(window)) {
     await import(reader.href);
