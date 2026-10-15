@@ -1,0 +1,1 @@
+{"extends":"./tsconfig.json","include":["src/story/**/*.ts","tests/book54*.test.ts","tests/underwater-world.test.ts","tests/story-access.test.ts","tests/story-quiz-speech-cancel.test.ts","tests/book49-entry.test.ts"],"exclude":[]}

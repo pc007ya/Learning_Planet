@@ -1,0 +1,1004 @@
+{
+  "A": [
+    {
+      "id": "book54-A01",
+      "scene": 1,
+      "prompt": "What glows?",
+      "chinesePrompt": "什麼在發光？",
+      "options": [
+        "The shell.",
+        "The bed.",
+        "The rope.",
+        "The rock."
+      ],
+      "answer": 0,
+      "explanation": "The shell glows and brings a bubble.",
+      "evidenceScenes": [
+        1
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "貝殼發光並帶來泡泡。"
+    },
+    {
+      "id": "book54-A02",
+      "scene": 2,
+      "prompt": "What is pale?",
+      "chinesePrompt": "什麼失色了？",
+      "options": [
+        "The turtle.",
+        "The necklace.",
+        "The bubble.",
+        "The white stones."
+      ],
+      "answer": 1,
+      "explanation": "Abby has a pale necklace and needs help.",
+      "evidenceScenes": [
+        2
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "艾比的項鍊失色了，她需要幫忙。"
+    },
+    {
+      "id": "book54-A03",
+      "scene": 3,
+      "prompt": "Find the small fish.",
+      "chinesePrompt": "找找小魚。",
+      "options": [
+        "The shark.",
+        "The lobster.",
+        "The clownfish.",
+        "The dolphin."
+      ],
+      "answer": 2,
+      "explanation": "The clownfish hides beside the anemone.",
+      "evidenceScenes": [
+        3
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "小丑魚躲在海葵旁。"
+    },
+    {
+      "id": "book54-A04",
+      "scene": 4,
+      "prompt": "Who points the way?",
+      "chinesePrompt": "誰指路？",
+      "options": [
+        "The lobster.",
+        "The dolphin.",
+        "The seahorse.",
+        "The starfish."
+      ],
+      "answer": 3,
+      "explanation": "The starfish points toward the sandy bend.",
+      "evidenceScenes": [
+        4
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "海星伸出腕，指向沙地轉彎處。"
+    },
+    {
+      "id": "book54-A05",
+      "scene": 5,
+      "prompt": "What does Gail see?",
+      "chinesePrompt": "瑜瑜看見什麼？",
+      "options": [
+        "A fin.",
+        "A claw.",
+        "A bowl.",
+        "A rope."
+      ],
+      "answer": 0,
+      "explanation": "Gail sees the shark’s fin.",
+      "evidenceScenes": [
+        5
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "瑜瑜先看見鯊魚的鰭。"
+    },
+    {
+      "id": "book54-A06",
+      "scene": 6,
+      "prompt": "Who is kind?",
+      "chinesePrompt": "誰很友善？",
+      "options": [
+        "The rope.",
+        "The shark.",
+        "The kelp.",
+        "The stone."
+      ],
+      "answer": 1,
+      "explanation": "The shark speaks gently and gives the friends space.",
+      "evidenceScenes": [
+        6
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "鯊魚溫柔說話，讓出空間。"
+    },
+    {
+      "id": "book54-A07",
+      "scene": 7,
+      "prompt": "Who comes out of the sand?",
+      "chinesePrompt": "誰從沙裡出來？",
+      "options": [
+        "A dolphin.",
+        "A turtle.",
+        "A garden eel.",
+        "A lobster."
+      ],
+      "answer": 2,
+      "explanation": "A garden eel comes out when Gail waits quietly.",
+      "evidenceScenes": [
+        7
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "瑜瑜安靜等待，花園鰻才探出頭。"
+    },
+    {
+      "id": "book54-A08",
+      "scene": 8,
+      "prompt": "What holds the claw?",
+      "chinesePrompt": "什麼纏住螯？",
+      "options": [
+        "A shell.",
+        "Kelp leaves.",
+        "A necklace.",
+        "Old rope."
+      ],
+      "answer": 3,
+      "explanation": "Old rope catches the lobster’s claw.",
+      "evidenceScenes": [
+        8
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "舊繩纏住龍蝦的螯。"
+    },
+    {
+      "id": "book54-A09",
+      "scene": 9,
+      "prompt": "Who unties the rope?",
+      "chinesePrompt": "誰解開繩子？",
+      "options": [
+        "Abby.",
+        "The starfish.",
+        "The shark.",
+        "The dolphin."
+      ],
+      "answer": 0,
+      "explanation": "Abby unties the loose knot to free the lobster.",
+      "evidenceScenes": [
+        9
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "艾比解開鬆繩結。"
+    },
+    {
+      "id": "book54-A10",
+      "scene": 11,
+      "prompt": "What should they follow?",
+      "chinesePrompt": "她們該跟著什麼？",
+      "options": [
+        "Four shells.",
+        "Three white stones.",
+        "A red flag.",
+        "Two necklaces."
+      ],
+      "answer": 1,
+      "explanation": "Their turtle friend tells them to follow three white stones.",
+      "evidenceScenes": [
+        11
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "海龜提醒她們跟著三塊白石頭。"
+    },
+    {
+      "id": "book54-A11",
+      "scene": 12,
+      "prompt": "What hides the stones?",
+      "chinesePrompt": "什麼遮住石頭？",
+      "options": [
+        "A shell bowl.",
+        "Old rope.",
+        "Tall kelp.",
+        "A shark’s claw."
+      ],
+      "answer": 2,
+      "explanation": "Tall kelp leaves hide the white stones.",
+      "evidenceScenes": [
+        12
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "高海帶遮住了白石頭。"
+    },
+    {
+      "id": "book54-A12",
+      "scene": 13,
+      "prompt": "Who cannot find home?",
+      "chinesePrompt": "誰找不到家？",
+      "options": [
+        "The shark.",
+        "The lobster.",
+        "The turtle.",
+        "The seahorse."
+      ],
+      "answer": 3,
+      "explanation": "The seahorse cannot find his way home.",
+      "evidenceScenes": [
+        13
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "海馬找不到回家的路。"
+    },
+    {
+      "id": "book54-A13",
+      "scene": 15,
+      "prompt": "What do the friends do in strong water?",
+      "chinesePrompt": "水流很強時，朋友們怎麼做？",
+      "options": [
+        "Stop together.",
+        "Split up.",
+        "Rush ahead.",
+        "Leave Gail."
+      ],
+      "answer": 0,
+      "explanation": "They stop together and ask for help.",
+      "evidenceScenes": [
+        15
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "她們在強水流旁停下，待在一起。"
+    },
+    {
+      "id": "book54-A14",
+      "scene": 16,
+      "prompt": "Who guides them?",
+      "chinesePrompt": "誰帶她們走？",
+      "options": [
+        "The clownfish.",
+        "The dolphin.",
+        "The garden eel.",
+        "The lobster."
+      ],
+      "answer": 1,
+      "explanation": "The dolphin guides them toward the cave.",
+      "evidenceScenes": [
+        16
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "海豚答應領路。"
+    },
+    {
+      "id": "book54-A15",
+      "scene": 18,
+      "prompt": "Where are the magic pieces?",
+      "chinesePrompt": "魔法碎片在哪裡？",
+      "options": [
+        "In old rope.",
+        "Under Gail’s bed.",
+        "In a shell bowl.",
+        "On the shark’s fin."
+      ],
+      "answer": 2,
+      "explanation": "The magic pieces glow in a shell bowl in the cave.",
+      "evidenceScenes": [
+        18
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "魔法碎片放在珊瑚洞裡的貝殼碗。"
+    },
+    {
+      "id": "book54-A16",
+      "scene": 19,
+      "prompt": "What does Abby keep?",
+      "chinesePrompt": "艾比留下什麼？",
+      "options": [
+        "The old rope.",
+        "The white stones.",
+        "The lobster’s claw.",
+        "The old pale piece."
+      ],
+      "answer": 3,
+      "explanation": "Abby wraps the old pale piece and keeps it.",
+      "evidenceScenes": [
+        19
+      ],
+      "skill": "explicit-fact",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "艾比包好並留下舊的失色碎片。"
+    }
+  ],
+  "B": [
+    {
+      "id": "book54-B01",
+      "scene": 2,
+      "prompt": "Why does Abby ask Gail for help?",
+      "chinesePrompt": "艾比為什麼請瑜瑜幫忙？",
+      "options": [
+        "Her necklace has lost its glow.",
+        "She wants to catch a shark.",
+        "She cannot find her bed.",
+        "She wants to hide the stones."
+      ],
+      "answer": 0,
+      "explanation": "The necklace is pale. Abby needs a new magic piece.",
+      "evidenceScenes": [
+        2
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "項鍊失去光彩，艾比需要一片新的魔法碎片。"
+    },
+    {
+      "id": "book54-B02",
+      "scene": 3,
+      "prompt": "Why does Gail leave space by the anemone?",
+      "chinesePrompt": "瑜瑜為什麼在海葵旁留出空間？",
+      "options": [
+        "The lobster has a new home.",
+        "The clownfish is hiding.",
+        "The dolphin is in the cave.",
+        "The necklace is bright again."
+      ],
+      "answer": 1,
+      "explanation": "The fish hides. Gail gives it space before asking the way.",
+      "evidenceScenes": [
+        3
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "小丑魚躲起來。瑜瑜留出空間，才向牠問路。"
+    },
+    {
+      "id": "book54-B03",
+      "scene": 4,
+      "prompt": "Where does the starfish send the friends next?",
+      "chinesePrompt": "海星接著請她們去哪裡？",
+      "options": [
+        "To the dolphin in the cave.",
+        "Back to Gail’s bed.",
+        "To the shark by the sandy bend.",
+        "To the shell bowl first."
+      ],
+      "answer": 2,
+      "explanation": "The starfish points to a sandy bend and tells them to ask the shark.",
+      "evidenceScenes": [
+        4
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "海星指向沙地轉彎處，請她們問鯊魚。"
+    },
+    {
+      "id": "book54-B04",
+      "scene": 6,
+      "prompt": "How does the shark help?",
+      "chinesePrompt": "鯊魚如何幫忙？",
+      "options": [
+        "He repairs the necklace himself.",
+        "He takes the rope from the lobster.",
+        "He closes the magic passage.",
+        "He tells them to ask the garden eels."
+      ],
+      "answer": 3,
+      "explanation": "The shark knows the next part of the route and points them toward the garden eels.",
+      "evidenceScenes": [
+        6
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "鯊魚告訴她們去問沙地旁的花園鰻。"
+    },
+    {
+      "id": "book54-B05",
+      "scene": 7,
+      "prompt": "What makes a garden eel come out?",
+      "chinesePrompt": "什麼讓花園鰻探出頭？",
+      "options": [
+        "Gail waits quietly.",
+        "Gail pulls its tail.",
+        "Abby cuts the kelp.",
+        "The shark chases it."
+      ],
+      "answer": 0,
+      "explanation": "The eels hide at first. Quiet waiting gives one time to come out.",
+      "evidenceScenes": [
+        7
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "花園鰻先躲進沙裡。安靜等待讓牠願意出來。"
+    },
+    {
+      "id": "book54-B06",
+      "scene": 8,
+      "prompt": "Why can the lobster not get free?",
+      "chinesePrompt": "龍蝦為什麼無法脫困？",
+      "options": [
+        "His necklace is too bright.",
+        "A rope loop catches his claw.",
+        "He has lost his fin.",
+        "The dolphin holds his bowl."
+      ],
+      "answer": 1,
+      "explanation": "Old rope catches the claw. The loose knot must be untied.",
+      "evidenceScenes": [
+        8
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "舊繩圈纏住螯；必須解開鬆繩結才能脫困。"
+    },
+    {
+      "id": "book54-B07",
+      "scene": 9,
+      "prompt": "What do Gail and Abby do before asking the way?",
+      "chinesePrompt": "問路以前她們先做什麼？",
+      "options": [
+        "They take a magic piece.",
+        "They follow the dolphin.",
+        "They rescue the lobster.",
+        "They swim through the whirlpool."
+      ],
+      "answer": 2,
+      "explanation": "The friends help the lobster first. He then gives them a direction.",
+      "evidenceScenes": [
+        9
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "她們先救龍蝦，之後龍蝦才提供方向。"
+    },
+    {
+      "id": "book54-B08",
+      "scene": 10,
+      "prompt": "Where will the lobster take the bundled rope?",
+      "chinesePrompt": "龍蝦會把收好的繩子帶去哪裡？",
+      "options": [
+        "Back around his claw.",
+        "Onto living coral.",
+        "Into the anemone.",
+        "To a safe collection place."
+      ],
+      "answer": 3,
+      "explanation": "The lobster will carry the old rope to a safe collection place.",
+      "evidenceScenes": [
+        10
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "龍蝦會把收好的廢繩帶到安全收集處。"
+    },
+    {
+      "id": "book54-B09",
+      "scene": 11,
+      "prompt": "What does the turtle tell the friends to do?",
+      "chinesePrompt": "海龜提醒朋友們怎麼走？",
+      "options": [
+        "Follow three white stones and stay together.",
+        "Follow the old rope and split up.",
+        "Swim faster without looking.",
+        "Wait inside the shell bowl."
+      ],
+      "answer": 0,
+      "explanation": "The stones mark the route. Staying together helps on the way through the kelp.",
+      "evidenceScenes": [
+        11
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "白石頭指路，待在一起能幫助她們穿過海帶森林。"
+    },
+    {
+      "id": "book54-B10",
+      "scene": 12,
+      "prompt": "Why do Gail and Abby stop in the kelp forest?",
+      "chinesePrompt": "她們為什麼在海帶森林停下？",
+      "options": [
+        "Their necklaces have become too bright.",
+        "The tall leaves hide the path.",
+        "The lobster asks for more rope.",
+        "Their bubble has reached the bed."
+      ],
+      "answer": 1,
+      "explanation": "The kelp hides the white stones, so they stop and look together.",
+      "evidenceScenes": [
+        12
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "高海帶遮住白石頭，所以她們停下一起找路。"
+    },
+    {
+      "id": "book54-B11",
+      "scene": 13,
+      "prompt": "Why does the seahorse join them?",
+      "chinesePrompt": "海馬為什麼加入她們？",
+      "options": [
+        "He wants to catch the shark.",
+        "He must repair Gail’s bed.",
+        "He cannot find the way home.",
+        "He has the dolphin’s necklace."
+      ],
+      "answer": 2,
+      "explanation": "The seahorse is lost. Gail invites him to look for the path with them.",
+      "evidenceScenes": [
+        13
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "海馬迷路了。瑜瑜邀請牠一起找路。"
+    },
+    {
+      "id": "book54-B12",
+      "scene": 14,
+      "prompt": "What is a detour in this story?",
+      "chinesePrompt": "故事裡 detour 是什麼？",
+      "options": [
+        "Swimming straight through a blocked path.",
+        "Going to sleep in the sand.",
+        "Taking all the coral pieces.",
+        "Another way around the kelp."
+      ],
+      "answer": 3,
+      "explanation": "Abby sees the stones through a gap. They take another way around the kelp.",
+      "evidenceScenes": [
+        14
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "艾比從海帶空隙看見石頭；detour 是繞另一條路。"
+    },
+    {
+      "id": "book54-B13",
+      "scene": 15,
+      "prompt": "Why do the friends ask the dolphin for help?",
+      "chinesePrompt": "她們為什麼請海豚幫忙？",
+      "options": [
+        "The current is too strong to cross alone.",
+        "The garden eel has lost its claw.",
+        "The shell bowl is empty.",
+        "Gail wants to take the dolphin home."
+      ],
+      "answer": 0,
+      "explanation": "Strong water pushes Gail’s bubble. They stop together and ask a guide for help.",
+      "evidenceScenes": [
+        15
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "水流推動瑜瑜的泡泡，她們無法獨自穿過。"
+    },
+    {
+      "id": "book54-B14",
+      "scene": 17,
+      "prompt": "When does the dolphin lead them through?",
+      "chinesePrompt": "海豚什麼時候帶她們穿過去？",
+      "options": [
+        "Before the passage opens.",
+        "After the center of the whirlpool opens.",
+        "After Gail goes home alone.",
+        "While the friends are far apart."
+      ],
+      "answer": 1,
+      "explanation": "The dolphin waits for the center to open, then leads the friends through.",
+      "evidenceScenes": [
+        17
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "海豚等漩渦中心打開，再帶朋友們穿過去。"
+    },
+    {
+      "id": "book54-B15",
+      "scene": 18,
+      "prompt": "Where did the stored magic pieces come from?",
+      "chinesePrompt": "洞裡收藏的碎片從哪裡來？",
+      "options": [
+        "Gail broke living coral that day.",
+        "The shark pulled them from a reef.",
+        "They fell naturally and were collected long ago.",
+        "Abby cut fresh kelp for them."
+      ],
+      "answer": 2,
+      "explanation": "Mermaids collected naturally fallen pieces long ago for their necklaces.",
+      "evidenceScenes": [
+        18
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "美人魚很久以前收集自然掉落的碎片，留作修補項鍊。"
+    },
+    {
+      "id": "book54-B16",
+      "scene": 19,
+      "prompt": "What does Abby do with the old pale piece?",
+      "chinesePrompt": "艾比如何處理旧的失色碎片？",
+      "options": [
+        "She throws it into the sea.",
+        "She ties it around the lobster.",
+        "She gives it to the shark as a fin.",
+        "She wraps it and keeps it."
+      ],
+      "answer": 3,
+      "explanation": "Abby keeps the old piece safely and sets a fitting new piece in her necklace.",
+      "evidenceScenes": [
+        19
+      ],
+      "skill": "event-cause",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "艾比包好舊碎片並留下，再裝上合適的新碎片。"
+    }
+  ],
+  "C": [
+    {
+      "id": "book54-C01",
+      "scene": 2,
+      "prompt": "What do Abby’s pale necklace and the pale coral suggest?",
+      "chinesePrompt": "失色的項鍊與珊瑚暗示什麼？",
+      "options": [
+        "Something important in her garden has changed.",
+        "She wants Gail to leave at once.",
+        "Every sea animal has disappeared.",
+        "Her necklace has grown larger."
+      ],
+      "answer": 0,
+      "explanation": "Abby looks worried, and both the necklace piece and some coral have lost color. Those clues show a change that matters to her; they do not prove that every animal is gone.",
+      "evidenceScenes": [
+        2
+      ],
+      "skill": "inference",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "艾比很擔心，項鍊與部分珊瑚都失色了，顯示花園發生了她在意的變化；不能因此推論所有動物都消失。"
+    },
+    {
+      "id": "book54-C02",
+      "scene": 3,
+      "prompt": "What might happen if Gail rushed close to the hiding clownfish?",
+      "chinesePrompt": "如果瑜瑜急著靠近躲藏的小丑魚，可能怎樣？",
+      "options": [
+        "It would surely repair the necklace.",
+        "It might stay hidden instead of helping.",
+        "It would turn into a shark.",
+        "It would make the current stop."
+      ],
+      "answer": 1,
+      "explanation": "The fish comes out after the friends give it space and wait. Rushing closer would work against that patient approach. The story does not promise any of the other results.",
+      "evidenceScenes": [
+        3,
+        4
+      ],
+      "skill": "prediction",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "第3、4幕的魚在朋友留出空間並等待後才出來。急著靠近可能讓牠繼續躲藏，不能保證牠會幫忙。"
+    },
+    {
+      "id": "book54-C03",
+      "scene": 4,
+      "prompt": "Why does asking several ocean friends help the journey?",
+      "chinesePrompt": "向不同海洋朋友問路為什麼有幫助？",
+      "options": [
+        "Every friend knows the whole route.",
+        "Only the largest friend can give useful help.",
+        "Different friends know different parts of the way.",
+        "Directions are less useful than moving quickly."
+      ],
+      "answer": 2,
+      "explanation": "The starfish refers them to the shark, who refers them to the eels. Later friends add more route information. Useful knowledge is shared across friends, not held by one large animal.",
+      "evidenceScenes": [
+        4,
+        6,
+        7,
+        10,
+        11,
+        16
+      ],
+      "skill": "integration",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "海星、鯊魚、花園鰻等朋友各提供下一段線索。她們靠不同朋友的知識共同找到路。"
+    },
+    {
+      "id": "book54-C04",
+      "scene": 6,
+      "prompt": "Which detail changes Gail’s first impression of the shark?",
+      "chinesePrompt": "哪個細節改變瑜瑜對鯊魚的初印象？",
+      "options": [
+        "His fin is large.",
+        "He lives beyond the bend.",
+        "He can swim farther than a starfish.",
+        "He speaks gently and leaves room for them."
+      ],
+      "answer": 3,
+      "explanation": "Gail first worries about his size. His gentle words and considerate behavior show that being large does not make him unkind. Size and location do not show kindness.",
+      "evidenceScenes": [
+        5,
+        6
+      ],
+      "skill": "inference",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "第5幕瑜瑜先擔心鯊魚很大；第6幕溫柔說話與讓路的行為顯示大小不等於不友善。"
+    },
+    {
+      "id": "book54-C05",
+      "scene": 7,
+      "prompt": "Which lesson can Gail use with both the clownfish and the garden eels?",
+      "chinesePrompt": "小丑魚與花園鰻的經驗共同教了什麼？",
+      "options": [
+        "Give shy friends space and time.",
+        "Push closer until they answer.",
+        "Assume every quiet friend is unkind.",
+        "Stop listening when a friend hides."
+      ],
+      "answer": 0,
+      "explanation": "The clownfish emerges when the friends wait quietly, and the eel also peeks out after Gail waits. Patience helps both; forcing an answer is not their approach.",
+      "evidenceScenes": [
+        3,
+        4,
+        7
+      ],
+      "skill": "integration",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "小丑魚與花園鰻都在安靜等待後出來。因此共同可用的做法是給害羞朋友空間與時間。"
+    },
+    {
+      "id": "book54-C06",
+      "scene": 8,
+      "prompt": "Why is Abby’s careful look before touching the rope a sensible first step?",
+      "chinesePrompt": "艾比先看清繩子為什麼合理？",
+      "options": [
+        "She can make the loop tighter.",
+        "She can understand the knot before trying to free the claw.",
+        "She can decide to ignore the lobster.",
+        "She can change the rope into coral."
+      ],
+      "answer": 1,
+      "explanation": "Abby looks carefully before she slowly unties the loose knot. Seeing how it is caught guides a careful rescue; the purpose is neither tightening the loop nor ignoring the lobster.",
+      "evidenceScenes": [
+        8,
+        9
+      ],
+      "skill": "inference",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "艾比先看清繩圈，再慢慢解開鬆結，顯示了解被纏住的方式能幫助小心救援。"
+    },
+    {
+      "id": "book54-C07",
+      "scene": 9,
+      "prompt": "What does rescuing the lobster before asking the way reveal about the friends?",
+      "chinesePrompt": "先救龍蝦再問路顯示什麼？",
+      "options": [
+        "They help only when promised a reward.",
+        "They have forgotten why Abby needs help.",
+        "They care about his need, not only their own search.",
+        "They believe the lobster cannot give directions."
+      ],
+      "answer": 2,
+      "explanation": "Gail chooses to rescue him first without a promised reward. They then continue the necklace search with his directions, showing care for another friend as well as their own goal.",
+      "evidenceScenes": [
+        8,
+        9,
+        10
+      ],
+      "skill": "inference",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "她們沒有先要求回報，而是先救需要幫忙的龍蝦，再繼續找項鍊碎片；她們也在意他人的需要。"
+    },
+    {
+      "id": "book54-C08",
+      "scene": 10,
+      "prompt": "Why does taking the old rope to a safe collection place matter?",
+      "chinesePrompt": "把廢繩送到安全收集處有何意義？",
+      "options": [
+        "It guarantees all ocean currents will stop.",
+        "It makes every coral piece glow again.",
+        "It gives the lobster a new claw.",
+        "It may keep the rope from trapping another animal."
+      ],
+      "answer": 3,
+      "explanation": "The rope has already trapped the lobster. Removing it from the sea can prevent the same danger from happening again. The text supports that limited inference, not changes to currents, coral or body parts.",
+      "evidenceScenes": [
+        8,
+        9,
+        10
+      ],
+      "skill": "inference",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "廢繩已纏住龍蝦。移走它可能避免另一隻動物再被纏住；不能據此推論水流或珊瑚必然改變。"
+    },
+    {
+      "id": "book54-C09",
+      "scene": 11,
+      "prompt": "Which evidence explains the turtle’s advice to stay together?",
+      "chinesePrompt": "哪個證據支持海龜「待在一起」的提醒？",
+      "options": [
+        "The water moves faster beyond the forest.",
+        "The stones belong only to Gail.",
+        "The turtle wants the necklace for himself.",
+        "The friends must not ask anyone else for help."
+      ],
+      "answer": 0,
+      "explanation": "The turtle warns that water moves faster beyond the forest. Later the strong current pushes Gail’s bubble, supporting his warning. His advice does not ban asking for help.",
+      "evidenceScenes": [
+        11,
+        15
+      ],
+      "skill": "integration",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "海龜先警告森林外的水流較快，第15幕強水流確實推動泡泡，支持待在一起的提醒。"
+    },
+    {
+      "id": "book54-C10",
+      "scene": 14,
+      "prompt": "What does the detour show about finding a way forward?",
+      "chinesePrompt": "繞路顯示如何繼續前進？",
+      "options": [
+        "The first route must always be followed exactly.",
+        "A changed route can reach the goal without forcing the blocked path.",
+        "A blocked path means the search must end.",
+        "Moving faster is better than checking clues."
+      ],
+      "answer": 1,
+      "explanation": "The leaves hide the route, but Abby spots stones through a gap. Going around brings the seahorse home. They change the route while keeping the goal.",
+      "evidenceScenes": [
+        12,
+        13,
+        14
+      ],
+      "skill": "inference",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "原路被遮住，艾比改從空隙沿石頭繞路，仍讓海馬回家；改變路線不等於放棄目標。"
+    },
+    {
+      "id": "book54-C11",
+      "scene": 13,
+      "prompt": "How does helping the seahorse also support the friends’ own journey?",
+      "chinesePrompt": "幫海馬回家如何也幫助她們？",
+      "options": [
+        "He opens the whirlpool himself.",
+        "He gives Abby the new coral piece.",
+        "At home he tells them where a dolphin can be found.",
+        "He stops the strong current with his tail."
+      ],
+      "answer": 2,
+      "explanation": "They help him reach home, where he mentions a dolphin near the next bend. That information later leads to a guide; the seahorse does not perform the dolphin’s work.",
+      "evidenceScenes": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "skill": "integration",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "她們幫海馬回到家，海馬才提供下一個轉彎處有海豚的線索；這也幫她們找到領路者。"
+    },
+    {
+      "id": "book54-C12",
+      "scene": 15,
+      "prompt": "What can we infer when Gail says they cannot cross this alone?",
+      "chinesePrompt": "瑜瑜說不能獨自穿過時，可推知什麼？",
+      "options": [
+        "She has decided never to help Abby again.",
+        "She believes every dolphin is dangerous.",
+        "She wants Abby to cross while she stays behind.",
+        "She recognizes a limit and is willing to seek help."
+      ],
+      "answer": 3,
+      "explanation": "Gail and Abby stay together, stop by a bare rock and ask the dolphin for help. Recognizing a limit leads to a new plan, not abandoning Abby.",
+      "evidenceScenes": [
+        15,
+        16
+      ],
+      "skill": "inference",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "她們停在岩石旁、待在一起並求助。承認目前無法獨自通過，是調整計畫而非放棄艾比。"
+    },
+    {
+      "id": "book54-C13",
+      "scene": 16,
+      "prompt": "Why is a guide useful even when the friends can see the cave’s glow?",
+      "chinesePrompt": "已看見微光，為什麼還需要領路？",
+      "options": [
+        "Seeing a destination does not explain how to reach it safely.",
+        "A glow proves that every route is safe.",
+        "A guide removes the need to stay close.",
+        "The dolphin must carry away the old rope first."
+      ],
+      "answer": 0,
+      "explanation": "They know the glow’s direction but face strong water and a passage that must open. The dolphin knows when and how to guide them through. Seeing the goal is not the same as knowing a safe route.",
+      "evidenceScenes": [
+        10,
+        15,
+        16,
+        17
+      ],
+      "skill": "integration",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "看見洞穴的方向，不代表知道如何安全穿越強水流與等待光門；海豚提供路線與時機的知識。"
+    },
+    {
+      "id": "book54-C14",
+      "scene": 17,
+      "prompt": "What does the dolphin’s waiting at the whirlpool suggest?",
+      "chinesePrompt": "海豚等漩渦打開暗示什麼？",
+      "options": [
+        "Entering first is always the safest choice.",
+        "Good timing matters as well as knowing the direction.",
+        "The friends should split up before the passage opens.",
+        "Waiting means he has forgotten the way."
+      ],
+      "answer": 1,
+      "explanation": "The dolphin knows that the passage leads to the cave and still waits for its center to open. Knowledge of direction and choosing the right moment both matter.",
+      "evidenceScenes": [
+        16,
+        17
+      ],
+      "skill": "inference",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "海豚知道漩渦通往洞穴，仍等中心打開才出發；知道方向與選擇時機都重要。"
+    },
+    {
+      "id": "book54-C15",
+      "scene": 18,
+      "prompt": "Which choice respects the difference between fallen pieces and living coral?",
+      "chinesePrompt": "哪種選擇尊重自然掉落碎片與活珊瑚的差別？",
+      "options": [
+        "Break a new piece from living coral to save time.",
+        "Take every piece because the bowl is full.",
+        "Use an already stored, naturally fallen piece that fits.",
+        "Leave the old rope around another animal."
+      ],
+      "answer": 2,
+      "explanation": "The cave holds naturally fallen pieces collected for necklaces, and Abby chooses one that fits. Taking a stored piece follows the story’s careful use of materials; breaking living coral or taking all pieces does not.",
+      "evidenceScenes": [
+        18,
+        19
+      ],
+      "skill": "transfer",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "收藏的是自然掉落的碎片，艾比挑一片合適的使用。這與折斷活珊瑚或拿走全部碎片不同。"
+    },
+    {
+      "id": "book54-C16",
+      "scene": 20,
+      "prompt": "Which statement best explains Gail’s final words, “We helped one another”?",
+      "chinesePrompt": "「我們互相幫忙」最好的解釋是什麼？",
+      "options": [
+        "Gail solves every problem without anyone else.",
+        "Only the dolphin gives useful help.",
+        "Helping matters only after a reward is promised.",
+        "The friends give and receive help throughout the journey."
+      ],
+      "answer": 3,
+      "explanation": "Gail and Abby rescue the lobster and guide the lost seahorse. Ocean friends give directions and the dolphin guides them. The ending brings together help given and help received, with no promised reward.",
+      "evidenceScenes": [
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        16,
+        19,
+        20
+      ],
+      "skill": "integration",
+      "review": "Checked against preserved story; exactly one supported option",
+      "explanationZh": "她們救龍蝦、幫海馬回家，也接受朋友問路與海豚領路的幫助；互相幫忙包含給予與接受。"
+    }
+  ]
+}

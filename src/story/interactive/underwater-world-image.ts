@@ -1,0 +1,14 @@
+import data from '../underwater-world/data.json';
+const underwaterId=(id:string)=>id.replaceAll(' ','-');
+import './underwater-world.css';
+export function mountUnderwaterScene(world:HTMLElement,page:number,explore:(id:string)=>void,interactive=true){
+ const scene=data.scenes[page];world.classList.add('underwater-layered-world');const frame=document.createElement('div');frame.className='underwater-stage';
+ const bg=document.createElement('img');bg.className='underwater-background';bg.src='images/story/underwater-world-v1/'+scene.background;bg.alt=scene.title;frame.append(bg);
+ const crops:{box:HTMLElement;art:HTMLElement;ratio:number}[]=[];
+ for(const o of scene.objects){const asset=data.assets[o.asset as keyof typeof data.assets];const box=document.createElement('button');box.type='button';box.className='object underwater-object';box.dataset.object=underwaterId(o.id);box.dataset.word=o.word;box.setAttribute('aria-label','探索 '+o.word);box.onclick=()=>explore(underwaterId(o.id));box.disabled=!interactive;box.style.cssText=`left:${o.x}%;top:${o.y}%;width:${o.w}%;height:${o.h}%;z-index:${o.id.includes('necklace')?5:3}`;
+ const art=document.createElement('span');art.className='sprite-art underwater-art';if('rect' in asset){const [x,y,w,h]=asset.rect;art.style.backgroundImage=`url(images/story/underwater-world-v1/${asset.image})`;art.style.backgroundSize=`${asset.size/w*100}% ${asset.size/h*100}%`;art.style.backgroundPosition=`${x/(asset.size-w)*100}% ${y/(asset.size-h)*100}%`;crops.push({box,art,ratio:w/h});}else{const img=document.createElement('img');img.src='images/story/underwater-world-v1/'+asset.image;img.alt='';img.draggable=false;art.append(img);}
+ box.append(art);if(o.id==='gail'&&page>0&&page<19)box.classList.add('underwater-protected');const label=document.createElement('span');label.className='object-label';label.textContent=o.word;const star=document.createElement('span');star.className='hotspot-spark';star.textContent='✦';box.append(label,star);frame.append(box);}
+ if(page===16){const portal=document.createElement('span');portal.className='underwater-whirlpool';portal.setAttribute('aria-hidden','true');frame.append(portal);}
+ world.append(frame);let disposed=false;const fit=()=>{if(disposed)return;const r=world.getBoundingClientRect();const width=Math.min(r.width,r.height*1.5);frame.style.width=width+'px';frame.style.height=width/1.5+'px';for(const c of crops){const w=Math.min(c.box.clientWidth,c.box.clientHeight*c.ratio);c.art.style.width=w+'px';c.art.style.height=w/c.ratio+'px';}};
+ const observer=new ResizeObserver(fit);observer.observe(world);const raf=requestAnimationFrame(fit);window.addEventListener('resize',fit);return()=>{disposed=true;observer.disconnect();cancelAnimationFrame(raf);window.removeEventListener('resize',fit);frame.remove();};
+}

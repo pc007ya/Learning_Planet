@@ -2,7 +2,7 @@ import type {ObjectSpec} from './book';
 import type {ReadingLevel} from './dragon';
 export type QuizArt='pip'|'bird'|'wing'|'gail'|'cave'|'sky'|'rock'|'nest'|'jump'|'moth'|'garden'|'flower'|'frog'|'mushroom'|'firefly'|'bell'|'tree'|'path';
 export type QuizOption={text:string;art?:QuizArt};
-export type StoryQuestion={id:string;kind:'choice'|'sequence';prompt:string;audio?:string;art?:QuizArt;image?:string;imageAlt?:string;sceneImage?:{background:string;assetBase:string;objects:ObjectSpec[]};options:QuizOption[];answer:number[];explanation:string};
+export type StoryQuestion={id:string;kind:'choice'|'sequence';prompt:string;promptTranslation?:string;explanationTranslation?:string;audio?:string;art?:QuizArt;image?:string;imageAlt?:string;renderImage?:()=>{element:HTMLElement;dispose:()=>void};sceneImage?:{background:string;assetBase:string;objects:ObjectSpec[]};options:QuizOption[];answer:number[];explanation:string};
 const options=(...text:string[])=>text.map(text=>({text}));
 export function dragonQuestions(level:ReadingLevel):StoryQuestion[]{
  const easy=level==='A',advanced=level==='C';
