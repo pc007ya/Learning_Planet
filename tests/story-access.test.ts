@@ -22,7 +22,7 @@ describe('Story login entry', () => {
     expect(parentSession({...frame,top:{...top,document:{querySelector:()=>({})}}})).toBe(false);
     expect(parentSession({...frame,top:{get location(){throw new Error('Cross origin');}}})).toBe(false);
   });
-  it.each(['market-storybook.html', 'magic-ball-storybook.html', 'snow-before-storybook.html', 'lost-lighthouse-storybook.html', 'mixed-up-museum-storybook.html', 'bridge-construction-storybook.html', 'little-robot-storybook.html', 'magic-potion-storybook.html', 'story-planet.html'])('%s loads its reader only through the login entry', path => {
+  it.each(['market-storybook.html', 'magic-ball-storybook.html', 'snow-before-storybook.html', 'lost-lighthouse-storybook.html', 'mixed-up-museum-storybook.html', 'bridge-construction-storybook.html', 'little-robot-storybook.html', 'magic-potion-storybook.html', 'science-homework-storybook.html', 'picky-bear-storybook.html', 'story-planet.html'])('%s loads its reader only through the login entry', path => {
     const html = readFileSync(path, 'utf8');
     const scripts = [...html.matchAll(/<script[^>]*src="([^"]+)"[^>]*>/g)];
     expect(scripts).toHaveLength(1);

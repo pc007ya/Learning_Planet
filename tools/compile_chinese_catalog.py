@@ -1,7 +1,13 @@
 """Compile bounded, publicly checked lesson/phonetic facts; never fetch or guess readings."""
+import argparse
 import json
 import re
 from pathlib import Path
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--targeted-only', action='store_true',
+                    help='Apply the evidenced targeted review without rerunning general editorial rules.')
+args = parser.parse_args()
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'src/chinese-practice'
@@ -38,8 +44,18 @@ def source(text):
     return AUDIT.get(text, {}).get('sourceUrl', 'https://pedia.cloud.edu.tw/Entry/Detail?title=' + text)
 
 
+def audited_character_reading(char, sound):
+    # Explicit targeted evidence can use a reading from any audited official dictionary.
+    # The preferred dictionary for general selection omits e.g. revised-dictionary ˙ㄍㄜ.
+    record = AUDIT.get(char, {})
+    return bool(record.get('toneChecked') and VALID.fullmatch(sound) and
+                any(reading['sounds'] == [sound]
+                    for dictionary in record.get('dictionaries', [])
+                    for reading in dictionary['readings']))
+
+
 single = {text: values[0][0] for text in AUDIT if len(text) == 1 and len(values := candidates(text)) == 1}
-for lesson in LESSONS:
+for lesson in ([] if args.targeted_only else LESSONS):
     context = {}
     for item in lesson['vocabulary']:
         if len(item['text']) > 1 and len(values := candidates(item['text'])) == 1:
@@ -115,16 +131,18 @@ for entry in review['entries']:
                 for item in lesson['vocabulary']
                 if item['text'] == entry['text'] and item['category'] == entry['category'])
     sounds = entry['override']['sounds']
-    if len(sounds) != len(entry['text']) or any(sound and [sound] not in candidates(char)
+    if len(sounds) != len(entry['text']) or any(sound and not audited_character_reading(char, sound)
                                                for char, sound in zip(entry['text'], sounds)):
         raise ValueError(f"Unverified targeted reading: {entry['text']}")
     item.update(entry['override'])
     item['soundSources'] = list(dict.fromkeys(entry['dictionarySources'] +
                                 [evidence['url'] for evidence in entry.get('evidence', [])]))
+    if entry.get('lessonSourceNote'):
+        next(lesson for lesson in LESSONS if lesson['id'] == entry['lessonId'])['sourceNote'] = entry['lessonSourceNote']
 
 (DATA / 'lessons-115-upper.json').write_text(json.dumps(LESSONS, ensure_ascii=False, indent=2) + '\n')
 (DATA / 'sounds-single.json').write_text(json.dumps(single, ensure_ascii=False, indent=2) + '\n')
-report = {'checkedAt': '2026-10-09', 'auditedTerms': len(AUDIT), 'singleUnambiguous': len(single),
+report = {'checkedAt': review['checkedAt'], 'auditedTerms': len(AUDIT), 'singleUnambiguous': len(single),
           'pendingEntries': [{'lessonId': lesson['id'], 'title': lesson['title'],
                               'category': item['category'], 'text': item['text'], 'note': item.get('soundNote', '')}
                              for lesson in LESSONS for item in lesson['vocabulary'] if '' in item['sounds']],

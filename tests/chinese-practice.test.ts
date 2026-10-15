@@ -91,10 +91,17 @@ describe('Chinese practice selection and provenance',()=>{
     expect(rows[0].sound).toBe('');
     expect(practiceRows([contextual,...customSelections('子')],{子:'˙ㄗ'})[0].sound).toBe('˙ㄗ');
   });
-  it('keeps every unresolved targeted entry blank and confirms only the evidenced animal term',()=>{
+  it('keeps unresolved targeted entries blank and confirms only source-evidenced readings',()=>{
+    const confirmedReadings:Record<string,string[]>={
+      '0102011150105:哪':['ㄋㄚˇ'],
+      '0102011150105:哪個':['ㄋㄚˇ','˙ㄍㄜ'],
+      '0103021150101:還':['ㄏㄞˊ'],
+      '0102031150111:石虎':['ㄕˊ','ㄏㄨˇ'],
+      '0101031150105:結':['ㄐㄧㄝˊ'],
+    };
     expect(phoneticsReview.entries).toHaveLength(21);
-    expect(phoneticsStatus.pendingEntries).toHaveLength(20);
-    expect(phoneticsReview.entries.filter(entry=>entry.status==='已確認').map(entry=>entry.text)).toEqual(['石虎']);
+    expect(phoneticsStatus.pendingEntries).toHaveLength(16);
+    expect(phoneticsReview.entries.filter(entry=>entry.status==='已確認').map(entry=>`${entry.lessonId}:${entry.text}`)).toEqual(Object.keys(confirmedReadings));
     for (const entry of phoneticsReview.entries) {
       const lesson=LESSONS.find(lesson=>lesson.id===entry.lessonId)!;
       const index=lesson.vocabulary.findIndex(item=>item.text===entry.text&&item.category===entry.category);
@@ -103,10 +110,10 @@ describe('Chinese practice selection and provenance',()=>{
         expect(entry.missingEvidence.length).toBeGreaterThan(0);
         expect(selected.sounds).toContain('');
         expect(practiceRows([selected]).some(row=>!row.sound)).toBe(true);
-      } else expect(selected.sounds).toEqual(['ㄕˊ','ㄏㄨˇ']);
+      } else expect(selected.sounds).toEqual(confirmedReadings[`${entry.lessonId}:${entry.text}`]);
     }
     const 哪個=LESSONS.find(lesson=>lesson.id==='0102011150105')!.vocabulary.find(item=>item.text==='哪個')!;
-    expect(哪個.sounds).toEqual(['','']);
+    expect(哪個.sounds).toEqual(['ㄋㄚˇ','˙ㄍㄜ']);
   });
   it('does not silently borrow a reading from another selected phrase for an unresolved classroom character',()=>{
     const pendingLesson=LESSONS.find(lesson=>lesson.id==='0102011150104')!;

@@ -1,0 +1,1722 @@
+{
+  "A": [
+    {
+      "id": "book39-A01",
+      "kind": "choice",
+      "prompt": "What is beside the bed in this picture?",
+      "chinesePrompt": "圖片中床邊有什麼？",
+      "options": [
+        {
+          "text": "A bear"
+        },
+        {
+          "text": "A sandwich plate"
+        },
+        {
+          "text": "A basket"
+        },
+        {
+          "text": "A picnic blanket"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第1幕 / Scene 1: The closed woven object beside the bed is the basket named in A1. No bear is in this room; the sandwich plate and picnic blanket are not the object beside the bed. 正式01床邊是藤編籃子，A1也如此；房內沒有熊，圖中該物不是三明治盤或野餐毯。\n故事證據 / Evidence: Gail is in her room. A basket is by her bed. / 瑜瑜在房間裡。 一只籃子在床邊。",
+      "skill": "picture-object",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "Gail is in her room. A basket is by her bed.",
+          "chinese": "瑜瑜在房間裡。 一只籃子在床邊。"
+        }
+      ],
+      "image": "images/story/picky-bear-v1/scene/01.webp",
+      "imageAlt": "The Basket by the Bed"
+    },
+    {
+      "id": "book39-A02",
+      "kind": "choice",
+      "prompt": "What does the basket do?",
+      "chinesePrompt": "籃子做了什麼？",
+      "options": [
+        {
+          "text": "It glows"
+        },
+        {
+          "text": "It runs"
+        },
+        {
+          "text": "It breaks"
+        },
+        {
+          "text": "It sleeps"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第2幕 / Scene 2: A2 says the basket glows. Running, breaking, and sleeping are not stated actions of the basket. A2明說發光，沒有跑、破掉或睡覺。\n故事證據 / Evidence: The basket glows. The food is fresh and colorful. / 籃子發光了。 食物新鮮又色彩繽紛。",
+      "skill": "direct-action",
+      "evidence": [
+        {
+          "scene": 2,
+          "quote": "The basket glows. The food is fresh and colorful.",
+          "chinese": "籃子發光了。 食物新鮮又色彩繽紛。"
+        }
+      ]
+    },
+    {
+      "id": "book39-A03",
+      "kind": "choice",
+      "prompt": "Where does Gail go with the basket?",
+      "chinesePrompt": "瑜瑜帶籃子去哪裡？",
+      "options": [
+        {
+          "text": "Into a classroom"
+        },
+        {
+          "text": "Into a shop"
+        },
+        {
+          "text": "Into a kitchen"
+        },
+        {
+          "text": "Into the forest"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第3幕 / Scene 3: A3 names the forest. A classroom, shop, and kitchen are different places and are not her destination here. A3進森林，教室、商店、廚房都不是本幕目的地。\n故事證據 / Evidence: Gail carries the basket. She goes into the forest. / 瑜瑜提著籃子。 她走進森林。",
+      "skill": "direct-place",
+      "evidence": [
+        {
+          "scene": 3,
+          "quote": "Gail carries the basket. She goes into the forest.",
+          "chinese": "瑜瑜提著籃子。 她走進森林。"
+        }
+      ]
+    },
+    {
+      "id": "book39-A04",
+      "kind": "choice",
+      "prompt": "How does the rumble sound?",
+      "chinesePrompt": "咕嚕聲聽起來怎樣？",
+      "options": [
+        {
+          "text": "Angry"
+        },
+        {
+          "text": "Hungry"
+        },
+        {
+          "text": "Sleepy"
+        },
+        {
+          "text": "Happy"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第4幕 / Scene 4: A4 calls the sound hungry. It does not describe anger, sleepiness, or happiness. A4聽起來是肚子餓，不是生氣、想睡或開心。\n故事證據 / Evidence: Gail hears a rumble. It sounds hungry. / 瑜瑜聽見咕嚕聲。 聽起來是肚子餓了。",
+      "skill": "feeling-word",
+      "evidence": [
+        {
+          "scene": 4,
+          "quote": "Gail hears a rumble. It sounds hungry.",
+          "chinese": "瑜瑜聽見咕嚕聲。 聽起來是肚子餓了。"
+        }
+      ]
+    },
+    {
+      "id": "book39-A05",
+      "kind": "choice",
+      "prompt": "What color is Jack’s scarf in this picture?",
+      "chinesePrompt": "圖片裡 Jack 的領巾是什麼顏色？",
+      "options": [
+        {
+          "text": "Blue"
+        },
+        {
+          "text": "Purple"
+        },
+        {
+          "text": "Red"
+        },
+        {
+          "text": "Green"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第5幕 / Scene 5: Formal05 shows Jack’s blue scarf, also named in A5. Purple is Gail’s clothing color; red and green occur in food, not in this scarf. 正式05和A5皆是藍領巾；紫是瑜瑜衣色，紅綠食物顏色不是領巾。\n故事證據 / Evidence: This is Jack. He has a blue scarf. / 這是 Jack。 他戴著藍色領巾。",
+      "skill": "picture-color",
+      "evidence": [
+        {
+          "scene": 5,
+          "quote": "This is Jack. He has a blue scarf.",
+          "chinese": "這是 Jack。 他戴著藍色領巾。"
+        }
+      ],
+      "image": "images/story/picky-bear-v1/scene/05.webp",
+      "imageAlt": "Meet Jack"
+    },
+    {
+      "id": "book39-A06",
+      "kind": "choice",
+      "prompt": "Which foods does picky Jack want at first?",
+      "chinesePrompt": "挑食的 Jack 一開始想吃哪些食物？",
+      "options": [
+        {
+          "text": "Every green food"
+        },
+        {
+          "text": "Every sour food"
+        },
+        {
+          "text": "His favorite foods"
+        },
+        {
+          "text": "Only Gail’s food"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第6幕 / Scene 6: A6 says he wants his favorite foods. Green and sour are not his stated favorites, and Gail’s ownership is not his rule for choosing. A6要最喜歡的食物；不是所有綠色、所有酸味，也不是只按食物屬於瑜瑜來選。\n故事證據 / Evidence: Jack is picky. He wants his favorite foods. / Jack 很挑食。 他想吃最喜歡的食物。",
+      "skill": "direct-detail",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "Jack is picky. He wants his favorite foods.",
+          "chinese": "Jack 很挑食。 他想吃最喜歡的食物。"
+        }
+      ]
+    },
+    {
+      "id": "book39-A07",
+      "kind": "choice",
+      "prompt": "What taste does Jack worry about for berries?",
+      "chinesePrompt": "Jack 擔心莓果是什麼味道？",
+      "options": [
+        {
+          "text": "Salty"
+        },
+        {
+          "text": "Sour"
+        },
+        {
+          "text": "Bitter"
+        },
+        {
+          "text": "Hot"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第7幕 / Scene 7: A7 has Jack say “Too sour!” Salty, bitter, and hot are not the taste words he uses for berries. This reports his worry, not a proven taste. A7擔心太酸，沒說鹹、苦或辣；這是他的想法，不是已證實的味道。\n故事證據 / Evidence: Jack says, “No berries!” “Too sour!” / Jack 說：「不要莓果！」 「太酸了！」",
+      "skill": "word-meaning",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "Jack says, “No berries!” “Too sour!”",
+          "chinese": "Jack 說：「不要莓果！」 「太酸了！」"
+        }
+      ]
+    },
+    {
+      "id": "book39-A08",
+      "kind": "choice",
+      "prompt": "What food is Gail holding up in this picture?",
+      "chinesePrompt": "圖片中瑜瑜舉起哪樣食物？",
+      "options": [
+        {
+          "text": "A sandwich"
+        },
+        {
+          "text": "A bowl of berries"
+        },
+        {
+          "text": "A cucumber slice"
+        },
+        {
+          "text": "A carrot"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第8幕 / Scene 8: Formal08 shows an orange carrot with green leaves in Gail’s hand. A8 names the carrot; the sandwich, berry bowl, and cucumber slice are not this held food. 正式08手裡是帶綠葉的橘色胡蘿蔔，A8亦如此；不是三明治、莓果碗或小黃瓜片。\n故事證據 / Evidence: Gail has a carrot. Jack says no. / 瑜瑜拿著胡蘿蔔。 Jack 說不要。",
+      "skill": "picture-object",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "Gail has a carrot. Jack says no.",
+          "chinese": "瑜瑜拿著胡蘿蔔。 Jack 說不要。"
+        }
+      ],
+      "image": "images/story/picky-bear-v1/scene/08.webp",
+      "imageAlt": "No Carrots!"
+    },
+    {
+      "id": "book39-A09",
+      "kind": "choice",
+      "prompt": "Which two foods are inside the pictured sandwich?",
+      "chinesePrompt": "圖片中的三明治夾了哪兩樣？",
+      "options": [
+        {
+          "text": "Berries and carrot"
+        },
+        {
+          "text": "Carrot and lettuce"
+        },
+        {
+          "text": "Lettuce and cucumber"
+        },
+        {
+          "text": "Berries and cucumber"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第9幕 / Scene 9: Formal09 clearly shows leafy lettuce and round cucumber slices between bread, as A9 names. Each other pair replaces at least one filling with berries or carrot. 正式09切面有生菜葉與小黃瓜圓片；其餘組合都把至少一種內餡換成莓果或胡蘿蔔。\n故事證據 / Evidence: The sandwich is green. It has lettuce and cucumber. / 三明治是綠色的。 裡面有生菜和小黃瓜。",
+      "skill": "picture-detail",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "The sandwich is green. It has lettuce and cucumber.",
+          "chinese": "三明治是綠色的。 裡面有生菜和小黃瓜。"
+        }
+      ],
+      "image": "images/story/picky-bear-v1/scene/09.webp",
+      "imageAlt": "No Green Sandwich!"
+    },
+    {
+      "id": "book39-A10",
+      "kind": "choice",
+      "prompt": "How much should Jack try in the game?",
+      "chinesePrompt": "遊戲裡 Jack 要試多少？",
+      "options": [
+        {
+          "text": "The whole basket"
+        },
+        {
+          "text": "One little bite"
+        },
+        {
+          "text": "A full sandwich"
+        },
+        {
+          "text": "No food at all"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第11幕 / Scene 11: A11 asks for one little brave bite. A whole basket or full sandwich is more than that; no food at all omits trying the bite. A11只試一小口；整籃或整份太多，完全不試又少了試一口。\n故事證據 / Evidence: Choose one food. Try one little brave bite. / 選一樣食物。 勇敢試一小口。",
+      "skill": "direct-instruction",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "Choose one food. Try one little brave bite.",
+          "chinese": "選一樣食物。 勇敢試一小口。"
+        }
+      ]
+    },
+    {
+      "id": "book39-A11",
+      "kind": "choice",
+      "prompt": "What does Jack do with the food first here?",
+      "chinesePrompt": "這一幕 Jack 先對食物做什麼？",
+      "options": [
+        {
+          "text": "He hides it"
+        },
+        {
+          "text": "He throws it"
+        },
+        {
+          "text": "He takes it home"
+        },
+        {
+          "text": "He looks at it"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第12幕 / Scene 12: A12 says Jack looks at the food. Hiding, throwing, and taking it home are not that action. A12看看食物，沒有藏、丟或帶回家。\n故事證據 / Evidence: They have a picnic. Jack looks at the food. / 他們擺出野餐食物。 Jack 看看食物。",
+      "skill": "direct-action",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "They have a picnic. Jack looks at the food.",
+          "chinese": "他們擺出野餐食物。 Jack 看看食物。"
+        }
+      ]
+    },
+    {
+      "id": "book39-A12",
+      "kind": "choice",
+      "prompt": "How do the berries smell to Jack?",
+      "chinesePrompt": "Jack 聞到莓果是什麼氣味？",
+      "options": [
+        {
+          "text": "Sweet"
+        },
+        {
+          "text": "Sour"
+        },
+        {
+          "text": "Smoky"
+        },
+        {
+          "text": "Salty"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第13幕 / Scene 13: A13 says they smell sweet. Sour, smoky, and salty do not match this smell description. A13聞起來甜，不是酸、煙味或鹹；題目問氣味。\n故事證據 / Evidence: Jack smells the berries. They smell sweet. / Jack 聞聞莓果。 聞起來甜甜的。",
+      "skill": "direct-sense",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "Jack smells the berries. They smell sweet.",
+          "chinese": "Jack 聞聞莓果。 聞起來甜甜的。"
+        }
+      ]
+    },
+    {
+      "id": "book39-A13",
+      "kind": "choice",
+      "prompt": "In Scene 14, which food does Jack bite?",
+      "chinesePrompt": "第14幕，Jack 咬哪樣食物？",
+      "options": [
+        {
+          "text": "A carrot"
+        },
+        {
+          "text": "A berry"
+        },
+        {
+          "text": "A cucumber"
+        },
+        {
+          "text": "A sandwich"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第14幕 / Scene 14: A14 names a berry bite. Carrot, cucumber, and sandwich are other story foods, not the food in this sentence. A14咬莓果，胡蘿蔔、小黃瓜和三明治都不是此句食物。\n故事證據 / Evidence: Jack takes a berry bite. Gail waits. / Jack 咬一口莓果。 瑜瑜等著。",
+      "skill": "direct-object",
+      "evidence": [
+        {
+          "scene": 14,
+          "quote": "Jack takes a berry bite. Gail waits.",
+          "chinese": "Jack 咬一口莓果。 瑜瑜等著。"
+        }
+      ]
+    },
+    {
+      "id": "book39-A14",
+      "kind": "choice",
+      "prompt": "What is the carrot like when Jack tries it?",
+      "chinesePrompt": "Jack 試吃時胡蘿蔔怎樣？",
+      "options": [
+        {
+          "text": "Sour"
+        },
+        {
+          "text": "Soft"
+        },
+        {
+          "text": "Hot"
+        },
+        {
+          "text": "Crunchy"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第15幕 / Scene 15: A15 says it is crunchy. Sour, soft, and hot are different descriptions and do not match his reaction here. A15是脆脆的，不是酸、軟或熱。\n故事證據 / Evidence: Jack tries a carrot. It is crunchy! / Jack 試吃胡蘿蔔。 它脆脆的！",
+      "skill": "word-meaning",
+      "evidence": [
+        {
+          "scene": 15,
+          "quote": "Jack tries a carrot. It is crunchy!",
+          "chinese": "Jack 試吃胡蘿蔔。 它脆脆的！"
+        }
+      ]
+    },
+    {
+      "id": "book39-A15",
+      "kind": "choice",
+      "prompt": "Which food is not Jack’s favorite?",
+      "chinesePrompt": "哪樣食物不是 Jack 的最愛？",
+      "options": [
+        {
+          "text": "Cucumber"
+        },
+        {
+          "text": "Berries"
+        },
+        {
+          "text": "Carrot"
+        },
+        {
+          "text": "Bread"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第17幕 / Scene 17: A17 specifically names cucumber as not his favorite. Berries, carrot, and bread are not named in that statement. A17明說小黃瓜，不是莓果、胡蘿蔔或麵包。\n故事證據 / Evidence: Cucumber is not his favorite. Gail says, “That is okay.” / 小黃瓜不是他的最愛。 瑜瑜說：「沒關係。」",
+      "skill": "direct-detail",
+      "evidence": [
+        {
+          "scene": 17,
+          "quote": "Cucumber is not his favorite. Gail says, “That is okay.”",
+          "chinese": "小黃瓜不是他的最愛。 瑜瑜說：「沒關係。」"
+        }
+      ]
+    },
+    {
+      "id": "book39-A16",
+      "kind": "choice",
+      "prompt": "Where does Jack stay at the end?",
+      "chinesePrompt": "最後 Jack 留在哪裡？",
+      "options": [
+        {
+          "text": "In Gail’s room"
+        },
+        {
+          "text": "In the basket"
+        },
+        {
+          "text": "In the forest"
+        },
+        {
+          "text": "In a school"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第20幕 / Scene 20: A20 says Jack stays in the forest while Gail goes home. Gail’s room, the basket, and a school are not his ending location. A20他留森林，瑜瑜回家；房間、籃子和學校都不是他的去處。\n故事證據 / Evidence: Gail takes the basket home. Jack stays in the forest. Next time, he will try a little bite. / 瑜瑜帶籃子回家。 Jack 留在森林裡。 下次他會先試一小口。",
+      "skill": "direct-place",
+      "evidence": [
+        {
+          "scene": 20,
+          "quote": "Gail takes the basket home. Jack stays in the forest. Next time, he will try a little bite.",
+          "chinese": "瑜瑜帶籃子回家。 Jack 留在森林裡。 下次他會先試一小口。"
+        }
+      ]
+    }
+  ],
+  "B": [
+    {
+      "id": "book39-B01",
+      "kind": "choice",
+      "prompt": "Why is the basket beside Gail’s bed a surprise?",
+      "chinesePrompt": "床邊的籃子為何讓瑜瑜驚訝？",
+      "options": [
+        {
+          "text": "She remembers Jack putting it there"
+        },
+        {
+          "text": "She does not remember putting it there"
+        },
+        {
+          "text": "She has already eaten all its food"
+        },
+        {
+          "text": "She has already carried it to school"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第1幕 / Scene 1: B1 says she does not remember putting it there. It names no visit from Jack, no finished meal, and no school trip. B1是不記得放籃子；未說 Jack 來放、食物吃完或已帶去學校。\n故事證據 / Evidence: Gail wears her purple star pajamas. A basket is by her bed. She does not remember putting it there. / 瑜瑜穿著紫色星星睡衣。 一只籃子在床邊。 她不記得自己把它放在那裡。",
+      "skill": "cause-detail",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "Gail wears her purple star pajamas. A basket is by her bed. She does not remember putting it there.",
+          "chinese": "瑜瑜穿著紫色星星睡衣。 一只籃子在床邊。 她不記得自己把它放在那裡。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B02",
+      "kind": "choice",
+      "prompt": "Which group matches the food Gail sees in the basket?",
+      "chinesePrompt": "哪一組符合瑜瑜在籃子裡看見的食物？",
+      "options": [
+        {
+          "text": "Berries, bread, and a cucumber bowl"
+        },
+        {
+          "text": "Carrot, cake, and a green sandwich"
+        },
+        {
+          "text": "Lettuce, soup, and a berry cake"
+        },
+        {
+          "text": "Berries, carrot, and a sandwich"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第2幕 / Scene 2: B2 lists berries, carrot, and a green sandwich. The other groups add a cucumber bowl, cake, soup, or berry cake that the sentence does not list. B2列莓果、胡蘿蔔、綠三明治；錯項加入未列的小黃瓜碗、蛋糕、湯或莓果蛋糕。\n故事證據 / Evidence: The basket glows with fresh food inside. Gail sees berries, a carrot, and a green sandwich. She leans closer. / 籃子發光，裡面有新鮮食物。 瑜瑜看見莓果、胡蘿蔔和綠色三明治。 她靠近看。",
+      "skill": "combine-details",
+      "evidence": [
+        {
+          "scene": 2,
+          "quote": "The basket glows with fresh food inside. Gail sees berries, a carrot, and a green sandwich. She leans closer.",
+          "chinese": "籃子發光，裡面有新鮮食物。 瑜瑜看見莓果、胡蘿蔔和綠色三明治。 她靠近看。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B03",
+      "kind": "choice",
+      "prompt": "Which order takes Gail from her room to the forest?",
+      "chinesePrompt": "哪個順序讓瑜瑜從房間進入森林？",
+      "options": [
+        {
+          "text": "Light rises; a path opens; Gail carries the basket through"
+        },
+        {
+          "text": "Gail carries the basket; Jack enters; light rises"
+        },
+        {
+          "text": "A path opens; Gail returns; the basket stops glowing"
+        },
+        {
+          "text": "Jack carries Gail; the basket closes; a path opens"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第3幕 / Scene 3: B3 puts rising light before the opened path and Gail carrying the basket through. Jack entering/carrying, Gail returning, and the basket closing are not this sequence. B3先光升起、路開、瑜瑜提籃通過；Jack 進屋或抱她、回家、關籃都不屬於此順序。\n故事證據 / Evidence: Warm light rises from the basket. It opens a path to the forest. Gail carries the basket through. / 溫暖的光從籃子升起。 光打開通往森林的路。 瑜瑜提著籃子走過去。",
+      "skill": "sequence",
+      "evidence": [
+        {
+          "scene": 3,
+          "quote": "Warm light rises from the basket. It opens a path to the forest. Gail carries the basket through.",
+          "chinese": "溫暖的光從籃子升起。 光打開通往森林的路。 瑜瑜提著籃子走過去。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B04",
+      "kind": "choice",
+      "prompt": "What do the rumble and Jack’s words tell Gail?",
+      "chinesePrompt": "咕嚕聲和 Jack 的話告訴瑜瑜什麼？",
+      "options": [
+        {
+          "text": "Jack is angry because he lost his scarf"
+        },
+        {
+          "text": "Jack is sleepy after finishing lunch"
+        },
+        {
+          "text": "Jack is hungry rather than angry"
+        },
+        {
+          "text": "Jack is happy because the basket is empty"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第4、5幕 / Scene 4、5: B4 calls the rumble hungry rather than angry; B5 has Jack feel very hungry. Lost scarf, finished lunch, and an empty basket are not given causes or states. B4不是生氣而是餓，B5也說很餓；沒丟領巾、吃完午餐或空籃的事。\n故事證據 / Evidence: Gail hears a loud rumble in the forest. It sounds hungry, not angry. / 瑜瑜在森林聽見很大的咕嚕聲。 聽起來是肚子餓，不是生氣。 | A big brown bear comes from behind a tree. His name is Jack. He wears a blue scarf and feels very hungry. / 一隻大棕熊從樹後走出來。 他叫 Jack。 他戴著藍色領巾，覺得很餓。",
+      "skill": "combine-clues",
+      "evidence": [
+        {
+          "scene": 4,
+          "quote": "Gail hears a loud rumble in the forest. It sounds hungry, not angry.",
+          "chinese": "瑜瑜在森林聽見很大的咕嚕聲。 聽起來是肚子餓，不是生氣。"
+        },
+        {
+          "scene": 5,
+          "quote": "A big brown bear comes from behind a tree. His name is Jack. He wears a blue scarf and feels very hungry.",
+          "chinese": "一隻大棕熊從樹後走出來。 他叫 Jack。 他戴著藍色領巾，覺得很餓。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B05",
+      "kind": "choice",
+      "prompt": "What does Jack do before choosing any new food?",
+      "chinesePrompt": "選新食物之前，Jack 做了什麼？",
+      "options": [
+        {
+          "text": "He tastes each food and wants more"
+        },
+        {
+          "text": "He finishes the sandwich and asks for berries"
+        },
+        {
+          "text": "He shakes his head and wants favorites"
+        },
+        {
+          "text": "He shares all the food and packs the basket"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第6幕 / Scene 6: B6 opens the basket but Jack shakes his head and only wants favorites. Tasting each, finishing a sandwich, and sharing all the food are later or unstated actions, not this first response. B6開籃後搖頭、只要最愛；不是已試每樣、吃完三明治或分享全部。\n故事證據 / Evidence: Gail opens the basket for Jack. He shakes his head. He is picky and only eats his favorite foods. / 瑜瑜為 Jack 打開籃子。 他搖搖頭。 他很挑食，只吃最喜歡的食物。",
+      "skill": "before-after",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "Gail opens the basket for Jack. He shakes his head. He is picky and only eats his favorite foods.",
+          "chinese": "瑜瑜為 Jack 打開籃子。 他搖搖頭。 他很挑食，只吃最喜歡的食物。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B06",
+      "kind": "choice",
+      "prompt": "Why does Gail ask whether Jack has tried the berries?",
+      "chinesePrompt": "瑜瑜為何問 Jack 有沒有吃過莓果？",
+      "options": [
+        {
+          "text": "He rejects them because they may be sour"
+        },
+        {
+          "text": "He has tasted them and asked for more"
+        },
+        {
+          "text": "He has smelled them and called them sweet"
+        },
+        {
+          "text": "He cannot see any berries in the basket"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第7幕 / Scene 7: B7 connects stepping back with thinking they may be sour. Tasting and asking for more, sweet smell, and not seeing berries do not describe this moment. B7因可能酸而拒絕；尚非已試要更多、聞甜或看不到莓果。\n故事證據 / Evidence: Jack steps back from the berries. He thinks they may be too sour. Gail asks if he has tried them. / Jack 看見莓果就往後退。 他覺得它們可能太酸。 瑜瑜問他有沒有吃過。",
+      "skill": "cause-response",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "Jack steps back from the berries. He thinks they may be too sour. Gail asks if he has tried them.",
+          "chinese": "Jack 看見莓果就往後退。 他覺得它們可能太酸。 瑜瑜問他有沒有吃過。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B07",
+      "kind": "choice",
+      "prompt": "What makes Jack reject the sandwich before tasting it?",
+      "chinesePrompt": "Jack 試吃前為何拒絕三明治？",
+      "options": [
+        {
+          "text": "Its hot temperature"
+        },
+        {
+          "text": "Its sour taste"
+        },
+        {
+          "text": "Its empty bread"
+        },
+        {
+          "text": "Its green appearance"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第9幕 / Scene 9: B9 links his face to looking too green and names lettuce/cucumber inside. Temperature and tasted sourness are unstated; empty bread contradicts the fillings. B9是看起來太綠；沒說太熱或已嚐酸，無內餡又與生菜小黃瓜相反。\n故事證據 / Evidence: The sandwich has lettuce and cucumber inside. Jack makes a face because it looks too green. / 三明治裡有生菜和小黃瓜。 Jack 覺得看起來太綠，皺起臉。",
+      "skill": "cause-detail",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "The sandwich has lettuce and cucumber inside. Jack makes a face because it looks too green.",
+          "chinese": "三明治裡有生菜和小黃瓜。 Jack 覺得看起來太綠，皺起臉。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B08",
+      "kind": "choice",
+      "prompt": "What gap does Gail’s question point out?",
+      "chinesePrompt": "瑜瑜的問題指出什麼不足？",
+      "options": [
+        {
+          "text": "Jack cannot hear the rumble in the forest"
+        },
+        {
+          "text": "Jack judges food without taking a bite"
+        },
+        {
+          "text": "Gail cannot find the basket beside her"
+        },
+        {
+          "text": "Gail has already chosen Jack’s whole lunch"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第10幕 / Scene 10: B10 asks how he knows he dislikes food when he has never bitten it. Hearing trouble, a missing basket, and Gail choosing his whole lunch are not the stated gap. B10未咬就判斷不喜歡；不是聽不到、找不到籃子或瑜瑜代選全部午餐。\n故事證據 / Evidence: Gail asks how Jack knows he dislikes the food. He has never taken a bite. Jack is quiet. / 瑜瑜問 Jack 怎麼知道自己不喜歡食物。 他從來沒有咬一口。 Jack 安靜下來。",
+      "skill": "link-question",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "Gail asks how Jack knows he dislikes the food. He has never taken a bite. Jack is quiet.",
+          "chinese": "瑜瑜問 Jack 怎麼知道自己不喜歡食物。 他從來沒有咬一口。 Jack 安靜下來。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B09",
+      "kind": "choice",
+      "prompt": "Which pair of rules belongs to the Brave Bite Game?",
+      "chinesePrompt": "哪兩項規則屬於「勇敢一口」遊戲？",
+      "options": [
+        {
+          "text": "Choose a food; no need to finish it"
+        },
+        {
+          "text": "Finish a food; no need to choose it"
+        },
+        {
+          "text": "Choose a food; finish the whole basket"
+        },
+        {
+          "text": "Taste nothing; choose only by color"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第11幕 / Scene 11: B11 lets Jack choose one food, try a little bite, and not finish. Mandatory finishing contradicts the rule; tasting nothing omits the bite. B11自選、試小口、不用吃完；必須吃光相反，不試又漏了試一口。\n故事證據 / Evidence: Gail starts the Brave Bite Game. Jack can choose one food and try a little bite. He does not have to finish it. / 瑜瑜開始「勇敢一口」遊戲。 Jack 可以選一樣食物，試一小口。 他不用全部吃完。",
+      "skill": "linked-instruction",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "Gail starts the Brave Bite Game. Jack can choose one food and try a little bite. He does not have to finish it.",
+          "chinese": "瑜瑜開始「勇敢一口」遊戲。 Jack 可以選一樣食物，試一小口。 他不用全部吃完。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B10",
+      "kind": "choice",
+      "prompt": "Which sequence shows how Jack starts trying?",
+      "chinesePrompt": "哪個順序符合 Jack 開始嘗試的步驟？",
+      "options": [
+        {
+          "text": "Bites, hides, then smells a berry"
+        },
+        {
+          "text": "Smells, finishes lunch, then looks"
+        },
+        {
+          "text": "Looks, smells, then bites a berry"
+        },
+        {
+          "text": "Looks, rejects everything, then leaves"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第12、13、14幕 / Scene 12、13、14: B12 starts with looking; B13 says next smell; B14 has a berry bite. Hiding, lunch before looking, and rejecting/leaving do not follow these scenes. B12先看、B13再聞、B14咬莓果；藏、先吃午餐、全拒離開均不符。\n故事證據 / Evidence: They spread the food out for a small picnic. First, Jack looks at the shapes and colors. The berries are red and purple. / 他們把食物排成小野餐。 Jack 先看看形狀和顏色。 莓果有紅色和紫色。 | Next, Jack smells the carrot, berries, and sandwich. He is surprised that the berries smell sweet. / 接著 Jack 聞聞胡蘿蔔、莓果和三明治。 莓果聞起來甜甜的，他很驚訝。 | Jack chooses one berry and takes a small bite. Gail waits and does not push him. / Jack 選一顆莓果，咬一小口。 瑜瑜等著，沒有催他。",
+      "skill": "sequence",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "They spread the food out for a small picnic. First, Jack looks at the shapes and colors. The berries are red and purple.",
+          "chinese": "他們把食物排成小野餐。 Jack 先看看形狀和顏色。 莓果有紅色和紫色。"
+        },
+        {
+          "scene": 13,
+          "quote": "Next, Jack smells the carrot, berries, and sandwich. He is surprised that the berries smell sweet.",
+          "chinese": "接著 Jack 聞聞胡蘿蔔、莓果和三明治。 莓果聞起來甜甜的，他很驚訝。"
+        },
+        {
+          "scene": 14,
+          "quote": "Jack chooses one berry and takes a small bite. Gail waits and does not push him.",
+          "chinese": "Jack 選一顆莓果，咬一小口。 瑜瑜等著，沒有催他。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B11",
+      "kind": "choice",
+      "prompt": "How does Gail help when Jack chooses a berry?",
+      "chinesePrompt": "Jack 選莓果時瑜瑜如何幫忙？",
+      "options": [
+        {
+          "text": "She chooses a carrot for him"
+        },
+        {
+          "text": "She waits without pushing him"
+        },
+        {
+          "text": "She tells him to finish the bowl"
+        },
+        {
+          "text": "She takes the berry from his hand"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第14幕 / Scene 14: B14 gives the choice and bite to Jack while Gail waits without pushing. Choosing a carrot, demanding the bowl, and taking the berry are not her actions. B14是Jack自選咬口，瑜瑜不催；她沒代選胡蘿蔔、要求吃碗或拿走莓果。\n故事證據 / Evidence: Jack chooses one berry and takes a small bite. Gail waits and does not push him. / Jack 選一顆莓果，咬一小口。 瑜瑜等著，沒有催他。",
+      "skill": "response",
+      "evidence": [
+        {
+          "scene": 14,
+          "quote": "Jack chooses one berry and takes a small bite. Gail waits and does not push him.",
+          "chinese": "Jack 選一顆莓果，咬一小口。 瑜瑜等著，沒有催他。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B12",
+      "kind": "choice",
+      "prompt": "What changes between the first carrot offer and Jack’s later try?",
+      "chinesePrompt": "首次拿出胡蘿蔔到後來試吃，有何改變？",
+      "options": [
+        {
+          "text": "He tries a piece, then never sees it again"
+        },
+        {
+          "text": "He says it is sour, then hides it"
+        },
+        {
+          "text": "He eats it all, then gives it to Gail"
+        },
+        {
+          "text": "He says no, then tries a crunchy piece"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第8、15幕 / Scene 8、15: B8 has him say no; B15 has him try a thin piece and hear crunch. Not seeing it again, sour/hiding, and finishing/giving it away are unsupported sequences. B8拒絕，B15試薄片並喀滋；消失、酸而藏、吃光後給都沒發生。\n故事證據 / Evidence: Gail holds up a fresh, crunchy carrot. Jack folds his arms and says no. / 瑜瑜拿起新鮮、脆脆的胡蘿蔔。 Jack 抱起手臂，說不要。 | Then Jack tries a thin piece of carrot. It goes crunch! He opens his eyes wide. / 接著 Jack 試一小片胡蘿蔔。 喀滋一聲！ 他的眼睛睜大了。",
+      "skill": "before-after",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "Gail holds up a fresh, crunchy carrot. Jack folds his arms and says no.",
+          "chinese": "瑜瑜拿起新鮮、脆脆的胡蘿蔔。 Jack 抱起手臂，說不要。"
+        },
+        {
+          "scene": 15,
+          "quote": "Then Jack tries a thin piece of carrot. It goes crunch! He opens his eyes wide.",
+          "chinese": "接著 Jack 試一小片胡蘿蔔。 喀滋一聲！ 他的眼睛睜大了。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B13",
+      "kind": "choice",
+      "prompt": "How can Jack call the sandwich fresh but not love cucumber?",
+      "chinesePrompt": "Jack 說三明治清爽卻不愛小黃瓜，怎麼理解？",
+      "options": [
+        {
+          "text": "Fresh food must become his favorite"
+        },
+        {
+          "text": "He has never taken a sandwich bite"
+        },
+        {
+          "text": "Gail tells him to change his answer"
+        },
+        {
+          "text": "Trying does not require liking every part"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第16、17幕 / Scene 16、17: B16 says he bites and finds it fresh; B17 accepts cucumber not being his favorite. Fresh does not force favorite status; never biting contradicts B16, and Gail accepts rather than changes his answer. B16已咬且清爽，B17接受小黃瓜非最愛；清爽不必全愛，未咬相反，瑜瑜未要求改答案。\n故事證據 / Evidence: Jack takes a small sandwich bite. He tastes the lettuce and cucumber. It is fresh. / Jack 咬一小口三明治。 他吃到生菜和小黃瓜。 它很清爽。 | Jack says cucumber is not his favorite. Gail says that is okay. He can try food without liking all of it. / Jack 說小黃瓜不是他的最愛。 瑜瑜說沒關係。 他可以嘗試食物，不必全部都喜歡。",
+      "skill": "reconcile-details",
+      "evidence": [
+        {
+          "scene": 16,
+          "quote": "Jack takes a small sandwich bite. He tastes the lettuce and cucumber. It is fresh.",
+          "chinese": "Jack 咬一小口三明治。 他吃到生菜和小黃瓜。 它很清爽。"
+        },
+        {
+          "scene": 17,
+          "quote": "Jack says cucumber is not his favorite. Gail says that is okay. He can try food without liking all of it.",
+          "chinese": "Jack 說小黃瓜不是他的最愛。 瑜瑜說沒關係。 他可以嘗試食物，不必全部都喜歡。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B14",
+      "kind": "choice",
+      "prompt": "What does Jack pick for lunch after looking again?",
+      "chinesePrompt": "再看一次後 Jack 選什麼當午餐？",
+      "options": [
+        {
+          "text": "Only berries and the whole basket"
+        },
+        {
+          "text": "Berries, carrot, and part of a sandwich"
+        },
+        {
+          "text": "Only cucumber and all the sandwiches"
+        },
+        {
+          "text": "Carrot, lettuce, and a bowl of soup"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第18幕 / Scene 18: B18 names berries, carrot, and part of the sandwich. Only berries or cucumber omits named items and adds whole amounts; soup is not offered. B18列莓果、胡蘿蔔、部分三明治；只莓或只瓜漏項，全部份量不符，湯不存在。\n故事證據 / Evidence: Jack looks at the food again to choose lunch. He picks berries, carrot, and part of the sandwich. / Jack 再看一次食物，選自己的午餐。 他挑了莓果、胡蘿蔔和一部分三明治。",
+      "skill": "link-choice",
+      "evidence": [
+        {
+          "scene": 18,
+          "quote": "Jack looks at the food again to choose lunch. He picks berries, carrot, and part of the sandwich.",
+          "chinese": "Jack 再看一次食物，選自己的午餐。 他挑了莓果、胡蘿蔔和一部分三明治。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B15",
+      "kind": "choice",
+      "prompt": "How has Jack changed by the shared picnic?",
+      "chinesePrompt": "分享野餐時 Jack 有何改變？",
+      "options": [
+        {
+          "text": "He likes every food and never says no"
+        },
+        {
+          "text": "He eats only old favorites and refuses to try"
+        },
+        {
+          "text": "He still dislikes some food but will try"
+        },
+        {
+          "text": "He makes Gail finish every disliked food"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第6、19幕 / Scene 6、19: B6 only wants favorites; B19 still dislikes some foods but will try. Liking everything is too broad, still refusing contradicts change, and making Gail finish is not stated. B6只要最愛，B19仍有不愛但願試；全愛過度、仍拒相反、逼瑜瑜吃沒寫。\n故事證據 / Evidence: Gail opens the basket for Jack. He shakes his head. He is picky and only eats his favorite foods. / 瑜瑜為 Jack 打開籃子。 他搖搖頭。 他很挑食，只吃最喜歡的食物。 | Gail and Jack share a colorful picnic under the trees. The basket is between them. Jack still dislikes some foods, but now he will try. / 瑜瑜和 Jack 在樹下分享色彩繽紛的野餐。 籃子在兩人中間。 Jack 還是不喜歡一些食物，但現在願意試試看。",
+      "skill": "trace-change",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "Gail opens the basket for Jack. He shakes his head. He is picky and only eats his favorite foods.",
+          "chinese": "瑜瑜為 Jack 打開籃子。 他搖搖頭。 他很挑食，只吃最喜歡的食物。"
+        },
+        {
+          "scene": 19,
+          "quote": "Gail and Jack share a colorful picnic under the trees. The basket is between them. Jack still dislikes some foods, but now he will try.",
+          "chinese": "瑜瑜和 Jack 在樹下分享色彩繽紛的野餐。 籃子在兩人中間。 Jack 還是不喜歡一些食物，但現在願意試試看。"
+        }
+      ]
+    },
+    {
+      "id": "book39-B16",
+      "kind": "choice",
+      "prompt": "What happens when the basket glows again at the end?",
+      "chinesePrompt": "結尾籃子再次發光時發生什麼？",
+      "options": [
+        {
+          "text": "Gail goes home; Jack stays in the forest"
+        },
+        {
+          "text": "Jack goes home with Gail inside the basket"
+        },
+        {
+          "text": "Gail stays in the forest; Jack enters her room"
+        },
+        {
+          "text": "Both go to school with the empty basket"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第20幕 / Scene 20: B20 sends Gail home with the basket and keeps Jack in the forest. Jack in the basket/room, Gail staying, and a school trip all contradict or add to those locations. B20瑜瑜帶籃回家、Jack留森林；熊入籃房、她留、去學校均不符。\n故事證據 / Evidence: The basket glows again. Jack says he will try a little bite next time. Gail takes the basket home, while Jack stays in the forest. / 籃子再次發光。 Jack 說下次會先試一小口。 瑜瑜帶籃子回家，Jack 留在森林。",
+      "skill": "linked-events",
+      "evidence": [
+        {
+          "scene": 20,
+          "quote": "The basket glows again. Jack says he will try a little bite next time. Gail takes the basket home, while Jack stays in the forest.",
+          "chinese": "籃子再次發光。 Jack 說下次會先試一小口。 瑜瑜帶籃子回家，Jack 留在森林。"
+        }
+      ]
+    }
+  ],
+  "C": [
+    {
+      "id": "book39-C01",
+      "kind": "choice",
+      "prompt": "Which conclusion about the berries is supported before Jack’s first bite?",
+      "chinesePrompt": "Jack 第一次咬莓果之前，哪個結論有依據？",
+      "options": [
+        {
+          "text": "He knows they are sour, from a completed taste test"
+        },
+        {
+          "text": "He proves all berries are sweet, by looking away"
+        },
+        {
+          "text": "He decides they are his favorite, before Gail asks"
+        },
+        {
+          "text": "He worries they may be sour, without a taste test"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第7、14幕 / Scene 7、14: C7 says “might” and has Gail ask about trying; C14 is the first depicted bite. A worry is supported, not proven sourness. Looking away proves no sweetness, and no favorite verdict is given. C7是可能酸與問試過嗎，C14才描寫咬口；不能當已驗酸、轉頭證甜或早判最愛。\n故事證據 / Evidence: Gail offers the berries. Jack steps back. “No berries! They might be too sour.” Gail asks, “Have you tried them?” Jack looks away. / 瑜瑜拿出莓果。Jack 往後退：「不要莓果！它們可能太酸了。」瑜瑜問：「你有吃過嗎？」Jack 把頭轉開。 | Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him. / Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。",
+      "skill": "evidence-scope",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "Gail offers the berries. Jack steps back. “No berries! They might be too sour.” Gail asks, “Have you tried them?” Jack looks away.",
+          "chinese": "瑜瑜拿出莓果。Jack 往後退：「不要莓果！它們可能太酸了。」瑜瑜問：「你有吃過嗎？」Jack 把頭轉開。"
+        },
+        {
+          "scene": 14,
+          "quote": "Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him.",
+          "chinese": "Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。"
+        }
+      ]
+    },
+    {
+      "id": "book39-C02",
+      "kind": "choice",
+      "prompt": "What can Jack’s sweet-smell observation establish on its own?",
+      "chinesePrompt": "Jack 聞到甜味的觀察，單獨能確定什麼？",
+      "options": [
+        {
+          "text": "Every berry tastes sweet to him at every meal"
+        },
+        {
+          "text": "The berries smell sweet to him at that moment"
+        },
+        {
+          "text": "Cucumber will become his favorite after smelling"
+        },
+        {
+          "text": "Gail has already made him finish the berry bowl"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第13、14幕 / Scene 13、14: C13 reports a smell; C14 separately gives a bite. Smell alone does not establish every tasted berry, a future cucumber preference, or a finished bowl forced by Gail. C13只報氣味，C14另外試咬；氣味不能證明所有味道、未來愛瓜或被逼吃整碗。\n故事證據 / Evidence: Jack smells the carrot, berries, and sandwich. “The berries smell sweet,” he says, surprised. / Jack 聞了胡蘿蔔、莓果和三明治。「莓果聞起來甜甜的。」他有些驚訝。 | Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him. / Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。",
+      "skill": "distinguish-evidence",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "Jack smells the carrot, berries, and sandwich. “The berries smell sweet,” he says, surprised.",
+          "chinese": "Jack 聞了胡蘿蔔、莓果和三明治。「莓果聞起來甜甜的。」他有些驚訝。"
+        },
+        {
+          "scene": 14,
+          "quote": "Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him.",
+          "chinese": "Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。"
+        }
+      ]
+    },
+    {
+      "id": "book39-C03",
+      "kind": "choice",
+      "prompt": "Which evidence most directly tests Gail’s earlier description of the carrot?",
+      "chinesePrompt": "哪個證據最直接檢驗瑜瑜先前對胡蘿蔔的描述？",
+      "options": [
+        {
+          "text": "Jack folds his arms when Gail first offers it"
+        },
+        {
+          "text": "The carrot is placed near a colorful sandwich"
+        },
+        {
+          "text": "Jack hears crunch while trying a thin piece"
+        },
+        {
+          "text": "Gail carries the carrot in the glowing basket"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第8、15幕 / Scene 8、15: C8 calls the carrot crunchy; C15 has Jack experience CRUNCH himself. Folded arms records refusal, nearby color records arrangement, and basket transport does not test texture. C8說脆、C15親試喀滋最直接；抱手是拒絕、旁邊色彩是排列、帶籃是運送，均不驗口感。\n故事證據 / Evidence: Gail holds up the carrot. “It is fresh and crunchy.” Jack folds his arms. “No carrots!” / 瑜瑜拿起胡蘿蔔：「它很新鮮，而且脆脆的。」Jack 抱起手臂：「不要胡蘿蔔！」 | Then Jack tries a thin piece of carrot. “CRUNCH!” His eyes grow wide. “It is really crunchy!” / 接著 Jack 試了一小片胡蘿蔔。「喀滋！」他的眼睛睜大了：「真的脆脆的！」",
+      "skill": "select-evidence",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "Gail holds up the carrot. “It is fresh and crunchy.” Jack folds his arms. “No carrots!”",
+          "chinese": "瑜瑜拿起胡蘿蔔：「它很新鮮，而且脆脆的。」Jack 抱起手臂：「不要胡蘿蔔！」"
+        },
+        {
+          "scene": 15,
+          "quote": "Then Jack tries a thin piece of carrot. “CRUNCH!” His eyes grow wide. “It is really crunchy!”",
+          "chinese": "接著 Jack 試了一小片胡蘿蔔。「喀滋！」他的眼睛睜大了：「真的脆脆的！」"
+        }
+      ]
+    },
+    {
+      "id": "book39-C04",
+      "kind": "choice",
+      "prompt": "Which plan keeps both Jack’s choice and the small size of the game?",
+      "chinesePrompt": "哪個計畫同時保留 Jack 自選及小口的遊戲規則？",
+      "options": [
+        {
+          "text": "Jack picks a food and tries a little bite"
+        },
+        {
+          "text": "Gail picks a food and asks for a little bite"
+        },
+        {
+          "text": "Jack picks a food and must finish its plate"
+        },
+        {
+          "text": "Gail picks every food and waits for a full meal"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第11、14幕 / Scene 11、14: C11 requires choosing and one little bite; C14 shows Jack doing so while Gail waits. Gail choosing removes his choice; mandatory plates or meals remove the small-bite limit. C11自選小口、C14具體做到；代選拿走選擇，吃光盤餐違反小口。\n故事證據 / Evidence: Gail smiles. “Let’s play the Brave Bite Game. You do not have to finish anything. Just choose one food and try one little bite.” / 瑜瑜笑著說：「我們來玩『勇敢一口』遊戲。你不用全部吃完，只要選一樣，勇敢試一小口。」 | Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him. / Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。",
+      "skill": "compare-plans",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "Gail smiles. “Let’s play the Brave Bite Game. You do not have to finish anything. Just choose one food and try one little bite.”",
+          "chinese": "瑜瑜笑著說：「我們來玩『勇敢一口』遊戲。你不用全部吃完，只要選一樣，勇敢試一小口。」"
+        },
+        {
+          "scene": 14,
+          "quote": "Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him.",
+          "chinese": "Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。"
+        }
+      ]
+    },
+    {
+      "id": "book39-C05",
+      "kind": "choice",
+      "prompt": "Why does Gail’s waiting fit the purpose of the game?",
+      "chinesePrompt": "瑜瑜等著，為何符合遊戲目的？",
+      "options": [
+        {
+          "text": "It proves the berry must become Jack’s favorite"
+        },
+        {
+          "text": "It gives Jack time to make and try his own choice"
+        },
+        {
+          "text": "It lets Gail choose the amount Jack must finish"
+        },
+        {
+          "text": "It removes the need for Jack to taste any food"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第11、14幕 / Scene 11、14: C11 lets him choose without finishing; C14 waits without pushing. Waiting supports voluntary trying, not guaranteed liking, Gail-controlled finishing, or skipping all tasting. C11可自選不吃完，C14不催；等候支持自主嘗試，不保證最愛、代控吃完或完全免試。\n故事證據 / Evidence: Gail smiles. “Let’s play the Brave Bite Game. You do not have to finish anything. Just choose one food and try one little bite.” / 瑜瑜笑著說：「我們來玩『勇敢一口』遊戲。你不用全部吃完，只要選一樣，勇敢試一小口。」 | Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him. / Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。",
+      "skill": "justify-method",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "Gail smiles. “Let’s play the Brave Bite Game. You do not have to finish anything. Just choose one food and try one little bite.”",
+          "chinese": "瑜瑜笑著說：「我們來玩『勇敢一口』遊戲。你不用全部吃完，只要選一樣，勇敢試一小口。」"
+        },
+        {
+          "scene": 14,
+          "quote": "Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him.",
+          "chinese": "Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。"
+        }
+      ]
+    },
+    {
+      "id": "book39-C06",
+      "kind": "choice",
+      "prompt": "How is Jack’s cucumber judgment different from his earlier berry refusal?",
+      "chinesePrompt": "Jack 對小黃瓜的判斷，和先前拒絕莓果有何不同？",
+      "options": [
+        {
+          "text": "He has tasted cucumber before stating his preference"
+        },
+        {
+          "text": "He has proved every green food tastes sour"
+        },
+        {
+          "text": "He has changed his scarf before judging cucumber"
+        },
+        {
+          "text": "He has stopped choosing food before smelling it"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第7、16、17幕 / Scene 7、16、17: C7 refuses on possible sourness before trying; C16/17 follow tasting the sandwich with cucumber and stating preference. No universal green/sour claim, scarf change, or end of choosing is given. C7未試只怕酸；C16/17嚐含瓜三明治後說偏好；不能推出所有綠酸、換領巾或停止選食。\n故事證據 / Evidence: Gail offers the berries. Jack steps back. “No berries! They might be too sour.” Gail asks, “Have you tried them?” Jack looks away. / 瑜瑜拿出莓果。Jack 往後退：「不要莓果！它們可能太酸了。」瑜瑜問：「你有吃過嗎？」Jack 把頭轉開。 | Jack takes a small bite of the sandwich. He tastes the lettuce and cucumber. “It is fresh,” he says. / Jack 咬了一小口三明治，吃到生菜和小黃瓜。「原來很清爽。」他說。 | Jack thinks for a moment. “The cucumber is not my favorite.” Gail nods. “That is okay. Trying does not mean you have to love everything.” / Jack 想了一下：「小黃瓜不是我的最愛。」瑜瑜點點頭：「沒關係。願意嘗試，不代表每一樣都一定要喜歡。」",
+      "skill": "compare-evidence",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "Gail offers the berries. Jack steps back. “No berries! They might be too sour.” Gail asks, “Have you tried them?” Jack looks away.",
+          "chinese": "瑜瑜拿出莓果。Jack 往後退：「不要莓果！它們可能太酸了。」瑜瑜問：「你有吃過嗎？」Jack 把頭轉開。"
+        },
+        {
+          "scene": 16,
+          "quote": "Jack takes a small bite of the sandwich. He tastes the lettuce and cucumber. “It is fresh,” he says.",
+          "chinese": "Jack 咬了一小口三明治，吃到生菜和小黃瓜。「原來很清爽。」他說。"
+        },
+        {
+          "scene": 17,
+          "quote": "Jack thinks for a moment. “The cucumber is not my favorite.” Gail nods. “That is okay. Trying does not mean you have to love everything.”",
+          "chinese": "Jack 想了一下：「小黃瓜不是我的最愛。」瑜瑜點點頭：「沒關係。願意嘗試，不代表每一樣都一定要喜歡。」"
+        }
+      ]
+    },
+    {
+      "id": "book39-C07",
+      "kind": "choice",
+      "prompt": "Which claim would go beyond Jack’s sandwich experience?",
+      "chinesePrompt": "哪個說法超過 Jack 試三明治所得的證據？",
+      "options": [
+        {
+          "text": "He takes a small bite of the offered sandwich"
+        },
+        {
+          "text": "He notices lettuce and cucumber in the bite"
+        },
+        {
+          "text": "He calls it fresh; cucumber is not a favorite"
+        },
+        {
+          "text": "Every ingredient is now Jack’s favorite food"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第16、17幕 / Scene 16、17: C16 supplies the bite, fillings, and fresh description; C17 says cucumber is not his favorite. Calling every ingredient a favorite conflicts with that limit. The other options report the stated experience and preference. C16有咬、內餡、清爽，C17瓜非最愛；全部最愛過度且衝突。其餘描述此經驗，並非每樣都喜歡。\n故事證據 / Evidence: Jack takes a small bite of the sandwich. He tastes the lettuce and cucumber. “It is fresh,” he says. / Jack 咬了一小口三明治，吃到生菜和小黃瓜。「原來很清爽。」他說。 | Jack thinks for a moment. “The cucumber is not my favorite.” Gail nods. “That is okay. Trying does not mean you have to love everything.” / Jack 想了一下：「小黃瓜不是我的最愛。」瑜瑜點點頭：「沒關係。願意嘗試，不代表每一樣都一定要喜歡。」",
+      "skill": "limit-claim",
+      "evidence": [
+        {
+          "scene": 16,
+          "quote": "Jack takes a small bite of the sandwich. He tastes the lettuce and cucumber. “It is fresh,” he says.",
+          "chinese": "Jack 咬了一小口三明治，吃到生菜和小黃瓜。「原來很清爽。」他說。"
+        },
+        {
+          "scene": 17,
+          "quote": "Jack thinks for a moment. “The cucumber is not my favorite.” Gail nods. “That is okay. Trying does not mean you have to love everything.”",
+          "chinese": "Jack 想了一下：「小黃瓜不是我的最愛。」瑜瑜點點頭：「沒關係。願意嘗試，不代表每一樣都一定要喜歡。」"
+        }
+      ]
+    },
+    {
+      "id": "book39-C08",
+      "kind": "choice",
+      "prompt": "If Jack meets an unfamiliar food next time, which plan best applies this story’s method?",
+      "chinesePrompt": "若下次遇到陌生食物，哪個計畫最能應用本書方法？",
+      "options": [
+        {
+          "text": "Judge by color, choose it, and finish it at once"
+        },
+        {
+          "text": "Choose for Gail, smell it, and make her finish it"
+        },
+        {
+          "text": "Look and smell, choose it, and try a small bite"
+        },
+        {
+          "text": "Look at it, call it sour, and refuse without trying"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第11、12、13、14幕 / Scene 11、12、13、14: C12/13 look and smell, C11 allows choice and a little bite, and C14 tries voluntarily. Color-to-full-meal skips the trial, choosing/forcing Gail changes the participant and rule, and refusing on a guess repeats the first problem. C12/13看聞、C11自選小口、C14自主試；顏色直吃光、代逼瑜瑜、猜酸拒試都偏離。\n故事證據 / Evidence: Gail smiles. “Let’s play the Brave Bite Game. You do not have to finish anything. Just choose one food and try one little bite.” / 瑜瑜笑著說：「我們來玩『勇敢一口』遊戲。你不用全部吃完，只要選一樣，勇敢試一小口。」 | They spread the foods out like a small picnic. Jack looks at the shapes and colors. The berries shine red and purple. / 她們把食物排開，像一場小野餐。Jack 先看看不同的形狀和顏色，莓果閃著紅色和紫色。 | Jack smells the carrot, berries, and sandwich. “The berries smell sweet,” he says, surprised. / Jack 聞了胡蘿蔔、莓果和三明治。「莓果聞起來甜甜的。」他有些驚訝。 | Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him. / Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。",
+      "skill": "apply-method",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "Gail smiles. “Let’s play the Brave Bite Game. You do not have to finish anything. Just choose one food and try one little bite.”",
+          "chinese": "瑜瑜笑著說：「我們來玩『勇敢一口』遊戲。你不用全部吃完，只要選一樣，勇敢試一小口。」"
+        },
+        {
+          "scene": 12,
+          "quote": "They spread the foods out like a small picnic. Jack looks at the shapes and colors. The berries shine red and purple.",
+          "chinese": "她們把食物排開，像一場小野餐。Jack 先看看不同的形狀和顏色，莓果閃著紅色和紫色。"
+        },
+        {
+          "scene": 13,
+          "quote": "Jack smells the carrot, berries, and sandwich. “The berries smell sweet,” he says, surprised.",
+          "chinese": "Jack 聞了胡蘿蔔、莓果和三明治。「莓果聞起來甜甜的。」他有些驚訝。"
+        },
+        {
+          "scene": 14,
+          "quote": "Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him.",
+          "chinese": "Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。"
+        }
+      ]
+    },
+    {
+      "id": "book39-C09",
+      "kind": "choice",
+      "prompt": "Suppose Jack tries one bite of a new food and still dislikes it. Has he followed the game?",
+      "chinesePrompt": "假設 Jack 試了新食物一口仍不喜歡，算遵守遊戲嗎？",
+      "options": [
+        {
+          "text": "Yes; trying does not require loving that food"
+        },
+        {
+          "text": "No; a brave bite must make every food a favorite"
+        },
+        {
+          "text": "Only if Gail makes him finish the remaining food"
+        },
+        {
+          "text": "Only if he says he likes it despite his own taste"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第11、17、19幕 / Scene 11、17、19: C11 asks only a little bite, C17 accepts not loving everything, and C19 allows remaining dislikes. Guaranteed favorites, forced finishing, and pretending to like it add requirements the story rejects. C11只小口、C17可不全愛、C19仍有不愛；必成最愛、強制吃完、假稱喜歡都不是規則。\n故事證據 / Evidence: Gail smiles. “Let’s play the Brave Bite Game. You do not have to finish anything. Just choose one food and try one little bite.” / 瑜瑜笑著說：「我們來玩『勇敢一口』遊戲。你不用全部吃完，只要選一樣，勇敢試一小口。」 | Jack thinks for a moment. “The cucumber is not my favorite.” Gail nods. “That is okay. Trying does not mean you have to love everything.” / Jack 想了一下：「小黃瓜不是我的最愛。」瑜瑜點點頭：「沒關係。願意嘗試，不代表每一樣都一定要喜歡。」 | Gail and Jack share a colorful picnic under the trees. The basket sits between them. Jack is still picky about some foods, but now he is willing to try. / 瑜瑜和 Jack 在樹下分享一場色彩繽紛的野餐，籃子放在兩人中間。Jack 還是有些食物不喜歡，但現在願意先試試看。",
+      "skill": "conditional-application",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "Gail smiles. “Let’s play the Brave Bite Game. You do not have to finish anything. Just choose one food and try one little bite.”",
+          "chinese": "瑜瑜笑著說：「我們來玩『勇敢一口』遊戲。你不用全部吃完，只要選一樣，勇敢試一小口。」"
+        },
+        {
+          "scene": 17,
+          "quote": "Jack thinks for a moment. “The cucumber is not my favorite.” Gail nods. “That is okay. Trying does not mean you have to love everything.”",
+          "chinese": "Jack 想了一下：「小黃瓜不是我的最愛。」瑜瑜點點頭：「沒關係。願意嘗試，不代表每一樣都一定要喜歡。」"
+        },
+        {
+          "scene": 19,
+          "quote": "Gail and Jack share a colorful picnic under the trees. The basket sits between them. Jack is still picky about some foods, but now he is willing to try.",
+          "chinese": "瑜瑜和 Jack 在樹下分享一場色彩繽紛的野餐，籃子放在兩人中間。Jack 還是有些食物不喜歡，但現在願意先試試看。"
+        }
+      ]
+    },
+    {
+      "id": "book39-C10",
+      "kind": "choice",
+      "prompt": "Two picnic plans end with the same foods. Jack chooses one plan; Gail orders him to eat the other. Which better follows the story, and why?",
+      "chinesePrompt": "兩個野餐計畫食物相同，一個 Jack 自選，另一個瑜瑜命令吃；哪個更符合故事，為什麼？",
+      "options": [
+        {
+          "text": "Gail’s plan, because identical food makes orders harmless"
+        },
+        {
+          "text": "Both plans, because food color matters more than choice"
+        },
+        {
+          "text": "Neither plan, because Jack must avoid all new lunch foods"
+        },
+        {
+          "text": "Jack’s plan, because his own choice is part of the game"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第11、18幕 / Scene 11、18: C11 gives the choice to Jack; C18 has him choose lunch. Same foods do not erase the choice rule, color does not replace it, and avoiding all new foods contradicts his lunch. C11和C18重視自選；食物相同不抹掉自主，顏色不取代，禁所有新午餐又相反。\n故事證據 / Evidence: Gail smiles. “Let’s play the Brave Bite Game. You do not have to finish anything. Just choose one food and try one little bite.” / 瑜瑜笑著說：「我們來玩『勇敢一口』遊戲。你不用全部吃完，只要選一樣，勇敢試一小口。」 | Jack looks over the food again and chooses what he wants for lunch. He picks berries, carrot, and part of the sandwich. / Jack 再看一次所有食物，選擇自己的午餐。他挑了莓果、胡蘿蔔和一部分三明治。",
+      "skill": "compare-plans",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "Gail smiles. “Let’s play the Brave Bite Game. You do not have to finish anything. Just choose one food and try one little bite.”",
+          "chinese": "瑜瑜笑著說：「我們來玩『勇敢一口』遊戲。你不用全部吃完，只要選一樣，勇敢試一小口。」"
+        },
+        {
+          "scene": 18,
+          "quote": "Jack looks over the food again and chooses what he wants for lunch. He picks berries, carrot, and part of the sandwich.",
+          "chinese": "Jack 再看一次所有食物，選擇自己的午餐。他挑了莓果、胡蘿蔔和一部分三明治。"
+        }
+      ]
+    },
+    {
+      "id": "book39-C11",
+      "kind": "choice",
+      "prompt": "Which evidence best supports a lasting change in Jack’s approach?",
+      "chinesePrompt": "哪個證據最支持 Jack 的嘗試方式已改變？",
+      "options": [
+        {
+          "text": "He wears a blue scarf and lives beside forest trees"
+        },
+        {
+          "text": "He is hungry and still has some favorite foods"
+        },
+        {
+          "text": "He will try now and plans a little bite next time"
+        },
+        {
+          "text": "He once shakes his head when the basket is opened"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第6、19、20幕 / Scene 6、19、20: C6 starts with favorites only; C19 shows willingness and C20 a next-time plan. Scarf/location, hunger/favorites, and the first refusal do not show this change toward trying. C6原只最愛，C19願試、C20下次計畫支持改變；領巾地點、飢餓偏好、最初搖頭均非改變證據。\n故事證據 / Evidence: Gail opens the basket. Jack looks inside and shakes his head. “I’m picky,” he says. “I only eat my favorite foods.” / 瑜瑜打開籃子。Jack 看了一眼就搖頭。「我很挑食，」他說，「我只吃我最喜歡的食物。」 | Gail and Jack share a colorful picnic under the trees. The basket sits between them. Jack is still picky about some foods, but now he is willing to try. / 瑜瑜和 Jack 在樹下分享一場色彩繽紛的野餐，籃子放在兩人中間。Jack 還是有些食物不喜歡，但現在願意先試試看。 | The basket begins to glow again. Before Gail leaves, Jack smiles and says, “Next time, I’ll try one little bite.” Gail carries the basket home, and Jack stays in the forest with his blue scarf. / 籃子再次發光。瑜瑜離開前，Jack 笑著說：「下次，我會先試一小口。」瑜瑜提著籃子回家，戴著藍色領巾的 Jack 留在森林裡。",
+      "skill": "trace-development",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "Gail opens the basket. Jack looks inside and shakes his head. “I’m picky,” he says. “I only eat my favorite foods.”",
+          "chinese": "瑜瑜打開籃子。Jack 看了一眼就搖頭。「我很挑食，」他說，「我只吃我最喜歡的食物。」"
+        },
+        {
+          "scene": 19,
+          "quote": "Gail and Jack share a colorful picnic under the trees. The basket sits between them. Jack is still picky about some foods, but now he is willing to try.",
+          "chinese": "瑜瑜和 Jack 在樹下分享一場色彩繽紛的野餐，籃子放在兩人中間。Jack 還是有些食物不喜歡，但現在願意先試試看。"
+        },
+        {
+          "scene": 20,
+          "quote": "The basket begins to glow again. Before Gail leaves, Jack smiles and says, “Next time, I’ll try one little bite.” Gail carries the basket home, and Jack stays in the forest with his blue scarf.",
+          "chinese": "籃子再次發光。瑜瑜離開前，Jack 笑著說：「下次，我會先試一小口。」瑜瑜提著籃子回家，戴著藍色領巾的 Jack 留在森林裡。"
+        }
+      ]
+    },
+    {
+      "id": "book39-C12",
+      "kind": "choice",
+      "prompt": "Why does the game go beyond looking and smelling before Jack decides what he likes?",
+      "chinesePrompt": "Jack 決定喜不喜歡前，遊戲為何不只停在看和聞？",
+      "options": [
+        {
+          "text": "A sweet smell already proves he loves every berry"
+        },
+        {
+          "text": "A bite adds his own tasting experience to the clues"
+        },
+        {
+          "text": "Looking at green food proves all its flavors match"
+        },
+        {
+          "text": "Smelling lets Gail decide Jack’s favorite without him"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第10、13、14幕 / Scene 10、13、14: C10 questions knowing without a bite; C13 gives smell, then C14 adds a taste. Smell does not prove liking all berries, green does not prove matching flavors, and Gail cannot replace Jack’s preference. C10問未咬怎知，C13聞、C14咬增加親試；甜氣不證全愛、綠不證味同、瑜瑜不代決偏好。\n故事證據 / Evidence: Gail sits beside the basket. “How do you know you do not like them if you never take a bite?” Jack is quiet. / 瑜瑜坐在籃子旁：「如果你從來沒有咬一口，怎麼知道自己不喜歡？」Jack 安靜下來。 | Jack smells the carrot, berries, and sandwich. “The berries smell sweet,” he says, surprised. / Jack 聞了胡蘿蔔、莓果和三明治。「莓果聞起來甜甜的。」他有些驚訝。 | Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him. / Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。",
+      "skill": "explain-method",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "Gail sits beside the basket. “How do you know you do not like them if you never take a bite?” Jack is quiet.",
+          "chinese": "瑜瑜坐在籃子旁：「如果你從來沒有咬一口，怎麼知道自己不喜歡？」Jack 安靜下來。"
+        },
+        {
+          "scene": 13,
+          "quote": "Jack smells the carrot, berries, and sandwich. “The berries smell sweet,” he says, surprised.",
+          "chinese": "Jack 聞了胡蘿蔔、莓果和三明治。「莓果聞起來甜甜的。」他有些驚訝。"
+        },
+        {
+          "scene": 14,
+          "quote": "Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him.",
+          "chinese": "Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。"
+        }
+      ]
+    },
+    {
+      "id": "book39-C13",
+      "kind": "choice",
+      "prompt": "What can this one story support about picky eaters without making a rule for every bear?",
+      "chinesePrompt": "不替所有熊下規則，本故事能支持什麼？",
+      "options": [
+        {
+          "text": "Every bear will like every food after a single small bite"
+        },
+        {
+          "text": "All bears reject cucumber before ever seeing a sandwich"
+        },
+        {
+          "text": "Jack becomes willing to try while keeping some dislikes"
+        },
+        {
+          "text": "No bear can change because favorite foods never change"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第6、19幕 / Scene 6、19: C6/19 concern one named bear and his change, with some dislikes remaining. The story does not test all bears, guarantee liking everything, prescribe cucumber refusal, or prove change impossible. C6/19是單一Jack及仍有不愛；不能推全部熊全愛、必先拒瓜或永不能改變。\n故事證據 / Evidence: Gail opens the basket. Jack looks inside and shakes his head. “I’m picky,” he says. “I only eat my favorite foods.” / 瑜瑜打開籃子。Jack 看了一眼就搖頭。「我很挑食，」他說，「我只吃我最喜歡的食物。」 | Gail and Jack share a colorful picnic under the trees. The basket sits between them. Jack is still picky about some foods, but now he is willing to try. / 瑜瑜和 Jack 在樹下分享一場色彩繽紛的野餐，籃子放在兩人中間。Jack 還是有些食物不喜歡，但現在願意先試試看。",
+      "skill": "limit-generalization",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "Gail opens the basket. Jack looks inside and shakes his head. “I’m picky,” he says. “I only eat my favorite foods.”",
+          "chinese": "瑜瑜打開籃子。Jack 看了一眼就搖頭。「我很挑食，」他說，「我只吃我最喜歡的食物。」"
+        },
+        {
+          "scene": 19,
+          "quote": "Gail and Jack share a colorful picnic under the trees. The basket sits between them. Jack is still picky about some foods, but now he is willing to try.",
+          "chinese": "瑜瑜和 Jack 在樹下分享一場色彩繽紛的野餐，籃子放在兩人中間。Jack 還是有些食物不喜歡，但現在願意先試試看。"
+        }
+      ]
+    },
+    {
+      "id": "book39-C14",
+      "kind": "choice",
+      "prompt": "Which sequence best explains how Jack can choose lunch with more evidence?",
+      "chinesePrompt": "哪個順序最能解釋 Jack 為何能用更多證據選午餐？",
+      "options": [
+        {
+          "text": "Chooses all food first; refuses the basket; never tastes"
+        },
+        {
+          "text": "Refuses before tasting; tries small bites; chooses lunch"
+        },
+        {
+          "text": "Gail orders a full meal; Jack finishes; he guesses flavors"
+        },
+        {
+          "text": "Smells one berry; knows all foods; never chooses for himself"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第7、8、9、14、15、16、18幕 / Scene 7、8、9、14、15、16、18: C7–9 refusals precede C14–16 small tries, then C18 choice. Never tasting lacks new experience; orders/finishing are not the game; one smell does not establish every food or remove choosing. C7–9先拒，C14–16小試，C18再選；不嚐缺證據，命令吃光不是遊戲，一聞不能知所有或取消自選。\n故事證據 / Evidence: Gail offers the berries. Jack steps back. “No berries! They might be too sour.” Gail asks, “Have you tried them?” Jack looks away. / 瑜瑜拿出莓果。Jack 往後退：「不要莓果！它們可能太酸了。」瑜瑜問：「你有吃過嗎？」Jack 把頭轉開。 | Gail holds up the carrot. “It is fresh and crunchy.” Jack folds his arms. “No carrots!” / 瑜瑜拿起胡蘿蔔：「它很新鮮，而且脆脆的。」Jack 抱起手臂：「不要胡蘿蔔！」 | Next comes the sandwich with lettuce and cucumber. Jack makes a face. “Too green!” / 接著是夾著生菜和小黃瓜的三明治。Jack 皺起臉：「太綠了！」 | Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him. / Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。 | Then Jack tries a thin piece of carrot. “CRUNCH!” His eyes grow wide. “It is really crunchy!” / 接著 Jack 試了一小片胡蘿蔔。「喀滋！」他的眼睛睜大了：「真的脆脆的！」 | Jack takes a small bite of the sandwich. He tastes the lettuce and cucumber. “It is fresh,” he says. / Jack 咬了一小口三明治，吃到生菜和小黃瓜。「原來很清爽。」他說。 | Jack looks over the food again and chooses what he wants for lunch. He picks berries, carrot, and part of the sandwich. / Jack 再看一次所有食物，選擇自己的午餐。他挑了莓果、胡蘿蔔和一部分三明治。",
+      "skill": "trace-process",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "Gail offers the berries. Jack steps back. “No berries! They might be too sour.” Gail asks, “Have you tried them?” Jack looks away.",
+          "chinese": "瑜瑜拿出莓果。Jack 往後退：「不要莓果！它們可能太酸了。」瑜瑜問：「你有吃過嗎？」Jack 把頭轉開。"
+        },
+        {
+          "scene": 8,
+          "quote": "Gail holds up the carrot. “It is fresh and crunchy.” Jack folds his arms. “No carrots!”",
+          "chinese": "瑜瑜拿起胡蘿蔔：「它很新鮮，而且脆脆的。」Jack 抱起手臂：「不要胡蘿蔔！」"
+        },
+        {
+          "scene": 9,
+          "quote": "Next comes the sandwich with lettuce and cucumber. Jack makes a face. “Too green!”",
+          "chinese": "接著是夾著生菜和小黃瓜的三明治。Jack 皺起臉：「太綠了！」"
+        },
+        {
+          "scene": 14,
+          "quote": "Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him.",
+          "chinese": "Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。"
+        },
+        {
+          "scene": 15,
+          "quote": "Then Jack tries a thin piece of carrot. “CRUNCH!” His eyes grow wide. “It is really crunchy!”",
+          "chinese": "接著 Jack 試了一小片胡蘿蔔。「喀滋！」他的眼睛睜大了：「真的脆脆的！」"
+        },
+        {
+          "scene": 16,
+          "quote": "Jack takes a small bite of the sandwich. He tastes the lettuce and cucumber. “It is fresh,” he says.",
+          "chinese": "Jack 咬了一小口三明治，吃到生菜和小黃瓜。「原來很清爽。」他說。"
+        },
+        {
+          "scene": 18,
+          "quote": "Jack looks over the food again and chooses what he wants for lunch. He picks berries, carrot, and part of the sandwich.",
+          "chinese": "Jack 再看一次所有食物，選擇自己的午餐。他挑了莓果、胡蘿蔔和一部分三明治。"
+        }
+      ]
+    },
+    {
+      "id": "book39-C15",
+      "kind": "choice",
+      "prompt": "Which ending respects both the basket transition and Jack’s location rule?",
+      "chinesePrompt": "哪個結尾同時符合籃子轉場與 Jack 的地點規則？",
+      "options": [
+        {
+          "text": "Gail takes the glowing basket home; Jack remains in the forest"
+        },
+        {
+          "text": "Jack follows the glowing basket home and sleeps beside Gail’s bed"
+        },
+        {
+          "text": "Gail leaves the basket in the forest; Jack carries her into the room"
+        },
+        {
+          "text": "Both stay in the room because Jack first appears beside the bed"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第3、20幕 / Scene 3、20: C3 says there is no bear in the bedroom; C20 explicitly carries the basket home while Jack stays forest-side. Following inside, leaving the basket for Jack to carry her, or a first bedroom appearance contradict those details. C3房間無熊、C20她提籃回家熊留森林；跟入、留籃代抱、床邊首次出現都違反。\n故事證據 / Evidence: A warm light rises from the basket and opens a path into a forest. Gail carries the basket through the doorway. There is no bear in her bedroom; Jack appears only after she reaches the forest. / 溫暖的光從籃子升起，打開通往森林的道路。瑜瑜提著籃子穿過入口。房間裡沒有熊；Jack 只在她進入森林後才出現。 | The basket begins to glow again. Before Gail leaves, Jack smiles and says, “Next time, I’ll try one little bite.” Gail carries the basket home, and Jack stays in the forest with his blue scarf. / 籃子再次發光。瑜瑜離開前，Jack 笑著說：「下次，我會先試一小口。」瑜瑜提著籃子回家，戴著藍色領巾的 Jack 留在森林裡。",
+      "skill": "combine-constraints",
+      "evidence": [
+        {
+          "scene": 3,
+          "quote": "A warm light rises from the basket and opens a path into a forest. Gail carries the basket through the doorway. There is no bear in her bedroom; Jack appears only after she reaches the forest.",
+          "chinese": "溫暖的光從籃子升起，打開通往森林的道路。瑜瑜提著籃子穿過入口。房間裡沒有熊；Jack 只在她進入森林後才出現。"
+        },
+        {
+          "scene": 20,
+          "quote": "The basket begins to glow again. Before Gail leaves, Jack smiles and says, “Next time, I’ll try one little bite.” Gail carries the basket home, and Jack stays in the forest with his blue scarf.",
+          "chinese": "籃子再次發光。瑜瑜離開前，Jack 笑著說：「下次，我會先試一小口。」瑜瑜提著籃子回家，戴著藍色領巾的 Jack 留在森林裡。"
+        }
+      ]
+    },
+    {
+      "id": "book39-C16",
+      "kind": "choice",
+      "prompt": "Which statement captures the lesson without removing Jack’s food preferences?",
+      "chinesePrompt": "哪個說法保留 Jack 的飲食偏好，同時表達本書主旨？",
+      "options": [
+        {
+          "text": "Keep every first guess; trying matters only if favorites stay the same"
+        },
+        {
+          "text": "Finish all colorful food before choosing; dislikes should be hidden"
+        },
+        {
+          "text": "Let Gail decide every favorite; a brave bear must agree with her"
+        },
+        {
+          "text": "Give food a small try before deciding; liking all is not required"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第17、19、20幕 / Scene 17、19、20: C17 accepts not loving everything, C19 preserves dislikes with willingness, and C20 promises a little bite. Keeping untested guesses, compulsory finishing/hiding dislike, and letting Gail decide favorites each removes a central part of the lesson. C17可不全愛、C19仍有不愛但願試、C20先小口；保留未驗猜測、強制隱藏、代決偏好都缺主旨。\n故事證據 / Evidence: Jack thinks for a moment. “The cucumber is not my favorite.” Gail nods. “That is okay. Trying does not mean you have to love everything.” / Jack 想了一下：「小黃瓜不是我的最愛。」瑜瑜點點頭：「沒關係。願意嘗試，不代表每一樣都一定要喜歡。」 | Gail and Jack share a colorful picnic under the trees. The basket sits between them. Jack is still picky about some foods, but now he is willing to try. / 瑜瑜和 Jack 在樹下分享一場色彩繽紛的野餐，籃子放在兩人中間。Jack 還是有些食物不喜歡，但現在願意先試試看。 | The basket begins to glow again. Before Gail leaves, Jack smiles and says, “Next time, I’ll try one little bite.” Gail carries the basket home, and Jack stays in the forest with his blue scarf. / 籃子再次發光。瑜瑜離開前，Jack 笑著說：「下次，我會先試一小口。」瑜瑜提著籃子回家，戴著藍色領巾的 Jack 留在森林裡。",
+      "skill": "synthesize-message",
+      "evidence": [
+        {
+          "scene": 17,
+          "quote": "Jack thinks for a moment. “The cucumber is not my favorite.” Gail nods. “That is okay. Trying does not mean you have to love everything.”",
+          "chinese": "Jack 想了一下：「小黃瓜不是我的最愛。」瑜瑜點點頭：「沒關係。願意嘗試，不代表每一樣都一定要喜歡。」"
+        },
+        {
+          "scene": 19,
+          "quote": "Gail and Jack share a colorful picnic under the trees. The basket sits between them. Jack is still picky about some foods, but now he is willing to try.",
+          "chinese": "瑜瑜和 Jack 在樹下分享一場色彩繽紛的野餐，籃子放在兩人中間。Jack 還是有些食物不喜歡，但現在願意先試試看。"
+        },
+        {
+          "scene": 20,
+          "quote": "The basket begins to glow again. Before Gail leaves, Jack smiles and says, “Next time, I’ll try one little bite.” Gail carries the basket home, and Jack stays in the forest with his blue scarf.",
+          "chinese": "籃子再次發光。瑜瑜離開前，Jack 笑著說：「下次，我會先試一小口。」瑜瑜提著籃子回家，戴著藍色領巾的 Jack 留在森林裡。"
+        }
+      ]
+    }
+  ]
+}

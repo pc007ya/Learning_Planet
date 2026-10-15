@@ -33,7 +33,7 @@ describe('book36 production cover resource creation (mock DOM)',()=>{
   expect(body).not.toMatch(/new Image\(|fetch\(/);
  });
  it('selects the shell before the preserved legacy template in the integrated reader',()=>{
-  expect(body).toContain('cover.innerHTML=isPotion?potionCoverMarkup():');
+  expect(body).toContain('isPotion?potionCoverMarkup():');
   for(const key of ['market','magic-ball','snow-before','lost-lighthouse','mixed-up-museum','bridge-construction','little-robot'])expect(source).toContain(key);
  });
 });

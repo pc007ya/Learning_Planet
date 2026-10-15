@@ -1,0 +1,1212 @@
+{
+  "number": 39,
+  "key": "picky-bear",
+  "title": "Gail and the Picky Bear",
+  "chineseTitle": "瑜瑜與挑食熊 Jack",
+  "asset": "images/story/picky-bear-v1/",
+  "words": [
+    "picky",
+    "hungry",
+    "crunchy",
+    "sour",
+    "sweet",
+    "brave",
+    "fresh",
+    "colorful",
+    "choose",
+    "share",
+    "picnic",
+    "basket",
+    "berries",
+    "carrot",
+    "sandwich",
+    "lettuce",
+    "cucumber",
+    "bite",
+    "lunch",
+    "favorite"
+  ],
+  "entries": [
+    [
+      "picky",
+      "挑食的",
+      "✦"
+    ],
+    [
+      "hungry",
+      "肚子餓的",
+      "✦"
+    ],
+    [
+      "crunchy",
+      "脆脆的",
+      "✦"
+    ],
+    [
+      "sour",
+      "酸的",
+      "✦"
+    ],
+    [
+      "sweet",
+      "甜的",
+      "✦"
+    ],
+    [
+      "brave",
+      "勇敢的",
+      "✦"
+    ],
+    [
+      "fresh",
+      "新鮮的",
+      "✦"
+    ],
+    [
+      "colorful",
+      "色彩繽紛的",
+      "✦"
+    ],
+    [
+      "choose",
+      "選擇",
+      "✦"
+    ],
+    [
+      "share",
+      "分享",
+      "✦"
+    ],
+    [
+      "picnic",
+      "野餐",
+      "✦"
+    ],
+    [
+      "basket",
+      "籃子",
+      "✦"
+    ],
+    [
+      "berries",
+      "莓果",
+      "✦"
+    ],
+    [
+      "carrot",
+      "胡蘿蔔",
+      "✦"
+    ],
+    [
+      "sandwich",
+      "三明治",
+      "✦"
+    ],
+    [
+      "lettuce",
+      "生菜",
+      "✦"
+    ],
+    [
+      "cucumber",
+      "小黃瓜",
+      "✦"
+    ],
+    [
+      "bite",
+      "咬一口",
+      "✦"
+    ],
+    [
+      "lunch",
+      "午餐",
+      "✦"
+    ],
+    [
+      "favorite",
+      "最喜歡的",
+      "✦"
+    ]
+  ],
+  "scenes": {
+    "bedroom": {
+      "name": "瑜瑜的固定房間",
+      "caption": "A Basket of Light",
+      "alt": "瑜瑜的固定房間"
+    },
+    "bedroom-to-forest": {
+      "name": "籃子暖光通往森林",
+      "caption": "Into the Forest",
+      "alt": "籃子暖光通往森林"
+    },
+    "forest": {
+      "name": "森林中的 Jack",
+      "caption": "Meet Jack",
+      "alt": "森林中的 Jack"
+    },
+    "forest-picnic": {
+      "name": "森林勇敢一口野餐",
+      "caption": "One Brave Bite",
+      "alt": "森林勇敢一口野餐"
+    },
+    "forest-to-bedroom": {
+      "name": "Jack 留在森林、瑜瑜帶籃子回家",
+      "caption": "Home with the Basket",
+      "alt": "Jack 留在森林、瑜瑜帶籃子回家"
+    }
+  },
+  "levels": {
+    "A": {
+      "pages": [
+        {
+          "title": "The Basket by the Bed",
+          "scene": "bedroom",
+          "lines": [
+            "Gail is in her room.",
+            "A basket is by her bed."
+          ],
+          "translation": "瑜瑜在房間裡。 一只籃子在床邊。",
+          "words": [
+            "basket"
+          ]
+        },
+        {
+          "title": "The Glowing Basket",
+          "scene": "bedroom",
+          "lines": [
+            "The basket glows.",
+            "The food is fresh and colorful."
+          ],
+          "translation": "籃子發光了。 食物新鮮又色彩繽紛。",
+          "words": [
+            "basket",
+            "fresh",
+            "colorful",
+            "berries",
+            "carrot",
+            "sandwich"
+          ]
+        },
+        {
+          "title": "Into the Forest",
+          "scene": "bedroom-to-forest",
+          "lines": [
+            "Gail carries the basket.",
+            "She goes into the forest."
+          ],
+          "translation": "瑜瑜提著籃子。 她走進森林。",
+          "words": [
+            "basket"
+          ]
+        },
+        {
+          "title": "A Strange Rumble",
+          "scene": "forest",
+          "lines": [
+            "Gail hears a rumble.",
+            "It sounds hungry."
+          ],
+          "translation": "瑜瑜聽見咕嚕聲。 聽起來是肚子餓了。",
+          "words": [
+            "hungry"
+          ]
+        },
+        {
+          "title": "Meet Jack",
+          "scene": "forest",
+          "lines": [
+            "This is Jack.",
+            "He has a blue scarf."
+          ],
+          "translation": "這是 Jack。 他戴著藍色領巾。",
+          "words": [
+            "hungry"
+          ]
+        },
+        {
+          "title": "A Very Picky Bear",
+          "scene": "forest",
+          "lines": [
+            "Jack is picky.",
+            "He wants his favorite foods."
+          ],
+          "translation": "Jack 很挑食。 他想吃最喜歡的食物。",
+          "words": [
+            "picky",
+            "favorite"
+          ]
+        },
+        {
+          "title": "No Berries!",
+          "scene": "forest",
+          "lines": [
+            "Jack says, “No berries!”",
+            "“Too sour!”"
+          ],
+          "translation": "Jack 說：「不要莓果！」 「太酸了！」",
+          "words": [
+            "berries",
+            "sour"
+          ]
+        },
+        {
+          "title": "No Carrots!",
+          "scene": "forest",
+          "lines": [
+            "Gail has a carrot.",
+            "Jack says no."
+          ],
+          "translation": "瑜瑜拿著胡蘿蔔。 Jack 說不要。",
+          "words": [
+            "carrot",
+            "fresh",
+            "crunchy"
+          ]
+        },
+        {
+          "title": "No Green Sandwich!",
+          "scene": "forest",
+          "lines": [
+            "The sandwich is green.",
+            "It has lettuce and cucumber."
+          ],
+          "translation": "三明治是綠色的。 裡面有生菜和小黃瓜。",
+          "words": [
+            "sandwich",
+            "lettuce",
+            "cucumber"
+          ]
+        },
+        {
+          "title": "How Do You Know?",
+          "scene": "forest",
+          "lines": [
+            "Gail asks about a bite.",
+            "Jack is quiet."
+          ],
+          "translation": "瑜瑜問起咬一口的事。 Jack 安靜下來。",
+          "words": [
+            "bite"
+          ]
+        },
+        {
+          "title": "The Brave Bite Game",
+          "scene": "forest-picnic",
+          "lines": [
+            "Choose one food.",
+            "Try one little brave bite."
+          ],
+          "translation": "選一樣食物。 勇敢試一小口。",
+          "words": [
+            "brave",
+            "choose",
+            "bite"
+          ]
+        },
+        {
+          "title": "First, Look",
+          "scene": "forest-picnic",
+          "lines": [
+            "They have a picnic.",
+            "Jack looks at the food."
+          ],
+          "translation": "他們擺出野餐食物。 Jack 看看食物。",
+          "words": [
+            "picnic",
+            "colorful",
+            "berries"
+          ]
+        },
+        {
+          "title": "Next, Smell",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack smells the berries.",
+            "They smell sweet."
+          ],
+          "translation": "Jack 聞聞莓果。 聞起來甜甜的。",
+          "words": [
+            "sweet"
+          ]
+        },
+        {
+          "title": "One Brave Bite",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack takes a berry bite.",
+            "Gail waits."
+          ],
+          "translation": "Jack 咬一口莓果。 瑜瑜等著。",
+          "words": [
+            "choose",
+            "brave",
+            "bite",
+            "berries"
+          ]
+        },
+        {
+          "title": "CRUNCH!",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack tries a carrot.",
+            "It is crunchy!"
+          ],
+          "translation": "Jack 試吃胡蘿蔔。 它脆脆的！",
+          "words": [
+            "carrot",
+            "crunchy"
+          ]
+        },
+        {
+          "title": "The Green Sandwich",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack bites the sandwich.",
+            "It is fresh."
+          ],
+          "translation": "Jack 咬一口三明治。 它很清爽。",
+          "words": [
+            "sandwich",
+            "lettuce",
+            "cucumber",
+            "fresh"
+          ]
+        },
+        {
+          "title": "Not My Favorite",
+          "scene": "forest-picnic",
+          "lines": [
+            "Cucumber is not his favorite.",
+            "Gail says, “That is okay.”"
+          ],
+          "translation": "小黃瓜不是他的最愛。 瑜瑜說：「沒關係。」",
+          "words": [
+            "favorite",
+            "cucumber"
+          ]
+        },
+        {
+          "title": "Jack Chooses",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack chooses his lunch.",
+            "Berries, carrot, and some sandwich."
+          ],
+          "translation": "Jack 選自己的午餐。 莓果、胡蘿蔔和一些三明治。",
+          "words": [
+            "choose",
+            "lunch"
+          ]
+        },
+        {
+          "title": "A Rainbow Picnic",
+          "scene": "forest-picnic",
+          "lines": [
+            "Gail and Jack share.",
+            "It is a colorful picnic."
+          ],
+          "translation": "瑜瑜和 Jack 一起分享。 這是色彩繽紛的野餐。",
+          "words": [
+            "share",
+            "colorful",
+            "picnic",
+            "basket"
+          ]
+        },
+        {
+          "title": "I’ll Try One Little Bite",
+          "scene": "forest-to-bedroom",
+          "lines": [
+            "Gail takes the basket home.",
+            "Jack stays in the forest.",
+            "Next time, he will try a little bite."
+          ],
+          "translation": "瑜瑜帶籃子回家。 Jack 留在森林裡。 下次他會先試一小口。",
+          "words": [
+            "bite",
+            "basket"
+          ]
+        }
+      ],
+      "chinese": [
+        [
+          "瑜瑜在房間裡。",
+          "一只籃子在床邊。"
+        ],
+        [
+          "籃子發光了。",
+          "食物新鮮又色彩繽紛。"
+        ],
+        [
+          "瑜瑜提著籃子。",
+          "她走進森林。"
+        ],
+        [
+          "瑜瑜聽見咕嚕聲。",
+          "聽起來是肚子餓了。"
+        ],
+        [
+          "這是 Jack。",
+          "他戴著藍色領巾。"
+        ],
+        [
+          "Jack 很挑食。",
+          "他想吃最喜歡的食物。"
+        ],
+        [
+          "Jack 說：「不要莓果！」",
+          "「太酸了！」"
+        ],
+        [
+          "瑜瑜拿著胡蘿蔔。",
+          "Jack 說不要。"
+        ],
+        [
+          "三明治是綠色的。",
+          "裡面有生菜和小黃瓜。"
+        ],
+        [
+          "瑜瑜問起咬一口的事。",
+          "Jack 安靜下來。"
+        ],
+        [
+          "選一樣食物。",
+          "勇敢試一小口。"
+        ],
+        [
+          "他們擺出野餐食物。",
+          "Jack 看看食物。"
+        ],
+        [
+          "Jack 聞聞莓果。",
+          "聞起來甜甜的。"
+        ],
+        [
+          "Jack 咬一口莓果。",
+          "瑜瑜等著。"
+        ],
+        [
+          "Jack 試吃胡蘿蔔。",
+          "它脆脆的！"
+        ],
+        [
+          "Jack 咬一口三明治。",
+          "它很清爽。"
+        ],
+        [
+          "小黃瓜不是他的最愛。",
+          "瑜瑜說：「沒關係。」"
+        ],
+        [
+          "Jack 選自己的午餐。",
+          "莓果、胡蘿蔔和一些三明治。"
+        ],
+        [
+          "瑜瑜和 Jack 一起分享。",
+          "這是色彩繽紛的野餐。"
+        ],
+        [
+          "瑜瑜帶籃子回家。",
+          "Jack 留在森林裡。",
+          "下次他會先試一小口。"
+        ]
+      ]
+    },
+    "B": {
+      "pages": [
+        {
+          "title": "The Basket by the Bed",
+          "scene": "bedroom",
+          "lines": [
+            "Gail wears her purple star pajamas.",
+            "A basket is by her bed.",
+            "She does not remember putting it there."
+          ],
+          "translation": "瑜瑜穿著紫色星星睡衣。 一只籃子在床邊。 她不記得自己把它放在那裡。",
+          "words": [
+            "basket"
+          ]
+        },
+        {
+          "title": "The Glowing Basket",
+          "scene": "bedroom",
+          "lines": [
+            "The basket glows with fresh food inside.",
+            "Gail sees berries, a carrot, and a green sandwich.",
+            "She leans closer."
+          ],
+          "translation": "籃子發光，裡面有新鮮食物。 瑜瑜看見莓果、胡蘿蔔和綠色三明治。 她靠近看。",
+          "words": [
+            "basket",
+            "fresh",
+            "colorful",
+            "berries",
+            "carrot",
+            "sandwich"
+          ]
+        },
+        {
+          "title": "Into the Forest",
+          "scene": "bedroom-to-forest",
+          "lines": [
+            "Warm light rises from the basket.",
+            "It opens a path to the forest.",
+            "Gail carries the basket through."
+          ],
+          "translation": "溫暖的光從籃子升起。 光打開通往森林的路。 瑜瑜提著籃子走過去。",
+          "words": [
+            "basket"
+          ]
+        },
+        {
+          "title": "A Strange Rumble",
+          "scene": "forest",
+          "lines": [
+            "Gail hears a loud rumble in the forest.",
+            "It sounds hungry, not angry."
+          ],
+          "translation": "瑜瑜在森林聽見很大的咕嚕聲。 聽起來是肚子餓，不是生氣。",
+          "words": [
+            "hungry"
+          ]
+        },
+        {
+          "title": "Meet Jack",
+          "scene": "forest",
+          "lines": [
+            "A big brown bear comes from behind a tree.",
+            "His name is Jack.",
+            "He wears a blue scarf and feels very hungry."
+          ],
+          "translation": "一隻大棕熊從樹後走出來。 他叫 Jack。 他戴著藍色領巾，覺得很餓。",
+          "words": [
+            "hungry"
+          ]
+        },
+        {
+          "title": "A Very Picky Bear",
+          "scene": "forest",
+          "lines": [
+            "Gail opens the basket for Jack.",
+            "He shakes his head.",
+            "He is picky and only eats his favorite foods."
+          ],
+          "translation": "瑜瑜為 Jack 打開籃子。 他搖搖頭。 他很挑食，只吃最喜歡的食物。",
+          "words": [
+            "picky",
+            "favorite"
+          ]
+        },
+        {
+          "title": "No Berries!",
+          "scene": "forest",
+          "lines": [
+            "Jack steps back from the berries.",
+            "He thinks they may be too sour.",
+            "Gail asks if he has tried them."
+          ],
+          "translation": "Jack 看見莓果就往後退。 他覺得它們可能太酸。 瑜瑜問他有沒有吃過。",
+          "words": [
+            "berries",
+            "sour"
+          ]
+        },
+        {
+          "title": "No Carrots!",
+          "scene": "forest",
+          "lines": [
+            "Gail holds up a fresh, crunchy carrot.",
+            "Jack folds his arms and says no."
+          ],
+          "translation": "瑜瑜拿起新鮮、脆脆的胡蘿蔔。 Jack 抱起手臂，說不要。",
+          "words": [
+            "carrot",
+            "fresh",
+            "crunchy"
+          ]
+        },
+        {
+          "title": "No Green Sandwich!",
+          "scene": "forest",
+          "lines": [
+            "The sandwich has lettuce and cucumber inside.",
+            "Jack makes a face because it looks too green."
+          ],
+          "translation": "三明治裡有生菜和小黃瓜。 Jack 覺得看起來太綠，皺起臉。",
+          "words": [
+            "sandwich",
+            "lettuce",
+            "cucumber"
+          ]
+        },
+        {
+          "title": "How Do You Know?",
+          "scene": "forest",
+          "lines": [
+            "Gail asks how Jack knows he dislikes the food.",
+            "He has never taken a bite.",
+            "Jack is quiet."
+          ],
+          "translation": "瑜瑜問 Jack 怎麼知道自己不喜歡食物。 他從來沒有咬一口。 Jack 安靜下來。",
+          "words": [
+            "bite"
+          ]
+        },
+        {
+          "title": "The Brave Bite Game",
+          "scene": "forest-picnic",
+          "lines": [
+            "Gail starts the Brave Bite Game.",
+            "Jack can choose one food and try a little bite.",
+            "He does not have to finish it."
+          ],
+          "translation": "瑜瑜開始「勇敢一口」遊戲。 Jack 可以選一樣食物，試一小口。 他不用全部吃完。",
+          "words": [
+            "brave",
+            "choose",
+            "bite"
+          ]
+        },
+        {
+          "title": "First, Look",
+          "scene": "forest-picnic",
+          "lines": [
+            "They spread the food out for a small picnic.",
+            "First, Jack looks at the shapes and colors.",
+            "The berries are red and purple."
+          ],
+          "translation": "他們把食物排成小野餐。 Jack 先看看形狀和顏色。 莓果有紅色和紫色。",
+          "words": [
+            "picnic",
+            "colorful",
+            "berries"
+          ]
+        },
+        {
+          "title": "Next, Smell",
+          "scene": "forest-picnic",
+          "lines": [
+            "Next, Jack smells the carrot, berries, and sandwich.",
+            "He is surprised that the berries smell sweet."
+          ],
+          "translation": "接著 Jack 聞聞胡蘿蔔、莓果和三明治。 莓果聞起來甜甜的，他很驚訝。",
+          "words": [
+            "sweet"
+          ]
+        },
+        {
+          "title": "One Brave Bite",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack chooses one berry and takes a small bite.",
+            "Gail waits and does not push him."
+          ],
+          "translation": "Jack 選一顆莓果，咬一小口。 瑜瑜等著，沒有催他。",
+          "words": [
+            "choose",
+            "brave",
+            "bite",
+            "berries"
+          ]
+        },
+        {
+          "title": "CRUNCH!",
+          "scene": "forest-picnic",
+          "lines": [
+            "Then Jack tries a thin piece of carrot.",
+            "It goes crunch!",
+            "He opens his eyes wide."
+          ],
+          "translation": "接著 Jack 試一小片胡蘿蔔。 喀滋一聲！ 他的眼睛睜大了。",
+          "words": [
+            "carrot",
+            "crunchy"
+          ]
+        },
+        {
+          "title": "The Green Sandwich",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack takes a small sandwich bite.",
+            "He tastes the lettuce and cucumber.",
+            "It is fresh."
+          ],
+          "translation": "Jack 咬一小口三明治。 他吃到生菜和小黃瓜。 它很清爽。",
+          "words": [
+            "sandwich",
+            "lettuce",
+            "cucumber",
+            "fresh"
+          ]
+        },
+        {
+          "title": "Not My Favorite",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack says cucumber is not his favorite.",
+            "Gail says that is okay.",
+            "He can try food without liking all of it."
+          ],
+          "translation": "Jack 說小黃瓜不是他的最愛。 瑜瑜說沒關係。 他可以嘗試食物，不必全部都喜歡。",
+          "words": [
+            "favorite",
+            "cucumber"
+          ]
+        },
+        {
+          "title": "Jack Chooses",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack looks at the food again to choose lunch.",
+            "He picks berries, carrot, and part of the sandwich."
+          ],
+          "translation": "Jack 再看一次食物，選自己的午餐。 他挑了莓果、胡蘿蔔和一部分三明治。",
+          "words": [
+            "choose",
+            "lunch"
+          ]
+        },
+        {
+          "title": "A Rainbow Picnic",
+          "scene": "forest-picnic",
+          "lines": [
+            "Gail and Jack share a colorful picnic under the trees.",
+            "The basket is between them.",
+            "Jack still dislikes some foods, but now he will try."
+          ],
+          "translation": "瑜瑜和 Jack 在樹下分享色彩繽紛的野餐。 籃子在兩人中間。 Jack 還是不喜歡一些食物，但現在願意試試看。",
+          "words": [
+            "share",
+            "colorful",
+            "picnic",
+            "basket"
+          ]
+        },
+        {
+          "title": "I’ll Try One Little Bite",
+          "scene": "forest-to-bedroom",
+          "lines": [
+            "The basket glows again.",
+            "Jack says he will try a little bite next time.",
+            "Gail takes the basket home, while Jack stays in the forest."
+          ],
+          "translation": "籃子再次發光。 Jack 說下次會先試一小口。 瑜瑜帶籃子回家，Jack 留在森林。",
+          "words": [
+            "bite",
+            "basket"
+          ]
+        }
+      ],
+      "chinese": [
+        [
+          "瑜瑜穿著紫色星星睡衣。",
+          "一只籃子在床邊。",
+          "她不記得自己把它放在那裡。"
+        ],
+        [
+          "籃子發光，裡面有新鮮食物。",
+          "瑜瑜看見莓果、胡蘿蔔和綠色三明治。",
+          "她靠近看。"
+        ],
+        [
+          "溫暖的光從籃子升起。",
+          "光打開通往森林的路。",
+          "瑜瑜提著籃子走過去。"
+        ],
+        [
+          "瑜瑜在森林聽見很大的咕嚕聲。",
+          "聽起來是肚子餓，不是生氣。"
+        ],
+        [
+          "一隻大棕熊從樹後走出來。",
+          "他叫 Jack。",
+          "他戴著藍色領巾，覺得很餓。"
+        ],
+        [
+          "瑜瑜為 Jack 打開籃子。",
+          "他搖搖頭。",
+          "他很挑食，只吃最喜歡的食物。"
+        ],
+        [
+          "Jack 看見莓果就往後退。",
+          "他覺得它們可能太酸。",
+          "瑜瑜問他有沒有吃過。"
+        ],
+        [
+          "瑜瑜拿起新鮮、脆脆的胡蘿蔔。",
+          "Jack 抱起手臂，說不要。"
+        ],
+        [
+          "三明治裡有生菜和小黃瓜。",
+          "Jack 覺得看起來太綠，皺起臉。"
+        ],
+        [
+          "瑜瑜問 Jack 怎麼知道自己不喜歡食物。",
+          "他從來沒有咬一口。",
+          "Jack 安靜下來。"
+        ],
+        [
+          "瑜瑜開始「勇敢一口」遊戲。",
+          "Jack 可以選一樣食物，試一小口。",
+          "他不用全部吃完。"
+        ],
+        [
+          "他們把食物排成小野餐。",
+          "Jack 先看看形狀和顏色。",
+          "莓果有紅色和紫色。"
+        ],
+        [
+          "接著 Jack 聞聞胡蘿蔔、莓果和三明治。",
+          "莓果聞起來甜甜的，他很驚訝。"
+        ],
+        [
+          "Jack 選一顆莓果，咬一小口。",
+          "瑜瑜等著，沒有催他。"
+        ],
+        [
+          "接著 Jack 試一小片胡蘿蔔。",
+          "喀滋一聲！",
+          "他的眼睛睜大了。"
+        ],
+        [
+          "Jack 咬一小口三明治。",
+          "他吃到生菜和小黃瓜。",
+          "它很清爽。"
+        ],
+        [
+          "Jack 說小黃瓜不是他的最愛。",
+          "瑜瑜說沒關係。",
+          "他可以嘗試食物，不必全部都喜歡。"
+        ],
+        [
+          "Jack 再看一次食物，選自己的午餐。",
+          "他挑了莓果、胡蘿蔔和一部分三明治。"
+        ],
+        [
+          "瑜瑜和 Jack 在樹下分享色彩繽紛的野餐。",
+          "籃子在兩人中間。",
+          "Jack 還是不喜歡一些食物，但現在願意試試看。"
+        ],
+        [
+          "籃子再次發光。",
+          "Jack 說下次會先試一小口。",
+          "瑜瑜帶籃子回家，Jack 留在森林。"
+        ]
+      ]
+    },
+    "C": {
+      "pages": [
+        {
+          "title": "The Basket by the Bed",
+          "scene": "bedroom",
+          "lines": [
+            "Gail is in her familiar bedroom wearing her purple star pajamas. A woven basket rests beside her bed. She does not remember putting it there."
+          ],
+          "translation": "瑜瑜穿著紫色星星睡衣待在熟悉的房間裡。床邊出現一只藤編籃子，她不記得自己把它放在那裡。",
+          "words": [
+            "basket"
+          ]
+        },
+        {
+          "title": "The Glowing Basket",
+          "scene": "bedroom",
+          "lines": [
+            "The basket begins to glow. Inside are fresh, colorful foods: berries, a carrot, and a green sandwich. Gail leans closer."
+          ],
+          "translation": "籃子開始發光。裡面有新鮮又色彩繽紛的食物：莓果、胡蘿蔔，還有一份綠色三明治。瑜瑜好奇地靠近。",
+          "words": [
+            "basket",
+            "fresh",
+            "colorful",
+            "berries",
+            "carrot",
+            "sandwich"
+          ]
+        },
+        {
+          "title": "Into the Forest",
+          "scene": "bedroom-to-forest",
+          "lines": [
+            "A warm light rises from the basket and opens a path into a forest. Gail carries the basket through the doorway. There is no bear in her bedroom; Jack appears only after she reaches the forest."
+          ],
+          "translation": "溫暖的光從籃子升起，打開通往森林的道路。瑜瑜提著籃子穿過入口。房間裡沒有熊；Jack 只在她進入森林後才出現。",
+          "words": [
+            "basket"
+          ]
+        },
+        {
+          "title": "A Strange Rumble",
+          "scene": "forest",
+          "lines": [
+            "Deep in the forest, Gail hears a loud rumble. “Grrr-rumble!” It does not sound angry. It sounds hungry."
+          ],
+          "translation": "走進森林後，瑜瑜聽見很大的咕嚕聲。「咕嚕——！」聽起來不像生氣，比較像肚子餓。",
+          "words": [
+            "hungry"
+          ]
+        },
+        {
+          "title": "Meet Jack",
+          "scene": "forest",
+          "lines": [
+            "A big brown bear steps out from behind a tree. He wears a blue scarf. “I’m Jack,” he says. “And I’m very hungry.”"
+          ],
+          "translation": "一隻大棕熊從樹後走出來，脖子上圍著藍色領巾。「我是 Jack，」他說，「而且我好餓。」",
+          "words": [
+            "hungry"
+          ]
+        },
+        {
+          "title": "A Very Picky Bear",
+          "scene": "forest",
+          "lines": [
+            "Gail opens the basket. Jack looks inside and shakes his head. “I’m picky,” he says. “I only eat my favorite foods.”"
+          ],
+          "translation": "瑜瑜打開籃子。Jack 看了一眼就搖頭。「我很挑食，」他說，「我只吃我最喜歡的食物。」",
+          "words": [
+            "picky",
+            "favorite"
+          ]
+        },
+        {
+          "title": "No Berries!",
+          "scene": "forest",
+          "lines": [
+            "Gail offers the berries. Jack steps back. “No berries! They might be too sour.” Gail asks, “Have you tried them?” Jack looks away."
+          ],
+          "translation": "瑜瑜拿出莓果。Jack 往後退：「不要莓果！它們可能太酸了。」瑜瑜問：「你有吃過嗎？」Jack 把頭轉開。",
+          "words": [
+            "berries",
+            "sour"
+          ]
+        },
+        {
+          "title": "No Carrots!",
+          "scene": "forest",
+          "lines": [
+            "Gail holds up the carrot. “It is fresh and crunchy.” Jack folds his arms. “No carrots!”"
+          ],
+          "translation": "瑜瑜拿起胡蘿蔔：「它很新鮮，而且脆脆的。」Jack 抱起手臂：「不要胡蘿蔔！」",
+          "words": [
+            "carrot",
+            "fresh",
+            "crunchy"
+          ]
+        },
+        {
+          "title": "No Green Sandwich!",
+          "scene": "forest",
+          "lines": [
+            "Next comes the sandwich with lettuce and cucumber. Jack makes a face. “Too green!”"
+          ],
+          "translation": "接著是夾著生菜和小黃瓜的三明治。Jack 皺起臉：「太綠了！」",
+          "words": [
+            "sandwich",
+            "lettuce",
+            "cucumber"
+          ]
+        },
+        {
+          "title": "How Do You Know?",
+          "scene": "forest",
+          "lines": [
+            "Gail sits beside the basket. “How do you know you do not like them if you never take a bite?” Jack is quiet."
+          ],
+          "translation": "瑜瑜坐在籃子旁：「如果你從來沒有咬一口，怎麼知道自己不喜歡？」Jack 安靜下來。",
+          "words": [
+            "bite"
+          ]
+        },
+        {
+          "title": "The Brave Bite Game",
+          "scene": "forest-picnic",
+          "lines": [
+            "Gail smiles. “Let’s play the Brave Bite Game. You do not have to finish anything. Just choose one food and try one little bite.”"
+          ],
+          "translation": "瑜瑜笑著說：「我們來玩『勇敢一口』遊戲。你不用全部吃完，只要選一樣，勇敢試一小口。」",
+          "words": [
+            "brave",
+            "choose",
+            "bite"
+          ]
+        },
+        {
+          "title": "First, Look",
+          "scene": "forest-picnic",
+          "lines": [
+            "They spread the foods out like a small picnic. Jack looks at the shapes and colors. The berries shine red and purple."
+          ],
+          "translation": "她們把食物排開，像一場小野餐。Jack 先看看不同的形狀和顏色，莓果閃著紅色和紫色。",
+          "words": [
+            "picnic",
+            "colorful",
+            "berries"
+          ]
+        },
+        {
+          "title": "Next, Smell",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack smells the carrot, berries, and sandwich. “The berries smell sweet,” he says, surprised."
+          ],
+          "translation": "Jack 聞了胡蘿蔔、莓果和三明治。「莓果聞起來甜甜的。」他有些驚訝。",
+          "words": [
+            "sweet"
+          ]
+        },
+        {
+          "title": "One Brave Bite",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack chooses one berry. He takes one small, brave bite. Gail waits without pushing him."
+          ],
+          "translation": "Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。",
+          "words": [
+            "choose",
+            "brave",
+            "bite",
+            "berries"
+          ]
+        },
+        {
+          "title": "CRUNCH!",
+          "scene": "forest-picnic",
+          "lines": [
+            "Then Jack tries a thin piece of carrot. “CRUNCH!” His eyes grow wide. “It is really crunchy!”"
+          ],
+          "translation": "接著 Jack 試了一小片胡蘿蔔。「喀滋！」他的眼睛睜大了：「真的脆脆的！」",
+          "words": [
+            "carrot",
+            "crunchy"
+          ]
+        },
+        {
+          "title": "The Green Sandwich",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack takes a small bite of the sandwich. He tastes the lettuce and cucumber. “It is fresh,” he says."
+          ],
+          "translation": "Jack 咬了一小口三明治，吃到生菜和小黃瓜。「原來很清爽。」他說。",
+          "words": [
+            "sandwich",
+            "lettuce",
+            "cucumber",
+            "fresh"
+          ]
+        },
+        {
+          "title": "Not My Favorite",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack thinks for a moment. “The cucumber is not my favorite.” Gail nods. “That is okay. Trying does not mean you have to love everything.”"
+          ],
+          "translation": "Jack 想了一下：「小黃瓜不是我的最愛。」瑜瑜點點頭：「沒關係。願意嘗試，不代表每一樣都一定要喜歡。」",
+          "words": [
+            "favorite",
+            "cucumber"
+          ]
+        },
+        {
+          "title": "Jack Chooses",
+          "scene": "forest-picnic",
+          "lines": [
+            "Jack looks over the food again and chooses what he wants for lunch. He picks berries, carrot, and part of the sandwich."
+          ],
+          "translation": "Jack 再看一次所有食物，選擇自己的午餐。他挑了莓果、胡蘿蔔和一部分三明治。",
+          "words": [
+            "choose",
+            "lunch"
+          ]
+        },
+        {
+          "title": "A Rainbow Picnic",
+          "scene": "forest-picnic",
+          "lines": [
+            "Gail and Jack share a colorful picnic under the trees. The basket sits between them. Jack is still picky about some foods, but now he is willing to try."
+          ],
+          "translation": "瑜瑜和 Jack 在樹下分享一場色彩繽紛的野餐，籃子放在兩人中間。Jack 還是有些食物不喜歡，但現在願意先試試看。",
+          "words": [
+            "share",
+            "colorful",
+            "picnic",
+            "basket"
+          ]
+        },
+        {
+          "title": "I’ll Try One Little Bite",
+          "scene": "forest-to-bedroom",
+          "lines": [
+            "The basket begins to glow again. Before Gail leaves, Jack smiles and says, “Next time, I’ll try one little bite.” Gail carries the basket home, and Jack stays in the forest with his blue scarf."
+          ],
+          "translation": "籃子再次發光。瑜瑜離開前，Jack 笑著說：「下次，我會先試一小口。」瑜瑜提著籃子回家，戴著藍色領巾的 Jack 留在森林裡。",
+          "words": [
+            "bite",
+            "basket"
+          ]
+        }
+      ],
+      "chinese": [
+        [
+          "瑜瑜穿著紫色星星睡衣待在熟悉的房間裡。床邊出現一只藤編籃子，她不記得自己把它放在那裡。"
+        ],
+        [
+          "籃子開始發光。裡面有新鮮又色彩繽紛的食物：莓果、胡蘿蔔，還有一份綠色三明治。瑜瑜好奇地靠近。"
+        ],
+        [
+          "溫暖的光從籃子升起，打開通往森林的道路。瑜瑜提著籃子穿過入口。房間裡沒有熊；Jack 只在她進入森林後才出現。"
+        ],
+        [
+          "走進森林後，瑜瑜聽見很大的咕嚕聲。「咕嚕——！」聽起來不像生氣，比較像肚子餓。"
+        ],
+        [
+          "一隻大棕熊從樹後走出來，脖子上圍著藍色領巾。「我是 Jack，」他說，「而且我好餓。」"
+        ],
+        [
+          "瑜瑜打開籃子。Jack 看了一眼就搖頭。「我很挑食，」他說，「我只吃我最喜歡的食物。」"
+        ],
+        [
+          "瑜瑜拿出莓果。Jack 往後退：「不要莓果！它們可能太酸了。」瑜瑜問：「你有吃過嗎？」Jack 把頭轉開。"
+        ],
+        [
+          "瑜瑜拿起胡蘿蔔：「它很新鮮，而且脆脆的。」Jack 抱起手臂：「不要胡蘿蔔！」"
+        ],
+        [
+          "接著是夾著生菜和小黃瓜的三明治。Jack 皺起臉：「太綠了！」"
+        ],
+        [
+          "瑜瑜坐在籃子旁：「如果你從來沒有咬一口，怎麼知道自己不喜歡？」Jack 安靜下來。"
+        ],
+        [
+          "瑜瑜笑著說：「我們來玩『勇敢一口』遊戲。你不用全部吃完，只要選一樣，勇敢試一小口。」"
+        ],
+        [
+          "她們把食物排開，像一場小野餐。Jack 先看看不同的形狀和顏色，莓果閃著紅色和紫色。"
+        ],
+        [
+          "Jack 聞了胡蘿蔔、莓果和三明治。「莓果聞起來甜甜的。」他有些驚訝。"
+        ],
+        [
+          "Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。"
+        ],
+        [
+          "接著 Jack 試了一小片胡蘿蔔。「喀滋！」他的眼睛睜大了：「真的脆脆的！」"
+        ],
+        [
+          "Jack 咬了一小口三明治，吃到生菜和小黃瓜。「原來很清爽。」他說。"
+        ],
+        [
+          "Jack 想了一下：「小黃瓜不是我的最愛。」瑜瑜點點頭：「沒關係。願意嘗試，不代表每一樣都一定要喜歡。」"
+        ],
+        [
+          "Jack 再看一次所有食物，選擇自己的午餐。他挑了莓果、胡蘿蔔和一部分三明治。"
+        ],
+        [
+          "瑜瑜和 Jack 在樹下分享一場色彩繽紛的野餐，籃子放在兩人中間。Jack 還是有些食物不喜歡，但現在願意先試試看。"
+        ],
+        [
+          "籃子再次發光。瑜瑜離開前，Jack 笑著說：「下次，我會先試一小口。」瑜瑜提著籃子回家，戴著藍色領巾的 Jack 留在森林裡。"
+        ]
+      ]
+    }
+  }
+}

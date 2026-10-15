@@ -1,0 +1,695 @@
+{
+  "levels": {
+    "A": {
+      "english": [
+        [
+          "Mira has homework.",
+          "She looks at the blackboard."
+        ],
+        [
+          "The notebook is empty.",
+          "Mira has a pencil."
+        ],
+        [
+          "Gail comes in.",
+          "Mira is bored."
+        ],
+        [
+          "Mira wants a book.",
+          "She wants to copy."
+        ],
+        [
+          "Books float.",
+          "It is like a bookstore."
+        ],
+        [
+          "The librarian smiles.",
+          "Mira asks for help."
+        ],
+        [
+          "The girls read.",
+          "Mira has no answer."
+        ],
+        [
+          "A black dot moves.",
+          "It has eight legs."
+        ],
+        [
+          "It is a spider!",
+          "Mira pulls her hands back."
+        ],
+        [
+          "Gail says, “Wait.”",
+          "They observe the spider."
+        ],
+        [
+          "The corner is dirty.",
+          "There is dust."
+        ],
+        [
+          "The spider makes a thread.",
+          "Mira opens her notebook."
+        ],
+        [
+          "A web begins.",
+          "The lines have a pattern."
+        ],
+        [
+          "Mira has a pen and a pencil.",
+          "She wants to write."
+        ],
+        [
+          "Ink falls on the page.",
+          "Mira keeps writing."
+        ],
+        [
+          "They watch quietly.",
+          "Mira draws the web."
+        ],
+        [
+          "Mira reads again.",
+          "The book helps her."
+        ],
+        [
+          "Mira writes her homework.",
+          "She does not copy."
+        ],
+        [
+          "The notebook is full.",
+          "Mira is happy."
+        ],
+        [
+          "Mira holds her notebook.",
+          "Next time, she will observe first."
+        ]
+      ],
+      "chinese": [
+        [
+          "米拉有作業。",
+          "她看著黑板。"
+        ],
+        [
+          "筆記本是空的。",
+          "米拉拿著鉛筆。"
+        ],
+        [
+          "瑜瑜來了。",
+          "米拉覺得無聊。"
+        ],
+        [
+          "米拉想找一本書。",
+          "她想抄答案。"
+        ],
+        [
+          "書在飄。",
+          "這裡像一間書店。"
+        ],
+        [
+          "館員微笑。",
+          "米拉請她幫忙。"
+        ],
+        [
+          "女孩們讀書。",
+          "米拉還沒有答案。"
+        ],
+        [
+          "一個黑點在動。",
+          "牠有八隻腳。"
+        ],
+        [
+          "是蜘蛛！",
+          "米拉把手縮回來。"
+        ],
+        [
+          "瑜瑜說：「等一下。」",
+          "她們觀察蜘蛛。"
+        ],
+        [
+          "角落很髒。",
+          "有灰塵。"
+        ],
+        [
+          "蜘蛛拉出一條絲。",
+          "米拉打開筆記本。"
+        ],
+        [
+          "蜘蛛網開始出現。",
+          "絲線有規律。"
+        ],
+        [
+          "米拉有筆和鉛筆。",
+          "她想寫下來。"
+        ],
+        [
+          "墨水滴在紙上。",
+          "米拉繼續寫。"
+        ],
+        [
+          "她們安靜地看。",
+          "米拉畫出蜘蛛網。"
+        ],
+        [
+          "米拉再次讀書。",
+          "書幫助了她。"
+        ],
+        [
+          "米拉寫作業。",
+          "她沒有抄書。"
+        ],
+        [
+          "筆記本寫滿了。",
+          "米拉很開心。"
+        ],
+        [
+          "米拉抱著筆記本。",
+          "下次她會先觀察。"
+        ]
+      ]
+    },
+    "B": {
+      "english": [
+        [
+          "Mira sits at her desk.",
+          "Her science homework says: observe and write."
+        ],
+        [
+          "Mira opens her empty notebook.",
+          "She has a pencil, but no idea.",
+          "This looks boring."
+        ],
+        [
+          "A magic light appears.",
+          "Gail comes to Mira.",
+          "Mira must study, but she feels bored."
+        ],
+        [
+          "Mira wants to copy an answer from a book.",
+          "Gail asks, “Is that science?”",
+          "Mira is not sure."
+        ],
+        [
+          "They enter the school library.",
+          "The shelves are tall, and some books float.",
+          "It looks like a big bookstore."
+        ],
+        [
+          "The librarian offers help.",
+          "Mira wants a book with an answer to copy.",
+          "The librarian smiles."
+        ],
+        [
+          "The librarian gives them a big book.",
+          "They read about living things.",
+          "Mira still does not know what to write."
+        ],
+        [
+          "Gail sees a black dot on the table.",
+          "Mira looks closer.",
+          "It moves and has eight legs."
+        ],
+        [
+          "Mira sees a spider and pulls her hands back.",
+          "It crosses the table.",
+          "Then it climbs toward a shelf."
+        ],
+        [
+          "Mira wants to move the spider away with a book.",
+          "Gail stops her.",
+          "Her homework asks her to observe."
+        ],
+        [
+          "The spider enters a dusty corner.",
+          "Mira has never noticed it.",
+          "Looking carefully helps her see it now."
+        ],
+        [
+          "A thin thread touches the shelf.",
+          "The spider goes to the other side.",
+          "Mira opens her notebook to watch."
+        ],
+        [
+          "More threads cross each other.",
+          "A web begins to form.",
+          "Gail sees a pattern in the lines."
+        ],
+        [
+          "Mira holds a pen and a pencil.",
+          "She wants to record what she sees.",
+          "Gail says to use the faster one."
+        ],
+        [
+          "Mira writes fast, and ink drops on the page.",
+          "Gail says messy notes are okay.",
+          "Mira laughs and keeps writing."
+        ],
+        [
+          "The spider goes from the center to the edge.",
+          "Then it comes back.",
+          "Mira draws the web in her notebook."
+        ],
+        [
+          "Mira reads about spiders and webs.",
+          "She compares the book with what she saw.",
+          "Now the book helps her understand."
+        ],
+        [
+          "Mira writes about the spider making a web.",
+          "She records what she saw in order.",
+          "She does not copy the book."
+        ],
+        [
+          "Her notebook has words, drawings, arrows and ink.",
+          "Mira says it was not boring.",
+          "She found the answer herself."
+        ],
+        [
+          "Mira thanks the spider before leaving.",
+          "Gail says Mira did the homework herself.",
+          "Mira will observe first next time."
+        ]
+      ],
+      "chinese": [
+        [
+          "米拉坐在書桌前。",
+          "她的科學作業要求：觀察並寫下來。"
+        ],
+        [
+          "米拉打開空白的筆記本。",
+          "她有鉛筆，卻沒有想法。",
+          "這看起來很無聊。"
+        ],
+        [
+          "一道魔法光出現。",
+          "瑜瑜來到米拉身邊。",
+          "米拉必須學習，卻覺得無聊。"
+        ],
+        [
+          "米拉想從書裡抄答案。",
+          "瑜瑜問：「那算科學嗎？」",
+          "米拉不確定。"
+        ],
+        [
+          "她們走進學校圖書館。",
+          "書架很高，有些書在飄。",
+          "這裡看起來像大書店。"
+        ],
+        [
+          "館員主動幫忙。",
+          "米拉想要一本有答案可以抄的書。",
+          "館員笑了。"
+        ],
+        [
+          "館員給她們一本大書。",
+          "她們閱讀生物的介紹。",
+          "米拉仍不知道要寫什麼。"
+        ],
+        [
+          "瑜瑜看見桌上的黑點。",
+          "米拉靠近看。",
+          "牠在動，而且有八隻腳。"
+        ],
+        [
+          "米拉看見蜘蛛，把手縮回來。",
+          "牠爬過桌面。",
+          "然後往書架爬去。"
+        ],
+        [
+          "米拉想用書把蜘蛛趕走。",
+          "瑜瑜阻止她。",
+          "她的作業要她觀察。"
+        ],
+        [
+          "蜘蛛進入積灰的角落。",
+          "米拉從沒注意過這裡。",
+          "仔細看使她現在發現了它。"
+        ],
+        [
+          "一條細絲碰到書架。",
+          "蜘蛛走向另一邊。",
+          "米拉打開筆記本觀察。"
+        ],
+        [
+          "更多絲線交錯。",
+          "蜘蛛網開始成形。",
+          "瑜瑜看出絲線的規律。"
+        ],
+        [
+          "米拉拿著筆和鉛筆。",
+          "她想記錄看到的事。",
+          "瑜瑜說要用寫得較快的那支。"
+        ],
+        [
+          "米拉寫得很快，墨水滴在紙上。",
+          "瑜瑜說筆記亂一點沒關係。",
+          "米拉笑了，繼續記錄。"
+        ],
+        [
+          "蜘蛛從中央走向外圍。",
+          "然後牠回來。",
+          "米拉在筆記本裡畫出蜘蛛網。"
+        ],
+        [
+          "米拉讀蜘蛛與蜘蛛網的介紹。",
+          "她把書和看到的事比較。",
+          "現在書幫助她理解了。"
+        ],
+        [
+          "米拉寫下蜘蛛結網的事。",
+          "她依序記下看到的事。",
+          "她沒有抄書。"
+        ],
+        [
+          "她的筆記本有文字、圖畫、箭頭與墨水。",
+          "米拉說這一點都不無聊。",
+          "她自己找到了答案。"
+        ],
+        [
+          "米拉離開前謝謝蜘蛛。",
+          "瑜瑜說是米拉自己完成作業。",
+          "米拉下次會先觀察。"
+        ]
+      ]
+    },
+    "C": {
+      "english": [
+        [
+          "Mira sits at her desk and looks at the blackboard.",
+          "Her teacher has written:",
+          "SCIENCE HOMEWORK",
+          "“Observe something and write what you discover.”",
+          "Mira sighs.",
+          "“Science homework again?”"
+        ],
+        [
+          "Mira opens her notebook.",
+          "The page is empty.",
+          "She picks up her pencil, but she does not know what to write.",
+          "“This is going to be boring,” she says."
+        ],
+        [
+          "A little magical light appears beside Mira.",
+          "Gail steps into the room.",
+          "“Mira! What are you doing?”",
+          "“I have to study science,” Mira says.",
+          "“But I am already bored.”"
+        ],
+        [
+          "Mira suddenly stands up.",
+          "“I know!”",
+          "“We can go to the library, find a book, and copy the answer.”",
+          "Gail looks at her.",
+          "“Is that really science?”",
+          "Mira pauses.",
+          "“Maybe?”"
+        ],
+        [
+          "They enter the magic school library.",
+          "Tall bookshelves reach almost to the ceiling.",
+          "Some books float through the air.",
+          "It feels like a giant magical bookstore."
+        ],
+        [
+          "The librarian walks toward them.",
+          "“Can I help you?”",
+          "Mira says,",
+          "“I need a book that tells me exactly what to write for my science homework.”",
+          "The librarian smiles.",
+          "“That is an interesting request.”"
+        ],
+        [
+          "The librarian gives Mira a large book.",
+          "Mira begins to read.",
+          "Gail reads beside her.",
+          "The book explains many animals, plants, and insects.",
+          "But Mira still does not know what to write."
+        ],
+        [
+          "Suddenly, Gail sees a tiny black dot moving across the table.",
+          "“Wait.”",
+          "“What is that?”",
+          "Mira leans closer.",
+          "The black dot has eight little legs."
+        ],
+        [
+          "“It is a spider!” Mira cries.",
+          "She quickly pulls her hands away.",
+          "The tiny spider walks across the table.",
+          "Then it climbs toward an old shelf."
+        ],
+        [
+          "Mira reaches for a book.",
+          "“I will move it away.”",
+          "But Gail stops her.",
+          "“Wait.”",
+          "“Your homework says to observe something.”",
+          "They look at the spider again."
+        ],
+        [
+          "The spider climbs into a quiet, dirty corner behind the shelf.",
+          "Dust lies on the floor.",
+          "Mira whispers,",
+          "“I never noticed this place before.”",
+          "“That is why we observe,” Gail says."
+        ],
+        [
+          "The spider releases a thin thread.",
+          "The thread touches the shelf.",
+          "Then the spider walks to another side.",
+          "Mira opens her notebook.",
+          "“I think it is making something.”"
+        ],
+        [
+          "More threads appear.",
+          "One line crosses another.",
+          "Slowly, a web begins to form.",
+          "“It is not random,” Gail says.",
+          "“The spider has a pattern.”"
+        ],
+        [
+          "Mira wants to record everything quickly.",
+          "She holds a pen in one hand and a pencil in the other.",
+          "“Which one should I use?”",
+          "Gail laughs.",
+          "“The one that helps you write faster!”"
+        ],
+        [
+          "Mira writes too quickly.",
+          "A drop of ink falls onto the page.",
+          "“Oh no!”",
+          "Gail smiles.",
+          "“It is okay. Scientists make messy notes too.”",
+          "Mira laughs and keeps writing."
+        ],
+        [
+          "They watch quietly.",
+          "The spider walks from the center to the edge.",
+          "Then it turns and comes back.",
+          "Mira draws the shape in her notebook.",
+          "“I did not know spiders worked like this.”"
+        ],
+        [
+          "Mira returns to the big science book.",
+          "Now she reads about spiders and webs.",
+          "She compares the book with what she observed.",
+          "“Oh!”",
+          "“The book explains what I just saw.”"
+        ],
+        [
+          "Mira begins to write her homework.",
+          "She does not copy the book.",
+          "She writes:",
+          "“I observed a spider making a web.”",
+          "Then she adds what she saw step by step."
+        ],
+        [
+          "Mira looks at her finished notebook.",
+          "There are words, drawings, arrows, and one little ink spot.",
+          "“This was not boring at all!”",
+          "Gail smiles.",
+          "“You found the answer yourself.”"
+        ],
+        [
+          "Before leaving, Mira looks back at the tiny spider.",
+          "“Thank you, little scientist.”",
+          "Gail laughs.",
+          "“The spider did not finish your homework.”",
+          "“You did.”",
+          "Mira holds her notebook proudly.",
+          "“Next time, I will observe first.”"
+        ]
+      ],
+      "chinese": [
+        [
+          "米拉坐在書桌前，看著黑板。",
+          "老師在黑板上寫著：",
+          "「科學作業。」",
+          "觀察一樣東西，然後寫下你的發現。",
+          "米拉嘆了一口氣。",
+          "「又是科學作業啊？」"
+        ],
+        [
+          "米拉打開筆記本。",
+          "紙上一個字都沒有。",
+          "她拿起鉛筆，卻不知道該寫什麼。",
+          "「這一定很無聊。」"
+        ],
+        [
+          "米拉身邊亮起一道小小的魔法光。",
+          "瑜瑜來到了房間。",
+          "「米拉！你在做什麼？」",
+          "「我要念科學。」",
+          "米拉趴在桌上。",
+          "「可是我已經覺得好無聊了。」"
+        ],
+        [
+          "米拉突然站起來。",
+          "「我知道了！」",
+          "「我們去圖書館找一本書，把答案抄下來就好了。」",
+          "瑜瑜看著她。",
+          "「這樣真的算做科學嗎？」",
+          "米拉停了一下。",
+          "「應該……算吧？」"
+        ],
+        [
+          "她們走進魔法學校的圖書館。",
+          "高高的書架幾乎碰到天花板。",
+          "幾本書還自己飄在空中。",
+          "這裡看起來就像一間巨大的魔法書店。"
+        ],
+        [
+          "圖書館館員走了過來。",
+          "「需要幫忙嗎？」",
+          "米拉說：",
+          "「我需要一本可以直接告訴我科學作業要寫什麼的書。」",
+          "館員笑了。",
+          "「這個要求很有意思。」"
+        ],
+        [
+          "館員拿了一本厚厚的書給米拉。",
+          "米拉開始閱讀。",
+          "瑜瑜也坐在她旁邊一起看。",
+          "書裡介紹了很多動物、植物和昆蟲。",
+          "但是米拉還是不知道自己的作業要寫什麼。"
+        ],
+        [
+          "突然，瑜瑜看到桌面上有一個小小的黑點正在移動。",
+          "「等一下。」",
+          "「那是什麼？」",
+          "米拉靠近一看。",
+          "那個小黑點有八隻細細的腳。"
+        ],
+        [
+          "「是蜘蛛！」",
+          "米拉嚇得趕快把手縮回來。",
+          "小蜘蛛慢慢爬過桌面。",
+          "接著往一座舊書架爬去。"
+        ],
+        [
+          "米拉拿起一本書。",
+          "「我把牠趕走。」",
+          "瑜瑜卻阻止她。",
+          "「等一下。」",
+          "「妳的作業不是要妳觀察一樣東西嗎？」",
+          "兩個女孩再次看向小蜘蛛。"
+        ],
+        [
+          "蜘蛛爬進書架後方一個安靜、滿是灰塵的角落。",
+          "地板上積著薄薄的灰塵。",
+          "米拉小聲說：",
+          "「我以前從來沒有注意過這裡。」",
+          "瑜瑜說：",
+          "「所以我們才需要仔細觀察呀。」"
+        ],
+        [
+          "蜘蛛吐出一條細細的絲。",
+          "蜘蛛絲黏到書架的一角。",
+          "接著蜘蛛又爬向另一邊。",
+          "米拉趕快打開筆記本。",
+          "「牠好像正在做什麼。」"
+        ],
+        [
+          "蜘蛛絲越來越多。",
+          "一條線穿過另一條線。",
+          "慢慢地，一張蜘蛛網出現了。",
+          "瑜瑜說：",
+          "「牠不是隨便亂拉線。」",
+          "「蜘蛛有自己的順序。」"
+        ],
+        [
+          "米拉想趕快把看到的東西記下來。",
+          "她一手拿筆，一手拿鉛筆。",
+          "「我要用哪一支？」",
+          "瑜瑜笑了。",
+          "「用妳寫得比較快的那一支！」"
+        ],
+        [
+          "米拉寫得太急。",
+          "一滴墨水掉到了紙上。",
+          "「糟糕！」",
+          "瑜瑜笑著說：",
+          "「沒關係，科學家的觀察筆記有時候也會亂亂的。」",
+          "米拉笑了笑，繼續記錄。"
+        ],
+        [
+          "她們安靜地看著。",
+          "蜘蛛從中央走向外圍。",
+          "接著轉身，再回到中間。",
+          "米拉把蜘蛛網的形狀畫進筆記本。",
+          "「我以前不知道蜘蛛是這樣工作的。」"
+        ],
+        [
+          "米拉回到剛才那本厚厚的科學書前。",
+          "這次，她閱讀的是蜘蛛與蜘蛛網。",
+          "她把書上的內容和剛才真正看到的現象放在一起比較。",
+          "「原來如此！」",
+          "「書裡正在解釋我們剛才看到的事情。」"
+        ],
+        [
+          "米拉開始寫自己的科學作業。",
+          "這一次，她沒有抄書。",
+          "她寫下：",
+          "「我觀察了一隻正在結網的蜘蛛。」",
+          "接著，她按照順序寫下自己真正看到的過程。"
+        ],
+        [
+          "米拉看著完成的筆記本。",
+          "上面有文字、有圖畫、有箭頭，還有一小滴墨水。",
+          "「原來一點都不無聊！」",
+          "瑜瑜笑著說：",
+          "「因為這次答案是妳自己找到的。」"
+        ],
+        [
+          "離開圖書館以前，米拉回頭看看那隻小蜘蛛。",
+          "「謝謝你，小小科學家。」",
+          "瑜瑜笑了。",
+          "「蜘蛛可沒有幫妳寫完作業。」",
+          "「真正完成作業的是妳自己。」",
+          "米拉開心地抱著自己的筆記本。",
+          "「下次，我會先好好觀察！」"
+        ]
+      ]
+    }
+  },
+  "words": [
+    "write",
+    "study",
+    "science",
+    "homework",
+    "black",
+    "blackboard",
+    "bookstore",
+    "bored",
+    "boring",
+    "desk",
+    "dirty",
+    "spider",
+    "librarian",
+    "pen",
+    "pencil",
+    "read",
+    "web",
+    "notebook",
+    "ink",
+    "observe"
+  ]
+}

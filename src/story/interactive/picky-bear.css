@@ -1,0 +1,13 @@
+.picky-bear-book .scene-world.picky-full-image-world{background:#182b37;transform:none;overflow:hidden}
+.picky-bear-book .picky-full-image-frame{position:absolute;left:50%;top:50%;translate:-50% -50%;aspect-ratio:16/9;isolation:isolate;overflow:hidden}
+.picky-bear-book .picky-full-image{display:block;width:100%;height:100%;max-width:none;object-fit:contain;object-position:center;transform:none}
+.picky-bear-book .picky-picture-tap{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:transparent;z-index:2;cursor:pointer}
+.picky-bear-book .picky-picture-tap:focus-visible{outline:3px solid #fce5a2;outline-offset:-4px}
+.picky-bear-book .picky-picture-tap .hotspot-spark{position:absolute;translate:-50% -50%;font-size:22px;line-height:1;opacity:0;color:#fff1a4;text-shadow:0 0 8px #54421f;pointer-events:none}
+.picky-bear-book.show-hints .picky-picture-tap .hotspot-spark,.picky-bear-book .picky-picture-tap:focus-visible .hotspot-spark{opacity:1}
+.picky-bear-book .picky-image-focus{position:absolute;width:10%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;opacity:0;background:radial-gradient(circle,#fff8cfb0,#dfefff30 45%,transparent 70%);pointer-events:none;z-index:3}
+.picky-bear-book .picky-image-particle{position:absolute;width:5px;height:5px;border-radius:50%;background:#fff6be;box-shadow:0 0 5px #fff8df;pointer-events:none;z-index:4}
+.picky-bear-book .picky-image-status{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;background:#182b37e6;color:white;z-index:5;padding:16px}
+.picky-bear-book .picky-image-status[hidden]{display:none}
+.picky-bear-book .picky-image-status button{padding:8px 14px;border-radius:20px;border:1px solid #dcc18a;background:#fff7df;color:#52432a}
+.picky-bear-book .layered-cover .cover-border{background-size:contain;background-position:center;background-repeat:no-repeat}

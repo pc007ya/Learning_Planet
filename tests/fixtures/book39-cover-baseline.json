@@ -1,0 +1,4 @@
+{
+  "beforeGuardSHA256": "a50782266bfdb556e07f8b2b2f3f1cd078383f09f08f0c774661e666fd6fbf1a",
+  "scope": "Adapted fixed38 index before cover-only guard; reversing import/guard restores every byte."
+}

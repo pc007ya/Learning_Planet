@@ -1,0 +1,151 @@
+{
+  "images": [
+    {
+      "path": "images/story/picky-bear-v1/cover.webp",
+      "sha256": "1a22f2196311e436d6642aab272346ac01d53fdea38419220a178fa9c5ec1794",
+      "number": 0,
+      "width": 800,
+      "height": 1200
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/01.webp",
+      "sha256": "d25cf60974f0209d95c47308db3aa7ec943959791f633e22b6a8585a80d94cf0",
+      "number": 1,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/02.webp",
+      "sha256": "cf0b47c6f3a15e5b938e1482df7ad29aa0abc9b29864cd8a227109442b1ed52a",
+      "number": 2,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/03.webp",
+      "sha256": "f5c96b42f1370e6611195a1dd6d570d5d3379f65e7b20312090f5f625c382451",
+      "number": 3,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/04.webp",
+      "sha256": "d35ee97e70e8de5ca732b181e89d4557edeeb9a9220f27a4f46182321334391f",
+      "number": 4,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/05.webp",
+      "sha256": "af08a3a2307835c92b7ee1580a3dc7ec6d307e962bc0f78ef6432d1dc4ed7e69",
+      "number": 5,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/06.webp",
+      "sha256": "35df0b790db6092866e1eda9025f2dfb6ede5be743552b13fd71af0c10c2bf48",
+      "number": 6,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/07.webp",
+      "sha256": "4b501c52b13bc7607787f10a3a73238525c9b6548482bc6fcfa7cd42d00212db",
+      "number": 7,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/08.webp",
+      "sha256": "ced81f108749d398be9c6abb977fce1e292d0ffaf0b69eb9a71e5c61d84d8f56",
+      "number": 8,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/09.webp",
+      "sha256": "6e9d4c5d35109bc331da209c3043f31f7c5d6f367c35aa0e00fa95b4e0895346",
+      "number": 9,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/10.webp",
+      "sha256": "6dfc4e65a6165c7f5d159dbdad67346c734be393bd09180f8884f52948bbe7e5",
+      "number": 10,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/11.webp",
+      "sha256": "6b7b7682bee7170565b30790f745275287e87f11b02bba4330b547f472a633da",
+      "number": 11,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/12.webp",
+      "sha256": "e09b080c2e45db8095d9f9766326913496b9f71c6230f39416842793c2eac9e8",
+      "number": 12,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/13.webp",
+      "sha256": "e45fa0b88bd1dce3ca8d201efe3e6db81e33e36cf6fb4410382009aa8129741e",
+      "number": 13,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/14.webp",
+      "sha256": "22b7e042b5507a227a6efbc6887e252f1146f94b120cbcdab5c1128fa0d528bb",
+      "number": 14,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/15.webp",
+      "sha256": "8068289d6ff590350e9ac3ae89d21e81ae661e8177470f771afedefb38d84937",
+      "number": 15,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/16.webp",
+      "sha256": "921e1e4e7b4bee61682698cf60bbc5dc03cf6977e40c4dc4734f61f4a29164e2",
+      "number": 16,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/17.webp",
+      "sha256": "9a0dd57978a5b1da96e3df75bac386c9abc62b43dfde78778b2c4cee3b664537",
+      "number": 17,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/18.webp",
+      "sha256": "3484a5fae37f9d48e582ab1ae90a63e791728d342ca8b3b101c7bc479c1c136c",
+      "number": 18,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/19.webp",
+      "sha256": "03f8695a34ec847c77538c5743a9c3745eeb33e687362b7e62bb6c3f3243b793",
+      "number": 19,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/picky-bear-v1/scene/20.webp",
+      "sha256": "04e43eecf37bed291f832a2d897c58b000ad0dc36393c6a4e66a462198839c50",
+      "number": 20,
+      "width": 960,
+      "height": 540
+    }
+  ]
+}

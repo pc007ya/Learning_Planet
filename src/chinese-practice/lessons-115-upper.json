@@ -1042,12 +1042,15 @@
         "category": "認讀字",
         "text": "哪",
         "sounds": [
-          ""
+          "ㄋㄚˇ"
         ],
         "soundSources": [
+          "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002693&breadcrumbs=Search_%E5%93%AA_one&dictSearchField=%E5%93%AA",
+          "https://naniexpo.nani.com.tw/template/subject.php?grade=low",
+          "https://naniexpo.nani.com.tw/uploads/subject_reason/NE1A11-4-05_20260311_053830_bd7e22.jpg",
           "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%93%AA"
         ],
-        "soundNote": "「哪」字音待確認（官方音讀：ㄋㄚˇ／˙ㄋㄚ／ㄋㄨㄛˊ）。"
+        "soundNote": "已核（2026-10-15）：南一115教材博覽會低年級「多元選文」第2張，課本52頁「哪個星球」之「哪」標音 ㄋㄚˇ；教育部小字典疑問詞義交叉核對。"
       },
       {
         "category": "認讀字",
@@ -1095,16 +1098,18 @@
         "category": "語詞",
         "text": "哪個",
         "sounds": [
-          "",
-          ""
+          "ㄋㄚˇ",
+          "˙ㄍㄜ"
         ],
         "soundSources": [
           "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002693&breadcrumbs=Search_%E5%93%AA_one&dictSearchField=%E5%93%AA",
           "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0003067&breadcrumbs=Search_%E5%80%8B_one&dictSearchField=%E5%80%8B",
           "https://dict.revised.moe.edu.tw/dictView.jsp?ID=2931",
-          "https://dict.revised.moe.edu.tw/dictView.jsp?ID=3969"
+          "https://dict.revised.moe.edu.tw/dictView.jsp?ID=3969",
+          "https://naniexpo.nani.com.tw/template/subject.php?grade=low",
+          "https://naniexpo.nani.com.tw/uploads/subject_reason/NE1A11-4-05_20260311_053830_bd7e22.jpg"
         ],
-        "soundNote": "「哪個」詞音待確認：疑問詞「哪」及合音、量詞「個」輕聲均需教材注音頁；不沿用單字首音。"
+        "soundNote": "已核（2026-10-15）：南一115官方教材預覽52頁「哪個星球」逐字標音 ㄋㄚˇ ˙ㄍㄜ；教育部小字典「哪」及重編本「個」輕讀交叉核對；保留課文中的輕聲，不套用頁底單字本音。"
       },
       {
         "category": "語詞",
@@ -4198,12 +4203,16 @@
         "category": "生字",
         "text": "還",
         "sounds": [
-          ""
+          "ㄏㄞˊ"
         ],
         "soundSources": [
+          "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0004254&breadcrumbs=Search_%E9%82%84_one&dictSearchField=%E9%82%84",
+          "https://www.knsh.com.tw/service/plan",
+          "https://drive.google.com/drive/folders/1VjGyNCHi1Ilg9kqqgh-RhO9odaaS4Q8M",
+          "https://docs.google.com/document/d/13MHoZaWYBcQ0C588_CGP8jX2rxc1BElf/edit?usp=drivesdk&ouid=101124790623598083601&rtpof=true&sd=true",
           "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%82%84"
         ],
-        "soundNote": "「還」字音待確認（官方音讀：ㄏㄞˊ／ㄏㄨㄢˊ）。"
+        "soundNote": "已核（2026-10-15）：康軒官方公開115上二年級國語課程計畫，第二週第一課「新學年新希望」明列「要……還要……」；依教育部小字典D0004254「再、又」義核為 ㄏㄞˊ。本次以本年度出版社課程計畫核語境，未聲稱取得電子課本原頁注音。"
       },
       {
         "category": "認讀字",
@@ -24741,12 +24750,15 @@
         "category": "生字",
         "text": "結",
         "sounds": [
-          ""
+          "ㄐㄧㄝˊ"
         ],
         "soundSources": [
+          "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002431&breadcrumbs=Search_%E7%B5%90_one&dictSearchField=%E7%B5%90",
+          "https://dict.concised.moe.edu.tw/dictView.jsp?ID=22065&la=0&powerMode=0",
+          "https://h5.hle.com.tw/books/edisc/1151/e/115E_CH_3D/PC/index.html",
           "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%B5%90"
         ],
-        "soundNote": "「結」字音待確認（官方音讀：ㄐㄧㄝˊ／ㄐㄧㄝ）。"
+        "soundNote": "已核（2026-10-15）：翰林115上官方電子書「選文特色-1」49頁「結不成果子」之「結」標音 ㄐㄧㄝˊ；教育部簡編本ID22065植物長出果實義交叉核對。"
       },
       {
         "category": "生字",
@@ -24918,7 +24930,7 @@
         ]
       }
     ],
-    "sourceNote": "教育百科索引與課頁均作「為梨花撐傘用」；保留官方表題，疑似多出「用」字，出版社課名待核。"
+    "sourceNote": "教育百科索引與課頁均作「為梨花撐傘用」，保留該來源表題。2026-10-15已核翰林115上官方電子書「選文特色-1」48–49頁：出版社第五課課名為「為梨花撐傘」；兩種表題分別保留來源脈絡。"
   },
   {
     "id": "0101031150106",

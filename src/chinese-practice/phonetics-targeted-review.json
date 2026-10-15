@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-10-09",
+  "checkedAt": "2026-10-15",
   "scope": "只查原剩餘21個詞條；不批次重抓、不更動其他課／詞條。",
-  "confirmedCount": 1,
-  "pendingCount": 20,
+  "confirmedCount": 5,
+  "pendingCount": 16,
   "entries": [
     {
       "lessonId": "0102011150104",
@@ -41,7 +41,7 @@
       "publisher": "南一",
       "number": 5,
       "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011150105",
-      "status": "待確認",
+      "status": "已確認",
       "candidates": [
         {
           "char": "哪",
@@ -55,7 +55,34 @@
       "dictionarySources": [
         "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002693&breadcrumbs=Search_%E5%93%AA_one&dictSearchField=%E5%93%AA"
       ],
-      "missingEvidence": "缺本課含「哪」的原句／注音頁，需辨疑問、語助詞或專名；不能僅憑課名選音。"
+      "missingEvidence": "",
+      "previousReview": {
+        "checkedAt": "2026-10-09",
+        "status": "待確認",
+        "missingEvidence": "缺本課含「哪」的原句／注音頁，需辨疑問、語助詞或專名；不能僅憑課名選音。"
+      },
+      "checkedAt": "2026-10-15",
+      "confirmationMethod": "實讀南一115官方教材預覽原圖52頁，對照本課第五課「外星人」及教育部小字典疑問詞義；不是由課名或他課推音。",
+      "evidence": [
+        {
+          "url": "https://naniexpo.nani.com.tw/template/subject.php?grade=low",
+          "scope": "115教材博覽會／低年級／國語必選理由／多元選文／第2張，明列第五課「外星人」"
+        },
+        {
+          "url": "https://naniexpo.nani.com.tw/uploads/subject_reason/NE1A11-4-05_20260311_053830_bd7e22.jpg",
+          "scope": "原圖52頁，課文「哪個星球」之「哪」及頁底認字欄均標 ㄋㄚˇ"
+        },
+        {
+          "url": "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%93%AA",
+          "scope": "保留既有教育百科音值來源"
+        }
+      ],
+      "override": {
+        "sounds": [
+          "ㄋㄚˇ"
+        ],
+        "soundNote": "已核（2026-10-15）：南一115教材博覽會低年級「多元選文」第2張，課本52頁「哪個星球」之「哪」標音 ㄋㄚˇ；教育部小字典疑問詞義交叉核對。"
+      }
     },
     {
       "lessonId": "0102011150105",
@@ -68,7 +95,7 @@
       "publisher": "南一",
       "number": 5,
       "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011150105",
-      "status": "待確認",
+      "status": "已確認",
       "candidates": [
         {
           "char": "哪",
@@ -92,15 +119,32 @@
         "https://dict.revised.moe.edu.tw/dictView.jsp?ID=2931",
         "https://dict.revised.moe.edu.tw/dictView.jsp?ID=3969"
       ],
-      "missingEvidence": "缺115上南一第5課詞語注音頁；需確認「哪」是否採合音，以及量詞「個」採輕聲或本音。",
+      "missingEvidence": "",
       "wordCandidatesNote": "疑問詞通常 ㄋㄚˇ；重編本另收合音 ㄋㄟˇ。量詞例句「個」讀 ˙ㄍㄜ，單字本音 ㄍㄜˋ；ㄍㄜˇ 是自個兒用法，不能套入此詞。未核教材標音前兩字留空。",
       "override": {
         "sounds": [
-          "",
-          ""
+          "ㄋㄚˇ",
+          "˙ㄍㄜ"
         ],
-        "soundNote": "「哪個」詞音待確認：疑問詞「哪」及合音、量詞「個」輕聲均需教材注音頁；不沿用單字首音。"
-      }
+        "soundNote": "已核（2026-10-15）：南一115官方教材預覽52頁「哪個星球」逐字標音 ㄋㄚˇ ˙ㄍㄜ；教育部小字典「哪」及重編本「個」輕讀交叉核對；保留課文中的輕聲，不套用頁底單字本音。"
+      },
+      "previousReview": {
+        "checkedAt": "2026-10-09",
+        "status": "待確認",
+        "missingEvidence": "缺115上南一第5課詞語注音頁；需確認「哪」是否採合音，以及量詞「個」採輕聲或本音。"
+      },
+      "checkedAt": "2026-10-15",
+      "confirmationMethod": "實讀南一115官方原課52頁完整「哪個」注音；「哪」為 ㄋㄚˇ，「個」上方有輕聲圓點。教育部重編本ID3969明列量詞「個」的輕讀 ˙ㄍㄜ。",
+      "evidence": [
+        {
+          "url": "https://naniexpo.nani.com.tw/template/subject.php?grade=low",
+          "scope": "115教材博覽會／低年級／國語必選理由／多元選文／第2張"
+        },
+        {
+          "url": "https://naniexpo.nani.com.tw/uploads/subject_reason/NE1A11-4-05_20260311_053830_bd7e22.jpg",
+          "scope": "原圖52頁「哪個星球」；「個」課文標輕聲，頁底單字另標本音，兩者不混用"
+        }
+      ]
     },
     {
       "lessonId": "0102011150106",
@@ -192,7 +236,7 @@
       "publisher": "康軒",
       "number": 1,
       "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103021150101",
-      "status": "待確認",
+      "status": "已確認",
       "candidates": [
         {
           "char": "還",
@@ -205,7 +249,38 @@
       "dictionarySources": [
         "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0004254&breadcrumbs=Search_%E9%82%84_one&dictSearchField=%E9%82%84"
       ],
-      "missingEvidence": "缺本課原句／注音頁，需區分仍然／另外與返回／歸還。"
+      "missingEvidence": "",
+      "previousReview": {
+        "checkedAt": "2026-10-15",
+        "status": "待確認",
+        "missingEvidence": "缺本課原句／注音頁，需區分仍然／另外與返回／歸還。"
+      },
+      "checkedAt": "2026-10-15",
+      "confirmationMethod": "沿康軒官網公開免費課程計畫正式連結，讀115學年度第一學期二年級國語課程計畫；第二週第一課「新學年新希望」明列「要……還要……」句型。「還」為再、又的副詞義，教育部小字典D0004254第一音第三義明列 ㄏㄞˊ。語境由本年度出版社課程計畫取得，並非由2021影片、課名或單字候選猜音；本次沒有取得電子課本原頁注音。",
+      "evidence": [
+        {
+          "url": "https://www.knsh.com.tw/service/plan",
+          "scope": "康軒官網／教育服務／國教服務／課程計畫／國小課程新綱版，免費公開下載入口"
+        },
+        {
+          "url": "https://drive.google.com/drive/folders/1VjGyNCHi1Ilg9kqqgh-RhO9odaaS4Q8M",
+          "scope": "官網直接連結國小版；01橫式→01.上學期→2年級"
+        },
+        {
+          "url": "https://docs.google.com/document/d/13MHoZaWYBcQ0C588_CGP8jX2rxc1BElf/edit?usp=drivesdk&ouid=101124790623598083601&rtpof=true&sd=true",
+          "scope": "橫式115(一)小國2上課程計畫.docx；文件首行115學年度第一學期；第二週9/07–9/11第一課「新學年新希望」，學習目標與教學活動均列「要……還要……」"
+        },
+        {
+          "url": "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%82%84",
+          "scope": "保留既有教育百科音值來源"
+        }
+      ],
+      "override": {
+        "sounds": [
+          "ㄏㄞˊ"
+        ],
+        "soundNote": "已核（2026-10-15）：康軒官方公開115上二年級國語課程計畫，第二週第一課「新學年新希望」明列「要……還要……」；依教育部小字典D0004254「再、又」義核為 ㄏㄞˊ。本次以本年度出版社課程計畫核語境，未聲稱取得電子課本原頁注音。"
+      }
     },
     {
       "lessonId": "0103021150104",
@@ -567,7 +642,7 @@
       "publisher": "翰林",
       "number": 5,
       "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101031150105",
-      "status": "待確認",
+      "status": "已確認",
       "candidates": [
         {
           "char": "結",
@@ -578,9 +653,38 @@
         }
       ],
       "dictionarySources": [
-        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002431&breadcrumbs=Search_%E7%B5%90_one&dictSearchField=%E7%B5%90"
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002431&breadcrumbs=Search_%E7%B5%90_one&dictSearchField=%E7%B5%90",
+        "https://dict.concised.moe.edu.tw/dictView.jsp?ID=22065&la=0&powerMode=0"
       ],
-      "missingEvidence": "翰林115公開電子書為教材功能示範，未取得目標課含「結」的原句／注音頁；需辨結實、結合等詞義。"
+      "missingEvidence": "",
+      "previousReview": {
+        "checkedAt": "2026-10-09",
+        "status": "待確認",
+        "missingEvidence": "翰林115公開電子書為教材功能示範，未取得目標課含「結」的原句／注音頁；需辨結實、結合等詞義。"
+      },
+      "checkedAt": "2026-10-15",
+      "confirmationMethod": "已核lessonId0101031150105、翰林三上第五課與生字「結」；實讀115官方電子書「選文特色-1」48–49頁並局部放大49頁「結不成果子」，明列 ㄐㄧㄝˊ；教育部簡編本ID22065第6義相符。",
+      "evidence": [
+        {
+          "url": "https://h5.hle.com.tw/books/edisc/1151/e/115E_CH_3D/PC/index.html",
+          "scope": "115上中年級國語展示書／選文特色-1／第五課「為梨花撐傘」48–49頁；局部放大49頁核注音"
+        },
+        {
+          "url": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=22065&la=0&powerMode=0",
+          "scope": "「結」ㄐㄧㄝˊ，第6義：植物長出果實"
+        },
+        {
+          "url": "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%B5%90",
+          "scope": "保留既有教育百科音值來源"
+        }
+      ],
+      "override": {
+        "sounds": [
+          "ㄐㄧㄝˊ"
+        ],
+        "soundNote": "已核（2026-10-15）：翰林115上官方電子書「選文特色-1」49頁「結不成果子」之「結」標音 ㄐㄧㄝˊ；教育部簡編本ID22065植物長出果實義交叉核對。"
+      },
+      "lessonSourceNote": "教育百科索引與課頁均作「為梨花撐傘用」，保留該來源表題。2026-10-15已核翰林115上官方電子書「選文特色-1」48–49頁：出版社第五課課名為「為梨花撐傘」；兩種表題分別保留來源脈絡。"
     },
     {
       "lessonId": "0101031150106",
@@ -613,22 +717,44 @@
     {
       "publisher": "南一",
       "url": "https://naniexpo.nani.com.tw/template/subject.php?grade=low",
-      "scope": "115公開教材簡介／配套示範；本次未取得目標課原句注音頁。"
+      "scope": "115公開教材簡介／配套示範；本次未取得目標課原句注音頁。",
+      "checkedAt": "2026-10-09"
     },
     {
       "publisher": "康軒",
       "url": "https://digitalmaster.knsh.com.tw/all/video/e/chinese_page.html?l1=3%E4%B8%8A&l2=%E7%AC%AC10%E8%AA%B2%E3%80%80%E7%8B%90%E7%8B%B8%E7%9A%84%E6%95%85%E4%BA%8B",
-      "scope": "公開課文引導動畫非逐字課文；未用改寫對白替代原課。"
+      "scope": "公開課文引導動畫非逐字課文；未用改寫對白替代原課。",
+      "checkedAt": "2026-10-09"
     },
     {
       "publisher": "翰林",
       "url": "https://h5.hle.com.tw/books/edisc/1151/e/115E_CH_3D/PC/index.html",
-      "scope": "115公開功能示範；未取得目標課原句注音頁。"
+      "scope": "115公開功能示範；未取得目標課原句注音頁。",
+      "checkedAt": "2026-10-09"
     },
     {
       "publisher": "翰林",
       "url": "https://www.youtube.com/watch?v=uZ30fqFgS4I",
-      "scope": "官方小鉛筆大學問課前引導動畫，5年前影片未標115，未作115原課標音證據。"
+      "scope": "官方小鉛筆大學問課前引導動畫，5年前影片未標115，未作115原課標音證據。",
+      "checkedAt": "2026-10-09"
+    },
+    {
+      "publisher": "南一",
+      "url": "https://naniexpo.nani.com.tw/uploads/subject_reason/NE1A11-4-05_20260311_053830_bd7e22.jpg",
+      "checkedAt": "2026-10-15",
+      "scope": "2026-10-15已實讀115低年級官方預覽52頁；補核「哪」及「哪個」。其他未見原課注音者保留待核。"
+    },
+    {
+      "publisher": "翰林",
+      "url": "https://h5.hle.com.tw/books/edisc/1151/e/115E_CH_3D/PC/index.html",
+      "checkedAt": "2026-10-15",
+      "scope": "2026-10-15已實讀選文特色-1的48–49頁；已取得第五課含「結」原句與注音，更新原未取得記錄。"
+    },
+    {
+      "publisher": "康軒",
+      "url": "https://www.knsh.com.tw/service/plan",
+      "checkedAt": "2026-10-15",
+      "scope": "正式電子書仍停於沒有權限使用頁；另沿官網公開免費課程計畫正式連結讀115上一至三年級三份國語docx；二上第一課「要……還要……」可核還的語境，其餘6筆未見目標字原句／標音，仍待資料。沒有改登入、權限或繞過電子書限制。"
     }
   ]
 }

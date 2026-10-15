@@ -1,6 +1,6 @@
 import {describe,it,expect,afterEach} from 'vitest';
 import {readFileSync} from 'node:fs';
-import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
 import data from '../src/story/underwater-world/data.json';
 import quizzes from '../src/story/interactive/underwater-world-quiz.json';
 import {underwaterBook,underwaterCard,underwaterCoverMarkup,underwaterObjects} from '../src/story/interactive/underwater-world';
@@ -10,8 +10,9 @@ import {drawCover} from '../src/story/jacket';
 afterEach(()=>vi.unstubAllGlobals());
 describe('Book54 shared template and protected content',()=>{
  it('preserves the complete approved bilingual story and layer metadata byte for byte',()=>{
-  const original=execFileSync('git',['show','b95ad213be3e63e7b181635d8a00459c34c6b5ec:src/story/underwater-world/data.json']);
-  expect(readFileSync('src/story/underwater-world/data.json')).toEqual(original);
+  // Approved data at b95ad213; keep this check independent of Git history in shallow CI checkouts.
+  const originalSHA256='78f1a452ceec2565b6f81548c06c24a37588374c0c48b75a39e950cfbdefa372';
+  expect(createHash('sha256').update(readFileSync('src/story/underwater-world/data.json')).digest('hex')).toBe(originalSHA256);
   const book=underwaterBook();for(const level of ['A','B','C'] as const){const pages=book.pages(level);expect(pages).toHaveLength(20);pages.forEach((p,i)=>{expect(p.lines).toEqual(data.scenes[i].text[level]);expect(book.chinese(i,level)).toEqual(data.scenes[i].chinese[level]);expect(p.objects).toEqual(underwaterObjects(i).map(o=>o.id));});}
  });
  it('guards the direct route before importing the common reader and avoids old cover layers',()=>{

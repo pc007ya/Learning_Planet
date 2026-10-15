@@ -1,0 +1,1702 @@
+{
+  "A": [
+    {
+      "id": "book38-A01",
+      "kind": "choice",
+      "prompt": "What is the dark board with chalk drawings behind Mira?",
+      "chinesePrompt": "米拉身後畫著粉筆圖示的深色大板是什麼？",
+      "options": [
+        {
+          "text": "A bookshelf"
+        },
+        {
+          "text": "A window only"
+        },
+        {
+          "text": "A blackboard"
+        },
+        {
+          "text": "An open notebook"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第1幕 / Scene 1: The dark board behind Mira is a blackboard, as A1 names. Shelves and windows also exist, but are not that board; the notebook is on the desk. 黑色大板是黑板，A1也提到；書架、窗戶不是這塊板，筆記本在桌上。\n故事證據 / Evidence: Mira has homework. She looks at the blackboard. / 米拉有作業。 她看著黑板。",
+      "skill": "picture-object",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "Mira has homework. She looks at the blackboard.",
+          "chinese": "米拉有作業。 她看著黑板。"
+        }
+      ],
+      "image": "images/story/science-homework-v1/scene/01.webp",
+      "imageAlt": "A Science Homework"
+    },
+    {
+      "id": "book38-A02",
+      "kind": "choice",
+      "prompt": "How is the notebook at the start?",
+      "chinesePrompt": "一開始筆記本是什麼樣子？",
+      "options": [
+        {
+          "text": "Empty"
+        },
+        {
+          "text": "Full of words"
+        },
+        {
+          "text": "Full of ink"
+        },
+        {
+          "text": "Full of webs"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第2幕 / Scene 2: A2 calls the notebook empty. Words, ink and web drawings have not filled this page. A2是空白，尚未寫滿字、墨水或蜘蛛網圖。\n故事證據 / Evidence: The notebook is empty. Mira has a pencil. / 筆記本是空的。 米拉拿著鉛筆。",
+      "skill": "direct-detail",
+      "evidence": [
+        {
+          "scene": 2,
+          "quote": "The notebook is empty. Mira has a pencil.",
+          "chinese": "筆記本是空的。 米拉拿著鉛筆。"
+        }
+      ]
+    },
+    {
+      "id": "book38-A03",
+      "kind": "choice",
+      "prompt": "How does Mira feel when Gail comes?",
+      "chinesePrompt": "瑜瑜來時，米拉覺得怎樣？",
+      "options": [
+        {
+          "text": "Proud"
+        },
+        {
+          "text": "Angry"
+        },
+        {
+          "text": "Excited"
+        },
+        {
+          "text": "Bored"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第3幕 / Scene 3: A3 says Mira is bored. Proud, angry and excited are different feelings and are not stated here. A3明說無聊，並非自豪、生氣或興奮。\n故事證據 / Evidence: Gail comes in. Mira is bored. / 瑜瑜來了。 米拉覺得無聊。",
+      "skill": "feeling-word",
+      "evidence": [
+        {
+          "scene": 3,
+          "quote": "Gail comes in. Mira is bored.",
+          "chinese": "瑜瑜來了。 米拉覺得無聊。"
+        }
+      ]
+    },
+    {
+      "id": "book38-A04",
+      "kind": "choice",
+      "prompt": "What does Mira want to do with a book?",
+      "chinesePrompt": "米拉一開始想拿書做什麼？",
+      "options": [
+        {
+          "text": "Draw a web"
+        },
+        {
+          "text": "Copy an answer"
+        },
+        {
+          "text": "Hide a spider"
+        },
+        {
+          "text": "Clean the desk"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第4幕 / Scene 4: A4 says she wants to copy. Drawing, hiding and cleaning do not name her first plan for the book. A4想抄答案，畫網、藏蜘蛛、擦桌都不是這個計畫。\n故事證據 / Evidence: Mira wants a book. She wants to copy. / 米拉想找一本書。 她想抄答案。",
+      "skill": "direct-action",
+      "evidence": [
+        {
+          "scene": 4,
+          "quote": "Mira wants a book. She wants to copy.",
+          "chinese": "米拉想找一本書。 她想抄答案。"
+        }
+      ]
+    },
+    {
+      "id": "book38-A05",
+      "kind": "choice",
+      "prompt": "What floats above the girls in this picture?",
+      "chinesePrompt": "圖片中什麼飄在女孩們上方？",
+      "options": [
+        {
+          "text": "Books"
+        },
+        {
+          "text": "Pencils"
+        },
+        {
+          "text": "Notebooks"
+        },
+        {
+          "text": "Desks"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第5幕 / Scene 5: The real scene5 shows closed books in the air and A5 says books float. The floating shapes are not loose pencils, notebooks or desks. 正式05上方是漂浮書本，A5也如此；不是鉛筆、作業本或書桌。\n故事證據 / Evidence: Books float. It is like a bookstore. / 書在飄。 這裡像一間書店。",
+      "skill": "picture-object",
+      "evidence": [
+        {
+          "scene": 5,
+          "quote": "Books float. It is like a bookstore.",
+          "chinese": "書在飄。 這裡像一間書店。"
+        }
+      ],
+      "image": "images/story/science-homework-v1/scene/05.webp",
+      "imageAlt": "The Magic Library"
+    },
+    {
+      "id": "book38-A06",
+      "kind": "choice",
+      "prompt": "Who smiles and offers help?",
+      "chinesePrompt": "誰微笑並提供幫忙？",
+      "options": [
+        {
+          "text": "Mira"
+        },
+        {
+          "text": "Gail"
+        },
+        {
+          "text": "The librarian"
+        },
+        {
+          "text": "The spider"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第6幕 / Scene 6: A6 names the smiling librarian and Mira asking for help. It does not make Mira, Gail or the spider the librarian. A6明說館員微笑、米拉求助；米拉、瑜瑜、蜘蛛不是提供幫忙的館員。\n故事證據 / Evidence: The librarian smiles. Mira asks for help. / 館員微笑。 米拉請她幫忙。",
+      "skill": "direct-character",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "The librarian smiles. Mira asks for help.",
+          "chinese": "館員微笑。 米拉請她幫忙。"
+        }
+      ]
+    },
+    {
+      "id": "book38-A07",
+      "kind": "choice",
+      "prompt": "How many legs does the black dot have in this picture?",
+      "chinesePrompt": "圖片裡的小黑點有幾隻腳？",
+      "options": [
+        {
+          "text": "Six"
+        },
+        {
+          "text": "Eight"
+        },
+        {
+          "text": "Four"
+        },
+        {
+          "text": "Two"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第8幕 / Scene 8: A8 says eight; the enlarged formal08 shows four legs on each side of the small black spider. Six, four and two do not match this count. A8寫八隻，放大08可看左右各四足，六、四、二均不符。\n故事證據 / Evidence: A black dot moves. It has eight legs. / 一個黑點在動。 牠有八隻腳。",
+      "skill": "picture-count",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "A black dot moves. It has eight legs.",
+          "chinese": "一個黑點在動。 牠有八隻腳。"
+        }
+      ],
+      "image": "images/story/science-homework-v1/scene/08.webp",
+      "imageAlt": "A Black Little Dot"
+    },
+    {
+      "id": "book38-A08",
+      "kind": "choice",
+      "prompt": "What does Mira pull back?",
+      "chinesePrompt": "米拉把什麼縮回來？",
+      "options": [
+        {
+          "text": "Her notebook"
+        },
+        {
+          "text": "Her hat"
+        },
+        {
+          "text": "Her pencil"
+        },
+        {
+          "text": "Her hands"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第9幕 / Scene 9: A9 says she pulls her hands back. It does not say she pulls her notebook, hat or pencil back. A9縮回雙手，沒有說收回本子、帽子或鉛筆。\n故事證據 / Evidence: It is a spider! Mira pulls her hands back. / 是蜘蛛！ 米拉把手縮回來。",
+      "skill": "direct-action",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "It is a spider! Mira pulls her hands back.",
+          "chinese": "是蜘蛛！ 米拉把手縮回來。"
+        }
+      ]
+    },
+    {
+      "id": "book38-A09",
+      "kind": "choice",
+      "prompt": "What do the girls do next after Gail says “Wait”?",
+      "chinesePrompt": "瑜瑜說「等一下」後，女孩們緊接著做什麼？",
+      "options": [
+        {
+          "text": "Copy the book"
+        },
+        {
+          "text": "Leave the library"
+        },
+        {
+          "text": "Observe the spider"
+        },
+        {
+          "text": "Move the desk"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第10幕 / Scene 10: A10 says they observe the spider. Copying, leaving and moving the desk are not this action. A10接著觀察蜘蛛，並非抄書、離開或搬桌。\n故事證據 / Evidence: Gail says, “Wait.” They observe the spider. / 瑜瑜說：「等一下。」 她們觀察蜘蛛。",
+      "skill": "direct-action",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "Gail says, “Wait.” They observe the spider.",
+          "chinese": "瑜瑜說：「等一下。」 她們觀察蜘蛛。"
+        }
+      ]
+    },
+    {
+      "id": "book38-A10",
+      "kind": "choice",
+      "prompt": "What is in the dirty corner?",
+      "chinesePrompt": "髒角落裡有什麼？",
+      "options": [
+        {
+          "text": "Ink"
+        },
+        {
+          "text": "Dust"
+        },
+        {
+          "text": "Homework"
+        },
+        {
+          "text": "Floating books"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第11幕 / Scene 11: A11 names dust in the corner. Ink, homework and floating books do not replace that named material. A11明說灰塵，不是墨水、作業或漂浮書本。\n故事證據 / Evidence: The corner is dirty. There is dust. / 角落很髒。 有灰塵。",
+      "skill": "direct-detail",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "The corner is dirty. There is dust.",
+          "chinese": "角落很髒。 有灰塵。"
+        }
+      ]
+    },
+    {
+      "id": "book38-A11",
+      "kind": "choice",
+      "prompt": "What does the spider make first here?",
+      "chinesePrompt": "蜘蛛在這一幕先拉出什麼？",
+      "options": [
+        {
+          "text": "A drawing"
+        },
+        {
+          "text": "An ink spot"
+        },
+        {
+          "text": "A notebook"
+        },
+        {
+          "text": "A thread"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第12幕 / Scene 12: A12 names a thread made by the spider. A drawing, ink spot and notebook are other story objects, not this first silk line. A12蜘蛛拉出絲，畫、墨點與本子並不是第一條絲。\n故事證據 / Evidence: The spider makes a thread. Mira opens her notebook. / 蜘蛛拉出一條絲。 米拉打開筆記本。",
+      "skill": "direct-object",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "The spider makes a thread. Mira opens her notebook.",
+          "chinese": "蜘蛛拉出一條絲。 米拉打開筆記本。"
+        }
+      ]
+    },
+    {
+      "id": "book38-A12",
+      "kind": "choice",
+      "prompt": "What begins to form from the lines?",
+      "chinesePrompt": "絲線開始形成什麼？",
+      "options": [
+        {
+          "text": "A web"
+        },
+        {
+          "text": "A shelf"
+        },
+        {
+          "text": "A book"
+        },
+        {
+          "text": "A desk"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第13幕 / Scene 13: A13 says a web begins. The shelf, book and desk are objects already in the setting, not formed from these threads. A13開始形成網，書架、書與桌並非由這些絲線形成。\n故事證據 / Evidence: A web begins. The lines have a pattern. / 蜘蛛網開始出現。 絲線有規律。",
+      "skill": "direct-object",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "A web begins. The lines have a pattern.",
+          "chinese": "蜘蛛網開始出現。 絲線有規律。"
+        }
+      ]
+    },
+    {
+      "id": "book38-A13",
+      "kind": "choice",
+      "prompt": "Which pair does Mira hold?",
+      "chinesePrompt": "米拉拿著哪兩樣？",
+      "options": [
+        {
+          "text": "A book and a pencil"
+        },
+        {
+          "text": "A pen and a pencil"
+        },
+        {
+          "text": "A pen and a notebook"
+        },
+        {
+          "text": "A book and a notebook"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第14幕 / Scene 14: A14 explicitly pairs pen and pencil. The other pairs each substitute a book or notebook for one writing tool. A14明說筆與鉛筆，另外三組都用書或本子換掉一支筆。\n故事證據 / Evidence: Mira has a pen and a pencil. She wants to write. / 米拉有筆和鉛筆。 她想寫下來。",
+      "skill": "direct-detail",
+      "evidence": [
+        {
+          "scene": 14,
+          "quote": "Mira has a pen and a pencil. She wants to write.",
+          "chinese": "米拉有筆和鉛筆。 她想寫下來。"
+        }
+      ]
+    },
+    {
+      "id": "book38-A14",
+      "kind": "choice",
+      "prompt": "What falls on the page?",
+      "chinesePrompt": "什麼滴到紙上？",
+      "options": [
+        {
+          "text": "Dust"
+        },
+        {
+          "text": "A spider"
+        },
+        {
+          "text": "A thread"
+        },
+        {
+          "text": "Ink"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第15幕 / Scene 15: A15 says ink falls on the page. Dust, the spider and thread are different story details, not the falling drop. A15滴下的是墨水，不是灰塵、蜘蛛或絲。\n故事證據 / Evidence: Ink falls on the page. Mira keeps writing. / 墨水滴在紙上。 米拉繼續寫。",
+      "skill": "direct-object",
+      "evidence": [
+        {
+          "scene": 15,
+          "quote": "Ink falls on the page. Mira keeps writing.",
+          "chinese": "墨水滴在紙上。 米拉繼續寫。"
+        }
+      ]
+    },
+    {
+      "id": "book38-A15",
+      "kind": "choice",
+      "prompt": "Does Mira copy when she writes her homework?",
+      "chinesePrompt": "米拉寫自己的作業時有抄書嗎？",
+      "options": [
+        {
+          "text": "No, she does not copy"
+        },
+        {
+          "text": "Yes, she copies a whole book"
+        },
+        {
+          "text": "Yes, she copies Gail’s homework"
+        },
+        {
+          "text": "No, she leaves the page empty"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第18幕 / Scene 18: A18 says she writes and does not copy. Copying either book or Gail contradicts that; leaving it empty contradicts writing. A18寫作業但不抄書，抄書或瑜瑜都相反，不寫也相反。\n故事證據 / Evidence: Mira writes her homework. She does not copy. / 米拉寫作業。 她沒有抄書。",
+      "skill": "direct-negation",
+      "evidence": [
+        {
+          "scene": 18,
+          "quote": "Mira writes her homework. She does not copy.",
+          "chinese": "米拉寫作業。 她沒有抄書。"
+        }
+      ]
+    },
+    {
+      "id": "book38-A16",
+      "kind": "choice",
+      "prompt": "What does Mira show Gail in this picture?",
+      "chinesePrompt": "圖片裡米拉把什麼展示給瑜瑜看？",
+      "options": [
+        {
+          "text": "The science book"
+        },
+        {
+          "text": "The blackboard"
+        },
+        {
+          "text": "Her notebook"
+        },
+        {
+          "text": "Her pencil"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第19幕 / Scene 19: Formal19 shows Mira holding her open notebook with her web sketches and ink mark; A19 says the notebook is full. The large science book is on the table, the blackboard is elsewhere, and she is not showing a pencil. 正式19舉起的是觀察本；大科學書在桌上，黑板不在此處，也不是展示鉛筆。\n故事證據 / Evidence: The notebook is full. Mira is happy. / 筆記本寫滿了。 米拉很開心。",
+      "skill": "picture-object",
+      "evidence": [
+        {
+          "scene": 19,
+          "quote": "The notebook is full. Mira is happy.",
+          "chinese": "筆記本寫滿了。 米拉很開心。"
+        }
+      ],
+      "image": "images/story/science-homework-v1/scene/19.webp",
+      "imageAlt": "Science Is Not Boring"
+    }
+  ],
+  "B": [
+    {
+      "id": "book38-B01",
+      "kind": "choice",
+      "prompt": "Which two jobs does the homework ask Mira to do?",
+      "chinesePrompt": "作業要求米拉完成哪兩件事？",
+      "options": [
+        {
+          "text": "Read and copy"
+        },
+        {
+          "text": "Observe and write"
+        },
+        {
+          "text": "Draw and clean"
+        },
+        {
+          "text": "Study and buy books"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第1幕 / Scene 1: B1 explicitly pairs observe with write. Reading and copying is her later first plan, while cleaning and buying are not assigned. B1明說觀察並寫下來；讀抄是後來的初始計畫，清掃與買書未被要求。\n故事證據 / Evidence: Mira sits at her desk. Her science homework says: observe and write. / 米拉坐在書桌前。 她的科學作業要求：觀察並寫下來。",
+      "skill": "linked-instruction",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "Mira sits at her desk. Her science homework says: observe and write.",
+          "chinese": "米拉坐在書桌前。 她的科學作業要求：觀察並寫下來。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B02",
+      "kind": "choice",
+      "prompt": "Why does Mira not start writing yet?",
+      "chinesePrompt": "米拉為什麼還沒開始寫？",
+      "options": [
+        {
+          "text": "She has no pencil yet"
+        },
+        {
+          "text": "Her notebook is already full"
+        },
+        {
+          "text": "Her notebook has an ink spot"
+        },
+        {
+          "text": "She has no idea yet"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第2幕 / Scene 2: B2 gives her an empty notebook and a pencil but no idea. Lack of a pencil, a full book or an ink mark does not explain this scene. B2有鉛筆與空本，缺的是想法；缺筆、已寫滿、墨點都不是此幕原因。\n故事證據 / Evidence: Mira opens her empty notebook. She has a pencil, but no idea. This looks boring. / 米拉打開空白的筆記本。 她有鉛筆，卻沒有想法。 這看起來很無聊。",
+      "skill": "cause-detail",
+      "evidence": [
+        {
+          "scene": 2,
+          "quote": "Mira opens her empty notebook. She has a pencil, but no idea. This looks boring.",
+          "chinese": "米拉打開空白的筆記本。 她有鉛筆，卻沒有想法。 這看起來很無聊。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B03",
+      "kind": "choice",
+      "prompt": "What happens even though Mira feels bored?",
+      "chinesePrompt": "米拉覺得無聊時，仍發生了什麼？",
+      "options": [
+        {
+          "text": "Gail arrives in magic light"
+        },
+        {
+          "text": "Mira finishes the homework"
+        },
+        {
+          "text": "The librarian brings a book"
+        },
+        {
+          "text": "The spider makes a web"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第3幕 / Scene 3: B3 joins the magic light and Gail arriving with Mira being bored. Finishing, the librarian’s book and web-making belong to later scenes. B3魔法光與瑜瑜來訪伴隨無聊；完工、館員給書和結網都在後面。\n故事證據 / Evidence: A magic light appears. Gail comes to Mira. Mira must study, but she feels bored. / 一道魔法光出現。 瑜瑜來到米拉身邊。 米拉必須學習，卻覺得無聊。",
+      "skill": "link-events",
+      "evidence": [
+        {
+          "scene": 3,
+          "quote": "A magic light appears. Gail comes to Mira. Mira must study, but she feels bored.",
+          "chinese": "一道魔法光出現。 瑜瑜來到米拉身邊。 米拉必須學習，卻覺得無聊。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B04",
+      "kind": "choice",
+      "prompt": "How does Gail respond to Mira’s copying plan?",
+      "chinesePrompt": "瑜瑜怎麼回應米拉想抄答案的計畫？",
+      "options": [
+        {
+          "text": "She asks Mira to copy faster"
+        },
+        {
+          "text": "She gives Mira an answer to copy"
+        },
+        {
+          "text": "She questions whether it is science"
+        },
+        {
+          "text": "She tells Mira the homework is done"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第4幕 / Scene 4: B4 asks whether copying is science and Mira is unsure. Asking for speed, giving a copied answer or declaring completion would not be that question. B4質疑算不算科學；催抄、給答案或說完成不是這個回應。\n故事證據 / Evidence: Mira wants to copy an answer from a book. Gail asks, “Is that science?” Mira is not sure. / 米拉想從書裡抄答案。 瑜瑜問：「那算科學嗎？」 米拉不確定。",
+      "skill": "response",
+      "evidence": [
+        {
+          "scene": 4,
+          "quote": "Mira wants to copy an answer from a book. Gail asks, “Is that science?” Mira is not sure.",
+          "chinese": "米拉想從書裡抄答案。 瑜瑜問：「那算科學嗎？」 米拉不確定。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B05",
+      "kind": "choice",
+      "prompt": "Why does the library look like a big bookstore?",
+      "chinesePrompt": "圖書館為什麼看起來像大書店？",
+      "options": [
+        {
+          "text": "It sells a notebook to each visitor"
+        },
+        {
+          "text": "Its librarian writes every answer"
+        },
+        {
+          "text": "It has tall shelves and many books"
+        },
+        {
+          "text": "Its desks are all in the air"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第5幕 / Scene 5: B5 describes tall shelves and books, some floating, before the comparison. It says nothing about sales or written answers, and books float rather than desks. B5以高書架與書作比較，沒寫賣本子、代寫答案，飄的是書而非桌。\n故事證據 / Evidence: They enter the school library. The shelves are tall, and some books float. It looks like a big bookstore. / 她們走進學校圖書館。 書架很高，有些書在飄。 這裡看起來像大書店。",
+      "skill": "comparison",
+      "evidence": [
+        {
+          "scene": 5,
+          "quote": "They enter the school library. The shelves are tall, and some books float. It looks like a big bookstore.",
+          "chinese": "她們走進學校圖書館。 書架很高，有些書在飄。 這裡看起來像大書店。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B06",
+      "kind": "choice",
+      "prompt": "What changes after Mira asks the librarian for an answer?",
+      "chinesePrompt": "米拉向館員要答案後，什麼改變了？",
+      "options": [
+        {
+          "text": "She gets a book, but still has no answer"
+        },
+        {
+          "text": "She gets an answer, but still has no book"
+        },
+        {
+          "text": "She gets a pencil, but cannot find paper"
+        },
+        {
+          "text": "She gets a web, but cannot find the spider"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第6、7幕 / Scene 6、7: B6 requests an answer book; B7 gives a big book while she still does not know what to write. The other choices claim an answer or substitute pencil/web that are not supplied. B6要答案書，B7拿到書仍不知寫什麼；其他選項虛構答案或換成未提供的鉛筆／網。\n故事證據 / Evidence: The librarian offers help. Mira wants a book with an answer to copy. The librarian smiles. / 館員主動幫忙。 米拉想要一本有答案可以抄的書。 館員笑了。 | The librarian gives them a big book. They read about living things. Mira still does not know what to write. / 館員給她們一本大書。 她們閱讀生物的介紹。 米拉仍不知道要寫什麼。",
+      "skill": "before-after",
+      "evidence": [
+        {
+          "scene": 6,
+          "quote": "The librarian offers help. Mira wants a book with an answer to copy. The librarian smiles.",
+          "chinese": "館員主動幫忙。 米拉想要一本有答案可以抄的書。 館員笑了。"
+        },
+        {
+          "scene": 7,
+          "quote": "The librarian gives them a big book. They read about living things. Mira still does not know what to write.",
+          "chinese": "館員給她們一本大書。 她們閱讀生物的介紹。 米拉仍不知道要寫什麼。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B07",
+      "kind": "choice",
+      "prompt": "Which details help identify the moving dot?",
+      "chinesePrompt": "哪些細節幫助她們辨認移動的小黑點？",
+      "options": [
+        {
+          "text": "It is black and leaves an ink drop"
+        },
+        {
+          "text": "It is round and floats over a shelf"
+        },
+        {
+          "text": "It is small and has only two legs"
+        },
+        {
+          "text": "It is black and has eight legs"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第8、9幕 / Scene 8、9: B8 observes black color, movement and eight legs; B9 identifies a spider. Ink drop, floating and two legs are not these observed clues. B8黑色、會動、八足，B9辨出蜘蛛；滴墨、漂浮、二足都不是線索。\n故事證據 / Evidence: Gail sees a black dot on the table. Mira looks closer. It moves and has eight legs. / 瑜瑜看見桌上的黑點。 米拉靠近看。 牠在動，而且有八隻腳。 | Mira sees a spider and pulls her hands back. It crosses the table. Then it climbs toward a shelf. / 米拉看見蜘蛛，把手縮回來。 牠爬過桌面。 然後往書架爬去。",
+      "skill": "combine-clues",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "Gail sees a black dot on the table. Mira looks closer. It moves and has eight legs.",
+          "chinese": "瑜瑜看見桌上的黑點。 米拉靠近看。 牠在動，而且有八隻腳。"
+        },
+        {
+          "scene": 9,
+          "quote": "Mira sees a spider and pulls her hands back. It crosses the table. Then it climbs toward a shelf.",
+          "chinese": "米拉看見蜘蛛，把手縮回來。 牠爬過桌面。 然後往書架爬去。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B08",
+      "kind": "choice",
+      "prompt": "Which order describes the spider’s route?",
+      "chinesePrompt": "哪個順序符合蜘蛛的路線？",
+      "options": [
+        {
+          "text": "Toward a shelf, then across the table"
+        },
+        {
+          "text": "Across the table, then toward a shelf"
+        },
+        {
+          "text": "Across the book, then onto the blackboard"
+        },
+        {
+          "text": "Toward the door, then into a notebook"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第9幕 / Scene 9: B9 crosses the table before climbing toward a shelf. Reversing that order or adding blackboard/door/notebook routes does not match. B9先過桌再向架；倒序與黑板、門、本子路線不符。\n故事證據 / Evidence: Mira sees a spider and pulls her hands back. It crosses the table. Then it climbs toward a shelf. / 米拉看見蜘蛛，把手縮回來。 牠爬過桌面。 然後往書架爬去。",
+      "skill": "sequence",
+      "evidence": [
+        {
+          "scene": 9,
+          "quote": "Mira sees a spider and pulls her hands back. It crosses the table. Then it climbs toward a shelf.",
+          "chinese": "米拉看見蜘蛛，把手縮回來。 牠爬過桌面。 然後往書架爬去。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B09",
+      "kind": "choice",
+      "prompt": "Why does Gail stop Mira from moving the spider away?",
+      "chinesePrompt": "瑜瑜為什麼阻止米拉趕蜘蛛？",
+      "options": [
+        {
+          "text": "The homework asks her to observe"
+        },
+        {
+          "text": "The librarian asks her to clean"
+        },
+        {
+          "text": "The book asks her to copy faster"
+        },
+        {
+          "text": "The spider asks her to leave"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第10幕 / Scene 10: B10 links Gail’s stop with the observation homework. Cleaning, copying speed and a speaking spider are not reasons in the text. B10以觀察作業為原因，沒說館員要清掃、書要催抄或蜘蛛要求離開。\n故事證據 / Evidence: Mira wants to move the spider away with a book. Gail stops her. Her homework asks her to observe. / 米拉想用書把蜘蛛趕走。 瑜瑜阻止她。 她的作業要她觀察。",
+      "skill": "cause-response",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "Mira wants to move the spider away with a book. Gail stops her. Her homework asks her to observe.",
+          "chinese": "米拉想用書把蜘蛛趕走。 瑜瑜阻止她。 她的作業要她觀察。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B10",
+      "kind": "choice",
+      "prompt": "What helps Mira notice the dusty corner now?",
+      "chinesePrompt": "什麼讓米拉現在注意到積灰角落？",
+      "options": [
+        {
+          "text": "Copying the answer from the big book"
+        },
+        {
+          "text": "Cleaning the floor before watching"
+        },
+        {
+          "text": "Looking carefully at the spider’s route"
+        },
+        {
+          "text": "Asking the librarian to move the shelf"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第11幕 / Scene 11: B11 follows the spider into the corner and says careful looking reveals it. Copying, prior cleaning and asking to move a shelf are not the described method. B11跟蜘蛛仔細看而發現；抄答案、先掃地、請搬架都不是方法。\n故事證據 / Evidence: The spider enters a dusty corner. Mira has never noticed it. Looking carefully helps her see it now. / 蜘蛛進入積灰的角落。 米拉從沒注意過這裡。 仔細看使她現在發現了它。",
+      "skill": "method-link",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "The spider enters a dusty corner. Mira has never noticed it. Looking carefully helps her see it now.",
+          "chinese": "蜘蛛進入積灰的角落。 米拉從沒注意過這裡。 仔細看使她現在發現了它。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B11",
+      "kind": "choice",
+      "prompt": "What happens between the first thread and the forming web?",
+      "chinesePrompt": "從第一條絲到網開始成形，發生了什麼？",
+      "options": [
+        {
+          "text": "The first thread falls onto the notebook"
+        },
+        {
+          "text": "More threads cross each other"
+        },
+        {
+          "text": "Mira draws every thread on the shelf"
+        },
+        {
+          "text": "The spider stops and leaves the library"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第12、13幕 / Scene 12、13: B12 has a thin thread at the shelf; B13 adds crossing threads and a forming web. A falling thread, Mira drawing on wood or the spider leaving is not the development. B12書架細絲，B13增加交線成網；落本子、米拉畫木架、蜘蛛離開都不是發展。\n故事證據 / Evidence: A thin thread touches the shelf. The spider goes to the other side. Mira opens her notebook to watch. / 一條細絲碰到書架。 蜘蛛走向另一邊。 米拉打開筆記本觀察。 | More threads cross each other. A web begins to form. Gail sees a pattern in the lines. / 更多絲線交錯。 蜘蛛網開始成形。 瑜瑜看出絲線的規律。",
+      "skill": "sequence-link",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "A thin thread touches the shelf. The spider goes to the other side. Mira opens her notebook to watch.",
+          "chinese": "一條細絲碰到書架。 蜘蛛走向另一邊。 米拉打開筆記本觀察。"
+        },
+        {
+          "scene": 13,
+          "quote": "More threads cross each other. A web begins to form. Gail sees a pattern in the lines.",
+          "chinese": "更多絲線交錯。 蜘蛛網開始成形。 瑜瑜看出絲線的規律。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B12",
+      "kind": "choice",
+      "prompt": "How does Gail say Mira should choose a writing tool?",
+      "chinesePrompt": "瑜瑜建議米拉怎麼選書寫工具？",
+      "options": [
+        {
+          "text": "Use the one with a darker ink color"
+        },
+        {
+          "text": "Use the one that makes no mistakes"
+        },
+        {
+          "text": "Use the one the librarian has chosen"
+        },
+        {
+          "text": "Use the one that lets her write faster"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第14幕 / Scene 14: B14 explicitly chooses writing speed to help record. Darker ink, error-free tools and a librarian’s choice are not criteria given. B14用書寫速度選；墨色、完全不出錯與館員代選都未被指定。\n故事證據 / Evidence: Mira holds a pen and a pencil. She wants to record what she sees. Gail says to use the faster one. / 米拉拿著筆和鉛筆。 她想記錄看到的事。 瑜瑜說要用寫得較快的那支。",
+      "skill": "purpose-detail",
+      "evidence": [
+        {
+          "scene": 14,
+          "quote": "Mira holds a pen and a pencil. She wants to record what she sees. Gail says to use the faster one.",
+          "chinese": "米拉拿著筆和鉛筆。 她想記錄看到的事。 瑜瑜說要用寫得較快的那支。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B13",
+      "kind": "choice",
+      "prompt": "What does Gail’s reply help Mira do after the ink drop?",
+      "chinesePrompt": "滴墨後，瑜瑜的回應幫米拉做什麼？",
+      "options": [
+        {
+          "text": "Erase all her earlier observations"
+        },
+        {
+          "text": "Ask for an answer to copy again"
+        },
+        {
+          "text": "Stop writing until the page is clean"
+        },
+        {
+          "text": "Laugh and keep recording"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第15幕 / Scene 15: B15 accepts messy notes and Mira laughs and keeps writing. Erasing everything, copying again and stopping remove that continuation. B15接受凌亂後笑著繼續；全擦、再抄或停寫都相反。\n故事證據 / Evidence: Mira writes fast, and ink drops on the page. Gail says messy notes are okay. Mira laughs and keeps writing. / 米拉寫得很快，墨水滴在紙上。 瑜瑜說筆記亂一點沒關係。 米拉笑了，繼續記錄。",
+      "skill": "cause-response",
+      "evidence": [
+        {
+          "scene": 15,
+          "quote": "Mira writes fast, and ink drops on the page. Gail says messy notes are okay. Mira laughs and keeps writing.",
+          "chinese": "米拉寫得很快，墨水滴在紙上。 瑜瑜說筆記亂一點沒關係。 米拉笑了，繼續記錄。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B14",
+      "kind": "choice",
+      "prompt": "How does Mira record the spider’s work?",
+      "chinesePrompt": "米拉怎麼記錄蜘蛛的工作？",
+      "options": [
+        {
+          "text": "Read a picture first, then chase it away"
+        },
+        {
+          "text": "Watch its trip out and back, then draw"
+        },
+        {
+          "text": "Draw only the ink drop, then close the book"
+        },
+        {
+          "text": "Copy the blackboard before seeing the web"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第16幕 / Scene 16: B16 watches center-to-edge and return, then draws the web. Chasing, drawing only ink and copying the board omit that observation. B16觀察往返再畫網；趕走、只畫墨點、抄黑板都省略觀察。\n故事證據 / Evidence: The spider goes from the center to the edge. Then it comes back. Mira draws the web in her notebook. / 蜘蛛從中央走向外圍。 然後牠回來。 米拉在筆記本裡畫出蜘蛛網。",
+      "skill": "record-method",
+      "evidence": [
+        {
+          "scene": 16,
+          "quote": "The spider goes from the center to the edge. Then it comes back. Mira draws the web in her notebook.",
+          "chinese": "蜘蛛從中央走向外圍。 然後牠回來。 米拉在筆記本裡畫出蜘蛛網。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B15",
+      "kind": "choice",
+      "prompt": "How does Mira use the book before writing her homework?",
+      "chinesePrompt": "寫作業之前，米拉怎麼使用書？",
+      "options": [
+        {
+          "text": "Copy its answer first, then try to find the same spider"
+        },
+        {
+          "text": "Put it away unread, then say reading cannot help"
+        },
+        {
+          "text": "Compare it with what she saw, then write her own notes"
+        },
+        {
+          "text": "Ask it to write every step into her notebook"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第17、18幕 / Scene 17、18: B17 compares reading with observation; B18 writes her own ordered account without copying. Copy-first, discarding reading and a book writing for her do not combine both scenes. B17比較閱讀與觀察，B18自己依序寫；先抄、否定閱讀、書代寫都沒結合兩幕。\n故事證據 / Evidence: Mira reads about spiders and webs. She compares the book with what she saw. Now the book helps her understand. / 米拉讀蜘蛛與蜘蛛網的介紹。 她把書和看到的事比較。 現在書幫助她理解了。 | Mira writes about the spider making a web. She records what she saw in order. She does not copy the book. / 米拉寫下蜘蛛結網的事。 她依序記下看到的事。 她沒有抄書。",
+      "skill": "combine-methods",
+      "evidence": [
+        {
+          "scene": 17,
+          "quote": "Mira reads about spiders and webs. She compares the book with what she saw. Now the book helps her understand.",
+          "chinese": "米拉讀蜘蛛與蜘蛛網的介紹。 她把書和看到的事比較。 現在書幫助她理解了。"
+        },
+        {
+          "scene": 18,
+          "quote": "Mira writes about the spider making a web. She records what she saw in order. She does not copy the book.",
+          "chinese": "米拉寫下蜘蛛結網的事。 她依序記下看到的事。 她沒有抄書。"
+        }
+      ]
+    },
+    {
+      "id": "book38-B16",
+      "kind": "choice",
+      "prompt": "Which change does Mira describe at the end?",
+      "chinesePrompt": "結尾米拉說出了什麼改變？",
+      "options": [
+        {
+          "text": "It was interesting; next time she will observe first"
+        },
+        {
+          "text": "It was boring; next time she will copy first"
+        },
+        {
+          "text": "It was interesting; next time she will avoid spiders"
+        },
+        {
+          "text": "It was boring; next time Gail will write for her"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第19、20幕 / Scene 19、20: B19 says not boring and B20 chooses observation first next time. Copy-first, avoidance and Gail doing the writing are not her chosen change. B19不無聊，B20下次先觀察；先抄、避蜘蛛、瑜瑜代寫都不是改變。\n故事證據 / Evidence: Her notebook has words, drawings, arrows and ink. Mira says it was not boring. She found the answer herself. / 她的筆記本有文字、圖畫、箭頭與墨水。 米拉說這一點都不無聊。 她自己找到了答案。 | Mira thanks the spider before leaving. Gail says Mira did the homework herself. Mira will observe first next time. / 米拉離開前謝謝蜘蛛。 瑜瑜說是米拉自己完成作業。 米拉下次會先觀察。",
+      "skill": "character-change",
+      "evidence": [
+        {
+          "scene": 19,
+          "quote": "Her notebook has words, drawings, arrows and ink. Mira says it was not boring. She found the answer herself.",
+          "chinese": "她的筆記本有文字、圖畫、箭頭與墨水。 米拉說這一點都不無聊。 她自己找到了答案。"
+        },
+        {
+          "scene": 20,
+          "quote": "Mira thanks the spider before leaving. Gail says Mira did the homework herself. Mira will observe first next time.",
+          "chinese": "米拉離開前謝謝蜘蛛。 瑜瑜說是米拉自己完成作業。 米拉下次會先觀察。"
+        }
+      ]
+    }
+  ],
+  "C": [
+    {
+      "id": "book38-C01",
+      "kind": "choice",
+      "prompt": "Which part of Mira’s first plan fails to meet the homework instruction?",
+      "chinesePrompt": "米拉最初計畫的哪部分沒有滿足作業要求？",
+      "options": [
+        {
+          "text": "Going to the library instead of staying at her desk"
+        },
+        {
+          "text": "Reading about science instead of reading a story"
+        },
+        {
+          "text": "Choosing a pencil instead of choosing a pen"
+        },
+        {
+          "text": "Copying instead of reporting her own discoveries"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第1、4、18幕 / Scene 1、4、18: C1 requires observed discoveries; C4 plans to copy; C18 finally writes what she saw. Location, book genre and pen choice are not the unmet requirement. C1要自己的觀察發現、C4想抄、C18寫自己看到的；地點、書類、筆種不是缺少的要求。\n故事證據 / Evidence: Mira sits at her desk and looks at the blackboard. Her teacher has written: SCIENCE HOMEWORK “Observe something and write what you discover.” Mira sighs. “Science homework again?” / 米拉坐在書桌前，看著黑板。 老師在黑板上寫著： 「科學作業。」 觀察一樣東西，然後寫下你的發現。 米拉嘆了一口氣。 「又是科學作業啊？」 | Mira suddenly stands up. “I know!” “We can go to the library, find a book, and copy the answer.” Gail looks at her. “Is that really science?” Mira pauses. “Maybe?” / 米拉突然站起來。 「我知道了！」 「我們去圖書館找一本書，把答案抄下來就好了。」 瑜瑜看著她。 「這樣真的算做科學嗎？」 米拉停了一下。 「應該……算吧？」 | Mira begins to write her homework. She does not copy the book. She writes: “I observed a spider making a web.” Then she adds what she saw step by step. / 米拉開始寫自己的科學作業。 這一次，她沒有抄書。 她寫下： 「我觀察了一隻正在結網的蜘蛛。」 接著，她按照順序寫下自己真正看到的過程。",
+      "skill": "compare-requirement",
+      "evidence": [
+        {
+          "scene": 1,
+          "quote": "Mira sits at her desk and looks at the blackboard. Her teacher has written: SCIENCE HOMEWORK “Observe something and write what you discover.” Mira sighs. “Science homework again?”",
+          "chinese": "米拉坐在書桌前，看著黑板。 老師在黑板上寫著： 「科學作業。」 觀察一樣東西，然後寫下你的發現。 米拉嘆了一口氣。 「又是科學作業啊？」"
+        },
+        {
+          "scene": 4,
+          "quote": "Mira suddenly stands up. “I know!” “We can go to the library, find a book, and copy the answer.” Gail looks at her. “Is that really science?” Mira pauses. “Maybe?”",
+          "chinese": "米拉突然站起來。 「我知道了！」 「我們去圖書館找一本書，把答案抄下來就好了。」 瑜瑜看著她。 「這樣真的算做科學嗎？」 米拉停了一下。 「應該……算吧？」"
+        },
+        {
+          "scene": 18,
+          "quote": "Mira begins to write her homework. She does not copy the book. She writes: “I observed a spider making a web.” Then she adds what she saw step by step.",
+          "chinese": "米拉開始寫自己的科學作業。 這一次，她沒有抄書。 她寫下： 「我觀察了一隻正在結網的蜘蛛。」 接著，她按照順序寫下自己真正看到的過程。"
+        }
+      ]
+    },
+    {
+      "id": "book38-C02",
+      "kind": "choice",
+      "prompt": "What do the empty page and the unsuccessful first reading together show?",
+      "chinesePrompt": "空白頁與第一次讀書仍無答案，合起來顯示什麼？",
+      "options": [
+        {
+          "text": "A full notebook is necessary before any observation can begin"
+        },
+        {
+          "text": "Tools and books alone do not supply observations"
+        },
+        {
+          "text": "A science book can never help someone complete homework"
+        },
+        {
+          "text": "An empty page proves that Mira cannot learn any science"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第2、7幕 / Scene 2、7: C2 has a pencil but no idea; C7 has information but still no account to write. This shows the missing observations, not a need for prior full notes, useless books or permanent inability. C2有筆没想法、C7有資料仍不知寫；支持缺自身觀察，非先要滿本、书永無用或永久學不會。\n故事證據 / Evidence: Mira opens her notebook. The page is empty. She picks up her pencil, but she does not know what to write. “This is going to be boring,” she says. / 米拉打開筆記本。 紙上一個字都沒有。 她拿起鉛筆，卻不知道該寫什麼。 「這一定很無聊。」 | The librarian gives Mira a large book. Mira begins to read. Gail reads beside her. The book explains many animals, plants, and insects. But Mira still does not know what to write. / 館員拿了一本厚厚的書給米拉。 米拉開始閱讀。 瑜瑜也坐在她旁邊一起看。 書裡介紹了很多動物、植物和昆蟲。 但是米拉還是不知道自己的作業要寫什麼。",
+      "skill": "synthesize-problem",
+      "evidence": [
+        {
+          "scene": 2,
+          "quote": "Mira opens her notebook. The page is empty. She picks up her pencil, but she does not know what to write. “This is going to be boring,” she says.",
+          "chinese": "米拉打開筆記本。 紙上一個字都沒有。 她拿起鉛筆，卻不知道該寫什麼。 「這一定很無聊。」"
+        },
+        {
+          "scene": 7,
+          "quote": "The librarian gives Mira a large book. Mira begins to read. Gail reads beside her. The book explains many animals, plants, and insects. But Mira still does not know what to write.",
+          "chinese": "館員拿了一本厚厚的書給米拉。 米拉開始閱讀。 瑜瑜也坐在她旁邊一起看。 書裡介紹了很多動物、植物和昆蟲。 但是米拉還是不知道自己的作業要寫什麼。"
+        }
+      ]
+    },
+    {
+      "id": "book38-C03",
+      "kind": "choice",
+      "prompt": "Does the comparison with a bookstore prove that the girls buy a book?",
+      "chinesePrompt": "比作書店，能證明她們買書嗎？",
+      "options": [
+        {
+          "text": "Yes; every room with books must sell them"
+        },
+        {
+          "text": "Yes; the librarian’s smile confirms a sale"
+        },
+        {
+          "text": "No; the comparison describes how the library feels"
+        },
+        {
+          "text": "No; floating books prove that no one can read them"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第5、6幕 / Scene 5、6: C5 says it feels like a bookstore, while C6 offers help without a sale. Books and a smile do not prove buying; floating does not prevent reading. C5是感受比較、C6提供幫忙，書多或微笑不證明交易，漂浮也不能證明不能讀。\n故事證據 / Evidence: They enter the magic school library. Tall bookshelves reach almost to the ceiling. Some books float through the air. It feels like a giant magical bookstore. / 她們走進魔法學校的圖書館。 高高的書架幾乎碰到天花板。 幾本書還自己飄在空中。 這裡看起來就像一間巨大的魔法書店。 | The librarian walks toward them. “Can I help you?” Mira says, “I need a book that tells me exactly what to write for my science homework.” The librarian smiles. “That is an interesting request.” / 圖書館館員走了過來。 「需要幫忙嗎？」 米拉說： 「我需要一本可以直接告訴我科學作業要寫什麼的書。」 館員笑了。 「這個要求很有意思。」",
+      "skill": "evidence-scope",
+      "evidence": [
+        {
+          "scene": 5,
+          "quote": "They enter the magic school library. Tall bookshelves reach almost to the ceiling. Some books float through the air. It feels like a giant magical bookstore.",
+          "chinese": "她們走進魔法學校的圖書館。 高高的書架幾乎碰到天花板。 幾本書還自己飄在空中。 這裡看起來就像一間巨大的魔法書店。"
+        },
+        {
+          "scene": 6,
+          "quote": "The librarian walks toward them. “Can I help you?” Mira says, “I need a book that tells me exactly what to write for my science homework.” The librarian smiles. “That is an interesting request.”",
+          "chinese": "圖書館館員走了過來。 「需要幫忙嗎？」 米拉說： 「我需要一本可以直接告訴我科學作業要寫什麼的書。」 館員笑了。 「這個要求很有意思。」"
+        }
+      ]
+    },
+    {
+      "id": "book38-C04",
+      "kind": "choice",
+      "prompt": "Why does the first black dot have better evidence for being a spider than an ink spot?",
+      "chinesePrompt": "第一個黑點為何比起墨點，更有證據是蜘蛛？",
+      "options": [
+        {
+          "text": "It moves and has eight legs"
+        },
+        {
+          "text": "It is black and the table is wooden"
+        },
+        {
+          "text": "It is small and Mira has a notebook"
+        },
+        {
+          "text": "It appears before the notebook is finished"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第8、9、15幕 / Scene 8、9、15: C8 movement/eight legs discriminate from C15 a drop of ink; C9 identifies the spider. Color, small size, furniture and timing alone do not establish an animal. C8會動八足與C15滴墨可區分，C9辨認；顏色、大小、桌材、時間本身不證明是動物。\n故事證據 / Evidence: Suddenly, Gail sees a tiny black dot moving across the table. “Wait.” “What is that?” Mira leans closer. The black dot has eight little legs. / 突然，瑜瑜看到桌面上有一個小小的黑點正在移動。 「等一下。」 「那是什麼？」 米拉靠近一看。 那個小黑點有八隻細細的腳。 | “It is a spider!” Mira cries. She quickly pulls her hands away. The tiny spider walks across the table. Then it climbs toward an old shelf. / 「是蜘蛛！」 米拉嚇得趕快把手縮回來。 小蜘蛛慢慢爬過桌面。 接著往一座舊書架爬去。 | Mira writes too quickly. A drop of ink falls onto the page. “Oh no!” Gail smiles. “It is okay. Scientists make messy notes too.” Mira laughs and keeps writing. / 米拉寫得太急。 一滴墨水掉到了紙上。 「糟糕！」 瑜瑜笑著說： 「沒關係，科學家的觀察筆記有時候也會亂亂的。」 米拉笑了笑，繼續記錄。",
+      "skill": "weigh-clues",
+      "evidence": [
+        {
+          "scene": 8,
+          "quote": "Suddenly, Gail sees a tiny black dot moving across the table. “Wait.” “What is that?” Mira leans closer. The black dot has eight little legs.",
+          "chinese": "突然，瑜瑜看到桌面上有一個小小的黑點正在移動。 「等一下。」 「那是什麼？」 米拉靠近一看。 那個小黑點有八隻細細的腳。"
+        },
+        {
+          "scene": 9,
+          "quote": "“It is a spider!” Mira cries. She quickly pulls her hands away. The tiny spider walks across the table. Then it climbs toward an old shelf.",
+          "chinese": "「是蜘蛛！」 米拉嚇得趕快把手縮回來。 小蜘蛛慢慢爬過桌面。 接著往一座舊書架爬去。"
+        },
+        {
+          "scene": 15,
+          "quote": "Mira writes too quickly. A drop of ink falls onto the page. “Oh no!” Gail smiles. “It is okay. Scientists make messy notes too.” Mira laughs and keeps writing.",
+          "chinese": "米拉寫得太急。 一滴墨水掉到了紙上。 「糟糕！」 瑜瑜笑著說： 「沒關係，科學家的觀察筆記有時候也會亂亂的。」 米拉笑了笑，繼續記錄。"
+        }
+      ]
+    },
+    {
+      "id": "book38-C05",
+      "kind": "choice",
+      "prompt": "If Mira had moved the spider away at scene10, which evidence would she have lost the chance to watch there?",
+      "chinesePrompt": "若第10幕米拉趕走蜘蛛，她會失去在那裡觀看哪個證據的機會？",
+      "options": [
+        {
+          "text": "The teacher writing the homework on the board"
+        },
+        {
+          "text": "The thread becoming a patterned web"
+        },
+        {
+          "text": "The librarian giving them the large book"
+        },
+        {
+          "text": "The magical light bringing Gail into the room"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第10、12、13幕 / Scene 10、12、13: C10 keeps the spider there; C12/13 show the later thread/web process. Board, book-giving and Gail’s arrival occur earlier and are not lost future observations. C10留下蜘蛛後C12/13見結網；黑板、給書與瑜瑜抵達已先發生。\n故事證據 / Evidence: Mira reaches for a book. “I will move it away.” But Gail stops her. “Wait.” “Your homework says to observe something.” They look at the spider again. / 米拉拿起一本書。 「我把牠趕走。」 瑜瑜卻阻止她。 「等一下。」 「妳的作業不是要妳觀察一樣東西嗎？」 兩個女孩再次看向小蜘蛛。 | The spider releases a thin thread. The thread touches the shelf. Then the spider walks to another side. Mira opens her notebook. “I think it is making something.” / 蜘蛛吐出一條細細的絲。 蜘蛛絲黏到書架的一角。 接著蜘蛛又爬向另一邊。 米拉趕快打開筆記本。 「牠好像正在做什麼。」 | More threads appear. One line crosses another. Slowly, a web begins to form. “It is not random,” Gail says. “The spider has a pattern.” / 蜘蛛絲越來越多。 一條線穿過另一條線。 慢慢地，一張蜘蛛網出現了。 瑜瑜說： 「牠不是隨便亂拉線。」 「蜘蛛有自己的順序。」",
+      "skill": "conditional-consequence",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "Mira reaches for a book. “I will move it away.” But Gail stops her. “Wait.” “Your homework says to observe something.” They look at the spider again.",
+          "chinese": "米拉拿起一本書。 「我把牠趕走。」 瑜瑜卻阻止她。 「等一下。」 「妳的作業不是要妳觀察一樣東西嗎？」 兩個女孩再次看向小蜘蛛。"
+        },
+        {
+          "scene": 12,
+          "quote": "The spider releases a thin thread. The thread touches the shelf. Then the spider walks to another side. Mira opens her notebook. “I think it is making something.”",
+          "chinese": "蜘蛛吐出一條細細的絲。 蜘蛛絲黏到書架的一角。 接著蜘蛛又爬向另一邊。 米拉趕快打開筆記本。 「牠好像正在做什麼。」"
+        },
+        {
+          "scene": 13,
+          "quote": "More threads appear. One line crosses another. Slowly, a web begins to form. “It is not random,” Gail says. “The spider has a pattern.”",
+          "chinese": "蜘蛛絲越來越多。 一條線穿過另一條線。 慢慢地，一張蜘蛛網出現了。 瑜瑜說： 「牠不是隨便亂拉線。」 「蜘蛛有自己的順序。」"
+        }
+      ]
+    },
+    {
+      "id": "book38-C06",
+      "kind": "choice",
+      "prompt": "What can Mira’s remark about never noticing the corner establish?",
+      "chinesePrompt": "米拉說從沒注意過角落，這能支持什麼？",
+      "options": [
+        {
+          "text": "She noticed this overlooked place through observation"
+        },
+        {
+          "text": "The corner was built only after she entered the library"
+        },
+        {
+          "text": "The librarian has never cleaned any part of the library"
+        },
+        {
+          "text": "All shelves in the school hide the same kind of spider"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第11幕 / Scene 11: C11 supports a change in her attention to this corner. It cannot date the corner, prove all cleaning history or generalize spiders to every shelf. C11只支持這次注意到忽略角落，不能推斷建造時間、全部清掃史或所有書架都有同種蜘蛛。\n故事證據 / Evidence: The spider climbs into a quiet, dirty corner behind the shelf. Dust lies on the floor. Mira whispers, “I never noticed this place before.” “That is why we observe,” Gail says. / 蜘蛛爬進書架後方一個安靜、滿是灰塵的角落。 地板上積著薄薄的灰塵。 米拉小聲說： 「我以前從來沒有注意過這裡。」 瑜瑜說： 「所以我們才需要仔細觀察呀。」",
+      "skill": "evidence-scope",
+      "evidence": [
+        {
+          "scene": 11,
+          "quote": "The spider climbs into a quiet, dirty corner behind the shelf. Dust lies on the floor. Mira whispers, “I never noticed this place before.” “That is why we observe,” Gail says.",
+          "chinese": "蜘蛛爬進書架後方一個安靜、滿是灰塵的角落。 地板上積著薄薄的灰塵。 米拉小聲說： 「我以前從來沒有注意過這裡。」 瑜瑜說： 「所以我們才需要仔細觀察呀。」"
+        }
+      ]
+    },
+    {
+      "id": "book38-C07",
+      "kind": "choice",
+      "prompt": "Which note best records a process rather than just its final object?",
+      "chinesePrompt": "哪則筆記最能記錄過程，而不只說最後成品？",
+      "options": [
+        {
+          "text": "There is a web beside a dusty wooden shelf in the library"
+        },
+        {
+          "text": "The spider is black and the girls have an open notebook"
+        },
+        {
+          "text": "The web is finished because the librarian gave Mira a book"
+        },
+        {
+          "text": "A thread touches wood; lines cross; the spider travels out and back"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第12、13、16幕 / Scene 12、13、16: C12/13/16 give successive observable actions. A final location or color omits the process, and book-giving does not cause the finished web. C12/13/16有連續動作，成品位置或顏色漏過程，給書不是結網原因。\n故事證據 / Evidence: The spider releases a thin thread. The thread touches the shelf. Then the spider walks to another side. Mira opens her notebook. “I think it is making something.” / 蜘蛛吐出一條細細的絲。 蜘蛛絲黏到書架的一角。 接著蜘蛛又爬向另一邊。 米拉趕快打開筆記本。 「牠好像正在做什麼。」 | More threads appear. One line crosses another. Slowly, a web begins to form. “It is not random,” Gail says. “The spider has a pattern.” / 蜘蛛絲越來越多。 一條線穿過另一條線。 慢慢地，一張蜘蛛網出現了。 瑜瑜說： 「牠不是隨便亂拉線。」 「蜘蛛有自己的順序。」 | They watch quietly. The spider walks from the center to the edge. Then it turns and comes back. Mira draws the shape in her notebook. “I did not know spiders worked like this.” / 她們安靜地看著。 蜘蛛從中央走向外圍。 接著轉身，再回到中間。 米拉把蜘蛛網的形狀畫進筆記本。 「我以前不知道蜘蛛是這樣工作的。」",
+      "skill": "trace-process",
+      "evidence": [
+        {
+          "scene": 12,
+          "quote": "The spider releases a thin thread. The thread touches the shelf. Then the spider walks to another side. Mira opens her notebook. “I think it is making something.”",
+          "chinese": "蜘蛛吐出一條細細的絲。 蜘蛛絲黏到書架的一角。 接著蜘蛛又爬向另一邊。 米拉趕快打開筆記本。 「牠好像正在做什麼。」"
+        },
+        {
+          "scene": 13,
+          "quote": "More threads appear. One line crosses another. Slowly, a web begins to form. “It is not random,” Gail says. “The spider has a pattern.”",
+          "chinese": "蜘蛛絲越來越多。 一條線穿過另一條線。 慢慢地，一張蜘蛛網出現了。 瑜瑜說： 「牠不是隨便亂拉線。」 「蜘蛛有自己的順序。」"
+        },
+        {
+          "scene": 16,
+          "quote": "They watch quietly. The spider walks from the center to the edge. Then it turns and comes back. Mira draws the shape in her notebook. “I did not know spiders worked like this.”",
+          "chinese": "她們安靜地看著。 蜘蛛從中央走向外圍。 接著轉身，再回到中間。 米拉把蜘蛛網的形狀畫進筆記本。 「我以前不知道蜘蛛是這樣工作的。」"
+        }
+      ]
+    },
+    {
+      "id": "book38-C08",
+      "kind": "choice",
+      "prompt": "Which observation could best support Gail’s claim that the web is not random?",
+      "chinesePrompt": "哪個觀察最能支持瑜瑜說蜘蛛網不是隨機線團？",
+      "options": [
+        {
+          "text": "A dusty floor and a dark wooden shelf"
+        },
+        {
+          "text": "Mira choosing one of two writing tools"
+        },
+        {
+          "text": "Crossing lines and a repeated route"
+        },
+        {
+          "text": "Gail smiling beside a large science book"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第13、16幕 / Scene 13、16: C13 names patterned crossings, C16 observes structured movement. Dust/wood, tool choice and a smile do not reveal silk order. C13交線規律、C16有結構路線；灰木、選筆、微笑都不顯示絲的順序。\n故事證據 / Evidence: More threads appear. One line crosses another. Slowly, a web begins to form. “It is not random,” Gail says. “The spider has a pattern.” / 蜘蛛絲越來越多。 一條線穿過另一條線。 慢慢地，一張蜘蛛網出現了。 瑜瑜說： 「牠不是隨便亂拉線。」 「蜘蛛有自己的順序。」 | They watch quietly. The spider walks from the center to the edge. Then it turns and comes back. Mira draws the shape in her notebook. “I did not know spiders worked like this.” / 她們安靜地看著。 蜘蛛從中央走向外圍。 接著轉身，再回到中間。 米拉把蜘蛛網的形狀畫進筆記本。 「我以前不知道蜘蛛是這樣工作的。」",
+      "skill": "select-evidence",
+      "evidence": [
+        {
+          "scene": 13,
+          "quote": "More threads appear. One line crosses another. Slowly, a web begins to form. “It is not random,” Gail says. “The spider has a pattern.”",
+          "chinese": "蜘蛛絲越來越多。 一條線穿過另一條線。 慢慢地，一張蜘蛛網出現了。 瑜瑜說： 「牠不是隨便亂拉線。」 「蜘蛛有自己的順序。」"
+        },
+        {
+          "scene": 16,
+          "quote": "They watch quietly. The spider walks from the center to the edge. Then it turns and comes back. Mira draws the shape in her notebook. “I did not know spiders worked like this.”",
+          "chinese": "她們安靜地看著。 蜘蛛從中央走向外圍。 接著轉身，再回到中間。 米拉把蜘蛛網的形狀畫進筆記本。 「我以前不知道蜘蛛是這樣工作的。」"
+        }
+      ]
+    },
+    {
+      "id": "book38-C09",
+      "kind": "choice",
+      "prompt": "A new observer writes slowly with a pen but quickly with a pencil. Which choice follows Gail’s advice without treating neatness as the whole goal?",
+      "chinesePrompt": "新觀察者用筆慢、鉛筆快；哪個選擇沿用瑜瑜建議，又不只看整齊？",
+      "options": [
+        {
+          "text": "Use the pencil to keep up with what is seen"
+        },
+        {
+          "text": "Use the pen because ink is always better evidence"
+        },
+        {
+          "text": "Wait for a spotless page before recording any change"
+        },
+        {
+          "text": "Copy a printed page because it will look tidier"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第14、15幕 / Scene 14、15: C14 prefers the tool that records faster; C15 permits messy notes. Ink superiority, waiting for spotless paper and copying for appearance replace observation recording. C14選快記工具、C15容許凌亂；墨水至上、等完美紙、為整齊而抄都偏離觀察記錄。\n故事證據 / Evidence: Mira wants to record everything quickly. She holds a pen in one hand and a pencil in the other. “Which one should I use?” Gail laughs. “The one that helps you write faster!” / 米拉想趕快把看到的東西記下來。 她一手拿筆，一手拿鉛筆。 「我要用哪一支？」 瑜瑜笑了。 「用妳寫得比較快的那一支！」 | Mira writes too quickly. A drop of ink falls onto the page. “Oh no!” Gail smiles. “It is okay. Scientists make messy notes too.” Mira laughs and keeps writing. / 米拉寫得太急。 一滴墨水掉到了紙上。 「糟糕！」 瑜瑜笑著說： 「沒關係，科學家的觀察筆記有時候也會亂亂的。」 米拉笑了笑，繼續記錄。",
+      "skill": "apply-method",
+      "evidence": [
+        {
+          "scene": 14,
+          "quote": "Mira wants to record everything quickly. She holds a pen in one hand and a pencil in the other. “Which one should I use?” Gail laughs. “The one that helps you write faster!”",
+          "chinese": "米拉想趕快把看到的東西記下來。 她一手拿筆，一手拿鉛筆。 「我要用哪一支？」 瑜瑜笑了。 「用妳寫得比較快的那一支！」"
+        },
+        {
+          "scene": 15,
+          "quote": "Mira writes too quickly. A drop of ink falls onto the page. “Oh no!” Gail smiles. “It is okay. Scientists make messy notes too.” Mira laughs and keeps writing.",
+          "chinese": "米拉寫得太急。 一滴墨水掉到了紙上。 「糟糕！」 瑜瑜笑著說： 「沒關係，科學家的觀察筆記有時候也會亂亂的。」 米拉笑了笑，繼續記錄。"
+        }
+      ]
+    },
+    {
+      "id": "book38-C10",
+      "kind": "choice",
+      "prompt": "Suppose Mira copies a paragraph about webs and spills ink on it. She says, “The ink spot proves these are my own observations.” Which judgment is best supported by the story?",
+      "chinesePrompt": "假設米拉抄了一段蜘蛛網的介紹，又滴上墨水。她說：「墨點證明這是我的親自觀察。」依故事的方法，哪個判斷最有依據？",
+      "options": [
+        {
+          "text": "A messier page would prove that she observed the spider herself."
+        },
+        {
+          "text": "Copying from a science book proves that she saw the web being made."
+        },
+        {
+          "text": "The ink spot proves that every detail in the copied paragraph is false."
+        },
+        {
+          "text": "The spot is not proof; she needs notes of what she actually saw."
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第15、16、18幕 / Scene 15、16、18: C15 allows messy notes, but never says an ink spot proves a personal observation. C16 records the spider’s route and C18 writes the steps Mira actually saw without copying. The new copied page would need that record of her own observations. More mess proves no observation; a copied science paragraph does not show that she witnessed its events; and a blot does not make every copied fact false. C15容許筆記凌亂，卻沒有說墨點能證明親自觀察；C16記錄蜘蛛走位，C18不抄書、依序寫自己看到的事。新條件中的抄文缺的是她親見事件的記錄。更多墨跡不能證明觀察，抄科學書不能證明親眼見到，而墨點也不能證明全部內容錯誤。\n故事證據 / Evidence: Mira writes too quickly. A drop of ink falls onto the page. “Oh no!” Gail smiles. “It is okay. Scientists make messy notes too.” Mira laughs and keeps writing. / 米拉寫得太急。 一滴墨水掉到了紙上。 「糟糕！」 瑜瑜笑著說： 「沒關係，科學家的觀察筆記有時候也會亂亂的。」 米拉笑了笑，繼續記錄。 | They watch quietly. The spider walks from the center to the edge. Then it turns and comes back. Mira draws the shape in her notebook. “I did not know spiders worked like this.” / 她們安靜地看著。 蜘蛛從中央走向外圍。 接著轉身，再回到中間。 米拉把蜘蛛網的形狀畫進筆記本。 「我以前不知道蜘蛛是這樣工作的。」 | Mira begins to write her homework. She does not copy the book. She writes: “I observed a spider making a web.” Then she adds what she saw step by step. / 米拉開始寫自己的科學作業。 這一次，她沒有抄書。 她寫下： 「我觀察了一隻正在結網的蜘蛛。」 接著，她按照順序寫下自己真正看到的過程。",
+      "skill": "evaluate-observation-evidence",
+      "evidence": [
+        {
+          "scene": 15,
+          "quote": "Mira writes too quickly. A drop of ink falls onto the page. “Oh no!” Gail smiles. “It is okay. Scientists make messy notes too.” Mira laughs and keeps writing.",
+          "chinese": "米拉寫得太急。 一滴墨水掉到了紙上。 「糟糕！」 瑜瑜笑著說： 「沒關係，科學家的觀察筆記有時候也會亂亂的。」 米拉笑了笑，繼續記錄。"
+        },
+        {
+          "scene": 16,
+          "quote": "They watch quietly. The spider walks from the center to the edge. Then it turns and comes back. Mira draws the shape in her notebook. “I did not know spiders worked like this.”",
+          "chinese": "她們安靜地看著。 蜘蛛從中央走向外圍。 接著轉身，再回到中間。 米拉把蜘蛛網的形狀畫進筆記本。 「我以前不知道蜘蛛是這樣工作的。」"
+        },
+        {
+          "scene": 18,
+          "quote": "Mira begins to write her homework. She does not copy the book. She writes: “I observed a spider making a web.” Then she adds what she saw step by step.",
+          "chinese": "米拉開始寫自己的科學作業。 這一次，她沒有抄書。 她寫下： 「我觀察了一隻正在結網的蜘蛛。」 接著，她按照順序寫下自己真正看到的過程。"
+        }
+      ]
+    },
+    {
+      "id": "book38-C11",
+      "kind": "choice",
+      "prompt": "What best explains why the same science book helps Mira later?",
+      "chinesePrompt": "同一本科學書後來為何能幫助米拉？",
+      "options": [
+        {
+          "text": "Its pages have changed into the homework she must copy"
+        },
+        {
+          "text": "The librarian has removed every other subject from it"
+        },
+        {
+          "text": "She now connects its explanation to an observed event"
+        },
+        {
+          "text": "Gail has told her to stop looking at real spiders"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第7、17幕 / Scene 7、17: C7 lacks a focus for writing; C17 compares spider reading with actual observations. A changed book, removed subjects or avoiding real spiders is not the stated change. C7無寫作焦點、C17連結蜘蛛閱讀與親見；沒說書變作業、刪其他主題或停止看真蜘蛛。\n故事證據 / Evidence: The librarian gives Mira a large book. Mira begins to read. Gail reads beside her. The book explains many animals, plants, and insects. But Mira still does not know what to write. / 館員拿了一本厚厚的書給米拉。 米拉開始閱讀。 瑜瑜也坐在她旁邊一起看。 書裡介紹了很多動物、植物和昆蟲。 但是米拉還是不知道自己的作業要寫什麼。 | Mira returns to the big science book. Now she reads about spiders and webs. She compares the book with what she observed. “Oh!” “The book explains what I just saw.” / 米拉回到剛才那本厚厚的科學書前。 這次，她閱讀的是蜘蛛與蜘蛛網。 她把書上的內容和剛才真正看到的現象放在一起比較。 「原來如此！」 「書裡正在解釋我們剛才看到的事情。」",
+      "skill": "before-after-reason",
+      "evidence": [
+        {
+          "scene": 7,
+          "quote": "The librarian gives Mira a large book. Mira begins to read. Gail reads beside her. The book explains many animals, plants, and insects. But Mira still does not know what to write.",
+          "chinese": "館員拿了一本厚厚的書給米拉。 米拉開始閱讀。 瑜瑜也坐在她旁邊一起看。 書裡介紹了很多動物、植物和昆蟲。 但是米拉還是不知道自己的作業要寫什麼。"
+        },
+        {
+          "scene": 17,
+          "quote": "Mira returns to the big science book. Now she reads about spiders and webs. She compares the book with what she observed. “Oh!” “The book explains what I just saw.”",
+          "chinese": "米拉回到剛才那本厚厚的科學書前。 這次，她閱讀的是蜘蛛與蜘蛛網。 她把書上的內容和剛才真正看到的現象放在一起比較。 「原來如此！」 「書裡正在解釋我們剛才看到的事情。」"
+        }
+      ]
+    },
+    {
+      "id": "book38-C12",
+      "kind": "choice",
+      "prompt": "Two students watch a web and read a book. One copies the book; the other compares it with notes and writes the observed steps. Which meets Mira’s final method?",
+      "chinesePrompt": "兩學生都觀察並讀書，一位抄書，另一位比對筆記後寫觀察步驟；哪位沿用米拉最後的方法？",
+      "options": [
+        {
+          "text": "The first, because reading guarantees the copied account fits"
+        },
+        {
+          "text": "The second, because comparison leads to an observed account"
+        },
+        {
+          "text": "Both, because looking once makes any copied answer personal"
+        },
+        {
+          "text": "Neither, because Mira stops using books after watching"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第16、17、18幕 / Scene 16、17、18: C16 records, C17 compares, C18 writes observed steps without copying. Reading alone does not guarantee fit, looking does not personalize copied text, and Mira still uses the book. C16記錄C17比對C18依親見寫；讀過不保證抄文相符，看一次不使抄文成親寫，也沒棄書。\n故事證據 / Evidence: They watch quietly. The spider walks from the center to the edge. Then it turns and comes back. Mira draws the shape in her notebook. “I did not know spiders worked like this.” / 她們安靜地看著。 蜘蛛從中央走向外圍。 接著轉身，再回到中間。 米拉把蜘蛛網的形狀畫進筆記本。 「我以前不知道蜘蛛是這樣工作的。」 | Mira returns to the big science book. Now she reads about spiders and webs. She compares the book with what she observed. “Oh!” “The book explains what I just saw.” / 米拉回到剛才那本厚厚的科學書前。 這次，她閱讀的是蜘蛛與蜘蛛網。 她把書上的內容和剛才真正看到的現象放在一起比較。 「原來如此！」 「書裡正在解釋我們剛才看到的事情。」 | Mira begins to write her homework. She does not copy the book. She writes: “I observed a spider making a web.” Then she adds what she saw step by step. / 米拉開始寫自己的科學作業。 這一次，她沒有抄書。 她寫下： 「我觀察了一隻正在結網的蜘蛛。」 接著，她按照順序寫下自己真正看到的過程。",
+      "skill": "compare-plans",
+      "evidence": [
+        {
+          "scene": 16,
+          "quote": "They watch quietly. The spider walks from the center to the edge. Then it turns and comes back. Mira draws the shape in her notebook. “I did not know spiders worked like this.”",
+          "chinese": "她們安靜地看著。 蜘蛛從中央走向外圍。 接著轉身，再回到中間。 米拉把蜘蛛網的形狀畫進筆記本。 「我以前不知道蜘蛛是這樣工作的。」"
+        },
+        {
+          "scene": 17,
+          "quote": "Mira returns to the big science book. Now she reads about spiders and webs. She compares the book with what she observed. “Oh!” “The book explains what I just saw.”",
+          "chinese": "米拉回到剛才那本厚厚的科學書前。 這次，她閱讀的是蜘蛛與蜘蛛網。 她把書上的內容和剛才真正看到的現象放在一起比較。 「原來如此！」 「書裡正在解釋我們剛才看到的事情。」"
+        },
+        {
+          "scene": 18,
+          "quote": "Mira begins to write her homework. She does not copy the book. She writes: “I observed a spider making a web.” Then she adds what she saw step by step.",
+          "chinese": "米拉開始寫自己的科學作業。 這一次，她沒有抄書。 她寫下： 「我觀察了一隻正在結網的蜘蛛。」 接著，她按照順序寫下自己真正看到的過程。"
+        }
+      ]
+    },
+    {
+      "id": "book38-C13",
+      "kind": "choice",
+      "prompt": "What can Mira report directly from this observation without claiming a rule for every spider?",
+      "chinesePrompt": "米拉能直接報告什麼，又不宣稱所有蜘蛛都如此？",
+      "options": [
+        {
+          "text": "Every spider always begins its web at the same corner"
+        },
+        {
+          "text": "Every web takes exactly the same amount of time to finish"
+        },
+        {
+          "text": "This spider moved from the center to the edge and back"
+        },
+        {
+          "text": "All spiders work only in dirty school libraries"
+        }
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "第16、18幕 / Scene 16、18: C16 directly observes this spider’s route and C18 records it. Neither exact time nor universal starting corner or habitat follows from one observation. C16親見此蜘蛛往返、C18記下；一次觀察不能推出全部起點、精確相同時間或唯一棲地。\n故事證據 / Evidence: They watch quietly. The spider walks from the center to the edge. Then it turns and comes back. Mira draws the shape in her notebook. “I did not know spiders worked like this.” / 她們安靜地看著。 蜘蛛從中央走向外圍。 接著轉身，再回到中間。 米拉把蜘蛛網的形狀畫進筆記本。 「我以前不知道蜘蛛是這樣工作的。」 | Mira begins to write her homework. She does not copy the book. She writes: “I observed a spider making a web.” Then she adds what she saw step by step. / 米拉開始寫自己的科學作業。 這一次，她沒有抄書。 她寫下： 「我觀察了一隻正在結網的蜘蛛。」 接著，她按照順序寫下自己真正看到的過程。",
+      "skill": "limit-generalization",
+      "evidence": [
+        {
+          "scene": 16,
+          "quote": "They watch quietly. The spider walks from the center to the edge. Then it turns and comes back. Mira draws the shape in her notebook. “I did not know spiders worked like this.”",
+          "chinese": "她們安靜地看著。 蜘蛛從中央走向外圍。 接著轉身，再回到中間。 米拉把蜘蛛網的形狀畫進筆記本。 「我以前不知道蜘蛛是這樣工作的。」"
+        },
+        {
+          "scene": 18,
+          "quote": "Mira begins to write her homework. She does not copy the book. She writes: “I observed a spider making a web.” Then she adds what she saw step by step.",
+          "chinese": "米拉開始寫自己的科學作業。 這一次，她沒有抄書。 她寫下： 「我觀察了一隻正在結網的蜘蛛。」 接著，她按照順序寫下自己真正看到的過程。"
+        }
+      ]
+    },
+    {
+      "id": "book38-C14",
+      "kind": "choice",
+      "prompt": "Which evidence best supports Gail saying Mira found the answer herself?",
+      "chinesePrompt": "哪個證據最支持瑜瑜說米拉自己找到了答案？",
+      "options": [
+        {
+          "text": "Mira’s notebook has a small accidental ink spot"
+        },
+        {
+          "text": "Mira writes the steps she saw without copying the book"
+        },
+        {
+          "text": "The librarian’s large book contains animal pictures"
+        },
+        {
+          "text": "Gail appears in the classroom beside Mira’s desk"
+        }
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "第18、19幕 / Scene 18、19: C18 gives personal ordered observation, explaining C19 own answer. An ink spot, book pictures and Gail’s arrival alone do not establish authorship of discoveries. C18自己依序寫親見支持C19；墨點、書圖、瑜瑜抵達本身都不證明自主發現。\n故事證據 / Evidence: Mira begins to write her homework. She does not copy the book. She writes: “I observed a spider making a web.” Then she adds what she saw step by step. / 米拉開始寫自己的科學作業。 這一次，她沒有抄書。 她寫下： 「我觀察了一隻正在結網的蜘蛛。」 接著，她按照順序寫下自己真正看到的過程。 | Mira looks at her finished notebook. There are words, drawings, arrows, and one little ink spot. “This was not boring at all!” Gail smiles. “You found the answer yourself.” / 米拉看著完成的筆記本。 上面有文字、有圖畫、有箭頭，還有一小滴墨水。 「原來一點都不無聊！」 瑜瑜笑著說： 「因為這次答案是妳自己找到的。」",
+      "skill": "justify-claim",
+      "evidence": [
+        {
+          "scene": 18,
+          "quote": "Mira begins to write her homework. She does not copy the book. She writes: “I observed a spider making a web.” Then she adds what she saw step by step.",
+          "chinese": "米拉開始寫自己的科學作業。 這一次，她沒有抄書。 她寫下： 「我觀察了一隻正在結網的蜘蛛。」 接著，她按照順序寫下自己真正看到的過程。"
+        },
+        {
+          "scene": 19,
+          "quote": "Mira looks at her finished notebook. There are words, drawings, arrows, and one little ink spot. “This was not boring at all!” Gail smiles. “You found the answer yourself.”",
+          "chinese": "米拉看著完成的筆記本。 上面有文字、有圖畫、有箭頭，還有一小滴墨水。 「原來一點都不無聊！」 瑜瑜笑著說： 「因為這次答案是妳自己找到的。」"
+        }
+      ]
+    },
+    {
+      "id": "book38-C15",
+      "kind": "choice",
+      "prompt": "Which sequence best describes Mira’s change in attitude?",
+      "chinesePrompt": "哪個順序最符合米拉的態度改變？",
+      "options": [
+        {
+          "text": "Expects boredom; finds her own answer; plans to observe first"
+        },
+        {
+          "text": "Expects boredom; copies a book; plans to avoid homework"
+        },
+        {
+          "text": "Feels curious; rejects reading; asks Gail to finish the notes"
+        },
+        {
+          "text": "Feels proud; stops watching; calls all science boring"
+        }
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "第2、3、19、20幕 / Scene 2、3、19、20: C2/3 expect/feel boredom, C19 enjoys her own result, C20 plans observation first. Other sequences add copying/avoidance, reject reading or reverse the attitude. C2/3無聊、C19享受自找答案、C20先觀察；錯項加入抄避、否定閱讀或倒轉態度。\n故事證據 / Evidence: Mira opens her notebook. The page is empty. She picks up her pencil, but she does not know what to write. “This is going to be boring,” she says. / 米拉打開筆記本。 紙上一個字都沒有。 她拿起鉛筆，卻不知道該寫什麼。 「這一定很無聊。」 | A little magical light appears beside Mira. Gail steps into the room. “Mira! What are you doing?” “I have to study science,” Mira says. “But I am already bored.” / 米拉身邊亮起一道小小的魔法光。 瑜瑜來到了房間。 「米拉！你在做什麼？」 「我要念科學。」 米拉趴在桌上。 「可是我已經覺得好無聊了。」 | Mira looks at her finished notebook. There are words, drawings, arrows, and one little ink spot. “This was not boring at all!” Gail smiles. “You found the answer yourself.” / 米拉看著完成的筆記本。 上面有文字、有圖畫、有箭頭，還有一小滴墨水。 「原來一點都不無聊！」 瑜瑜笑著說： 「因為這次答案是妳自己找到的。」 | Before leaving, Mira looks back at the tiny spider. “Thank you, little scientist.” Gail laughs. “The spider did not finish your homework.” “You did.” Mira holds her notebook proudly. “Next time, I will observe first.” / 離開圖書館以前，米拉回頭看看那隻小蜘蛛。 「謝謝你，小小科學家。」 瑜瑜笑了。 「蜘蛛可沒有幫妳寫完作業。」 「真正完成作業的是妳自己。」 米拉開心地抱著自己的筆記本。 「下次，我會先好好觀察！」",
+      "skill": "trace-development",
+      "evidence": [
+        {
+          "scene": 2,
+          "quote": "Mira opens her notebook. The page is empty. She picks up her pencil, but she does not know what to write. “This is going to be boring,” she says.",
+          "chinese": "米拉打開筆記本。 紙上一個字都沒有。 她拿起鉛筆，卻不知道該寫什麼。 「這一定很無聊。」"
+        },
+        {
+          "scene": 3,
+          "quote": "A little magical light appears beside Mira. Gail steps into the room. “Mira! What are you doing?” “I have to study science,” Mira says. “But I am already bored.”",
+          "chinese": "米拉身邊亮起一道小小的魔法光。 瑜瑜來到了房間。 「米拉！你在做什麼？」 「我要念科學。」 米拉趴在桌上。 「可是我已經覺得好無聊了。」"
+        },
+        {
+          "scene": 19,
+          "quote": "Mira looks at her finished notebook. There are words, drawings, arrows, and one little ink spot. “This was not boring at all!” Gail smiles. “You found the answer yourself.”",
+          "chinese": "米拉看著完成的筆記本。 上面有文字、有圖畫、有箭頭，還有一小滴墨水。 「原來一點都不無聊！」 瑜瑜笑著說： 「因為這次答案是妳自己找到的。」"
+        },
+        {
+          "scene": 20,
+          "quote": "Before leaving, Mira looks back at the tiny spider. “Thank you, little scientist.” Gail laughs. “The spider did not finish your homework.” “You did.” Mira holds her notebook proudly. “Next time, I will observe first.”",
+          "chinese": "離開圖書館以前，米拉回頭看看那隻小蜘蛛。 「謝謝你，小小科學家。」 瑜瑜笑了。 「蜘蛛可沒有幫妳寫完作業。」 「真正完成作業的是妳自己。」 米拉開心地抱著自己的筆記本。 「下次，我會先好好觀察！」"
+        }
+      ]
+    },
+    {
+      "id": "book38-C16",
+      "kind": "choice",
+      "prompt": "If Mira meets a different moving creature next time, which plan best transfers the lesson?",
+      "chinesePrompt": "下次遇到另一種會動的小生物，哪個計畫最能應用本故事？",
+      "options": [
+        {
+          "text": "Copy the spider chapter and replace the animal’s name"
+        },
+        {
+          "text": "Skip reading because observation makes books unnecessary"
+        },
+        {
+          "text": "Ask a friend to write because the creature supplies the answer"
+        },
+        {
+          "text": "Watch and record it, read to compare, write her own findings"
+        }
+      ],
+      "answer": [
+        3
+      ],
+      "explanation": "第10、17、18、20幕 / Scene 10、17、18、20: C10 preserves observation, C17 compares reading, C18 writes findings, C20 chooses observation first. Renaming copied text, abandoning books and friend-written answers omit parts of this process. C10觀察C17讀比C18親寫C20先看；抄文改名、棄書或朋友代寫都漏過程。\n故事證據 / Evidence: Mira reaches for a book. “I will move it away.” But Gail stops her. “Wait.” “Your homework says to observe something.” They look at the spider again. / 米拉拿起一本書。 「我把牠趕走。」 瑜瑜卻阻止她。 「等一下。」 「妳的作業不是要妳觀察一樣東西嗎？」 兩個女孩再次看向小蜘蛛。 | Mira returns to the big science book. Now she reads about spiders and webs. She compares the book with what she observed. “Oh!” “The book explains what I just saw.” / 米拉回到剛才那本厚厚的科學書前。 這次，她閱讀的是蜘蛛與蜘蛛網。 她把書上的內容和剛才真正看到的現象放在一起比較。 「原來如此！」 「書裡正在解釋我們剛才看到的事情。」 | Mira begins to write her homework. She does not copy the book. She writes: “I observed a spider making a web.” Then she adds what she saw step by step. / 米拉開始寫自己的科學作業。 這一次，她沒有抄書。 她寫下： 「我觀察了一隻正在結網的蜘蛛。」 接著，她按照順序寫下自己真正看到的過程。 | Before leaving, Mira looks back at the tiny spider. “Thank you, little scientist.” Gail laughs. “The spider did not finish your homework.” “You did.” Mira holds her notebook proudly. “Next time, I will observe first.” / 離開圖書館以前，米拉回頭看看那隻小蜘蛛。 「謝謝你，小小科學家。」 瑜瑜笑了。 「蜘蛛可沒有幫妳寫完作業。」 「真正完成作業的是妳自己。」 米拉開心地抱著自己的筆記本。 「下次，我會先好好觀察！」",
+      "skill": "apply-method",
+      "evidence": [
+        {
+          "scene": 10,
+          "quote": "Mira reaches for a book. “I will move it away.” But Gail stops her. “Wait.” “Your homework says to observe something.” They look at the spider again.",
+          "chinese": "米拉拿起一本書。 「我把牠趕走。」 瑜瑜卻阻止她。 「等一下。」 「妳的作業不是要妳觀察一樣東西嗎？」 兩個女孩再次看向小蜘蛛。"
+        },
+        {
+          "scene": 17,
+          "quote": "Mira returns to the big science book. Now she reads about spiders and webs. She compares the book with what she observed. “Oh!” “The book explains what I just saw.”",
+          "chinese": "米拉回到剛才那本厚厚的科學書前。 這次，她閱讀的是蜘蛛與蜘蛛網。 她把書上的內容和剛才真正看到的現象放在一起比較。 「原來如此！」 「書裡正在解釋我們剛才看到的事情。」"
+        },
+        {
+          "scene": 18,
+          "quote": "Mira begins to write her homework. She does not copy the book. She writes: “I observed a spider making a web.” Then she adds what she saw step by step.",
+          "chinese": "米拉開始寫自己的科學作業。 這一次，她沒有抄書。 她寫下： 「我觀察了一隻正在結網的蜘蛛。」 接著，她按照順序寫下自己真正看到的過程。"
+        },
+        {
+          "scene": 20,
+          "quote": "Before leaving, Mira looks back at the tiny spider. “Thank you, little scientist.” Gail laughs. “The spider did not finish your homework.” “You did.” Mira holds her notebook proudly. “Next time, I will observe first.”",
+          "chinese": "離開圖書館以前，米拉回頭看看那隻小蜘蛛。 「謝謝你，小小科學家。」 瑜瑜笑了。 「蜘蛛可沒有幫妳寫完作業。」 「真正完成作業的是妳自己。」 米拉開心地抱著自己的筆記本。 「下次，我會先好好觀察！」"
+        }
+      ]
+    }
+  ]
+}

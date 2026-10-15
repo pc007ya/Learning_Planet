@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-09",
+  "checkedAt": "2026-10-15",
   "auditedTerms": 1852,
   "singleUnambiguous": 952,
   "pendingEntries": [
@@ -9,20 +9,6 @@
       "category": "認讀字",
       "text": "頭",
       "note": "「頭」字音待確認（官方音讀：ㄊㄡˊ／˙ㄊㄡ）。"
-    },
-    {
-      "lessonId": "0102011150105",
-      "title": "外星人",
-      "category": "認讀字",
-      "text": "哪",
-      "note": "「哪」字音待確認（官方音讀：ㄋㄚˇ／˙ㄋㄚ／ㄋㄨㄛˊ）。"
-    },
-    {
-      "lessonId": "0102011150105",
-      "title": "外星人",
-      "category": "語詞",
-      "text": "哪個",
-      "note": "「哪個」詞音待確認：疑問詞「哪」及合音、量詞「個」輕聲均需教材注音頁；不沿用單字首音。"
     },
     {
       "lessonId": "0102011150106",
@@ -44,13 +30,6 @@
       "category": "認讀字",
       "text": "哪",
       "note": "「哪」字音待確認（官方音讀：ㄋㄚˇ／˙ㄋㄚ／ㄋㄨㄛˊ）。"
-    },
-    {
-      "lessonId": "0103021150101",
-      "title": "新學年新希望",
-      "category": "生字",
-      "text": "還",
-      "note": "「還」字音待確認（官方音讀：ㄏㄞˊ／ㄏㄨㄢˊ）。"
     },
     {
       "lessonId": "0103021150104",
@@ -130,13 +109,6 @@
       "note": "「鑽」字音待確認（官方音讀：ㄗㄨㄢ／ㄗㄨㄢˋ）。"
     },
     {
-      "lessonId": "0101031150105",
-      "title": "為梨花撐傘用",
-      "category": "生字",
-      "text": "結",
-      "note": "「結」字音待確認（官方音讀：ㄐㄧㄝˊ／ㄐㄧㄝ）。"
-    },
-    {
       "lessonId": "0101031150106",
       "title": "小鉛筆大學問",
       "category": "生字",
@@ -144,6 +116,12 @@
       "note": "「削」字音待確認（官方音讀：ㄒㄧㄠ／ㄒㄩㄝˋ）。"
     }
   ],
+  "targetedReview": {
+    "file": "phonetics-targeted-review.json",
+    "originalPendingCount": 21,
+    "confirmedCount": 5,
+    "pendingCount": 16
+  },
   "lookupGaps": [
     "哪個",
     "小鎮",
@@ -153,11 +131,5 @@
     "小雲雀",
     "羽衣",
     "石虎"
-  ],
-  "targetedReview": {
-    "file": "phonetics-targeted-review.json",
-    "originalPendingCount": 21,
-    "confirmedCount": 1,
-    "pendingCount": 20
-  }
+  ]
 }

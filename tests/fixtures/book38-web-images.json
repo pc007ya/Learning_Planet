@@ -1,0 +1,151 @@
+{
+  "images": [
+    {
+      "path": "images/story/science-homework-v1/cover.webp",
+      "sha256": "e09e4e573a6eceb97c8c28dfb2070fcda2b4c45f6f3032ed90ee2cf6f67c7a9b",
+      "number": 0,
+      "width": 800,
+      "height": 1200
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/01.webp",
+      "sha256": "cc525aa6d2f9cca1821c99572902cdda0ff669f857bdd87237658cecfacea765",
+      "number": 1,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/02.webp",
+      "sha256": "90558a6fe1299f76607534f28428629bfc496949168dc28518d5c252b44ee447",
+      "number": 2,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/03.webp",
+      "sha256": "f71e8e00fe18d9ec9c93946ee984b94f7f8dccb31fa7c7f20c1f706ddc9df5e0",
+      "number": 3,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/04.webp",
+      "sha256": "5cb6735e23d2cb2e4a0ae4df28dab5f3473a6b586d617e5a735f2153138fa8bd",
+      "number": 4,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/05.webp",
+      "sha256": "f0a1cdbc09d0c183fbd606aae859858471321b96987a8d281bc921339e903577",
+      "number": 5,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/06.webp",
+      "sha256": "239597f4ee4f8120ec3736ed241dd9caecf8fbf871575547bb672d2931d54091",
+      "number": 6,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/07.webp",
+      "sha256": "e32bccb0da00dd60b0d9994e3e0214edd7d5995d5e7ac659cd3867a8a34b2994",
+      "number": 7,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/08.webp",
+      "sha256": "608fb5ae3abe898f6556a89ecbcdd79a48b2d87416ce08effeb5961d6981d3e0",
+      "number": 8,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/09.webp",
+      "sha256": "707c806c00169a7d89b829dc76b88d10062fba564466284d08f194433a411a64",
+      "number": 9,
+      "width": 960,
+      "height": 541
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/10.webp",
+      "sha256": "d9ea434408354c66b0d0f2d81d86edba7aa4454e4d8beb8d95a50d0f70e4e7ee",
+      "number": 10,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/11.webp",
+      "sha256": "5dfbbe20857d2d296288a82eb1429b9e704a7430944347e4b009d279114bfd71",
+      "number": 11,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/12.webp",
+      "sha256": "063d4361093e1b7c7d45ad3f4cfa72549201266fe91374afa88399b8ddd75cfb",
+      "number": 12,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/13.webp",
+      "sha256": "d4d5271b4e1223feb510d172cd5624914c78c7cbf33f3230f13e59cda1f99e6b",
+      "number": 13,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/14.webp",
+      "sha256": "56907b67b4992af9e695d41fc2045b2ba0f9d65c8e6f5203a46b01309913009c",
+      "number": 14,
+      "width": 960,
+      "height": 541
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/15.webp",
+      "sha256": "63061f59c9766d7997d3e673bac78b5669026b422f6ef1ed2545855ccbcd3ec5",
+      "number": 15,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/16.webp",
+      "sha256": "95d4b4ff98580c2bbfdfdace8ccfef8844a736b515522759497fdae1448d8a8c",
+      "number": 16,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/17.webp",
+      "sha256": "49fcf8a6102b9de1da3f9b9665973884a670f43930a47b018c2263473e4e35bc",
+      "number": 17,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/18.webp",
+      "sha256": "2d423ae9c47185736335736285e43c7df3d92ce8909e5bce98a0c54c06c0ae2e",
+      "number": 18,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/19.webp",
+      "sha256": "04e783ddc948d3c39dcdba52b0736dbf3369307caf7eda164d881ae18dd7c689",
+      "number": 19,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "path": "images/story/science-homework-v1/scene/20.webp",
+      "sha256": "f7c53cde7c5d6a804f50e063612a5d8ce474c47b5661a8e22390eb39564ac6cb",
+      "number": 20,
+      "width": 960,
+      "height": 540
+    }
+  ]
+}

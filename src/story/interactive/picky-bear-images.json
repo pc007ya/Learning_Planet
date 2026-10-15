@@ -1,0 +1,145 @@
+{
+  "cover": "images/story/picky-bear-v1/cover.webp",
+  "pages": [
+    {
+      "number": 1,
+      "image": "images/story/picky-bear-v1/scene/01.webp",
+      "alt": "The Basket by the Bed · 瑜瑜穿著紫色星星睡衣待在熟悉的房間裡。床邊出現一只藤編籃子，她不記得自己把它放在那裡。",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 2,
+      "image": "images/story/picky-bear-v1/scene/02.webp",
+      "alt": "The Glowing Basket · 籃子開始發光。裡面有新鮮又色彩繽紛的食物：莓果、胡蘿蔔，還有一份綠色三明治。瑜瑜好奇地靠近。",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 3,
+      "image": "images/story/picky-bear-v1/scene/03.webp",
+      "alt": "Into the Forest · 溫暖的光從籃子升起，打開通往森林的道路。瑜瑜提著籃子穿過入口。房間裡沒有熊；Jack 只在她進入森林後才出現。",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 4,
+      "image": "images/story/picky-bear-v1/scene/04.webp",
+      "alt": "A Strange Rumble · 走進森林後，瑜瑜聽見很大的咕嚕聲。「咕嚕——！」聽起來不像生氣，比較像肚子餓。",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 5,
+      "image": "images/story/picky-bear-v1/scene/05.webp",
+      "alt": "Meet Jack · 一隻大棕熊從樹後走出來，脖子上圍著藍色領巾。「我是 Jack，」他說，「而且我好餓。」",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 6,
+      "image": "images/story/picky-bear-v1/scene/06.webp",
+      "alt": "A Very Picky Bear · 瑜瑜打開籃子。Jack 看了一眼就搖頭。「我很挑食，」他說，「我只吃我最喜歡的食物。」",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 7,
+      "image": "images/story/picky-bear-v1/scene/07.webp",
+      "alt": "No Berries! · 瑜瑜拿出莓果。Jack 往後退：「不要莓果！它們可能太酸了。」瑜瑜問：「你有吃過嗎？」Jack 把頭轉開。",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 8,
+      "image": "images/story/picky-bear-v1/scene/08.webp",
+      "alt": "No Carrots! · 瑜瑜拿起胡蘿蔔：「它很新鮮，而且脆脆的。」Jack 抱起手臂：「不要胡蘿蔔！」",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 9,
+      "image": "images/story/picky-bear-v1/scene/09.webp",
+      "alt": "No Green Sandwich! · 接著是夾著生菜和小黃瓜的三明治。Jack 皺起臉：「太綠了！」",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 10,
+      "image": "images/story/picky-bear-v1/scene/10.webp",
+      "alt": "How Do You Know? · 瑜瑜坐在籃子旁：「如果你從來沒有咬一口，怎麼知道自己不喜歡？」Jack 安靜下來。",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 11,
+      "image": "images/story/picky-bear-v1/scene/11.webp",
+      "alt": "The Brave Bite Game · 瑜瑜笑著說：「我們來玩『勇敢一口』遊戲。你不用全部吃完，只要選一樣，勇敢試一小口。」",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 12,
+      "image": "images/story/picky-bear-v1/scene/12.webp",
+      "alt": "First, Look · 她們把食物排開，像一場小野餐。Jack 先看看不同的形狀和顏色，莓果閃著紅色和紫色。",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 13,
+      "image": "images/story/picky-bear-v1/scene/13.webp",
+      "alt": "Next, Smell · Jack 聞了胡蘿蔔、莓果和三明治。「莓果聞起來甜甜的。」他有些驚訝。",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 14,
+      "image": "images/story/picky-bear-v1/scene/14.webp",
+      "alt": "One Brave Bite · Jack 選了一顆莓果，勇敢地咬了一小口。瑜瑜在旁邊等，沒有催他。",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 15,
+      "image": "images/story/picky-bear-v1/scene/15.webp",
+      "alt": "CRUNCH! · 接著 Jack 試了一小片胡蘿蔔。「喀滋！」他的眼睛睜大了：「真的脆脆的！」",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 16,
+      "image": "images/story/picky-bear-v1/scene/16.webp",
+      "alt": "The Green Sandwich · Jack 咬了一小口三明治，吃到生菜和小黃瓜。「原來很清爽。」他說。",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 17,
+      "image": "images/story/picky-bear-v1/scene/17.webp",
+      "alt": "Not My Favorite · Jack 想了一下：「小黃瓜不是我的最愛。」瑜瑜點點頭：「沒關係。願意嘗試，不代表每一樣都一定要喜歡。」",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 18,
+      "image": "images/story/picky-bear-v1/scene/18.webp",
+      "alt": "Jack Chooses · Jack 再看一次所有食物，選擇自己的午餐。他挑了莓果、胡蘿蔔和一部分三明治。",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 19,
+      "image": "images/story/picky-bear-v1/scene/19.webp",
+      "alt": "A Rainbow Picnic · 瑜瑜和 Jack 在樹下分享一場色彩繽紛的野餐，籃子放在兩人中間。Jack 還是有些食物不喜歡，但現在願意先試試看。",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "number": 20,
+      "image": "images/story/picky-bear-v1/scene/20.webp",
+      "alt": "I’ll Try One Little Bite · 籃子再次發光。瑜瑜離開前，Jack 笑著說：「下次，我會先試一小口。」瑜瑜提著籃子回家，戴著藍色領巾的 Jack 留在森林裡。",
+      "width": 960,
+      "height": 540
+    }
+  ]
+}
