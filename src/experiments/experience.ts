@@ -113,6 +113,8 @@ export class LabExperience {
   private say(text: string, explicit = false) {
     this.lastText = text;
     if (!this.enabled && !explicit) return;
+    // Late timers/observers must not restart narration after the tab was hidden.
+    if (typeof document !== 'undefined' && document.hidden) return;
     if (!('speechSynthesis' in window)) { this.voiceState('此裝置無語音，請看文字講解'); return; }
     this.stop();
     const utterance = new SpeechSynthesisUtterance(text); this.speech = utterance;

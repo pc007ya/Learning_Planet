@@ -89,7 +89,9 @@ export class InteractiveLab {
       }
       this.resize = new ResizeObserver(() => this.resizeScene()); this.resize.observe(this.stage);
     } catch {
-      this.stage.innerHTML = '<p class="il-fallback">此裝置無法顯示 3D。仍可使用旁邊的選單與按鈕操作，並閱讀文字觀察結果。</p>';
+      this.renderer?.dispose(); this.renderer?.domElement.remove(); this.renderer = undefined;
+      // Keep the clock transmission/readouts: reset and speed controls still use them.
+      this.stage.insertAdjacentHTML('beforeend', '<p class="il-fallback" role="status">此裝置無法顯示 3D。仍可使用按鈕操作，並閱讀文字觀察結果。</p>');
     }
     if (kind === 'buoyancy') this.buildTank();
     if (kind !== 'buoyancy') this.mechanism = new Mechanism(kind, this.scene, this.camera, this.stage, host, this.renderer, () => this.wake(), (value, release) => {

@@ -5,6 +5,8 @@ export class SceneNarration {
   private utterance?:SpeechSynthesisUtterance;
   say(text:string,explicit=false){
     this.last=text;if(!this.enabled&&!explicit)return;
+    // Late timers/observers must not restart narration after the tab was hidden.
+    if (typeof document !== 'undefined' && document.hidden) return;
     if(!('speechSynthesis' in window))return;
     this.stop();const u=new SpeechSynthesisUtterance(text);this.utterance=u;u.lang='zh-TW';u.rate=.88;
     u.voice=speechSynthesis.getVoices().find(v=>/^zh[-_]TW$/i.test(v.lang))||speechSynthesis.getVoices().find(v=>/^zh/i.test(v.lang))||null;

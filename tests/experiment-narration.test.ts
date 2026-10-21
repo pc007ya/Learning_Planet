@@ -37,3 +37,16 @@ describe('experiment narration', () => {
     vi.stubGlobal('window', {}); narrator.say('試試看'); expect(status.textContent).toContain('此裝置無語音');
   });
 });
+
+describe('background narration suppression', () => {
+  it('retains a late explanation without speaking until a visible replay', () => {
+    const { narrator, synth } = setup();
+    vi.stubGlobal('document', { hidden: true });
+    narrator.say('水池測試完成！'); narrator.say('水池測試完成！', true);
+    expect(synth.speak).not.toHaveBeenCalled();
+    expect(narrator.lastText).toBe('水池測試完成！');
+    vi.stubGlobal('document', { hidden: false });
+    narrator.say(narrator.lastText, true);
+    expect(synth.speak).toHaveBeenCalledOnce();
+  });
+});

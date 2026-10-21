@@ -28,7 +28,10 @@ export class BuoyancyPlay {
     host.addEventListener('pointerdown', this.down, { signal: this.abort.signal });
     host.addEventListener('pointermove', this.move, { signal: this.abort.signal });
     host.addEventListener('pointerup', this.up, { signal: this.abort.signal });
-    host.addEventListener('pointercancel', this.cancelDrag, { signal: this.abort.signal });
+    host.addEventListener('pointercancel', e => this.cancelDrag(e.pointerId), { signal: this.abort.signal });
+    host.addEventListener('lostpointercapture', e => this.cancelDrag(e.pointerId), { signal: this.abort.signal });
+    window.addEventListener('blur', () => this.cancelDrag(), { signal: this.abort.signal });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) this.cancelDrag(); }, { signal: this.abort.signal });
     host.addEventListener('dragstart', e => e.preventDefault(), { signal: this.abort.signal });
     this.select(0);
     this.experience = new LabExperience(host, 'buoyancy');
@@ -81,15 +84,16 @@ export class BuoyancyPlay {
   }
   private click = (event: Event) => {
     const b = (event.target as HTMLElement).closest<HTMLButtonElement>('button');
+    if (this.drag && b?.dataset.action !== 'reset') return;
     if (b?.dataset.object !== undefined) { if (Number(b.dataset.object) !== this.selected) this.select(Number(b.dataset.object)); }
     else if (b?.dataset.predict) this.predict(b.dataset.predict === 'float');
     else if (b?.hasAttribute('data-drop')) this.drop();
-    else if (b?.dataset.action === 'reset') { clearTimeout(this.timer); this.busy = false; this.stage.classList.remove('is-testing'); this.host.querySelectorAll<HTMLButtonElement>('[data-object],[data-predict],[data-drop]').forEach(el => el.disabled = false); this.select(this.selected); }
+    else if (b?.dataset.action === 'reset') { this.cancelDrag(); clearTimeout(this.timer); this.busy = false; this.stage.classList.remove('is-testing'); this.host.querySelectorAll<HTMLButtonElement>('[data-object],[data-predict],[data-drop]').forEach(el => el.disabled = false); this.select(this.selected); }
     else if (b?.dataset.answer !== undefined) this.host.querySelector('.il-feedback')!.textContent = !this.records ? '先放一個物品試試看！' : Number(b.dataset.answer) === LAB_SPECS.buoyancy.answer ? '猜對了！要一起看重量和能排開的水量。' : '再試試球和硬幣，找找線索！';
     else if ((event.target as HTMLElement).closest('.bp-pool')) this.drop();
   };
   private down = (e: PointerEvent) => {
-    if (this.busy || e.button !== 0) return;
+    if (this.busy || this.drag || e.button !== 0) return;
     const b = (e.target as HTMLElement).closest<HTMLElement>('[data-object]'); if (!b) return;
     if (Number(b.dataset.object) !== this.selected) this.select(Number(b.dataset.object));
     this.drag = { pointer:e.pointerId, x:e.clientX, y:e.clientY, moved:false, button:b }; b.setPointerCapture(e.pointerId);
@@ -109,9 +113,12 @@ export class BuoyancyPlay {
     const r = this.stage.getBoundingClientRect(), x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
     if (insidePool(x,y)) this.drop(x); else this.announce('拖到水池裡再放手喔！');
   };
-  private cancelDrag = () => {
-    if (this.drag?.button.hasPointerCapture(this.drag.pointer)) this.drag.button.releasePointerCapture(this.drag.pointer);
-    this.drag = undefined; this.ghost.hidden = true; this.stage.classList.remove('is-drop-target');
+  private cancelDrag = (pointer?: number) => {
+    const drag = this.drag;
+    if (pointer !== undefined && drag?.pointer !== pointer) return;
+    this.drag = undefined;
+    if (drag?.button.hasPointerCapture(drag.pointer)) drag.button.releasePointerCapture(drag.pointer);
+    this.ghost.hidden = true; this.stage.classList.remove('is-drop-target');
   };
   destroy() { clearTimeout(this.timer); this.cancelDrag(); this.abort.abort(); this.experience.destroy(); this.ghost.remove(); }
 }

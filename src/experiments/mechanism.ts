@@ -51,7 +51,7 @@ export class Mechanism {
   private labelLayer: HTMLElement;
   private abort = new AbortController();
   private selected = '';
-  private dragging: {x: number; minutes: number; moved: boolean} | null = null;
+  private dragging: {pointer: number; x: number; minutes: number; moved: boolean} | null = null;
   private minutes = 0;
   private textures: T.Texture[] = [];
   private env?: T.WebGLRenderTarget;
@@ -110,6 +110,7 @@ export class Mechanism {
     if (kind === 'clock') quick.innerHTML = '<strong>☝ 拖動調時</strong><p>⚙ 拆卸 · ☷ 找零件</p>';
     host.addEventListener('click', e => {
       const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button'); if (!b) return;
+      if (b.hasAttribute('data-clock-rotate') || b.hasAttribute('data-clock-explode') || b.hasAttribute('data-clock-zoom') || b.dataset.action === 'reset') this.cancelDrag();
       if (b.dataset.carMode) this.setCarMode(b.dataset.carMode === this.carMode ? 'idle' : b.dataset.carMode as 'rotate' | 'explode' | 'test');
       if (b.dataset.view) { this.setMode(b.dataset.view as ViewMode); tools.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(el=>el.setAttribute('aria-pressed',String(el===b))); (tools.querySelector('[data-mech-explode]') as HTMLInputElement).value = this.mode === 'explode' ? '100' : '0'; }
       if (b.dataset.part) this.select(b.dataset.part, host);
@@ -121,15 +122,61 @@ export class Mechanism {
     tools.addEventListener('input',e=>{const input=e.target as HTMLInputElement;if(input.hasAttribute('data-mech-turn'))this.yaw=Number(input.value)*Math.PI/180;else{this.target=Number(input.value)/100;this.mode=this.target ? 'explode':'whole';tools.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.view===this.mode)));this.skins();}this.wake();},{signal:this.abort.signal});
     if (kind === 'clock') this.clock(); else this.car();
     scene.add(this.root); this.skins();
-    stage.addEventListener('pointerdown',e=>{if(e.button || (e.target as HTMLElement).closest('button,details') || (kind==='car'&&this.carMode==='idle'))return;this.dragYaw=this.yaw;this.dragPull=this.pullValue;this.dragging={x:e.clientX,minutes:this.minutes,moved:false};stage.setPointerCapture(e.pointerId);},{signal:this.abort.signal});
-    stage.addEventListener('pointermove',e=>{if(!this.dragging)return;const d=e.clientX-this.dragging.x;if(Math.abs(d)>5)this.dragging.moved=true;if(!this.dragging.moved)return;if((kind==='car'&&this.carMode!=='test')||(kind==='clock'&&this.clockRotate)){this.yaw=this.dragYaw+d*.01;}else if(this.mode!=='whole'){this.yaw=Math.max(-1.3,Math.min(1.3,this.dragYaw+d*.01));}else if(kind==='clock'){this.action(Math.max(0,this.dragging.minutes+d/2),false);}else this.action(Math.max(.1,Math.min(1,this.dragPull-d/180)),false);this.wake();},{signal:this.abort.signal});
-    stage.addEventListener('pointerup',e=>{if(!this.dragging)return;const moved=this.dragging.moved;this.dragging=null;if(stage.hasPointerCapture(e.pointerId))stage.releasePointerCapture(e.pointerId);if(moved&&this.mode==='whole'&&((kind==='clock'&&!this.clockRotate)||this.carMode==='test'))this.action(-1,true);else if(!moved){const rect=stage.getBoundingClientRect(),ray=new T.Raycaster();ray.setFromCamera(new T.Vector2((e.clientX-rect.left)/rect.width*2-1,1-(e.clientY-rect.top)/rect.height*2),camera);const hits=ray.intersectObject(this.root,true);for(const hit of hits){let obj:T.Object3D|null=hit.object;while(obj&&!obj.userData.partId)obj=obj.parent;if(obj?.userData.partId){this.select(obj.userData.partId,host);break;}}}},{signal:this.abort.signal});
-    stage.addEventListener('pointercancel',()=>{this.dragging=null;},{signal:this.abort.signal});
+    stage.addEventListener('pointerdown', e => this.pointerDown(e), { signal: this.abort.signal });
+    stage.addEventListener('pointermove', e => this.pointerMove(e), { signal: this.abort.signal });
+    stage.addEventListener('pointerup', e => this.pointerUp(e), { signal: this.abort.signal });
+    stage.addEventListener('pointercancel', e => this.cancelDrag(e.pointerId), { signal: this.abort.signal });
+    stage.addEventListener('lostpointercapture', e => this.cancelDrag(e.pointerId), { signal: this.abort.signal });
+    window.addEventListener('blur', () => this.cancelDrag(), { signal: this.abort.signal });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) this.cancelDrag(); }, { signal: this.abort.signal });
   }
+  private pointerDown(e: PointerEvent) {
+    // A second finger must not take over the first finger's pull or clock adjustment.
+    if (this.dragging || e.button !== 0 || (e.target as HTMLElement).closest('button,details') || (this.kind === 'car' && this.carMode === 'idle')) return;
+    this.dragYaw = this.yaw; this.dragPull = this.pullValue;
+    this.dragging = { pointer: e.pointerId, x: e.clientX, minutes: this.minutes, moved: false };
+    this.stage.setPointerCapture(e.pointerId);
+  }
+  private pointerMove(e: PointerEvent) {
+    if (!this.dragging || this.dragging.pointer !== e.pointerId) return;
+    const d = e.clientX - this.dragging.x;
+    if (Math.abs(d) > 5) this.dragging.moved = true;
+    if (!this.dragging.moved) return;
+    if ((this.kind === 'car' && this.carMode!=='test') || (this.kind === 'clock' && this.clockRotate)) this.yaw = this.dragYaw + d * .01;
+    else if (this.mode !== 'whole') this.yaw = Math.max(-1.3, Math.min(1.3, this.dragYaw + d * .01));
+    else if (this.kind === 'clock') this.action(Math.max(0, this.dragging.minutes + d / 2), false);
+    else this.action(Math.max(.1, Math.min(1, this.dragPull - d / 180)), false);
+    this.wake();
+  }
+  private pointerUp(e: PointerEvent) {
+    if (!this.dragging || this.dragging.pointer !== e.pointerId) return;
+    const moved = this.dragging.moved;
+    this.cancelDrag(e.pointerId);
+    if (moved && this.mode === 'whole' && ((this.kind==='clock'&&!this.clockRotate) || this.carMode === 'test')) this.action(-1, true);
+    else if (!moved) {
+      const rect = this.stage.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      const ray = new T.Raycaster();
+      ray.setFromCamera(new T.Vector2((e.clientX - rect.left) / rect.width * 2 - 1, 1 - (e.clientY - rect.top) / rect.height * 2), this.camera);
+      for (const hit of ray.intersectObject(this.root, true)) {
+        let obj: T.Object3D | null = hit.object;
+        while (obj && !obj.userData.partId) obj = obj.parent;
+        if (obj?.userData.partId) { this.select(obj.userData.partId, this.host); break; }
+      }
+    }
+  }
+  private cancelDrag(pointer?: number) {
+    const drag = this.dragging;
+    if (!drag || (pointer !== undefined && pointer !== drag.pointer)) return;
+    // Clear first: releasing capture can synchronously dispatch lostpointercapture.
+    this.dragging = null;
+    if (this.stage.hasPointerCapture(drag.pointer)) this.stage.releasePointerCapture(drag.pointer);
+  }
+
   setCarMode(mode: 'idle' | 'rotate' | 'explode' | 'test') {
     if (this.kind !== 'car') return;
     if (this.carMode === 'test' && mode !== 'test') this.yaw = -.55;
-    this.dragging = null; this.carMode = mode; this.host.dataset.carMode = mode;
+    this.cancelDrag(); this.carMode = mode; this.host.dataset.carMode = mode;
     this.setMode(mode === 'explode' ? 'explode' : 'whole');
     if (mode === 'test') { this.yaw = 0; this.amount = 0; }
     this.root.position.x = mode === 'test' ? -this.pullValue * 1.8 : 0;
@@ -264,5 +311,5 @@ export class Mechanism {
     });
     return this.amount!==this.target;
   }
-  destroy() {this.abort.abort();this.textures.forEach(t=>t.dispose());this.env?.dispose();this.scene.environment=null;}
+  destroy() {this.cancelDrag();this.abort.abort();this.textures.forEach(t=>t.dispose());this.env?.dispose();this.scene.environment=null;}
 }
