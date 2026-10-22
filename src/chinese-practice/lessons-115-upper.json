@@ -1303,12 +1303,14 @@
         "category": "認讀字",
         "text": "吐",
         "sounds": [
-          ""
+          "ㄊㄨˇ"
         ],
         "soundSources": [
-          "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%90%90"
+          "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%90%90",
+          "https://tten.tp.edu.tw/Login/Downment?grade=1&spid=b71b1e2b-caf4-40a6-b6d0-2c07b3bb07eb&subject=Language",
+          "https://dict.concised.moe.edu.tw/dictView.jsp?ID=11552&la=0&powerMode=0"
         ],
-        "soundNote": "「吐」字音待確認（官方音讀：ㄊㄨˇ／ㄊㄨˋ）。"
+        "soundNote": "已核（2026-10-22）：興雅國小115上南一一年級國語課程計畫，第16–17頁第六課〈小金魚〉明列課文「吐泡泡」語境，依教育部簡編本「吐」核為 ㄊㄨˇ。此為課程語境核音，非出版社課本原頁印刷注音查核。"
       },
       {
         "category": "認讀字",
@@ -8369,12 +8371,16 @@
         "category": "生字",
         "text": "哇",
         "sounds": [
-          ""
+          "ㄨㄚ"
         ],
         "soundSources": [
-          "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%93%87"
+          "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%93%87",
+          "https://shop.nani1953.com.tw/products/2上國語三新超群自修115上適用",
+          "https://cdn-general.cybassets.com/media/W1siZiIsIjI4NDgyL3Byb2R1Y3RzLzY4OTU1NjM5LzE3ODIxOTM1NDJfMWE5MWFiYmQ3YjE4NGM5YWI4ODIuanBlZyJdLFsicCIsInRodW1iIiwiMjA0OHgyMDQ4Il1d.jpeg?sha=06cd00e7ee9a5310",
+          "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?breadcrumbs=Search_%E5%93%87_one&dictSearchField=%E5%93%87&wordID=D0002702",
+          "https://dict.concised.moe.edu.tw/dictView.jsp?ID=43102"
         ],
-        "soundNote": "「哇」字音待確認（官方音讀：ㄨㄚ／˙ㄨㄚ）。"
+        "soundNote": "已核（2026-10-22）：南一官方115上適用二上國語自修，p213所載第一課〈打招呼〉習作解答，「哇！」直接標注 ㄨㄚ。本練習採同課習作用例讀音；未宣稱已核對課文每一處「哇」。"
       },
       {
         "category": "生字",
@@ -24668,6 +24674,7 @@
     "publisher": "翰林",
     "number": 5,
     "title": "為梨花撐傘用",
+    "displayTitle": "為梨花撐傘",
     "edition": null,
     "volume": 5,
     "volumeDerived": true,

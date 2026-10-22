@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-10-15",
+  "checkedAt": "2026-10-22",
   "scope": "只查原剩餘21個詞條；不批次重抓、不更動其他課／詞條。",
-  "confirmedCount": 5,
-  "pendingCount": 16,
+  "confirmedCount": 7,
+  "pendingCount": 14,
   "entries": [
     {
       "lessonId": "0102011150104",
@@ -157,7 +157,7 @@
       "publisher": "南一",
       "number": 6,
       "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102011150106",
-      "status": "待確認",
+      "status": "已確認",
       "candidates": [
         {
           "char": "吐",
@@ -168,9 +168,34 @@
         }
       ],
       "dictionarySources": [
-        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0003629&breadcrumbs=Search_%E5%90%90_one&dictSearchField=%E5%90%90"
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0003629&breadcrumbs=Search_%E5%90%90_one&dictSearchField=%E5%90%90",
+        "https://dict.concised.moe.edu.tw/dictView.jsp?ID=11552&la=0&powerMode=0"
       ],
-      "missingEvidence": "缺本課含「吐」的原句／注音頁，需區分吐出／吐氣與嘔吐。"
+      "missingEvidence": "",
+      "previousReview": {
+        "checkedAt": "2026-10-15",
+        "status": "待確認",
+        "missingEvidence": "缺本課含「吐」的原句／注音頁，需區分吐出／吐氣與嘔吐。"
+      },
+      "checkedAt": "2026-10-22",
+      "confirmationMethod": "學校公開115南一課程計畫語境＋教育部字典核音；實讀課程計畫第1、16、17頁確認年份、出版社、課次與「吐泡泡」語境，排除嘔吐義；未見出版社課本原頁印刷注音。",
+      "evidence": [
+        {
+          "url": "https://tten.tp.edu.tw/Login/Downment?grade=1&spid=b71b1e2b-caf4-40a6-b6d0-2c07b3bb07eb&subject=Language",
+          "scope": "興雅國小115學年度第一學期一年級國語課程計畫：第1頁明載115上、南一；第16頁第六課〈小金魚〉；第17頁同列續文明列課文「吐泡泡」。",
+          "sha256": "5950a971bdabcabbf2befeb523febf770d8f82efe8beebaf4f357aef31adf56d"
+        },
+        {
+          "url": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=11552&la=0&powerMode=0",
+          "scope": "教育部簡編本「吐」ㄊㄨˇ：排出口中東西之義，與課文吐泡泡語境相符；非嘔吐的ㄊㄨˋ。"
+        }
+      ],
+      "override": {
+        "sounds": [
+          "ㄊㄨˇ"
+        ],
+        "note": "已核（2026-10-22）：興雅國小115上南一一年級國語課程計畫，第16–17頁第六課〈小金魚〉明列課文「吐泡泡」語境，依教育部簡編本「吐」核為 ㄊㄨˇ。此為課程語境核音，非出版社課本原頁印刷注音查核。"
+      }
     },
     {
       "lessonId": "0103011150102",
@@ -346,7 +371,7 @@
       "publisher": "南一",
       "number": 1,
       "lessonSource": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102021150101",
-      "status": "待確認",
+      "status": "已確認",
       "candidates": [
         {
           "char": "哇",
@@ -357,9 +382,44 @@
         }
       ],
       "dictionarySources": [
-        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002702&breadcrumbs=Search_%E5%93%87_one&dictSearchField=%E5%93%87"
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?wordID=D0002702&breadcrumbs=Search_%E5%93%87_one&dictSearchField=%E5%93%87",
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?breadcrumbs=Search_%E5%93%87_one&dictSearchField=%E5%93%87&wordID=D0002702",
+        "https://dict.concised.moe.edu.tw/dictView.jsp?ID=43102"
       ],
-      "missingEvidence": "缺本課原句／注音頁，需區分感嘆、狀聲與語助詞輕聲。"
+      "missingEvidence": "",
+      "previousReview": {
+        "checkedAt": "2026-10-15",
+        "status": "待確認",
+        "missingEvidence": "缺本課原句／注音頁，需區分感嘆、狀聲與語助詞輕聲。"
+      },
+      "checkedAt": "2026-10-22",
+      "confirmationMethod": "出版社官方115上適用自修所載同課習作解答直接標音；實讀p213的第一課〈打招呼〉「哇！」為ㄨㄚ，無輕聲點。官方商品頁明列該樣章；不是單字預設或跨課借音，也未宣稱已核課文每一處同字。",
+      "evidence": [
+        {
+          "url": "https://shop.nani1953.com.tw/products/2上國語三新超群自修115上適用",
+          "scope": "官方商品《2上國語（三）新超群自修【115上適用】》，商品HTML的product-photos-json第10張imageMaxUrl連到p213樣章。",
+          "sha256": "baa6cb5bb48546666971e71c671cef0bd006f8b2ee2a9ca1e500cf9d518163da"
+        },
+        {
+          "url": "https://cdn-general.cybassets.com/media/W1siZiIsIjI4NDgyL3Byb2R1Y3RzLzY4OTU1NjM5LzE3ODIxOTM1NDJfMWE5MWFiYmQ3YjE4NGM5YWI4ODIuanBlZyJdLFsicCIsInRodW1iIiwiMjA0OHgyMDQ4Il1d.jpeg?sha=06cd00e7ee9a5310",
+          "scope": "p213「2上國語習作解答」，第一課〈打招呼〉習作第5頁「哇！」直接標ㄨㄚ（無輕聲），頁腳配合課本第10頁。",
+          "sha256": "4576fe205cf192a9d07247e195018540e60285b201e4fbd0edf95a8ac206d05e"
+        },
+        {
+          "url": "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?breadcrumbs=Search_%E5%93%87_one&dictSearchField=%E5%93%87&wordID=D0002702",
+          "scope": "教育部小字典哇列ㄨㄚ／˙ㄨㄚ兩音；本課音由出版社同課印刷標音選定，不以字典預設代替。"
+        },
+        {
+          "url": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=43102",
+          "scope": "教育部簡編本哇 ㄨㄚ，釋義2為驚嘆語氣，與同課習作的獨立「哇！」用例相合。"
+        }
+      ],
+      "override": {
+        "sounds": [
+          "ㄨㄚ"
+        ],
+        "note": "已核（2026-10-22）：南一官方115上適用二上國語自修，p213所載第一課〈打招呼〉習作解答，「哇！」直接標注 ㄨㄚ。本練習採同課習作用例讀音；未宣稱已核對課文每一處「哇」。"
+      }
     },
     {
       "lessonId": "0102021150102",

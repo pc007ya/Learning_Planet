@@ -1,10 +1,41 @@
 import { describe, expect, it } from 'vitest';
-import { LESSONS, STROKE_SEARCH } from '../src/chinese-practice/catalog';
+import { LESSONS, STROKE_SEARCH, lessonDisplayTitle, lessonLabel } from '../src/chinese-practice/catalog';
 import phoneticsReview from '../src/chinese-practice/phonetics-targeted-review.json';
 import phoneticsStatus from '../src/chinese-practice/phonetics-status.json';
 import { customSelections, dictionaryUrl, matchingLessons, paginate, practiceRows, removeCharacter, selectionOf, setSelections, strokeLink, validSound } from '../src/chinese-practice/model';
 const first=LESSONS.find(lesson=>lesson.id==='0102011150101')!, second=LESSONS.find(lesson=>lesson.id==='0102011150102')!;
 describe('Chinese practice selection and provenance',()=>{
+  it('shows the publisher-confirmed title without overwriting the original index title or source',()=>{
+    const lesson=LESSONS.find(lesson=>lesson.id==='0101031150105')!;
+    expect(lesson.title).toBe('為梨花撐傘用');
+    expect(lessonDisplayTitle(lesson)).toBe('為梨花撐傘');
+    expect(lessonLabel(lesson)).toBe('115上・3年級・翰林・第5課 為梨花撐傘');
+    expect(selectionOf(lesson,0).source).toBe(lessonLabel(lesson));
+    expect(lesson.sourceUrl).toBe('https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101031150105');
+    expect(lesson.sourceNote).toContain('為梨花撐傘用');
+    expect(lesson.sourceNote).toContain('出版社第五課課名為「為梨花撐傘」');
+    expect(lessonDisplayTitle(first)).toBe(first.title);
+  });
+  it('keeps catalog blanks, pending index and targeted review in exact agreement',()=>{
+    const key=(item:{lessonId:string;category:string;text:string})=>`${item.lessonId}:${item.category}:${item.text}`;
+    const catalogPending=LESSONS.flatMap(lesson=>lesson.vocabulary.filter(item=>item.sounds.includes('')).map(item=>key({...item,lessonId:lesson.id}))).sort();
+    const pending=phoneticsReview.entries.filter(entry=>entry.status==='待確認');
+    const confirmed=phoneticsReview.entries.filter(entry=>entry.status==='已確認');
+    expect(phoneticsStatus.pendingEntries.map(key).sort()).toEqual(catalogPending);
+    expect(pending.map(key).sort()).toEqual(catalogPending);
+    expect(new Set(catalogPending).size).toBe(catalogPending.length);
+    expect(phoneticsReview.pendingCount).toBe(pending.length);
+    expect(phoneticsReview.confirmedCount).toBe(confirmed.length);
+    expect(phoneticsStatus.targetedReview.pendingCount).toBe(pending.length);
+    expect(phoneticsStatus.targetedReview.confirmedCount).toBe(confirmed.length);
+    expect(phoneticsStatus.targetedReview.originalPendingCount).toBe(pending.length+confirmed.length);
+    for(const entry of confirmed) {
+      const item=LESSONS.find(lesson=>lesson.id===entry.lessonId)!.vocabulary.find(item=>item.category===entry.category&&item.text===entry.text)!;
+      expect(item.sounds).toEqual(entry.override!.sounds);
+      expect(entry.confirmationMethod).toBeTruthy();
+      expect(entry.evidence?.length).toBeGreaterThan(0);
+    }
+  });
   it('covers all nine verified 115-upper books with exact course counts and no semester substitution',()=>{
     const expected:Record<string,number>={'南一':7,'康軒':6,'翰林':7};
     for(const publisher of Object.keys(expected)) for(const grade of [1,2,3]) {
@@ -95,12 +126,14 @@ describe('Chinese practice selection and provenance',()=>{
     const confirmedReadings:Record<string,string[]>={
       '0102011150105:哪':['ㄋㄚˇ'],
       '0102011150105:哪個':['ㄋㄚˇ','˙ㄍㄜ'],
+      '0102011150106:吐':['ㄊㄨˇ'],
       '0103021150101:還':['ㄏㄞˊ'],
+      '0102021150101:哇':['ㄨㄚ'],
       '0102031150111:石虎':['ㄕˊ','ㄏㄨˇ'],
       '0101031150105:結':['ㄐㄧㄝˊ'],
     };
     expect(phoneticsReview.entries).toHaveLength(21);
-    expect(phoneticsStatus.pendingEntries).toHaveLength(16);
+    expect(phoneticsStatus.pendingEntries).toHaveLength(14);
     expect(phoneticsReview.entries.filter(entry=>entry.status==='已確認').map(entry=>`${entry.lessonId}:${entry.text}`)).toEqual(Object.keys(confirmedReadings));
     for (const entry of phoneticsReview.entries) {
       const lesson=LESSONS.find(lesson=>lesson.id===entry.lessonId)!;
@@ -114,6 +147,35 @@ describe('Chinese practice selection and provenance',()=>{
     }
     const 哪個=LESSONS.find(lesson=>lesson.id==='0102011150105')!.vocabulary.find(item=>item.text==='哪個')!;
     expect(哪個.sounds).toEqual(['ㄋㄚˇ','˙ㄍㄜ']);
+  });
+  it('confirms fish-blowing context without clearing the same unresolved character in a different lesson',()=>{
+    const selected=(id:string)=>{
+      const lesson=LESSONS.find(lesson=>lesson.id===id)!;
+      return selectionOf(lesson,lesson.vocabulary.findIndex(item=>item.text==='吐'));
+    };
+    const fish=selected('0102011150106'), fire=selected('0102031150105');
+    expect(fish.sounds).toEqual(['ㄊㄨˇ']);
+    expect(fire.sounds).toEqual(['']);
+    expect(practiceRows([fish])[0].sound).toBe('ㄊㄨˇ');
+    expect(practiceRows([fish,fire])[0].sound).toBe('');
+    const item=LESSONS.find(lesson=>lesson.id==='0102011150106')!.vocabulary.find(item=>item.text==='吐')!;
+    expect(item.soundNote).toContain('課程語境核音');
+    expect(item.soundNote).toContain('非出版社課本原頁');
+    expect(item.soundSources).toContain('https://dict.concised.moe.edu.tw/dictView.jsp?ID=11552&la=0&powerMode=0');
+  });
+  it('limits the verified interjection to its same-lesson workbook source and keeps other wa pending',()=>{
+    const select=(id:string)=>{
+      const lesson=LESSONS.find(lesson=>lesson.id===id)!;
+      return selectionOf(lesson,lesson.vocabulary.findIndex(item=>item.text==='哇'));
+    };
+    const greeting=select('0102021150101'), sports=select('0103021150104');
+    expect(greeting.sounds).toEqual(['ㄨㄚ']);
+    expect(sports.sounds).toEqual(['']);
+    expect(practiceRows([greeting,sports])[0].sound).toBe('');
+    const item=LESSONS.find(lesson=>lesson.id==='0102021150101')!.vocabulary.find(item=>item.text==='哇')!;
+    expect(item.soundNote).toContain('同課習作用例');
+    expect(item.soundNote).toContain('未宣稱已核對課文每一處');
+    expect(item.soundSources).toContain('https://dict.concised.moe.edu.tw/dictView.jsp?ID=43102');
   });
   it('does not silently borrow a reading from another selected phrase for an unresolved classroom character',()=>{
     const pendingLesson=LESSONS.find(lesson=>lesson.id==='0102011150104')!;

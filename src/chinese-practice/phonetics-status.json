@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-15",
+  "checkedAt": "2026-10-22",
   "auditedTerms": 1852,
   "singleUnambiguous": 952,
   "pendingEntries": [
@@ -9,13 +9,6 @@
       "category": "認讀字",
       "text": "頭",
       "note": "「頭」字音待確認（官方音讀：ㄊㄡˊ／˙ㄊㄡ）。"
-    },
-    {
-      "lessonId": "0102011150106",
-      "title": "小金魚",
-      "category": "認讀字",
-      "text": "吐",
-      "note": "「吐」字音待確認（官方音讀：ㄊㄨˇ／ㄊㄨˋ）。"
     },
     {
       "lessonId": "0103011150102",
@@ -44,13 +37,6 @@
       "category": "生字",
       "text": "哪",
       "note": "「哪」字音待確認（官方音讀：ㄋㄚˇ／˙ㄋㄚ／ㄋㄨㄛˊ）。"
-    },
-    {
-      "lessonId": "0102021150101",
-      "title": "打招呼",
-      "category": "生字",
-      "text": "哇",
-      "note": "「哇」字音待確認（官方音讀：ㄨㄚ／˙ㄨㄚ）。"
     },
     {
       "lessonId": "0102021150102",
@@ -119,8 +105,8 @@
   "targetedReview": {
     "file": "phonetics-targeted-review.json",
     "originalPendingCount": 21,
-    "confirmedCount": 5,
-    "pendingCount": 16
+    "confirmedCount": 7,
+    "pendingCount": 14
   },
   "lookupGaps": [
     "哪個",

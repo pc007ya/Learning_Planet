@@ -1,4 +1,4 @@
-import { CHECKED_AT, LESSONS, lessonLabel, soundSource, type Category } from './catalog';
+import { CHECKED_AT, LESSONS, lessonDisplayTitle, lessonLabel, soundSource, type Category } from './catalog';
 import { customSelections, dictionaryUrl, keyOf, matchingLessons, paginate, practiceRows, removeCharacter, selectionOf, setSelections, strokeLink, validSound, type Filters, type Selection } from './model';
 const root = document.querySelector<HTMLElement>('#practice-app')!;
 const esc = (value:unknown) => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]!));
@@ -64,7 +64,7 @@ function lessonCards() {
   return lessons.map(lesson=>{
     const entries = lesson.vocabulary.flatMap((item,index)=>state.categories.includes(item.category)?[selectionOf(lesson,index)]:[]);
     const checked = entries.length>0 && entries.every(entry=>selected(entry.id));
-    return `<article class="lesson-card"><div class="lesson-header"><h3>${lesson.number===0?'前導單元':`第 ${lesson.number} 課`} ${esc(lesson.title)}</h3><label><input type="checkbox" data-lesson="${lesson.id}" ${checked?'checked':''} ${entries.length?'':'disabled'}> 勾整課（目前分類）</label></div>
+    return `<article class="lesson-card"><div class="lesson-header"><h3>${lesson.number===0?'前導單元':`第 ${lesson.number} 課`} ${esc(lessonDisplayTitle(lesson))}</h3><label><input type="checkbox" data-lesson="${lesson.id}" ${checked?'checked':''} ${entries.length?'':'disabled'}> 勾整課（目前分類）</label></div>
     <p class="muted">${lesson.vocabulary.filter(item=>item.category==='生字').length} 生字 / ${lesson.vocabulary.filter(item=>item.category==='認讀字').length} 認讀字 / ${lesson.vocabulary.filter(item=>item.category==='語詞').length} 語詞 · ${link(lesson.sourceUrl,'官方詞表 ↗')}</p>
     <div class="word-grid">${lesson.vocabulary.map((item,index)=>state.categories.includes(item.category)?`<label class="word-option ${selected(keyOf(lesson,index))?'chosen':''}"><input type="checkbox" data-entry="${keyOf(lesson,index)}" ${selected(keyOf(lesson,index))?'checked':''}><strong>${esc(item.text)}</strong><small>${esc(item.category)}</small></label>`:'').join('')}</div>
     ${lesson.vocabulary.some(item=>item.sounds.includes(''))?`<p class="warning">${lesson.vocabulary.filter(item=>item.sounds.includes('')).length} 個詞條的注音仍待語境確認，請核對後列印。</p>`:''}<details class="metadata"><summary>教材版本與查核資訊</summary><p>${esc(lessonLabel(lesson))} · 查核 ${lesson.checkedAt} · 已核詞表<br>課綱：待核；版次：未提供；冊次：第 ${lesson.volume} 冊（由年級、學期推導）。<br>注音：官方字／詞音讀；多音字由編輯依課名、同課語詞選音，教師可依課文覆核。${lesson.sourceNote?`<br>${esc(lesson.sourceNote)}`:''}</p></details></article>`;

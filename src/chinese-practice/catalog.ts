@@ -3,7 +3,7 @@ import singleSounds from './sounds-single.json';
 export type Category = '生字' | '認讀字' | '語詞' | '自訂字';
 export interface Lesson {
   id: string; curriculum: string | null; year: number; semester: '上' | '下'; grade: number;
-  publisher: string; number: number; title: string; edition: string | null;
+  publisher: string; number: number; title: string; displayTitle?: string; edition: string | null;
   volume: number; volumeDerived: boolean; sourceUrl: string; checkedAt: string; status: '已核'; sourceNote?: string;
   vocabulary: { text: string; category: Category; sounds: string[]; soundNote?: string; soundSources?: string[] }[];
 }
@@ -25,7 +25,9 @@ const LEGACY_SOUNDS: Record<string, string> = {
 };
 export const SOUNDS: Record<string,string> = {...singleSounds, ...LEGACY_SOUNDS};
 export const LESSONS: Lesson[] = lessonData as unknown as Lesson[];
-export const lessonLabel = (lesson: Lesson) => `${lesson.year}${lesson.semester}・${lesson.grade}年級・${lesson.publisher}・${lesson.number === 0 ? '前導單元' : `第${lesson.number}課`} ${lesson.title}`;
+// Preserve the imported source title even when the publisher confirms a different display title.
+export const lessonDisplayTitle = (lesson: Lesson) => lesson.displayTitle ?? lesson.title;
+export const lessonLabel = (lesson: Lesson) => `${lesson.year}${lesson.semester}・${lesson.grade}年級・${lesson.publisher}・${lesson.number === 0 ? '前導單元' : `第${lesson.number}課`} ${lessonDisplayTitle(lesson)}`;
 export const soundSource = (char: string) => STROKE_PAGES[char]
   ? `https://stroke-order.learningweb.moe.edu.tw/dictMean.jsp?ID=${STROKE_PAGES[char]}`
   : DICTIONARY + encodeURIComponent(char);
