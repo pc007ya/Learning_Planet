@@ -1,7 +1,7 @@
 'use strict';
 
 // Run with the deployment Node version:
-//   node --test test/runtime-compat.test.cjs
+//   node --test test/runtime-compat.node.cjs
 // These tests load the real, locked Firebase SDKs, not replacement SDK mocks.
 // They deliberately exercise only paths that must reject before any I/O.
 const assert = require('node:assert/strict');

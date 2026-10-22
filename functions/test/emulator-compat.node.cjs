@@ -5,7 +5,7 @@
 // Example (from functions/, with Firebase emulators already running):
 // RUN_FIREBASE_EMULATOR_TESTS=1 GCLOUD_PROJECT=demo-learning-planet-node22 \
 // FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9099 FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 \
-// node --test test/emulator-compat.test.cjs
+// node --test test/emulator-compat.node.cjs
 // Optional: FUNCTIONS_EMULATOR_HOST=127.0.0.1:5001 tests HTTP callable transport.
 // Use a clean, disposable demo project. Only records created by this suite are
 // cleaned up; the suite never flushes an emulator or touches real credentials.

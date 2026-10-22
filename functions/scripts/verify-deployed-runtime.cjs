@@ -6,6 +6,24 @@ const project = 'learnplanet-cce52';
 const region = 'asia-east1';
 const expected = Object.keys(require('../index.js')).sort();
 const mode = process.argv[2];
+const verifyOnly = process.env.RUNTIME_VERIFY_ONLY === 'true';
+// Receipt: successful runtime deployment, Actions run 39768165186 at 2026-10-22 11:09 UTC.
+const verifiedRevisions = {
+  "changeMyStudentUsername": "changemystudentusername-00006-non",
+  "createTeacher": "createteacher-00009-yag",
+  "setTeacherEnabled": "setteacherenabled-00009-doc",
+  "updateStudent": "updatestudent-00009-zaz",
+  "createStudent": "createstudent-00009-xen",
+  "deleteTeacher": "deleteteacher-00007-nac",
+  "setStudentEnabled": "setstudentenabled-00009-xeh",
+  "resetTeacherPassword": "resetteacherpassword-00009-yak",
+  "resolveGoogleLinkConflict": "resolvegooglelinkconflict-00008-paq",
+  "resetStudentPassword": "resetstudentpassword-00009-paw",
+  "bootstrapFirstAdmin": "bootstrapfirstadmin-00009-wod",
+  "updateTeacher": "updateteacher-00009-xuc",
+  "updateOwnTeacherSettings": "updateownteachersettings-00009-gaw",
+  "reconcileStudentGoogleLinks": "reconcilestudentgooglelinks-00005-fat"
+};
 assert.ok(['before', 'after', 'logs'].includes(mode), 'Expected before, after, or logs.');
 const file = process.env.RUNTIME_RECEIPT || '/tmp/learning-planet-runtime.json';
 const auth = new GoogleAuth({ scopes: ['https://www.googleapis.com/auth/cloud-platform'] });
@@ -50,10 +68,14 @@ async function main() {
   } while (pageToken);
   assert.deepEqual(functions.map(f => f.name.split('/').pop()).sort(), expected, 'Deployed function names must exactly match the 14 existing exports.');
   const previous = mode === 'after' ? JSON.parse(fs.readFileSync(file, 'utf8')) : null;
-  const receipt = { startedAt: previous?.startedAt || new Date().toISOString(), project, region, functions: [] };
+  const receipt = { startedAt: previous?.startedAt || (verifyOnly ? '2026-10-22T11:07:58.797Z' : new Date().toISOString()), project, region, functions: [] };
   for (const f of functions) {
     const name = f.name.split('/').pop();
     assert.equal(f.name.split('/')[3], region, `${name}: unexpected region`);
+    if (verifyOnly) {
+      assert.equal(f.buildConfig.runtime, 'nodejs22', `${name}: verification-only runtime`);
+      assert.equal(f.serviceConfig.revision, verifiedRevisions[name], `${name}: not the previously verified deployment revision`);
+    }
     assert.equal(f.environment, 'GEN_2', `${name}: generation`);
     assert.equal(f.state, 'ACTIVE', `${name}: state`);
     assert.equal(f.buildConfig.entryPoint, name, `${name}: entry point`);

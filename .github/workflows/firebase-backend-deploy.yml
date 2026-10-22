@@ -33,7 +33,9 @@ jobs:
     env:
       # An explicit marker selects the safe branch for this upgrade's push.
       # Unmarked pushes and ordinary manual runs retain the existing backend flow.
-      RUNTIME_ONLY: ${{ inputs.runtime_only == true || (github.event_name == 'push' && contains(github.event.head_commit.message, '[functions-runtime-only]')) }}
+      RUNTIME_ONLY: ${{ inputs.runtime_only == true || (github.event_name == 'push' && (contains(github.event.head_commit.message, '[functions-runtime-only]') || contains(github.event.head_commit.message, '[functions-runtime-verify-only]'))) }}
+      # Bounded test-runner repair: verified commit and live revisions must match.
+      RUNTIME_VERIFY_ONLY: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[functions-runtime-verify-only]') }}
       RUNTIME_BASE_SHA: ${{ github.event.before || inputs.runtime_base_sha }}
       RUNTIME_RECEIPT: /tmp/learning-planet-runtime.json
 
@@ -59,7 +61,7 @@ jobs:
         run: npm ci --prefix functions
 
       - name: Test Node.js runtime compatibility
-        run: node --test functions/test/runtime-compat.test.cjs
+        run: node --test functions/test/runtime-compat.node.cjs
 
       # The existing key stays in GitHub Secrets. No new credentials or grants.
       - name: Authenticate deployment service account
@@ -74,13 +76,13 @@ jobs:
 
       - name: Deploy only existing Functions runtime
         id: runtime_deploy
-        if: env.RUNTIME_ONLY == 'true'
+        if: env.RUNTIME_ONLY == 'true' && env.RUNTIME_VERIFY_ONLY != 'true'
         # Do not use --force: it can also change artifact cleanup/security settings.
         run: npx --yes firebase-tools@15.34.1 deploy --only functions --project learnplanet-cce52 --non-interactive
 
       - name: Verify deployed runtime and non-writing authorization guards
         id: runtime_verify
-        if: always() && env.RUNTIME_ONLY == 'true' && !cancelled() && steps.inventory.outcome == 'success' && (steps.runtime_deploy.outcome == 'success' || steps.runtime_deploy.outcome == 'failure')
+        if: always() && env.RUNTIME_ONLY == 'true' && !cancelled() && steps.inventory.outcome == 'success' && (env.RUNTIME_VERIFY_ONLY == 'true' || steps.runtime_deploy.outcome == 'success' || steps.runtime_deploy.outcome == 'failure')
         run: node functions/scripts/verify-deployed-runtime.cjs after
 
       - name: Check recent production error logs
