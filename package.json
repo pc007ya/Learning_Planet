@@ -17,7 +17,7 @@
     "build:little-star": "vite build --config vite.little-star.config.ts",
     "build:fire-weather": "vite build --config vite.fire-weather.config.mjs",
     "build:chinese-practice": "vite build --config vite.chinese-practice.config.mjs",
-    "test:chinese-practice": "vitest run tests/chinese-practice.test.ts",
+    "test:chinese-practice": "vitest run tests/chinese-practice.test.ts tests/chinese-practice-grades45.test.ts",
     "build:underwater-world": "vite build --config vite.underwater-world.config.mjs"
   },
   "dependencies": {

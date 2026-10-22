@@ -7,11 +7,15 @@ export const selectionOf = (lesson: Lesson, index: number): Selection => ({ ...l
   id: keyOf(lesson,index), source:lessonLabel(lesson), sourceUrl:lesson.sourceUrl, lessonId:lesson.id });
 export const matchingLessons = (filters: Filters) => LESSONS.filter(lesson => lesson.year === filters.year
   && lesson.semester === filters.semester && lesson.grade === filters.grade && lesson.publisher === filters.publisher);
+// Keep original headwords and positional sound arrays, but do not turn name separators into handwriting cells.
+export const isPracticeCharacter = (char:string) => /^\p{Script=Han}$/u.test(char);
+export const hasPendingSounds = (entry:{text:string;sounds:string[]}) => Array.from(entry.text)
+  .some((char,index)=>isPracticeCharacter(char)&&!entry.sounds[index]);
 export function practiceRows(selections: Selection[], overrides: Record<string,string> = {}): PracticeRow[] {
   const result = new Map<string, PracticeRow>();
   const unresolved = new Set<string>();
   for (const entry of selections) Array.from(entry.text).forEach((char,index) => {
-    if (entry.omitted?.includes(char)) return;
+    if (!isPracticeCharacter(char) || entry.omitted?.includes(char)) return;
     const row = result.get(char) ?? { char, sound:'', sounds:[], origins:[] };
     const sound = entry.sounds[index] ?? '';
     if (!sound) unresolved.add(char);
@@ -38,7 +42,7 @@ export function removeCharacter(current:Selection[], char:string):Selection[] {
   return current.flatMap(entry=>{
     if (!entry.text.includes(char)) return [entry];
     const omitted=[...new Set([...(entry.omitted ?? []),char])];
-    return Array.from(entry.text).some(item=>!omitted.includes(item))?[{...entry,omitted}]:[];
+    return Array.from(entry.text).some(item=>isPracticeCharacter(item)&&!omitted.includes(item))?[{...entry,omitted}]:[];
   });
 }
 export const dictionaryUrl = (text: string) => DICTIONARY + encodeURIComponent(text);

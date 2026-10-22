@@ -1,0 +1,2155 @@
+{
+  "checkedAt": "2026-10-22",
+  "scope": "115學年度上學期，康軒、南一、翰林，四年級與五年級；不改動一至三年級",
+  "lessonCount": 72,
+  "vocabularyEntryCount": 2059,
+  "auditedTerms": 2178,
+  "requiredTerms": 2178,
+  "singleNewUnambiguous": 597,
+  "interim": false,
+  "unfetchedTerms": [],
+  "lookupsComplete": true,
+  "evidencePolicy": [
+    "整詞讀音優先國語小字典，其次簡編本，再次重編本；保留每部字典全部候選音，不取多音第一組。",
+    "CSS tone-0/1/2/3/4 明確還原輕聲/一聲/二聲/三聲/四聲；原始 HTML 僅存 output，不打包入應用。",
+    "沿用舊快取僅限已核字典音值，無跨課語境、commonModernReadings 或舊課特例。",
+    "整詞多音歧義保留空槽；單字取三部官方字典候選聯集，僅全部候選唯一或本課唯一已核語詞支持。",
+    "姓名等分隔符保留空音槽以對齊原詞，不算待核字、不納入國字練習或單字查音缺口。",
+    "缺整詞時只組已核字音，標示非出版社注音；未核音不供語音播放。"
+  ],
+  "methods": {
+    "exactWord": 843,
+    "unambiguousCharacter": 937,
+    "sameLessonContext": 206,
+    "composedCharacters": 7,
+    "multipleReadings": 14,
+    "pending": 87
+  },
+  "pendingEntries": [
+    {
+      "lessonId": "0102041150101",
+      "title": "窗口邊的臺灣欒樹",
+      "category": "生字",
+      "text": "幅",
+      "sounds": [
+        ""
+      ],
+      "note": "「幅」字音待確認（官方音讀：ㄅㄧ／ㄈㄨˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄅㄧ"
+        ],
+        [
+          "ㄈㄨˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%B9%85"
+      ]
+    },
+    {
+      "lessonId": "0102041150101",
+      "title": "窗口邊的臺灣欒樹",
+      "category": "語詞",
+      "text": "窗戶",
+      "sounds": [
+        "ㄔㄨㄤ",
+        ""
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄔㄨㄤ",
+          "ㄏㄨˋ"
+        ],
+        [
+          "ㄔㄨㄤ",
+          "˙ㄏㄨ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%AA%97%E6%88%B6"
+      ]
+    },
+    {
+      "lessonId": "0102041150102",
+      "title": "奶奶的排骨粥",
+      "category": "生字",
+      "text": "骨",
+      "sounds": [
+        ""
+      ],
+      "note": "「骨」字音待確認（官方音讀：ㄍㄨ／ㄍㄨˇ／ㄍㄨˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄍㄨ"
+        ],
+        [
+          "ㄍㄨˇ"
+        ],
+        [
+          "ㄍㄨˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%AA%A8"
+      ]
+    },
+    {
+      "lessonId": "0102041150102",
+      "title": "奶奶的排骨粥",
+      "category": "生字",
+      "text": "粥",
+      "sounds": [
+        ""
+      ],
+      "note": "「粥」字音待確認（官方音讀：ㄓㄡ／ㄓㄨˋ／ㄩˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄓㄡ"
+        ],
+        [
+          "ㄓㄨˋ"
+        ],
+        [
+          "ㄩˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%B2%A5"
+      ]
+    },
+    {
+      "lessonId": "0102041150104",
+      "title": "玉山之歌",
+      "category": "生字",
+      "text": "縫",
+      "sounds": [
+        ""
+      ],
+      "note": "「縫」字音待確認（官方音讀：ㄈㄥˊ／ㄈㄥˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄈㄥˊ"
+        ],
+        [
+          "ㄈㄥˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%B8%AB"
+      ]
+    },
+    {
+      "lessonId": "0102041150104",
+      "title": "玉山之歌",
+      "category": "生字",
+      "text": "溪",
+      "sounds": [
+        ""
+      ],
+      "note": "「溪」字音待確認（官方音讀：ㄑㄧ／ㄒㄧ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄑㄧ"
+        ],
+        [
+          "ㄒㄧ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%BA%AA"
+      ]
+    },
+    {
+      "lessonId": "0102041150107",
+      "title": "到此「藝」遊",
+      "category": "語詞",
+      "text": "戶外教育",
+      "sounds": [
+        "ㄏㄨˋ",
+        "ㄨㄞˋ",
+        "",
+        "ㄩˋ"
+      ],
+      "note": "官方未有可用整詞注音；以下僅以已核單字音組合，非出版社標注，仍需依課文覆核。「教」字音待確認（官方音讀：ㄐㄧㄠ／ㄐㄧㄠˋ）。",
+      "method": "composed_audited_characters",
+      "preferredDictionary": null,
+      "candidateReadings": [],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%88%B6",
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%A4%96",
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%95%99",
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E8%82%B2"
+      ]
+    },
+    {
+      "lessonId": "0102041150108",
+      "title": "四季的頭髮",
+      "category": "生字",
+      "text": "披",
+      "sounds": [
+        ""
+      ],
+      "note": "「披」字音待確認（官方音讀：ㄆㄟ／ㄆㄧ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄆㄟ"
+        ],
+        [
+          "ㄆㄧ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%8A%AB"
+      ]
+    },
+    {
+      "lessonId": "0102041150108",
+      "title": "四季的頭髮",
+      "category": "生字",
+      "text": "嚇",
+      "sounds": [
+        ""
+      ],
+      "note": "「嚇」字音待確認（官方音讀：ㄏㄜˋ／ㄒㄧㄚˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄏㄜˋ"
+        ],
+        [
+          "ㄒㄧㄚˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%9A%87"
+      ]
+    },
+    {
+      "lessonId": "0102041150108",
+      "title": "四季的頭髮",
+      "category": "生字",
+      "text": "乘",
+      "sounds": [
+        ""
+      ],
+      "note": "「乘」字音待確認（官方音讀：ㄔㄥˊ／ㄕㄥˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄔㄥˊ"
+        ],
+        [
+          "ㄕㄥˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E4%B9%98"
+      ]
+    },
+    {
+      "lessonId": "0102041150108",
+      "title": "四季的頭髮",
+      "category": "生字",
+      "text": "散",
+      "sounds": [
+        ""
+      ],
+      "note": "「散」字音待確認（官方音讀：ㄙㄢˇ／ㄙㄢˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄙㄢˇ"
+        ],
+        [
+          "ㄙㄢˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%95%A3"
+      ]
+    },
+    {
+      "lessonId": "0102041150109",
+      "title": "阿白觀察記",
+      "category": "生字",
+      "text": "衝",
+      "sounds": [
+        ""
+      ],
+      "note": "「衝」字音待確認（官方音讀：ㄔㄨㄥ／ㄔㄨㄥˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄔㄨㄥ"
+        ],
+        [
+          "ㄔㄨㄥˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E8%A1%9D"
+      ]
+    },
+    {
+      "lessonId": "0102041150110",
+      "title": "老鼠嫁女兒",
+      "category": "生字",
+      "text": "強",
+      "sounds": [
+        ""
+      ],
+      "note": "「強」字音待確認（官方音讀：ㄐㄧㄤˋ／ㄑㄧㄤˇ／ㄑㄧㄤˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄐㄧㄤˋ"
+        ],
+        [
+          "ㄑㄧㄤˇ"
+        ],
+        [
+          "ㄑㄧㄤˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%BC%B7"
+      ]
+    },
+    {
+      "lessonId": "0102041150110",
+      "title": "老鼠嫁女兒",
+      "category": "語詞",
+      "text": "招架不住",
+      "sounds": [
+        "ㄓㄠ",
+        "ㄐㄧㄚˋ",
+        "",
+        "ㄓㄨˋ"
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄓㄠ",
+          "ㄐㄧㄚˋ",
+          "ㄅㄨˋ",
+          "ㄓㄨˋ"
+        ],
+        [
+          "ㄓㄠ",
+          "ㄐㄧㄚˋ",
+          "ㄅㄨˊ",
+          "ㄓㄨˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%8B%9B%E6%9E%B6%E4%B8%8D%E4%BD%8F"
+      ]
+    },
+    {
+      "lessonId": "0102041150111",
+      "title": "豆粥婆婆",
+      "category": "生字",
+      "text": "橫",
+      "sounds": [
+        ""
+      ],
+      "note": "「橫」字音待確認（官方音讀：ㄏㄥˊ／ㄏㄥˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄏㄥˊ"
+        ],
+        [
+          "ㄏㄥˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%A9%AB"
+      ]
+    },
+    {
+      "lessonId": "0102041150111",
+      "title": "豆粥婆婆",
+      "category": "生字",
+      "text": "蟹",
+      "sounds": [
+        ""
+      ],
+      "note": "「蟹」字音待確認（官方音讀：ㄒㄧㄝˇ／ㄒㄧㄝˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄒㄧㄝˇ"
+        ],
+        [
+          "ㄒㄧㄝˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E8%9F%B9"
+      ]
+    },
+    {
+      "lessonId": "0102041150112",
+      "title": "戴斗笠的地藏",
+      "category": "語詞",
+      "text": "便宜",
+      "sounds": [
+        "",
+        "ㄧˊ"
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄆㄧㄢˊ",
+          "ㄧˊ"
+        ],
+        [
+          "ㄅㄧㄢˋ",
+          "ㄧˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E4%BE%BF%E5%AE%9C"
+      ]
+    },
+    {
+      "lessonId": "0103041150101",
+      "title": "水陸小高手",
+      "category": "生字",
+      "text": "般",
+      "sounds": [
+        ""
+      ],
+      "note": "「般」字音待確認（官方音讀：ㄅㄛ／ㄅㄢ／ㄆㄢˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄅㄛ"
+        ],
+        [
+          "ㄅㄢ"
+        ],
+        [
+          "ㄆㄢˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E8%88%AC"
+      ]
+    },
+    {
+      "lessonId": "0103041150101",
+      "title": "水陸小高手",
+      "category": "生字",
+      "text": "溜",
+      "sounds": [
+        ""
+      ],
+      "note": "「溜」字音待確認（官方音讀：ㄌㄧㄡ／ㄌㄧㄡˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄌㄧㄡ"
+        ],
+        [
+          "ㄌㄧㄡˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%BA%9C"
+      ]
+    },
+    {
+      "lessonId": "0103041150101",
+      "title": "水陸小高手",
+      "category": "語詞",
+      "text": "一般",
+      "sounds": [
+        "",
+        "ㄅㄢ"
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄧ",
+          "ㄅㄢ"
+        ],
+        [
+          "ㄧˋ",
+          "ㄅㄢ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E4%B8%80%E8%88%AC"
+      ]
+    },
+    {
+      "lessonId": "0103041150102",
+      "title": "放學後",
+      "category": "生字",
+      "text": "招",
+      "sounds": [
+        ""
+      ],
+      "note": "「招」字音待確認（官方音讀：ㄑㄧㄠˊ／ㄓㄠ／ㄕㄠˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄑㄧㄠˊ"
+        ],
+        [
+          "ㄓㄠ"
+        ],
+        [
+          "ㄕㄠˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%8B%9B"
+      ]
+    },
+    {
+      "lessonId": "0103041150102",
+      "title": "放學後",
+      "category": "生字",
+      "text": "湯",
+      "sounds": [
+        ""
+      ],
+      "note": "「湯」字音待確認（官方音讀：ㄊㄤ／ㄕㄤ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄊㄤ"
+        ],
+        [
+          "ㄕㄤ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%B9%AF"
+      ]
+    },
+    {
+      "lessonId": "0103041150103",
+      "title": "我的籃球夢",
+      "category": "生字",
+      "text": "與",
+      "sounds": [
+        ""
+      ],
+      "note": "「與」字音待確認（官方音讀：ㄩˇ／ㄩˊ／ㄩˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄩˇ"
+        ],
+        [
+          "ㄩˊ"
+        ],
+        [
+          "ㄩˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E8%88%87"
+      ]
+    },
+    {
+      "lessonId": "0103041150104",
+      "title": "永遠的馬偕",
+      "category": "生字",
+      "text": "偕",
+      "sounds": [
+        ""
+      ],
+      "note": "「偕」字音待確認（官方音讀：ㄐㄧㄝ／ㄒㄧㄝˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄐㄧㄝ"
+        ],
+        [
+          "ㄒㄧㄝˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%81%95"
+      ]
+    },
+    {
+      "lessonId": "0103041150104",
+      "title": "永遠的馬偕",
+      "category": "語詞",
+      "text": "馬偕",
+      "sounds": [
+        "ㄇㄚˇ",
+        ""
+      ],
+      "note": "官方未有可用整詞注音；以下僅以已核單字音組合，非出版社標注，仍需依課文覆核。「偕」字音待確認（官方音讀：ㄐㄧㄝ／ㄒㄧㄝˊ）。",
+      "method": "composed_audited_characters",
+      "preferredDictionary": null,
+      "candidateReadings": [],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%A6%AC",
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%81%95"
+      ]
+    },
+    {
+      "lessonId": "0103041150105",
+      "title": "假如給我三天光明",
+      "category": "生字",
+      "text": "勒",
+      "sounds": [
+        ""
+      ],
+      "note": "「勒」字音待確認（官方音讀：ㄌㄜˋ／ㄌㄟ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄌㄜˋ"
+        ],
+        [
+          "ㄌㄟ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%8B%92"
+      ]
+    },
+    {
+      "lessonId": "0103041150105",
+      "title": "假如給我三天光明",
+      "category": "語詞",
+      "text": "海倫‧凱勒",
+      "sounds": [
+        "ㄏㄞˇ",
+        "ㄌㄨㄣˊ",
+        "",
+        "ㄎㄞˇ",
+        ""
+      ],
+      "note": "「‧」為姓名或文字分隔符，不作注音或國字練習。官方未有可用整詞注音；以下僅以已核單字音組合，非出版社標注，仍需依課文覆核。「勒」字音待確認（官方音讀：ㄌㄜˋ／ㄌㄟ）。",
+      "method": "composed_audited_characters",
+      "preferredDictionary": null,
+      "candidateReadings": [],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%B5%B7",
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%80%AB",
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%87%B1",
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%8B%92"
+      ]
+    },
+    {
+      "lessonId": "0103041150106",
+      "title": "攀登生命的高峰",
+      "category": "生字",
+      "text": "稱",
+      "sounds": [
+        ""
+      ],
+      "note": "「稱」字音待確認（官方音讀：ㄔㄣˋ／ㄔㄥ／ㄔㄥˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄔㄣˋ"
+        ],
+        [
+          "ㄔㄥ"
+        ],
+        [
+          "ㄔㄥˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%A8%B1"
+      ]
+    },
+    {
+      "lessonId": "0103041150107",
+      "title": "美味的一堂課",
+      "category": "生字",
+      "text": "薄",
+      "sounds": [
+        ""
+      ],
+      "note": "「薄」字音待確認（官方音讀：ㄅㄛˊ／ㄅㄛˋ／ㄅㄠˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄅㄛˊ"
+        ],
+        [
+          "ㄅㄛˋ"
+        ],
+        [
+          "ㄅㄠˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E8%96%84"
+      ]
+    },
+    {
+      "lessonId": "0103041150107",
+      "title": "美味的一堂課",
+      "category": "生字",
+      "text": "烙",
+      "sounds": [
+        ""
+      ],
+      "note": "「烙」字音待確認（官方音讀：ㄌㄠˋ／ㄌㄨㄛˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄌㄠˋ"
+        ],
+        [
+          "ㄌㄨㄛˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%83%99"
+      ]
+    },
+    {
+      "lessonId": "0103041150107",
+      "title": "美味的一堂課",
+      "category": "生字",
+      "text": "醋",
+      "sounds": [
+        ""
+      ],
+      "note": "「醋」字音待確認（官方音讀：ㄗㄨㄛˋ／ㄘㄨˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄗㄨㄛˋ"
+        ],
+        [
+          "ㄘㄨˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%86%8B"
+      ]
+    },
+    {
+      "lessonId": "0103041150108",
+      "title": "建築界的長頸鹿",
+      "category": "生字",
+      "text": "京",
+      "sounds": [
+        ""
+      ],
+      "note": "「京」字音待確認（官方音讀：ㄐㄧㄥ／ㄩㄢˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄐㄧㄥ"
+        ],
+        [
+          "ㄩㄢˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E4%BA%AC"
+      ]
+    },
+    {
+      "lessonId": "0103041150109",
+      "title": "請到我的家鄉來",
+      "category": "生字",
+      "text": "佛",
+      "sounds": [
+        ""
+      ],
+      "note": "「佛」字音待確認（官方音讀：ㄅㄧˋ／ㄈㄛˊ／ㄈㄨˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄅㄧˋ"
+        ],
+        [
+          "ㄈㄛˊ"
+        ],
+        [
+          "ㄈㄨˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E4%BD%9B"
+      ]
+    },
+    {
+      "lessonId": "0103041150110",
+      "title": "奇幻旋律",
+      "category": "生字",
+      "text": "扁",
+      "sounds": [
+        ""
+      ],
+      "note": "「扁」字音待確認（官方音讀：ㄅㄧㄢˇ／ㄆㄧㄢ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄅㄧㄢˇ"
+        ],
+        [
+          "ㄆㄧㄢ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%89%81"
+      ]
+    },
+    {
+      "lessonId": "0103041150110",
+      "title": "奇幻旋律",
+      "category": "生字",
+      "text": "遍",
+      "sounds": [
+        ""
+      ],
+      "note": "「遍」字音待確認（官方音讀：ㄅㄧㄢˋ／ㄆㄧㄢˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄅㄧㄢˋ"
+        ],
+        [
+          "ㄆㄧㄢˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%81%8D"
+      ]
+    },
+    {
+      "lessonId": "0103041150110",
+      "title": "奇幻旋律",
+      "category": "語詞",
+      "text": "一瞬間",
+      "sounds": [
+        "",
+        "ㄕㄨㄣˋ",
+        "ㄐㄧㄢ"
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄧ",
+          "ㄕㄨㄣˋ",
+          "ㄐㄧㄢ"
+        ],
+        [
+          "ㄧˊ",
+          "ㄕㄨㄣˋ",
+          "ㄐㄧㄢ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E4%B8%80%E7%9E%AC%E9%96%93"
+      ]
+    },
+    {
+      "lessonId": "0103041150112",
+      "title": "老鞋匠和小精靈",
+      "category": "生字",
+      "text": "妻",
+      "sounds": [
+        ""
+      ],
+      "note": "「妻」字音待確認（官方音讀：ㄑㄧ／ㄑㄧˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄑㄧ"
+        ],
+        [
+          "ㄑㄧˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%A6%BB"
+      ]
+    },
+    {
+      "lessonId": "0103041150112",
+      "title": "老鞋匠和小精靈",
+      "category": "語詞",
+      "text": "妻子",
+      "sounds": [
+        "ㄑㄧ",
+        ""
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄑㄧ",
+          "˙ㄗ"
+        ],
+        [
+          "ㄑㄧ",
+          "ㄗˇ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%A6%BB%E5%AD%90"
+      ]
+    },
+    {
+      "lessonId": "0101041150102",
+      "title": "請到我的家鄉來",
+      "category": "生字",
+      "text": "抹",
+      "sounds": [
+        ""
+      ],
+      "note": "「抹」字音待確認（官方音讀：ㄇㄛˇ／ㄇㄛˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄇㄛˇ"
+        ],
+        [
+          "ㄇㄛˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%8A%B9"
+      ]
+    },
+    {
+      "lessonId": "0101041150103",
+      "title": "鏡頭下的家鄉",
+      "category": "生字",
+      "text": "與",
+      "sounds": [
+        ""
+      ],
+      "note": "「與」字音待確認（官方音讀：ㄩˇ／ㄩˊ／ㄩˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄩˇ"
+        ],
+        [
+          "ㄩˊ"
+        ],
+        [
+          "ㄩˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E8%88%87"
+      ]
+    },
+    {
+      "lessonId": "0101041150104",
+      "title": "飛行夢",
+      "category": "語詞",
+      "text": "兄弟",
+      "sounds": [
+        "ㄒㄩㄥ",
+        ""
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄒㄩㄥ",
+          "ㄉㄧˋ"
+        ],
+        [
+          "ㄒㄩㄥ",
+          "˙ㄉㄧ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%85%84%E5%BC%9F"
+      ]
+    },
+    {
+      "lessonId": "0101041150105",
+      "title": "月光下",
+      "category": "生字",
+      "text": "曾",
+      "sounds": [
+        ""
+      ],
+      "note": "「曾」字音待確認（官方音讀：ㄗㄥ／ㄘㄥˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄗㄥ"
+        ],
+        [
+          "ㄘㄥˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%9B%BE"
+      ]
+    },
+    {
+      "lessonId": "0101041150106",
+      "title": "又遠又近的月亮",
+      "category": "生字",
+      "text": "騎",
+      "sounds": [
+        ""
+      ],
+      "note": "「騎」字音待確認（官方音讀：ㄐㄧˋ／ㄑㄧˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄐㄧˋ"
+        ],
+        [
+          "ㄑㄧˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%A8%8E"
+      ]
+    },
+    {
+      "lessonId": "0101041150107",
+      "title": "松鼠先生的麵包",
+      "category": "生字",
+      "text": "徵",
+      "sounds": [
+        ""
+      ],
+      "note": "「徵」字音待確認（官方音讀：ㄓˇ／ㄓㄥ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄓˇ"
+        ],
+        [
+          "ㄓㄥ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%BE%B5"
+      ]
+    },
+    {
+      "lessonId": "0101041150107",
+      "title": "松鼠先生的麵包",
+      "category": "生字",
+      "text": "度",
+      "sounds": [
+        ""
+      ],
+      "note": "「度」字音待確認（官方音讀：ㄉㄨˋ／ㄉㄨㄛˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄉㄨˋ"
+        ],
+        [
+          "ㄉㄨㄛˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%BA%A6"
+      ]
+    },
+    {
+      "lessonId": "0101041150108",
+      "title": "平凡的大俠",
+      "category": "生字",
+      "text": "愣",
+      "sounds": [
+        ""
+      ],
+      "note": "「愣」字音待確認（官方音讀：ㄌㄥ／ㄌㄥˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄌㄥ"
+        ],
+        [
+          "ㄌㄥˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%84%A3"
+      ]
+    },
+    {
+      "lessonId": "0101041150109",
+      "title": "王子折箭",
+      "category": "生字",
+      "text": "惡",
+      "sounds": [
+        ""
+      ],
+      "note": "「惡」字音待確認（官方音讀：ㄜˇ／ㄜˋ／ㄨ／ㄨˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄜˇ"
+        ],
+        [
+          "ㄜˋ"
+        ],
+        [
+          "ㄨ"
+        ],
+        [
+          "ㄨˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%83%A1"
+      ]
+    },
+    {
+      "lessonId": "0101041150110",
+      "title": "海中的熱帶雨林",
+      "category": "生字",
+      "text": "稱",
+      "sounds": [
+        ""
+      ],
+      "note": "「稱」字音待確認（官方音讀：ㄔㄣˋ／ㄔㄥ／ㄔㄥˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄔㄣˋ"
+        ],
+        [
+          "ㄔㄥ"
+        ],
+        [
+          "ㄔㄥˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%A8%B1"
+      ]
+    },
+    {
+      "lessonId": "0101041150111",
+      "title": "美食島",
+      "category": "生字",
+      "text": "虎",
+      "sounds": [
+        ""
+      ],
+      "note": "「虎」字音待確認（官方音讀：ㄏㄨ／ㄏㄨˇ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄏㄨ"
+        ],
+        [
+          "ㄏㄨˇ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E8%99%8E"
+      ]
+    },
+    {
+      "lessonId": "0101041150111",
+      "title": "美食島",
+      "category": "生字",
+      "text": "籠",
+      "sounds": [
+        ""
+      ],
+      "note": "「籠」字音待確認（官方音讀：ㄌㄨㄥˇ／ㄌㄨㄥˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄌㄨㄥˇ"
+        ],
+        [
+          "ㄌㄨㄥˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%B1%A0"
+      ]
+    },
+    {
+      "lessonId": "0101041150111",
+      "title": "美食島",
+      "category": "生字",
+      "text": "鑽",
+      "sounds": [
+        ""
+      ],
+      "note": "「鑽」字音待確認（官方音讀：ㄗㄨㄢ／ㄗㄨㄢˇ／ㄗㄨㄢˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄗㄨㄢ"
+        ],
+        [
+          "ㄗㄨㄢˇ"
+        ],
+        [
+          "ㄗㄨㄢˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%91%BD"
+      ]
+    },
+    {
+      "lessonId": "0101041150111",
+      "title": "美食島",
+      "category": "語詞",
+      "text": "虎鯨",
+      "sounds": [
+        "",
+        "ㄐㄧㄥ"
+      ],
+      "note": "官方未有可用整詞注音；以下僅以已核單字音組合，非出版社標注，仍需依課文覆核。「虎」字音待確認（官方音讀：ㄏㄨ／ㄏㄨˇ）。",
+      "method": "composed_audited_characters",
+      "preferredDictionary": null,
+      "candidateReadings": [],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E8%99%8E",
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%AF%A8"
+      ]
+    },
+    {
+      "lessonId": "0101041150112",
+      "title": "寧靜的意樂會",
+      "category": "生字",
+      "text": "齊",
+      "sounds": [
+        ""
+      ],
+      "note": "「齊」字音待確認（官方音讀：ㄐㄧˋ／ㄑㄧˊ／ㄓㄞ／ㄗ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄐㄧˋ"
+        ],
+        [
+          "ㄑㄧˊ"
+        ],
+        [
+          "ㄓㄞ"
+        ],
+        [
+          "ㄗ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%BD%8A"
+      ]
+    },
+    {
+      "lessonId": "0101041150112",
+      "title": "寧靜的意樂會",
+      "category": "語詞",
+      "text": "一齊",
+      "sounds": [
+        "",
+        "ㄑㄧˊ"
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄧ",
+          "ㄑㄧˊ"
+        ],
+        [
+          "ㄧˋ",
+          "ㄑㄧˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E4%B8%80%E9%BD%8A"
+      ]
+    },
+    {
+      "lessonId": "0102051150102",
+      "title": "做人做事做長久",
+      "category": "生字",
+      "text": "釘",
+      "sounds": [
+        ""
+      ],
+      "note": "「釘」字音待確認（官方音讀：ㄉㄧㄥ／ㄉㄧㄥˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄉㄧㄥ"
+        ],
+        [
+          "ㄉㄧㄥˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%87%98"
+      ]
+    },
+    {
+      "lessonId": "0102051150103",
+      "title": "孔雀錯了",
+      "category": "生字",
+      "text": "屏",
+      "sounds": [
+        ""
+      ],
+      "note": "「屏」字音待確認（官方音讀：ㄅㄧㄥ／ㄅㄧㄥˇ／ㄆㄧㄥˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄅㄧㄥ"
+        ],
+        [
+          "ㄅㄧㄥˇ"
+        ],
+        [
+          "ㄆㄧㄥˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%B1%8F"
+      ]
+    },
+    {
+      "lessonId": "0102051150105",
+      "title": "漫遊花東",
+      "category": "生字",
+      "text": "臨",
+      "sounds": [
+        ""
+      ],
+      "note": "「臨」字音待確認（官方音讀：ㄌㄧㄣˊ／ㄌㄧㄣˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄌㄧㄣˊ"
+        ],
+        [
+          "ㄌㄧㄣˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E8%87%A8"
+      ]
+    },
+    {
+      "lessonId": "0102051150105",
+      "title": "漫遊花東",
+      "category": "生字",
+      "text": "縱",
+      "sounds": [
+        ""
+      ],
+      "note": "「縱」字音待確認（官方音讀：ㄗㄨㄥ／ㄗㄨㄥˇ／ㄗㄨㄥˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄗㄨㄥ"
+        ],
+        [
+          "ㄗㄨㄥˇ"
+        ],
+        [
+          "ㄗㄨㄥˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%B8%B1"
+      ]
+    },
+    {
+      "lessonId": "0102051150106",
+      "title": "護送螃蟹過馬路",
+      "category": "生字",
+      "text": "蹲",
+      "sounds": [
+        ""
+      ],
+      "note": "「蹲」字音待確認（官方音讀：ㄉㄨㄣ／ㄘㄨㄣˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄉㄨㄣ"
+        ],
+        [
+          "ㄘㄨㄣˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E8%B9%B2"
+      ]
+    },
+    {
+      "lessonId": "0102051150106",
+      "title": "護送螃蟹過馬路",
+      "category": "生字",
+      "text": "陸",
+      "sounds": [
+        ""
+      ],
+      "note": "「陸」字音待確認（官方音讀：ㄌㄧㄡˋ／ㄌㄨˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄌㄧㄡˋ"
+        ],
+        [
+          "ㄌㄨˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%99%B8"
+      ]
+    },
+    {
+      "lessonId": "0102051150107",
+      "title": "高第的魔法建築",
+      "category": "生字",
+      "text": "爪",
+      "sounds": [
+        ""
+      ],
+      "note": "「爪」字音待確認（官方音讀：ㄓㄠˇ／ㄓㄨㄚˇ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄓㄠˇ"
+        ],
+        [
+          "ㄓㄨㄚˇ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%88%AA"
+      ]
+    },
+    {
+      "lessonId": "0102051150107",
+      "title": "高第的魔法建築",
+      "category": "生字",
+      "text": "遺",
+      "sounds": [
+        ""
+      ],
+      "note": "「遺」字音待確認（官方音讀：ㄧˊ／ㄨㄟˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄧˊ"
+        ],
+        [
+          "ㄨㄟˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%81%BA"
+      ]
+    },
+    {
+      "lessonId": "0102051150107",
+      "title": "高第的魔法建築",
+      "category": "語詞",
+      "text": "張牙舞爪",
+      "sounds": [
+        "ㄓㄤ",
+        "ㄧㄚˊ",
+        "ㄨˇ",
+        ""
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄓㄤ",
+          "ㄧㄚˊ",
+          "ㄨˇ",
+          "ㄓㄠˇ"
+        ],
+        [
+          "ㄓㄤ",
+          "ㄧㄚˊ",
+          "ㄨˇ",
+          "ㄓㄨㄚˇ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%BC%B5%E7%89%99%E8%88%9E%E7%88%AA"
+      ]
+    },
+    {
+      "lessonId": "0102051150107",
+      "title": "高第的魔法建築",
+      "category": "語詞",
+      "text": "世界遺產",
+      "sounds": [
+        "ㄕˋ",
+        "ㄐㄧㄝˋ",
+        "",
+        "ㄔㄢˇ"
+      ],
+      "note": "官方未有可用整詞注音；以下僅以已核單字音組合，非出版社標注，仍需依課文覆核。「遺」字音待確認（官方音讀：ㄧˊ／ㄨㄟˋ）。",
+      "method": "composed_audited_characters",
+      "preferredDictionary": null,
+      "candidateReadings": [],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E4%B8%96",
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%95%8C",
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%81%BA",
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%94%A2"
+      ]
+    },
+    {
+      "lessonId": "0102051150108",
+      "title": "嘗嘗我的家鄉味",
+      "category": "生字",
+      "text": "鮭",
+      "sounds": [
+        ""
+      ],
+      "note": "「鮭」字音待確認（官方音讀：ㄍㄨㄟ／ㄒㄧㄝˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄍㄨㄟ"
+        ],
+        [
+          "ㄒㄧㄝˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%AE%AD"
+      ]
+    },
+    {
+      "lessonId": "0102051150108",
+      "title": "嘗嘗我的家鄉味",
+      "category": "生字",
+      "text": "麥",
+      "sounds": [
+        ""
+      ],
+      "note": "「麥」字音待確認（官方音讀：ㄇㄛˋ／ㄇㄞˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄇㄛˋ"
+        ],
+        [
+          "ㄇㄞˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%BA%A5"
+      ]
+    },
+    {
+      "lessonId": "0102051150108",
+      "title": "嘗嘗我的家鄉味",
+      "category": "生字",
+      "text": "扁",
+      "sounds": [
+        ""
+      ],
+      "note": "「扁」字音待確認（官方音讀：ㄅㄧㄢˇ／ㄆㄧㄢ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄅㄧㄢˇ"
+        ],
+        [
+          "ㄆㄧㄢ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%89%81"
+      ]
+    },
+    {
+      "lessonId": "0102051150109",
+      "title": "小小力量將世界照亮",
+      "category": "生字",
+      "text": "票",
+      "sounds": [
+        ""
+      ],
+      "note": "「票」字音待確認（官方音讀：ㄆㄧㄠ／ㄆㄧㄠˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄆㄧㄠ"
+        ],
+        [
+          "ㄆㄧㄠˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%A5%A8"
+      ]
+    },
+    {
+      "lessonId": "0102051150109",
+      "title": "小小力量將世界照亮",
+      "category": "語詞",
+      "text": "不夠",
+      "sounds": [
+        "",
+        "ㄍㄡˋ"
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄅㄨˋ",
+          "ㄍㄡˋ"
+        ],
+        [
+          "ㄅㄨˊ",
+          "ㄍㄡˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E4%B8%8D%E5%A4%A0"
+      ]
+    },
+    {
+      "lessonId": "0103051150102",
+      "title": "從空中看臺灣",
+      "category": "語詞",
+      "text": "不斷",
+      "sounds": [
+        "",
+        "ㄉㄨㄢˋ"
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄅㄨˋ",
+          "ㄉㄨㄢˋ"
+        ],
+        [
+          "ㄅㄨˊ",
+          "ㄉㄨㄢˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E4%B8%8D%E6%96%B7"
+      ]
+    },
+    {
+      "lessonId": "0103051150105",
+      "title": "它抓得住你—商標的故事",
+      "category": "生字",
+      "text": "勝",
+      "sounds": [
+        ""
+      ],
+      "note": "「勝」字音待確認（官方音讀：ㄕㄥ／ㄕㄥˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄕㄥ"
+        ],
+        [
+          "ㄕㄥˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%8B%9D"
+      ]
+    },
+    {
+      "lessonId": "0103051150107",
+      "title": "為生命找到出口",
+      "category": "生字",
+      "text": "圈",
+      "sounds": [
+        ""
+      ],
+      "note": "「圈」字音待確認（官方音讀：ㄐㄩㄢ／ㄐㄩㄢˋ／ㄑㄩㄢ／ㄑㄩㄢˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄐㄩㄢ"
+        ],
+        [
+          "ㄐㄩㄢˋ"
+        ],
+        [
+          "ㄑㄩㄢ"
+        ],
+        [
+          "ㄑㄩㄢˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%9C%88"
+      ]
+    },
+    {
+      "lessonId": "0103051150110",
+      "title": "山中寄情",
+      "category": "生字",
+      "text": "罷",
+      "sounds": [
+        ""
+      ],
+      "note": "「罷」字音待確認（官方音讀：˙ㄅㄚ／ㄅㄚˋ／ㄆㄧˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "˙ㄅㄚ"
+        ],
+        [
+          "ㄅㄚˋ"
+        ],
+        [
+          "ㄆㄧˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%BD%B7"
+      ]
+    },
+    {
+      "lessonId": "0103051150110",
+      "title": "山中寄情",
+      "category": "生字",
+      "text": "歸",
+      "sounds": [
+        ""
+      ],
+      "note": "「歸」字音待確認（官方音讀：ㄍㄨㄟ／ㄎㄨㄟˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄍㄨㄟ"
+        ],
+        [
+          "ㄎㄨㄟˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%AD%B8"
+      ]
+    },
+    {
+      "lessonId": "0103051150111",
+      "title": "與達駭黑熊走入山林",
+      "category": "生字",
+      "text": "殺",
+      "sounds": [
+        ""
+      ],
+      "note": "「殺」字音待確認（官方音讀：ㄕㄚ／ㄕㄚˋ／ㄕㄞˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄕㄚ"
+        ],
+        [
+          "ㄕㄚˋ"
+        ],
+        [
+          "ㄕㄞˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%AE%BA"
+      ]
+    },
+    {
+      "lessonId": "0103051150111",
+      "title": "與達駭黑熊走入山林",
+      "category": "生字",
+      "text": "奄",
+      "sounds": [
+        ""
+      ],
+      "note": "「奄」字音待確認（官方音讀：ㄧㄢ／ㄧㄢˇ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄧㄢ"
+        ],
+        [
+          "ㄧㄢˇ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%A5%84"
+      ]
+    },
+    {
+      "lessonId": "0103051150111",
+      "title": "與達駭黑熊走入山林",
+      "category": "語詞",
+      "text": "奄奄一息",
+      "sounds": [
+        "ㄧㄢ",
+        "ㄧㄢ",
+        "",
+        "ㄒㄧˊ"
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄧㄢ",
+          "ㄧㄢ",
+          "ㄧ",
+          "ㄒㄧˊ"
+        ],
+        [
+          "ㄧㄢ",
+          "ㄧㄢ",
+          "ㄧˋ",
+          "ㄒㄧˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%A5%84%E5%A5%84%E4%B8%80%E6%81%AF"
+      ]
+    },
+    {
+      "lessonId": "0103051150111",
+      "title": "與達駭黑熊走入山林",
+      "category": "語詞",
+      "text": "喉嚨",
+      "sounds": [
+        "ㄏㄡˊ",
+        ""
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄏㄡˊ",
+          "ㄌㄨㄥˊ"
+        ],
+        [
+          "ㄏㄡˊ",
+          "˙ㄌㄨㄥ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%96%89%E5%9A%A8"
+      ]
+    },
+    {
+      "lessonId": "0103051150112",
+      "title": "荒島上的國王",
+      "category": "生字",
+      "text": "喪",
+      "sounds": [
+        ""
+      ],
+      "note": "「喪」字音待確認（官方音讀：ㄙㄤ／ㄙㄤˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄙㄤ"
+        ],
+        [
+          "ㄙㄤˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%96%AA"
+      ]
+    },
+    {
+      "lessonId": "0101051150105",
+      "title": "超級英雄",
+      "category": "生字",
+      "text": "創",
+      "sounds": [
+        ""
+      ],
+      "note": "「創」字音待確認（官方音讀：ㄔㄨㄤ／ㄔㄨㄤˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄔㄨㄤ"
+        ],
+        [
+          "ㄔㄨㄤˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%89%B5"
+      ]
+    },
+    {
+      "lessonId": "0101051150109",
+      "title": "窗邊的鳴聲",
+      "category": "生字",
+      "text": "側",
+      "sounds": [
+        ""
+      ],
+      "note": "「側」字音待確認（官方音讀：ㄗㄜˋ／ㄘㄜˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄗㄜˋ"
+        ],
+        [
+          "ㄘㄜˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%81%B4"
+      ]
+    },
+    {
+      "lessonId": "0101051150109",
+      "title": "窗邊的鳴聲",
+      "category": "語詞",
+      "text": "綠繡眼",
+      "sounds": [
+        "",
+        "ㄒㄧㄡˋ",
+        "ㄧㄢˇ"
+      ],
+      "note": "官方未有可用整詞注音；以下僅以已核單字音組合，非出版社標注，仍需依課文覆核。「綠」字音待確認（官方音讀：ㄌㄨˋ／ㄌㄩˋ）。",
+      "method": "composed_audited_characters",
+      "preferredDictionary": null,
+      "candidateReadings": [],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%B6%A0",
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%B9%A1",
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E7%9C%BC"
+      ]
+    },
+    {
+      "lessonId": "0101051150111",
+      "title": "你一定會聽見的",
+      "category": "生字",
+      "text": "拂",
+      "sounds": [
+        ""
+      ],
+      "note": "「拂」字音待確認（官方音讀：ㄅㄧˋ／ㄈㄨˊ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄅㄧˋ"
+        ],
+        [
+          "ㄈㄨˊ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%8B%82"
+      ]
+    },
+    {
+      "lessonId": "0101051150111",
+      "title": "你一定會聽見的",
+      "category": "生字",
+      "text": "掃",
+      "sounds": [
+        ""
+      ],
+      "note": "「掃」字音待確認（官方音讀：ㄙㄠˇ／ㄙㄠˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄙㄠˇ"
+        ],
+        [
+          "ㄙㄠˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E6%8E%83"
+      ]
+    },
+    {
+      "lessonId": "0101051150112",
+      "title": "藍色連身裙",
+      "category": "生字",
+      "text": "髒",
+      "sounds": [
+        ""
+      ],
+      "note": "「髒」字音待確認（官方音讀：ㄗㄤ／ㄗㄤˇ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄗㄤ"
+        ],
+        [
+          "ㄗㄤˇ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E9%AB%92"
+      ]
+    },
+    {
+      "lessonId": "0101051150112",
+      "title": "藍色連身裙",
+      "category": "生字",
+      "text": "妻",
+      "sounds": [
+        ""
+      ],
+      "note": "「妻」字音待確認（官方音讀：ㄑㄧ／ㄑㄧˋ）。",
+      "method": "pending_character_reading",
+      "preferredDictionary": "all_official_dictionaries",
+      "candidateReadings": [
+        [
+          "ㄑㄧ"
+        ],
+        [
+          "ㄑㄧˋ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%A6%BB"
+      ]
+    },
+    {
+      "lessonId": "0101051150112",
+      "title": "藍色連身裙",
+      "category": "語詞",
+      "text": "妻子",
+      "sounds": [
+        "ㄑㄧ",
+        ""
+      ],
+      "note": "官方整詞有多組讀音，僅保留各讀音相同的音節；歧異音節待本課語義確認，不以單字音覆蓋。",
+      "method": "pending_multiple_word_readings",
+      "preferredDictionary": "dic_concise",
+      "candidateReadings": [
+        [
+          "ㄑㄧ",
+          "˙ㄗ"
+        ],
+        [
+          "ㄑㄧ",
+          "ㄗˇ"
+        ]
+      ],
+      "sourceUrls": [
+        "https://pedia.cloud.edu.tw/Entry/Detail?title=%E5%A6%BB%E5%AD%90"
+      ]
+    }
+  ],
+  "lookupGaps": [
+    "山葵",
+    "虎鯨",
+    "馬偕",
+    "綠繡眼",
+    "世界遺產",
+    "戶外教育",
+    "海倫‧凱勒"
+  ],
+  "lookupErrors": {}
+}

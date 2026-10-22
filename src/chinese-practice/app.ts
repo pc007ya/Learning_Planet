@@ -1,5 +1,5 @@
-import { CHECKED_AT, LESSONS, lessonDisplayTitle, lessonLabel, soundSource, type Category } from './catalog';
-import { customSelections, dictionaryUrl, keyOf, matchingLessons, paginate, practiceRows, removeCharacter, selectionOf, setSelections, strokeLink, validSound, type Filters, type Selection } from './model';
+import { CATALOG_SUMMARY, CHECKED_AT, GRADE_COVERAGE, LESSONS, lessonDisplayTitle, lessonLabel, soundSource, type Category } from './catalog';
+import { customSelections, dictionaryUrl, keyOf, hasPendingSounds, matchingLessons, paginate, practiceRows, removeCharacter, selectionOf, setSelections, strokeLink, validSound, type Filters, type Selection } from './model';
 const root = document.querySelector<HTMLElement>('#practice-app')!;
 const esc = (value:unknown) => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]!));
 const link = (url:string,label:string) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
@@ -35,13 +35,13 @@ function render() {
   save();
   const rows = practiceRows(state.selections,state.overrides);
   root.innerHTML = `<header class="topbar no-print"><a class="brand" href="index.html">✦ Learning Planet <span>學習星球</span></a><button data-action="return">← 返回國語星球</button></header>
-  <section class="hero no-print"><p class="eyebrow">國語星球 / HANDWRITING</p><h1>我的生字練習簿</h1><p>挑一課、選幾個字，慢慢寫出自己的進步。</p><span class="badge">115 上 · 三出版社 1～3 年級 · 92 課＋前導單元</span></section>
+  <section class="hero no-print"><p class="eyebrow">國語星球 / HANDWRITING</p><h1>我的生字練習簿</h1><p>挑一課、選幾個字，慢慢寫出自己的進步。</p><span class="badge">${esc(CATALOG_SUMMARY)}</span></section>
   <p class="feedback no-print" role="status" aria-live="polite">${esc(message)}</p>
   ${preview ? `<section class="print-toolbar no-print"><button data-action="edit">← 返回選字</button><strong>${rows.length} 字 · ${workbookPageCount(rows)} 頁 A4</strong><button class="primary" data-action="print">列印／另存 PDF</button><p>列印選 A4、比例 100%、關閉瀏覽器頁首頁尾。目的地選「儲存為 PDF」。</p></section>
   <div class="paper-scroller">${workbook()}</div>` : `<div class="workspace no-print"><section class="panel lessons"><h2>① 選教材與生字</h2>
   <div class="filters">${field('year','學年度',Array.from({length:9},(_,i)=>option(115-i,`${115-i} 學年度${i?'（未收錄）':''}`,state.filters.year)).join(''))}
-  ${field('semester','學期',option('上','上學期',state.filters.semester)+option('下',state.filters.year===115?'下學期（教育百科尚未列出）':'下學期（未收錄）',state.filters.semester))}
-  ${field('grade','年級',Array.from({length:6},(_,i)=>option(i+1,`${i+1} 年級${i>=3?'（未收錄）':''}`,state.filters.grade)).join(''))}
+  ${field('semester','學期',option('上','上學期',state.filters.semester)+option('下','下學期（未收錄）',state.filters.semester))}
+  ${field('grade','年級',Array.from({length:6},(_,i)=>option(i+1,`${i+1} 年級${matchingLessons({...state.filters,grade:i+1}).length?'':'（未收錄）'}`,state.filters.grade)).join(''))}
   ${field('publisher','出版社',['南一','康軒','翰林'].map(name=>option(name,name,state.filters.publisher)).join(''))}</div>
   <div class="category-controls" role="group" aria-label="詞條分類">${categories.map(category=>`<label><input type="checkbox" name="category" value="${category}" ${state.categories.includes(category)?'checked':''}> ${category}</label>`).join('')}</div>
   <p class="muted">預設只選生字。切換教材或分類，已選清單仍保留；語詞拆成逐字練習並去重。</p>
@@ -54,20 +54,20 @@ function render() {
   <div class="settings"><h3>③ 練習簿設定</h3><label>格子大小<select name="layout">${option('low','低年級 · 30 mm 大格（6 字／頁）',state.layout)}${option('high','高年級 · 21 mm 小格（8 字／頁）',state.layout)}</select></label>
   <div class="name-date"><label>姓名<input name="studentName" value="${esc(state.name)}" maxlength="20" placeholder="留空供手寫"></label><label>日期<input name="date" type="date" value="${esc(state.date)}"></label></div>
   <label class="blank-option"><input name="allowBlank" type="checkbox" ${state.allowBlank?'checked':''}> 待核注音留空（紙上標示待核）</label><p class="muted">每字：字頭＋注音 → 2 格描紅 → 2 格空白。使用既有 Noto Sans TC 字體。</p><button class="primary preview-button" data-action="preview" ${rows.length?'':'disabled'}>預覽 A4 練習簿 →</button></div></aside></div>`}
-  <footer class="site-footer no-print">教材詞表與字音來源：教育部教育百科、國字標準字體筆順學習網。查核日 ${CHECKED_AT}。<br>其餘教材尚未收錄，不沿用舊年資料；本頁不儲存到雲端。字體：${link('https://github.com/notofonts/noto-cjk/blob/main/Sans/LICENSE','Noto Sans TC / SIL OFL 1.1')}。</footer>`;
+  <footer class="site-footer no-print">詞表：教育部教育百科。字音：教育部${link('https://dict.mini.moe.edu.tw/','《國語小字典》')}、${link('https://dict.concised.moe.edu.tw/','《國語辭典簡編本》')}、${link('https://dict.revised.moe.edu.tw/','《重編國語辭典修訂本》')}（經教育百科查核）；筆順僅官方外鏈。最新詞表查核日 ${CHECKED_AT}；各課查核日見教材資訊。<br>其餘教材尚未收錄，不沿用舊年資料；本頁不儲存到雲端。字體：${link('https://github.com/notofonts/noto-cjk/blob/main/Sans/LICENSE','Noto Sans TC / SIL OFL 1.1')}。</footer>`;
   const focus = document.querySelector<HTMLInputElement>('#custom-input');
   if (message.startsWith('已加入')) focus?.focus();
 }
 function lessonCards() {
   const lessons = matchingLessons(state.filters);
-  if (!lessons.length) return `<div class="empty unavailable"><h3>這個教材組合尚未收錄</h3><p>${state.filters.year===115&&state.filters.semester==='下'?'教育百科尚未列出 115 下詞表；不以 114 下或其他舊年資料代替。':'目前已收錄 115 上學期・1～3 年級・南一、康軒、翰林各課。'}</p>${link('https://pedia.cloud.edu.tw/Bookmark/TextWord','查看官方教材表 ↗')}</div>`;
+  if (!lessons.length) return `<div class="empty unavailable"><h3>這個教材組合尚未收錄</h3><p>${state.filters.year===115&&state.filters.semester==='下'?'本批未收錄 115 下詞表；不以 114 下或其他舊年資料代替。':`目前已收錄 115 上學期・${GRADE_COVERAGE} 年級・南一、康軒、翰林各課。`}</p>${link('https://pedia.cloud.edu.tw/Bookmark/TextWord','查看官方教材表 ↗')}</div>`;
   return lessons.map(lesson=>{
     const entries = lesson.vocabulary.flatMap((item,index)=>state.categories.includes(item.category)?[selectionOf(lesson,index)]:[]);
     const checked = entries.length>0 && entries.every(entry=>selected(entry.id));
     return `<article class="lesson-card"><div class="lesson-header"><h3>${lesson.number===0?'前導單元':`第 ${lesson.number} 課`} ${esc(lessonDisplayTitle(lesson))}</h3><label><input type="checkbox" data-lesson="${lesson.id}" ${checked?'checked':''} ${entries.length?'':'disabled'}> 勾整課（目前分類）</label></div>
     <p class="muted">${lesson.vocabulary.filter(item=>item.category==='生字').length} 生字 / ${lesson.vocabulary.filter(item=>item.category==='認讀字').length} 認讀字 / ${lesson.vocabulary.filter(item=>item.category==='語詞').length} 語詞 · ${link(lesson.sourceUrl,'官方詞表 ↗')}</p>
     <div class="word-grid">${lesson.vocabulary.map((item,index)=>state.categories.includes(item.category)?`<label class="word-option ${selected(keyOf(lesson,index))?'chosen':''}"><input type="checkbox" data-entry="${keyOf(lesson,index)}" ${selected(keyOf(lesson,index))?'checked':''}><strong>${esc(item.text)}</strong><small>${esc(item.category)}</small></label>`:'').join('')}</div>
-    ${lesson.vocabulary.some(item=>item.sounds.includes(''))?`<p class="warning">${lesson.vocabulary.filter(item=>item.sounds.includes('')).length} 個詞條的注音仍待語境確認，請核對後列印。</p>`:''}<details class="metadata"><summary>教材版本與查核資訊</summary><p>${esc(lessonLabel(lesson))} · 查核 ${lesson.checkedAt} · 已核詞表<br>課綱：待核；版次：未提供；冊次：第 ${lesson.volume} 冊（由年級、學期推導）。<br>注音：官方字／詞音讀；多音字由編輯依課名、同課語詞選音，教師可依課文覆核。${lesson.sourceNote?`<br>${esc(lesson.sourceNote)}`:''}</p></details></article>`;
+    ${lesson.vocabulary.some(hasPendingSounds)?`<p class="warning">${lesson.vocabulary.filter(hasPendingSounds).length} 個詞條的注音仍待語境確認，請核對後列印。</p>`:''}<details class="metadata"><summary>教材版本與查核資訊</summary><p>${esc(lessonLabel(lesson))} · 查核 ${lesson.checkedAt} · 已核詞表<br>課綱：待核；版次：未提供；冊次：第 ${lesson.volume} 冊（由年級、學期推導）。<br>注音：官方字／詞音讀；選音依據見個別詞條註記，多音或缺音請依課文覆核。${lesson.sourceNote?`<br>${esc(lesson.sourceNote)}`:''}</p></details></article>`;
   }).join('') + `<p class="muted">已收錄 ${lessons.filter(lesson=>lesson.number>0).length} 課${lessons.some(lesson=>lesson.number===0)?'＋1 前導單元':''}。分類逐課核對；多音或缺注音需確認。</p>`;
 }
 function zhuyin(sound:string) {
@@ -99,13 +99,13 @@ function workbook() {
     <div class="grid-caption"><span>字頭與注音</span><span>描紅 ①</span><span>描紅 ②</span><span>自己寫 ①</span><span>自己寫 ②</span></div>
     <div class="practice-grid">${rows.map(row=>`<div class="practice-row"><div class="boxes"><div class="head-cell"><span class="head-char">${esc(row.char)}</span>${zhuyin(row.sound)}</div>${[0,1,2,3].map(i=>`<div class="write-cell ${i<2?'trace':''}"><span>${i<2?esc(row.char):''}</span></div>`).join('')}</div>
     <p class="row-source">${esc(appendix?`教材來源 ${[...new Set(row.origins.filter(origin=>origin.lessonId).map(origin=>`〔${sourceNumber.get(origin.lessonId)}〕`))].join('')} · ${[...new Set(row.origins.map(origin=>origin.category))].join('／')}`:row.origins.map(origin=>origin.lessonId?`${LESSONS.find(lesson=>lesson.id===origin.lessonId)!.number===0?'前導單元':`第${LESSONS.find(lesson=>lesson.id===origin.lessonId)!.number}課`}・${origin.category}「${origin.text}」`:'自訂字').join('；'))}${row.char==='子'&&row.sound==='˙ㄗ'?' · 車子讀輕聲':''}${!row.sound?' · 注音待核':state.overrides[row.char]!==undefined?' · 手動注音待核':''}</p></div>`).join('')}</div>
-    <footer class="sheet-footer"><p>教材：教育部教育百科生字詞表 · 查核日 ${CHECKED_AT} · 課綱／版次待核 · 冊次由年級、學期推導。</p>${appendix?'<p>完整逐課官方連結、選取詞條與分類見本練習簿來源頁。</p>':origins.map(origin=>`<p>${esc(origin.sourceUrl)}</p>`).join('')}${hasCustom?'<p>自訂字由使用者加入；字義與注音可至 https://pedia.cloud.edu.tw/ 查核。</p>':''}<p>字音：教育部國字標準字體筆順學習網／教育百科。字體 Noto Sans TC（SIL OFL 1.1）。</p></footer></section>`;
+    <footer class="sheet-footer"><p>教材：教育部教育百科生字詞表 · 課綱／版次待核 · 冊次由年級、學期推導。</p>${appendix?'<p>完整逐課官方連結、選取詞條與分類見本練習簿來源頁。</p>':origins.map(origin=>`<p>詞表查核 ${esc(LESSONS.find(lesson=>lesson.id===origin.lessonId)!.checkedAt)} · ${esc(origin.sourceUrl)}</p>`).join('')}${hasCustom?'<p>自訂字由使用者加入；字義與注音可至 https://pedia.cloud.edu.tw/ 查核。</p>':''}<p>字音：教育部《國語小字典》《國語辭典簡編本》《重編國語辭典修訂本》（教育百科）。字體 Noto Sans TC（SIL OFL 1.1）。</p></footer></section>`;
   }).join('');
   if (!appendix) return sheets;
   const sourcePages=Array.from({length:Math.ceil(sources.length/6)},(_,index)=>sources.slice(index*6,index*6+6));
-  return sheets+sourcePages.map((items,index)=>`<section class="sheet source-sheet" aria-label="教材來源第 ${index+1} 頁"><div class="sheet-header"><div><small>LEARNING PLANET · 學習星球</small><h2>教材來源與選取詞條</h2></div><span>第 ${pages.length+index+1} / ${total} 頁</span></div><p class="muted">字格下方的〔數字〕對照本頁教材。查核日 ${CHECKED_AT}；課綱、印刷版次待核，冊次由年級與學期推導。</p>${items.map(source=>{
+  return sheets+sourcePages.map((items,index)=>`<section class="sheet source-sheet" aria-label="教材來源第 ${index+1} 頁"><div class="sheet-header"><div><small>LEARNING PLANET · 學習星球</small><h2>教材來源與選取詞條</h2></div><span>第 ${pages.length+index+1} / ${total} 頁</span></div><p class="muted">字格下方的〔數字〕對照本頁教材，各課詞表查核日分別列示；課綱、印刷版次待核，冊次由年級與學期推導。</p>${items.map(source=>{
     const entries=state.selections.filter(entry=>entry.lessonId===source.lessonId);
-    return `<article class="source-block"><h3>〔${sourceNumber.get(source.lessonId)}〕${esc(source.source)}</h3><p>${esc(source.sourceUrl)}</p>${categories.map(category=>{
+    return `<article class="source-block"><h3>〔${sourceNumber.get(source.lessonId)}〕${esc(source.source)}</h3><p>詞表查核 ${esc(LESSONS.find(lesson=>lesson.id===source.lessonId)!.checkedAt)} · ${esc(source.sourceUrl)}</p>${categories.map(category=>{
       const terms=entries.filter(entry=>entry.category===category).map(entry=>entry.text+(entry.omitted?.length?`（未練：${entry.omitted.join('')}）`:''));
       return terms.length?`<p><strong>${esc(category)}：</strong>${esc(terms.join('、'))}</p>`:'';
     }).join('')}</article>`;

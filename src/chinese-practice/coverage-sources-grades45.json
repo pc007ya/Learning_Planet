@@ -1,0 +1,1320 @@
+{
+  "checkedAt": "2026-10-22",
+  "authority": "教育部教育百科",
+  "scope": "115學年度上學期國語四、五年級",
+  "sourcePolicy": "Only IDs listed by the six verified official indexes; no guessed IDs. Exports exclude dictionary definitions, examples and textbook passages.",
+  "lessonCount": 72,
+  "vocabularyCount": 2059,
+  "exactSourceTitleMatches": 72,
+  "titleCorrections": [
+    {
+      "lessonId": "0101041150112",
+      "sourceTitle": "第十二課：寧靜的意樂會",
+      "title": "寧靜的意樂會",
+      "displayTitle": "寧靜的音樂會",
+      "checkedAt": "2026-10-22",
+      "verifiedScope": "出版社115上自修目次第十二課課名，第194頁；未查核課文。",
+      "method": "Visually verified the exact preview image identified by its SHA-256; verified product membership in the publisher 115上期 section and preview link.",
+      "evidence": [
+        {
+          "url": "https://books.hanlin.com.tw/productall",
+          "sha256": "eeffbe90a68ef00ea80bc0bc70f36ff0e012be17a4c758b0c9c7f53cbd5da8bd",
+          "checkedAt": "2026-10-22"
+        },
+        {
+          "url": "https://books.hanlin.com.tw/product/2010071",
+          "sha256": "6477ea9325c519b762562fb13465048e245bc55e909bce0fc3e7a50811d94c30",
+          "checkedAt": "2026-10-22"
+        },
+        {
+          "url": "https://books.hanlin.com.tw/Images/Preview/994744_1.jpg?v=c2fe1ff2ac324187a6851ab54015cee3",
+          "sha256": "67069580d0125a66553f72208c0434346e1ef84c87f41f8db059ac7617314bc7",
+          "checkedAt": "2026-10-22"
+        }
+      ]
+    }
+  ],
+  "sourceVocabularyHashEncoding": "SHA-256 of UTF-8 JSON.stringify([{category,text},...]); source order, no whitespace, unescaped Unicode.",
+  "books": [
+    {
+      "grade": 4,
+      "publisher": "南一",
+      "year": 115,
+      "semester": "上",
+      "curriculum": null,
+      "edition": null,
+      "volume": 7,
+      "volumeDerived": true,
+      "lessonCount": 12,
+      "indexUrl": "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&year=115_1&degree=4&press=%E5%8D%97%E4%B8%80%E7%89%88",
+      "categoryCounts": {
+        "生字": 177,
+        "語詞": 122
+      },
+      "vocabularyCount": 299,
+      "checkedAt": "2026-10-22",
+      "indexSha256": "9b68e236c63606eeaa22ba121d071e7c44f266bc8407a82b37524192bbdb9221",
+      "lessons": [
+        {
+          "id": "0102041150101",
+          "number": 1,
+          "title": "窗口邊的臺灣欒樹",
+          "sourceTitle": "第一課：窗口邊的臺灣欒樹",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102041150101",
+          "checkedAt": "2026-10-22",
+          "sha256": "c96d643a4dcdafac4392d4d50ea91ed85aae6de6faf4711b7f13f6d107e4f13a",
+          "vocabularyCount": 26,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 11
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "f1837df514ed03f4bd09473f7cdf3f3094f8caf7c3237e3307375fe4384a5803"
+        },
+        {
+          "id": "0102041150102",
+          "number": 2,
+          "title": "奶奶的排骨粥",
+          "sourceTitle": "第二課：奶奶的排骨粥",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102041150102",
+          "checkedAt": "2026-10-22",
+          "sha256": "14b034019bc54b5bd82a57f44e41778977c6235bec965eef47da187685031923",
+          "vocabularyCount": 21,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 6
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "38797442987ef06b7f32c43f11550a910bc40533e888bbbd26ad80ed5889957a"
+        },
+        {
+          "id": "0102041150103",
+          "number": 3,
+          "title": "充滿希望的五味屋",
+          "sourceTitle": "第三課：充滿希望的五味屋",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102041150103",
+          "checkedAt": "2026-10-22",
+          "sha256": "61ac87f04812e35e05e174ad51cdc64af55265c8f9f20645b27642e793bb7df2",
+          "vocabularyCount": 23,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 8
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "1f097c5e902b3670b382a755ee53971eb86a78b71dae94c4b975463f11a5be94"
+        },
+        {
+          "id": "0102041150104",
+          "number": 4,
+          "title": "玉山之歌",
+          "sourceTitle": "第四課：玉山之歌",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102041150104",
+          "checkedAt": "2026-10-22",
+          "sha256": "f0eec19e89f16acb1add8f89bb57a551f5b93fda5b96490c77d881b7e9d288d4",
+          "vocabularyCount": 24,
+          "categoryCounts": {
+            "生字": 14,
+            "語詞": 10
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "3a657a3af30f8e8311a31ed2bf036aa116b855d3d21d0e6eef1c088f259a3a56"
+        },
+        {
+          "id": "0102041150105",
+          "number": 5,
+          "title": "高舉臺灣之光",
+          "sourceTitle": "第五課：高舉臺灣之光",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102041150105",
+          "checkedAt": "2026-10-22",
+          "sha256": "9c9ddb42a49fd88a8b6a530c4282dd35b194acc3c92f91bcff780218452aa78e",
+          "vocabularyCount": 27,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 12
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "fedc23d173e2bb2c3c8c1fdfc4899f55dbdaa69b25845154bd2d1e918d3dbfcd"
+        },
+        {
+          "id": "0102041150106",
+          "number": 6,
+          "title": "臺灣的驕傲",
+          "sourceTitle": "第六課：臺灣的驕傲",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102041150106",
+          "checkedAt": "2026-10-22",
+          "sha256": "7160a643083af11aeccf5ab0e12dbb6404a5d53c03b619b788c075f0287f28a4",
+          "vocabularyCount": 27,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 12
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "3fe2be3464cb9cb0f4fba66fdde1169d86753e44efa41ff2df14022c7335b4c8"
+        },
+        {
+          "id": "0102041150107",
+          "number": 7,
+          "title": "到此「藝」遊",
+          "sourceTitle": "第七課：到此「藝」遊",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102041150107",
+          "checkedAt": "2026-10-22",
+          "sha256": "ac07f0b601661c0435bb4240efe2fc9a73b6de0ddfe6ca43fff51a20bbebf475",
+          "vocabularyCount": 30,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 15
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "29fac5e52ae0cfc9d58bec6e3846cd290d04d3f52f8e472258086b86c573aa40"
+        },
+        {
+          "id": "0102041150108",
+          "number": 8,
+          "title": "四季的頭髮",
+          "sourceTitle": "第八課：四季的頭髮",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102041150108",
+          "checkedAt": "2026-10-22",
+          "sha256": "09e33b77abb6cf314407247498aa1dc78dcda7d82172279af64a73fc1dee777b",
+          "vocabularyCount": 19,
+          "categoryCounts": {
+            "生字": 13,
+            "語詞": 6
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "431f902901f513e5b7f1ca66faae4e05f61ff81a9bd450e6743ce18ece9bcc3a"
+        },
+        {
+          "id": "0102041150109",
+          "number": 9,
+          "title": "阿白觀察記",
+          "sourceTitle": "第九課：阿白觀察記",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102041150109",
+          "checkedAt": "2026-10-22",
+          "sha256": "d02aba6079ecbddc7e083fcfde008350a3c4da03425f54ffbab3bf40795a6a9e",
+          "vocabularyCount": 25,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 10
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "1652818469a0cd84e1d8ac00b94cc455d9c624be6810e5b2ecc192f0a46af1b6"
+        },
+        {
+          "id": "0102041150110",
+          "number": 10,
+          "title": "老鼠嫁女兒",
+          "sourceTitle": "第十課：老鼠嫁女兒",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102041150110",
+          "checkedAt": "2026-10-22",
+          "sha256": "93a668f89017f9e0ab5f6a14720976514cde93ae44974cde47a4e6748223932b",
+          "vocabularyCount": 22,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 7
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "74ab037f5e8d136cde14ede4c97c80a3447af55cef1923ce934d88354e4e0476"
+        },
+        {
+          "id": "0102041150111",
+          "number": 11,
+          "title": "豆粥婆婆",
+          "sourceTitle": "第十一課：豆粥婆婆",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102041150111",
+          "checkedAt": "2026-10-22",
+          "sha256": "e28004c747ddea97ec10dce8f3d0bf162d0bb8530b99d3735b307b6a9caad33c",
+          "vocabularyCount": 27,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 12
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "c4564e1ccbdcd1b10595379494afd757dad3a2463ddd96f416029afcaf7752ec"
+        },
+        {
+          "id": "0102041150112",
+          "number": 12,
+          "title": "戴斗笠的地藏",
+          "sourceTitle": "第十二課：戴斗笠的地藏",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102041150112",
+          "checkedAt": "2026-10-22",
+          "sha256": "2668c9aeca2d283833bada1e74bb77756852f8866db1cb911720c42d7ae34176",
+          "vocabularyCount": 28,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 13
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "8ce29a497a98c45b2d15bcd98351a2fb3ca5584bb5a0d5df5407cb29934ee416"
+        }
+      ]
+    },
+    {
+      "grade": 4,
+      "publisher": "康軒",
+      "year": 115,
+      "semester": "上",
+      "curriculum": null,
+      "edition": null,
+      "volume": 7,
+      "volumeDerived": true,
+      "lessonCount": 12,
+      "indexUrl": "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&year=115_1&degree=4&press=%E5%BA%B7%E8%BB%92%E7%89%88",
+      "categoryCounts": {
+        "生字": 180,
+        "語詞": 127
+      },
+      "vocabularyCount": 307,
+      "checkedAt": "2026-10-22",
+      "indexSha256": "daec030c0449b7655c15fab5a7c2691e3184b8cc8bf92c68829d66c499ad9c70",
+      "lessons": [
+        {
+          "id": "0103041150101",
+          "number": 1,
+          "title": "水陸小高手",
+          "sourceTitle": "第一課：水陸小高手",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103041150101",
+          "checkedAt": "2026-10-22",
+          "sha256": "e107bd85fc36e9dc1326a3a5efa63f126a4371282356fe967e419528d056db2d",
+          "vocabularyCount": 25,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 10
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "0dac049e73095419ebdd3c5667a73ba6b66057b93f38dfb70c81a4286a727e83"
+        },
+        {
+          "id": "0103041150102",
+          "number": 2,
+          "title": "放學後",
+          "sourceTitle": "第二課：放學後",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103041150102",
+          "checkedAt": "2026-10-22",
+          "sha256": "a92bcb615b319d43a4ab751910de4a92a92ff532f0801228f2e127775605e6c7",
+          "vocabularyCount": 26,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 11
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "aea87c8a6448d30d7ebea0b57232917d7ddada67a7802aafd59f25261af3ba48"
+        },
+        {
+          "id": "0103041150103",
+          "number": 3,
+          "title": "我的籃球夢",
+          "sourceTitle": "第三課：我的籃球夢",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103041150103",
+          "checkedAt": "2026-10-22",
+          "sha256": "eb059fd59a4abc45161d16f66c594d9ec5e0f650c94b2475a36d772003827c94",
+          "vocabularyCount": 25,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 10
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "277b0b979118e76f4a2b9e6ad76597411bebaf3c284dd6635b13a8b416d06fe5"
+        },
+        {
+          "id": "0103041150104",
+          "number": 4,
+          "title": "永遠的馬偕",
+          "sourceTitle": "第四課：永遠的馬偕",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103041150104",
+          "checkedAt": "2026-10-22",
+          "sha256": "680f309252314ea04b2484652492e66cdbeb4309949171bf6a1c53978a6fbe90",
+          "vocabularyCount": 28,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 13
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "ffeb3ca98dd79cc0105a8a119fb6b25ee9d680bf5a6bb2bc8e2cc144f9bddb5d"
+        },
+        {
+          "id": "0103041150105",
+          "number": 5,
+          "title": "假如給我三天光明",
+          "sourceTitle": "第五課：假如給我三天光明",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103041150105",
+          "checkedAt": "2026-10-22",
+          "sha256": "5caa5c2209e9dd8c6b53f525e6e2af1fb02141899645a2f13cebcc0bb9ea1cb0",
+          "vocabularyCount": 28,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 13
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "32d6d73fd3c99a64112b28b5fdc0e196dd9cda4ee6dea0a07912ec0b5a6ce93a"
+        },
+        {
+          "id": "0103041150106",
+          "number": 6,
+          "title": "攀登生命的高峰",
+          "sourceTitle": "第六課：攀登生命的高峰",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103041150106",
+          "checkedAt": "2026-10-22",
+          "sha256": "bf3a18a9f367be79a23517b625aedd6077a33cfa8614d7424638b632a6634430",
+          "vocabularyCount": 22,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 7
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "b61c600876553f370bc0de85b2b4a45dea28d38884d406c52ce908de1fcb0a87"
+        },
+        {
+          "id": "0103041150107",
+          "number": 7,
+          "title": "美味的一堂課",
+          "sourceTitle": "第七課：美味的一堂課",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103041150107",
+          "checkedAt": "2026-10-22",
+          "sha256": "3972abd31f88044b0738c1547a0fe426b553a6ed85f5b2a9462c6e37159be6ad",
+          "vocabularyCount": 25,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 10
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "3d7d0007cd1491f6723827b2e1c07042905aa3fc2ba9cc5a16131ec3088edaa4"
+        },
+        {
+          "id": "0103041150108",
+          "number": 8,
+          "title": "建築界的長頸鹿",
+          "sourceTitle": "第八課：建築界的長頸鹿",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103041150108",
+          "checkedAt": "2026-10-22",
+          "sha256": "70f8c2ec93816a7c51039d227392711e2b6c7b17d44c656a25110f4db2ecad99",
+          "vocabularyCount": 24,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 9
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "1a6655d7a7570f1b278755d510390ff3990701b06b74f15ed4cd5cccc203f9b3"
+        },
+        {
+          "id": "0103041150109",
+          "number": 9,
+          "title": "請到我的家鄉來",
+          "sourceTitle": "第九課：請到我的家鄉來",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103041150109",
+          "checkedAt": "2026-10-22",
+          "sha256": "2a943300159e3280f0d866de202e485c4570baa48157bb7d124c329380b2bced",
+          "vocabularyCount": 27,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 12
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "3b1e9cc448241816dc14201e5ff5f12450348b12a207c738dcecfe583b00a02e"
+        },
+        {
+          "id": "0103041150110",
+          "number": 10,
+          "title": "奇幻旋律",
+          "sourceTitle": "第十課：奇幻旋律",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103041150110",
+          "checkedAt": "2026-10-22",
+          "sha256": "c4bb9dccab47080c068028df688476dfe57b6e07119c2b55e9423e8713927343",
+          "vocabularyCount": 24,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 9
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "4dfa063fa3edd3f655ee53148e015a43fbe50d9a3c21b8e2277d61718ee00956"
+        },
+        {
+          "id": "0103041150111",
+          "number": 11,
+          "title": "兔子先生等等我",
+          "sourceTitle": "第十一課：兔子先生等等我",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103041150111",
+          "checkedAt": "2026-10-22",
+          "sha256": "f8024e4f2f1cec55354e5f4f42e82fd5a5047ce01db23afcb98750d7c48eac84",
+          "vocabularyCount": 26,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 11
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "49a0dcf7db92f7df4ee215d348882bf563e7f7540e1da66f0682d16aeb571990"
+        },
+        {
+          "id": "0103041150112",
+          "number": 12,
+          "title": "老鞋匠和小精靈",
+          "sourceTitle": "第十二課：老鞋匠和小精靈",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103041150112",
+          "checkedAt": "2026-10-22",
+          "sha256": "e10f5ea5abac97f7ac805729c5390133d27b1eaed416e515564b9e270f7a321c",
+          "vocabularyCount": 27,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 12
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "46eba2e168f3ba4f5b83682194a282ad8411ce95756aae422e25625fbc046076"
+        }
+      ]
+    },
+    {
+      "grade": 4,
+      "publisher": "翰林",
+      "year": 115,
+      "semester": "上",
+      "curriculum": null,
+      "edition": null,
+      "volume": 7,
+      "volumeDerived": true,
+      "lessonCount": 12,
+      "indexUrl": "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&year=115_1&degree=4&press=%E7%BF%B0%E6%9E%97%E7%89%88",
+      "categoryCounts": {
+        "生字": 176,
+        "語詞": 117
+      },
+      "vocabularyCount": 293,
+      "checkedAt": "2026-10-22",
+      "indexSha256": "e31f030ddaa2b8bd61789ce00d18d92c721b93339bad543dcb3fc818a6dd583e",
+      "lessons": [
+        {
+          "id": "0101041150101",
+          "number": 1,
+          "title": "美麗島",
+          "sourceTitle": "第一課：美麗島",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101041150101",
+          "checkedAt": "2026-10-22",
+          "sha256": "8f57d8038273d288f1d7781e2345e877d4e9b7bff49dbb917cde0bd6f010ecea",
+          "vocabularyCount": 23,
+          "categoryCounts": {
+            "生字": 14,
+            "語詞": 9
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "c69f466562a608f37862378ff3531f03c6a0bdbea6b25749db0ca204b6a47317"
+        },
+        {
+          "id": "0101041150102",
+          "number": 2,
+          "title": "請到我的家鄉來",
+          "sourceTitle": "第二課：請到我的家鄉來",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101041150102",
+          "checkedAt": "2026-10-22",
+          "sha256": "d7937834a7c35d2c53eab66182288a0fbdd953424fa1cd8d2c0e6ca8c0440b6d",
+          "vocabularyCount": 26,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 11
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "3aa0ec8447a16693699af98cdbe3bf451f05d6df4d1c71e43c7968f249914ad2"
+        },
+        {
+          "id": "0101041150103",
+          "number": 3,
+          "title": "鏡頭下的家鄉",
+          "sourceTitle": "第三課：鏡頭下的家鄉",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101041150103",
+          "checkedAt": "2026-10-22",
+          "sha256": "34025c095b66441ef7f413d516eff6875f7697b36a748d4ae72137d0b4719b98",
+          "vocabularyCount": 23,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 8
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "39b070f79c17cfaa47b0c1655e60820748d0bf5ae746147879660ab55a604cd6"
+        },
+        {
+          "id": "0101041150104",
+          "number": 4,
+          "title": "飛行夢",
+          "sourceTitle": "第四課：飛行夢",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101041150104",
+          "checkedAt": "2026-10-22",
+          "sha256": "2084968aa5a92e2dc497588e3baa07c29912d56cee19fcb16960712947d157f6",
+          "vocabularyCount": 28,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 13
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "5c31f59b69699ae137abd172018147bfb120f94afebc7a3d1112e8eefd892106"
+        },
+        {
+          "id": "0101041150105",
+          "number": 5,
+          "title": "月光下",
+          "sourceTitle": "第五課：月光下",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101041150105",
+          "checkedAt": "2026-10-22",
+          "sha256": "4627a9b9f259765bc9e14caa7728044ad595ace03b15b1ba40389fea6b5ad281",
+          "vocabularyCount": 23,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 8
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "67867782816a5ae5857a072831fa79ed5e62001479924ad3c1de64faa4b30867"
+        },
+        {
+          "id": "0101041150106",
+          "number": 6,
+          "title": "又遠又近的月亮",
+          "sourceTitle": "第六課：又遠又近的月亮",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101041150106",
+          "checkedAt": "2026-10-22",
+          "sha256": "c944c5c215c2b18023683938f80d6b94433c01c040ebcd3a0d1439bbf6c4f0a1",
+          "vocabularyCount": 26,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 11
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "f7c458f2fbcc5e876ac690631d826398984973e48641dbff287aa94c3c86aad0"
+        },
+        {
+          "id": "0101041150107",
+          "number": 7,
+          "title": "松鼠先生的麵包",
+          "sourceTitle": "第七課：松鼠先生的麵包",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101041150107",
+          "checkedAt": "2026-10-22",
+          "sha256": "f14d38e3be928a46e3abbec7c185244a237bcbd2d09ebf4081bc9b99a8822024",
+          "vocabularyCount": 20,
+          "categoryCounts": {
+            "生字": 13,
+            "語詞": 7
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "48a509fd0b7aa1dafff8e42a1bbe81e2be0479cdb0ecd276089070f8dfe07eda"
+        },
+        {
+          "id": "0101041150108",
+          "number": 8,
+          "title": "平凡的大俠",
+          "sourceTitle": "第八課：平凡的大俠",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101041150108",
+          "checkedAt": "2026-10-22",
+          "sha256": "bc10a3dc6d26536052c3fd9190ad5e64b4104c3dd1cf4b3c5955c6cd3cc3b4bd",
+          "vocabularyCount": 27,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 12
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "1eedef468c898e5145821df6b9aa3c31ce077b6de85f089324140d55d49bfab4"
+        },
+        {
+          "id": "0101041150109",
+          "number": 9,
+          "title": "王子折箭",
+          "sourceTitle": "第九課：王子折箭",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101041150109",
+          "checkedAt": "2026-10-22",
+          "sha256": "ab558d252197998191eb8ffd843c0316af06cdaa8ec8198ca14b11652fa9635d",
+          "vocabularyCount": 25,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 10
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "4cd7b5c372582dd8b6430ad316d0a579e839a227b9611c832f8082da4eb172c0"
+        },
+        {
+          "id": "0101041150110",
+          "number": 10,
+          "title": "海中的熱帶雨林",
+          "sourceTitle": "第十課：海中的熱帶雨林",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101041150110",
+          "checkedAt": "2026-10-22",
+          "sha256": "c2bae2148a540d29873160a418e3a72fa3b6bdfe42930c70e8bebbc640a852b2",
+          "vocabularyCount": 23,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 8
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "09757bbca2451c7084adda055147133d52f723c5530f1b1d6ae79ebf4385729d"
+        },
+        {
+          "id": "0101041150111",
+          "number": 11,
+          "title": "美食島",
+          "sourceTitle": "第十一課：美食島",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101041150111",
+          "checkedAt": "2026-10-22",
+          "sha256": "cb921c16ece8a95b70d16b2da6c41cd4d444c1a224478a68d9157097e38e7dee",
+          "vocabularyCount": 23,
+          "categoryCounts": {
+            "生字": 15,
+            "語詞": 8
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "69907bf24a3093129932668270291de96c82d9678f00b75cf42f4749f10e3f2e"
+        },
+        {
+          "id": "0101041150112",
+          "number": 12,
+          "title": "寧靜的意樂會",
+          "sourceTitle": "第十二課：寧靜的意樂會",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101041150112",
+          "checkedAt": "2026-10-22",
+          "sha256": "ef83c79f484940b4364d1ec84569bb0b5abcb17a7366d6915810fda946c5cd9d",
+          "vocabularyCount": 26,
+          "categoryCounts": {
+            "生字": 14,
+            "語詞": 12
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "c0dd947970880aef7bb427cbbd29e65d9c02b0dc0d5111d5f55351d6d60c8eb4",
+          "sourceNote": "教育百科索引與課頁均作「寧靜的意樂會」，保留來源原題。翰林官方115上國小自修國語(4上)目次第十二課作「寧靜的音樂會」（第194頁），故僅顯示課名依出版社目次校正；未查核課文。產品頁：https://books.hanlin.com.tw/product/2010071；目次樣張：https://books.hanlin.com.tw/Images/Preview/994744_1.jpg?v=c2fe1ff2ac324187a6851ab54015cee3。",
+          "displayTitle": "寧靜的音樂會"
+        }
+      ]
+    },
+    {
+      "grade": 5,
+      "publisher": "南一",
+      "year": 115,
+      "semester": "上",
+      "curriculum": null,
+      "edition": null,
+      "volume": 9,
+      "volumeDerived": true,
+      "lessonCount": 12,
+      "indexUrl": "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&year=115_1&degree=5&press=%E5%8D%97%E4%B8%80%E7%89%88",
+      "categoryCounts": {
+        "生字": 216,
+        "語詞": 157
+      },
+      "vocabularyCount": 373,
+      "checkedAt": "2026-10-22",
+      "indexSha256": "4225fb6f7527f26916fe3e9095e4b814d97b4270f5bf8031200cd5199f6a155a",
+      "lessons": [
+        {
+          "id": "0102051150101",
+          "number": 1,
+          "title": "幸福筆記本",
+          "sourceTitle": "第一課：幸福筆記本",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102051150101",
+          "checkedAt": "2026-10-22",
+          "sha256": "beaa332e3aef0df980420b6543b95c423668c20c2fad888d1d843ae177640377",
+          "vocabularyCount": 29,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 11
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "ee0607f38372138e9fb62bfaa126a4e2ba67a0b4d5628056ca4a39cad25e7544"
+        },
+        {
+          "id": "0102051150102",
+          "number": 2,
+          "title": "做人做事做長久",
+          "sourceTitle": "第二課：做人做事做長久",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102051150102",
+          "checkedAt": "2026-10-22",
+          "sha256": "2e5e335532cf2851b91b5368bb7142e1bbee9885f798ea5817f80aa26a6c5f0e",
+          "vocabularyCount": 33,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 15
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "3da7377ff129c54657d7079c54558703dc478e4b14fda0c08bac12630df3eec3"
+        },
+        {
+          "id": "0102051150103",
+          "number": 3,
+          "title": "孔雀錯了",
+          "sourceTitle": "第三課：孔雀錯了",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102051150103",
+          "checkedAt": "2026-10-22",
+          "sha256": "84abd1c8ddfdecf168e62373a057fd27bba8c1cc43551a3153b7b8574e00a4f4",
+          "vocabularyCount": 31,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 13
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "81bb31bdff46042a936f550202c8bc2df65f37ecdde35faf709e60ab70363b3e"
+        },
+        {
+          "id": "0102051150104",
+          "number": 4,
+          "title": "特別的海",
+          "sourceTitle": "第四課：特別的海",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102051150104",
+          "checkedAt": "2026-10-22",
+          "sha256": "9b565b43c51a5dd1d5599a9ea5114a0f3d8def9fef4fa67e4171108a8be29b02",
+          "vocabularyCount": 35,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 17
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "cac6db57764422cb0bfbaa1e28cfc7ee331f4ffe08563ed1146c45abdb7bc119"
+        },
+        {
+          "id": "0102051150105",
+          "number": 5,
+          "title": "漫遊花東",
+          "sourceTitle": "第五課：漫遊花東",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102051150105",
+          "checkedAt": "2026-10-22",
+          "sha256": "f88b610075d54a1dd197e27d62dea0311ba9d7e572f13e72cf6ed027429fa91f",
+          "vocabularyCount": 31,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 13
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "50e3c9133a75695222ea1635defe6938052581dd52efc4f9596cb412242b7de8"
+        },
+        {
+          "id": "0102051150106",
+          "number": 6,
+          "title": "護送螃蟹過馬路",
+          "sourceTitle": "第六課：護送螃蟹過馬路",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102051150106",
+          "checkedAt": "2026-10-22",
+          "sha256": "7265925315569b422453db0010dd1ab9d11d3b815d63764bae3a502b79c1c130",
+          "vocabularyCount": 34,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 16
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "09db91f45f692f795fc9140412796561229bf167182d2b661c68cccb439b92b8"
+        },
+        {
+          "id": "0102051150107",
+          "number": 7,
+          "title": "高第的魔法建築",
+          "sourceTitle": "第七課：高第的魔法建築",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102051150107",
+          "checkedAt": "2026-10-22",
+          "sha256": "fd5f6072631b16d9dc40b6228f1970b8ff53022d7577a58722cff7e97cb844c0",
+          "vocabularyCount": 30,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 12
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "603cab6d44e801c460edd2fe19b7aa0f81a958cc0a6e33aee7342e6814ad1b4d"
+        },
+        {
+          "id": "0102051150108",
+          "number": 8,
+          "title": "嘗嘗我的家鄉味",
+          "sourceTitle": "第八課：嘗嘗我的家鄉味",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102051150108",
+          "checkedAt": "2026-10-22",
+          "sha256": "54deb81acc8a833b40b33c394daa34128165d47fa182f536ac255ee8d8936559",
+          "vocabularyCount": 28,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 10
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "fda960cc1c029f98aa387f6bc244fb38355e3ad7aa34c7a2df4bf9f0e9198085"
+        },
+        {
+          "id": "0102051150109",
+          "number": 9,
+          "title": "小小力量將世界照亮",
+          "sourceTitle": "第九課：小小力量將世界照亮",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102051150109",
+          "checkedAt": "2026-10-22",
+          "sha256": "15e6eb775a66ed142b28af3f106d7f48a3499aef1026eb98a3ae3be1958a442d",
+          "vocabularyCount": 32,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 14
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "64599278a9e7cf0f667bb225396754c5dd29439c2a3dce83b398c66bc6b64334"
+        },
+        {
+          "id": "0102051150110",
+          "number": 10,
+          "title": "男生說，女生說",
+          "sourceTitle": "第十課：男生說，女生說",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102051150110",
+          "checkedAt": "2026-10-22",
+          "sha256": "02eb028a33c086a78b0bc0524f75ad7fc14c7dce2fc2fb1196caad17200dcd57",
+          "vocabularyCount": 32,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 14
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "f2f80404902e48f1ad287f8aa8990c5f9be152786a6ac831323117838507a915"
+        },
+        {
+          "id": "0102051150111",
+          "number": 11,
+          "title": "耶誕禮物",
+          "sourceTitle": "第十一課：耶誕禮物",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102051150111",
+          "checkedAt": "2026-10-22",
+          "sha256": "225be73a0e514b980c9e394974a7d82eb4007d43e8b5faf0bb0ad3a422c93858",
+          "vocabularyCount": 32,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 14
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "8e7ad0ac2a57590f60fe11c23bfb17177685aa69c8283c881fe9900e91db7b3b"
+        },
+        {
+          "id": "0102051150112",
+          "number": 12,
+          "title": "漫遊詩情",
+          "sourceTitle": "第十二課：漫遊詩情",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0102051150112",
+          "checkedAt": "2026-10-22",
+          "sha256": "983359b80160157d248edfdf9eb622a2f43164353f0ee5fa848b4eb91aea387b",
+          "vocabularyCount": 26,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 8
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "d979282cc633c898f15d8cba4f13dbb79e821acf737081f79cef334c3aa58d72"
+        }
+      ]
+    },
+    {
+      "grade": 5,
+      "publisher": "康軒",
+      "year": 115,
+      "semester": "上",
+      "curriculum": null,
+      "edition": null,
+      "volume": 9,
+      "volumeDerived": true,
+      "lessonCount": 12,
+      "indexUrl": "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&year=115_1&degree=5&press=%E5%BA%B7%E8%BB%92%E7%89%88",
+      "categoryCounts": {
+        "生字": 224,
+        "語詞": 169
+      },
+      "vocabularyCount": 393,
+      "checkedAt": "2026-10-22",
+      "indexSha256": "91a24f9a240cf83ae25f3b8b2cd4f42d6d98f4b6b3f43464b2bcf157550fd8b4",
+      "lessons": [
+        {
+          "id": "0103051150101",
+          "number": 1,
+          "title": "蚊帳大使",
+          "sourceTitle": "第一課：蚊帳大使",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103051150101",
+          "checkedAt": "2026-10-22",
+          "sha256": "dd7a722e27c55369d88dd86c363c647489eabf4230895bb06326936db6015c4d",
+          "vocabularyCount": 28,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 10
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "c4e2d0190bb8a04a481b10a5be96708203394d1df51c50876973fc651959ddab"
+        },
+        {
+          "id": "0103051150102",
+          "number": 2,
+          "title": "從空中看臺灣",
+          "sourceTitle": "第二課：從空中看臺灣",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103051150102",
+          "checkedAt": "2026-10-22",
+          "sha256": "5c11603af7cf136ab148aaff578766eacbce50d2dcd3e81ec2fea4557e3d22e4",
+          "vocabularyCount": 34,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 16
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "754d23b5d43cc9a16234d2ef5b5f8135d210a51982a6dd48e240f1529f785854"
+        },
+        {
+          "id": "0103051150103",
+          "number": 3,
+          "title": "攀岩高手",
+          "sourceTitle": "第三課：攀岩高手",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103051150103",
+          "checkedAt": "2026-10-22",
+          "sha256": "65797368146c89f5b76178a00c42ec6ef7504e38fbd37e754c23e8f2bca88843",
+          "vocabularyCount": 33,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 15
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "103189c38c2dfe5a02d72d50d7dca3d4d1682faeee0c924800e4726da280114b"
+        },
+        {
+          "id": "0103051150104",
+          "number": 4,
+          "title": "恆久的美",
+          "sourceTitle": "第四課：恆久的美",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103051150104",
+          "checkedAt": "2026-10-22",
+          "sha256": "b15f6621e621b2204e78de11e275d58b57934f2f3784c39e2cab4897ca569883",
+          "vocabularyCount": 33,
+          "categoryCounts": {
+            "生字": 19,
+            "語詞": 14
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "3ec551f15e117d7fdd3d2e1dd8e9135e7ce776e469a3732d781785ba24a945fc"
+        },
+        {
+          "id": "0103051150105",
+          "number": 5,
+          "title": "它抓得住你—商標的故事",
+          "sourceTitle": "第五課：它抓得住你—商標的故事",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103051150105",
+          "checkedAt": "2026-10-22",
+          "sha256": "0bd361296ca2006e32ef431a1c9f3f496c7cdeb2cfa313b39f3a377b04af35f9",
+          "vocabularyCount": 32,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 14
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "6f51cac2e3927c0f1b57107e46bd6856a2a3e711e8f218c4bda63d4ffe954451"
+        },
+        {
+          "id": "0103051150106",
+          "number": 6,
+          "title": "故事「動」起來",
+          "sourceTitle": "第六課：故事「動」起來",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103051150106",
+          "checkedAt": "2026-10-22",
+          "sha256": "a646f320d501699725cf879679b4c45bdebd752acf4f9f445a6a4f24e060f78f",
+          "vocabularyCount": 39,
+          "categoryCounts": {
+            "生字": 20,
+            "語詞": 19
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "53a5dbf4751a4afbb96c1b61c5c76070b045b5f935b38a3a93b881bf6ff03f59"
+        },
+        {
+          "id": "0103051150107",
+          "number": 7,
+          "title": "為生命找到出口",
+          "sourceTitle": "第七課：為生命找到出口",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103051150107",
+          "checkedAt": "2026-10-22",
+          "sha256": "fb713647122537740c1a44e3226ceb07d696b7a2ac387025e9a27fc326cac456",
+          "vocabularyCount": 31,
+          "categoryCounts": {
+            "生字": 19,
+            "語詞": 12
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "0b5a31da3791295cd31fc6c00448403a0efc466ac5cb089e86d9c94e77dc2d1d"
+        },
+        {
+          "id": "0103051150108",
+          "number": 8,
+          "title": "最勇敢的女孩",
+          "sourceTitle": "第八課：最勇敢的女孩",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103051150108",
+          "checkedAt": "2026-10-22",
+          "sha256": "79ff0240dbe9870fc86b21c4ea91ee074edf83468a0bf90e00680e7e26ada81c",
+          "vocabularyCount": 32,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 14
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "495b1254c5aa651e9dca527101942e89cfc91dad154e45facc7e12b02f8043e0"
+        },
+        {
+          "id": "0103051150109",
+          "number": 9,
+          "title": "在挫折中成長",
+          "sourceTitle": "第九課：在挫折中成長",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103051150109",
+          "checkedAt": "2026-10-22",
+          "sha256": "8df9a96f0e717b6c727ad3c9eb87b166fdca2fd58fadd3fca28cd47b18a302cb",
+          "vocabularyCount": 35,
+          "categoryCounts": {
+            "生字": 19,
+            "語詞": 16
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "7f78e9c4d2ae506ffd03fb1636c19b585656fb2a3730854507925c570785f534"
+        },
+        {
+          "id": "0103051150110",
+          "number": 10,
+          "title": "山中寄情",
+          "sourceTitle": "第十課：山中寄情",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103051150110",
+          "checkedAt": "2026-10-22",
+          "sha256": "0e5838538f39416bd331a2f35bbf2243f6abe7e2ee8f8cda864287e4653f45e2",
+          "vocabularyCount": 32,
+          "categoryCounts": {
+            "生字": 19,
+            "語詞": 13
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "ab10c4ea58ddd7b5702df63b2ba533c9c9f30c4570f9701ed410fa2cad3e8ef1"
+        },
+        {
+          "id": "0103051150111",
+          "number": 11,
+          "title": "與達駭黑熊走入山林",
+          "sourceTitle": "第十一課：與達駭黑熊走入山林",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103051150111",
+          "checkedAt": "2026-10-22",
+          "sha256": "ce1da8a08649946e9df653e588378889244146e48ddb4d344566a4b3f6c81517",
+          "vocabularyCount": 32,
+          "categoryCounts": {
+            "生字": 19,
+            "語詞": 13
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "8df33adafa4a8bd7437fe257513f8a95ce065ce5073ebc44beb2a5a03644b96f"
+        },
+        {
+          "id": "0103051150112",
+          "number": 12,
+          "title": "荒島上的國王",
+          "sourceTitle": "第十二課：荒島上的國王",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0103051150112",
+          "checkedAt": "2026-10-22",
+          "sha256": "15521c7f3d882b86f081d1ad4b39409e6d1795e335a1c92e97e0b5651d9d0aeb",
+          "vocabularyCount": 32,
+          "categoryCounts": {
+            "生字": 19,
+            "語詞": 13
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "b39b64b8e6bf71a77a748b3814f9c43ed49614d7c6ff11d7cdb1ff99b5d3f0ad"
+        }
+      ]
+    },
+    {
+      "grade": 5,
+      "publisher": "翰林",
+      "year": 115,
+      "semester": "上",
+      "curriculum": null,
+      "edition": null,
+      "volume": 9,
+      "volumeDerived": true,
+      "lessonCount": 12,
+      "indexUrl": "https://pedia.cloud.edu.tw/Bookmark/Textword?category=%E5%9C%8B%E8%AA%9E&year=115_1&degree=5&press=%E7%BF%B0%E6%9E%97%E7%89%88",
+      "categoryCounts": {
+        "生字": 222,
+        "語詞": 172
+      },
+      "vocabularyCount": 394,
+      "checkedAt": "2026-10-22",
+      "indexSha256": "de4a586344e9151081ccee5256193782621fe754c8cca2ca9a0e32cb0716bae2",
+      "lessons": [
+        {
+          "id": "0101051150101",
+          "number": 1,
+          "title": "你我之間",
+          "sourceTitle": "第一課：你我之間",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101051150101",
+          "checkedAt": "2026-10-22",
+          "sha256": "edcfc372c9cc14e68aed5818d6afa253e17313fc7d67a2018879f168748b3a7d",
+          "vocabularyCount": 36,
+          "categoryCounts": {
+            "生字": 19,
+            "語詞": 17
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "d056db217ca8f34598a35f5a948c02d9bc11773017c5c0aef002b1809b392950"
+        },
+        {
+          "id": "0101051150102",
+          "number": 2,
+          "title": "風起，大家都在",
+          "sourceTitle": "第二課：風起，大家都在",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101051150102",
+          "checkedAt": "2026-10-22",
+          "sha256": "75f7f1422f5cce7918d2d1a982db53f448b4d704f5196f5a5cec3e40781b5e1b",
+          "vocabularyCount": 31,
+          "categoryCounts": {
+            "生字": 17,
+            "語詞": 14
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "94b068129d202184f27ff93b4d293f8a5893209b303da5d629dd7a4be194b0a6"
+        },
+        {
+          "id": "0101051150103",
+          "number": 3,
+          "title": "廉頗與藺相如",
+          "sourceTitle": "第三課：廉頗與藺相如",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101051150103",
+          "checkedAt": "2026-10-22",
+          "sha256": "56b9a6e232f3410f67ef90f09cc7c19e8f02acf64e0c57edfdea0f4c07f8ffe6",
+          "vocabularyCount": 34,
+          "categoryCounts": {
+            "生字": 19,
+            "語詞": 15
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "38fad6e35b84bf59d76513ee9760b25d93ef7d7c24735ed227f0a36d70ca03ed"
+        },
+        {
+          "id": "0101051150104",
+          "number": 4,
+          "title": "來場快樂的桌遊",
+          "sourceTitle": "第四課：來場快樂的桌遊",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101051150104",
+          "checkedAt": "2026-10-22",
+          "sha256": "549cf5f0420aaff82bc368dc3dfa08d065b04040cba127c6009d79785c13af69",
+          "vocabularyCount": 37,
+          "categoryCounts": {
+            "生字": 19,
+            "語詞": 18
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "f632343859289e0205ec86e1506540d409f6b32bda4a40e612f2002b620d67e7"
+        },
+        {
+          "id": "0101051150105",
+          "number": 5,
+          "title": "超級英雄",
+          "sourceTitle": "第五課：超級英雄",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101051150105",
+          "checkedAt": "2026-10-22",
+          "sha256": "18108d6d65e9b49bee09c31d88d2d2588c864b17b06f27a32b5edd3b7ffe2db4",
+          "vocabularyCount": 34,
+          "categoryCounts": {
+            "生字": 19,
+            "語詞": 15
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "4c8e616492fc6a3c8f74450945626572e862e3291eac81dc1403d102f63c268f"
+        },
+        {
+          "id": "0101051150106",
+          "number": 6,
+          "title": "世足賽的贏家",
+          "sourceTitle": "第六課：世足賽的贏家",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101051150106",
+          "checkedAt": "2026-10-22",
+          "sha256": "4c19cd7af70a5801890de14a7b2f7bb548979c783e086fd3186eb3dda99af6cf",
+          "vocabularyCount": 34,
+          "categoryCounts": {
+            "生字": 19,
+            "語詞": 15
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "a1b639d1fe55eecbe4a668ada4b563d88ed7002ee3d96ab0e1b6c2bb8edc9dcc"
+        },
+        {
+          "id": "0101051150107",
+          "number": 7,
+          "title": "美景閒情—詩兩首",
+          "sourceTitle": "第七課：美景閒情—詩兩首",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101051150107",
+          "checkedAt": "2026-10-22",
+          "sha256": "3d2f20c3b544c4ecbebd96ea51dfa767dd7a677a4feea686de0a812cc15e5f8d",
+          "vocabularyCount": 31,
+          "categoryCounts": {
+            "生字": 17,
+            "語詞": 14
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "5556109e4fec517cefcb701f88205d9421f92b31394e8fce8310695acdf48a86"
+        },
+        {
+          "id": "0101051150108",
+          "number": 8,
+          "title": "葫蘆瓜",
+          "sourceTitle": "第八課：葫蘆瓜",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101051150108",
+          "checkedAt": "2026-10-22",
+          "sha256": "b5c7fa4a308a4c206b380f9c8f430952321a3b50ed61e4cededa12711c3df1df",
+          "vocabularyCount": 30,
+          "categoryCounts": {
+            "生字": 18,
+            "語詞": 12
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "de590d8b0a3e5452981a88ab51f5a187c35a3fda375c446e4d40397e6f102162"
+        },
+        {
+          "id": "0101051150109",
+          "number": 9,
+          "title": "窗邊的鳴聲",
+          "sourceTitle": "第九課：窗邊的鳴聲",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101051150109",
+          "checkedAt": "2026-10-22",
+          "sha256": "a53e5f06e5bc70111f6027881a5ed2bd2ad5262863365a6915076b74daed05db",
+          "vocabularyCount": 32,
+          "categoryCounts": {
+            "生字": 19,
+            "語詞": 13
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "4717dac0db9a00bf7989216d363f81100693d956f367893f4fcf77c0e769d734"
+        },
+        {
+          "id": "0101051150110",
+          "number": 10,
+          "title": "敏銳觀察",
+          "sourceTitle": "第十課：敏銳觀察",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101051150110",
+          "checkedAt": "2026-10-22",
+          "sha256": "f9677563173a075484054eeec269efefb1748bff5c2c0eaa3f4a22b1b6cf817a",
+          "vocabularyCount": 34,
+          "categoryCounts": {
+            "生字": 19,
+            "語詞": 15
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "6940ecfb605133ca029e386d7072ab0fd4303b2284001858fea5a523e524aece"
+        },
+        {
+          "id": "0101051150111",
+          "number": 11,
+          "title": "你一定會聽見的",
+          "sourceTitle": "第十一課：你一定會聽見的",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101051150111",
+          "checkedAt": "2026-10-22",
+          "sha256": "7b08113ddb6b392ad8a41c69af9d6814f3b88f3cfc12e1cb7eaf0a2006d43f5e",
+          "vocabularyCount": 31,
+          "categoryCounts": {
+            "生字": 20,
+            "語詞": 11
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "6c985919020b48b61e03be745eebcfb2a870f10ba7426bc694a4c674d518a045"
+        },
+        {
+          "id": "0101051150112",
+          "number": 12,
+          "title": "藍色連身裙",
+          "sourceTitle": "第十二課：藍色連身裙",
+          "sourceUrl": "https://pedia.cloud.edu.tw/Bookmark/TCollection?TextNameId=0101051150112",
+          "checkedAt": "2026-10-22",
+          "sha256": "5cd31f0a8b87bf096f00efee01588e3a01a2f11d6877bf025a9b4b6d499d7105",
+          "vocabularyCount": 30,
+          "categoryCounts": {
+            "生字": 17,
+            "語詞": 13
+          },
+          "exactSourceTitleMatch": true,
+          "sourceVocabularySha256": "e224ebc9276d0043dc75e0ef2126e5c1296bdbdfd0cfe21714d87a2b5a2677b9"
+        }
+      ]
+    }
+  ]
+}

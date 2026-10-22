@@ -1,10 +1,15 @@
 import { describe, expect, it } from 'vitest';
+import { createHash } from 'node:crypto';
 import { LESSONS, STROKE_SEARCH, lessonDisplayTitle, lessonLabel } from '../src/chinese-practice/catalog';
 import phoneticsReview from '../src/chinese-practice/phonetics-targeted-review.json';
 import phoneticsStatus from '../src/chinese-practice/phonetics-status.json';
-import { customSelections, dictionaryUrl, matchingLessons, paginate, practiceRows, removeCharacter, selectionOf, setSelections, strokeLink, validSound } from '../src/chinese-practice/model';
+import { customSelections, dictionaryUrl, hasPendingSounds, matchingLessons, paginate, practiceRows, removeCharacter, selectionOf, setSelections, strokeLink, validSound } from '../src/chinese-practice/model';
 const first=LESSONS.find(lesson=>lesson.id==='0102011150101')!, second=LESSONS.find(lesson=>lesson.id==='0102011150102')!;
+const legacyLessons=LESSONS.filter(lesson=>lesson.grade<=3);
 describe('Chinese practice selection and provenance',()=>{
+  it('preserves every field of the approved grades 1–3 catalog including fourteen pending readings',()=>{
+    expect(createHash('sha256').update(JSON.stringify(legacyLessons)).digest('hex')).toBe('82d99de680dcebb59be3019d60c2dca9d2b0835037fa848aaf3d315fcc5a8669');
+  });
   it('shows the publisher-confirmed title without overwriting the original index title or source',()=>{
     const lesson=LESSONS.find(lesson=>lesson.id==='0101031150105')!;
     expect(lesson.title).toBe('為梨花撐傘用');
@@ -18,7 +23,7 @@ describe('Chinese practice selection and provenance',()=>{
   });
   it('keeps catalog blanks, pending index and targeted review in exact agreement',()=>{
     const key=(item:{lessonId:string;category:string;text:string})=>`${item.lessonId}:${item.category}:${item.text}`;
-    const catalogPending=LESSONS.flatMap(lesson=>lesson.vocabulary.filter(item=>item.sounds.includes('')).map(item=>key({...item,lessonId:lesson.id}))).sort();
+    const catalogPending=legacyLessons.flatMap(lesson=>lesson.vocabulary.filter(item=>item.sounds.includes('')).map(item=>key({...item,lessonId:lesson.id}))).sort();
     const pending=phoneticsReview.entries.filter(entry=>entry.status==='待確認');
     const confirmed=phoneticsReview.entries.filter(entry=>entry.status==='已確認');
     expect(phoneticsStatus.pendingEntries.map(key).sort()).toEqual(catalogPending);
@@ -44,14 +49,14 @@ describe('Chinese practice selection and provenance',()=>{
       expect(lessons.filter(lesson=>lesson.number===0)).toHaveLength(grade===1&&publisher==='南一'?1:0);
       expect(matchingLessons({year:115,semester:'下',grade,publisher})).toEqual([]);
     }
-    expect(LESSONS).toHaveLength(93);
-    expect(new Set(LESSONS.map(lesson=>lesson.id)).size).toBe(93);
-    expect(LESSONS.reduce((n,lesson)=>n+lesson.vocabulary.length,0)).toBe(2379);
+    expect(legacyLessons).toHaveLength(93);
+    expect(new Set(legacyLessons.map(lesson=>lesson.id)).size).toBe(93);
+    expect(legacyLessons.reduce((n,lesson)=>n+lesson.vocabulary.length,0)).toBe(2379);
   });
   it('preserves official sources, category boundaries, tones and explicit unresolved readings throughout the catalog',()=>{
     for(const lesson of LESSONS) {
       expect(new URL(lesson.sourceUrl).searchParams.get('TextNameId')).toBe(lesson.id);
-      expect(lesson.checkedAt).toBe('2026-10-09');
+      expect(lesson.checkedAt).toBe(lesson.grade<=3?'2026-10-09':'2026-10-22');
       expect(lesson.edition).toBeNull();
       expect(lesson.curriculum).toBeNull();
       expect(lesson.volumeDerived).toBe(true);
@@ -60,7 +65,7 @@ describe('Chinese practice selection and provenance',()=>{
         expect(item.sounds).toHaveLength(Array.from(item.text).length);
         expect(item.soundSources?.length).toBeGreaterThan(0);
         for(const sound of item.sounds) expect(!sound||validSound(sound)).toBe(true);
-        if(item.sounds.includes('')) expect(item.soundNote).toContain('待');
+        if(hasPendingSounds(item)) expect(item.soundNote).toContain('待');
       }
     }
   });
@@ -86,7 +91,7 @@ describe('Chinese practice selection and provenance',()=>{
     expect(first.vocabulary.filter(item=>item.category==='語詞')).toHaveLength(2);
     expect(second.vocabulary.filter(item=>item.category==='生字')).toHaveLength(10);
     expect(second.vocabulary.filter(item=>item.category==='語詞')).toHaveLength(5);
-    for(const filter of [{year:114,semester:'上',grade:1,publisher:'南一'},{year:115,semester:'下',grade:1,publisher:'南一'},{year:115,semester:'上',grade:4,publisher:'南一'},{year:115,semester:'上',grade:1,publisher:'未知出版社'}]) expect(matchingLessons(filter)).toEqual([]);
+    for(const filter of [{year:114,semester:'上',grade:1,publisher:'南一'},{year:115,semester:'下',grade:1,publisher:'南一'},{year:115,semester:'上',grade:6,publisher:'南一'},{year:115,semester:'上',grade:1,publisher:'未知出版社'}]) expect(matchingLessons(filter)).toEqual([]);
   });
   it('deduplicates across lessons and phrases while retaining every source',()=>{
     const 上=selectionOf(first,1), 地上=selectionOf(second,16);
