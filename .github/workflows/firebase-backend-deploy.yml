@@ -9,15 +9,33 @@ on:
       - "firebase.json"
       - ".github/workflows/firebase-backend-deploy.yml"
   workflow_dispatch:
+    inputs:
+      runtime_only:
+        description: "Deploy only the Node runtime, without rules or account reconciliation"
+        type: boolean
+        default: false
+      runtime_base_sha:
+        description: "Full pre-upgrade commit SHA, required for runtime-only deployment"
+        type: string
 
 permissions:
   contents: read
 
+concurrency:
+  group: firebase-backend
+  cancel-in-progress: false
+
 jobs:
   deploy:
-    name: Deploy Functions and Firestore rules
+    name: Deploy Firebase backend
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      # An explicit marker selects the safe branch for this upgrade's push.
+      # Unmarked pushes and ordinary manual runs retain the existing backend flow.
+      RUNTIME_ONLY: ${{ inputs.runtime_only == true || (github.event_name == 'push' && contains(github.event.head_commit.message, '[functions-runtime-only]')) }}
+      RUNTIME_BASE_SHA: ${{ github.event.before || inputs.runtime_base_sha }}
+      RUNTIME_RECEIPT: /tmp/learning-planet-runtime.json
 
     steps:
       - name: Check out source
@@ -26,21 +44,55 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '22'
           cache: npm
           cache-dependency-path: functions/package-lock.json
+
+      - name: Validate runtime-only change scope
+        if: env.RUNTIME_ONLY == 'true'
+        run: |
+          [[ "$RUNTIME_BASE_SHA" =~ ^[a-f0-9]{40}$ ]] || exit 1
+          git fetch --no-tags --depth=1 origin "$RUNTIME_BASE_SHA"
+          node functions/scripts/verify-runtime-scope.cjs "$RUNTIME_BASE_SHA"
 
       - name: Install Cloud Functions dependencies
         run: npm ci --prefix functions
 
-      # The JSON key is stored only in GitHub Secrets. It is never committed.
+      - name: Test Node.js runtime compatibility
+        run: node --test functions/test/runtime-compat.test.cjs
+
+      # The existing key stays in GitHub Secrets. No new credentials or grants.
       - name: Authenticate deployment service account
         uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LEARNPLANET }}
 
+      - name: Verify existing production function inventory
+        id: inventory
+        if: env.RUNTIME_ONLY == 'true'
+        run: node functions/scripts/verify-deployed-runtime.cjs before
+
+      - name: Deploy only existing Functions runtime
+        id: runtime_deploy
+        if: env.RUNTIME_ONLY == 'true'
+        # Do not use --force: it can also change artifact cleanup/security settings.
+        run: npx --yes firebase-tools@15.34.1 deploy --only functions --project learnplanet-cce52 --non-interactive
+
+      - name: Verify deployed runtime and non-writing authorization guards
+        id: runtime_verify
+        if: always() && env.RUNTIME_ONLY == 'true' && !cancelled() && steps.inventory.outcome == 'success' && (steps.runtime_deploy.outcome == 'success' || steps.runtime_deploy.outcome == 'failure')
+        run: node functions/scripts/verify-deployed-runtime.cjs after
+
+      - name: Check recent production error logs
+        if: always() && env.RUNTIME_ONLY == 'true' && !cancelled() && steps.runtime_verify.outcome == 'success'
+        run: |
+          sleep 90
+          node functions/scripts/verify-deployed-runtime.cjs logs
+
       - name: Deploy Firebase Functions and Firestore Rules
+        if: env.RUNTIME_ONLY != 'true'
         run: npx --yes firebase-tools@latest deploy --only functions,firestore:rules --project learnplanet-cce52 --non-interactive --force
 
       - name: Reconcile legacy student Google links
+        if: env.RUNTIME_ONLY != 'true'
         run: node functions/scripts/reconcile-student-google-links.cjs
