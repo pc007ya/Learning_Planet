@@ -29,11 +29,11 @@ import { primerStudy } from '../src/chinese-practice/primer-view';
 it('keeps verified lesson scope, source layers and incomplete originals explicit',()=>{
  expect(PRIMER_LEARNING.map(l=>l.number)).toEqual([1,2,3,4,5,6,7,8]);
  expect(PRIMER_LEARNING[1].missingOriginalPages).toEqual([]);
- expect(PRIMER_LEARNING[1].textbookPractice[0].content.pages).toEqual([30,31]);
+ expect(PRIMER_LEARNING[1].textbookPractice[0].content).toMatchObject({pages:[30,31]});
  expect(PRIMER_LEARNING[6].symbols).toEqual(['ㄊ','ㄎ','ㄣ']);
  expect(PRIMER_LEARNING[6].uncertainItems).toHaveLength(0);
  expect(PRIMER_LEARNING[7].text.pages).toEqual([82,83,84,85]);
- expect(PRIMER_LEARNING[7].textbookPractice[0].pages).toEqual([86,87]);
+ expect(PRIMER_LEARNING[7].textbookPractice[0]).toMatchObject({pages:[86,87]});
  for(const l of PRIMER_LEARNING){expect(l.specifiedCharacters).toBeNull();expect(l.audio.rate).toBe('-30%');expect(l.audio.voice).toBe('zh-TW-HsiaoChenNeural');expect(l.sourceRecords.length).toBeGreaterThan(0);}
  expect(primerStudy(2,'practice',{})).not.toContain('原題尚缺');
  expect(primerStudy(2,'practice',{})).toContain('ㄧㄚˊ ㄔˇ');
