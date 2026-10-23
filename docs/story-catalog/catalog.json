@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-25",
+  "updated": "2026-10-24",
   "books": [
     {
       "id": "parrot",
@@ -869,6 +869,646 @@
         "ask",
         "directions"
       ]
+    },
+    {
+      "number": 55,
+      "id": "amusement-park",
+      "title": "Gail and the Amusement Park Adventure",
+      "titleZh": "瑜瑜與孩子們去遊樂園",
+      "words": [
+        "amusement park",
+        "Children’s Day",
+        "o’clock",
+        "USA",
+        "roller coaster",
+        "carousel",
+        "pirate ship",
+        "spinning teacups",
+        "Ferris wheel",
+        "popcorn",
+        "hot dog",
+        "fireworks",
+        "wristband",
+        "seat belt",
+        "height",
+        "entrance",
+        "queue",
+        "souvenir",
+        "booth",
+        "lap bar"
+      ],
+      "source": "src/story/amusement-park/data.json",
+      "textSource": "/Users/ming/Desktop/小學學習系統/英文繪本/55.瑜瑜與孩子們去遊樂園/ebook/source/data.json",
+      "vocabularySource": "/Users/ming/Desktop/小學學習系統/英文繪本/55.瑜瑜與孩子們去遊樂園/metadata/story.json",
+      "basis": "20個全新核心詞；ticket與ride只作複習，不計入20詞",
+      "status": "20幕ABC分層電子書、20個全新核心詞、16題測驗完成；正式書架與登入入口已整合；影片未製作",
+      "textStatus": "20幕ABC課文完成",
+      "scenes": [
+        {
+          "number": 1,
+          "title": "一張彩色邀請票",
+          "en": "On Gail’s bedroom table lies a colorful ticket from Vicky and Ricky. Their note says, “Meet us at seven o’clock in the morning!” Gail touches the little Ferris wheel printed on it. Its tiny lights begin to blink.",
+          "zh": "瑜瑜房間的桌上放著薇琪和瑞奇寄來的彩色票券。紙條寫著：「早上七點見！」瑜瑜碰了碰票面上的小摩天輪，一盞盞小燈開始閃亮。",
+          "text": {
+            "A": [
+              "Look at the ticket. The lights blink."
+            ],
+            "B": [
+              "Gail finds a ticket in her room. Vicky and Ricky say, “Meet us at seven o’clock!” She touches it. Little lights blink."
+            ],
+            "C": [
+              "On Gail’s bedroom table lies a colorful ticket from Vicky and Ricky. Their note says, “Meet us at seven o’clock in the morning!” Gail touches the little Ferris wheel printed on it. Its tiny lights begin to blink."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "看這張票券。小燈閃亮了。"
+            ],
+            "B": [
+              "瑜瑜在房裡找到一張票券。薇琪和瑞奇說：「七點見！」她碰了碰票券，小燈閃亮。"
+            ],
+            "C": [
+              "瑜瑜房間的桌上放著薇琪和瑞奇寄來的彩色票券。紙條寫著：「早上七點見！」瑜瑜碰了碰票面上的小摩天輪，一盞盞小燈開始閃亮。"
+            ]
+          }
+        },
+        {
+          "number": 2,
+          "title": "票券展開的光路",
+          "en": "The ticket unfolds, and ribbons of colored light rise from its edges. They make a glowing arch beside Gail. Through it, she sees morning sunlight and a park gate. Still in her star pajamas, Gail steps through to meet her friends.",
+          "zh": "票券展開，彩色光帶從邊緣升起，在瑜瑜身旁織成一座亮亮的拱門。門另一邊是晨光和樂園大門。瑜瑜仍穿著星星睡衣，穿過光門與朋友會合。",
+          "text": {
+            "A": [
+              "The ticket glows. Gail sees a gate. She steps through."
+            ],
+            "B": [
+              "Colored light comes from the ticket. It makes a bright arch. Gail sees the park gate. She walks through in her star pajamas."
+            ],
+            "C": [
+              "The ticket unfolds, and ribbons of colored light rise from its edges. They make a glowing arch beside Gail. Through it, she sees morning sunlight and a park gate. Still in her star pajamas, Gail steps through to meet her friends."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "票券發光。瑜瑜看見一道門，走了過去。"
+            ],
+            "B": [
+              "彩光從票券升起，形成亮亮的拱門。瑜瑜看見樂園入口，穿著星星睡衣走過去。"
+            ],
+            "C": [
+              "票券展開，彩色光帶從邊緣升起，在瑜瑜身旁織成一座亮亮的拱門。門另一邊是晨光和樂園大門。瑜瑜仍穿著星星睡衣，穿過光門與朋友會合。"
+            ]
+          }
+        },
+        {
+          "number": 3,
+          "title": "七點，和老朋友相見",
+          "en": "It is seven o’clock. Vicky waves beside her little brother, Ricky, whom his family also calls Rick. Their parents, Mr. and Mrs. Reed, smile at Gail. “Today we are celebrating Children’s Day together!” Vicky says. This time, nobody has bistro work to do.",
+          "zh": "早上七點到了。薇琪在弟弟瑞奇身旁揮手，家人也叫他 Rick。爸爸 Reed 先生與媽媽 Reed 太太對瑜瑜微笑。「今天我們一起慶祝兒童節！」薇琪說。這一次，大家都不用忙小酒館的工作。",
+          "text": {
+            "A": [
+              "It is seven o’clock. Here are Vicky and Ricky. Happy Children’s Day!"
+            ],
+            "B": [
+              "At seven o’clock, Gail meets Vicky and her little brother Ricky. Their parents are there, too. They will celebrate Children’s Day together."
+            ],
+            "C": [
+              "It is seven o’clock. Vicky waves beside her little brother, Ricky, whom his family also calls Rick. Their parents, Mr. and Mrs. Reed, smile at Gail. “Today we are celebrating Children’s Day together!” Vicky says. This time, nobody has bistro work to do."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "七點到了。薇琪和瑞奇在這裡。兒童節快樂！"
+            ],
+            "B": [
+              "七點，瑜瑜和薇琪、弟弟瑞奇見面。他們的父母也在。大家要一起慶祝兒童節。"
+            ],
+            "C": [
+              "早上七點到了。薇琪在弟弟瑞奇身旁揮手，家人也叫他 Rick。爸爸 Reed 先生與媽媽 Reed 太太對瑜瑜微笑。「今天我們一起慶祝兒童節！」薇琪說。這一次，大家都不用忙小酒館的工作。"
+            ]
+          }
+        },
+        {
+          "number": 4,
+          "title": "走進美國的遊樂園",
+          "en": "The family has chosen an amusement park in the USA. At a small booth, Mommy shows their tickets. Each visitor receives a wristband. They walk through the entrance together, ready for the park’s special celebration. Gail’s colorful ticket glows once, then becomes still.",
+          "zh": "一家人選了美國的一座遊樂園。媽媽在小售票亭出示票券，每位遊客都拿到一條手環。他們一起走過入口，準備參加樂園的特別慶祝活動。瑜瑜的彩色票券亮了一下，便安靜下來。",
+          "text": {
+            "A": [
+              "This park is in the USA. Mommy shows the tickets. We get wristbands."
+            ],
+            "B": [
+              "They visit an amusement park in the USA. Mommy shows the tickets at a booth. Everyone gets a wristband. They walk through the entrance."
+            ],
+            "C": [
+              "The family has chosen an amusement park in the USA. At a small booth, Mommy shows their tickets. Each visitor receives a wristband. They walk through the entrance together, ready for the park’s special celebration. Gail’s colorful ticket glows once, then becomes still."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "這座樂園在美國。媽媽出示票券，我們拿到手環。"
+            ],
+            "B": [
+              "他們到美國的一座遊樂園。媽媽在售票亭出示票券，每個人拿到手環，再一起走過入口。"
+            ],
+            "C": [
+              "一家人選了美國的一座遊樂園。媽媽在小售票亭出示票券，每位遊客都拿到一條手環。他們一起走過入口，準備參加樂園的特別慶祝活動。瑜瑜的彩色票券亮了一下，便安靜下來。"
+            ]
+          }
+        },
+        {
+          "number": 5,
+          "title": "排隊，也聽彼此的想法",
+          "en": "Ricky points to the roller coaster. “Can we try that first?” The family joins the queue. At the height marker, the attendant checks each child. All three are tall enough for this family ride. Vicky says she wants to sit beside Mommy.",
+          "zh": "瑞奇指著雲霄飛車。「我們可以先玩那個嗎？」一家人加入隊伍。服務員在身高標尺旁逐一確認，三個孩子都達到這座親子設施的身高要求。薇琪說，她想坐在媽媽旁邊。",
+          "text": {
+            "A": [
+              "Look at the roller coaster. We wait in the queue. We are tall enough."
+            ],
+            "B": [
+              "Ricky chooses the roller coaster. They join the queue. A worker checks each child’s height. All three can ride. Vicky wants to sit by Mommy."
+            ],
+            "C": [
+              "Ricky points to the roller coaster. “Can we try that first?” The family joins the queue. At the height marker, the attendant checks each child. All three are tall enough for this family ride. Vicky says she wants to sit beside Mommy."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "看雲霄飛車。我們排隊等待，身高都足夠。"
+            ],
+            "B": [
+              "瑞奇選雲霄飛車，大家加入隊伍。服務員檢查孩子們的身高，三個人都能搭。薇琪想坐媽媽旁邊。"
+            ],
+            "C": [
+              "瑞奇指著雲霄飛車。「我們可以先玩那個嗎？」一家人加入隊伍。服務員在身高標尺旁逐一確認，三個孩子都達到這座親子設施的身高要求。薇琪說，她想坐在媽媽旁邊。"
+            ]
+          }
+        },
+        {
+          "number": 6,
+          "title": "第一段小小的勇敢",
+          "en": "They fasten each seat belt and lower the lap bar. The attendant checks them before the car moves. Up they climb, then down they go! Vicky holds the bar and laughs. “I was nervous, but that was fun!” Everyone stays seated until the ride stops.",
+          "zh": "大家扣好安全帶、放下座椅安全壓桿，服務員確認後車子才出發。慢慢爬高，接著往下衝！薇琪握住壓桿，笑了出來。「剛才有點緊張，可是好好玩！」設施停止前，大家都留在座位上。",
+          "text": {
+            "A": [
+              "Fasten the seat belt. Hold the lap bar. Up we go!"
+            ],
+            "B": [
+              "They fasten each seat belt and lower the lap bar. The car goes up and down. Vicky holds the bar and laughs. They stay seated until it stops."
+            ],
+            "C": [
+              "They fasten each seat belt and lower the lap bar. The attendant checks them before the car moves. Up they climb, then down they go! Vicky holds the bar and laughs. “I was nervous, but that was fun!” Everyone stays seated until the ride stops."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "扣好安全帶，握住安全壓桿。我們往上了！"
+            ],
+            "B": [
+              "大家扣好安全帶，放下壓桿。車子上上下下，薇琪握著壓桿笑了。停車前，他們都坐好。"
+            ],
+            "C": [
+              "大家扣好安全帶、放下座椅安全壓桿，服務員確認後車子才出發。慢慢爬高，接著往下衝！薇琪握住壓桿，笑了出來。「剛才有點緊張，可是好好玩！」設施停止前，大家都留在座位上。"
+            ]
+          }
+        },
+        {
+          "number": 7,
+          "title": "換姊姊選一個",
+          "en": "“Now it is your turn to choose,” Ricky tells Vicky. She picks the carousel. Gail chooses a white horse, Vicky chooses a brown one, and Ricky sits on a blue one. Their parents ride beside them. Soft music begins as the platform turns.",
+          "zh": "「現在換妳選了。」瑞奇對薇琪說。她選了旋轉木馬。瑜瑜選白馬，薇琪選棕馬，瑞奇坐藍馬，爸爸媽媽也在身旁搭乘。平台慢慢轉動，柔和的音樂響起。",
+          "text": {
+            "A": [
+              "Let’s ride the carousel. Gail has a white horse."
+            ],
+            "B": [
+              "Vicky chooses the carousel. Gail rides a white horse. Vicky’s horse is brown, and Ricky’s is blue. Mommy and Daddy ride, too."
+            ],
+            "C": [
+              "“Now it is your turn to choose,” Ricky tells Vicky. She picks the carousel. Gail chooses a white horse, Vicky chooses a brown one, and Ricky sits on a blue one. Their parents ride beside them. Soft music begins as the platform turns."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "我們搭旋轉木馬吧。瑜瑜坐白馬。"
+            ],
+            "B": [
+              "薇琪選旋轉木馬。瑜瑜坐白馬，薇琪坐棕馬，瑞奇坐藍馬。媽媽爸爸也一起搭。"
+            ],
+            "C": [
+              "「現在換妳選了。」瑞奇對薇琪說。她選了旋轉木馬。瑜瑜選白馬，薇琪選棕馬，瑞奇坐藍馬，爸爸媽媽也在身旁搭乘。平台慢慢轉動，柔和的音樂響起。"
+            ]
+          }
+        },
+        {
+          "number": 8,
+          "title": "慢慢轉，也很快樂",
+          "en": "The carousel horses rise and fall. Gail waves to Vicky across the platform. “I like seeing all the lights,” she says. Ricky nods. A quiet ride can be fun, too. When the music ends, they wait for the platform to stop before stepping down.",
+          "zh": "旋轉木馬一上一下。瑜瑜隔著平台向薇琪微笑。「我喜歡看這些燈。」她說。瑞奇點點頭，慢慢的設施也很好玩。音樂結束後，他們等平台停穩才走下來。",
+          "text": {
+            "A": [
+              "The horses go up and down. We like the lights."
+            ],
+            "B": [
+              "The carousel turns slowly. The horses rise and fall. Gail likes the lights. They wait for the ride to stop before getting off."
+            ],
+            "C": [
+              "The carousel horses rise and fall. Gail waves to Vicky across the platform. “I like seeing all the lights,” she says. Ricky nods. A quiet ride can be fun, too. When the music ends, they wait for the platform to stop before stepping down."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "木馬一上一下。我們喜歡這些燈。"
+            ],
+            "B": [
+              "旋轉木馬慢慢轉，木馬一上一下。瑜瑜喜歡那些燈。大家等設施停穩才下來。"
+            ],
+            "C": [
+              "旋轉木馬一上一下。瑜瑜隔著平台向薇琪微笑。「我喜歡看這些燈。」她說。瑞奇點點頭，慢慢的設施也很好玩。音樂結束後，他們等平台停穩才走下來。"
+            ]
+          }
+        },
+        {
+          "number": 9,
+          "title": "一起登上海盜船",
+          "en": "Next, they choose the pirate ship. It is a swinging ride, not a ship on the sea. Daddy sits beside Ricky, and Mommy sits beside Vicky. Gail sits close to them. They lower the lap bar and wait for the attendant’s signal.",
+          "zh": "接著，他們選了海盜船。它是會搖擺的遊樂設施，不是海上的船。爸爸坐在瑞奇旁邊，媽媽坐在薇琪旁邊，瑜瑜也靠近大家。他們放下安全壓桿，等待服務員的訊號。",
+          "text": {
+            "A": [
+              "This is the pirate ship. Sit down. Hold the bar."
+            ],
+            "B": [
+              "They sit in the pirate ship. Daddy sits by Ricky. Mommy sits by Vicky, and Gail is close. They lower the lap bar and wait."
+            ],
+            "C": [
+              "Next, they choose the pirate ship. It is a swinging ride, not a ship on the sea. Daddy sits beside Ricky, and Mommy sits beside Vicky. Gail sits close to them. They lower the lap bar and wait for the attendant’s signal."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "這是海盜船。坐好，握住壓桿。"
+            ],
+            "B": [
+              "大家坐進海盜船。爸爸在瑞奇旁邊，媽媽在薇琪旁邊，瑜瑜也靠近大家。他們放下壓桿等待。"
+            ],
+            "C": [
+              "接著，他們選了海盜船。它是會搖擺的遊樂設施，不是海上的船。爸爸坐在瑞奇旁邊，媽媽坐在薇琪旁邊，瑜瑜也靠近大家。他們放下安全壓桿，等待服務員的訊號。"
+            ]
+          }
+        },
+        {
+          "number": 10,
+          "title": "說出自己的感受",
+          "en": "The pirate ship swings forward and back. “That feels high!” Ricky says, holding the bar. “I’m right here,” Daddy answers. Ricky takes a slow breath. After the ship stops, everyone steps off together. “I liked it, but I’m ready for a break,” he says.",
+          "zh": "海盜船前後擺動。「感覺好高！」瑞奇握著壓桿說。「我就在這裡。」爸爸回答。瑞奇慢慢呼吸。船停穩後，大家一起下來。「我喜歡，不過現在想休息一下。」他說。",
+          "text": {
+            "A": [
+              "The ship swings. Ricky holds the bar. Daddy is here."
+            ],
+            "B": [
+              "The ship swings high. Ricky feels nervous. Daddy says, “I’m here.” Ricky takes a slow breath. After the ride stops, they take a break."
+            ],
+            "C": [
+              "The pirate ship swings forward and back. “That feels high!” Ricky says, holding the bar. “I’m right here,” Daddy answers. Ricky takes a slow breath. After the ship stops, everyone steps off together. “I liked it, but I’m ready for a break,” he says."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "船搖擺著。瑞奇握住壓桿，爸爸就在這裡。"
+            ],
+            "B": [
+              "船搖得高高的，瑞奇有些緊張。爸爸說：「我在這裡。」瑞奇慢慢呼吸。設施停穩後，他們去休息。"
+            ],
+            "C": [
+              "海盜船前後擺動。「感覺好高！」瑞奇握著壓桿說。「我就在這裡。」爸爸回答。瑞奇慢慢呼吸。船停穩後，大家一起下來。「我喜歡，不過現在想休息一下。」他說。"
+            ]
+          }
+        },
+        {
+          "number": 11,
+          "title": "聞到午餐的香味",
+          "en": "By lunchtime, everyone is hungry. They stop at a snack stand and order popcorn and hot dogs. Mommy carries the food to a table while Daddy brings water. The children sit down together. Gail can smell the warm bread before she takes her first bite.",
+          "zh": "到了午餐時間，大家都餓了。他們在點心攤點了爆米花和熱狗。媽媽把餐點端到桌上，爸爸拿來飲水。孩子們一起坐好，瑜瑜還沒咬下第一口，就聞到溫熱麵包的香味。",
+          "text": {
+            "A": [
+              "We are hungry. Here are hot dogs and popcorn."
+            ],
+            "B": [
+              "At lunchtime, they buy popcorn and hot dogs. Mommy brings the food. Daddy brings water. The children sit at a table."
+            ],
+            "C": [
+              "By lunchtime, everyone is hungry. They stop at a snack stand and order popcorn and hot dogs. Mommy carries the food to a table while Daddy brings water. The children sit down together. Gail can smell the warm bread before she takes her first bite."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "我們餓了。這裡有熱狗和爆米花。"
+            ],
+            "B": [
+              "午餐時間，他們買了爆米花和熱狗。媽媽拿食物，爸爸拿水，孩子們坐在桌邊。"
+            ],
+            "C": [
+              "到了午餐時間，大家都餓了。他們在點心攤點了爆米花和熱狗。媽媽把餐點端到桌上，爸爸拿來飲水。孩子們一起坐好，瑜瑜還沒咬下第一口，就聞到溫熱麵包的香味。"
+            ]
+          }
+        },
+        {
+          "number": 12,
+          "title": "把午餐分一分",
+          "en": "Ricky reaches for the popcorn, then pauses. “Shall we share it?” he asks. Vicky passes each child a small paper cup of popcorn. Gail hands her a hot dog. They eat, drink water, and rest. Nobody has to hurry to the next ride.",
+          "zh": "瑞奇伸手想拿爆米花，又停下來。「我們一起分，好嗎？」他問。薇琪為每個孩子分一小紙杯爆米花，瑜瑜遞給她一份熱狗。大家吃東西、喝水、休息，不必急著趕往下一個設施。",
+          "text": {
+            "A": [
+              "Let’s share the popcorn. Have a hot dog, too."
+            ],
+            "B": [
+              "Ricky asks to share the popcorn. Vicky puts some in small cups. Gail gives her a hot dog. They eat and rest together."
+            ],
+            "C": [
+              "Ricky reaches for the popcorn, then pauses. “Shall we share it?” he asks. Vicky passes each child a small paper cup of popcorn. Gail hands her a hot dog. They eat, drink water, and rest. Nobody has to hurry to the next ride."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "我們一起分爆米花，也吃一份熱狗。"
+            ],
+            "B": [
+              "瑞奇提議分享爆米花。薇琪把一些裝進小杯子，瑜瑜遞給她一份熱狗。大家一起吃東西、休息。"
+            ],
+            "C": [
+              "瑞奇伸手想拿爆米花，又停下來。「我們一起分，好嗎？」他問。薇琪為每個孩子分一小紙杯爆米花，瑜瑜遞給她一份熱狗。大家吃東西、喝水、休息，不必急著趕往下一個設施。"
+            ]
+          }
+        },
+        {
+          "number": 13,
+          "title": "大家同意的速度",
+          "en": "After a good rest, they reach the spinning teacups. Gail, Vicky, and Ricky sit in one cup with Mommy; Daddy chooses the cup beside them. “Let’s turn gently,” Gail says. The children agree before touching the wheel in the middle.",
+          "zh": "好好休息後，他們來到旋轉咖啡杯。瑜瑜、薇琪、瑞奇和媽媽坐在同一個杯子裡，爸爸坐隔壁那個。「我們輕輕轉就好。」瑜瑜說。孩子們先說好，才碰中央的轉盤。",
+          "text": {
+            "A": [
+              "We sit in spinning teacups. Let’s turn slowly."
+            ],
+            "B": [
+              "Gail, Vicky, Ricky and Mommy sit in one spinning teacup. Daddy sits in the next cup. They agree to turn the wheel slowly."
+            ],
+            "C": [
+              "After a good rest, they reach the spinning teacups. Gail, Vicky, and Ricky sit in one cup with Mommy; Daddy chooses the cup beside them. “Let’s turn gently,” Gail says. The children agree before touching the wheel in the middle."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "我們坐進旋轉咖啡杯。慢慢轉吧。"
+            ],
+            "B": [
+              "瑜瑜、薇琪、瑞奇和媽媽坐同一個咖啡杯，爸爸坐隔壁。他們說好慢慢轉中央轉盤。"
+            ],
+            "C": [
+              "好好休息後，他們來到旋轉咖啡杯。瑜瑜、薇琪、瑞奇和媽媽坐在同一個杯子裡，爸爸坐隔壁那個。「我們輕輕轉就好。」瑜瑜說。孩子們先說好，才碰中央的轉盤。"
+            ]
+          }
+        },
+        {
+          "number": 14,
+          "title": "笑聲轉了一圈",
+          "en": "The spinning teacups turn around the platform. Mommy smiles as the children turn their wheel slowly. When Vicky says, “A little slower, please,” they ease their hands. Gail sees Daddy waving from the next cup. Everyone gets the gentle turn they agreed on.",
+          "zh": "旋轉咖啡杯繞著平台轉動，媽媽微笑看著孩子們慢慢轉中央轉盤。薇琪說：「請再慢一點。」大家便放輕雙手。瑜瑜看見隔壁杯子的爸爸揮手，每個人都享受到約定好的溫和速度。",
+          "text": {
+            "A": [
+              "Slower, please. We listen to Vicky. Daddy waves."
+            ],
+            "B": [
+              "The teacups turn. Vicky says, “A little slower, please.” Everyone slows down. Gail sees Daddy waving from the next cup."
+            ],
+            "C": [
+              "The spinning teacups turn around the platform. Mommy smiles as the children turn their wheel slowly. When Vicky says, “A little slower, please,” they ease their hands. Gail sees Daddy waving from the next cup. Everyone gets the gentle turn they agreed on."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "請再慢一點。我們聽薇琪的話，爸爸揮揮手。"
+            ],
+            "B": [
+              "咖啡杯轉動著。薇琪說：「請再慢一點。」大家放慢速度，瑜瑜看見隔壁的爸爸揮手。"
+            ],
+            "C": [
+              "旋轉咖啡杯繞著平台轉動，媽媽微笑看著孩子們慢慢轉中央轉盤。薇琪說：「請再慢一點。」大家便放輕雙手。瑜瑜看見隔壁杯子的爸爸揮手，每個人都享受到約定好的溫和速度。"
+            ]
+          }
+        },
+        {
+          "number": 15,
+          "title": "從高處看樂園",
+          "en": "Later, they board the Ferris wheel. All five fit inside one large cabin. The door closes, and the wheel lifts them slowly. Below, Gail spots the carousel and the pirate ship. From up here, the busy paths look like tiny ribbons between the rides.",
+          "zh": "稍晚，他們搭上摩天輪，五個人坐進同一個寬敞車廂。車門關好，輪子慢慢帶他們升高。瑜瑜看見下方的旋轉木馬和海盜船；從這裡看，熱鬧步道像設施之間的細緞帶。",
+          "text": {
+            "A": [
+              "We ride the Ferris wheel. We see the park below."
+            ],
+            "B": [
+              "All five sit in one Ferris wheel cabin. The door closes. They go up slowly. Gail sees the carousel and pirate ship below."
+            ],
+            "C": [
+              "Later, they board the Ferris wheel. All five fit inside one large cabin. The door closes, and the wheel lifts them slowly. Below, Gail spots the carousel and the pirate ship. From up here, the busy paths look like tiny ribbons between the rides."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "我們搭摩天輪，看見下面的樂園。"
+            ],
+            "B": [
+              "五個人坐進同一個摩天輪車廂，車門關好了。他們慢慢升高，瑜瑜看見下方的旋轉木馬和海盜船。"
+            ],
+            "C": [
+              "稍晚，他們搭上摩天輪，五個人坐進同一個寬敞車廂。車門關好，輪子慢慢帶他們升高。瑜瑜看見下方的旋轉木馬和海盜船；從這裡看，熱鬧步道像設施之間的細緞帶。"
+            ]
+          }
+        },
+        {
+          "number": 16,
+          "title": "每個人喜歡的都不一樣",
+          "en": "Near the top, Daddy asks, “Which ride did you like best?” Ricky chooses the roller coaster, and Vicky chooses the carousel. Gail chooses this calm Ferris wheel ride. Mommy smiles. “We tried everyone’s choices, and we listened to one another.” Nobody needs to pick the same favorite.",
+          "zh": "接近高處時，爸爸問：「你們最喜歡哪個設施？」瑞奇選雲霄飛車，薇琪選旋轉木馬，瑜瑜選這段平穩的摩天輪。媽媽微笑說：「我們試了每個人選的，也聽了彼此的想法。」大家不必選同一個最愛。",
+          "text": {
+            "A": [
+              "We like different rides. We listen to each other."
+            ],
+            "B": [
+              "Daddy asks about their favorite rides. Ricky likes the roller coaster. Vicky likes the carousel. Gail likes the Ferris wheel. They listen to each other."
+            ],
+            "C": [
+              "Near the top, Daddy asks, “Which ride did you like best?” Ricky chooses the roller coaster, and Vicky chooses the carousel. Gail chooses this calm Ferris wheel ride. Mommy smiles. “We tried everyone’s choices, and we listened to one another.” Nobody needs to pick the same favorite."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "我們喜歡不同的設施，也聽彼此的想法。"
+            ],
+            "B": [
+              "爸爸問大家最愛哪個設施。瑞奇喜歡雲霄飛車，薇琪喜歡旋轉木馬，瑜瑜喜歡摩天輪。大家聽彼此的想法。"
+            ],
+            "C": [
+              "接近高處時，爸爸問：「你們最喜歡哪個設施？」瑞奇選雲霄飛車，薇琪選旋轉木馬，瑜瑜選這段平穩的摩天輪。媽媽微笑說：「我們試了每個人選的，也聽了彼此的想法。」大家不必選同一個最愛。"
+            ]
+          }
+        },
+        {
+          "number": 17,
+          "title": "帶一份小小紀念",
+          "en": "Back on the ground, they visit a souvenir shop. Vicky and Ricky choose one postcard showing all five rides. “We can put it in the bistro,” Vicky says. Mommy pays, and the children tuck it into their bag. Gail keeps her magical ticket safe in her hand.",
+          "zh": "回到地面，他們走進紀念品店。薇琪和瑞奇合選一張畫著五種設施的明信片。「我們可以放在小酒館裡。」薇琪說。媽媽付錢，孩子們把卡片收進袋裡。瑜瑜也把自己的魔法票券好好拿在手中。",
+          "text": {
+            "A": [
+              "This postcard is a souvenir. Gail holds her ticket."
+            ],
+            "B": [
+              "They visit a souvenir shop. Vicky and Ricky choose a postcard with five rides. Mommy pays. Gail holds her magical ticket in her hand."
+            ],
+            "C": [
+              "Back on the ground, they visit a souvenir shop. Vicky and Ricky choose one postcard showing all five rides. “We can put it in the bistro,” Vicky says. Mommy pays, and the children tuck it into their bag. Gail keeps her magical ticket safe in her hand."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "這張明信片是紀念品。瑜瑜拿著票券。"
+            ],
+            "B": [
+              "大家走進紀念品店。薇琪和瑞奇選了一張畫著五種設施的明信片，媽媽付錢。瑜瑜把魔法票券拿在手上。"
+            ],
+            "C": [
+              "回到地面，他們走進紀念品店。薇琪和瑞奇合選一張畫著五種設施的明信片。「我們可以放在小酒館裡。」薇琪說。媽媽付錢，孩子們把卡片收進袋裡。瑜瑜也把自己的魔法票券好好拿在手中。"
+            ]
+          }
+        },
+        {
+          "number": 18,
+          "title": "留下來等夜空亮起",
+          "en": "As the sky grows dark, the family finds a place in the viewing area. They stay behind the low fence and sit close together. The rides shine in the distance. “One more surprise for Children’s Day,” Daddy whispers. Gail looks up at the quiet sky.",
+          "zh": "天空漸漸暗下來，一家人在觀賞區找到位子。他們留在矮欄後，靠在一起坐好。遠方的遊樂設施亮起燈。「兒童節還有最後一個驚喜。」爸爸輕聲說。瑜瑜抬頭看著安靜的夜空。",
+          "text": {
+            "A": [
+              "It is getting dark. We sit together and wait."
+            ],
+            "B": [
+              "The sky gets dark. They sit close together behind a low fence. The rides light up. Daddy says one more surprise is coming."
+            ],
+            "C": [
+              "As the sky grows dark, the family finds a place in the viewing area. They stay behind the low fence and sit close together. The rides shine in the distance. “One more surprise for Children’s Day,” Daddy whispers. Gail looks up at the quiet sky."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "天色漸暗。我們坐在一起等待。"
+            ],
+            "B": [
+              "天色暗下來，大家靠在一起坐在矮欄後。遊樂設施亮起燈，爸爸說還有一個驚喜。"
+            ],
+            "C": [
+              "天空漸漸暗下來，一家人在觀賞區找到位子。他們留在矮欄後，靠在一起坐好。遠方的遊樂設施亮起燈。「兒童節還有最後一個驚喜。」爸爸輕聲說。瑜瑜抬頭看著安靜的夜空。"
+            ]
+          }
+        },
+        {
+          "number": 19,
+          "title": "煙火下的約定",
+          "en": "Fireworks bloom above the amusement park—gold, pink, and blue. The children watch beside their parents. “My favorite part was being together,” Vicky says. Ricky nods, and Gail smiles. After the last sparkle fades, Gail’s ticket begins to glow. It is time to say goodnight.",
+          "zh": "金色、粉紅、藍色的煙火在遊樂園上空綻放。孩子們在父母身旁看著。「我最喜歡的是大家在一起。」薇琪說。瑞奇點頭，瑜瑜也笑了。最後一點亮光散去，瑜瑜的票券開始發光，該道晚安了。",
+          "text": {
+            "A": [
+              "Look at the fireworks! Gail’s ticket glows. Goodnight!"
+            ],
+            "B": [
+              "Gold, pink and blue fireworks fill the sky. Everyone is happy to be together. Then Gail’s ticket glows. It is time to say goodnight."
+            ],
+            "C": [
+              "Fireworks bloom above the amusement park—gold, pink, and blue. The children watch beside their parents. “My favorite part was being together,” Vicky says. Ricky nods, and Gail smiles. After the last sparkle fades, Gail’s ticket begins to glow. It is time to say goodnight."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "看煙火！瑜瑜的票券亮起來了。晚安！"
+            ],
+            "B": [
+              "金色、粉紅色和藍色煙火在天空綻放，大家很高興能在一起。接著瑜瑜的票券亮了，該說晚安了。"
+            ],
+            "C": [
+              "金色、粉紅、藍色的煙火在遊樂園上空綻放。孩子們在父母身旁看著。「我最喜歡的是大家在一起。」薇琪說。瑞奇點頭，瑜瑜也笑了。最後一點亮光散去，瑜瑜的票券開始發光，該道晚安了。"
+            ]
+          }
+        },
+        {
+          "number": 20,
+          "title": "快樂的一天，帶回房間",
+          "en": "Gail waves goodbye to the Reed family. Colored light curls from her ticket and carries her back to her familiar room. She places it beside her bed. “We made room for everyone’s favorite,” she whispers. Still wearing her star pajamas, Gail settles down with a happy smile.",
+          "zh": "瑜瑜向 Reed 一家揮手道別。彩光從票券繞起，帶她回到熟悉的房間。她把票放在床邊，輕聲說：「我們讓每個人的喜歡都有位置。」仍穿著星星睡衣的瑜瑜帶著開心的微笑，準備休息。",
+          "text": {
+            "A": [
+              "Gail is home. Here is her ticket. What a happy day!"
+            ],
+            "B": [
+              "Gail says goodbye. Light from the ticket brings her home. She puts the ticket by her bed. Still in her star pajamas, she smiles."
+            ],
+            "C": [
+              "Gail waves goodbye to the Reed family. Colored light curls from her ticket and carries her back to her familiar room. She places it beside her bed. “We made room for everyone’s favorite,” she whispers. Still wearing her star pajamas, Gail settles down with a happy smile."
+            ]
+          },
+          "chinese": {
+            "A": [
+              "瑜瑜回家了。票券在這裡。真是快樂的一天！"
+            ],
+            "B": [
+              "瑜瑜說再見。票券的光帶她回家，她把票券放在床邊。她仍穿著星星睡衣，開心地微笑。"
+            ],
+            "C": [
+              "瑜瑜向 Reed 一家揮手道別。彩光從票券繞起，帶她回到熟悉的房間。她把票放在床邊，輕聲說：「我們讓每個人的喜歡都有位置。」仍穿著星星睡衣的瑜瑜帶著開心的微笑，準備休息。"
+            ]
+          }
+        }
+      ],
+      "plannedWords": [],
+      "reviewWords": [
+        "ticket",
+        "ride"
+      ],
+      "cardVocabularyCount": 20,
+      "cardCoreWords": [
+        "amusement park",
+        "Children’s Day",
+        "o’clock",
+        "USA",
+        "roller coaster",
+        "carousel",
+        "pirate ship",
+        "spinning teacups",
+        "Ferris wheel",
+        "popcorn",
+        "hot dog",
+        "fireworks",
+        "wristband",
+        "seat belt",
+        "height",
+        "entrance",
+        "queue",
+        "souvenir",
+        "booth",
+        "lap bar"
+      ],
+      "cardExtensionWords": [],
+      "textVerifiedAt": "2026-10-24",
+      "vocabularyVerifiedAt": "2026-10-23",
+      "approvalStatus": "故事已確認；圖片與quiz尚未另行確認",
+      "characters": [
+        "Gail",
+        "Vicky",
+        "Ricky (Rick)",
+        "Mr. Reed",
+        "Mrs. Reed"
+      ],
+      "continuity": "第41本Reed家庭續篇；Rick為Ricky的簡稱",
+      "coreRepeatCount": 0,
+      "storyApprovedAt": "2026-10-23",
+      "reader": "amusement-park-storybook.html",
+      "pages": 20
     }
   ]
 }

@@ -1,6 +1,6 @@
 import {protectStoryEntry, hasStoryParentSession} from './story-access.mjs?v=story-login-20261012-r1';
 
-const host = document.querySelector('#little-star, #story-app');
+const host = document.querySelector('#little-star, #story-app, #amusement-book');
 const status = document.createElement('p');
 status.setAttribute('role', 'status');
 status.textContent = '正在確認登入…';
@@ -21,6 +21,9 @@ try {
   // Book49 has a dedicated bundle; admit it only from its own guarded entry.
   if (location.pathname === new URL('princess-weekend-storybook.html', document.baseURI).pathname) {
     allowed.push(new URL('modules/book-49/reader.js', document.baseURI).pathname);
+  }
+  if (location.pathname === new URL('amusement-park-storybook.html', document.baseURI).pathname) {
+    allowed.push(new URL('modules/amusement-park/amusement-park.js', document.baseURI).pathname);
   }
   if (reader.origin !== location.origin || !allowed.includes(reader.pathname)) throw new Error('Invalid reader');
   if (hasStoryParentSession(window)) {
