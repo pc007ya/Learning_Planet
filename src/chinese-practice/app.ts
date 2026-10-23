@@ -1,11 +1,12 @@
+import { PRIMER, hasPrimer, textbookBookLabel } from './primer';
 import { CATALOG_SUMMARY, CHECKED_AT, GRADE_COVERAGE, LESSONS, lessonDisplayTitle, lessonLabel, soundSource, type Category } from './catalog';
 import { customSelections, dictionaryUrl, keyOf, hasPendingSounds, matchingLessons, paginate, practiceRows, removeCharacter, selectionOf, setSelections, strokeLink, validSound, type Filters, type Selection } from './model';
 const root = document.querySelector<HTMLElement>('#practice-app')!;
 const esc = (value:unknown) => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]!));
 const link = (url:string,label:string) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
 const categories: Category[] = ['生字','認讀字','語詞'];
-interface State { filters:Filters; categories:Category[]; selections:Selection[]; overrides:Record<string,string>; layout:string; name:string; date:string; allowBlank:boolean }
-const defaultState:State = {filters:{year:115,semester:'上',grade:1,publisher:'南一'},categories:['生字'],selections:[],overrides:{},layout:'low',name:'',date:'',allowBlank:false};
+interface State { book:'primer'|'textbook'; filters:Filters; categories:Category[]; selections:Selection[]; overrides:Record<string,string>; layout:string; name:string; date:string; allowBlank:boolean }
+const defaultState:State = {book:'textbook',filters:{year:115,semester:'上',grade:1,publisher:'南一'},categories:['生字'],selections:[],overrides:{},layout:'low',name:'',date:'',allowBlank:false};
 let state = defaultState;
 try {
   const saved = JSON.parse(sessionStorage.getItem('lp-chinese-practice-v1') ?? 'null');
@@ -16,7 +17,7 @@ try {
       if (entry) return [{...entry,omitted:Array.isArray(old.omitted)?old.omitted.filter(char=>entry.text.includes(char)):[]}];
       try { return old.id?.startsWith('custom:') ? customSelections(old.text) : []; } catch { return []; }
     });
-    state = {...defaultState,...saved,selections};
+    state = {...defaultState,...saved,selections,book:saved.book==='primer'&&hasPrimer(saved.filters)?'primer':'textbook'};
   }
 } catch { /* Session storage is optional (private browsing/storage quota). */ }
 let preview = false, message = '';
@@ -34,8 +35,9 @@ function validate() {
 function render() {
   save();
   const rows = practiceRows(state.selections,state.overrides);
-  root.innerHTML = `<header class="topbar no-print"><a class="brand" href="index.html">✦ Learning Planet <span>學習星球</span></a><button data-action="return">← 返回國語星球</button></header>
-  <section class="hero no-print"><p class="eyebrow">國語星球 / HANDWRITING</p><h1>我的生字練習簿</h1><p>挑一課、選幾個字，慢慢寫出自己的進步。</p><span class="badge">${esc(CATALOG_SUMMARY)}</span></section>
+  const primerActive = state.book === 'primer' && hasPrimer(state.filters);
+  root.innerHTML = `<header class="topbar no-print"><a class="brand" href="index.html" aria-label="回到學習星球首頁"><img src="images/brand/learning-planet-brand-web-v1.webp" alt="Learning Planet 學習星球" fetchpriority="high"></a><button data-action="return">← 返回國語星球</button></header>
+  <section class="hero no-print"><p class="eyebrow">國語星球 / HANDWRITING</p><h1>我的生字練習簿</h1><p>挑一課、選幾個字，慢慢寫出自己的進步。</p><span class="badge">${esc(CATALOG_SUMMARY)} · 康軒首冊目錄 9 課</span></section>
   <p class="feedback no-print" role="status" aria-live="polite">${esc(message)}</p>
   ${preview ? `<section class="print-toolbar no-print"><button data-action="edit">← 返回選字</button><strong>${rows.length} 字 · ${workbookPageCount(rows)} 頁 A4</strong><button class="primary" data-action="print">列印／另存 PDF</button><p>列印選 A4、比例 100%、關閉瀏覽器頁首頁尾。目的地選「儲存為 PDF」。</p></section>
   <div class="paper-scroller">${workbook()}</div>` : `<div class="workspace no-print"><section class="panel lessons"><h2>① 選教材與生字</h2>
@@ -43,9 +45,10 @@ function render() {
   ${field('semester','學期',option('上','上學期',state.filters.semester)+option('下','下學期（未收錄）',state.filters.semester))}
   ${field('grade','年級',Array.from({length:6},(_,i)=>option(i+1,`${i+1} 年級${matchingLessons({...state.filters,grade:i+1}).length?'':'（未收錄）'}`,state.filters.grade)).join(''))}
   ${field('publisher','出版社',['南一','康軒','翰林'].map(name=>option(name,name,state.filters.publisher)).join(''))}</div>
-  <div class="category-controls" role="group" aria-label="詞條分類">${categories.map(category=>`<label><input type="checkbox" name="category" value="${category}" ${state.categories.includes(category)?'checked':''}> ${category}</label>`).join('')}</div>
+  ${bookControls()}
+  ${primerActive ? primerContents() : `<div class="category-controls" role="group" aria-label="詞條分類">${categories.map(category=>`<label><input type="checkbox" name="category" value="${category}" ${state.categories.includes(category)?'checked':''}> ${category}</label>`).join('')}</div>
   <p class="muted">預設只選生字。切換教材或分類，已選清單仍保留；語詞拆成逐字練習並去重。</p>
-  ${lessonCards()}<div class="custom"><h3>加入自訂字</h3><form id="custom-form"><label for="custom-input">輸入國字（可用空格或逗號分隔）</label><div class="input-row"><input id="custom-input" name="custom" placeholder="例如：小、右、花" maxlength="200"><button type="submit">加入</button></div></form><p class="muted">自訂字不屬於教材。未核對字的注音留待填寫，筆順導向官方查詢。</p></div></section>
+  ${lessonCards()}`}<div class="custom"><h3>加入自訂字</h3><form id="custom-form"><label for="custom-input">輸入國字（可用空格或逗號分隔）</label><div class="input-row"><input id="custom-input" name="custom" placeholder="例如：小、右、花" maxlength="200"><button type="submit">加入</button></div></form><p class="muted">自訂字不屬於教材。未核對字的注音留待填寫，筆順導向官方查詢。</p></div></section>
   <aside class="panel cart"><div class="heading-row"><h2>② 已選 ${rows.length} 字</h2><button data-action="clear" ${rows.length?'':'disabled'}>全部清除</button></div><p class="muted">${state.selections.length} 個詞條，國字合併重複，保留每個來源。</p>
   ${rows.length ? `<div class="selection-list">${rows.map(row=>`<article class="selected-row"><div class="char-title"><strong>${esc(row.char)}</strong><label>注音 ${esc(row.char)}<input class="sound-input" data-char="${esc(row.char)}" value="${esc(row.sound)}" placeholder="待核" maxlength="5" aria-label="注音 ${esc(row.char)}"></label><button data-remove-char="${esc(row.char)}" aria-label="移除 ${esc(row.char)}">×</button></div>
   ${row.sounds.length>1?`<p class="warning">來源讀音不同：${esc(row.sounds.join(' / '))}，請依練習語境確認。</p>`:''}
@@ -57,6 +60,13 @@ function render() {
   <footer class="site-footer no-print">詞表：教育部教育百科。字音：教育部${link('https://dict.mini.moe.edu.tw/','《國語小字典》')}、${link('https://dict.concised.moe.edu.tw/','《國語辭典簡編本》')}、${link('https://dict.revised.moe.edu.tw/','《重編國語辭典修訂本》')}（經教育百科查核）；筆順僅官方外鏈。最新詞表查核日 ${CHECKED_AT}；各課查核日見教材資訊。<br>其餘教材尚未收錄，不沿用舊年資料；本頁不儲存到雲端。字體：${link('https://github.com/notofonts/noto-cjk/blob/main/Sans/LICENSE','Noto Sans TC / SIL OFL 1.1')}。</footer>`;
   const focus = document.querySelector<HTMLInputElement>('#custom-input');
   if (message.startsWith('已加入')) focus?.focus();
+}
+function bookControls() {
+  if (!hasPrimer(state.filters)) return `<p class="book-label">${esc(textbookBookLabel(state.filters))}</p>`;
+  return `<nav class="book-tabs" aria-label="選擇冊別"><button data-book="primer" aria-pressed="${state.book==='primer'}">首冊（注音學習）</button><button data-book="textbook" aria-pressed="${state.book==='textbook'}">第一冊（國字課文）</button></nav><p class="muted">先學首冊注音，再進入第一冊；兩冊各自從第一課開始。</p>`;
+}
+function primerContents() {
+  return `<section class="primer-contents" aria-label="康軒首冊目錄"><h2>首冊（一上）目錄</h2><p class="muted">依你提供的課本目錄核對：3 個單元、9 課。下列為課名與起始頁碼，尚未收錄各課教學符號與生字。</p><ol class="primer-list">${PRIMER.entries.map(entry=>`<li class="primer-item primer-${entry.kind==='單元'?'unit':entry.kind==='課文'?'lesson':'extra'}"><span class="primer-kind">${entry.kind==='課文'?`第 ${entry.number} 課`:entry.kind==='單元'?`第 ${entry.number} 單元`:entry.kind}</span><strong>${esc(entry.title)}</strong><span class="primer-page">第 ${entry.page} 頁</span>${entry.kind==='單元'&&entry.number===1?'<a href="https://www.junyiacademy.org/article/6fd76cc400aa42709cc6c29cf080873b" target="_blank" rel="noopener noreferrer">看單元故事 ↗</a>':''}</li>`).join('')}</ol><p class="muted">目錄已核：${PRIMER.checkedAt} · 課本目次第 4–5 頁。課名不計入生字清單。</p></section>`;
 }
 function lessonCards() {
   const lessons = matchingLessons(state.filters);
@@ -125,6 +135,7 @@ root.addEventListener('change',event=>{
   else if (target.dataset.char) state.overrides[target.dataset.char]=target.value.trim();
   else if (['year','grade','semester','publisher'].includes(target.name)) {
     state.filters={...state.filters,[target.name]:['year','grade'].includes(target.name)?Number(target.value):target.value};
+    if (!hasPrimer(state.filters)) state.book='textbook';
   } else if (target.name==='layout') state.layout=target.value;
   else if (target.name==='allowBlank') state.allowBlank=target.checked;
   else if (target.name==='studentName') state.name=target.value;
@@ -148,7 +159,10 @@ root.addEventListener('submit',event=>{
 root.addEventListener('click',async event=>{
   const target=(event.target as HTMLElement).closest<HTMLElement>('button');
   if (!target) return;
-  if (target.dataset.removeChar) {
+  if (target.dataset.book === 'primer' || target.dataset.book === 'textbook') {
+    state.book = target.dataset.book === 'primer' && hasPrimer(state.filters) ? 'primer' : 'textbook';
+    message='';
+  } else if (target.dataset.removeChar) {
     // Removing a merged character removes its occurrences, leaving other characters from a phrase intact.
     const char=target.dataset.removeChar;
     state.selections=removeCharacter(state.selections,char);

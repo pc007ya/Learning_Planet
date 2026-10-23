@@ -1,0 +1,190 @@
+{
+  "publisher": "康軒",
+  "year": 115,
+  "semester": "上",
+  "grade": 1,
+  "book": "首冊",
+  "yearEvidence": "學年度與出版社依使用者說明；照片標示國語課本首冊（一上）。",
+  "checkedAt": "2026-10-23",
+  "source": "使用者提供 IMG_7500.HEIC，目次第 4–5 頁",
+  "status": "目錄已核",
+  "vocabularyStatus": "逐課教學符號與課文生字未提供，尚未收錄",
+  "entries": [
+    {
+      "id": "kangxuan-115-upper-primer-6",
+      "kind": "準備",
+      "title": "快樂學ㄅㄆㄇ",
+      "page": 6,
+      "unit": null,
+      "number": null
+    },
+    {
+      "id": "kangxuan-115-upper-primer-12",
+      "kind": "準備",
+      "title": "聲調動一動",
+      "page": 12,
+      "unit": null,
+      "number": null
+    },
+    {
+      "id": "kangxuan-115-upper-primer-14",
+      "kind": "準備",
+      "title": "符號123",
+      "page": 14,
+      "unit": null,
+      "number": null
+    },
+    {
+      "id": "kangxuan-115-upper-primer-17",
+      "kind": "單元",
+      "title": "米米的好朋友",
+      "page": 17,
+      "unit": 1,
+      "number": 1
+    },
+    {
+      "id": "kangxuan-115-upper-primer-22",
+      "kind": "課文",
+      "title": "貓咪",
+      "page": 22,
+      "unit": 1,
+      "number": 1
+    },
+    {
+      "id": "kangxuan-115-upper-primer-28",
+      "kind": "課文",
+      "title": "鵝寶寶",
+      "page": 28,
+      "unit": 1,
+      "number": 2
+    },
+    {
+      "id": "kangxuan-115-upper-primer-34",
+      "kind": "課文",
+      "title": "河馬和河狸",
+      "page": 34,
+      "unit": 1,
+      "number": 3
+    },
+    {
+      "id": "kangxuan-115-upper-primer-38",
+      "kind": "語文",
+      "title": "語文一",
+      "page": 38,
+      "unit": 1,
+      "number": null
+    },
+    {
+      "id": "kangxuan-115-upper-primer-43",
+      "kind": "單元",
+      "title": "上學真有趣",
+      "page": 43,
+      "unit": 2,
+      "number": 2
+    },
+    {
+      "id": "kangxuan-115-upper-primer-48",
+      "kind": "課文",
+      "title": "笑嘻嘻",
+      "page": 48,
+      "unit": 2,
+      "number": 4
+    },
+    {
+      "id": "kangxuan-115-upper-primer-54",
+      "kind": "課文",
+      "title": "翹翹板",
+      "page": 54,
+      "unit": 2,
+      "number": 5
+    },
+    {
+      "id": "kangxuan-115-upper-primer-60",
+      "kind": "課文",
+      "title": "謝謝老師",
+      "page": 60,
+      "unit": 2,
+      "number": 6
+    },
+    {
+      "id": "kangxuan-115-upper-primer-64",
+      "kind": "語文",
+      "title": "語文二",
+      "page": 64,
+      "unit": 2,
+      "number": null
+    },
+    {
+      "id": "kangxuan-115-upper-primer-69",
+      "kind": "單元",
+      "title": "神奇故事樹",
+      "page": 69,
+      "unit": 3,
+      "number": 3
+    },
+    {
+      "id": "kangxuan-115-upper-primer-76",
+      "kind": "課文",
+      "title": "龜兔賽跑",
+      "page": 76,
+      "unit": 3,
+      "number": 7
+    },
+    {
+      "id": "kangxuan-115-upper-primer-82",
+      "kind": "課文",
+      "title": "拔蘿蔔",
+      "page": 82,
+      "unit": 3,
+      "number": 8
+    },
+    {
+      "id": "kangxuan-115-upper-primer-90",
+      "kind": "課文",
+      "title": "動物狂歡會",
+      "page": 90,
+      "unit": 3,
+      "number": 9
+    },
+    {
+      "id": "kangxuan-115-upper-primer-96",
+      "kind": "語文",
+      "title": "語文三",
+      "page": 96,
+      "unit": 3,
+      "number": null
+    },
+    {
+      "id": "kangxuan-115-upper-primer-106",
+      "kind": "附表",
+      "title": "注音符號表",
+      "page": 106,
+      "unit": null,
+      "number": null
+    },
+    {
+      "id": "kangxuan-115-upper-primer-108",
+      "kind": "附表",
+      "title": "各課符號表",
+      "page": 108,
+      "unit": null,
+      "number": null
+    },
+    {
+      "id": "kangxuan-115-upper-primer-109",
+      "kind": "附表",
+      "title": "拼音對照表",
+      "page": 109,
+      "unit": null,
+      "number": null
+    },
+    {
+      "id": "kangxuan-115-upper-primer-111",
+      "kind": "活動",
+      "title": "一起來玩吧！",
+      "page": 111,
+      "unit": null,
+      "number": null
+    }
+  ]
+}

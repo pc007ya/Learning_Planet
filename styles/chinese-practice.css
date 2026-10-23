@@ -14,3 +14,58 @@ a{color:inherit;text-underline-offset:3px}button,input,select{font:inherit}butto
 .row-source{width:calc(5 * var(--cell) + 8mm);margin-left:auto;margin-right:auto}
 
 .source-block{margin:5mm 0;padding-bottom:3mm;border-bottom:.2mm solid #ddd;font-size:8pt;line-height:1.5;overflow-wrap:anywhere}.source-block h3{font-size:10pt;margin:0 0 1mm}.source-block p{margin:1mm 0}.source-sheet .muted{font-size:8pt}
+/* Match the main site's Chinese planet shell; printed A4 pages stay white. */
+@media screen {
+  :root{color-scheme:dark;--line:rgba(155,202,239,.22);--ink:#f4f8ff}
+  body{background:#071333;color:#f4f8ff;isolation:isolate}
+  body::before{content:"";position:fixed;inset:0;z-index:-2;background:url('../images/home/planets/chinese-planet-v1.jpg') center/cover no-repeat}
+  body::after{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(120deg,rgba(3,11,32,.86),rgba(13,13,42,.76));pointer-events:none}
+  .topbar{max-width:1120px;margin:18px auto 0;padding:12px 20px;gap:18px;border:1px solid rgba(153,207,243,.25);border-radius:22px;background:rgba(9,20,49,.7);backdrop-filter:blur(18px);box-shadow:0 14px 36px #0003}
+  .brand{display:inline-flex;align-items:center;min-width:0;flex-shrink:1}
+  .brand img{display:block;width:238px;max-width:100%;height:64px;object-fit:contain}
+  .topbar button{min-height:44px;flex-shrink:0;border-radius:99px;border-color:rgba(171,225,255,.4);background:rgba(255,255,255,.08)}
+  .hero{max-width:1120px;margin:0 auto;text-align:left;padding:24px 4px 6px}
+  .hero h1{font-size:30px;margin:5px 0;color:#fff}
+  .hero p:not(.eyebrow){margin:4px 0 12px;color:#c8dcf1}
+  .badge{border-color:rgba(255,211,136,.3);background:rgba(255,195,102,.08)}
+  .feedback{max-width:1120px;padding:0 4px;text-align:left;margin:8px auto}
+  .feedback:empty{display:none}
+  .workspace{max-width:1120px;padding:0;margin:18px auto 28px;grid-template-columns:minmax(0,1.4fr) minmax(320px,1fr);gap:18px}
+  .panel{color:#f4f8ff;background:linear-gradient(145deg,rgba(7,20,56,.82),rgba(20,12,58,.72));border:1px solid rgba(153,207,243,.3);backdrop-filter:blur(18px);box-shadow:0 18px 48px #0004;padding:22px}
+  .panel h2,.panel h3{color:#fff}.panel h2{font-size:19px}
+  .lesson-card{background:rgba(255,255,255,.045);border-color:var(--line);padding:16px}
+  .muted,.metadata,.char-title label,.selected-row details,.word-option small{color:#b9cee5}
+  .muted a,.external-links,.unavailable a{color:#a1e6ff}
+  .word-option{background:rgba(255,255,255,.06);border-color:rgba(159,201,236,.25);color:#fff}
+  .word-option:hover{background:rgba(118,186,255,.13)}
+  .word-option.chosen{background:rgba(102,203,239,.2);border-color:#8de4ff;box-shadow:inset 0 0 0 1px #8de4ff}
+  input,select{background:rgba(4,13,38,.72);border-color:rgba(155,202,239,.35);color:#f4f8ff;min-height:44px}
+  select option{background:#10213f;color:#fff}
+  input::placeholder{color:#9eb2cc}input[type=checkbox]{accent-color:#6ad4f3;min-height:auto}
+  button{color:#f4f8ff;background:rgba(255,255,255,.08);border-color:rgba(155,202,239,.35);min-height:44px}
+  button:hover{background:rgba(117,197,245,.18)}
+  .primary{background:linear-gradient(105deg,#7154e6,#167eab);color:#fff}.primary:hover{background:linear-gradient(105deg,#8064f2,#2196bc)}
+  .empty{border-color:rgba(155,202,239,.3);color:#b9cee5;background:rgba(255,255,255,.03)}
+  .warning{color:#ffda96}.custom,.settings,.selected-row{border-color:var(--line)}
+  .site-footer{color:#b9cee5;max-width:1120px;margin:auto}
+  .print-toolbar{max-width:1120px;padding:16px 20px;border:1px solid var(--line);border-radius:18px;background:rgba(7,20,56,.82)}
+  .print-toolbar p{color:#b9cee5}
+  .sheet{color-scheme:light}.sheet .muted{color:#6f647f}
+  @media(max-width:1160px){.topbar,.hero,.feedback,.workspace,.print-toolbar{margin-left:20px;margin-right:20px}}
+  @media(max-width:900px){.workspace{grid-template-columns:minmax(0,1fr)}.hero h1{font-size:28px}}
+  @media(max-width:480px){.topbar{padding:10px 12px;gap:10px;margin-top:12px;border-radius:18px}.brand img{width:170px;height:48px}.topbar button{font-size:12px;padding:8px 10px}.topbar,.hero,.feedback,.workspace,.print-toolbar{margin-left:12px;margin-right:12px}.hero{padding-top:18px}.hero h1{font-size:25px}.panel{padding:16px}.word-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+}
+
+@media screen {
+  .book-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .book-tabs button{flex:1;min-width:160px}
+  .book-tabs [aria-pressed="true"]{border-color:#8de4ff;background:rgba(102,203,239,.2);box-shadow:inset 0 0 0 1px #8de4ff}
+  .book-label{font-size:14px;color:#ffda96;margin:16px 0 0}
+  .primer-contents h2{margin:20px 0 8px}
+  .primer-list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+  .primer-item{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:8px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.04)}
+  .primer-kind,.primer-page{font-size:12px;color:#b9cee5}
+  .primer-item strong{font-size:16px}.primer-unit{margin-top:10px;border-color:rgba(255,211,136,.4);background:rgba(255,195,102,.08)}
+  .primer-unit strong{color:#ffda96}.primer-item a{grid-column:2/-1;font-size:13px;color:#a1e6ff}
+  @media(max-width:480px){.primer-item{grid-template-columns:58px minmax(0,1fr) auto;padding:10px 8px;gap:6px}.primer-item strong{font-size:15px}}
+}
