@@ -11,7 +11,7 @@ describe('Kangxuan primer contents from the supplied contents photo',()=>{
   for(const f of [{...filters,year:114},{...filters,semester:'下'},{...filters,grade:2},{...filters,publisher:'南一'}]) expect(hasPrimer(f)).toBe(false);
  });
  it('preserves all nine lesson titles, numbers and page starts from the photo',()=>{
-  expect(PRIMER.entries.filter(e=>e.kind==='課文').map(e=>[e.number,e.title,e.page])).toEqual([[1,'貓咪',22],[2,'鵝媽媽',28],[3,'河馬和河狸',34],[4,'笑嘻嘻',48],[5,'翹翹板',54],[6,'謝謝老師',60],[7,'龜兔賽跑',76],[8,'拔蘿蔔',82],[9,'動物狂歡會',90]]);
+  expect(PRIMER.entries.filter(e=>e.kind==='課文').map(e=>[e.number,e.title,e.page])).toEqual([[1,'貓咪',22],[2,'鵝寶寶',28],[3,'河馬和河狸',34],[4,'笑嘻嘻',48],[5,'翹翹板',54],[6,'謝謝老師',60],[7,'龜兔賽跑',76],[8,'拔蘿蔔',82],[9,'動物狂歡會',90]]);
   expect(PRIMER.entries).toHaveLength(22);
   expect(PRIMER.entries.filter(e=>e.kind==='單元').map(e=>[e.title,e.page])).toEqual([['米米的好朋友',17],['上學真有趣',43],['神奇故事樹',69]]);
   expect(new Set(PRIMER.entries.map(e=>e.id)).size).toBe(22);
