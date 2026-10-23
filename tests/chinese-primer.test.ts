@@ -52,3 +52,38 @@ it('rotates all 24 review questions while preserving answer mapping and feedback
   expect(primerStudy(l.number,'review',{[q.id]:options.findIndex(o=>o.correct)})).toContain('答對了');
  }
 });
+
+import { splitSyllables, verticalZhuyin, annotatedHanzi } from '../src/chinese-practice/primer-zhuyin';
+it('stacks intact syllables with separate neutral and side tones',()=>{
+ expect(splitSyllables('ㄇㄠ ㄐㄩㄢˇ ˙ㄅㄛ')).toEqual([
+  {original:'ㄇㄠ',symbols:['ㄇ','ㄠ'],tone:''},
+  {original:'ㄐㄩㄢˇ',symbols:['ㄐ','ㄩ','ㄢ'],tone:'ˇ'},
+  {original:'˙ㄅㄛ',symbols:['ㄅ','ㄛ'],tone:'˙'},
+ ]);
+ const html=verticalZhuyin('ㄜˊ ㄏㄠˇ ㄉㄧˋ ˙ㄅㄠ');
+ expect((html.match(/class="primer-tone"/g)||[])).toHaveLength(3);
+ expect(html).toContain('class="primer-neutral">˙');
+ expect(splitSyllables('非注音')).toBeNull();
+ expect(annotatedHanzi('鵝寶寶','ㄜˊ ㄅㄠˇ ˙ㄅㄠ').match(/class="primer-character-reading"/g)).toHaveLength(3);
+ expect(verticalZhuyin('ㄈ')).toContain('aria-label="ㄈ"');
+});
+import { PrimerPlayback } from '../src/chinese-practice/primer-playback';
+import { segmentFor, PRIMER_SEGMENTS } from '../src/chinese-practice/primer-segment-audio';
+it('uses verified text segments and excludes standalone symbol-name playback',()=>{
+ expect(segmentFor('ㄈ')).toBeUndefined();
+ expect(segmentFor('ㄜˊ ㄇㄚ ˙ㄇㄚ')?.text).toBe('鵝媽媽');
+ expect(segmentFor('ㄉㄨㄛ ㄊㄧㄠˋ ㄕㄥˊ')?.text).toBe('多跳繩');
+ expect(PRIMER_SEGMENTS.voice).toBe('zh-TW-HsiaoChenNeural');
+ expect(PRIMER_SEGMENTS.rate).toBe('-30%');
+ expect(primerStudy(2,'text',{})).toContain('aria-label="朗讀這一段：鵝媽媽"');
+ expect(primerStudy(7,'practice',{})).toContain('aria-label="朗讀這一段：多跳繩"');
+});
+it('shares one player across full and segment playback and stops the same button',async()=>{
+ const events:(string|null)[]=[];const player=new PrimerPlayback(key=>events.push(key));
+ const audio=()=>{const a={paused:true,currentTime:3,onended:null,onerror:null,pause(){a.paused=true;},async play(){a.paused=false;}};return a as unknown as HTMLAudioElement;};
+ const full=audio(),line=audio();
+ await player.toggle(full,'full:2');expect(full.paused).toBe(false);
+ await player.toggle(line,'line:1');expect(full.paused).toBe(true);expect(full.currentTime).toBe(0);expect(line.paused).toBe(false);
+ await player.toggle(audio(),'line:1');expect(line.paused).toBe(true);expect(line.currentTime).toBe(0);
+ await player.toggle(full,'full:2');player.stop();expect(full.paused).toBe(true);expect(events.at(-1)).toBeNull();
+});

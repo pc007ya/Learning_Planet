@@ -1,0 +1,1008 @@
+{
+  "voice": "zh-TW-HsiaoChenNeural",
+  "rate": "-30%",
+  "pitch": "+0Hz",
+  "listened": false,
+  "alignment": "課文依原注音欄位音節數，對齊已核漢字轉寫；練習僅取資料包明列對應，不推測單符號音。",
+  "entries": [
+    {
+      "id": "8e8cd54ab7e34616",
+      "src": "audio/chinese-primer/segments/8e8cd54ab7e34616.mp3",
+      "text": "咪咪咪",
+      "zhuyin": "ㄇㄧ ㄇㄧ ㄇㄧ",
+      "sources": [
+        "lesson1.text.zhuyinColumns[0]",
+        "lesson1.text.zhuyinColumns[1]"
+      ]
+    },
+    {
+      "id": "0277915f860f8257",
+      "src": "audio/chinese-primer/segments/0277915f860f8257.mp3",
+      "text": "嗶",
+      "zhuyin": "ㄅㄧ",
+      "sources": [
+        "lesson1.text.zhuyinColumns[2]"
+      ]
+    },
+    {
+      "id": "e567427667db358c",
+      "src": "audio/chinese-primer/segments/e567427667db358c.mp3",
+      "text": "貓咪弟弟",
+      "zhuyin": "ㄇㄠ ㄇㄧ ㄉㄧˋ ˙ㄉㄧ",
+      "sources": [
+        "lesson1.text.zhuyinColumns[3]"
+      ]
+    },
+    {
+      "id": "e2bac7abe6a039b7",
+      "src": "audio/chinese-primer/segments/e2bac7abe6a039b7.mp3",
+      "text": "跑第一",
+      "zhuyin": "ㄆㄠˇ ㄉㄧˋ ㄧ",
+      "sources": [
+        "lesson1.text.zhuyinColumns[4]"
+      ]
+    },
+    {
+      "id": "796926dfb9ba5307",
+      "src": "audio/chinese-primer/segments/796926dfb9ba5307.mp3",
+      "text": "貓咪",
+      "zhuyin": "ㄇㄠ ㄇㄧ",
+      "sources": [
+        "lesson1.title"
+      ]
+    },
+    {
+      "id": "026b934b12a5db3b",
+      "src": "audio/chinese-primer/segments/026b934b12a5db3b.mp3",
+      "text": "筆",
+      "zhuyin": "ㄅㄧˇ",
+      "sources": [
+        "lesson1.textbookPractice[0].content.practiceWords[0]"
+      ]
+    },
+    {
+      "id": "f1bca2dcef6ab58d",
+      "src": "audio/chinese-primer/segments/f1bca2dcef6ab58d.mp3",
+      "text": "笛",
+      "zhuyin": "ㄉㄧˊ",
+      "sources": [
+        "lesson1.textbookPractice[0].content.practiceWords[1]"
+      ]
+    },
+    {
+      "id": "f7bff9ed8550c861",
+      "src": "audio/chinese-primer/segments/f7bff9ed8550c861.mp3",
+      "text": "刀",
+      "zhuyin": "ㄉㄠ",
+      "sources": [
+        "lesson1.textbookPractice[0].content.practiceWords[2]"
+      ]
+    },
+    {
+      "id": "f542c8f985f5ca9b",
+      "src": "audio/chinese-primer/segments/f542c8f985f5ca9b.mp3",
+      "text": "皮包",
+      "zhuyin": "ㄆㄧˊ ㄅㄠ",
+      "sources": [
+        "lesson1.textbookPractice[0].content.practiceWords[3]"
+      ]
+    },
+    {
+      "id": "4db0b8f384e05b0e",
+      "src": "audio/chinese-primer/segments/4db0b8f384e05b0e.mp3",
+      "text": "毛衣",
+      "zhuyin": "ㄇㄠˊ ㄧ",
+      "sources": [
+        "lesson1.textbookPractice[0].content.practiceWords[4]"
+      ]
+    },
+    {
+      "id": "1e2fac44c6aa94d0",
+      "src": "audio/chinese-primer/segments/1e2fac44c6aa94d0.mp3",
+      "text": "稻米",
+      "zhuyin": "ㄉㄠˋ ㄇㄧˇ",
+      "sources": [
+        "lesson1.textbookPractice[0].content.practiceWords[5]"
+      ]
+    },
+    {
+      "id": "6274dacdc6fcbf70",
+      "src": "audio/chinese-primer/segments/6274dacdc6fcbf70.mp3",
+      "text": "鵝鵝鵝",
+      "zhuyin": "ㄜˊ ㄜˊ ㄜˊ",
+      "sources": [
+        "lesson2.text.zhuyinColumns[0]"
+      ]
+    },
+    {
+      "id": "4316a0dd41b52e4f",
+      "src": "audio/chinese-primer/segments/4316a0dd41b52e4f.mp3",
+      "text": "鵝媽媽",
+      "zhuyin": "ㄜˊ ㄇㄚ ˙ㄇㄚ",
+      "sources": [
+        "lesson2.text.zhuyinColumns[1]"
+      ]
+    },
+    {
+      "id": "67b15dee2c458dac",
+      "src": "audio/chinese-primer/segments/67b15dee2c458dac.mp3",
+      "text": "哈哈哈",
+      "zhuyin": "ㄏㄚ ㄏㄚ ㄏㄚ",
+      "sources": [
+        "lesson2.text.zhuyinColumns[2]"
+      ]
+    },
+    {
+      "id": "e19f15860713d68a",
+      "src": "audio/chinese-primer/segments/e19f15860713d68a.mp3",
+      "text": "好得意",
+      "zhuyin": "ㄏㄠˇ ㄉㄜˊ ㄧˋ",
+      "sources": [
+        "lesson2.text.zhuyinColumns[3]"
+      ]
+    },
+    {
+      "id": "6beed0b324d03198",
+      "src": "audio/chinese-primer/segments/6beed0b324d03198.mp3",
+      "text": "孵出",
+      "zhuyin": "ㄈㄨ ㄔㄨ",
+      "sources": [
+        "lesson2.text.zhuyinColumns[4]"
+      ]
+    },
+    {
+      "id": "0c2a0a9cbd8a1534",
+      "src": "audio/chinese-primer/segments/0c2a0a9cbd8a1534.mp3",
+      "text": "五隻",
+      "zhuyin": "ㄨˇ ㄓ",
+      "sources": [
+        "lesson2.text.zhuyinColumns[5]"
+      ]
+    },
+    {
+      "id": "a799601009fcd306",
+      "src": "audio/chinese-primer/segments/a799601009fcd306.mp3",
+      "text": "鵝寶寶",
+      "zhuyin": "ㄜˊ ㄅㄠˇ ˙ㄅㄠ",
+      "sources": [
+        "lesson2.text.zhuyinColumns[6]",
+        "lesson2.title"
+      ]
+    },
+    {
+      "id": "356ce46e5d9577e2",
+      "src": "audio/chinese-primer/segments/356ce46e5d9577e2.mp3",
+      "text": "牙齒",
+      "zhuyin": "ㄧㄚˊ ㄔˇ",
+      "sources": [
+        "lesson2.textbookPractice[0].content.activities[3].words[0]"
+      ]
+    },
+    {
+      "id": "cb79e0cecd8e9392",
+      "src": "audio/chinese-primer/segments/cb79e0cecd8e9392.mp3",
+      "text": "喝茶",
+      "zhuyin": "ㄏㄜ ㄔㄚˊ",
+      "sources": [
+        "lesson2.textbookPractice[0].content.activities[3].words[1]"
+      ]
+    },
+    {
+      "id": "601bbe1d8f6f18e3",
+      "src": "audio/chinese-primer/segments/601bbe1d8f6f18e3.mp3",
+      "text": "珠寶",
+      "zhuyin": "ㄓㄨ ㄅㄠˇ",
+      "sources": [
+        "lesson2.textbookPractice[0].content.activities[3].words[2]"
+      ]
+    },
+    {
+      "id": "87dda186e74b9b34",
+      "src": "audio/chinese-primer/segments/87dda186e74b9b34.mp3",
+      "text": "馬車",
+      "zhuyin": "ㄇㄚˇ ㄔㄜ",
+      "sources": [
+        "lesson2.textbookPractice[0].content.activities[3].words[3]"
+      ]
+    },
+    {
+      "id": "4cf80999c7ff0af5",
+      "src": "audio/chinese-primer/segments/4cf80999c7ff0af5.mp3",
+      "text": "服",
+      "zhuyin": "ㄈㄨˊ",
+      "sources": [
+        "lesson2.textbookPractice[0].content.activities[4].items[0]"
+      ]
+    },
+    {
+      "id": "b8ea6611d3f9c55b",
+      "src": "audio/chinese-primer/segments/b8ea6611d3f9c55b.mp3",
+      "text": "壺",
+      "zhuyin": "ㄏㄨˊ",
+      "sources": [
+        "lesson2.textbookPractice[0].content.activities[4].items[1]"
+      ]
+    },
+    {
+      "id": "73f273bf3c454194",
+      "src": "audio/chinese-primer/segments/73f273bf3c454194.mp3",
+      "text": "河馬要去泡澡",
+      "zhuyin": "ㄏㄜˊ ㄇㄚˇ ㄧㄠˋ ㄑㄩˋ ㄆㄠˋ ㄗㄠˇ",
+      "sources": [
+        "lesson3.text.zhuyinColumns[0]"
+      ]
+    },
+    {
+      "id": "c0c3a9d09f29476a",
+      "src": "audio/chinese-primer/segments/c0c3a9d09f29476a.mp3",
+      "text": "半路遇到河狸",
+      "zhuyin": "ㄅㄢˋ ㄌㄨˋ ㄩˋ ㄉㄠˋ ㄏㄜˊ ㄌㄧˊ",
+      "sources": [
+        "lesson3.text.zhuyinColumns[1]"
+      ]
+    },
+    {
+      "id": "1b4df7f436fede85",
+      "src": "audio/chinese-primer/segments/1b4df7f436fede85.mp3",
+      "text": "喔",
+      "zhuyin": "ㄛ",
+      "sources": [
+        "lesson3.text.zhuyinColumns[2]"
+      ]
+    },
+    {
+      "id": "9e395fe82e3ea16e",
+      "src": "audio/chinese-primer/segments/9e395fe82e3ea16e.mp3",
+      "text": "河狸",
+      "zhuyin": "ㄏㄜˊ ㄌㄧˊ",
+      "sources": [
+        "lesson3.text.zhuyinColumns[3]"
+      ]
+    },
+    {
+      "id": "432d3d511213c3ae",
+      "src": "audio/chinese-primer/segments/432d3d511213c3ae.mp3",
+      "text": "忙著築巢",
+      "zhuyin": "ㄇㄤˊ ˙ㄓㄜ ㄓㄨˊ ㄔㄠˊ",
+      "sources": [
+        "lesson3.text.zhuyinColumns[4]"
+      ]
+    },
+    {
+      "id": "b6772eda1a8f977b",
+      "src": "audio/chinese-primer/segments/b6772eda1a8f977b.mp3",
+      "text": "河馬和河狸",
+      "zhuyin": "ㄏㄜˊ ㄇㄚˇ ㄏㄢˋ ㄏㄜˊ ㄌㄧˊ",
+      "sources": [
+        "lesson3.title"
+      ]
+    },
+    {
+      "id": "1cf9f76e181da84d",
+      "src": "audio/chinese-primer/segments/1cf9f76e181da84d.mp3",
+      "text": "玻璃",
+      "zhuyin": "ㄅㄛ ㄌㄧˊ",
+      "sources": [
+        "lesson3.textbookPractice[0].content.practiceWords[0]"
+      ]
+    },
+    {
+      "id": "d9a0c35a56e95bee",
+      "src": "audio/chinese-primer/segments/d9a0c35a56e95bee.mp3",
+      "text": "巫婆",
+      "zhuyin": "ㄨ ㄆㄛˊ",
+      "sources": [
+        "lesson3.textbookPractice[0].content.practiceWords[1]"
+      ]
+    },
+    {
+      "id": "f92fd0c0b8c950fc",
+      "src": "audio/chinese-primer/segments/f92fd0c0b8c950fc.mp3",
+      "text": "魔法",
+      "zhuyin": "ㄇㄛˊ ㄈㄚˇ",
+      "sources": [
+        "lesson3.textbookPractice[0].content.practiceWords[2]"
+      ]
+    },
+    {
+      "id": "70af6f80ac8ce773",
+      "src": "audio/chinese-primer/segments/70af6f80ac8ce773.mp3",
+      "text": "臥房",
+      "zhuyin": "ㄨㄛˋ ㄈㄤˊ",
+      "sources": [
+        "lesson3.textbookPractice[0].content.practiceWords[3]"
+      ]
+    },
+    {
+      "id": "6449ae42f938b91a",
+      "src": "audio/chinese-primer/segments/6449ae42f938b91a.mp3",
+      "text": "梨子",
+      "zhuyin": "ㄌㄧˊ ˙ㄗ",
+      "sources": [
+        "lesson3.textbookPractice[0].content.practiceWords[4]"
+      ]
+    },
+    {
+      "id": "968d401741698f35",
+      "src": "audio/chinese-primer/segments/968d401741698f35.mp3",
+      "text": "驢子",
+      "zhuyin": "ㄌㄩˊ ˙ㄗ",
+      "sources": [
+        "lesson3.textbookPractice[0].content.practiceWords[5]"
+      ]
+    },
+    {
+      "id": "29913aea852fb1ad",
+      "src": "audio/chinese-primer/segments/29913aea852fb1ad.mp3",
+      "text": "李子",
+      "zhuyin": "ㄌㄧˇ ˙ㄗ",
+      "sources": [
+        "lesson3.textbookPractice[0].content.practiceWords[6]"
+      ]
+    },
+    {
+      "id": "517ee6dc6a29dea8",
+      "src": "audio/chinese-primer/segments/517ee6dc6a29dea8.mp3",
+      "text": "荔枝",
+      "zhuyin": "ㄌㄧˋ ㄓ",
+      "sources": [
+        "lesson3.textbookPractice[0].content.practiceWords[7]"
+      ]
+    },
+    {
+      "id": "65c575f728505587",
+      "src": "audio/chinese-primer/segments/65c575f728505587.mp3",
+      "text": "背著書包",
+      "zhuyin": "ㄅㄟ ˙ㄓㄜ ㄕㄨ ㄅㄠ",
+      "sources": [
+        "lesson4.text.zhuyinColumns[0]",
+        "lesson4.text.zhuyinColumns[2]"
+      ]
+    },
+    {
+      "id": "208034eadbb06b44",
+      "src": "audio/chinese-primer/segments/208034eadbb06b44.mp3",
+      "text": "手拉手",
+      "zhuyin": "ㄕㄡˇ ㄌㄚ ㄕㄡˇ",
+      "sources": [
+        "lesson4.text.zhuyinColumns[1]"
+      ]
+    },
+    {
+      "id": "e2c18e53ed5c681c",
+      "src": "audio/chinese-primer/segments/e2c18e53ed5c681c.mp3",
+      "text": "笑嘻嘻",
+      "zhuyin": "ㄒㄧㄠˋ ㄒㄧ ㄒㄧ",
+      "sources": [
+        "lesson4.text.zhuyinColumns[3]",
+        "lesson4.title"
+      ]
+    },
+    {
+      "id": "f8d578a49f3c4cf3",
+      "src": "audio/chinese-primer/segments/f8d578a49f3c4cf3.mp3",
+      "text": "一二一",
+      "zhuyin": "ㄧ ㄦˋ ㄧ",
+      "sources": [
+        "lesson4.text.zhuyinColumns[4]"
+      ]
+    },
+    {
+      "id": "c6fa3f7c9bdcc538",
+      "src": "audio/chinese-primer/segments/c6fa3f7c9bdcc538.mp3",
+      "text": "好歡喜",
+      "zhuyin": "ㄏㄠˇ ㄏㄨㄢ ㄒㄧˇ",
+      "sources": [
+        "lesson4.text.zhuyinColumns[5]"
+      ]
+    },
+    {
+      "id": "9f32bbab9b46cae3",
+      "src": "audio/chinese-primer/segments/9f32bbab9b46cae3.mp3",
+      "text": "企鵝",
+      "zhuyin": "ㄑㄧˋ ㄜˊ",
+      "sources": [
+        "lesson4.textbookPractice[0].content.practiceWords[0]"
+      ]
+    },
+    {
+      "id": "40513ca1624b06ac",
+      "src": "audio/chinese-primer/segments/40513ca1624b06ac.mp3",
+      "text": "鱷魚",
+      "zhuyin": "ㄜˋ ㄩˊ",
+      "sources": [
+        "lesson4.textbookPractice[0].content.practiceWords[1]"
+      ]
+    },
+    {
+      "id": "ce9f5c3644d35e1c",
+      "src": "audio/chinese-primer/segments/ce9f5c3644d35e1c.mp3",
+      "text": "兒子",
+      "zhuyin": "ㄦˊ ˙ㄗ",
+      "sources": [
+        "lesson4.textbookPractice[0].content.practiceWords[2]"
+      ]
+    },
+    {
+      "id": "942dfe2c006f2d59",
+      "src": "audio/chinese-primer/segments/942dfe2c006f2d59.mp3",
+      "text": "二樓",
+      "zhuyin": "ㄦˋ ㄌㄡˊ",
+      "sources": [
+        "lesson4.textbookPractice[0].content.practiceWords[3]"
+      ]
+    },
+    {
+      "id": "e93d7e4b8ae4c37c",
+      "src": "audio/chinese-primer/segments/e93d7e4b8ae4c37c.mp3",
+      "text": "好朋友",
+      "zhuyin": "ㄏㄠˇ ㄆㄥˊ ㄧㄡˇ",
+      "sources": [
+        "lesson5.text.zhuyinColumns[0]"
+      ]
+    },
+    {
+      "id": "589930794d40e04b",
+      "src": "audio/chinese-primer/segments/589930794d40e04b.mp3",
+      "text": "一起來玩",
+      "zhuyin": "ㄧˋ ㄑㄧˇ ㄌㄞˊ ㄨㄢˊ",
+      "sources": [
+        "lesson5.text.zhuyinColumns[1]"
+      ]
+    },
+    {
+      "id": "054cdb2c76b75793",
+      "src": "audio/chinese-primer/segments/054cdb2c76b75793.mp3",
+      "text": "翹翹板",
+      "zhuyin": "ㄑㄧㄠˋ ㄑㄧㄠˋ ㄅㄢˇ",
+      "sources": [
+        "lesson5.text.zhuyinColumns[2]",
+        "lesson5.title"
+      ]
+    },
+    {
+      "id": "9b380a808128cdfe",
+      "src": "audio/chinese-primer/segments/9b380a808128cdfe.mp3",
+      "text": "上上下下",
+      "zhuyin": "ㄕㄤˋ ㄕㄤˋ ㄒㄧㄚˋ ㄒㄧㄚˋ",
+      "sources": [
+        "lesson5.text.zhuyinColumns[3]"
+      ]
+    },
+    {
+      "id": "8f05294d6cdf6d43",
+      "src": "audio/chinese-primer/segments/8f05294d6cdf6d43.mp3",
+      "text": "高高低低",
+      "zhuyin": "ㄍㄠ ㄍㄠ ㄉㄧ ㄉㄧ",
+      "sources": [
+        "lesson5.text.zhuyinColumns[4]"
+      ]
+    },
+    {
+      "id": "7b2d05aed9fc2914",
+      "src": "audio/chinese-primer/segments/7b2d05aed9fc2914.mp3",
+      "text": "好像小鳥",
+      "zhuyin": "ㄏㄠˇ ㄒㄧㄤˋ ㄒㄧㄠˇ ㄋㄧㄠˇ",
+      "sources": [
+        "lesson5.text.zhuyinColumns[5]"
+      ]
+    },
+    {
+      "id": "a6c63dd7958a2b67",
+      "src": "audio/chinese-primer/segments/a6c63dd7958a2b67.mp3",
+      "text": "奶奶想要魚乾",
+      "zhuyin": "ㄋㄞˇ ˙ㄋㄞ ㄒㄧㄤˇ ㄧㄠˋ ㄩˊ ㄍㄢ",
+      "sources": [
+        "lesson5.textbookPractice[1].content.practice_columns_zhuyin[0]"
+      ]
+    },
+    {
+      "id": "6812c06fb8f419ab",
+      "src": "audio/chinese-primer/segments/6812c06fb8f419ab.mp3",
+      "text": "爸爸買了魚缸",
+      "zhuyin": "ㄅㄚˋ ˙ㄅㄚ ㄇㄞˇ ˙ㄌㄜ ㄩˊ ㄍㄤ",
+      "sources": [
+        "lesson5.textbookPractice[1].content.practice_columns_zhuyin[1]"
+      ]
+    },
+    {
+      "id": "b2976ed09886cacf",
+      "src": "audio/chinese-primer/segments/b2976ed09886cacf.mp3",
+      "text": "哥哥和小狗",
+      "zhuyin": "ㄍㄜ ˙ㄍㄜ ㄏㄢˋ ㄒㄧㄠˇ ㄍㄡˇ",
+      "sources": [
+        "lesson5.textbookPractice[1].content.practice_columns_zhuyin[2]"
+      ]
+    },
+    {
+      "id": "1320a47aba2f99fb",
+      "src": "audio/chinese-primer/segments/1320a47aba2f99fb.mp3",
+      "text": "一起玩球",
+      "zhuyin": "ㄧˋ ㄑㄧˇ ㄨㄢˊ ㄑㄧㄡˊ",
+      "sources": [
+        "lesson5.textbookPractice[1].content.practice_columns_zhuyin[3]"
+      ]
+    },
+    {
+      "id": "8044f025aad1af32",
+      "src": "audio/chinese-primer/segments/8044f025aad1af32.mp3",
+      "text": "我要送老師",
+      "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄙㄨㄥˋ ㄌㄠˇ ㄕ",
+      "sources": [
+        "lesson6.text.zhuyinColumns[0]"
+      ]
+    },
+    {
+      "id": "35a12dc75bfecaf8",
+      "src": "audio/chinese-primer/segments/35a12dc75bfecaf8.mp3",
+      "text": "一朵小紅花",
+      "zhuyin": "ㄧˋ ㄉㄨㄛˇ ㄒㄧㄠˇ ㄏㄨㄥˊ ㄏㄨㄚ",
+      "sources": [
+        "lesson6.text.zhuyinColumns[1]"
+      ]
+    },
+    {
+      "id": "1c7cad48b3268890",
+      "src": "audio/chinese-primer/segments/1c7cad48b3268890.mp3",
+      "text": "謝謝老師",
+      "zhuyin": "ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄠˇ ㄕ",
+      "sources": [
+        "lesson6.text.zhuyinColumns[2]",
+        "lesson6.title"
+      ]
+    },
+    {
+      "id": "7bcd0cb453ec9346",
+      "src": "audio/chinese-primer/segments/7bcd0cb453ec9346.mp3",
+      "text": "教我讀書",
+      "zhuyin": "ㄐㄧㄠ ㄨㄛˇ ㄉㄨˊ ㄕㄨ",
+      "sources": [
+        "lesson6.text.zhuyinColumns[3]"
+      ]
+    },
+    {
+      "id": "a9aff5c45cfb2ea9",
+      "src": "audio/chinese-primer/segments/a9aff5c45cfb2ea9.mp3",
+      "text": "也謝謝老師",
+      "zhuyin": "ㄧㄝˇ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄠˇ ㄕ",
+      "sources": [
+        "lesson6.text.zhuyinColumns[4]"
+      ]
+    },
+    {
+      "id": "a54dcba8788ad0e9",
+      "src": "audio/chinese-primer/segments/a54dcba8788ad0e9.mp3",
+      "text": "教我畫畫",
+      "zhuyin": "ㄐㄧㄠ ㄨㄛˇ ㄏㄨㄚˋ ㄏㄨㄚˋ",
+      "sources": [
+        "lesson6.text.zhuyinColumns[5]"
+      ]
+    },
+    {
+      "id": "4fc9d8955b6155d9",
+      "src": "audio/chinese-primer/segments/4fc9d8955b6155d9.mp3",
+      "text": "一二三",
+      "zhuyin": "ㄧ ㄦˋ ㄙㄢ",
+      "sources": [
+        "lesson6.textbookPractice[1].content.practice_columns_zhuyin[0]"
+      ]
+    },
+    {
+      "id": "bc9a90a0289282a6",
+      "src": "audio/chinese-primer/segments/bc9a90a0289282a6.mp3",
+      "text": "數一數",
+      "zhuyin": "ㄕㄨˇ ㄧ ㄕㄨˇ",
+      "sources": [
+        "lesson6.textbookPractice[1].content.practice_columns_zhuyin[1]"
+      ]
+    },
+    {
+      "id": "9f3282fe4cc9a240",
+      "src": "audio/chinese-primer/segments/9f3282fe4cc9a240.mp3",
+      "text": "嗡嗡嗡",
+      "zhuyin": "ㄨㄥ ㄨㄥ ㄨㄥ",
+      "sources": [
+        "lesson6.textbookPractice[1].content.poem_columns_zhuyin[0]"
+      ]
+    },
+    {
+      "id": "c738d307cd4e563f",
+      "src": "audio/chinese-primer/segments/c738d307cd4e563f.mp3",
+      "text": "飛到西",
+      "zhuyin": "ㄈㄟ ㄉㄠˋ ㄒㄧ",
+      "sources": [
+        "lesson6.textbookPractice[1].content.poem_columns_zhuyin[1]"
+      ]
+    },
+    {
+      "id": "4c4af89c38ebbb0f",
+      "src": "audio/chinese-primer/segments/4c4af89c38ebbb0f.mp3",
+      "text": "飛到東",
+      "zhuyin": "ㄈㄟ ㄉㄠˋ ㄉㄨㄥ",
+      "sources": [
+        "lesson6.textbookPractice[1].content.poem_columns_zhuyin[2]"
+      ]
+    },
+    {
+      "id": "470322ad282d295b",
+      "src": "audio/chinese-primer/segments/470322ad282d295b.mp3",
+      "text": "一起來做工",
+      "zhuyin": "ㄧˋ ㄑㄧˇ ㄌㄞˊ ㄗㄨㄛˋ ㄍㄨㄥ",
+      "sources": [
+        "lesson6.textbookPractice[1].content.poem_columns_zhuyin[3]"
+      ]
+    },
+    {
+      "id": "9cb4db036cfca73d",
+      "src": "audio/chinese-primer/segments/9cb4db036cfca73d.mp3",
+      "text": "飛到南",
+      "zhuyin": "ㄈㄟ ㄉㄠˋ ㄋㄢˊ",
+      "sources": [
+        "lesson6.textbookPractice[1].content.poem_columns_zhuyin[4]"
+      ]
+    },
+    {
+      "id": "b825c52c0a107ebd",
+      "src": "audio/chinese-primer/segments/b825c52c0a107ebd.mp3",
+      "text": "飛到北",
+      "zhuyin": "ㄈㄟ ㄉㄠˋ ㄅㄟˇ",
+      "sources": [
+        "lesson6.textbookPractice[1].content.poem_columns_zhuyin[5]"
+      ]
+    },
+    {
+      "id": "539788b5d3fb7f08",
+      "src": "audio/chinese-primer/segments/539788b5d3fb7f08.mp3",
+      "text": "別做懶惰蟲",
+      "zhuyin": "ㄅㄧㄝˊ ㄗㄨㄛˋ ㄌㄢˇ ㄉㄨㄛˋ ㄔㄨㄥˊ",
+      "sources": [
+        "lesson6.textbookPractice[1].content.poem_columns_zhuyin[6]"
+      ]
+    },
+    {
+      "id": "0ccb11624115393a",
+      "src": "audio/chinese-primer/segments/0ccb11624115393a.mp3",
+      "text": "烏龜兔子來比賽",
+      "zhuyin": "ㄨ ㄍㄨㄟ ㄊㄨˋ ˙ㄗ ㄌㄞˊ ㄅㄧˇ ㄙㄞˋ",
+      "sources": [
+        "lesson7.text.zhuyinColumns[0]"
+      ]
+    },
+    {
+      "id": "2e70240311fba2c6",
+      "src": "audio/chinese-primer/segments/2e70240311fba2c6.mp3",
+      "text": "但誰跑得快",
+      "zhuyin": "ㄉㄢˋ ㄕㄟˊ ㄆㄠˇ ˙ㄉㄜ ㄎㄨㄞˋ",
+      "sources": [
+        "lesson7.text.zhuyinColumns[1]"
+      ]
+    },
+    {
+      "id": "4ca44715a581371b",
+      "src": "audio/chinese-primer/segments/4ca44715a581371b.mp3",
+      "text": "兔子領先",
+      "zhuyin": "ㄊㄨˋ ˙ㄗ ㄌㄧㄥˇ ㄒㄧㄢ",
+      "sources": [
+        "lesson7.text.zhuyinColumns[2]"
+      ]
+    },
+    {
+      "id": "8c8963bc0cc2f7f9",
+      "src": "audio/chinese-primer/segments/8c8963bc0cc2f7f9.mp3",
+      "text": "哈哈笑",
+      "zhuyin": "ㄏㄚ ㄏㄚ ㄒㄧㄠˋ",
+      "sources": [
+        "lesson7.text.zhuyinColumns[3]"
+      ]
+    },
+    {
+      "id": "976e8b2f4ee05757",
+      "src": "audio/chinese-primer/segments/976e8b2f4ee05757.mp3",
+      "text": "樹下睡午覺",
+      "zhuyin": "ㄕㄨˋ ㄒㄧㄚˋ ㄕㄨㄟˋ ㄨˇ ㄐㄧㄠˋ",
+      "sources": [
+        "lesson7.text.zhuyinColumns[4]"
+      ]
+    },
+    {
+      "id": "4bdcb7460fea915b",
+      "src": "audio/chinese-primer/segments/4bdcb7460fea915b.mp3",
+      "text": "烏龜落後",
+      "zhuyin": "ㄨ ㄍㄨㄟ ㄌㄨㄛˋ ㄏㄡˋ",
+      "sources": [
+        "lesson7.text.zhuyinColumns[5]"
+      ]
+    },
+    {
+      "id": "d14a127c273b531b",
+      "src": "audio/chinese-primer/segments/d14a127c273b531b.mp3",
+      "text": "不氣餒",
+      "zhuyin": "ㄅㄨˊ ㄑㄧˋ ㄋㄟˇ",
+      "sources": [
+        "lesson7.text.zhuyinColumns[6]"
+      ]
+    },
+    {
+      "id": "93610fb45c753fa8",
+      "src": "audio/chinese-primer/segments/93610fb45c753fa8.mp3",
+      "text": "跟在後面",
+      "zhuyin": "ㄍㄣ ㄗㄞˋ ㄏㄡˋ ㄇㄧㄢˋ",
+      "sources": [
+        "lesson7.text.zhuyinColumns[7]"
+      ]
+    },
+    {
+      "id": "e74c99af09354baf",
+      "src": "audio/chinese-primer/segments/e74c99af09354baf.mp3",
+      "text": "追追追",
+      "zhuyin": "ㄓㄨㄟ ㄓㄨㄟ ㄓㄨㄟ",
+      "sources": [
+        "lesson7.text.zhuyinColumns[8]",
+        "lesson7.textbookPractice[0].content.reading_columns[5]"
+      ]
+    },
+    {
+      "id": "6fc603102f48466d",
+      "src": "audio/chinese-primer/segments/6fc603102f48466d.mp3",
+      "text": "龜兔賽跑",
+      "zhuyin": "ㄍㄨㄟ ㄊㄨˋ ㄙㄞˋ ㄆㄠˇ",
+      "sources": [
+        "lesson7.title"
+      ]
+    },
+    {
+      "id": "d371e9a5cc77558f",
+      "src": "audio/chinese-primer/segments/d371e9a5cc77558f.mp3",
+      "text": "我是小烏龜",
+      "zhuyin": "ㄨㄛˇ ㄕˋ ㄒㄧㄠˇ ㄨ ㄍㄨㄟ",
+      "sources": [
+        "lesson7.textbookPractice[0].content.reading_columns[0]"
+      ]
+    },
+    {
+      "id": "2902e5c2ec3c51f6",
+      "src": "audio/chinese-primer/segments/2902e5c2ec3c51f6.mp3",
+      "text": "走路不怕累",
+      "zhuyin": "ㄗㄡˇ ㄌㄨˋ ㄅㄨˊ ㄆㄚˋ ㄌㄟˋ",
+      "sources": [
+        "lesson7.textbookPractice[0].content.reading_columns[1]"
+      ]
+    },
+    {
+      "id": "fc933032997faaa8",
+      "src": "audio/chinese-primer/segments/fc933032997faaa8.mp3",
+      "text": "青蛙跳",
+      "zhuyin": "ㄑㄧㄥ ㄨㄚ ㄊㄧㄠˋ",
+      "sources": [
+        "lesson7.textbookPractice[0].content.reading_columns[2]"
+      ]
+    },
+    {
+      "id": "3c630a2fd5b4627e",
+      "src": "audio/chinese-primer/segments/3c630a2fd5b4627e.mp3",
+      "text": "蝴蝶飛",
+      "zhuyin": "ㄏㄨˊ ㄉㄧㄝˊ ㄈㄟ",
+      "sources": [
+        "lesson7.textbookPractice[0].content.reading_columns[3]"
+      ]
+    },
+    {
+      "id": "d664a930f52c5390",
+      "src": "audio/chinese-primer/segments/d664a930f52c5390.mp3",
+      "text": "我在後面",
+      "zhuyin": "ㄨㄛˇ ㄗㄞˋ ㄏㄡˋ ㄇㄧㄢˋ",
+      "sources": [
+        "lesson7.textbookPractice[0].content.reading_columns[4]"
+      ]
+    },
+    {
+      "id": "743b1949d467f4f0",
+      "src": "audio/chinese-primer/segments/743b1949d467f4f0.mp3",
+      "text": "多跳繩",
+      "zhuyin": "ㄉㄨㄛ ㄊㄧㄠˋ ㄕㄥˊ",
+      "sources": [
+        "lesson7.textbookPractice[0].content.exercise4.zhuyinColumns[0]"
+      ]
+    },
+    {
+      "id": "978db581e77c2c88",
+      "src": "audio/chinese-primer/segments/978db581e77c2c88.mp3",
+      "text": "精神好",
+      "zhuyin": "ㄐㄧㄥ ㄕㄣˊ ㄏㄠˇ",
+      "sources": [
+        "lesson7.textbookPractice[0].content.exercise4.zhuyinColumns[1]"
+      ]
+    },
+    {
+      "id": "e48956cb8155a074",
+      "src": "audio/chinese-primer/segments/e48956cb8155a074.mp3",
+      "text": "菜園裡",
+      "zhuyin": "ㄘㄞˋ ㄩㄢˊ ㄌㄧˇ",
+      "sources": [
+        "lesson8.text.zhuyinColumns[0]"
+      ]
+    },
+    {
+      "id": "97bae5ee01a5a117",
+      "src": "audio/chinese-primer/segments/97bae5ee01a5a117.mp3",
+      "text": "長出大蘿蔔",
+      "zhuyin": "ㄓㄤˇ ㄔㄨ　ㄉㄚˋ ㄌㄨㄛˊ ˙ㄅㄛ",
+      "sources": [
+        "lesson8.text.zhuyinColumns[1]"
+      ]
+    },
+    {
+      "id": "798d79bfcbe8c3e7",
+      "src": "audio/chinese-primer/segments/798d79bfcbe8c3e7.mp3",
+      "text": "兔子拔不動",
+      "zhuyin": "ㄊㄨˋ ˙ㄗ　ㄅㄚˊ ㄅㄨˊ ㄉㄨㄥˋ",
+      "sources": [
+        "lesson8.text.zhuyinColumns[2]"
+      ]
+    },
+    {
+      "id": "b70abfd1c0997308",
+      "src": "audio/chinese-primer/segments/b70abfd1c0997308.mp3",
+      "text": "大家快快來",
+      "zhuyin": "ㄉㄚˋ ㄐㄧㄚ　ㄎㄨㄞˋ ㄎㄨㄞˋ ㄌㄞˊ",
+      "sources": [
+        "lesson8.text.zhuyinColumns[3]"
+      ]
+    },
+    {
+      "id": "da9837c725a33eee",
+      "src": "audio/chinese-primer/segments/da9837c725a33eee.mp3",
+      "text": "大象拉著黃牛",
+      "zhuyin": "ㄉㄚˋ ㄒㄧㄤˋ　ㄌㄚ ˙ㄓㄜ　ㄏㄨㄤˊ ㄋㄧㄡˊ",
+      "sources": [
+        "lesson8.text.zhuyinColumns[4]"
+      ]
+    },
+    {
+      "id": "ad2d669af6e3f278",
+      "src": "audio/chinese-primer/segments/ad2d669af6e3f278.mp3",
+      "text": "黃牛拉著浣熊",
+      "zhuyin": "ㄏㄨㄤˊ ㄋㄧㄡˊ　ㄌㄚ ˙ㄓㄜ　ㄨㄢˇ ㄒㄩㄥˊ",
+      "sources": [
+        "lesson8.text.zhuyinColumns[5]"
+      ]
+    },
+    {
+      "id": "e2b0af9cc314139e",
+      "src": "audio/chinese-primer/segments/e2b0af9cc314139e.mp3",
+      "text": "浣熊拉著兔子",
+      "zhuyin": "ㄨㄢˇ ㄒㄩㄥˊ　ㄌㄚ ˙ㄓㄜ　ㄊㄨˋ ˙ㄗ",
+      "sources": [
+        "lesson8.text.zhuyinColumns[6]"
+      ]
+    },
+    {
+      "id": "5c33d9bad3c1b7b3",
+      "src": "audio/chinese-primer/segments/5c33d9bad3c1b7b3.mp3",
+      "text": "嘿喲嘿喲",
+      "zhuyin": "ㄏㄟ ㄧㄛ　ㄏㄟ ㄧㄛ",
+      "sources": [
+        "lesson8.text.zhuyinColumns[7]"
+      ]
+    },
+    {
+      "id": "46f0763d62e8a063",
+      "src": "audio/chinese-primer/segments/46f0763d62e8a063.mp3",
+      "text": "好熱鬧",
+      "zhuyin": "ㄏㄠˇ ㄖㄜˋ ㄋㄠˋ",
+      "sources": [
+        "lesson8.text.zhuyinColumns[8]"
+      ]
+    },
+    {
+      "id": "57f0399e27c2bdd5",
+      "src": "audio/chinese-primer/segments/57f0399e27c2bdd5.mp3",
+      "text": "捲起袖子",
+      "zhuyin": "ㄐㄩㄢˇ ㄑㄧˇ　ㄒㄧㄡˋ ˙ㄗ",
+      "sources": [
+        "lesson8.text.zhuyinColumns[9]"
+      ]
+    },
+    {
+      "id": "19a7e929b39ad343",
+      "src": "audio/chinese-primer/segments/19a7e929b39ad343.mp3",
+      "text": "大家一起",
+      "zhuyin": "ㄉㄚˋ ㄐㄧㄚ　ㄧˋ ㄑㄧˇ",
+      "sources": [
+        "lesson8.text.zhuyinColumns[10]"
+      ]
+    },
+    {
+      "id": "d44d285c89bb57fc",
+      "src": "audio/chinese-primer/segments/d44d285c89bb57fc.mp3",
+      "text": "拔蘿蔔",
+      "zhuyin": "ㄅㄚˊ ㄌㄨㄛˊ ˙ㄅㄛ",
+      "sources": [
+        "lesson8.text.zhuyinColumns[11]",
+        "lesson8.title"
+      ]
+    },
+    {
+      "id": "dc7dd7f9d86396c6",
+      "src": "audio/chinese-primer/segments/dc7dd7f9d86396c6.mp3",
+      "text": "快快來",
+      "zhuyin": "ㄎㄨㄞˋ ㄎㄨㄞˋ ㄌㄞˊ",
+      "sources": [
+        "lesson8.textbookPractice[0].content.reading_columns[0]"
+      ]
+    },
+    {
+      "id": "99aae130a3438c1e",
+      "src": "audio/chinese-primer/segments/99aae130a3438c1e.mp3",
+      "text": "炒蘿蔔",
+      "zhuyin": "ㄔㄠˇ ㄌㄨㄛˊ ˙ㄅㄛ",
+      "sources": [
+        "lesson8.textbookPractice[0].content.reading_columns[1]"
+      ]
+    },
+    {
+      "id": "07288fa6d03e1e1d",
+      "src": "audio/chinese-primer/segments/07288fa6d03e1e1d.mp3",
+      "text": "煮蘿蔔",
+      "zhuyin": "ㄓㄨˇ ㄌㄨㄛˊ ˙ㄅㄛ",
+      "sources": [
+        "lesson8.textbookPractice[0].content.reading_columns[2]"
+      ]
+    },
+    {
+      "id": "54cac6918f50836e",
+      "src": "audio/chinese-primer/segments/54cac6918f50836e.mp3",
+      "text": "切切切",
+      "zhuyin": "ㄑㄧㄝ ㄑㄧㄝ ㄑㄧㄝ",
+      "sources": [
+        "lesson8.textbookPractice[0].content.reading_columns[3]",
+        "lesson8.textbookPractice[0].content.reading_columns[6]"
+      ]
+    },
+    {
+      "id": "f7dda6e3665c83e5",
+      "src": "audio/chinese-primer/segments/f7dda6e3665c83e5.mp3",
+      "text": "紅燒蘿蔔",
+      "zhuyin": "ㄏㄨㄥˊ ㄕㄠ ㄌㄨㄛˊ ˙ㄅㄛ",
+      "sources": [
+        "lesson8.textbookPractice[0].content.reading_columns[4]"
+      ]
+    },
+    {
+      "id": "a81b08abd5fe499a",
+      "src": "audio/chinese-primer/segments/a81b08abd5fe499a.mp3",
+      "text": "清蒸蘿蔔",
+      "zhuyin": "ㄑㄧㄥ ㄓㄥ ㄌㄨㄛˊ ˙ㄅㄛ",
+      "sources": [
+        "lesson8.textbookPractice[0].content.reading_columns[5]"
+      ]
+    },
+    {
+      "id": "94a708c7c9690d02",
+      "src": "audio/chinese-primer/segments/94a708c7c9690d02.mp3",
+      "text": "快快快",
+      "zhuyin": "ㄎㄨㄞˋ ㄎㄨㄞˋ ㄎㄨㄞˋ",
+      "sources": [
+        "lesson8.textbookPractice[0].content.reading_columns[7]"
+      ]
+    },
+    {
+      "id": "1d752c7b00ed21a9",
+      "src": "audio/chinese-primer/segments/1d752c7b00ed21a9.mp3",
+      "text": "大家都來",
+      "zhuyin": "ㄉㄚˋ ㄐㄧㄚ ㄉㄡ ㄌㄞˊ",
+      "sources": [
+        "lesson8.textbookPractice[0].content.reading_columns[8]"
+      ]
+    },
+    {
+      "id": "b2ed723a197eeea3",
+      "src": "audio/chinese-primer/segments/b2ed723a197eeea3.mp3",
+      "text": "吃蘿蔔",
+      "zhuyin": "ㄔ ㄌㄨㄛˊ ˙ㄅㄛ",
+      "sources": [
+        "lesson8.textbookPractice[0].content.reading_columns[9]"
+      ]
+    }
+  ]
+}

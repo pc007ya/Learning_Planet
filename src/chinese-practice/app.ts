@@ -1,3 +1,5 @@
+import { PrimerPlayback } from './primer-playback';
+import { PRIMER_SEGMENTS } from './primer-segment-audio';
 import { primerStudy } from './primer-view';
 import type { PrimerSection } from './primer-learning';
 import { PRIMER, hasPrimer, textbookBookLabel } from './primer';
@@ -26,7 +28,10 @@ let preview = false, message = '';
 let primerLesson = 0;
 let primerSection:PrimerSection = 'text';
 let primerAnswers:Record<string,number> = {};
-let primerAudio:HTMLAudioElement|null = null;
+const primerPlayback=new PrimerPlayback(key=>{
+ root.querySelectorAll<HTMLElement>('[data-primer-segment]').forEach(button=>{const active=button.dataset.primerSegment===key;button.setAttribute('aria-pressed',String(active));});
+ const full=root.querySelector<HTMLElement>('[data-primer-play]');if(full)full.textContent=key?.startsWith('full:')?'■ 停止朗讀':'▶ 播放慢速課文';
+});
 const save = () => { try { sessionStorage.setItem('lp-chinese-practice-v1',JSON.stringify(state)); } catch { /* Keep working in memory. */ } };
 const option = (value:string|number,label:string,selected:string|number) => `<option value="${esc(value)}" ${value === selected ? 'selected':''}>${esc(label)}</option>`;
 const field = (name:string,label:string,content:string) => `<label class="filter">${label}<select name="${name}">${content}</select></label>`;
@@ -39,8 +44,7 @@ function validate() {
   return '';
 }
 function render() {
-  primerAudio?.pause();
-  primerAudio=null;
+  primerPlayback.stop();
   save();
   const rows = practiceRows(state.selections,state.overrides);
   const primerActive = state.book === 'primer' && hasPrimer(state.filters);
@@ -168,9 +172,10 @@ root.addEventListener('submit',event=>{
 root.addEventListener('click',async event=>{
   const target=(event.target as HTMLElement).closest<HTMLElement>('button');
   if (!target) return;
-  if (target.hasAttribute('data-primer-play')) {
-    const audio=root.querySelector<HTMLAudioElement>('[data-primer-audio]');
-    if(audio){if(audio.paused){try{await audio.play();target.textContent='Ⅱ 暫停朗讀';}catch{const status=root.querySelector('.primer-audio-error');if(status)status.textContent='音檔暫時無法播放，請稍後再試。';}}else{audio.pause();target.textContent='▶ 播放慢速課文';}}
+  if (target.hasAttribute('data-primer-play') || target.hasAttribute('data-primer-segment')) {
+    const segment=PRIMER_SEGMENTS.entries.find(e=>e.id===target.dataset.primerSegment);
+    const audio=segment?new Audio(segment.src):root.querySelector<HTMLAudioElement>('[data-primer-audio]');
+    if(audio){try{await primerPlayback.toggle(audio,segment?.id??`full:${primerLesson}`);}catch{const status=root.querySelector('.primer-audio-error');if(status)status.textContent='音檔暫時無法播放，請稍後再試。';}}
     return;
   } else if (target.hasAttribute('data-primer-lesson')) {
     primerLesson=Number(target.dataset.primerLesson);primerSection='text';
@@ -207,7 +212,6 @@ root.addEventListener('click',async event=>{
 });
 render();
 
-root.addEventListener('play',event=>{if(event.target instanceof HTMLAudioElement){if(primerAudio!==event.target)primerAudio?.pause();primerAudio=event.target;}},true);
+root.addEventListener('play',event=>{if(event.target instanceof HTMLAudioElement)primerPlayback.adopt(event.target,`full:${primerLesson}`);},true);
 root.addEventListener('error',event=>{if(event.target instanceof HTMLAudioElement){const message=root.querySelector('.primer-audio-error');if(message)message.textContent='音檔暫時無法播放，請稍後再試。';}},true);
-window.addEventListener('pagehide',()=>primerAudio?.pause());
-root.addEventListener('ended',event=>{if(event.target instanceof HTMLAudioElement){const button=root.querySelector('[data-primer-play]');if(button)button.textContent='▶ 播放慢速課文';}},true);
+window.addEventListener('pagehide',()=>primerPlayback.stop());
