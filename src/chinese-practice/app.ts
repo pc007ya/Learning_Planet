@@ -1,3 +1,5 @@
+import { primerStudy } from './primer-view';
+import type { PrimerSection } from './primer-learning';
 import { PRIMER, hasPrimer, textbookBookLabel } from './primer';
 import { CATALOG_SUMMARY, CHECKED_AT, GRADE_COVERAGE, LESSONS, lessonDisplayTitle, lessonLabel, soundSource, type Category } from './catalog';
 import { customSelections, dictionaryUrl, keyOf, hasPendingSounds, matchingLessons, paginate, practiceRows, removeCharacter, selectionOf, setSelections, strokeLink, validSound, type Filters, type Selection } from './model';
@@ -21,6 +23,10 @@ try {
   }
 } catch { /* Session storage is optional (private browsing/storage quota). */ }
 let preview = false, message = '';
+let primerLesson = 0;
+let primerSection:PrimerSection = 'text';
+let primerAnswers:Record<string,number> = {};
+let primerAudio:HTMLAudioElement|null = null;
 const save = () => { try { sessionStorage.setItem('lp-chinese-practice-v1',JSON.stringify(state)); } catch { /* Keep working in memory. */ } };
 const option = (value:string|number,label:string,selected:string|number) => `<option value="${esc(value)}" ${value === selected ? 'selected':''}>${esc(label)}</option>`;
 const field = (name:string,label:string,content:string) => `<label class="filter">${label}<select name="${name}">${content}</select></label>`;
@@ -33,6 +39,8 @@ function validate() {
   return '';
 }
 function render() {
+  primerAudio?.pause();
+  primerAudio=null;
   save();
   const rows = practiceRows(state.selections,state.overrides);
   const primerActive = state.book === 'primer' && hasPrimer(state.filters);
@@ -66,7 +74,8 @@ function bookControls() {
   return `<nav class="book-tabs" aria-label="選擇冊別"><button data-book="primer" aria-pressed="${state.book==='primer'}">首冊（注音學習）</button><button data-book="textbook" aria-pressed="${state.book==='textbook'}">第一冊（國字課文）</button></nav><p class="muted">先學首冊注音，再進入第一冊；兩冊各自從第一課開始。</p>`;
 }
 function primerContents() {
-  return `<section class="primer-contents" aria-label="康軒首冊目錄"><h2>首冊（一上）目錄</h2><p class="muted">依你提供的課本目錄核對：3 個單元、9 課。下列為課名與起始頁碼，尚未收錄各課教學符號與生字。</p><ol class="primer-list">${PRIMER.entries.map(entry=>`<li class="primer-item primer-${entry.kind==='單元'?'unit':entry.kind==='課文'?'lesson':'extra'}"><span class="primer-kind">${entry.kind==='課文'?`第 ${entry.number} 課`:entry.kind==='單元'?`第 ${entry.number} 單元`:entry.kind}</span><strong>${esc(entry.title)}</strong><span class="primer-page">第 ${entry.page} 頁</span>${entry.kind==='單元'&&entry.number===1?'<a href="https://www.junyiacademy.org/article/6fd76cc400aa42709cc6c29cf080873b" target="_blank" rel="noopener noreferrer">看單元故事 ↗</a>':''}</li>`).join('')}</ol><p class="muted">目錄已核：${PRIMER.checkedAt} · 課本目次第 4–5 頁。課名不計入生字清單。</p></section>`;
+  if (primerLesson) return primerStudy(primerLesson,primerSection,primerAnswers);
+  return `<section class="primer-contents" aria-label="康軒首冊目錄"><h2>首冊（一上）目錄</h2><p class="muted">依你提供的課本目錄核對：3 個單元、9 課。前 8 課可進入課文、練習與自編複習；漢字轉寫不是指定生字表。</p><ol class="primer-list">${PRIMER.entries.map(entry=>`<li class="primer-item primer-${entry.kind==='單元'?'unit':entry.kind==='課文'?'lesson':'extra'}"><span class="primer-kind">${entry.kind==='課文'?`第 ${entry.number} 課`:entry.kind==='單元'?`第 ${entry.number} 單元`:entry.kind}</span><strong>${esc(entry.title)}</strong><span class="primer-page">第 ${entry.page} 頁</span>${entry.kind==='課文'&&entry.number!==null&&entry.number<=8?`<button data-primer-lesson="${entry.number}">課文・練習・複習 →</button>`:''}${entry.kind==='單元'&&entry.number===1?'<a href="https://www.junyiacademy.org/article/6fd76cc400aa42709cc6c29cf080873b" target="_blank" rel="noopener noreferrer">看單元故事 ↗</a>':''}</li>`).join('')}</ol><p class="muted">目錄已核：${PRIMER.checkedAt} · 課本目次第 4–5 頁。課名不計入生字清單。</p></section>`;
 }
 function lessonCards() {
   const lessons = matchingLessons(state.filters);
@@ -159,7 +168,21 @@ root.addEventListener('submit',event=>{
 root.addEventListener('click',async event=>{
   const target=(event.target as HTMLElement).closest<HTMLElement>('button');
   if (!target) return;
-  if (target.dataset.book === 'primer' || target.dataset.book === 'textbook') {
+  if (target.hasAttribute('data-primer-play')) {
+    const audio=root.querySelector<HTMLAudioElement>('[data-primer-audio]');
+    if(audio){if(audio.paused){try{await audio.play();target.textContent='Ⅱ 暫停朗讀';}catch{const status=root.querySelector('.primer-audio-error');if(status)status.textContent='音檔暫時無法播放，請稍後再試。';}}else{audio.pause();target.textContent='▶ 播放慢速課文';}}
+    return;
+  } else if (target.hasAttribute('data-primer-lesson')) {
+    primerLesson=Number(target.dataset.primerLesson);primerSection='text';
+  } else if (target.hasAttribute('data-primer-section')) {
+    primerSection=target.dataset.primerSection as PrimerSection;
+  } else if (target.hasAttribute('data-primer-back')) {
+    primerLesson=0;
+  } else if (target.hasAttribute('data-primer-question')) {
+    primerAnswers[target.dataset.primerQuestion!]=Number(target.dataset.primerAnswer);
+  } else if (target.hasAttribute('data-primer-reset')) {
+    primerAnswers={};
+  } else if (target.dataset.book === 'primer' || target.dataset.book === 'textbook') {
     state.book = target.dataset.book === 'primer' && hasPrimer(state.filters) ? 'primer' : 'textbook';
     message='';
   } else if (target.dataset.removeChar) {
@@ -183,3 +206,8 @@ root.addEventListener('click',async event=>{
   render();
 });
 render();
+
+root.addEventListener('play',event=>{if(event.target instanceof HTMLAudioElement){if(primerAudio!==event.target)primerAudio?.pause();primerAudio=event.target;}},true);
+root.addEventListener('error',event=>{if(event.target instanceof HTMLAudioElement){const message=root.querySelector('.primer-audio-error');if(message)message.textContent='音檔暫時無法播放，請稍後再試。';}},true);
+window.addEventListener('pagehide',()=>primerAudio?.pause());
+root.addEventListener('ended',event=>{if(event.target instanceof HTMLAudioElement){const button=root.querySelector('[data-primer-play]');if(button)button.textContent='▶ 播放慢速課文';}},true);

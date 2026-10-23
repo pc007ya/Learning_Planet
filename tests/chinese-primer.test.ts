@@ -23,3 +23,32 @@ describe('Kangxuan primer contents from the supplied contents photo',()=>{
   for(const entry of PRIMER.entries) expect(entry).not.toHaveProperty('vocabulary');
  });
 });
+
+import { PRIMER_LEARNING, reviewOptions } from '../src/chinese-practice/primer-learning';
+import { primerStudy } from '../src/chinese-practice/primer-view';
+it('keeps verified lesson scope, source layers and incomplete originals explicit',()=>{
+ expect(PRIMER_LEARNING.map(l=>l.number)).toEqual([1,2,3,4,5,6,7,8]);
+ expect(PRIMER_LEARNING[1].missingOriginalPages).toEqual([]);
+ expect(PRIMER_LEARNING[1].textbookPractice[0].content.pages).toEqual([30,31]);
+ expect(PRIMER_LEARNING[6].symbols).toEqual(['ㄊ','ㄎ','ㄣ']);
+ expect(PRIMER_LEARNING[6].uncertainItems).toHaveLength(0);
+ expect(PRIMER_LEARNING[7].text.pages).toEqual([82,83,84,85]);
+ expect(PRIMER_LEARNING[7].textbookPractice[0].pages).toEqual([86,87]);
+ for(const l of PRIMER_LEARNING){expect(l.specifiedCharacters).toBeNull();expect(l.audio.rate).toBe('-30%');expect(l.audio.voice).toBe('zh-TW-HsiaoChenNeural');expect(l.sourceRecords.length).toBeGreaterThan(0);}
+ expect(primerStudy(2,'practice',{})).not.toContain('原題尚缺');
+ expect(primerStudy(2,'practice',{})).toContain('ㄧㄚˊ ㄔˇ');
+ expect(primerStudy(2,'practice',{})).toContain('念完後，你有什麼新發現？');
+ expect(primerStudy(7,'practice',{})).toContain('念一念');
+ expect(primerStudy(7,'practice',{})).toContain('ㄉㄨㄛ ㄊㄧㄠˋ ㄕㄥˊ');
+ expect(primerStudy(7,'practice',{})).toContain('ㄐㄧㄥ ㄕㄣˊ ㄏㄠˇ');
+ expect(primerStudy(7,'practice',{})).not.toContain('被筆跡遮住');
+ expect(primerStudy(8,'text',{})).toContain('ㄅㄚˊ ㄌㄨㄛˊ ˙ㄅㄛ');
+});
+it('rotates all 24 review questions while preserving answer mapping and feedback',()=>{
+ expect(PRIMER_LEARNING.reduce((n,l)=>n+l.review.questions.length,0)).toBe(24);
+ for(const l of PRIMER_LEARNING)for(let i=0;i<l.review.questions.length;i++){
+  const q=l.review.questions[i],options=reviewOptions(l,i);
+  expect(options.filter(o=>o.correct).map(o=>o.text)).toEqual([q.options[q.correctIndex]]);
+  expect(primerStudy(l.number,'review',{[q.id]:options.findIndex(o=>o.correct)})).toContain('答對了');
+ }
+});

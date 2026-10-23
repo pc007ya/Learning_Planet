@@ -1,0 +1,49 @@
+{
+  "voice": "zh-TW-HsiaoChenNeural",
+  "rate": "-30%",
+  "pitch": "+0Hz",
+  "textSource": "src/chinese-practice/primer-learning.json lessons[].text.ttsChinese",
+  "validation": "FFmpeg 全檔解碼成功；讀音未實聽核對",
+  "files": [
+    {
+      "file": "lesson-01-slow30.mp3",
+      "durationSeconds": 8.76,
+      "bytes": 52560
+    },
+    {
+      "file": "lesson-02-slow30.mp3",
+      "durationSeconds": 9.504,
+      "bytes": 57024
+    },
+    {
+      "file": "lesson-03-slow30.mp3",
+      "durationSeconds": 9.216,
+      "bytes": 55296
+    },
+    {
+      "file": "lesson-04-slow30.mp3",
+      "durationSeconds": 11.304,
+      "bytes": 67824
+    },
+    {
+      "file": "lesson-05-slow30.mp3",
+      "durationSeconds": 10.512,
+      "bytes": 63072
+    },
+    {
+      "file": "lesson-06-slow30.mp3",
+      "durationSeconds": 11.472,
+      "bytes": 68832
+    },
+    {
+      "file": "lesson-07-slow30.mp3",
+      "durationSeconds": 15.96,
+      "bytes": 95760
+    },
+    {
+      "file": "lesson-08-slow30.mp3",
+      "durationSeconds": 21.336,
+      "bytes": 128016
+    }
+  ]
+}

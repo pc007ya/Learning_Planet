@@ -1,0 +1,2463 @@
+{
+  "schemaVersion": "1.0",
+  "target": "康軒115學年度國語首冊前8課",
+  "scope": "課文、印刷練習、自編複習；只依使用者提供照片；忽略全部鉛筆圈選手寫。",
+  "importantNotes": [
+    "原注音是教材來源；漢字TTS為轉寫，不冒稱課本印刷漢字。",
+    "沒有建立指定漢字生字表，specifiedCharacters=null代表未見，不是自行推定。",
+    "原文已轉錄不代表TTS音訊已實聽驗收。",
+    "第2課p30–31原印刷練習已依補圖收錄。",
+    "第7課p79第4題為「念一念」，已依補圖收錄，非圈選題。"
+  ],
+  "lessons": [
+    {
+      "number": 1,
+      "title": "貓咪",
+      "titleZhuyin": "ㄇㄠ ㄇㄧ",
+      "text": {
+        "zhuyinColumns": [
+          "ㄇㄧ ㄇㄧ ㄇㄧ",
+          "ㄇㄧ ㄇㄧ ㄇㄧ",
+          "ㄅㄧ",
+          "ㄇㄠ ㄇㄧ ㄉㄧˋ ˙ㄉㄧ",
+          "ㄆㄠˇ ㄉㄧˋ ㄧ"
+        ],
+        "ttsChinese": "咪咪咪，咪咪咪。嗶！貓咪弟弟，跑第一。",
+        "ttsChineseIsTranscription": true,
+        "ttsAudioVerified": false,
+        "pages": [
+          22,
+          23
+        ],
+        "sourceKind": "userProvidedTextbookPhoto"
+      },
+      "symbols": [
+        "ㄅ",
+        "ㄆ",
+        "ㄇ",
+        "ㄉ",
+        "ㄧ",
+        "ㄠ"
+      ],
+      "combinedFinals": [],
+      "sourceRecords": [
+        {
+          "lesson": 1,
+          "title": "貓咪",
+          "titleZhuyin": "ㄇㄠ ㄇㄧ",
+          "symbols": [
+            "ㄅ",
+            "ㄆ",
+            "ㄇ",
+            "ㄉ",
+            "ㄧ",
+            "ㄠ"
+          ],
+          "combinedFinals": [],
+          "pages": [
+            22,
+            23
+          ],
+          "textZhuyinColumns": [
+            "ㄇㄧ ㄇㄧ ㄇㄧ",
+            "ㄇㄧ ㄇㄧ ㄇㄧ",
+            "ㄅㄧ",
+            "ㄇㄠ ㄇㄧ ㄉㄧˋ ˙ㄉㄧ",
+            "ㄆㄠˇ ㄉㄧˋ ㄧ"
+          ],
+          "ttsChineseTranscription": "咪咪咪，咪咪咪。嗶！貓咪弟弟，跑第一。",
+          "ttsNote": "依原注音轉寫漢字及添加標點；保留原注音為準，不宣稱已實聽TTS。",
+          "photoPath": "/workspace/shared/IMG_05E53CD3-EF93-4988-8F4B-21595A40EF5D.jpeg",
+          "libraryFileId": "libfile_9e4a0ce63d7081919fe2b7b02d55e26e",
+          "sourceMessage": "Sentinel_be539ba4056081918f9bfcb7647505dc",
+          "characters": null,
+          "charactersNote": "未見指定漢字生字表；漢字TTS轉寫和圖像詞義均不等於原頁指定生字。",
+          "verification": "使用者原照片已旋轉並真實檢視；手寫筆記不當課文。"
+        }
+      ],
+      "textbookPractice": [
+        {
+          "sourceKind": "printedTextbookExercise",
+          "content": {
+            "lesson": 1,
+            "pages": [
+              24,
+              25
+            ],
+            "section": "練習一",
+            "photoPath": "/workspace/shared/IMG_FEB9F1F9-9E7A-4BCC-9878-525833E65B1A.jpeg",
+            "libraryFileId": "libfile_adf172d7d4fc819183e1e03a2d08d9a6",
+            "sourceMessage": "Sentinel_67bae2c5a0008191a311ce61a6c10572",
+            "symbols": [
+              "ㄅ",
+              "ㄆ",
+              "ㄇ",
+              "ㄉ",
+              "ㄧ",
+              "ㄠ"
+            ],
+            "mouthComparison": [
+              "ㄅ",
+              "ㄉ"
+            ],
+            "practiceWords": [
+              {
+                "zhuyin": "ㄅㄧˇ",
+                "chineseTranscription": "筆"
+              },
+              {
+                "zhuyin": "ㄉㄧˊ",
+                "chineseTranscription": "笛"
+              },
+              {
+                "zhuyin": "ㄉㄠ",
+                "chineseTranscription": "刀"
+              },
+              {
+                "zhuyin": "ㄆㄧˊ ㄅㄠ",
+                "chineseTranscription": "皮包"
+              },
+              {
+                "zhuyin": "ㄇㄠˊ ㄧ",
+                "chineseTranscription": "毛衣"
+              },
+              {
+                "zhuyin": "ㄉㄠˋ ㄇㄧˇ",
+                "chineseTranscription": "稻米"
+              }
+            ],
+            "spellingExercises": {
+              "initials": [
+                "ㄅ",
+                "ㄆ",
+                "ㄇ",
+                "ㄉ"
+              ],
+              "finals": [
+                "ㄠ",
+                "ㄠˋ",
+                "ㄧ",
+                "ㄧˊ"
+              ],
+              "toneRow": [
+                "ㄆㄠ",
+                "ㄆㄠˊ",
+                "ㄆㄠˇ",
+                "ㄆㄠˋ"
+              ]
+            },
+            "homophoneExercise": {
+              "zhuyin": "ㄅㄠˋ",
+              "imageMeanings": [
+                "報紙",
+                "擁抱",
+                "豹"
+              ]
+            },
+            "characters": null,
+            "charactersNote": "未見指定漢字生字表；漢字TTS轉寫和圖像詞義均不等於原頁指定生字。",
+            "verification": "使用者原照片已旋轉並真實檢視；手寫筆記不當課文。"
+          }
+        }
+      ],
+      "specifiedCharacters": null,
+      "originalPracticeStatus": "provided_pages_transcribed",
+      "missingOriginalPages": [],
+      "uncertainItems": [],
+      "practiceNote": "原印刷資料；未採用鉛筆作答。圖像操作題保留資料，不把手寫圈選當答案。",
+      "review": {
+        "sourceKind": "selfAuthored",
+        "displayLabel": "自編複習（依已核課文與注音設計，非課本原題）",
+        "questions": [
+          {
+            "id": "L1-review-title",
+            "type": "singleChoice",
+            "prompt": "「貓咪」的注音是哪一個？",
+            "options": [
+              "ㄇㄠ ㄇㄧ",
+              "ㄜˊ ㄅㄠˇ ˙ㄅㄠ",
+              "ㄏㄜˊ ㄇㄚˇ ㄏㄢˋ ㄏㄜˊ ㄌㄧˊ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedTitleZhuyin"
+          },
+          {
+            "id": "L1-review-symbol",
+            "type": "singleChoice",
+            "prompt": "哪一個是本課新學的注音符號？",
+            "options": [
+              "ㄅ",
+              "ㄈ",
+              "ㄏ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedSymbols"
+          },
+          {
+            "id": "L1-review-line",
+            "type": "singleChoice",
+            "prompt": "哪一列出現在本課課文中？",
+            "options": [
+              "ㄇㄧ ㄇㄧ ㄇㄧ",
+              "ㄜˊ ㄜˊ ㄜˊ",
+              "ㄏㄜˊ ㄇㄚˇ ㄧㄠˋ ㄑㄩˋ ㄆㄠˋ ㄗㄠˇ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedPrintedText"
+          }
+        ],
+        "uiNote": "呈現時可洗牌，但同步更新答案索引。"
+      }
+    },
+    {
+      "number": 2,
+      "title": "鵝寶寶",
+      "titleZhuyin": "ㄜˊ ㄅㄠˇ ˙ㄅㄠ",
+      "text": {
+        "zhuyinColumns": [
+          "ㄜˊ ㄜˊ ㄜˊ",
+          "ㄜˊ ㄇㄚ ˙ㄇㄚ",
+          "ㄏㄚ ㄏㄚ ㄏㄚ",
+          "ㄏㄠˇ ㄉㄜˊ ㄧˋ",
+          "ㄈㄨ ㄔㄨ",
+          "ㄨˇ ㄓ",
+          "ㄜˊ ㄅㄠˇ ˙ㄅㄠ"
+        ],
+        "ttsChinese": "鵝鵝鵝，鵝媽媽，哈哈哈，好得意。孵出五隻鵝寶寶。",
+        "ttsChineseIsTranscription": true,
+        "ttsAudioVerified": false,
+        "pages": [
+          28,
+          29
+        ],
+        "sourceKind": "userProvidedTextbookPhoto"
+      },
+      "symbols": [
+        "ㄈ",
+        "ㄏ",
+        "ㄓ",
+        "ㄔ",
+        "ㄨ",
+        "ㄚ",
+        "ㄜ"
+      ],
+      "combinedFinals": [],
+      "sourceRecords": [
+        {
+          "sourceMessage": "Sentinel_4f77f1f00b948191a736af556549f315",
+          "libraryFileId": "libfile_effb491078648191a4910024bd09efa3",
+          "photoPath": "/workspace/shared/IMG_7501.jpeg",
+          "pages": [
+            28,
+            29
+          ],
+          "lesson": 2,
+          "title": "鵝寶寶",
+          "titleZhuyin": "ㄜˊ ㄅㄠˇ ˙ㄅㄠ",
+          "symbols": [
+            "ㄈ",
+            "ㄏ",
+            "ㄓ",
+            "ㄔ",
+            "ㄨ",
+            "ㄚ",
+            "ㄜ"
+          ],
+          "combinedFinalsShown": [],
+          "textZhuyinColumns": [
+            "ㄜˊ ㄜˊ ㄜˊ",
+            "ㄜˊ ㄇㄚ ˙ㄇㄚ",
+            "ㄏㄚ ㄏㄚ ㄏㄚ",
+            "ㄏㄠˇ ㄉㄜˊ ㄧˋ",
+            "ㄈㄨ ㄔㄨ",
+            "ㄨˇ ㄓ",
+            "ㄜˊ ㄅㄠˇ ˙ㄅㄠ"
+          ],
+          "textLayout": "直排由右至左，分欄列出；不添加原頁未見標點。",
+          "characters": null,
+          "charactersNote": "照片是注音課文及注音筆順，未見指定漢字生字表。正文轉為漢字只能另標釋義，不可冒稱原頁生字。",
+          "verification": "已旋轉90度檢視及放大文字區；主代理可複核原圖。",
+          "qr": {
+            "sourceMessage": "Sentinel_c76ef16f52f48191a5a99441c72534ee",
+            "photoPath": "/workspace/shared/IMG_7502.jpeg",
+            "printedLabel": "課文朗讀",
+            "decodedUrl": "https://qr.knsh.com.tw/JCDCA",
+            "redirectUrl": "https://vimeo.com/968463338/f1db1a498a",
+            "publicMetadata": {
+              "title": "康軒國語首冊第二課課文朗讀-鵝寶寶",
+              "author": "knsh",
+              "authorUrl": "https://vimeo.com/knsh",
+              "durationSeconds": 25
+            },
+            "access": "QR HTML及Vimeo公開oEmbed均無登入取得；web工具無法直接開播放器",
+            "listened": false,
+            "note": "只解碼及讀公開metadata，未下載或重新部署音檔；讀音尚未實聽核定。"
+          }
+        }
+      ],
+      "textbookPractice": [
+        {
+          "sourceKind": "printedTextbookExercise",
+          "content": {
+            "lesson": 2,
+            "pages": [
+              30,
+              31
+            ],
+            "section": "練習二",
+            "sourceMessage": "Sentinel_a618034399c08191aa0b830dc2427d1f",
+            "libraryFileId": "libfile_cb0366a05104819186b81f8ff65e125b",
+            "photoPath": "/workspace/shared/IMG_56D48114-D075-4DD0-8336-CA37CBD22869.jpeg",
+            "sourceKind": "printedTextbookExercise",
+            "symbols": [
+              "ㄈ",
+              "ㄏ",
+              "ㄓ",
+              "ㄔ",
+              "ㄨ",
+              "ㄚ",
+              "ㄜ"
+            ],
+            "mouthComparison": [
+              "ㄇ",
+              "ㄈ"
+            ],
+            "activities": [
+              {
+                "number": 1,
+                "type": "symbolPictureRecognition",
+                "printedLabel": "說說認一認",
+                "symbols": [
+                  "ㄈ",
+                  "ㄏ",
+                  "ㄓ",
+                  "ㄔ",
+                  "ㄨ",
+                  "ㄚ",
+                  "ㄜ"
+                ]
+              },
+              {
+                "number": 2,
+                "type": "symbolFormComparison",
+                "printedLabel": "比一比",
+                "symbols": [
+                  "ㄇ",
+                  "ㄈ"
+                ]
+              },
+              {
+                "number": 3,
+                "type": "blending",
+                "printedLabel": "拼一拼讀讀聽",
+                "initials": [
+                  "ㄈ",
+                  "ㄏ",
+                  "ㄓ",
+                  "ㄔ"
+                ],
+                "finals": [
+                  "ㄚ",
+                  "ㄚˊ",
+                  "ㄨ",
+                  "ㄨˇ"
+                ],
+                "toneRow": [
+                  "ㄓㄜ",
+                  "ㄓㄜˊ",
+                  "ㄓㄜˇ",
+                  "ㄓㄜˋ"
+                ]
+              },
+              {
+                "number": 4,
+                "type": "wordRecognition",
+                "printedLabel": "認一認",
+                "words": [
+                  {
+                    "zhuyin": "ㄧㄚˊ ㄔˇ",
+                    "chineseTranscription": "牙齒"
+                  },
+                  {
+                    "zhuyin": "ㄏㄜ ㄔㄚˊ",
+                    "chineseTranscription": "喝茶"
+                  },
+                  {
+                    "zhuyin": "ㄓㄨ ㄅㄠˇ",
+                    "chineseTranscription": "珠寶"
+                  },
+                  {
+                    "zhuyin": "ㄇㄚˇ ㄔㄜ",
+                    "chineseTranscription": "馬車"
+                  }
+                ]
+              },
+              {
+                "number": 5,
+                "type": "readingComparison",
+                "printedLabel": "讀一讀",
+                "items": [
+                  {
+                    "zhuyin": "ㄈㄨˊ",
+                    "chineseTranscription": "服",
+                    "imageMeaning": "衣服"
+                  },
+                  {
+                    "zhuyin": "ㄏㄨˊ",
+                    "chineseTranscription": "壺",
+                    "imageMeaning": "茶壺"
+                  }
+                ],
+                "printedPrompt": "念完後，你有什麼新發現？"
+              }
+            ],
+            "characters": null,
+            "note": "只採原印刷；鉛筆圈選和數字全忽略。漢字為依注音及圖片另列轉寫，非指定生字表。",
+            "verification": "補拍原頁已真實看圖，p30–31缺頁已解除。"
+          }
+        }
+      ],
+      "specifiedCharacters": null,
+      "originalPracticeStatus": "provided_pages_transcribed",
+      "missingOriginalPages": [],
+      "uncertainItems": [],
+      "practiceNote": "原印刷練習已依補圖完成，未採用鉛筆作答。自編複習仍另外標示，不冒充原題。",
+      "review": {
+        "sourceKind": "selfAuthored",
+        "displayLabel": "自編複習（依已核課文與注音設計，非課本原題）",
+        "questions": [
+          {
+            "id": "L2-review-title",
+            "type": "singleChoice",
+            "prompt": "「鵝寶寶」的注音是哪一個？",
+            "options": [
+              "ㄜˊ ㄅㄠˇ ˙ㄅㄠ",
+              "ㄇㄠ ㄇㄧ",
+              "ㄏㄜˊ ㄇㄚˇ ㄏㄢˋ ㄏㄜˊ ㄌㄧˊ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedTitleZhuyin"
+          },
+          {
+            "id": "L2-review-symbol",
+            "type": "singleChoice",
+            "prompt": "哪一個是本課新學的注音符號？",
+            "options": [
+              "ㄈ",
+              "ㄅ",
+              "ㄆ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedSymbols"
+          },
+          {
+            "id": "L2-review-line",
+            "type": "singleChoice",
+            "prompt": "哪一列出現在本課課文中？",
+            "options": [
+              "ㄜˊ ㄜˊ ㄜˊ",
+              "ㄇㄧ ㄇㄧ ㄇㄧ",
+              "ㄏㄜˊ ㄇㄚˇ ㄧㄠˋ ㄑㄩˋ ㄆㄠˋ ㄗㄠˇ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedPrintedText"
+          }
+        ],
+        "uiNote": "呈現時可洗牌，但同步更新答案索引。"
+      }
+    },
+    {
+      "number": 3,
+      "title": "河馬和河狸",
+      "titleZhuyin": "ㄏㄜˊ ㄇㄚˇ ㄏㄢˋ ㄏㄜˊ ㄌㄧˊ",
+      "text": {
+        "zhuyinColumns": [
+          "ㄏㄜˊ ㄇㄚˇ ㄧㄠˋ ㄑㄩˋ ㄆㄠˋ ㄗㄠˇ",
+          "ㄅㄢˋ ㄌㄨˋ ㄩˋ ㄉㄠˋ ㄏㄜˊ ㄌㄧˊ",
+          "ㄛ",
+          "ㄏㄜˊ ㄌㄧˊ",
+          "ㄇㄤˊ ˙ㄓㄜ ㄓㄨˊ ㄔㄠˊ"
+        ],
+        "ttsChinese": "河馬要去泡澡，半路遇到河狸。喔，河狸忙著築巢。",
+        "ttsChineseIsTranscription": true,
+        "ttsAudioVerified": false,
+        "pages": [
+          34,
+          35
+        ],
+        "sourceKind": "userProvidedTextbookPhoto"
+      },
+      "symbols": [
+        "ㄌ",
+        "ㄑ",
+        "ㄗ",
+        "ㄩ",
+        "ㄛ",
+        "ㄢ",
+        "ㄤ"
+      ],
+      "combinedFinals": [],
+      "sourceRecords": [
+        {
+          "id": "lesson03",
+          "pages": [
+            34,
+            35
+          ],
+          "sourceMessage": "Sentinel_1b552748d6b881918b41aeee94c2a939",
+          "libraryFileId": "libfile_4cdffe0c2e108191b77f4f4d26414908",
+          "photoPath": "/workspace/shared/IMG_C0B5E30D-E3BF-44E7-821E-D965F3FF5745.jpeg",
+          "lesson": 3,
+          "title": "河馬和河狸",
+          "titleZhuyin": "ㄏㄜˊ ㄇㄚˇ ㄏㄢˋ ㄏㄜˊ ㄌㄧˊ",
+          "symbols": [
+            "ㄌ",
+            "ㄑ",
+            "ㄗ",
+            "ㄩ",
+            "ㄛ",
+            "ㄢ",
+            "ㄤ"
+          ],
+          "textZhuyinColumns": [
+            "ㄏㄜˊ ㄇㄚˇ ㄧㄠˋ ㄑㄩˋ ㄆㄠˋ ㄗㄠˇ",
+            "ㄅㄢˋ ㄌㄨˋ ㄩˋ ㄉㄠˋ ㄏㄜˊ ㄌㄧˊ",
+            "ㄛ",
+            "ㄏㄜˊ ㄌㄧˊ",
+            "ㄇㄤˊ ˙ㄓㄜ ㄓㄨˊ ㄔㄠˊ"
+          ],
+          "ttsChineseTranscription": "河馬要去泡澡，半路遇到河狸。喔，河狸忙著築巢。",
+          "ttsNote": "漢字及標點依注音轉寫，不是原頁印刷漢字，也不是生字表。正文獨立ㄛ需保留；和讀ㄏㄢˋ，TTS實際讀音待聽，不默認常見hé正確。",
+          "characters": null,
+          "charactersNote": "此頁為注音正文及7個符號筆順，沒有指定漢字生字表。",
+          "verification": "已直接看使用者照片並旋轉放大；黑筆圈註和手寫數字不當教材正文。",
+          "additionalPhotos": [
+            {
+              "libraryFileId": "libfile_d2e1fa63992481918b976925c8e56370",
+              "sourceMessage": "Sentinel_a2becbc94d748191bb137355189de64a",
+              "photoPath": "/workspace/shared/IMG_C8FBC27F-0057-4DC3-88FD-07A4016482AE.jpeg",
+              "note": "同頁重拍，未重複建立課文"
+            }
+          ]
+        }
+      ],
+      "textbookPractice": [
+        {
+          "sourceKind": "printedTextbookExercise",
+          "content": {
+            "id": "lesson03-practice",
+            "pages": [
+              36,
+              37
+            ],
+            "sourceMessage": "Sentinel_f3207aaf24148191aee448db37bfaff6",
+            "libraryFileId": "libfile_cb2359cf06248191a1a0721373452011",
+            "photoPath": "/workspace/shared/IMG_BD846D5B-F025-407E-AD30-59C618E8C2F5.jpeg",
+            "lesson": 3,
+            "section": "練習三",
+            "symbols": [
+              "ㄌ",
+              "ㄑ",
+              "ㄗ",
+              "ㄩ",
+              "ㄛ",
+              "ㄢ",
+              "ㄤ"
+            ],
+            "mouthComparison": [
+              "ㄛ",
+              "ㄜ"
+            ],
+            "practiceWords": [
+              {
+                "zhuyin": "ㄅㄛ ㄌㄧˊ",
+                "chineseTranscription": "玻璃"
+              },
+              {
+                "zhuyin": "ㄨ ㄆㄛˊ",
+                "chineseTranscription": "巫婆"
+              },
+              {
+                "zhuyin": "ㄇㄛˊ ㄈㄚˇ",
+                "chineseTranscription": "魔法"
+              },
+              {
+                "zhuyin": "ㄨㄛˋ ㄈㄤˊ",
+                "chineseTranscription": "臥房"
+              },
+              {
+                "zhuyin": "ㄌㄧˊ ˙ㄗ",
+                "chineseTranscription": "梨子"
+              },
+              {
+                "zhuyin": "ㄌㄩˊ ˙ㄗ",
+                "chineseTranscription": "驢子"
+              },
+              {
+                "zhuyin": "ㄌㄧˇ ˙ㄗ",
+                "chineseTranscription": "李子"
+              },
+              {
+                "zhuyin": "ㄌㄧˋ ㄓ",
+                "chineseTranscription": "荔枝"
+              }
+            ],
+            "spellingExercises": {
+              "ang": {
+                "initials": [
+                  "ㄔ",
+                  "ㄓ",
+                  "ㄗ"
+                ],
+                "finals": [
+                  "ㄤ",
+                  "ㄤˋ"
+                ]
+              },
+              "an": {
+                "initials": [
+                  "ㄔ",
+                  "ㄈ",
+                  "ㄌ"
+                ],
+                "finals": [
+                  "ㄢˊ",
+                  "ㄢˇ"
+                ]
+              },
+              "toneRows": [
+                [
+                  "ㄑㄩ",
+                  "ㄑㄩˊ",
+                  "ㄑㄩˇ",
+                  "ㄑㄩˋ"
+                ],
+                [
+                  "ㄅㄛ",
+                  "ㄆㄛˊ",
+                  "ㄊㄛˇ",
+                  "ㄇㄛˋ"
+                ]
+              ]
+            },
+            "characters": null,
+            "note": "練習詞以原注音轉錄，漢字僅作圖像/讀音對應轉寫，不可標指定生字。頁下完整符號表是複習總表，不代表本課新增。",
+            "verification": "已直接看使用者照片並旋轉放大；黑筆圈註和手寫數字不當教材正文。",
+            "additionalPhotos": [
+              {
+                "libraryFileId": "libfile_79c9719d4500819197465eac5f7c2230",
+                "sourceMessage": "Sentinel_7362fa04651c8191873728d977ee039c",
+                "photoPath": "/workspace/shared/IMG_3C3D9227-B44A-4189-9FED-6496525C4B24.jpeg",
+                "note": "同頁重拍，未重複建立課文"
+              }
+            ]
+          }
+        }
+      ],
+      "specifiedCharacters": null,
+      "originalPracticeStatus": "provided_pages_transcribed",
+      "missingOriginalPages": [],
+      "uncertainItems": [],
+      "practiceNote": "原印刷資料；未採用鉛筆作答。圖像操作題保留資料，不把手寫圈選當答案。",
+      "review": {
+        "sourceKind": "selfAuthored",
+        "displayLabel": "自編複習（依已核課文與注音設計，非課本原題）",
+        "questions": [
+          {
+            "id": "L3-review-title",
+            "type": "singleChoice",
+            "prompt": "「河馬和河狸」的注音是哪一個？",
+            "options": [
+              "ㄏㄜˊ ㄇㄚˇ ㄏㄢˋ ㄏㄜˊ ㄌㄧˊ",
+              "ㄇㄠ ㄇㄧ",
+              "ㄜˊ ㄅㄠˇ ˙ㄅㄠ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedTitleZhuyin"
+          },
+          {
+            "id": "L3-review-symbol",
+            "type": "singleChoice",
+            "prompt": "哪一個是本課新學的注音符號？",
+            "options": [
+              "ㄌ",
+              "ㄅ",
+              "ㄆ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedSymbols"
+          },
+          {
+            "id": "L3-review-line",
+            "type": "singleChoice",
+            "prompt": "哪一列出現在本課課文中？",
+            "options": [
+              "ㄏㄜˊ ㄇㄚˇ ㄧㄠˋ ㄑㄩˋ ㄆㄠˋ ㄗㄠˇ",
+              "ㄇㄧ ㄇㄧ ㄇㄧ",
+              "ㄜˊ ㄜˊ ㄜˊ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedPrintedText"
+          }
+        ],
+        "uiNote": "呈現時可洗牌，但同步更新答案索引。"
+      }
+    },
+    {
+      "number": 4,
+      "title": "笑嘻嘻",
+      "titleZhuyin": "ㄒㄧㄠˋ ㄒㄧ ㄒㄧ",
+      "text": {
+        "zhuyinColumns": [
+          "ㄅㄟ ˙ㄓㄜ ㄕㄨ ㄅㄠ",
+          "ㄕㄡˇ ㄌㄚ ㄕㄡˇ",
+          "ㄅㄟ ˙ㄓㄜ ㄕㄨ ㄅㄠ",
+          "ㄒㄧㄠˋ ㄒㄧ ㄒㄧ",
+          "ㄧ ㄦˋ ㄧ",
+          "ㄏㄠˇ ㄏㄨㄢ ㄒㄧˇ"
+        ],
+        "ttsChinese": "背著書包，手拉手。背著書包，笑嘻嘻。一二一，好歡喜。",
+        "ttsChineseIsTranscription": true,
+        "ttsAudioVerified": false,
+        "pages": [
+          48,
+          49
+        ],
+        "sourceKind": "userProvidedTextbookPhoto"
+      },
+      "symbols": [
+        "ㄒ",
+        "ㄕ",
+        "ㄟ",
+        "ㄡ",
+        "ㄦ"
+      ],
+      "combinedFinals": [
+        "ㄧㄠ",
+        "ㄨㄢ"
+      ],
+      "sourceRecords": [
+        {
+          "lesson": 4,
+          "title": "笑嘻嘻",
+          "titleZhuyin": "ㄒㄧㄠˋ ㄒㄧ ㄒㄧ",
+          "symbols": [
+            "ㄒ",
+            "ㄕ",
+            "ㄟ",
+            "ㄡ",
+            "ㄦ"
+          ],
+          "combinedFinals": [
+            "ㄧㄠ",
+            "ㄨㄢ"
+          ],
+          "pages": [
+            48,
+            49
+          ],
+          "textZhuyinColumns": [
+            "ㄅㄟ ˙ㄓㄜ ㄕㄨ ㄅㄠ",
+            "ㄕㄡˇ ㄌㄚ ㄕㄡˇ",
+            "ㄅㄟ ˙ㄓㄜ ㄕㄨ ㄅㄠ",
+            "ㄒㄧㄠˋ ㄒㄧ ㄒㄧ",
+            "ㄧ ㄦˋ ㄧ",
+            "ㄏㄠˇ ㄏㄨㄢ ㄒㄧˇ"
+          ],
+          "ttsChineseTranscription": "背著書包，手拉手。背著書包，笑嘻嘻。一二一，好歡喜。",
+          "ttsNote": "依原注音轉寫漢字及添加標點；保留原注音為準，不宣稱已實聽TTS。",
+          "photoPath": "/workspace/shared/IMG_8AC9C08D-D8A7-4455-B921-AC66338140C6.jpeg",
+          "libraryFileId": "libfile_20d1d062a2008191ba223ef12daa5e95",
+          "sourceMessage": "Sentinel_3666a6a3d9e48191b2b800531935eeb1",
+          "printedDialogue": [
+            "比比，早安。",
+            "米米，早安。"
+          ],
+          "printedQuestion": "猜一猜，下一節下課，我和好朋友會玩什麼？",
+          "characters": null,
+          "charactersNote": "未見指定漢字生字表；漢字TTS轉寫和圖像詞義均不等於原頁指定生字。",
+          "verification": "使用者原照片已旋轉並真實檢視；手寫筆記不當課文。"
+        }
+      ],
+      "textbookPractice": [
+        {
+          "sourceKind": "printedTextbookExercise",
+          "content": {
+            "lesson": 4,
+            "pages": [
+              50,
+              51
+            ],
+            "section": "練習四",
+            "photoPath": "/workspace/shared/IMG_A072F2E1-0C18-48CE-B623-2685A048ED35.jpeg",
+            "libraryFileId": "libfile_77121ec86dec8191a6cc3e090a8a4bd4",
+            "sourceMessage": "Sentinel_fd7e2ef632a081918db865fc8c7333e6",
+            "symbols": [
+              "ㄒ",
+              "ㄕ",
+              "ㄟ",
+              "ㄡ",
+              "ㄦ"
+            ],
+            "combinedFinals": [
+              "ㄧㄠ",
+              "ㄨㄢ"
+            ],
+            "mouthComparison": [
+              "ㄏ",
+              "ㄟ"
+            ],
+            "practiceWords": [
+              {
+                "zhuyin": "ㄑㄧˋ ㄜˊ",
+                "chineseTranscription": "企鵝"
+              },
+              {
+                "zhuyin": "ㄜˋ ㄩˊ",
+                "chineseTranscription": "鱷魚"
+              },
+              {
+                "zhuyin": "ㄦˊ ˙ㄗ",
+                "chineseTranscription": "兒子"
+              },
+              {
+                "zhuyin": "ㄦˋ ㄌㄡˊ",
+                "chineseTranscription": "二樓"
+              }
+            ],
+            "spellingExercises": {
+              "initials": [
+                "ㄔ",
+                "ㄕ"
+              ],
+              "finals": [
+                "ㄡˇ",
+                "ㄡˋ",
+                "ㄨㄢ",
+                "ㄨㄢˋ"
+              ],
+              "toneRows": [
+                [
+                  "ㄑㄧㄠ",
+                  "ㄑㄧㄠˊ",
+                  "ㄑㄧㄠˇ",
+                  "ㄑㄧㄠˋ"
+                ],
+                [
+                  "ㄒㄧ",
+                  "ㄒㄧˊ",
+                  "ㄒㄧˇ",
+                  "ㄒㄧˋ"
+                ],
+                [
+                  "ㄅㄟ",
+                  "ㄆㄟˊ",
+                  "ㄇㄟˇ",
+                  "ㄈㄟˋ"
+                ]
+              ]
+            },
+            "characters": null,
+            "charactersNote": "未見指定漢字生字表；漢字TTS轉寫和圖像詞義均不等於原頁指定生字。",
+            "verification": "使用者原照片已旋轉並真實檢視；手寫筆記不當課文。"
+          }
+        }
+      ],
+      "specifiedCharacters": null,
+      "originalPracticeStatus": "provided_pages_transcribed",
+      "missingOriginalPages": [],
+      "uncertainItems": [],
+      "practiceNote": "原印刷資料；未採用鉛筆作答。圖像操作題保留資料，不把手寫圈選當答案。",
+      "review": {
+        "sourceKind": "selfAuthored",
+        "displayLabel": "自編複習（依已核課文與注音設計，非課本原題）",
+        "questions": [
+          {
+            "id": "L4-review-title",
+            "type": "singleChoice",
+            "prompt": "「笑嘻嘻」的注音是哪一個？",
+            "options": [
+              "ㄒㄧㄠˋ ㄒㄧ ㄒㄧ",
+              "ㄇㄠ ㄇㄧ",
+              "ㄜˊ ㄅㄠˇ ˙ㄅㄠ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedTitleZhuyin"
+          },
+          {
+            "id": "L4-review-symbol",
+            "type": "singleChoice",
+            "prompt": "哪一個是本課新學的注音符號？",
+            "options": [
+              "ㄒ",
+              "ㄅ",
+              "ㄆ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedSymbols"
+          },
+          {
+            "id": "L4-review-line",
+            "type": "singleChoice",
+            "prompt": "哪一列出現在本課課文中？",
+            "options": [
+              "ㄅㄟ ˙ㄓㄜ ㄕㄨ ㄅㄠ",
+              "ㄇㄧ ㄇㄧ ㄇㄧ",
+              "ㄜˊ ㄜˊ ㄜˊ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedPrintedText"
+          }
+        ],
+        "uiNote": "呈現時可洗牌，但同步更新答案索引。"
+      }
+    },
+    {
+      "number": 5,
+      "title": "翹翹板",
+      "titleZhuyin": "ㄑㄧㄠˋ ㄑㄧㄠˋ ㄅㄢˇ",
+      "text": {
+        "zhuyinColumns": [
+          "ㄏㄠˇ ㄆㄥˊ ㄧㄡˇ",
+          "ㄧˋ ㄑㄧˇ ㄌㄞˊ ㄨㄢˊ",
+          "ㄑㄧㄠˋ ㄑㄧㄠˋ ㄅㄢˇ",
+          "ㄕㄤˋ ㄕㄤˋ ㄒㄧㄚˋ ㄒㄧㄚˋ",
+          "ㄍㄠ ㄍㄠ ㄉㄧ ㄉㄧ",
+          "ㄏㄠˇ ㄒㄧㄤˋ ㄒㄧㄠˇ ㄋㄧㄠˇ"
+        ],
+        "ttsChinese": "好朋友，一起來玩翹翹板。上上下下，高高低低，好像小鳥。",
+        "ttsChineseIsTranscription": true,
+        "ttsAudioVerified": false,
+        "pages": [
+          54,
+          55
+        ],
+        "sourceKind": "userProvidedTextbookPhoto"
+      },
+      "symbols": [
+        "ㄋ",
+        "ㄍ",
+        "ㄞ",
+        "ㄥ"
+      ],
+      "combinedFinals": [
+        "ㄧㄚ",
+        "ㄧㄡ",
+        "ㄧㄤ"
+      ],
+      "sourceRecords": [
+        {
+          "lesson": 5,
+          "title": "翹翹板",
+          "titleZhuyin": "ㄑㄧㄠˋ ㄑㄧㄠˋ ㄅㄢˇ",
+          "symbols": [
+            "ㄋ",
+            "ㄍ",
+            "ㄞ",
+            "ㄥ"
+          ],
+          "combinedFinals": [
+            "ㄧㄚ",
+            "ㄧㄡ",
+            "ㄧㄤ"
+          ],
+          "pages": [
+            54,
+            55
+          ],
+          "textZhuyinColumns": [
+            "ㄏㄠˇ ㄆㄥˊ ㄧㄡˇ",
+            "ㄧˋ ㄑㄧˇ ㄌㄞˊ ㄨㄢˊ",
+            "ㄑㄧㄠˋ ㄑㄧㄠˋ ㄅㄢˇ",
+            "ㄕㄤˋ ㄕㄤˋ ㄒㄧㄚˋ ㄒㄧㄚˋ",
+            "ㄍㄠ ㄍㄠ ㄉㄧ ㄉㄧ",
+            "ㄏㄠˇ ㄒㄧㄤˋ ㄒㄧㄠˇ ㄋㄧㄠˇ"
+          ],
+          "ttsChineseTranscription": "好朋友，一起來玩翹翹板。上上下下，高高低低，好像小鳥。",
+          "ttsNote": "依原注音轉寫漢字及添加標點；保留原注音為準，不宣稱已實聽TTS。 圖中三個ㄈㄟ另外列出，不混進主要欄文。",
+          "photoPath": "/workspace/shared/IMG_DB708DFC-4F7A-456E-A9C7-17483307439C.jpeg",
+          "libraryFileId": "libfile_35e46bd335e881918368eda2acc31d2a",
+          "sourceMessage": "Sentinel_ce6130adf88881918ddd8fe79afb9b88",
+          "illustrationZhuyin": [
+            "ㄈㄟ",
+            "ㄈㄟ",
+            "ㄈㄟ"
+          ],
+          "printedDialogue": [
+            "下一個是我。",
+            "你想玩什麼呢？"
+          ],
+          "characters": null,
+          "charactersNote": "未見指定漢字生字表；漢字TTS轉寫和圖像詞義均不等於原頁指定生字。",
+          "verification": "使用者原照片已旋轉並真實檢視；手寫筆記不當課文。"
+        }
+      ],
+      "textbookPractice": [
+        {
+          "sourceKind": "printedTextbookExercise",
+          "content": {
+            "page": 56,
+            "source_library_file_id": "libfile_cc89c9f70fbc8191b03b853eae3feeda",
+            "source_path": "/workspace/shared/primer_new_1.jpeg",
+            "view_path": "/workspace/shared/primer_new_1_upright.png",
+            "transcription_policy": "僅印刷內容；忽略鉛筆、圈選與手寫；注音逐欄右至左、欄內上至下；漢字TTS另列並非原頁指定生字。",
+            "lesson": 5,
+            "section": "練習",
+            "new_symbols": [
+              "ㄋ",
+              "ㄍ",
+              "ㄞ",
+              "ㄥ"
+            ],
+            "combined_finals": [
+              "ㄧㄚ",
+              "ㄧㄡ",
+              "ㄧㄤ"
+            ],
+            "activities": [
+              "聽故事說一說",
+              "看我學會的符號"
+            ],
+            "printed_extra_zhuyin": [
+              "˙ㄉㄜ"
+            ]
+          }
+        },
+        {
+          "sourceKind": "printedTextbookExercise",
+          "content": {
+            "page": 57,
+            "source_library_file_id": "libfile_cc89c9f70fbc8191b03b853eae3feeda",
+            "source_path": "/workspace/shared/primer_new_1.jpeg",
+            "view_path": "/workspace/shared/primer_new_1_upright.png",
+            "transcription_policy": "僅印刷內容；忽略鉛筆、圈選與手寫；注音逐欄右至左、欄內上至下；漢字TTS另列並非原頁指定生字。",
+            "lesson": 5,
+            "section": "練習",
+            "activities": [
+              "比一比",
+              "拼一拼讀讀聽",
+              "念一念"
+            ],
+            "symbol_comparison": [
+              "ㄢ",
+              "ㄞ"
+            ],
+            "phonics": [
+              [
+                "ㄞˇ",
+                "ㄞˋ"
+              ],
+              [
+                "ㄋ",
+                "ㄋㄞˇ",
+                "ㄋㄞˋ"
+              ],
+              [
+                "ㄍ",
+                "ㄍㄞˇ",
+                "ㄍㄞˋ"
+              ],
+              [
+                "ㄧㄚ",
+                "ㄧㄚˋ"
+              ],
+              [
+                "ㄑ",
+                "ㄑㄧㄚ",
+                "ㄑㄧㄚˋ"
+              ],
+              [
+                "ㄒ",
+                "ㄒㄧㄚ",
+                "ㄒㄧㄚˋ"
+              ],
+              [
+                "ㄉㄥ",
+                "ㄉㄥˊ",
+                "ㄉㄥˇ",
+                "ㄉㄥˋ"
+              ],
+              [
+                "ㄌㄧㄡ",
+                "ㄌㄧㄡˊ",
+                "ㄌㄧㄡˇ",
+                "ㄌㄧㄡˋ"
+              ],
+              [
+                "ㄒㄧㄤ",
+                "ㄒㄧㄤˊ",
+                "ㄒㄧㄤˇ",
+                "ㄒㄧㄤˋ"
+              ]
+            ],
+            "reading_comparison": [
+              "ㄞ",
+              "ㄢ",
+              "ㄤ",
+              "ㄍ",
+              "ㄑ"
+            ],
+            "practice_columns_zhuyin": [
+              "ㄋㄞˇ ˙ㄋㄞ ㄒㄧㄤˇ ㄧㄠˋ ㄩˊ ㄍㄢ",
+              "ㄅㄚˋ ˙ㄅㄚ ㄇㄞˇ ˙ㄌㄜ ㄩˊ ㄍㄤ",
+              "ㄍㄜ ˙ㄍㄜ ㄏㄢˋ ㄒㄧㄠˇ ㄍㄡˇ",
+              "ㄧˋ ㄑㄧˇ ㄨㄢˊ ㄑㄧㄡˊ"
+            ],
+            "tts_hanzi_columns": [
+              "奶奶想要魚乾",
+              "爸爸買了魚缸",
+              "哥哥和小狗",
+              "一起玩球"
+            ]
+          }
+        }
+      ],
+      "specifiedCharacters": null,
+      "originalPracticeStatus": "provided_pages_transcribed",
+      "missingOriginalPages": [],
+      "uncertainItems": [],
+      "practiceNote": "原印刷資料；未採用鉛筆作答。圖像操作題保留資料，不把手寫圈選當答案。",
+      "review": {
+        "sourceKind": "selfAuthored",
+        "displayLabel": "自編複習（依已核課文與注音設計，非課本原題）",
+        "questions": [
+          {
+            "id": "L5-review-title",
+            "type": "singleChoice",
+            "prompt": "「翹翹板」的注音是哪一個？",
+            "options": [
+              "ㄑㄧㄠˋ ㄑㄧㄠˋ ㄅㄢˇ",
+              "ㄇㄠ ㄇㄧ",
+              "ㄜˊ ㄅㄠˇ ˙ㄅㄠ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedTitleZhuyin"
+          },
+          {
+            "id": "L5-review-symbol",
+            "type": "singleChoice",
+            "prompt": "哪一個是本課新學的注音符號？",
+            "options": [
+              "ㄋ",
+              "ㄅ",
+              "ㄆ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedSymbols"
+          },
+          {
+            "id": "L5-review-line",
+            "type": "singleChoice",
+            "prompt": "哪一列出現在本課課文中？",
+            "options": [
+              "ㄏㄠˇ ㄆㄥˊ ㄧㄡˇ",
+              "ㄇㄧ ㄇㄧ ㄇㄧ",
+              "ㄜˊ ㄜˊ ㄜˊ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedPrintedText"
+          }
+        ],
+        "uiNote": "呈現時可洗牌，但同步更新答案索引。"
+      }
+    },
+    {
+      "number": 6,
+      "title": "謝謝老師",
+      "titleZhuyin": "ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄠˇ ㄕ",
+      "text": {
+        "zhuyinColumns": [
+          "ㄨㄛˇ ㄧㄠˋ ㄙㄨㄥˋ ㄌㄠˇ ㄕ",
+          "ㄧˋ ㄉㄨㄛˇ ㄒㄧㄠˇ ㄏㄨㄥˊ ㄏㄨㄚ",
+          "ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄠˇ ㄕ",
+          "ㄐㄧㄠ ㄨㄛˇ ㄉㄨˊ ㄕㄨ",
+          "ㄧㄝˇ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄠˇ ㄕ",
+          "ㄐㄧㄠ ㄨㄛˇ ㄏㄨㄚˋ ㄏㄨㄚˋ"
+        ],
+        "ttsChinese": "我要送老師，一朵小紅花，謝謝老師，教我讀書，也謝謝老師，教我畫畫。",
+        "ttsChineseIsTranscription": true,
+        "ttsAudioVerified": false,
+        "pages": [
+          60,
+          61
+        ],
+        "sourceKind": "userProvidedTextbookPhoto"
+      },
+      "symbols": [
+        "ㄐ",
+        "ㄙ",
+        "ㄝ"
+      ],
+      "combinedFinals": [
+        "ㄧㄝ",
+        "ㄨㄚ",
+        "ㄨㄛ",
+        "ㄨㄥ"
+      ],
+      "sourceRecords": [
+        {
+          "page": 60,
+          "source_library_file_id": "libfile_db9f363b57f48191948dfbf6ca4c994f",
+          "source_path": "/workspace/shared/primer_new_2.jpeg",
+          "view_path": "/workspace/shared/primer_new_2_upright.png",
+          "transcription_policy": "僅印刷內容；忽略鉛筆、圈選與手寫；注音逐欄右至左、欄內上至下；漢字TTS另列並非原頁指定生字。",
+          "lesson": 6,
+          "title_zhuyin": "ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄠˇ ㄕ",
+          "title_tts_hanzi": "謝謝老師",
+          "body_columns_zhuyin": [
+            "ㄨㄛˇ ㄧㄠˋ ㄙㄨㄥˋ ㄌㄠˇ ㄕ",
+            "ㄧˋ ㄉㄨㄛˇ ㄒㄧㄠˇ ㄏㄨㄥˊ ㄏㄨㄚ",
+            "ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄠˇ ㄕ",
+            "ㄐㄧㄠ ㄨㄛˇ ㄉㄨˊ ㄕㄨ",
+            "ㄧㄝˇ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄠˇ ㄕ"
+          ],
+          "tts_hanzi_columns": [
+            "我要送老師",
+            "一朵小紅花",
+            "謝謝老師",
+            "教我讀書",
+            "也謝謝老師"
+          ],
+          "printed_hanzi_dialogue": [
+            "你想跟老師說什麼？",
+            "我想跟老師說謝謝！"
+          ]
+        },
+        {
+          "page": 61,
+          "source_library_file_id": "libfile_db9f363b57f48191948dfbf6ca4c994f",
+          "source_path": "/workspace/shared/primer_new_2.jpeg",
+          "view_path": "/workspace/shared/primer_new_2_upright.png",
+          "transcription_policy": "僅印刷內容；忽略鉛筆、圈選與手寫；注音逐欄右至左、欄內上至下；漢字TTS另列並非原頁指定生字。",
+          "lesson": 6,
+          "body_columns_zhuyin": [
+            "ㄐㄧㄠ ㄨㄛˇ ㄏㄨㄚˋ ㄏㄨㄚˋ"
+          ],
+          "tts_hanzi_columns": [
+            "教我畫畫"
+          ],
+          "new_symbols": [
+            "ㄐ",
+            "ㄙ",
+            "ㄝ"
+          ],
+          "combined_finals": [
+            "ㄧㄝ",
+            "ㄨㄚ",
+            "ㄨㄛ",
+            "ㄨㄥ"
+          ]
+        }
+      ],
+      "textbookPractice": [
+        {
+          "sourceKind": "printedTextbookExercise",
+          "content": {
+            "page": 62,
+            "source_library_file_id": "libfile_4ba1ed6422b08191962d7bb2e25758a5",
+            "source_path": "/workspace/shared/primer_new_3.jpeg",
+            "view_path": "/workspace/shared/primer_new_3_upright.png",
+            "transcription_policy": "僅印刷內容；忽略鉛筆、圈選與手寫；注音逐欄右至左、欄內上至下；漢字TTS另列並非原頁指定生字。",
+            "lesson": 6,
+            "section": "練習",
+            "new_symbols": [
+              "ㄐ",
+              "ㄙ",
+              "ㄝ"
+            ],
+            "combined_finals": [
+              "ㄧㄝ",
+              "ㄨㄚ",
+              "ㄨㄛ",
+              "ㄨㄥ"
+            ],
+            "activities": [
+              "聽故事說一說",
+              "看我學會的符號"
+            ]
+          }
+        },
+        {
+          "sourceKind": "printedTextbookExercise",
+          "content": {
+            "page": 63,
+            "source_library_file_id": "libfile_4ba1ed6422b08191962d7bb2e25758a5",
+            "source_path": "/workspace/shared/primer_new_3.jpeg",
+            "view_path": "/workspace/shared/primer_new_3_upright.png",
+            "transcription_policy": "僅印刷內容；忽略鉛筆、圈選與手寫；注音逐欄右至左、欄內上至下；漢字TTS另列並非原頁指定生字。",
+            "lesson": 6,
+            "section": "練習",
+            "activities": [
+              "比一比",
+              "拼一拼讀讀聽",
+              "念一念",
+              "讀一讀"
+            ],
+            "symbol_comparison": [
+              "ㄙ",
+              "ㄥ"
+            ],
+            "phonics": [
+              [
+                "ㄨㄛ",
+                "ㄨㄛˇ",
+                "ㄨㄥ",
+                "ㄨㄥˋ"
+              ],
+              [
+                "ㄙ",
+                "ㄙㄨㄛ",
+                "ㄙㄨㄛˇ",
+                "ㄙㄨㄥ",
+                "ㄙㄨㄥˋ"
+              ],
+              [
+                "ㄍ",
+                "ㄍㄨㄛ",
+                "ㄍㄨㄛˇ",
+                "ㄍㄨㄥ",
+                "ㄍㄨㄥˋ"
+              ],
+              [
+                "ㄉ",
+                "ㄉㄨㄛ",
+                "ㄉㄨㄛˇ",
+                "ㄉㄨㄥ",
+                "ㄉㄨㄥˋ"
+              ],
+              [
+                "ㄐㄧㄝ",
+                "ㄐㄧㄝˊ",
+                "ㄐㄧㄝˇ",
+                "ㄐㄧㄝˋ"
+              ],
+              [
+                "ㄕㄨㄚ",
+                "ㄏㄨㄚˊ",
+                "ㄓㄨㄚˇ",
+                "ㄍㄨㄚˋ"
+              ]
+            ],
+            "practice_columns_zhuyin": [
+              "ㄧ ㄦˋ ㄙㄢ",
+              "ㄕㄨˇ ㄧ ㄕㄨˇ"
+            ],
+            "practice_tts_hanzi": [
+              "一二三",
+              "數一數"
+            ],
+            "poem_title_zhuyin": "ㄒㄧㄠˇ ㄇㄧˋ ㄈㄥ",
+            "poem_title_tts": "小蜜蜂",
+            "poem_columns_zhuyin": [
+              "ㄨㄥ ㄨㄥ ㄨㄥ",
+              "ㄈㄟ ㄉㄠˋ ㄒㄧ",
+              "ㄈㄟ ㄉㄠˋ ㄉㄨㄥ",
+              "ㄧˋ ㄑㄧˇ ㄌㄞˊ ㄗㄨㄛˋ ㄍㄨㄥ",
+              "ㄈㄟ ㄉㄠˋ ㄋㄢˊ",
+              "ㄈㄟ ㄉㄠˋ ㄅㄟˇ",
+              "ㄅㄧㄝˊ ㄗㄨㄛˋ ㄌㄢˇ ㄉㄨㄛˋ ㄔㄨㄥˊ"
+            ],
+            "poem_tts_hanzi_columns": [
+              "嗡嗡嗡",
+              "飛到西",
+              "飛到東",
+              "一起來做工",
+              "飛到南",
+              "飛到北",
+              "別做懶惰蟲"
+            ]
+          }
+        }
+      ],
+      "specifiedCharacters": null,
+      "originalPracticeStatus": "provided_pages_transcribed",
+      "missingOriginalPages": [],
+      "uncertainItems": [],
+      "practiceNote": "原印刷資料；未採用鉛筆作答。圖像操作題保留資料，不把手寫圈選當答案。",
+      "review": {
+        "sourceKind": "selfAuthored",
+        "displayLabel": "自編複習（依已核課文與注音設計，非課本原題）",
+        "questions": [
+          {
+            "id": "L6-review-title",
+            "type": "singleChoice",
+            "prompt": "「謝謝老師」的注音是哪一個？",
+            "options": [
+              "ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄠˇ ㄕ",
+              "ㄇㄠ ㄇㄧ",
+              "ㄜˊ ㄅㄠˇ ˙ㄅㄠ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedTitleZhuyin"
+          },
+          {
+            "id": "L6-review-symbol",
+            "type": "singleChoice",
+            "prompt": "哪一個是本課新學的注音符號？",
+            "options": [
+              "ㄐ",
+              "ㄅ",
+              "ㄆ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedSymbols"
+          },
+          {
+            "id": "L6-review-line",
+            "type": "singleChoice",
+            "prompt": "哪一列出現在本課課文中？",
+            "options": [
+              "ㄨㄛˇ ㄧㄠˋ ㄙㄨㄥˋ ㄌㄠˇ ㄕ",
+              "ㄇㄧ ㄇㄧ ㄇㄧ",
+              "ㄜˊ ㄜˊ ㄜˊ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedPrintedText"
+          }
+        ],
+        "uiNote": "呈現時可洗牌，但同步更新答案索引。"
+      }
+    },
+    {
+      "number": 7,
+      "title": "龜兔賽跑",
+      "titleZhuyin": "ㄍㄨㄟ ㄊㄨˋ ㄙㄞˋ ㄆㄠˇ",
+      "text": {
+        "zhuyinColumns": [
+          "ㄨ ㄍㄨㄟ ㄊㄨˋ ˙ㄗ ㄌㄞˊ ㄅㄧˇ ㄙㄞˋ",
+          "ㄉㄢˋ ㄕㄟˊ ㄆㄠˇ ˙ㄉㄜ ㄎㄨㄞˋ",
+          "ㄊㄨˋ ˙ㄗ ㄌㄧㄥˇ ㄒㄧㄢ",
+          "ㄏㄚ ㄏㄚ ㄒㄧㄠˋ",
+          "ㄕㄨˋ ㄒㄧㄚˋ ㄕㄨㄟˋ ㄨˇ ㄐㄧㄠˋ",
+          "ㄨ ㄍㄨㄟ ㄌㄨㄛˋ ㄏㄡˋ",
+          "ㄅㄨˊ ㄑㄧˋ ㄋㄟˇ",
+          "ㄍㄣ ㄗㄞˋ ㄏㄡˋ ㄇㄧㄢˋ",
+          "ㄓㄨㄟ ㄓㄨㄟ ㄓㄨㄟ"
+        ],
+        "ttsChinese": "烏龜兔子來比賽，但誰跑得快，兔子領先，哈哈笑，樹下睡午覺，烏龜落後，不氣餒，跟在後面，追追追。",
+        "ttsChineseIsTranscription": true,
+        "ttsAudioVerified": false,
+        "pages": [
+          76,
+          77
+        ],
+        "sourceKind": "userProvidedTextbookPhoto"
+      },
+      "symbols": [
+        "ㄊ",
+        "ㄎ",
+        "ㄣ"
+      ],
+      "combinedFinals": [
+        "ㄧㄢ",
+        "ㄧㄥ",
+        "ㄨㄞ",
+        "ㄨㄟ"
+      ],
+      "sourceRecords": [
+        {
+          "page": 76,
+          "source_library_file_id": "libfile_07cfa965d7dc81918dedd0c0501a016f",
+          "source_path": "/workspace/shared/primer_new_5.jpeg",
+          "view_path": "/workspace/shared/primer_new_5_upright.png",
+          "transcription_policy": "僅印刷內容；忽略鉛筆、圈選與手寫；注音逐欄右至左、欄內上至下；漢字TTS另列並非原頁指定生字。",
+          "lesson": 7,
+          "title_zhuyin": "ㄍㄨㄟ ㄊㄨˋ ㄙㄞˋ ㄆㄠˇ",
+          "title_tts_hanzi": "龜兔賽跑",
+          "body_columns_zhuyin": [
+            "ㄨ ㄍㄨㄟ ㄊㄨˋ ˙ㄗ ㄌㄞˊ ㄅㄧˇ ㄙㄞˋ",
+            "ㄉㄢˋ ㄕㄟˊ ㄆㄠˇ ˙ㄉㄜ ㄎㄨㄞˋ",
+            "ㄊㄨˋ ˙ㄗ ㄌㄧㄥˇ ㄒㄧㄢ",
+            "ㄏㄚ ㄏㄚ ㄒㄧㄠˋ",
+            "ㄕㄨˋ ㄒㄧㄚˋ ㄕㄨㄟˋ ㄨˇ ㄐㄧㄠˋ"
+          ],
+          "tts_hanzi_columns": [
+            "烏龜兔子來比賽",
+            "但誰跑得快",
+            "兔子領先",
+            "哈哈笑",
+            "樹下睡午覺"
+          ]
+        },
+        {
+          "page": 77,
+          "source_library_file_id": "libfile_07cfa965d7dc81918dedd0c0501a016f",
+          "source_path": "/workspace/shared/primer_new_5.jpeg",
+          "view_path": "/workspace/shared/primer_new_5_upright.png",
+          "transcription_policy": "僅印刷內容；忽略鉛筆、圈選與手寫；注音逐欄右至左、欄內上至下；漢字TTS另列並非原頁指定生字。",
+          "lesson": 7,
+          "new_symbols": [
+            "ㄊ",
+            "ㄎ",
+            "ㄣ"
+          ],
+          "combined_finals": [
+            "ㄧㄢ",
+            "ㄧㄥ",
+            "ㄨㄞ",
+            "ㄨㄟ"
+          ],
+          "body_columns_zhuyin": [
+            "ㄨ ㄍㄨㄟ ㄌㄨㄛˋ ㄏㄡˋ",
+            "ㄅㄨˊ ㄑㄧˋ ㄋㄟˇ",
+            "ㄍㄣ ㄗㄞˋ ㄏㄡˋ ㄇㄧㄢˋ",
+            "ㄓㄨㄟ ㄓㄨㄟ ㄓㄨㄟ"
+          ],
+          "tts_hanzi_columns": [
+            "烏龜落後",
+            "不氣餒",
+            "跟在後面",
+            "追追追"
+          ]
+        }
+      ],
+      "textbookPractice": [
+        {
+          "pages": [
+            78,
+            79
+          ],
+          "sourceKind": "printedTextbookExercise",
+          "content": {
+            "pages": [
+              78,
+              79
+            ],
+            "target_symbols": [
+              "ㄊ",
+              "ㄎ",
+              "ㄣ"
+            ],
+            "target_combined_finals": [
+              "ㄧㄢ",
+              "ㄧㄥ",
+              "ㄨㄞ",
+              "ㄨㄟ"
+            ],
+            "printed_hanzi_labels": [
+              "粉圓冰",
+              "仙草凍"
+            ],
+            "blend_rows": [
+              [
+                "ㄊㄧㄢ",
+                "ㄅㄧㄢ",
+                "ㄐㄧㄢ"
+              ],
+              [
+                "ㄊㄧㄥˇ",
+                "ㄅㄧㄥˇ",
+                "ㄐㄧㄥˇ"
+              ],
+              [
+                "ㄎㄨㄞˋ",
+                "ㄍㄨㄞˋ",
+                "ㄕㄨㄞˋ"
+              ],
+              [
+                "ㄎㄨㄟˋ",
+                "ㄍㄨㄟˋ",
+                "ㄕㄨㄟˋ"
+              ]
+            ],
+            "tone_columns": [
+              [
+                "ㄈㄣ",
+                "ㄈㄣˊ",
+                "ㄈㄣˇ",
+                "ㄈㄣˋ"
+              ],
+              [
+                "ㄍㄣ",
+                "ㄈㄣˊ",
+                "ㄎㄣˇ",
+                "ㄓㄣˋ"
+              ]
+            ],
+            "reading_columns": [
+              {
+                "zhuyin": "ㄨㄛˇ ㄕˋ ㄒㄧㄠˇ ㄨ ㄍㄨㄟ",
+                "tts_hanzi": "我是小烏龜"
+              },
+              {
+                "zhuyin": "ㄗㄡˇ ㄌㄨˋ ㄅㄨˊ ㄆㄚˋ ㄌㄟˋ",
+                "tts_hanzi": "走路不怕累"
+              },
+              {
+                "zhuyin": "ㄑㄧㄥ ㄨㄚ ㄊㄧㄠˋ",
+                "tts_hanzi": "青蛙跳"
+              },
+              {
+                "zhuyin": "ㄏㄨˊ ㄉㄧㄝˊ ㄈㄟ",
+                "tts_hanzi": "蝴蝶飛"
+              },
+              {
+                "zhuyin": "ㄨㄛˇ ㄗㄞˋ ㄏㄡˋ ㄇㄧㄢˋ",
+                "tts_hanzi": "我在後面"
+              },
+              {
+                "zhuyin": "ㄓㄨㄟ ㄓㄨㄟ ㄓㄨㄟ",
+                "tts_hanzi": "追追追"
+              }
+            ],
+            "exercise4": {
+              "page": 79,
+              "lesson": 7,
+              "exerciseNumber": 4,
+              "printedLabel": "念一念",
+              "type": "reading",
+              "zhuyinColumns": [
+                "ㄉㄨㄛ ㄊㄧㄠˋ ㄕㄥˊ",
+                "ㄐㄧㄥ ㄕㄣˊ ㄏㄠˇ"
+              ],
+              "ttsChineseTranscription": "多跳繩，精神好。",
+              "sourceMessage": "Sentinel_ff9366725a488191ba9633129dbe0ee2",
+              "libraryFileId": "libfile_594467896bdc8191a9eed2dd2c711b15",
+              "photoPath": "/workspace/shared/IMG_014E6A19-34D0-471A-9C71-B6C5EB9232D7.jpeg",
+              "note": "原題是朗讀而非圈選題；只採印刷注音及聲調，忽略鉛筆圈線。漢字為轉寫。"
+            }
+          }
+        }
+      ],
+      "specifiedCharacters": null,
+      "originalPracticeStatus": "provided_pages_transcribed",
+      "missingOriginalPages": [],
+      "uncertainItems": [],
+      "practiceNote": "原印刷資料；未採用鉛筆作答。圖像操作題保留資料，不把手寫圈選當答案。",
+      "review": {
+        "sourceKind": "selfAuthored",
+        "displayLabel": "自編複習（依已核課文與注音設計，非課本原題）",
+        "questions": [
+          {
+            "id": "L7-review-title",
+            "type": "singleChoice",
+            "prompt": "「龜兔賽跑」的注音是哪一個？",
+            "options": [
+              "ㄍㄨㄟ ㄊㄨˋ ㄙㄞˋ ㄆㄠˇ",
+              "ㄇㄠ ㄇㄧ",
+              "ㄜˊ ㄅㄠˇ ˙ㄅㄠ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedTitleZhuyin"
+          },
+          {
+            "id": "L7-review-symbol",
+            "type": "singleChoice",
+            "prompt": "哪一個是本課新學的注音符號？",
+            "options": [
+              "ㄊ",
+              "ㄅ",
+              "ㄆ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedSymbols"
+          },
+          {
+            "id": "L7-review-line",
+            "type": "singleChoice",
+            "prompt": "哪一列出現在本課課文中？",
+            "options": [
+              "ㄨ ㄍㄨㄟ ㄊㄨˋ ˙ㄗ ㄌㄞˊ ㄅㄧˇ ㄙㄞˋ",
+              "ㄇㄧ ㄇㄧ ㄇㄧ",
+              "ㄜˊ ㄜˊ ㄜˊ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedPrintedText"
+          }
+        ],
+        "uiNote": "呈現時可洗牌，但同步更新答案索引。"
+      }
+    },
+    {
+      "number": 8,
+      "title": "拔蘿蔔",
+      "titleZhuyin": "ㄅㄚˊ ㄌㄨㄛˊ ˙ㄅㄛ",
+      "text": {
+        "zhuyinColumns": [
+          "ㄘㄞˋ ㄩㄢˊ ㄌㄧˇ",
+          "ㄓㄤˇ ㄔㄨ　ㄉㄚˋ ㄌㄨㄛˊ ˙ㄅㄛ",
+          "ㄊㄨˋ ˙ㄗ　ㄅㄚˊ ㄅㄨˊ ㄉㄨㄥˋ",
+          "ㄉㄚˋ ㄐㄧㄚ　ㄎㄨㄞˋ ㄎㄨㄞˋ ㄌㄞˊ",
+          "ㄉㄚˋ ㄒㄧㄤˋ　ㄌㄚ ˙ㄓㄜ　ㄏㄨㄤˊ ㄋㄧㄡˊ",
+          "ㄏㄨㄤˊ ㄋㄧㄡˊ　ㄌㄚ ˙ㄓㄜ　ㄨㄢˇ ㄒㄩㄥˊ",
+          "ㄨㄢˇ ㄒㄩㄥˊ　ㄌㄚ ˙ㄓㄜ　ㄊㄨˋ ˙ㄗ",
+          "ㄏㄟ ㄧㄛ　ㄏㄟ ㄧㄛ",
+          "ㄏㄠˇ ㄖㄜˋ ㄋㄠˋ",
+          "ㄐㄩㄢˇ ㄑㄧˇ　ㄒㄧㄡˋ ˙ㄗ",
+          "ㄉㄚˋ ㄐㄧㄚ　ㄧˋ ㄑㄧˇ",
+          "ㄅㄚˊ ㄌㄨㄛˊ ˙ㄅㄛ"
+        ],
+        "ttsChinese": "菜園裡，長出大蘿蔔，兔子拔不動，大家快快來，大象拉著黃牛，黃牛拉著浣熊，浣熊拉著兔子，嘿喲嘿喲，好熱鬧，捲起袖子，大家一起，拔蘿蔔。",
+        "ttsChineseIsTranscription": true,
+        "ttsAudioVerified": false,
+        "pages": [
+          82,
+          83,
+          84,
+          85
+        ],
+        "sourceKind": "userProvidedTextbookPhoto"
+      },
+      "symbols": [
+        "ㄖ",
+        "ㄘ"
+      ],
+      "combinedFinals": [
+        "ㄧㄛ",
+        "ㄨㄤ",
+        "ㄩㄢ",
+        "ㄩㄥ"
+      ],
+      "sourceRecords": [
+        {
+          "images": [
+            {
+              "index": 15,
+              "library_file_id": "libfile_1e35febe6bc48191b03a31ab1e96ae9a",
+              "pages": [
+                82,
+                83
+              ],
+              "lesson": 8,
+              "image_path": "/workspace/shared/primer14_17/15.jpeg",
+              "view_path": "/workspace/shared/primer14_17/15_rotated.png"
+            },
+            {
+              "index": 16,
+              "library_file_id": "libfile_8125acce23808191b4c665d8723904df",
+              "pages": [
+                84,
+                85
+              ],
+              "lesson": 8,
+              "image_path": "/workspace/shared/primer14_17/16.jpeg",
+              "view_path": "/workspace/shared/primer14_17/16_rotated.png"
+            }
+          ],
+          "body": [
+            {
+              "page": 83,
+              "zhuyin": "ㄘㄞˋ ㄩㄢˊ ㄌㄧˇ",
+              "tts_hanzi": "菜園裡"
+            },
+            {
+              "page": 83,
+              "zhuyin": "ㄓㄤˇ ㄔㄨ　ㄉㄚˋ ㄌㄨㄛˊ ˙ㄅㄛ",
+              "tts_hanzi": "長出大蘿蔔"
+            },
+            {
+              "page": 83,
+              "zhuyin": "ㄊㄨˋ ˙ㄗ　ㄅㄚˊ ㄅㄨˊ ㄉㄨㄥˋ",
+              "tts_hanzi": "兔子拔不動"
+            },
+            {
+              "page": 83,
+              "zhuyin": "ㄉㄚˋ ㄐㄧㄚ　ㄎㄨㄞˋ ㄎㄨㄞˋ ㄌㄞˊ",
+              "tts_hanzi": "大家快快來"
+            },
+            {
+              "page": 84,
+              "zhuyin": "ㄉㄚˋ ㄒㄧㄤˋ　ㄌㄚ ˙ㄓㄜ　ㄏㄨㄤˊ ㄋㄧㄡˊ",
+              "tts_hanzi": "大象拉著黃牛"
+            },
+            {
+              "page": 84,
+              "zhuyin": "ㄏㄨㄤˊ ㄋㄧㄡˊ　ㄌㄚ ˙ㄓㄜ　ㄨㄢˇ ㄒㄩㄥˊ",
+              "tts_hanzi": "黃牛拉著浣熊",
+              "note": "原頁浣音印為ㄨㄢˇ，保留不改為ㄏㄨㄢˋ"
+            },
+            {
+              "page": 84,
+              "zhuyin": "ㄨㄢˇ ㄒㄩㄥˊ　ㄌㄚ ˙ㄓㄜ　ㄊㄨˋ ˙ㄗ",
+              "tts_hanzi": "浣熊拉著兔子"
+            },
+            {
+              "page": 84,
+              "zhuyin": "ㄏㄟ ㄧㄛ　ㄏㄟ ㄧㄛ",
+              "tts_hanzi": "嘿喲嘿喲"
+            },
+            {
+              "page": 84,
+              "zhuyin": "ㄏㄠˇ ㄖㄜˋ ㄋㄠˋ",
+              "tts_hanzi": "好熱鬧"
+            },
+            {
+              "page": 85,
+              "zhuyin": "ㄐㄩㄢˇ ㄑㄧˇ　ㄒㄧㄡˋ ˙ㄗ",
+              "tts_hanzi": "捲起袖子"
+            },
+            {
+              "page": 85,
+              "zhuyin": "ㄉㄚˋ ㄐㄧㄚ　ㄧˋ ㄑㄧˇ",
+              "tts_hanzi": "大家一起"
+            },
+            {
+              "page": 85,
+              "zhuyin": "ㄅㄚˊ ㄌㄨㄛˊ ˙ㄅㄛ",
+              "tts_hanzi": "拔蘿蔔"
+            }
+          ]
+        }
+      ],
+      "textbookPractice": [
+        {
+          "pages": [
+            86,
+            87
+          ],
+          "sourceKind": "printedTextbookExercise",
+          "content": {
+            "blend_rows": [
+              [
+                "ㄐㄩㄥ",
+                "ㄑㄩㄥ",
+                "ㄒㄩㄥ"
+              ],
+              [
+                "ㄐㄩㄢˇ",
+                "ㄑㄩㄢˇ",
+                "ㄒㄩㄢˇ"
+              ],
+              [
+                "ㄏㄨㄢ",
+                "ㄓㄨㄢ",
+                "ㄍㄨㄢ"
+              ],
+              [
+                "ㄏㄨㄤˋ",
+                "ㄓㄨㄤˋ",
+                "ㄍㄨㄤˋ"
+              ]
+            ],
+            "tone_columns": [
+              [
+                "ㄘㄞ",
+                "ㄘㄞˊ",
+                "ㄘㄞˇ",
+                "ㄘㄞˋ"
+              ],
+              [
+                "ㄖㄥ",
+                "ㄖㄢˊ",
+                "ㄖㄣˇ",
+                "ㄖㄤˋ"
+              ]
+            ],
+            "reading_columns": [
+              {
+                "zhuyin": "ㄎㄨㄞˋ ㄎㄨㄞˋ ㄌㄞˊ",
+                "tts_hanzi": "快快來"
+              },
+              {
+                "zhuyin": "ㄔㄠˇ ㄌㄨㄛˊ ˙ㄅㄛ",
+                "tts_hanzi": "炒蘿蔔"
+              },
+              {
+                "zhuyin": "ㄓㄨˇ ㄌㄨㄛˊ ˙ㄅㄛ",
+                "tts_hanzi": "煮蘿蔔"
+              },
+              {
+                "zhuyin": "ㄑㄧㄝ ㄑㄧㄝ ㄑㄧㄝ",
+                "tts_hanzi": "切切切"
+              },
+              {
+                "zhuyin": "ㄏㄨㄥˊ ㄕㄠ ㄌㄨㄛˊ ˙ㄅㄛ",
+                "tts_hanzi": "紅燒蘿蔔"
+              },
+              {
+                "zhuyin": "ㄑㄧㄥ ㄓㄥ ㄌㄨㄛˊ ˙ㄅㄛ",
+                "tts_hanzi": "清蒸蘿蔔"
+              },
+              {
+                "zhuyin": "ㄑㄧㄝ ㄑㄧㄝ ㄑㄧㄝ",
+                "tts_hanzi": "切切切"
+              },
+              {
+                "zhuyin": "ㄎㄨㄞˋ ㄎㄨㄞˋ ㄎㄨㄞˋ",
+                "tts_hanzi": "快快快"
+              },
+              {
+                "zhuyin": "ㄉㄚˋ ㄐㄧㄚ ㄉㄡ ㄌㄞˊ",
+                "tts_hanzi": "大家都來"
+              },
+              {
+                "zhuyin": "ㄔ ㄌㄨㄛˊ ˙ㄅㄛ",
+                "tts_hanzi": "吃蘿蔔"
+              }
+            ]
+          }
+        }
+      ],
+      "specifiedCharacters": null,
+      "originalPracticeStatus": "provided_pages_transcribed",
+      "missingOriginalPages": [],
+      "uncertainItems": [],
+      "practiceNote": "原印刷資料；未採用鉛筆作答。圖像操作題保留資料，不把手寫圈選當答案。",
+      "review": {
+        "sourceKind": "selfAuthored",
+        "displayLabel": "自編複習（依已核課文與注音設計，非課本原題）",
+        "questions": [
+          {
+            "id": "L8-review-title",
+            "type": "singleChoice",
+            "prompt": "「拔蘿蔔」的注音是哪一個？",
+            "options": [
+              "ㄅㄚˊ ㄌㄨㄛˊ ˙ㄅㄛ",
+              "ㄇㄠ ㄇㄧ",
+              "ㄜˊ ㄅㄠˇ ˙ㄅㄠ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedTitleZhuyin"
+          },
+          {
+            "id": "L8-review-symbol",
+            "type": "singleChoice",
+            "prompt": "哪一個是本課新學的注音符號？",
+            "options": [
+              "ㄖ",
+              "ㄅ",
+              "ㄆ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedSymbols"
+          },
+          {
+            "id": "L8-review-line",
+            "type": "singleChoice",
+            "prompt": "哪一列出現在本課課文中？",
+            "options": [
+              "ㄘㄞˋ ㄩㄢˊ ㄌㄧˇ",
+              "ㄇㄧ ㄇㄧ ㄇㄧ",
+              "ㄜˊ ㄜˊ ㄜˊ"
+            ],
+            "correctIndex": 0,
+            "basis": "verifiedPrintedText"
+          }
+        ],
+        "uiNote": "呈現時可洗牌，但同步更新答案索引。"
+      }
+    }
+  ],
+  "supplementalPrintedReview": [
+    {
+      "pages": [
+        40,
+        41
+      ],
+      "section": "語文天地一延續頁，題3–5",
+      "photoPath": "/workspace/shared/IMG_55980FFC-05D4-44CB-B605-55EE7A641CAE.jpeg",
+      "libraryFileId": "libfile_a972bd9dff1c819199b47e6c444e3d7c",
+      "sourceMessage": "Sentinel_dc4de0669c5c8191982fea382c07bbc0",
+      "practiceWords": [
+        {
+          "zhuyin": "ㄅㄠˋ ㄓˇ",
+          "chineseTranscription": "報紙"
+        },
+        {
+          "zhuyin": "ㄅㄠ ˙ㄗ",
+          "chineseTranscription": "包子"
+        },
+        {
+          "zhuyin": "ㄇㄠˋ ˙ㄗ",
+          "chineseTranscription": "帽子"
+        },
+        {
+          "zhuyin": "ㄔㄤˊ ㄈㄚˇ",
+          "chineseTranscription": "長髮"
+        },
+        {
+          "zhuyin": "ㄇㄠˊ ㄅㄧˇ",
+          "chineseTranscription": "毛筆"
+        },
+        {
+          "zhuyin": "ㄓˊ ㄉㄧˊ",
+          "chineseTranscription": "直笛"
+        },
+        {
+          "zhuyin": "ㄌㄚˋ ㄅㄧˇ",
+          "chineseTranscription": "蠟筆"
+        },
+        {
+          "zhuyin": "ㄏㄢˋ ㄅㄠˇ",
+          "chineseTranscription": "漢堡"
+        },
+        {
+          "zhuyin": "ㄈㄤˊ ㄨ",
+          "chineseTranscription": "房屋"
+        }
+      ],
+      "wordChains": [
+        [
+          {
+            "zhuyin": "ㄔㄚˊ ㄏㄨˊ",
+            "chineseTranscription": "茶壺"
+          },
+          {
+            "zhuyin": "ㄏㄨˊ ㄌㄧˊ",
+            "chineseTranscription": "狐狸"
+          },
+          {
+            "zhuyin": "ㄌㄧˊ ˙ㄗ",
+            "chineseTranscription": "梨子"
+          }
+        ],
+        [
+          {
+            "zhuyin": "ㄈㄤˊ ㄨ",
+            "chineseTranscription": "房屋"
+          },
+          {
+            "zhuyin": "ㄨ ㄧㄚ",
+            "chineseTranscription": "烏鴉"
+          },
+          {
+            "zhuyin": "ㄧㄚ ˙ㄗ",
+            "chineseTranscription": "鴨子"
+          }
+        ]
+      ],
+      "readingSentences": [
+        {
+          "zhuyin": "ㄩˊ ㄈㄨ ㄅㄨˇ ㄩˊ",
+          "chineseTranscription": "漁夫捕魚"
+        },
+        {
+          "zhuyin": "ㄌㄧˇ ㄩˊ ㄏㄠˇ ㄉㄚˋ",
+          "chineseTranscription": "鯉魚好大"
+        }
+      ],
+      "printedDialogue": "注音符號接龍真好玩，你也來試試看。",
+      "uncertain": [
+        {
+          "location": "p40靠書縫、帽子下方一詞",
+          "note": "可見ㄇㄠˊ ㄌㄩˊ，漢字候選毛驢；書縫遮擋部分，未作完全核定詞條。"
+        }
+      ],
+      "characters": null,
+      "charactersNote": "未見指定漢字生字表；漢字TTS轉寫和圖像詞義均不等於原頁指定生字。",
+      "verification": "使用者原照片已旋轉並真實檢視；手寫筆記不當課文。"
+    },
+    {
+      "page": 64,
+      "source_library_file_id": "libfile_d4224c073e708191996890ec2aa4d999",
+      "source_path": "/workspace/shared/primer_new_4.jpeg",
+      "view_path": "/workspace/shared/primer_new_4_upright.png",
+      "transcription_policy": "僅印刷內容；忽略鉛筆、圈選與手寫；注音逐欄右至左、欄內上至下；漢字TTS另列並非原頁指定生字。",
+      "section": "學習樂園",
+      "activities": [
+        "說一說"
+      ],
+      "symbol_comparisons": [
+        [
+          "ㄋ",
+          "ㄌ"
+        ],
+        [
+          "ㄐ",
+          "ㄑ",
+          "ㄒ"
+        ],
+        [
+          "ㄓ",
+          "ㄔ",
+          "ㄕ"
+        ]
+      ],
+      "practice_words_zhuyin": [
+        "ㄋㄧㄡˊ ㄋㄞˇ",
+        "ㄌㄧㄡˇ ㄔㄥˊ",
+        "ㄐㄧ ㄇㄨˋ",
+        "ㄑㄧˋ ㄑㄧㄡˊ",
+        "ㄒㄧ ㄍㄨㄚ",
+        "ㄓㄨㄚˇ ˙ㄗ",
+        "ㄔㄚ ˙ㄗ",
+        "ㄕㄚ ˙ㄗ"
+      ],
+      "tts_hanzi_words": [
+        "牛奶",
+        "柳橙",
+        "積木",
+        "氣球",
+        "西瓜",
+        "爪子",
+        "叉子",
+        "沙子"
+      ]
+    },
+    {
+      "page": 65,
+      "source_library_file_id": "libfile_d4224c073e708191996890ec2aa4d999",
+      "source_path": "/workspace/shared/primer_new_4.jpeg",
+      "view_path": "/workspace/shared/primer_new_4_upright.png",
+      "transcription_policy": "僅印刷內容；忽略鉛筆、圈選與手寫；注音逐欄右至左、欄內上至下；漢字TTS另列並非原頁指定生字。",
+      "section": "學習樂園",
+      "activities": [
+        "說一說比一比"
+      ],
+      "final_comparisons": [
+        [
+          "ㄤ",
+          "ㄧㄤ"
+        ],
+        [
+          "ㄥ",
+          "ㄨㄥ"
+        ],
+        [
+          "ㄛ",
+          "ㄨㄛ"
+        ],
+        [
+          "ㄢ",
+          "ㄨㄢ"
+        ]
+      ],
+      "practice_words_zhuyin": [
+        "ㄗㄡˇ ㄌㄤˊ",
+        "ㄑㄧㄠˊ ㄌㄧㄤˊ",
+        "ㄉㄥ ㄕㄢ",
+        "ㄉㄨㄥ ㄍㄨㄚ",
+        "ㄇㄛˇ ㄅㄨˋ",
+        "ㄓㄨㄛ ˙ㄗ",
+        "ㄌㄢˊ ㄍㄢ",
+        "ㄓㄨㄢˇ ㄨㄢ"
+      ],
+      "tts_hanzi_words": [
+        "走廊",
+        "橋梁",
+        "登山",
+        "冬瓜",
+        "抹布",
+        "桌子",
+        "欄杆",
+        "轉彎"
+      ]
+    }
+  ],
+  "photoIndex": [
+    {
+      "pages": [
+        22,
+        23
+      ],
+      "dataPath": "/workspace/shared/kangxuan-primer-lesson01-user-photo.json",
+      "libraryFileId": "libfile_9e4a0ce63d7081919fe2b7b02d55e26e",
+      "photoPath": "/workspace/shared/IMG_05E53CD3-EF93-4988-8F4B-21595A40EF5D.jpeg"
+    },
+    {
+      "pages": [
+        24,
+        25
+      ],
+      "dataPath": "/workspace/shared/kangxuan-primer-lesson01-practice-user-photo.json",
+      "libraryFileId": "libfile_adf172d7d4fc819183e1e03a2d08d9a6",
+      "photoPath": "/workspace/shared/IMG_FEB9F1F9-9E7A-4BCC-9878-525833E65B1A.jpeg"
+    },
+    {
+      "libraryFileId": "libfile_effb491078648191a4910024bd09efa3",
+      "pages": [
+        28,
+        29
+      ],
+      "photoPath": "/workspace/shared/IMG_7501.jpeg",
+      "dataPath": "/workspace/shared/kangxuan-primer-lesson02-user-photo.json"
+    },
+    {
+      "libraryFileId": "libfile_a75d85ab9368819191a0af8dae5cf91b",
+      "pages": [
+        32,
+        33
+      ],
+      "photoPath": "/workspace/shared/IMG_61E11946-128A-4BE1-BDA7-7519029C7FCD.jpeg",
+      "dataPath": "/workspace/shared/kangxuan-primer-story03-user-photo.json"
+    },
+    {
+      "pages": [
+        34,
+        35
+      ],
+      "dataPath": "/workspace/shared/kangxuan-primer-lesson03-user-photo.json",
+      "libraryFileId": "libfile_d2e1fa63992481918b976925c8e56370",
+      "photoPath": "/workspace/shared/IMG_C8FBC27F-0057-4DC3-88FD-07A4016482AE.jpeg",
+      "duplicatePages": true
+    },
+    {
+      "libraryFileId": "libfile_4cdffe0c2e108191b77f4f4d26414908",
+      "pages": [
+        34,
+        35
+      ],
+      "photoPath": "/workspace/shared/IMG_C0B5E30D-E3BF-44E7-821E-D965F3FF5745.jpeg",
+      "dataPath": "/workspace/shared/kangxuan-primer-lesson03-user-photo.json"
+    },
+    {
+      "pages": [
+        36,
+        37
+      ],
+      "dataPath": "/workspace/shared/kangxuan-primer-lesson03-practice-user-photo.json",
+      "libraryFileId": "libfile_79c9719d4500819197465eac5f7c2230",
+      "photoPath": "/workspace/shared/IMG_3C3D9227-B44A-4189-9FED-6496525C4B24.jpeg",
+      "duplicatePages": true
+    },
+    {
+      "libraryFileId": "libfile_cb2359cf06248191a1a0721373452011",
+      "pages": [
+        36,
+        37
+      ],
+      "photoPath": "/workspace/shared/IMG_BD846D5B-F025-407E-AD30-59C618E8C2F5.jpeg",
+      "dataPath": "/workspace/shared/kangxuan-primer-lesson03-practice-user-photo.json"
+    },
+    {
+      "pages": [
+        40,
+        41
+      ],
+      "dataPath": "/workspace/shared/kangxuan-primer-language01-p40-41-user-photo.json",
+      "libraryFileId": "libfile_a972bd9dff1c819199b47e6c444e3d7c",
+      "photoPath": "/workspace/shared/IMG_55980FFC-05D4-44CB-B605-55EE7A641CAE.jpeg"
+    },
+    {
+      "pages": [
+        48,
+        49
+      ],
+      "dataPath": "/workspace/shared/kangxuan-primer-lesson04-user-photo.json",
+      "libraryFileId": "libfile_20d1d062a2008191ba223ef12daa5e95",
+      "photoPath": "/workspace/shared/IMG_8AC9C08D-D8A7-4455-B921-AC66338140C6.jpeg"
+    },
+    {
+      "pages": [
+        50,
+        51
+      ],
+      "dataPath": "/workspace/shared/kangxuan-primer-lesson04-practice-user-photo.json",
+      "libraryFileId": "libfile_77121ec86dec8191a6cc3e090a8a4bd4",
+      "photoPath": "/workspace/shared/IMG_A072F2E1-0C18-48CE-B623-2685A048ED35.jpeg"
+    },
+    {
+      "pages": [
+        54,
+        55
+      ],
+      "dataPath": "/workspace/shared/kangxuan-primer-lesson05-user-photo.json",
+      "libraryFileId": "libfile_35e46bd335e881918368eda2acc31d2a",
+      "photoPath": "/workspace/shared/IMG_DB708DFC-4F7A-456E-A9C7-17483307439C.jpeg"
+    },
+    {
+      "libraryFileId": "libfile_cc89c9f70fbc8191b03b853eae3feeda",
+      "pages": [
+        56,
+        57
+      ],
+      "photoPath": "/workspace/shared/primer_new_1.jpeg",
+      "dataPaths": [
+        "/workspace/shared/primer_transcriptions/page_57.json",
+        "/workspace/shared/primer_transcriptions/page_56.json"
+      ]
+    },
+    {
+      "libraryFileId": "libfile_db9f363b57f48191948dfbf6ca4c994f",
+      "pages": [
+        60,
+        61
+      ],
+      "photoPath": "/workspace/shared/primer_new_2.jpeg",
+      "dataPaths": [
+        "/workspace/shared/primer_transcriptions/page_61.json",
+        "/workspace/shared/primer_transcriptions/page_60.json"
+      ]
+    },
+    {
+      "libraryFileId": "libfile_4ba1ed6422b08191962d7bb2e25758a5",
+      "pages": [
+        62,
+        63
+      ],
+      "photoPath": "/workspace/shared/primer_new_3.jpeg",
+      "dataPaths": [
+        "/workspace/shared/primer_transcriptions/page_63.json",
+        "/workspace/shared/primer_transcriptions/page_62.json"
+      ]
+    },
+    {
+      "libraryFileId": "libfile_d4224c073e708191996890ec2aa4d999",
+      "pages": [
+        64,
+        65
+      ],
+      "photoPath": "/workspace/shared/primer_new_4.jpeg",
+      "dataPaths": [
+        "/workspace/shared/primer_transcriptions/page_64.json",
+        "/workspace/shared/primer_transcriptions/page_65.json"
+      ]
+    },
+    {
+      "libraryFileId": "libfile_07cfa965d7dc81918dedd0c0501a016f",
+      "pages": [
+        76,
+        77
+      ],
+      "photoPath": "/workspace/shared/primer_new_5.jpeg",
+      "dataPaths": [
+        "/workspace/shared/primer_transcriptions/page_77.json",
+        "/workspace/shared/primer_transcriptions/page_76.json"
+      ]
+    },
+    {
+      "libraryFileId": "libfile_1cef9e1cf68c81919938aa64f19e0fb6",
+      "pages": [
+        78,
+        79
+      ],
+      "photoPath": "/workspace/shared/primer14_17/14.jpeg",
+      "dataPath": "/workspace/shared/primer14_17/transcription_14_17.json"
+    },
+    {
+      "libraryFileId": "libfile_1e35febe6bc48191b03a31ab1e96ae9a",
+      "pages": [
+        82,
+        83
+      ],
+      "photoPath": "/workspace/shared/primer14_17/15.jpeg",
+      "dataPath": "/workspace/shared/primer14_17/transcription_14_17.json"
+    },
+    {
+      "libraryFileId": "libfile_8125acce23808191b4c665d8723904df",
+      "pages": [
+        84,
+        85
+      ],
+      "photoPath": "/workspace/shared/primer14_17/16.jpeg",
+      "dataPath": "/workspace/shared/primer14_17/transcription_14_17.json"
+    },
+    {
+      "libraryFileId": "libfile_86ccf5c3bf908191a979f4a43e7a1d0a",
+      "pages": [
+        86,
+        87
+      ],
+      "photoPath": "/workspace/shared/primer14_17/17.jpeg",
+      "dataPath": "/workspace/shared/primer14_17/transcription_14_17.json"
+    }
+  ],
+  "coverage": [
+    {
+      "lesson": 1,
+      "title": "貓咪",
+      "textPages": [
+        22,
+        23
+      ],
+      "textStatus": "transcribed_from_user_photo",
+      "practiceStatus": "provided_pages_transcribed",
+      "missingPages": [],
+      "reviewQuestions": 3
+    },
+    {
+      "lesson": 2,
+      "title": "鵝寶寶",
+      "textPages": [
+        28,
+        29
+      ],
+      "textStatus": "transcribed_from_user_photo",
+      "practiceStatus": "provided_pages_transcribed",
+      "missingPages": [],
+      "reviewQuestions": 3
+    },
+    {
+      "lesson": 3,
+      "title": "河馬和河狸",
+      "textPages": [
+        34,
+        35
+      ],
+      "textStatus": "transcribed_from_user_photo",
+      "practiceStatus": "provided_pages_transcribed",
+      "missingPages": [],
+      "reviewQuestions": 3
+    },
+    {
+      "lesson": 4,
+      "title": "笑嘻嘻",
+      "textPages": [
+        48,
+        49
+      ],
+      "textStatus": "transcribed_from_user_photo",
+      "practiceStatus": "provided_pages_transcribed",
+      "missingPages": [],
+      "reviewQuestions": 3
+    },
+    {
+      "lesson": 5,
+      "title": "翹翹板",
+      "textPages": [
+        54,
+        55
+      ],
+      "textStatus": "transcribed_from_user_photo",
+      "practiceStatus": "provided_pages_transcribed",
+      "missingPages": [],
+      "reviewQuestions": 3
+    },
+    {
+      "lesson": 6,
+      "title": "謝謝老師",
+      "textPages": [
+        60,
+        61
+      ],
+      "textStatus": "transcribed_from_user_photo",
+      "practiceStatus": "provided_pages_transcribed",
+      "missingPages": [],
+      "reviewQuestions": 3
+    },
+    {
+      "lesson": 7,
+      "title": "龜兔賽跑",
+      "textPages": [
+        76,
+        77
+      ],
+      "textStatus": "transcribed_from_user_photo",
+      "practiceStatus": "provided_pages_transcribed",
+      "missingPages": [],
+      "reviewQuestions": 3
+    },
+    {
+      "lesson": 8,
+      "title": "拔蘿蔔",
+      "textPages": [
+        82,
+        83,
+        84,
+        85
+      ],
+      "textStatus": "transcribed_from_user_photo",
+      "practiceStatus": "provided_pages_transcribed",
+      "missingPages": [],
+      "reviewQuestions": 3
+    }
+  ],
+  "gapUpdateSources": {
+    "revision": "2026-10-23-gap-photos",
+    "sourcePhotos": [
+      {
+        "libraryFileId": "libfile_cb0366a05104819186b81f8ff65e125b",
+        "pages": [
+          30,
+          31
+        ]
+      },
+      {
+        "libraryFileId": "libfile_594467896bdc8191a9eed2dd2c711b15",
+        "pages": [
+          79
+        ]
+      }
+    ]
+  }
+}
