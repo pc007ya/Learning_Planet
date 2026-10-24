@@ -17,7 +17,6 @@
 .underwater-whirlpool{position:absolute;left:43%;top:20%;width:26%;aspect-ratio:1;z-index:1;pointer-events:none}
 .underwater-magic-bubble{position:absolute;left:50%;top:45%;width:20px;height:20px;border:1px solid #d8fcff;border-radius:50%;background:#dafcff44;pointer-events:none}
 .underwater-world-book .scene-caption{display:none}
-@media(max-width:700px){#little-star.underwater-world-book .topbar{height:auto;min-height:166px;display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px;padding:18px 14px 10px}#little-star.underwater-world-book .brand{flex:0 0 120px}#little-star.underwater-world-book .tools{flex:1 1 205px;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:6px}#little-star.underwater-world-book .level-switch{padding:2px}#little-star.underwater-world-book .level-button{width:36px;height:36px}#little-star.underwater-world-book .progress{position:relative;top:auto;left:auto;transform:none;order:3;flex:0 0 100%;width:100%;max-width:100%;overflow-x:auto;justify-content:flex-start}#little-star.underwater-world-book .tools>.round{flex:0 0 37px}}
 
 .underwater-world-book .underwater-quiz-world{position:relative;height:auto;aspect-ratio:3/2;overflow:hidden;background:#09283c}
 
@@ -26,3 +25,6 @@
 .underwater-world-book .underwater-quiz-world .underwater-object:disabled{opacity:1;cursor:default}
 
 .underwater-arrival{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:1;pointer-events:none}
+
+.underwater-object>.hotspot-spark{pointer-events:none;z-index:15;line-height:1;animation:none;opacity:.45}
+.underwater-object:hover>.hotspot-spark,.underwater-object:focus-visible>.hotspot-spark,.show-hints .underwater-object>.hotspot-spark{opacity:1;text-shadow:0 0 6px #fff,0 0 14px #ffd568}

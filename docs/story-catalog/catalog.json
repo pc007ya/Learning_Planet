@@ -901,7 +901,7 @@
       "textSource": "/Users/ming/Desktop/小學學習系統/英文繪本/55.瑜瑜與孩子們去遊樂園/ebook/source/data.json",
       "vocabularySource": "/Users/ming/Desktop/小學學習系統/英文繪本/55.瑜瑜與孩子們去遊樂園/metadata/story.json",
       "basis": "20個全新核心詞；ticket與ride只作複習，不計入20詞",
-      "status": "20幕ABC分層電子書、20個全新核心詞、16題測驗完成；正式書架與登入入口已整合；影片未製作",
+      "status": "20幕ABC分層電子書、20全新核心詞、16題測驗及本機自足包完成；已於學習星球上架（2026-10-24）；影片未製作",
       "textStatus": "20幕ABC課文完成",
       "scenes": [
         {
@@ -1508,6 +1508,7 @@
       "coreRepeatCount": 0,
       "storyApprovedAt": "2026-10-23",
       "reader": "amusement-park-storybook.html",
+      "published": true,
       "pages": 20
     }
   ]

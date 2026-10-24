@@ -1,0 +1,29 @@
+.amusement-park-book .amusement-layered-world{background:#35283b;transform:none;overflow:hidden}
+.amusement-park-book .amusement-stage{position:absolute;left:50%;top:50%;translate:-50% -50%;aspect-ratio:16/9;isolation:isolate;overflow:hidden}
+.amusement-background{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.amusement-park-book .amusement-object{position:absolute;display:flex;align-items:center;justify-content:center;background:none;padding:0;border:0;transform:translate(-50%,-50%)}
+.amusement-park-book .amusement-art{background-repeat:no-repeat;display:block;pointer-events:none;width:100%;height:100%;background-position:center}
+.amusement-park-book .amusement-art img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 3px #03253755)}
+.amusement-park-book .amusement-object:focus-visible{outline:2px solid #ffe29d;outline-offset:2px;border-radius:16px}
+.amusement-park-book .layered-cover .cover-border{background-size:contain;background-repeat:no-repeat;background-position:center}
+.amusement-park-book .layered-cover{aspect-ratio:2/3}
+.amusement-park-book .layered-cover .cover-border{inset:0}
+.amusement-word-art{display:block;max-width:160px;width:100%;height:150px;background-repeat:no-repeat;background-position:center}
+.amusement-word-art img{display:block;width:100%;height:100%;object-fit:contain}
+.amusement-word-art[style*=aspect-ratio]{height:auto}
+.amusement-park-book .scene-caption{display:none}
+
+.amusement-park-book .amusement-quiz-world{position:relative;height:auto;aspect-ratio:16/9;overflow:hidden;background:#35283b}
+
+.amusement-park-book .quiz-question-chinese{font-size:17px;color:#715738;line-height:1.5}.amusement-park-book .quiz-feedback{white-space:pre-line}
+
+.amusement-park-book .amusement-quiz-world .amusement-object:disabled{opacity:1;cursor:default}
+
+.amusement-park-book .amusement-object[data-object="pirate"] .amusement-art{transform-origin:50% 10%}
+.amusement-portal{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:6;pointer-events:none}
+.amusement-firework{position:absolute;width:4px;height:4px;border-radius:50%;background:#ffe7ab;box-shadow:0 0 7px #fff;pointer-events:none;z-index:8}
+
+.amusement-object>.hotspot-spark{pointer-events:none;z-index:15;line-height:1;animation:none;opacity:.45}
+.amusement-object:hover>.hotspot-spark,.amusement-object:focus-visible>.hotspot-spark,.show-hints .amusement-object>.hotspot-spark{opacity:1;text-shadow:0 0 6px #fff,0 0 14px #ffd568}
+
+.amusement-resting-firework{position:absolute;width:1px;height:1px;pointer-events:none;z-index:1;opacity:.8}.amusement-resting-firework i{position:absolute;left:0;top:0;width:2px;height:35px;transform-origin:1px 0;background:linear-gradient(transparent 12%,currentColor 45%,transparent);filter:drop-shadow(0 0 3px currentColor)}

@@ -13,7 +13,7 @@ describe('Book54 shared template and protected content',()=>{
   // Approved data at b95ad213; keep this check independent of Git history in shallow CI checkouts.
   const originalSHA256='78f1a452ceec2565b6f81548c06c24a37588374c0c48b75a39e950cfbdefa372';
   expect(createHash('sha256').update(readFileSync('src/story/underwater-world/data.json')).digest('hex')).toBe(originalSHA256);
-  const book=underwaterBook();for(const level of ['A','B','C'] as const){const pages=book.pages(level);expect(pages).toHaveLength(20);pages.forEach((p,i)=>{expect(p.lines).toEqual(data.scenes[i].text[level]);expect(book.chinese(i,level)).toEqual(data.scenes[i].chinese[level]);expect(p.objects).toEqual(underwaterObjects(i).map(o=>o.id));});}
+  const book=underwaterBook();for(const level of ['A','B','C'] as const){const pages=book.pages(level);expect(pages).toHaveLength(20);pages.forEach((p,i)=>{expect(p.lines.join(' ')).toEqual(data.scenes[i].text[level].join(' '));expect(book.chinese(i,level)).toEqual(data.scenes[i].chinese[level]);expect(p.objects).toEqual(underwaterObjects(i).map(o=>o.id));});}
  });
  it('guards the direct route before importing the common reader and avoids old cover layers',()=>{
   const html=readFileSync('underwater-world-storybook.html','utf8');expect(html).toContain('modules/story-entry.mjs');expect(html).toContain('data-story-reader="modules/little-star/little-star.js');expect(html).not.toContain('modules/underwater-world/underwater-world.js');
