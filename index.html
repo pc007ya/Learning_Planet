@@ -20,6 +20,8 @@
 <script src="./entry-image-progress.js" defer></script>
 <script src="./sci-art.js"></script>
 <script src="./english-vocabulary-tools.js?v=20261026"></script>
+<script src="./story-vocabulary-quiz.js?v=20261026-1"></script>
+<link rel="stylesheet" href="./story-vocabulary-quiz.css?v=20261026-1">
 <script type="module" src="./modules/math-image-guard.mjs"></script>
 <script type="module" src="./modules/story-launch.mjs"></script>
 <script type="module" src="./modules/math-teaching/launch.mjs"></script>
@@ -1906,10 +1908,13 @@
       <div class="{{ englishLibraryClass }}" style="max-width:1040px;margin:0 auto">
         <div class="english-panel-header" style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><button type="button" class="lp-panel-back" aria-label="返回英文單元列表" onClick="{{ englishBack }}" style="width:42px;height:42px;border-radius:50%;border:1px solid #ece7ff;background:#fff;font-size:18px;cursor:pointer">←</button><div><p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.18em;color:#22c8d8">ENGLISH WORD LIBRARY</p><h2 aria-label="{{ englishPanelTitlePlain }}" title="{{ englishPanelTitlePlain }}" style="margin:3px 0 0;font-size:25px;font-weight:900"><img class="language-title-icon" src="images/home/planets/english-planet-v1.jpg" alt=""> <span class="english-panel-title-wide">{{ englishPanelTitle }}</span><span class="english-panel-title-compact">{{ englishPanelTitleCompact }}</span></h2></div><button type="button" class="quiz-control quiz-zhuyin-toggle" onClick="{{ toggleQuizZhuyin }}" aria-pressed="{{ quizZhuyinEnabled }}" aria-label="{{ quizZhuyinAria }}" title="{{ quizZhuyinTitle }}" disabled="{{ quizZhuyinLoading }}"><b>ㄅ</b></button><span style="margin-left:auto;padding:9px 13px;border-radius:99px;background:#eafbfd;color:#0e7d8c;font-size:13px;font-weight:900">{{ englishWordCountLabel }}</span></div>
         <div>{{ englishVoiceControls }}</div>
+        <sc-if value="{{ isStoryVocabulary }}"><div>{{ storyVocabularyQuiz }}</div></sc-if>
+        <sc-if value="{{ showVocabularyBrowse }}">
         <sc-if value="{{ isStoryVocabulary }}"><div>{{ storyVocabularyControls }}</div></sc-if>
         <sc-if value="{{ isRegularEnglishLibrary }}"><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px"><sc-for list="{{ englishCategories }}" as="cat" hint-placeholder-count="8"><button onClick="{{ cat.go }}" style="border:1px solid {{ cat.border }};background:{{ cat.bg }};color:{{ cat.fg }};padding:8px 14px;border-radius:99px;font-family:inherit;font-weight:900;cursor:pointer">{{ cat.label }}</button></sc-for></div></sc-if>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:13px"><sc-for list="{{ englishLibraryWords }}" as="word" hint-placeholder-count="24"><button class="english-word-card" onClick="{{ word.speak }}" style="padding:0;text-align:left;cursor:pointer;font-family:inherit"><img src="{{ word.image }}" alt="{{ word.word }}" loading="lazy" decoding="async"><span style="display:block;padding:10px 12px"><strong style="display:block;font-size:20px;font-family:'Baloo 2',sans-serif">{{ word.word }}</strong><span style="display:block;font-size:12px;font-weight:800;color:#9a90c8">{{ word.phonetic }}</span><span style="display:block;font-size:13px;font-weight:900;color:#5b3fe0">{{ word.meaning }}</span><small class="story-vocabulary-source">{{ word.sourceLabel }}</small></span></button></sc-for></div>
         <div style="margin-top:16px;display:flex;align-items:center;justify-content:center;gap:10px"><button onClick="{{ englishPrevPage }}" disabled="{{ englishPrevDisabled }}" style="border:1px solid #ddd5ff;background:#fff;border-radius:14px;padding:10px 18px;font-weight:900;color:#5b3fe0;cursor:pointer">← 上一頁</button><strong style="font-size:13px;color:#7c74a8">{{ englishPageLabel }}</strong><button onClick="{{ englishNextPage }}" disabled="{{ englishNextDisabled }}" style="border:1px solid #ddd5ff;background:#fff;border-radius:14px;padding:10px 18px;font-weight:900;color:#5b3fe0;cursor:pointer">下一頁 →</button></div>
+        </sc-if>
       </div>
     </sc-if>
 
@@ -10708,9 +10713,11 @@ class Component extends DCLogic {
         englishMatch: "圖片 × 英文單字配對",
         englishChain: "句子缺字挑戰"
       })[s.screen] || ""),
-      englishBack: () => {window.LPEnglishVocabulary?.cancel();this.setState({ screen: "map", subject: "english" });},
+      englishBack: () => {window.LPEnglishVocabulary?.cancel();this.setState({ screen: "map", subject: "english", storyQuizActive:false });},
       englishVoiceControls: this.englishVoiceControls(),
       isStoryVocabulary: storyLibrary, isRegularEnglishLibrary: !storyLibrary,
+      showVocabularyBrowse: !storyLibrary || !s.storyQuizActive,
+      storyVocabularyQuiz: storyLibrary ? React.createElement(this.storyQuizComponent || (this.storyQuizComponent=window.createStoryQuiz(React)), {cards:s.storyVocabulary,books:s.storyVocabularyBooks,onActive:active=>this.setState({storyQuizActive:active})}) : null,
       englishLibraryClass: storyLibrary ? "story-vocabulary-library" : "",
       storyVocabularyControls: React.createElement("div",{className:"story-vocabulary-controls"},
         React.createElement("div",{className:"story-vocabulary-toolbar"},
