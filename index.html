@@ -19,6 +19,7 @@
 <script src="./entry-image-manifest.js" defer></script>
 <script src="./entry-image-progress.js" defer></script>
 <script src="./sci-art.js"></script>
+<script src="./english-vocabulary-tools.js?v=20261026"></script>
 <script type="module" src="./modules/math-image-guard.mjs"></script>
 <script type="module" src="./modules/story-launch.mjs"></script>
 <script type="module" src="./modules/math-teaching/launch.mjs"></script>
@@ -28,12 +29,22 @@
 <script type="module" src="./src/firebase-config.js"></script>
 <script type="module" src="./auth-v2/firebase-client.js"></script>
 <script src="./home-resources.js" defer></script>
-<script src="./home-routes.js" defer></script>
+<script src="./home-routes.js?v=story-vocabulary-20261026" defer></script>
 
 
 
 
-</head>
+<style>
+.story-vocabulary-library .english-word-card img{height:240px!important;width:100%;object-fit:contain!important;background:#faf7ef}
+.story-vocabulary-source{display:block;margin-top:5px;color:#71658d;line-height:1.4}
+.story-vocabulary-controls{margin:14px 0}.story-vocabulary-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.story-vocabulary-toolbar input{min-width:180px;flex:1;border:1px solid #d6ccec;border-radius:14px;padding:10px;font:inherit}
+.story-vocabulary-controls button,.english-voice-settings button{border:1px solid #d6ccec;background:#fff;color:#5b3fe0;border-radius:14px;padding:10px 14px;font:inherit;font-weight:700;cursor:pointer}
+.story-vocabulary-controls button[aria-pressed=true],.english-voice-settings button[aria-pressed=true]{background:#5b3fe0;color:white}
+.story-vocabulary-books{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}.story-vocabulary-books button{flex:0 0 auto}
+.english-voice-settings{padding:10px 14px;margin:12px 0;background:#f3efff;border-radius:14px;color:#51446e}.english-voice-settings summary{cursor:pointer;font-weight:700}
+.english-voice-options{display:flex;gap:8px;flex-wrap:wrap;max-height:220px;overflow:auto}.english-voice-settings p{font-size:13px}
+</style></head>
 <body>
 <x-dc>
 <template data-dc-template>
@@ -1892,10 +1903,12 @@
     </sc-if>
 
     <sc-if value="{{ isEnglishLibrary }}" hint-placeholder-val="{{ false }}">
-      <div style="max-width:1040px;margin:0 auto">
-        <div class="english-panel-header" style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><button type="button" class="lp-panel-back" aria-label="返回英文單元列表" onClick="{{ englishBack }}" style="width:42px;height:42px;border-radius:50%;border:1px solid #ece7ff;background:#fff;font-size:18px;cursor:pointer">←</button><div><p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.18em;color:#22c8d8">ENGLISH WORD LIBRARY</p><h2 aria-label="{{ englishPanelTitlePlain }}" title="{{ englishPanelTitlePlain }}" style="margin:3px 0 0;font-size:25px;font-weight:900"><img class="language-title-icon" src="images/home/planets/english-planet-v1.jpg" alt=""> <span class="english-panel-title-wide">{{ englishPanelTitle }}</span><span class="english-panel-title-compact">{{ englishPanelTitleCompact }}</span></h2></div><button type="button" class="quiz-control quiz-zhuyin-toggle" onClick="{{ toggleQuizZhuyin }}" aria-pressed="{{ quizZhuyinEnabled }}" aria-label="{{ quizZhuyinAria }}" title="{{ quizZhuyinTitle }}" disabled="{{ quizZhuyinLoading }}"><b>ㄅ</b></button><span style="margin-left:auto;padding:9px 13px;border-radius:99px;background:#eafbfd;color:#0e7d8c;font-size:13px;font-weight:900">{{ englishWordCount }} words</span></div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px"><sc-for list="{{ englishCategories }}" as="cat" hint-placeholder-count="8"><button onClick="{{ cat.go }}" style="border:1px solid {{ cat.border }};background:{{ cat.bg }};color:{{ cat.fg }};padding:8px 14px;border-radius:99px;font-family:inherit;font-weight:900;cursor:pointer">{{ cat.label }}</button></sc-for></div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:13px"><sc-for list="{{ englishLibraryWords }}" as="word" hint-placeholder-count="24"><button class="english-word-card" onClick="{{ word.speak }}" style="padding:0;text-align:left;cursor:pointer;font-family:inherit"><img src="{{ word.image }}" alt="{{ word.word }}"><span style="display:block;padding:10px 12px"><strong style="display:block;font-size:20px;font-family:'Baloo 2',sans-serif">{{ word.word }}</strong><span style="display:block;font-size:12px;font-weight:800;color:#9a90c8">{{ word.phonetic }}</span><span style="display:block;font-size:13px;font-weight:900;color:#5b3fe0">{{ word.meaning }}</span></span></button></sc-for></div>
+      <div class="{{ englishLibraryClass }}" style="max-width:1040px;margin:0 auto">
+        <div class="english-panel-header" style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><button type="button" class="lp-panel-back" aria-label="返回英文單元列表" onClick="{{ englishBack }}" style="width:42px;height:42px;border-radius:50%;border:1px solid #ece7ff;background:#fff;font-size:18px;cursor:pointer">←</button><div><p style="margin:0;font-size:11px;font-weight:900;letter-spacing:.18em;color:#22c8d8">ENGLISH WORD LIBRARY</p><h2 aria-label="{{ englishPanelTitlePlain }}" title="{{ englishPanelTitlePlain }}" style="margin:3px 0 0;font-size:25px;font-weight:900"><img class="language-title-icon" src="images/home/planets/english-planet-v1.jpg" alt=""> <span class="english-panel-title-wide">{{ englishPanelTitle }}</span><span class="english-panel-title-compact">{{ englishPanelTitleCompact }}</span></h2></div><button type="button" class="quiz-control quiz-zhuyin-toggle" onClick="{{ toggleQuizZhuyin }}" aria-pressed="{{ quizZhuyinEnabled }}" aria-label="{{ quizZhuyinAria }}" title="{{ quizZhuyinTitle }}" disabled="{{ quizZhuyinLoading }}"><b>ㄅ</b></button><span style="margin-left:auto;padding:9px 13px;border-radius:99px;background:#eafbfd;color:#0e7d8c;font-size:13px;font-weight:900">{{ englishWordCountLabel }}</span></div>
+        <div>{{ englishVoiceControls }}</div>
+        <sc-if value="{{ isStoryVocabulary }}"><div>{{ storyVocabularyControls }}</div></sc-if>
+        <sc-if value="{{ isRegularEnglishLibrary }}"><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px"><sc-for list="{{ englishCategories }}" as="cat" hint-placeholder-count="8"><button onClick="{{ cat.go }}" style="border:1px solid {{ cat.border }};background:{{ cat.bg }};color:{{ cat.fg }};padding:8px 14px;border-radius:99px;font-family:inherit;font-weight:900;cursor:pointer">{{ cat.label }}</button></sc-for></div></sc-if>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:13px"><sc-for list="{{ englishLibraryWords }}" as="word" hint-placeholder-count="24"><button class="english-word-card" onClick="{{ word.speak }}" style="padding:0;text-align:left;cursor:pointer;font-family:inherit"><img src="{{ word.image }}" alt="{{ word.word }}" loading="lazy" decoding="async"><span style="display:block;padding:10px 12px"><strong style="display:block;font-size:20px;font-family:'Baloo 2',sans-serif">{{ word.word }}</strong><span style="display:block;font-size:12px;font-weight:800;color:#9a90c8">{{ word.phonetic }}</span><span style="display:block;font-size:13px;font-weight:900;color:#5b3fe0">{{ word.meaning }}</span><small class="story-vocabulary-source">{{ word.sourceLabel }}</small></span></button></sc-for></div>
         <div style="margin-top:16px;display:flex;align-items:center;justify-content:center;gap:10px"><button onClick="{{ englishPrevPage }}" disabled="{{ englishPrevDisabled }}" style="border:1px solid #ddd5ff;background:#fff;border-radius:14px;padding:10px 18px;font-weight:900;color:#5b3fe0;cursor:pointer">← 上一頁</button><strong style="font-size:13px;color:#7c74a8">{{ englishPageLabel }}</strong><button onClick="{{ englishNextPage }}" disabled="{{ englishNextDisabled }}" style="border:1px solid #ddd5ff;background:#fff;border-radius:14px;padding:10px 18px;font-weight:900;color:#5b3fe0;cursor:pointer">下一頁 →</button></div>
       </div>
     </sc-if>
@@ -3691,6 +3704,7 @@ const CH_UNITS = [
   { id: "c6", grade: 2, difficulty: 2, icon: "✍️", art: "images/subject-unit-icons/v2/chinese-grade2-writing-v2.png", tint: "#eafbfd", title: "寫字練習辨識", sub: "二年級 · 描寫與辨識", kind: "writing" },
 ];
 const EN_UNITS = [
+  { id: "e-story-vocabulary", grade: 7, difficulty: 1, icon: "📚", art: "images/subject-unit-icons/v1/english-library-v1.png", tint: "#eafbfd", title: "單字", sub: "繪本單字 · 故事順序與 ABC 排序", kind: "english-story-library" },
   { id: "e-vowels", art: "images/ui/phonics-vowels.svg", grade: 1, difficulty: 1, icon: "🔊", title: "元音", sub: "一年級 · 15 張美式例字卡", kind: "english-phonics", phonicsGroup: "vowels" },
   { id: "e-consonants", art: "images/ui/phonics-consonants.svg", grade: 1, difficulty: 1, icon: "🔊", title: "輔音", sub: "一年級 · 24 張美式例字卡", kind: "english-phonics", phonicsGroup: "consonants" },
   { id: "e-reading", art: "images/ui/phonics-reading.svg", grade: 1, difficulty: 1, icon: "📖", title: "念讀卡", sub: "一年級 · 聽例字、念短句", kind: "english-phonics", phonicsGroup: "reading" },
@@ -5379,6 +5393,7 @@ class Component extends DCLogic {
     shopCat: "hair", slot: "hair", shopQuery: "", shopOwnedOnly: false,
     shopMessage: "上衣與下身是獨立道具，可自由混搭；髮型與服裝依角色分流，帽子、鞋履與手持道具共用。",
     words: [], customWords: [],
+    storyVocabulary: [], storyVocabularyBooks: [], storyVocabularyBook: 0, storyVocabularySort: "story", storyVocabularyQuery: "", englishVoiceRevision: 0,
     englishWords: { 1: [], 2: [], 3: [] }, englishCategory: "全部", englishPage: 0,
     englishCurrent: null, englishTiles: [], englishPlaced: [], englishFeedback: "拖曳或點一下字母，依序完成單字。", englishFeedbackGood: false,
     englishMatchMode: "quiz", englishMatchQuizQueue: [], englishMatchQuizIndex: 0, englishMatchQuizCorrect: 0, englishMatchQuizAnswered: false, englishMatchQuizSelected: "",
@@ -5497,6 +5512,8 @@ class Component extends DCLogic {
       load(0, () => json("chinese-words.json?v=20260929-metadata"), words => ({ words, vUnit: words.length ? words[0].u : "" }));
     if ((!s.teacher && s.subject === "english" && s.screen !== "profile") || (this.backendRole === "admin" && s.adminTab === "weekly"))
       load(1, () => Promise.all([1,2,3].map(grade => json("data/english-words-grade" + grade + "-v2.json"))), banks => ({englishWords:{1:banks[0].words || [],2:banks[1].words || [],3:banks[2].words || []}}));
+    if (!s.teacher && s.subject === "english" && s.grade === 7)
+      load("story-vocabulary", () => json("data/story-vocabulary.json?v=20261026"), bank => ({storyVocabulary:bank.words,storyVocabularyBooks:bank.books}));
     const math = (!s.teacher && s.subject === "math" && s.screen !== "profile") || (this.backendRole === "admin" && s.adminTab === "weekly");
     const bankPatch = bank => {
       if (bank?.schemaVersion !== 1 || !Array.isArray(bank.modules)) throw new Error("題庫格式錯誤");
@@ -5516,6 +5533,10 @@ class Component extends DCLogic {
   }
 
   componentDidMount() {
+    this.englishVoicesChanged=()=>this.setState(st=>({englishVoiceRevision:st.englishVoiceRevision+1}));
+    this.englishSpeechError=()=>this.flash("這個聲音暫時無法播放，請換一個英文聲音再試。");
+    window.addEventListener("lp-english-voices",this.englishVoicesChanged);
+    window.addEventListener("lp-english-speech-error",this.englishSpeechError);
     performance.mark("lp-login-ready");
     this.loadLearningData().catch(() => {});
     window.LPHomeResources?.sync(this);
@@ -5651,6 +5672,7 @@ class Component extends DCLogic {
     const previousScreen = this.lastResourceScreen ?? prevState?.screen;
     this.lastResourceScreen = this.state.screen;
     if (previousScreen !== this.state.screen) {
+      if(previousScreen === 'englishLibrary')window.LPEnglishVocabulary?.cancel();
       if (previousScreen === 'plantWaterLab') this.clearPlantTimers();
       if (previousScreen === 'dayNightLab') this.clearDayNightTimers();
       if (previousScreen === 'magnetLab') this.stopMagnetGesture();
@@ -5684,6 +5706,8 @@ class Component extends DCLogic {
     }
   }
   componentWillUnmount() {
+    window.removeEventListener("lp-english-voices",this.englishVoicesChanged);
+    window.removeEventListener("lp-english-speech-error",this.englishSpeechError);
     this.teardownRole();
     this.clearPlantTimers(); this.clearDayNightTimers();
     this.stopMagnetGesture(); this.magnet2StopGesture();
@@ -6141,13 +6165,20 @@ class Component extends DCLogic {
   }
   englishShuffle(items) { return items.slice().sort(() => Math.random() - .5); }
   speakEnglish(word) {
-    if (!word || this.state.speechMuted || typeof speechSynthesis === "undefined") return;
-    const utterance = new SpeechSynthesisUtterance(word);
-    utterance.lang = "en-US"; utterance.rate = .72;
-    speechSynthesis.cancel(); speechSynthesis.speak(utterance);
+    if (!word || this.state.speechMuted) return;
+    if(!window.LPEnglishVocabulary?.speak(word))this.flash("此裝置暫時無法播放英文聲音。");
+  }
+  englishVoiceControls() {
+    const api=window.LPEnglishVocabulary,voices=api?.voices()||[],selected=api?.choose(voices);
+    return React.createElement("details",{className:"english-voice-settings"},
+      React.createElement("summary",null,"英文聲音 · "+(selected?.name||"裝置預設")),
+      React.createElement("p",null,"點選聲音試聽並套用。各裝置提供的聲音可能不同。"),
+      React.createElement("div",{className:"english-voice-options"},voices.map(v=>React.createElement("button",{key:v.voiceURI+v.lang,type:"button","aria-pressed":v===selected,onClick:()=>{api.select(v);this.speakEnglish("Hello! Let's learn a new word. Butterfly.");}},v.name+" · "+v.lang))),
+      !voices.length&&React.createElement("p",null,"正在取得裝置聲音；如無英文聲音，請於裝置設定下載英文語音。"));
   }
   startEnglishUnit(unit) {
     const grade = Number(unit.grade) || 1;
+    if(unit.kind === "english-story-library") {this.setState({screen:"englishLibrary",grade:7,englishPage:0});return;}
     if (unit.kind !== "english-grammar" && unit.kind !== "english-phonics" && !this.englishPool(grade).length) { this.flash("英文單字庫還在載入中，請稍等一下"); return; }
     if (unit.kind === "english-phonics") this.setState({ screen: "englishPhonics", grade, phonicsGroup: unit.phonicsGroup });
     else if (unit.kind === "english-library") this.setState({ screen: "englishLibrary", grade, englishCategory: "全部", englishPage: 0 });
@@ -10078,9 +10109,10 @@ class Component extends DCLogic {
       const key = row.unitTitle || "綜合練習", current = groups.get(key) || { label: key, correct: 0, total: 0 };
       current.total += 1; current.correct += row.correct ? 1 : 0; groups.set(key, current); return groups;
     }, new Map()).values()).map((entry) => Object.assign({}, entry, { score: Math.round(entry.correct / Math.max(1, entry.total) * 100) })).sort((a, b) => a.score - b.score);
-    const englishPool = s.englishWords[s.grade] || [];
+    const storyLibrary = s.grade === 7 && s.subject === "english";
+    const englishPool = storyLibrary ? s.storyVocabulary : s.englishWords[s.grade] || [];
     const englishCategoriesRaw = ["全部"].concat(Array.from(new Set(englishPool.map((word) => word.category))));
-    const englishFiltered = s.englishCategory === "全部" ? englishPool : englishPool.filter((word) => word.category === s.englishCategory);
+    const englishFiltered = storyLibrary ? window.LPEnglishVocabulary.filterCards(englishPool,{book:s.storyVocabularyBook,sort:s.storyVocabularySort,query:s.storyVocabularyQuery}) : s.englishCategory === "全部" ? englishPool : englishPool.filter((word) => word.category === s.englishCategory);
     const englishPageSize = 30, englishPageCount = Math.max(1, Math.ceil(englishFiltered.length / englishPageSize));
     const englishPage = Math.max(0, Math.min(englishPageCount - 1, Number(s.englishPage) || 0));
     const englishCurrent = s.englishCurrent || { word: "apple", meaning: "蘋果", image: "images/english-cards/words-v2/apple.svg" };
@@ -10663,24 +10695,36 @@ class Component extends DCLogic {
         };
       }),
       englishPanelTitlePlain: ({
-        englishLibrary: (["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][s.grade] || "英文") + " 500 字單字學習庫",
+        englishLibrary: storyLibrary ? "繪本單字 · 單字" : (["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][s.grade] || "英文") + " 500 字單字學習庫",
         englishGrammar: "主詞・動詞・名詞句型拖曳", englishAssociation: "生活關聯心智圖",
         englishScramble: "打散字母排出單字", englishMatch: "圖片 × 英文單字配對", englishChain: "句子缺字挑戰"
       })[s.screen] || "",
       englishPanelTitleCompact: this.quizReading(({ englishLibrary: "單字", englishGrammar: "句型", englishAssociation: "關聯", englishScramble: "拼字", englishMatch: "配對", englishChain: "缺字" })[s.screen] || ""),
       englishPanelTitle: this.quizReading(({
-        englishLibrary: (["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][s.grade] || "英文") + " 500 字單字學習庫",
+        englishLibrary: storyLibrary ? "繪本單字 · 單字" : (["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][s.grade] || "英文") + " 500 字單字學習庫",
         englishGrammar: "主詞・動詞・名詞句型拖曳",
         englishAssociation: "生活關聯心智圖",
         englishScramble: "打散字母排出單字",
         englishMatch: "圖片 × 英文單字配對",
         englishChain: "句子缺字挑戰"
       })[s.screen] || ""),
-      englishBack: () => this.setState({ screen: "map", subject: "english" }),
+      englishBack: () => {window.LPEnglishVocabulary?.cancel();this.setState({ screen: "map", subject: "english" });},
+      englishVoiceControls: this.englishVoiceControls(),
+      isStoryVocabulary: storyLibrary, isRegularEnglishLibrary: !storyLibrary,
+      englishLibraryClass: storyLibrary ? "story-vocabulary-library" : "",
+      storyVocabularyControls: React.createElement("div",{className:"story-vocabulary-controls"},
+        React.createElement("div",{className:"story-vocabulary-toolbar"},
+          ...[{id:"story",label:"故事順序"},{id:"abc",label:"ABC 排序"}].map(item=>React.createElement("button",{type:"button",key:item.id,"aria-pressed":s.storyVocabularySort===item.id,onClick:()=>this.setState({storyVocabularySort:item.id,englishPage:0})},item.label)),
+          React.createElement("input",{type:"search",placeholder:"搜尋單字、中文或故事","aria-label":"搜尋繪本單字",value:s.storyVocabularyQuery,onChange:e=>this.setState({storyVocabularyQuery:e.target.value,englishPage:0})})),
+        React.createElement("div",{className:"story-vocabulary-books",role:"group","aria-label":"選擇故事書"},
+          ...[{number:0,title:"全部故事"},...s.storyVocabularyBooks].map(book=>React.createElement("button",{type:"button",key:book.number,"aria-pressed":Number(s.storyVocabularyBook)===book.number,onClick:()=>this.setState({storyVocabularyBook:book.number,englishPage:0})},book.number?"#"+book.number+" "+book.title:book.title))),
+        React.createElement("p",{role:"status"},s.storyVocabulary.length ? englishFiltered.length+" 張字卡 · 點選圖片聽英文" : "字卡載入中…"),
+        !s.storyVocabulary.length&&React.createElement("button",{type:"button",onClick:()=>this.loadLearningData(true).catch(()=>this.flash("字卡暫時無法載入，請再試一次。"))},"重新載入")),
       englishGradeLabel: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][s.grade] || "英文",
-      englishWordCount: englishPool.length,
+      englishWordCount: englishFiltered.length,
+      englishWordCountLabel: englishFiltered.length + (storyLibrary ? " 張字卡" : " words"),
       englishCategories: englishCategoriesRaw.map((label) => ({ label, go: () => this.setState({ englishCategory: label, englishPage: 0 }), bg: s.englishCategory === label ? "#2b1f57" : "#fff", fg: s.englishCategory === label ? "#fff" : "#7c74a8", border: s.englishCategory === label ? "#2b1f57" : "#ece7ff" })),
-      englishLibraryWords: englishFiltered.slice(englishPage * englishPageSize, (englishPage + 1) * englishPageSize).map((word) => Object.assign({}, word, { image: this.englishImageForWord(word), speak: () => this.speakEnglish(word.word) })),
+      englishLibraryWords: englishFiltered.slice(englishPage * englishPageSize, (englishPage + 1) * englishPageSize).map((word) => Object.assign({}, word, { image: storyLibrary ? word.image : this.englishImageForWord(word), sourceLabel: storyLibrary ? "#"+word.book+" "+word.bookTitle : "", speak: () => this.speakEnglish(word.word) })),
       englishPageLabel: (englishPage + 1) + " / " + englishPageCount + " 頁",
       englishPrevDisabled: englishPage <= 0, englishNextDisabled: englishPage >= englishPageCount - 1,
       englishPrevPage: () => this.setState({ englishPage: Math.max(0, englishPage - 1) }), englishNextPage: () => this.setState({ englishPage: Math.min(englishPageCount - 1, englishPage + 1) }),
@@ -10954,7 +10998,7 @@ class Component extends DCLogic {
         { key: "english", title: "英文", image: "images/home/planets/english-planet-v1-card.webp", glow: "rgba(60,205,255,.76)" },
         { key: "science", title: "自然", image: "images/home/learning-planet-hero-v1-card.webp", glow: "rgba(123,116,255,.72)" },
         { key: "experiment", title: "實驗", image: "images/home/planets/experiment-planet-v1-card.webp", glow: "rgba(63,255,215,.72)" },
-      ].map((c) => Object.assign({}, c, { go: () => this.setState({ screen: "map", subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : s.grade }) })),
+      ].map((c) => Object.assign({}, c, { go: () => this.setState({ screen: "map", subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : c.key === "english" ? s.grade : Math.min(6, s.grade) }) })),
       subjectWorldImage: ({ math: "images/home/planets/math-planet-v1.jpg", chinese: "images/home/planets/chinese-planet-v1.jpg", english: "images/home/planets/english-planet-v1.jpg", science: "images/home/learning-planet-hero-v1.jpg", experiment: "images/home/planets/experiment-planet-v1.jpg" })[moduleWorldSubject] || "images/home/planets/math-planet-v1.jpg",
       subjectWorldAccent: ({ math: "#9f79ff", chinese: "#ffb454", english: "#56d7ff", science: "#8c7cff", experiment: "#48e7c9" })[moduleWorldSubject] || "#9f79ff",
       subjectWorldTitle: ({ math: "數學", chinese: "國文", english: "英文", science: "自然", experiment: "實驗" })[moduleWorldSubject] || "數學",
@@ -10966,7 +11010,7 @@ class Component extends DCLogic {
         { key: "experiment", icon: "🧪", label: "實驗" },
       ].map((c) => ({
         icon: c.icon, label: c.label, active: String(s.subject === c.key),
-        go: () => this.setState({ subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : s.grade }),
+        go: () => this.setState({ subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : c.key === "english" ? s.grade : Math.min(6, s.grade) }),
         bg: s.subject === c.key ? "#7c5cff" : "#fff",
         fg: s.subject === c.key ? "#fff" : "#7c74a8",
         border: s.subject === c.key ? "#7c5cff" : "#ece7ff",
@@ -10974,7 +11018,7 @@ class Component extends DCLogic {
 
       assignedText: "陳老師指派：" + (allUnits.find((u) => u.id === s.assigned) || MATH_UNITS[0]).title + "　" + this.total() + " 題　限時 " + this.seconds() + " 秒／題",
       startAssigned: () => this.startUnit(s.assigned),
-      goSignin: go("signin"), goRank: go("rank"), goAchieve: go("achieve"), goShop: go("shop"), goMap: go("map"), goCloset: go("closet"), goWeekly: go("weekly"),
+      goSignin: go("signin"), goRank: go("rank"), goAchieve: go("achieve"), goShop: go("shop"), goMap: go("map"), goCloset: go("closet"), goWeekly: () => this.setState({screen:"weekly",grade:Math.min(6,s.grade)}),
 
       weeklyKey: weekKey(), weeklyTime: s.weeklyConfig.timeSeconds,
       weeklySections: weeklyUnits.map((entry) => ({ icon: entry.unit.icon, title: entry.unit.title, count: entry.count, stars: "⭐".repeat(Math.max(1, Math.min(3, entry.difficulty))) })),
@@ -11032,7 +11076,7 @@ class Component extends DCLogic {
       showChallengeRules: s.subject !== "experiment",
       isExperimentSubject: s.subject === "experiment",
       showGeoExplore: false,
-      gradeTabs: (s.subject === "experiment" ? [] : s.subject === "math" || s.subject === "english" ? [1, 2, 3, 4, 5, 6] : s.subject === "science" ? [3, 4, 5, 6] : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][g], active: String(s.grade === g),
+      gradeTabs: (s.subject === "experiment" ? [] : s.subject === "english" ? [1, 2, 3, 4, 5, 6, 7] : s.subject === "math" ? [1, 2, 3, 4, 5, 6] : s.subject === "science" ? [3, 4, 5, 6] : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級", "繪本單字"][g], active: String(s.grade === g),
         go: () => this.setState({ grade: g }),
         bg: s.grade === g ? "#7c5cff" : "#fff",
         fg: s.grade === g ? "#fff" : "#7c74a8",
@@ -11052,16 +11096,16 @@ class Component extends DCLogic {
           icon: u.icon, iconEl, tint: u.tint, title: u.title, sub: u.sub, displayCode: u.displayCode || "", showStart: u.kind !== "math-explore",
           pct: isLib ? 100 : isExperiment ? 0 : Math.round(round / 3 * 100),
           stars: isLib || isExperiment ? [] : [0, 1, 2].map((i) => ({ opacity: i < difficulty ? 1 : .28, gray: i < difficulty ? 0 : 1 })),
-          showMastery: u.kind !== "math-explore" && !isExperiment && !isPhonics,
-          showStatus: u.kind !== "math-explore" && !isExperiment && !isPhonics,
-          showProgress: u.kind !== "math-explore" && !isExperiment && !isPhonics,
+          showMastery: u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
+          showStatus: u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
+          showProgress: u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
           masteryMark: isLib ? "字庫" : isExperiment ? "" : masteryRoman(round),
           masteryBg: round ? "#e6f7ee" : "#fbfaff",
           masteryFg: round ? "#1d7a55" : "#b3a9d8",
           masteryBorder: round ? "#9fe3c4" : "#ece7ff",
           stateLabel: isLib ? gradeWords.length + " 個字" : isExperiment ? "" : atLimit ? "今日已完成上限" : round ? "今日完成 " + masteryRoman(round) : "今日未開始",
           stateColor: isLib || round ? "#35c98a" : "#b3a9d8",
-          btnLabel: isPhonics ? "開始練習" : isLib ? "進入學習庫" : isExperiment ? "進入實驗室" : atLimit ? "今日改練其他單元" : round ? "挑戰第 " + masteryRoman(round + 1) + " 輪" : "開始第 I 輪",
+          btnLabel: u.kind === "english-story-library" ? "進入單字" : isPhonics ? "開始練習" : isLib ? "進入學習庫" : isExperiment ? "進入實驗室" : atLimit ? "今日改練其他單元" : round ? "挑戰第 " + masteryRoman(round + 1) + " 輪" : "開始第 I 輪",
           btnBg: atLimit ? "#ece9f5" : "linear-gradient(90deg,#7c5cff,#22c8d8)",
           btnFg: atLimit ? "#9a90c8" : "#fff",
           start: () => this.startUnit(u.id),

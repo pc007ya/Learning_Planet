@@ -15,6 +15,7 @@
     changing = true;
     if (staff) component.setState({screen:'teacher'});
     else if (state.teacher) component.setState({screen:'teacher'});
+    else if (path === 'english/story-vocabulary' || path === 'english/story-vocabulary/words') component.setState({screen:path.endsWith('/words')?'englishLibrary':'map',subject:'english',grade:7});
     else if (path === 'student/avatar') component.setState({screen:'profile'});
     else if (path === 'weekly') component.setState({screen:'weekly'});
     else if (path === 'gacha') component.setState({screen:'gacha'});
@@ -26,7 +27,7 @@
       requestAnimationFrame(() => document.querySelector('a[data-subject="story"]')?.click());
     } else {
       const subject = Object.keys(paths).find(key => path === paths[key].replace(/\/$/,'') || path.startsWith(paths[key]));
-      component.setState(subject ? {screen:'map',subject,grade: path === 'math/grade-3' || subject === 'science' ? 3 : state.grade} : {screen:'home'});
+      component.setState(subject ? {screen:'map',subject,grade: path === 'math/grade-3' || subject === 'science' ? 3 : state.grade === 7 ? 1 : state.grade} : {screen:'home'});
     }
     changing = false;
   }
@@ -37,6 +38,7 @@
     if (pending) { const path = pending; pending = ''; apply(path); return; }
     if (changing) return;
     let path = state.teacher ? owner.backendRole + '/' : state.screen === 'profile' ? 'student/avatar/' : state.screen === 'home' ? 'student/' : paths[state.subject] || 'student/';
+    if (!state.teacher && state.subject === 'english' && state.grade === 7 && ['map','englishLibrary'].includes(state.screen)) path = state.screen === 'englishLibrary' ? 'english/story-vocabulary/words/' : 'english/story-vocabulary/';
     if (state.screen.startsWith('weekly')) path = 'weekly/';
     if (['gacha','collection'].includes(state.screen)) path = 'gacha/';
     if (state.screen === 'magnetLab') path = 'experiments/magnet/';
