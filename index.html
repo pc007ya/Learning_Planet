@@ -20,8 +20,8 @@
 <script src="./entry-image-progress.js" defer></script>
 <script src="./sci-art.js"></script>
 <script src="./english-vocabulary-tools.js?v=20261026"></script>
-<script src="./story-vocabulary-quiz.js?v=20261026-1"></script>
-<link rel="stylesheet" href="./story-vocabulary-quiz.css?v=20261026-1">
+<script src="./story-vocabulary-quiz.js?v=20261026-2"></script>
+<link rel="stylesheet" href="./story-vocabulary-quiz.css?v=20261026-2">
 <script type="module" src="./modules/math-image-guard.mjs"></script>
 <script type="module" src="./modules/story-launch.mjs"></script>
 <script type="module" src="./modules/math-teaching/launch.mjs"></script>
@@ -10723,8 +10723,9 @@ class Component extends DCLogic {
         React.createElement("div",{className:"story-vocabulary-toolbar"},
           ...[{id:"story",label:"故事順序"},{id:"abc",label:"ABC 排序"}].map(item=>React.createElement("button",{type:"button",key:item.id,"aria-pressed":s.storyVocabularySort===item.id,onClick:()=>this.setState({storyVocabularySort:item.id,englishPage:0})},item.label)),
           React.createElement("input",{type:"search",placeholder:"搜尋單字、中文或故事","aria-label":"搜尋繪本單字",value:s.storyVocabularyQuery,onChange:e=>this.setState({storyVocabularyQuery:e.target.value,englishPage:0})})),
-        React.createElement("div",{className:"story-vocabulary-books",role:"group","aria-label":"選擇故事書"},
-          ...[{number:0,title:"全部故事"},...s.storyVocabularyBooks].map(book=>React.createElement("button",{type:"button",key:book.number,"aria-pressed":Number(s.storyVocabularyBook)===book.number,onClick:()=>this.setState({storyVocabularyBook:book.number,englishPage:0})},book.number?"#"+book.number+" "+book.title:book.title))),
+        React.createElement("label",{className:"story-vocabulary-book-select"},"故事書： ",
+          React.createElement("select",{"aria-label":"選擇故事書",value:s.storyVocabularyBook,onChange:e=>this.setState({storyVocabularyBook:Number(e.target.value),englishPage:0})},
+            ...[{number:0,title:"全部故事"},...s.storyVocabularyBooks].map(book=>React.createElement("option",{key:book.number,value:book.number},book.number?"#"+book.number+" "+book.title:book.title)))),
         React.createElement("p",{role:"status"},s.storyVocabulary.length ? englishFiltered.length+" 張字卡 · 點選圖片聽英文" : "字卡載入中…"),
         !s.storyVocabulary.length&&React.createElement("button",{type:"button",onClick:()=>this.loadLearningData(true).catch(()=>this.flash("字卡暫時無法載入，請再試一次。"))},"重新載入")),
       englishGradeLabel: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][s.grade] || "英文",
