@@ -4,11 +4,27 @@ import {drawSpine,drawCover,jacketPalette} from './jacket';
 export type ShelfBook={title:string;cover:string;english?:boolean;nativePortrait?:boolean};
 /** A bounded shelf of actual catalog books; the library background is not interactive. */
 function mountShelfPage(stage:HTMLElement,books:ShelfBook[],open:(index:number)=>void):()=>void{
+ if(!books.length)return()=>{};
+ const center=Math.floor((books.length-1)/2);
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  let renderer:THREE.WebGLRenderer;
  try{renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,powerPreference:'low-power'});}catch{
   const fallback=document.createElement('div');fallback.className='sp-spine-fallback';
-  books.forEach((b,i)=>{const button=document.createElement('button');button.className='sp-fallback-spine';button.textContent=b.title;button.onclick=()=>{if(button.classList.contains('is-confirming')){open(i);return;}fallback.querySelectorAll('button').forEach(other=>{other.querySelectorAll('img').forEach(image=>image.removeAttribute('src'));other.classList.remove('is-confirming');other.replaceChildren(document.createTextNode(books[Number(other.dataset.index)].title));});button.classList.add('is-confirming');const img=document.createElement('img');img.src=b.cover;img.alt=b.title;if(b.nativePortrait){img.style.objectFit='contain';img.style.aspectRatio='2 / 3';}button.replaceChildren(img);};button.dataset.index=String(i);fallback.append(button);});stage.append(fallback);const dismiss=(event:PointerEvent)=>{if(!(event.target instanceof Node)||fallback.contains(event.target))return;fallback.querySelectorAll('button').forEach(button=>{button.querySelectorAll('img').forEach(image=>image.removeAttribute('src'));button.classList.remove('is-confirming');button.textContent=books[Number(button.dataset.index)].title;});};document.addEventListener('pointerdown',dismiss);return()=>{document.removeEventListener('pointerdown',dismiss);fallback.querySelectorAll('img').forEach(image=>image.removeAttribute('src'));fallback.remove();};
+  let selected=center;
+  const show=()=>{
+   fallback.replaceChildren();
+   const sides=books.map((_,i)=>i).filter(i=>i!==selected);
+   const order=[...sides.slice(0,center),selected,...sides.slice(center)];
+   order.forEach(i=>{
+    const book=books[i],button=document.createElement('button');button.className='sp-fallback-spine';
+    button.setAttribute('aria-pressed',String(i===selected));button.setAttribute('aria-label',(i===selected?'進入 ':'預覽 ')+book.title);
+    if(i===selected){button.classList.add('is-confirming');const img=document.createElement('img');img.src=book.cover;img.alt=book.title;button.append(img);}
+    else button.textContent=book.title;
+    button.onclick=()=>{if(i===selected)open(i);else{selected=i;show();fallback.querySelector<HTMLButtonElement>('.is-confirming')?.focus();}};
+    fallback.append(button);
+   });
+  };
+  show();stage.append(fallback);return()=>{fallback.querySelectorAll('img').forEach(image=>image.removeAttribute('src'));fallback.remove();};
  }
  renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.domElement.className='sp-canvas';renderer.domElement.setAttribute('aria-hidden','true');stage.prepend(renderer.domElement);
  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(36,1,.1,50);camera.position.set(0,.1,10);
@@ -16,7 +32,7 @@ function mountShelfPage(stage:HTMLElement,books:ShelfBook[],open:(index:number)=
  const textures:THREE.Texture[]=[],materials:THREE.Material[]=[];const buttons:HTMLButtonElement[]=[];const coverRequests:ReturnType<typeof createDeferredCover>[]=[];
  const overlay=document.createElement('div');overlay.className='sp-spine-hits';stage.append(overlay);
  const coverStatus=document.createElement('span');coverStatus.className='sp-cover-status';coverStatus.setAttribute('role','status');stage.append(coverStatus);
- let disposed=false,raf=0,last=0,chosen=-1,selectedAt=0;
+ let disposed=false,raf=0,last=0,chosen=center,selectedAt=0;
  const models=books.map((book,index)=>{
   const group=new THREE.Group();scene.add(group);group.rotation.y=Math.PI/2;group.position.set((index-(books.length-1)/2)*.85,-.15,0);
   const color=new THREE.Color(jacketPalette(book.title)[0]).getHex();
@@ -33,19 +49,38 @@ function mountShelfPage(stage:HTMLElement,books:ShelfBook[],open:(index:number)=
    loaded:image=>{hit.removeAttribute('aria-busy');if(chosen===index)coverStatus.textContent='';const t=new THREE.Texture(image);t.colorSpace=THREE.SRGBColorSpace;t.needsUpdate=true;textures.push(t);if(book.english){const jacket=document.createElement('canvas');jacket.width=book.nativePortrait?816:768;jacket.height=book.nativePortrait?972:1024;drawCover(jacket.getContext('2d')!,image,book.title,!!book.nativePortrait);const printed=new THREE.CanvasTexture(jacket);printed.colorSpace=THREE.SRGBColorSpace;textures.push(printed);coverMat.map=printed;}else coverMat.map=t;coverMat.needsUpdate=true;},
    failed:()=>{hit.removeAttribute('aria-busy');if(chosen===index)coverStatus.textContent='封面暫時無法載入，可再按一次進入閱讀';}
   });coverRequests.push(cover);
-  hit.onclick=()=>{if(chosen===index){if(performance.now()-selectedAt>350)open(index);return;}coverRequests.forEach(request=>request.cancel());buttons.forEach(button=>button.removeAttribute('aria-busy'));chosen=index;selectedAt=performance.now();hit.setAttribute('aria-label','進入 '+book.title);hit.setAttribute('aria-pressed','true');cover.load();};buttons.push(hit);overlay.append(hit);return group;
+  hit.onclick=()=>{if(chosen===index){if(performance.now()-selectedAt>350)open(index);return;}select(index);};buttons.push(hit);overlay.append(hit);return group;
  });
- const resize=()=>{const r=stage.getBoundingClientRect();renderer.setSize(r.width,r.height,false);camera.aspect=r.width/r.height;camera.position.z=camera.aspect<1?8:5.2;camera.updateProjectionMatrix();};const observer=new ResizeObserver(resize);observer.observe(stage);resize();
- const dismiss=(event:PointerEvent|KeyboardEvent)=>{if(chosen<0)return;if(event instanceof KeyboardEvent&&event.key!=='Escape')return;if(event instanceof PointerEvent&&event.target instanceof Node&&buttons[chosen].contains(event.target))return;chosen=-1;coverRequests.forEach(request=>request.cancel());coverStatus.textContent='';buttons.forEach((hit,i)=>{hit.classList.remove('is-confirming');hit.removeAttribute('aria-busy');hit.setAttribute('aria-label','預覽 '+books[i].title);hit.setAttribute('aria-pressed','false');});};
- document.addEventListener('pointerdown',dismiss);document.addEventListener('keydown',dismiss);
- const start=performance.now();const point=new THREE.Vector3();
- const tick=(now:number)=>{if(disposed)return;raf=requestAnimationFrame(tick);if(document.hidden||now-last<33)return;last=now;
-  models.forEach((g,i)=>{const active=i===chosen;g.visible=chosen<0||active;
-   if(!active){g.position.set((i-(books.length-1)/2)*.85,-.15+(reduced?0:Math.sin((now-start)/1500+i)*.025),0);g.rotation.y=Math.PI/2;}
-   else{const turn=reduced?1:Math.min(1,(now-selectedAt)/600),ease=turn*turn*(3-2*turn);g.position.z=ease*.7;g.position.x=(i-(books.length-1)/2)*.85*(1-ease);g.rotation.y=Math.PI/2*(1-ease);}
-   g.updateMatrixWorld(true);point.set(active?0:-1.10,0,active?.35:0).applyMatrix4(g.matrixWorld).project(camera);const box=stage.getBoundingClientRect();const hit=buttons[i];hit.style.left=(point.x+1)*box.width/2+'px';hit.style.top=(1-point.y)*box.height/2+'px';const height=2.48/(camera.position.z-(active?.7:1.10))*box.height/(2*Math.tan(THREE.MathUtils.degToRad(18)));hit.style.height=height+'px';hit.style.width=Math.max(44,height*(active?.85:.25))+'px';hit.style.visibility=g.visible?'visible':'hidden';hit.classList.toggle('is-confirming',active);
+ const select=(index:number)=>{
+  coverRequests.forEach(request=>request.cancel());chosen=index;selectedAt=performance.now();coverStatus.textContent='';
+  buttons.forEach((hit,i)=>{hit.removeAttribute('aria-busy');hit.setAttribute('aria-label',(i===chosen?'進入 ':'預覽 ')+books[i].title);hit.setAttribute('aria-pressed',String(i===chosen));});
+  coverRequests[index]?.load();
+ };
+ const targetX=(index:number)=>{
+  if(index===chosen)return 0;
+  const rank=index<chosen?index:index-1;
+  return rank<center?-(1.65+(center-1-rank)*.78):1.65+(rank-center)*.78;
+ };
+ models.forEach((g,i)=>{g.position.set(targetX(i),-.15,i===chosen?.35:0);g.rotation.y=i===chosen?0:Math.PI/2;});
+ select(center);
+ const resize=()=>{const r=stage.getBoundingClientRect();renderer.setSize(r.width,r.height,false);camera.aspect=r.width/Math.max(1,r.height);const halfWidth=books.length>1?1.96+Math.max(center-1,books.length-center-2)*.78:1.1;camera.position.z=Math.max(5.2,1.1+(halfWidth+.15)/(Math.tan(THREE.MathUtils.degToRad(18))*camera.aspect));camera.updateProjectionMatrix();};const observer=new ResizeObserver(resize);observer.observe(stage);resize();
+ const dismiss=(event:KeyboardEvent)=>{if(event.key==='Escape'&&books.length)select(center);};
+ document.addEventListener('keydown',dismiss);
+ const start=performance.now(),point=new THREE.Vector3();
+ const tick=(now:number)=>{if(disposed)return;raf=requestAnimationFrame(tick);if(document.hidden||now-last<33)return;const blend=reduced?1:1-Math.exp(-(now-last)/100);last=now;
+  const box=stage.getBoundingClientRect();
+  models.forEach((g,i)=>{const active=i===chosen;
+   g.position.x+=(targetX(i)-g.position.x)*blend;g.position.z+=((active?.35:0)-g.position.z)*blend;g.rotation.y+=((active?0:Math.PI/2)-g.rotation.y)*blend;
+   g.position.y=-.15+(reduced||active?0:Math.sin((now-start)/1500+i)*.025);
+   g.updateMatrixWorld(true);
+   let left=Infinity,right=-Infinity,top=Infinity,bottom=-Infinity;
+   for(const y of [-1.24,1.24])for(const edge of [-1,1]){
+    point.set(active?edge*1.04:-1.1,y,active?.34:edge*.31).applyMatrix4(g.matrixWorld).project(camera);
+    const x=(point.x+1)*box.width/2,py=(1-point.y)*box.height/2;left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,py);bottom=Math.max(bottom,py);
+   }
+   const hit=buttons[i];hit.style.left=(left+right)/2+'px';hit.style.top=(top+bottom)/2+'px';hit.style.height=bottom-top+'px';hit.style.width=Math.max(24,right-left)+'px';hit.style.zIndex=active?'2':'1';hit.classList.toggle('is-confirming',active);
   });renderer.render(scene,camera);};raf=requestAnimationFrame(tick);
- return()=>{document.removeEventListener('pointerdown',dismiss);document.removeEventListener('keydown',dismiss);disposed=true;coverRequests.forEach(request=>request.dispose());coverStatus.remove();cancelAnimationFrame(raf);observer.disconnect();scene.traverse(o=>{if(o instanceof THREE.Mesh)o.geometry.dispose();});materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());renderer.dispose();renderer.forceContextLoss();};
+ return()=>{document.removeEventListener('keydown',dismiss);disposed=true;coverRequests.forEach(request=>request.dispose());coverStatus.remove();cancelAnimationFrame(raf);observer.disconnect();scene.traverse(o=>{if(o instanceof THREE.Mesh)o.geometry.dispose();});materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());renderer.dispose();renderer.forceContextLoss();};
 }
 
 /** Eight books per shelf window; a swipe never doubles as a book selection. */
