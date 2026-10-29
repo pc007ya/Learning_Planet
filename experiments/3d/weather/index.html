@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07182d">
+<title>天氣星球｜3D 實驗｜學習星球</title>
+<link rel="stylesheet" href="../shared/planet.css">
+</head>
+<body data-planet="weather" data-mode="guide" data-tab="object">
+<div class="ep-shell">
+<header class="ep-top">
+  <a href="../" aria-label="返回 3D 實驗星球列表" title="返回列表">←</a>
+  <div class="ep-title-wrap"><span class="ep-brand">學習星球 · 3D 互動實驗</span><h1 id="ep-title">天氣星球</h1></div>
+  <nav class="ep-top-modes" aria-label="探索模式"><button type="button" data-mode="guide" aria-pressed="true">引導</button><button type="button" data-mode="free" aria-pressed="false">自由</button></nav>
+  <button type="button" id="ep-quiz-open" aria-label="開啟四選一考題" title="考題">✎</button>
+  <button type="button" id="ep-replay" aria-label="重聽介紹" title="重聽">↻</button>
+  <button type="button" id="ep-voice" aria-label="切換語音" aria-pressed="true" title="語音開關">♫</button>
+</header>
+<main class="ep-main">
+  <section class="ep-view" aria-label="可互動的 3D 實驗場景">
+    <div id="ep-scene" tabindex="0" aria-label="3D 場景；海底可用方向鍵移動小潛水艇"></div>
+    <p class="ep-view-title" id="ep-intro">正在準備實驗場景…</p>
+    <section class="ep-tasks" aria-label="引導任務">
+      <h2>實驗任務 <span id="ep-progress">0 / 0</span></h2>
+      <ol id="ep-missions"></ol>
+    </section>
+    <nav id="ep-dpad" class="is-hidden" aria-label="移動小潛水艇">
+      <button type="button" data-move="up" aria-label="潛水艇上升">↑</button>
+      <button type="button" data-move="left" aria-label="潛水艇向左">←</button>
+      <button type="button" data-move="down" aria-label="潛水艇下降">↓</button>
+      <button type="button" data-move="right" aria-label="潛水艇向右">→</button>
+    </nav>
+  </section>
+  <aside class="ep-side" aria-label="實驗操作面板">
+    <nav id="ep-tab-bar" class="ep-tab-bar" aria-label="參數分類">
+      <button type="button" data-control-tab="object" aria-pressed="true">選物件</button>
+      <button type="button" data-control-tab="conditions" aria-pressed="false">改條件</button>
+    </nav>
+    <section id="ep-controls" aria-label="操作圖卡"></section>
+    <div class="ep-action">
+      <button type="button" id="ep-observe">放入／觀察</button>
+      <button type="button" id="ep-reset" aria-label="重玩本實驗">↺ 重玩</button>
+    </div>
+    <div id="ep-readout" aria-label="觀察數據" role="status">載入中…</div>
+    <p id="ep-message" role="status" aria-live="polite">開始探索！</p>
+  </aside>
+  <section id="ep-quiz" class="ep-quiz" aria-label="考題" hidden>
+    <div class="ep-quiz-header"><strong>觀察後的小挑戰</strong><button type="button" id="ep-quiz-close" aria-label="關閉考題">✕</button></div>
+    <div id="ep-quiz-body"></div>
+  </section>
+</main>
+<footer class="ep-footer">
+  <small id="ep-reward">先完成任務，再來挑戰考題。</small>
+  <small id="ep-log" class="sr-only" aria-live="polite"></small>
+  <a href="../../../index.html?planet=experiment">返回原實驗星球</a>
+</footer>
+</div>
+<script type="module" src="../../../modules/experiment-planets/planet.js"></script>
+</body>
+</html>
