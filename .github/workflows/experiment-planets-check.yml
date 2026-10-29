@@ -44,3 +44,20 @@ jobs:
             test -s "experiments/3d/$name/index.html"
           done
           find modules/experiment-planets/chunks -name '*.js' | grep -q .
+      - name: Complete existing site regression checks
+        run: npm run check
+      - name: Install browser verification tools
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install chromium
+      - name: Screenshot browser tests at tablet sizes
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/experiment-planets-server.log 2>&1 &
+          node scripts/verify-experiment-planets.mjs
+      - name: Upload scenes and quiz screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: experiment-planets-acceptance
+          path: artifacts/experiment-planets/*.png
+          if-no-files-found: ignore
