@@ -1,0 +1,46 @@
+name: Verify 3D Experiment Planets
+on:
+  push:
+    branches:
+      - feature/experiment-planets-isolated-20261029
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/experiment-planets/**'
+      - 'experiments/3d/**'
+      - 'vite.experiment-planets.config.ts'
+      - 'tests/experiment-planets.test.ts'
+      - 'package.json'
+      - 'index.html'
+      - '.github/workflows/experiment-planets-check.yml'
+permissions:
+  contents: read
+concurrency:
+  group: experiment-planets-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Science and isolation tests
+        run: npx vitest run tests/experiment-planets.test.ts
+      - name: Build independent 3D engine
+        run: npm run build:experiment-planets
+      - name: Verify six independent pages and lazy chunks
+        run: |
+          test -s modules/experiment-planets/planet.js
+          test -s experiments/3d/index.html
+          for name in ocean-buoyancy magnet earth-moon plants weather force-motion; do
+            test -s "experiments/3d/$name/index.html"
+          done
+          find modules/experiment-planets/chunks -name '*.js' | grep -q .
