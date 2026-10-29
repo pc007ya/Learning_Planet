@@ -4043,6 +4043,7 @@ const SCI_UNITS = [
   { id: "s18", grade: 6, difficulty: 3, icon: "eco", tint: "#eefaf3", title: "生態環境", sub: "六年級 · 食物網、棲地與環境保護" },
 ];
 const EXPERIMENT_UNITS = [
+  { id: "exp-3d-new", grade: 0, difficulty: 0, icon: "", art: "images/experiments/buoyancy.svg", tint: "#dff9f2", title: "3D 實驗新星球（新）", sub: "六顆獨立星球 · 海洋浮力、磁鐵、地月、植物、天氣與力", kind: "experiment" },
   { id: "exp-dissolve", grade: 0, difficulty: 0, icon: "🧪", art: "images/subject-unit-icons/v2/experiment-dissolve-v2.png", tint: "#fff3d8", title: "溶解科學實驗室", sub: "自由實驗 · 拖曳方糖、攪拌、加熱與觀察飽和", kind: "experiment" },
   { id: "exp-magnet", grade: 0, difficulty: 0, icon: "🧲", art: "images/subject-unit-icons/v2/experiment-magnet-v2.png", tint: "#e8f7ff", title: "磁鐵原理實驗室", sub: "自由實驗 · 吸引、排斥與磁性材料", kind: "experiment" },
   { id: "exp-magnet-ii", grade: 0, difficulty: 0, icon: "🧲", art: "images/subject-unit-icons/v2/experiment-magnet-ii-v2.png", tint: "#fff2d9", title: "磁鐵原理實驗室 II", sub: "任務實驗 · 預測、磁極旋轉、吸引排斥與材料測試", kind: "experiment" },
@@ -8365,6 +8366,7 @@ class Component extends DCLogic {
     if (id === "exp-earth-lab") { window.LearningPlanetEarthLab.open(); return; }
     if (id === "exp-fire-weather") { window.location.assign("./science-fire-weather.html"); return; }
     if (id === "exp-optics") { window.location.assign("./science-optics.html"); return; }
+    if (id === "exp-3d-new") { window.location.assign("./experiments/3d/"); return; }
     if (["exp-buoyancy", "exp-clock-mechanism", "exp-pullback-car", "exp-cube-mechanism", "exp-mini4wd"].includes(id)) { this.setState({ screen: "interactiveLab", subject: "experiment", unit: id }); return; }
     if (["s7", "s8", "s20", "s21"].indexOf(id) >= 0) { this.startMindmap(id); return; }
     if (id === "c5" || id === "c6") { this.startWriting(id === "c5" ? 1 : 2); return; }
