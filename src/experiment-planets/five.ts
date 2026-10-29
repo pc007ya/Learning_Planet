@@ -94,6 +94,7 @@ function magnetStage(group:THREE.Group) {
     bar.name=i===0?'magnet-left':'magnet-right';
   }
   const nail=tube(.09,.9,0xe4e8ec);nail.rotation.z=Math.PI/2;nail.position.set(0,-.9,1.1);nail.name='nail';group.add(nail);
+  const plastic=tube(.12,.9,0xf6bc78);plastic.rotation.z=Math.PI/2;plastic.position.set(0,-.9,1.1);plastic.name='plastic';plastic.visible=false;group.add(plastic);
   const field=sphere(.28,0x91fff0);field.position.set(0,.85,0);field.name='field';group.add(field);
 }
 function earthStage(group:THREE.Group) {
@@ -131,7 +132,7 @@ function forceStage(group:THREE.Group) {
   const track=box(12,.28,2.4,0xc7d0d6);track.position.y=-1.38;group.add(track);
   const car=new THREE.Group();car.name='car';
   const body=box(1.35,.65,.8,0xffbe70);body.position.y=.4;car.add(body);
-  for(const x of [-.48,.48])for(const z of [-.47,.47]){const wheel=tube(.27,.16,0x333a59);wheel.rotation.x=Math.PI/2;wheel.position.set(x,0,z);car.add(wheel);}
+  for(const x of [-.48,.48])for(const z of [-.47,.47]){const wheel=tube(.27,.16,0x333a59);wheel.rotation.x=Math.PI/2;wheel.position.set(x,0,z);wheel.name='wheel';car.add(wheel);}
   car.position.set(-3,-.92,0);group.add(car);
   const arrow=new THREE.ArrowHelper(new THREE.Vector3(1,0,0),new THREE.Vector3(-3,.62,0),1.2,0x77f1bd,.3,.2);arrow.name='force-arrow';group.add(arrow);
 }
@@ -161,6 +162,7 @@ export function createOther(stage:Stage, id:string):World {
       if(right){right.position.x=state.distance==='far'?3:1.55;right.rotation.y=state.pole==='same'?Math.PI:0;}
       const field=root.getObjectByName('field');if(field)field.scale.setScalar(state.distance==='near'?1.4:.7);
       const nail=root.getObjectByName('nail');if(nail)nail.visible=state.material==='iron';
+      const plastic=root.getObjectByName('plastic');if(plastic)plastic.visible=state.material==='plastic';
     }
     if(slug==='earth-moon'){
       const moon=root.getObjectByName('moon');
@@ -213,7 +215,7 @@ export function createOther(stage:Stage, id:string):World {
       if(slug==='force-motion'&&carMoving){
         const a=motionAcceleration(state.force==='strong'?8:3,state.mass==='light'?1:2,state.surface==='rough'?.28:.09);
         carSpeed=Math.min(8,carSpeed+a*dt);
-        const car=root.getObjectByName('car');if(car){car.position.x+=carSpeed*dt;if(car.position.x>=4.15){car.position.x=4.15;carMoving=false;}}
+        const car=root.getObjectByName('car');if(car){car.position.x+=carSpeed*dt;car.traverse(o=>{if(o.name==='wheel')o.rotateY(carSpeed*dt/.27);});if(car.position.x>=4.15){car.position.x=4.15;carMoving=false;}}
       }
     },
     reset(){seen.clear();for(const c of spec.controls)state[c.id]=c.values[0].id;visual();},
