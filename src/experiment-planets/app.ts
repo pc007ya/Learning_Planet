@@ -46,6 +46,8 @@ function sync(){
   setText(readout,world.readout());
   const done=world.completed().map((yes,i)=>yes||completedAtStart.includes(i));
   completedAtStart=done.flatMap((yes,i)=>yes?[i]:[]);
+  if(quizPassed && done.every(Boolean))rewarded=true;
+  if(id==='earth-moon')document.body.dataset.phase=world.selected('phase');
   setText(progress,done.filter(Boolean).length+' / '+done.length+' 項任務');
   if(missions){
     missions.innerHTML=world.missions.map((m,i)=>
