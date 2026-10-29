@@ -94,7 +94,7 @@ export function createOcean(stage: Stage): World {
   }
   refresh();
   function observe() {
-    const p=params(); const marker=[data.object,data.water,data.mass,data.volume].join('|');
+    const marker=[data.object,data.water,data.mass,data.volume].join('|');
     seen.add(marker);
     targetGroup.position.set(2.1,2.28,1.15);
     verticalSpeed=0;ready=true;
@@ -120,7 +120,7 @@ export function createOcean(stage: Stage): World {
       const rect=canvas.getBoundingClientRect();
       targetGroup.position.x=Math.max(-.4,Math.min(4,(e.clientX-rect.left)/rect.width*8-3));
     },{signal:abort.signal});
-    for(const name of ['pointerup','pointercancel','lostpointercapture'])canvas.addEventListener(name,e=>{if(dragging===e.pointerId)dragging=null;},{signal:abort.signal});
+    for(const name of ['pointerup','pointercancel','lostpointercapture'])canvas.addEventListener(name,e=>{if(dragging===(e as PointerEvent).pointerId)dragging=null;},{signal:abort.signal});
   }
   const world: World = {
     name:'海洋浮力實驗星球',
