@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - feature/experiment-planets-isolated-20261029
-      - feature/tides-lesson-20261029
   pull_request:
     branches: [main]
     paths:
