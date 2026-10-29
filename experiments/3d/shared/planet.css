@@ -67,7 +67,15 @@ button:focus-visible,a:focus-visible{outline:3px solid #ffd577;outline-offset:2p
 .ep-answers button[aria-pressed="true"]{outline:2px solid #f2ce79;background:#286c75}
 #ep-quiz-feedback{background:#143452;padding:8px;border-radius:11px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(max-height:670px){.ep-shell{grid-template-rows:55px minmax(0,1fr) 34px;gap:5px;padding:5px}.ep-top a,.ep-top button{min-height:44px}.ep-side{padding:7px;gap:5px}.ep-group{padding:5px}.ep-options button{min-height:40px}.ep-action button{min-height:44px}.ep-tasks{padding:6px}.ep-tasks h2{margin-bottom:2px}#ep-missions li small{display:none}#ep-readout{min-height:38px;padding:5px}#ep-message{min-height:20px}.ep-footer{padding:2px 9px}.ep-footer a{min-height:29px}}
+@media(max-height:670px){.ep-shell{grid-template-rows:55px minmax(0,1fr) 34px;gap:5px;padding:5px}.ep-top a,.ep-top button{min-height:44px}.ep-side{padding:7px;gap:5px}.ep-group{padding:5px}.ep-options button{min-height:44px}.ep-action button{min-height:44px}.ep-tasks{padding:6px}.ep-tasks h2{margin-bottom:2px}#ep-missions li small{display:none}#ep-readout{min-height:38px;padding:5px}#ep-message{min-height:20px}.ep-footer{padding:2px 9px}.ep-footer a{min-height:29px}}
 @media(max-width:700px) and (orientation:portrait){.ep-shell{grid-template-rows:55px minmax(0,1fr) 35px}.ep-main{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(180px,1fr) minmax(230px,1fr)}.ep-top .ep-brand{display:none}.ep-top .ep-top-modes button{padding:0 4px;min-width:44px;font-size:11px}.ep-tasks{width:min(220px,48%)}#ep-missions li small{display:none}.ep-side{gap:5px}.ep-group{padding:5px}.ep-options button{min-height:42px}#ep-controls{display:flex;flex-direction:row;flex-wrap:wrap;align-items:stretch}.ep-group{flex:1 1 32%;min-width:120px}.ep-quiz{width:100%;height:55%;top:auto;bottom:0}.ep-answers{grid-template-columns:1fr 1fr}.ep-footer small{font-size:10px}}
 @media(max-height:500px){.ep-top .ep-brand{display:none}.ep-tasks{width:40%}#ep-missions li:nth-child(n+4){display:none}}
 @media(prefers-reduced-motion:reduce){.ep-options button:active{transform:none}}
+
+/* Moon phases seen from Earth; deliberately distinct from the orbital-position 3D model. */
+[data-planet="earth-moon"] #ep-readout{display:flex;align-items:center;gap:9px}
+[data-planet="earth-moon"] #ep-readout::before{content:"";display:inline-block;flex:0 0 28px;width:28px;height:28px;border-radius:50%;border:1px solid #b5c8dc;box-shadow:0 0 0 2px #102b4b}
+[data-planet="earth-moon"][data-phase="new"] #ep-readout::before{background:#192b48}
+[data-planet="earth-moon"][data-phase="quarter"] #ep-readout::before{background:linear-gradient(to right,#1b2e49 50%,#e9edf5 50%)}
+[data-planet="earth-moon"][data-phase="full"] #ep-readout::before{background:#e9edf5}
+[data-planet="earth-moon"][data-phase="last"] #ep-readout::before{background:linear-gradient(to right,#e9edf5 50%,#1b2e49 50%)}
