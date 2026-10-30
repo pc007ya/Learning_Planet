@@ -26,7 +26,7 @@ describe('ideal tide science, never a coastal prediction',()=>{
   });
 });
 describe('tide lesson isolation and scientific caveats',()=>{
-  const html=readFileSync('experiments/3d/earth-moon/tides/index.html','utf8');
+  const html=readFileSync('experiments/3d/earth-moon/tides/classic.html','utf8');
   const source=readFileSync('src/tides/app.ts','utf8');
   it('is linked from Earth-Moon and loads only its own small module',()=>{
     expect(readFileSync('experiments/3d/earth-moon/index.html','utf8')).toContain('href="./tides/"');

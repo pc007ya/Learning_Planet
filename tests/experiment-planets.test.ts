@@ -30,6 +30,7 @@ describe('3D experiment planets: independent deployment and regression', () => {
       const path=root+page+'/index.html';
       expect(existsSync(path)).toBe(true);
       const html=readFileSync(path,'utf8');
+      if(page==='earth-moon'){expect(html).toContain('../../../modules/tides3d/tides3d.js');expect(html).toContain('../shared/tides3d.css');expect(html).toContain('id="space"');expect(html).toContain('id="quiz"');continue;}
       expect(html).toContain('../../../modules/experiment-planets/planet.js');
       expect(html).toContain('../shared/planet.css');
       expect(html).not.toContain('https://cdn.');

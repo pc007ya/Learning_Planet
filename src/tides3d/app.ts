@@ -1,0 +1,56 @@
+import { TideStage,type View } from './stage';
+import { phase,phasePath,radians,tideAmplitude,wrap } from '../tides/model';
+import { shoreLevel } from './science';
+import { SceneNarration } from '../experiments/narration';
+const $=<T extends HTMLElement>(id:string)=>document.getElementById(id) as T;
+const moonMode=document.body.dataset.lesson==='moon';
+const base=new URL(document.body.dataset.root||'../../../../',document.baseURI);
+const narration=new SceneNarration();let stage:TideStage|undefined;let angle=45,observer=90,spin=0,playing=false,demo=false;let lastSpoken='';let pausedByOverlay=false;
+const steps=moonMode?[
+ ['陽光照到哪裡？','先看亮面與夜面。空白處拖動，可以從不同方向觀察。','地球只有朝向太陽的一半被照亮。'],
+ ['月球可以直接拖','抓住「月球」沿軌道移動。注意：從太空看亮面，和從地球看月相不同。','試著讓日、地、月排成一直線。'],
+ ['地球看見什麼月相？','拖動或點月相圖卡，對照旁邊的「地球視角」。','新月、上弦、滿月、下弦都可以親手排出來。'],
+ ['月球怎麼改變海水？','進入潮汐探險，讓月球、海水殼、海岸與曲線一起變化。','原本的地球觀測台與其他實驗均保留。']
+]:[
+ ['海水為什麼升降？','看海岸水尺，再轉動金色觀測點。它走過海水較高、較低的位置。','這是假想赤道海岸；不是台灣實際潮時。'],
+ ['為什麼兩側都隆起？','旋轉視角，找出近月側與遠月側。月球拉著整個地球，近側較多、遠側較少。','遠側也被吸引，不是月球把海水推開。'],
+ ['大潮、小潮怎麼來？','拖月球，對照地球視角月相、立體水殼與曲線。試試直角和一直線。','小潮仍有潮汐；日月相加的方向也會改變隆起方向。'],
+ ['模型可以預報潮時嗎？','不可以。真實海岸的地形、海深、摩擦與天氣，都會改變潮汐。','月亮在頭頂，也不代表當地正好滿潮。']
+];
+function speak(text:string){lastSpoken=text;narration.say(text);}
+function feedback(text:string){$('feedback').textContent=text;speak(text);}
+function phaseSvg(a:number){return `<svg viewBox="-26 -26 52 52" aria-hidden="true"><circle r="24" fill="#132b45" stroke="#9bb1c5"/><path d="${phasePath(a)}" fill="#f6efd9"/></svg>`;}
+function selectStep(n:number){document.body.dataset.step=String(n);document.querySelectorAll<HTMLButtonElement>('[data-step]').forEach(b=>b.setAttribute('aria-current',Number(b.dataset.step)===n?'step':'false'));const s=steps[n];$('question').textContent=s[0];$('instruction').textContent=s[1];$('science-note').textContent=s[2];$('step-title').textContent=`${n+1} / 4 · ${moonMode?'地月觀察':'潮汐探險'}`;$('goal').textContent=moonMode?'操作目標：移動月球，看看亮面如何改變。':n===0?'操作目標：改變觀測點，找到海岸高、低水位。':n===1?'操作目標：轉到俯視，指出兩側隆起。':n===2?'操作目標：排出小潮，再排出大潮。':'操作目標：知道模型和真實預報的差別。';if(n===3){$('official').hidden=false;if(moonMode){$<HTMLAnchorElement>('official').href='./tides/';$('official').textContent='進入立體潮汐探險 →';}}else $('official').hidden=true;speak(s[0]+' '+s[1]+' '+s[2]);}
+function setPlaying(value:boolean){playing=value;if(stage){stage.playing=value;stage.wake();}$('play').setAttribute('aria-pressed',String(value));$('play').textContent=value?'Ⅱ 暫停':'▷ 播放';}
+function sync(){
+ const p=phase(angle),range=2*tideAmplitude(angle),h=shoreLevel(observer,angle);
+ $('phase-view').innerHTML=phaseSvg(angle);$('phase-name').textContent=p.name;$('phase-detail').textContent=`地球視角 · 受光約 ${Math.round(p.lit*100)}%`;
+ $('range').textContent=moonMode?Math.round(angle)+'°':range.toFixed(2);if(!moonMode)$('shore-height').textContent=(h>=0?'+':'')+h.toFixed(2);$('angle-readout').textContent=`月球 ${Math.round(angle)%360}° · 觀測點 ${Math.round(observer)%360}°`;
+ document.querySelectorAll<HTMLButtonElement>('[data-angle]').forEach(b=>b.setAttribute('aria-pressed',String(Math.abs(wrap(angle)-Number(b.dataset.angle))<1)));
+ const data=Array.from({length:181},(_,i)=>`${24+i*1.58},${70-25*shoreLevel(i*2,angle)}`);
+ $('curve-line').setAttribute('points',data.join(' '));$('curve-point').setAttribute('cx',String(24+observer/360*284.4));$('curve-point').setAttribute('cy',String(70-25*h));
+ if(!moonMode){const y=89-h*17;$('sea').setAttribute('d',`M0 ${y}Q35 ${y-3} 70 ${y}T140 ${y}T210 ${y}T320 ${y}V170H0Z`);$('water-mark').setAttribute('cy',String(y));
+ $('shore-state').textContent=h>.7?'水位較高':h<-.7?'水位較低':'水位在中間';}else $('earth-moon-portrait').innerHTML=phaseSvg(angle);stage?.update(angle,observer,spin);
+}
+function changed(kind:'moon'|'observer',value:number){if(!demo)setPlaying(false);if(kind==='moon')angle=wrap(value);else{const delta=value-observer;observer=wrap(value);spin+=delta;}sync();}
+function stopDrag(){const p=phase(angle);feedback(`觀察到了：${p.name}，示意潮差 ${ (2*tideAmplitude(angle)).toFixed(2)}；海岸相對水位 ${shoreLevel(observer,angle).toFixed(2)}。`);}
+function selectAux(value:string){document.body.dataset.aux=value;document.querySelectorAll<HTMLButtonElement>('[data-aux]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.aux===value)));$('shore-panel').hidden=value!=='shore';$('curve-panel').hidden=value!=='curve';$('model-panel').hidden=value!=='model';}
+function reset(){demo=false;setPlaying(false);angle=45;observer=90;spin=0;stage?.setView('space');sync();feedback('已回到斜角觀察。試試拖月球或切到俯視。');}
+function openOverlay(title:string,html:string){pausedByOverlay=playing;setPlaying(false);narration.stop();$('dialog-title').textContent=title;$('dialog-content').innerHTML=html;$<HTMLDialogElement>('dialog').showModal();$('close-dialog').focus();}
+function showQuiz(){openOverlay('看圖找小潮','<p>選出日月成直角的一張。小潮仍然有海水升降。</p><div class="quiz-cards">'+[0,90,180,270].map((a,i)=>`<button data-answer="${a}"><svg viewBox="0 0 140 90" aria-hidden="true"><circle cx="105" cy="45" r="15" fill="#ffd18a"/><circle cx="50" cy="45" r="15" fill="#6bc2db"/><circle cx="${50+30*Math.cos(radians(a))}" cy="${45-30*Math.sin(radians(a))}" r="7" fill="#eee7d2"/></svg><span>圖 ${i+1} · ${phase(a).name}</span></button>`).join('')+'</div><p id="answer-feedback" role="status">上弦和下弦各有一張。</p>');document.querySelectorAll<HTMLButtonElement>('[data-answer]').forEach(b=>b.onclick=()=>{const correct=Number(b.dataset.answer)%180!==0;const text=correct?'答對！日月成直角，小潮的潮差較小，仍有潮汐。':'再觀察。日月排成一直線時，通常是大潮。';$('answer-feedback').textContent=text;speak(text);});}
+async function boot(){
+ document.body.dataset.lesson=moonMode?'moon':'tides';if(moonMode){document.querySelector<HTMLElement>('.range small')!.textContent='月球位置';$('shore-panel').innerHTML='<div id="earth-moon-portrait"></div><p>這是從地球看見的月相。它和太空中俯視月球的亮面不同。</p><p>拖月球，親手排出四種月相。</p>';document.querySelector<HTMLElement>('[data-aux="shore"]')!.textContent='地球視角';$('model-panel').innerHTML='<strong>太陽只照亮一半月球</strong><p>我們看見的亮面比例，隨日、地、月的位置而改變。新月不是月球消失。</p><p>地球視角以北方朝上示意；不模擬日月食、緯度與真實日曆。</p>';}$('title').textContent=moonMode?'地球與月球 · 立體觀測':'潮汐 · 立體觀測';$('tide-link').hidden=!moonMode;document.querySelectorAll<HTMLButtonElement>('[data-angle]').forEach(b=>{b.innerHTML=phaseSvg(Number(b.dataset.angle))+`<span>${phase(Number(b.dataset.angle)).name}</span>`;b.onclick=()=>{demo=false;changed('moon',Number(b.dataset.angle));stopDrag();};});
+ document.querySelectorAll<HTMLButtonElement>('[data-step]').forEach(b=>b.onclick=()=>selectStep(Number(b.dataset.step)));
+ document.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(b=>b.onclick=()=>{stage?.setView(b.dataset.view as View);document.querySelectorAll('[data-view]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));feedback('已切換觀測視角。空白處拖動可繼續旋轉。');});
+ document.querySelectorAll<HTMLButtonElement>('[data-aux]').forEach(b=>b.onclick=()=>selectAux(b.dataset.aux||'shore'));
+ $('play').onclick=()=>{demo=false;setPlaying(!playing);};$('reset').onclick=reset;$('zoom-in').onclick=()=>stage?.zoom(.85);$('zoom-out').onclick=()=>stage?.zoom(1.17);
+ $('observer-back').onclick=()=>changed('observer',observer-20);$('observer-next').onclick=()=>changed('observer',observer+20);
+ $('demo').onclick=()=>{demo=true;angle=0;observer=90;stage?.setView('top');setPlaying(true);feedback('示範：月球沿軌道移動。看一直線與直角的潮差；按暫停可接手操作。');};
+ $('help').onclick=()=>{const s=steps[Number(document.body.dataset.step)||0];openOverlay(s[0],'<p>'+s[1]+'</p><p>'+s[2]+'</p>');};$('quiz').onclick=showQuiz;$('voice').onclick=()=>{narration.enabled=!narration.enabled;$('voice').setAttribute('aria-pressed',String(narration.enabled));if(narration.enabled)narration.say(lastSpoken,true);else narration.stop();};$('replay').onclick=()=>narration.say(lastSpoken,true);
+ $('sources').onclick=()=>openOverlay('模型、素材與限制','<p>地表與月球沿用學習星球原觀測台已入庫貼圖，沒有複製 X 或銅匠素材。地表／晨昏線沿用原觀測台光照做法；原模組不變。</p><p>海水殼是理想平衡潮 P₂ 模型，厚度、潮幅、天體大小與距離都誇大。赤道海岸與曲線取同一模型相對赤道平均水位的變化，不代表全球平均或實際公尺。</p><p>不是各海岸每天都固定兩次滿潮；月球在頭頂也不能判斷當地潮時。不是台灣潮時預報。</p><p><a href="https://www.noaa.gov/education/resource-collections/ocean-coasts/tides" target="_blank" rel="noopener">NOAA 潮汐原理</a> · <a href="https://science.nasa.gov/moon/tides/" target="_blank" rel="noopener">NASA 潮汐</a> · <a href="https://www.cwa.gov.tw/V8/C/M/tide.html" target="_blank" rel="noopener">中央氣象署</a></p>');
+ $('close-dialog').onclick=()=>$<HTMLDialogElement>('dialog').close();$('dialog').addEventListener('close',()=>{narration.stop();if(pausedByOverlay)feedback('已暫停在原位置。按播放繼續。');});
+ const media=matchMedia('(max-width:700px)');const adapt=()=>{const target=media.matches?$('mobile-aux'):$('aux-home');const phaseOptions=document.querySelector<HTMLElement>('.phase-options')!;const actions=document.querySelector<HTMLElement>('.actions')!;if(media.matches){$('phase-home').after(phaseOptions);$('actions-home').after(actions);}else{document.querySelector('.world')!.append(phaseOptions,actions);}for(const id of ['shore-panel','curve-panel','model-panel'])target.append($ (id));selectAux(media.matches?'space':'shore');};media.addEventListener('change',adapt);adapt();selectStep(0);sync();
+ try{stage=await TideStage.create($('space'),base,changed,stopDrag,dt=>{if(!dt)return;angle=wrap(angle+dt*(demo?15:6));if(!moonMode){observer=wrap(observer+dt*12);spin+=dt*12;}sync();},moonMode);$('loading').hidden=true;document.body.dataset.tides3dReady='true';sync();}catch(error){console.error(error);$('loading').textContent='立體場景載入失敗。可以重整，或先使用旁邊的2D輔助圖。';document.body.dataset.tides3dReady='error';}
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){setPlaying(false);narration.stop();}});window.addEventListener('pagehide',()=>{narration.stop();stage?.dispose();},{once:true});
+}
+void boot();
