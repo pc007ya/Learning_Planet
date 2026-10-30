@@ -16,6 +16,7 @@ try{
    if(a===45){await page.locator('#reset').click();assert.equal(await page.locator('button[data-view=space]').getAttribute('aria-pressed'),'true');}else await page.locator(`[data-angle="${a}"]`).click();
    assert.equal(await page.locator('.world-handle.moon').getAttribute('aria-valuenow'),String(a));await page.locator(`#space[data-render-angle="${a}"]`).waitFor({state:'visible'});
    assert.equal(await page.locator('#space').getAttribute('data-sun-visible'),'true');const moonBox=await page.locator('.world-handle.moon').boundingBox(),spaceBox=await page.locator('#space').boundingBox();assert(moonBox.x>=spaceBox.x&&moonBox.x+moonBox.width<=spaceBox.x+spaceBox.width,'Moon handle clipped');
+   const painted=await page.evaluate(()=>{const source=document.querySelector('#space canvas'),sample=document.createElement('canvas');sample.width=sample.height=64;const ctx=sample.getContext('2d');ctx.drawImage(source,0,0,64,64);const pixels=ctx.getImageData(0,0,64,64).data;let bright=0;for(let i=0;i<pixels.length;i+=4)if(pixels[i]+pixels[i+1]+pixels[i+2]>110)bright++;return bright;});assert(painted>30,'3D canvas was blank');
    await page.screenshot({path:`artifacts/tides3d/${size.width}x${size.height}-angle-${a}.png`});
    assert((await page.locator('#range').textContent()).includes(a%180===0?'2.92':a===45?'2.20':'1.08'));
   }
