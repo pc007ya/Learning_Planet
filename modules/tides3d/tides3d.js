@@ -20442,7 +20442,7 @@ class Em {
     e.drawingBufferColorSpace = Gt._getDrawingBufferColorSpace(t), e.unpackColorSpace = Gt._getUnpackColorSpace();
   }
 }
-const cl = { type: "change" }, Ga = { type: "start" }, Kl = { type: "end" }, Lr = new Qi(), hl = new mn(), ym = Math.cos(70 * Kc.DEG2RAD), fe = new L(), Le = 2 * Math.PI, $t = {
+const cl = { type: "change" }, Ga = { type: "start" }, Kl = { type: "end" }, Lr = new Qi(), hl = new mn(), ym = Math.cos(70 * Kc.DEG2RAD), pe = new L(), Le = 2 * Math.PI, $t = {
   NONE: -1,
   ROTATE: 0,
   DOLLY: 1,
@@ -20525,7 +20525,7 @@ class Tm extends Bh {
   }
   update(t = null) {
     const e = this.object.position;
-    fe.copy(e).sub(this.target), fe.applyQuaternion(this._quat), this._spherical.setFromVector3(fe), this.autoRotate && this.state === $t.NONE && this._rotateLeft(this._getAutoRotationAngle(t)), this.enableDamping ? (this._spherical.theta += this._sphericalDelta.theta * this.dampingFactor, this._spherical.phi += this._sphericalDelta.phi * this.dampingFactor) : (this._spherical.theta += this._sphericalDelta.theta, this._spherical.phi += this._sphericalDelta.phi);
+    pe.copy(e).sub(this.target), pe.applyQuaternion(this._quat), this._spherical.setFromVector3(pe), this.autoRotate && this.state === $t.NONE && this._rotateLeft(this._getAutoRotationAngle(t)), this.enableDamping ? (this._spherical.theta += this._sphericalDelta.theta * this.dampingFactor, this._spherical.phi += this._sphericalDelta.phi * this.dampingFactor) : (this._spherical.theta += this._sphericalDelta.theta, this._spherical.phi += this._sphericalDelta.phi);
     let n = this.minAzimuthAngle, r = this.maxAzimuthAngle;
     isFinite(n) && isFinite(r) && (n < -Math.PI ? n += Le : n > Math.PI && (n -= Le), r < -Math.PI ? r += Le : r > Math.PI && (r -= Le), n <= r ? this._spherical.theta = Math.max(n, Math.min(r, this._spherical.theta)) : this._spherical.theta = this._spherical.theta > (n + r) / 2 ? Math.max(n, this._spherical.theta) : Math.min(r, this._spherical.theta)), this._spherical.phi = Math.max(this.minPolarAngle, Math.min(this.maxPolarAngle, this._spherical.phi)), this._spherical.makeSafe(), this.enableDamping === !0 ? this.target.addScaledVector(this._panOffset, this.dampingFactor) : this.target.add(this._panOffset), this.target.sub(this.cursor), this.target.clampLength(this.minTargetRadius, this.maxTargetRadius), this.target.add(this.cursor);
     let s = !1;
@@ -20535,10 +20535,10 @@ class Tm extends Bh {
       const a = this._spherical.radius;
       this._spherical.radius = this._clampDistance(this._spherical.radius * this._scale), s = a != this._spherical.radius;
     }
-    if (fe.setFromSpherical(this._spherical), fe.applyQuaternion(this._quatInverse), e.copy(this.target).add(fe), this.object.lookAt(this.target), this.enableDamping === !0 ? (this._sphericalDelta.theta *= 1 - this.dampingFactor, this._sphericalDelta.phi *= 1 - this.dampingFactor, this._panOffset.multiplyScalar(1 - this.dampingFactor)) : (this._sphericalDelta.set(0, 0, 0), this._panOffset.set(0, 0, 0)), this.zoomToCursor && this._performCursorZoom) {
+    if (pe.setFromSpherical(this._spherical), pe.applyQuaternion(this._quatInverse), e.copy(this.target).add(pe), this.object.lookAt(this.target), this.enableDamping === !0 ? (this._sphericalDelta.theta *= 1 - this.dampingFactor, this._sphericalDelta.phi *= 1 - this.dampingFactor, this._panOffset.multiplyScalar(1 - this.dampingFactor)) : (this._sphericalDelta.set(0, 0, 0), this._panOffset.set(0, 0, 0)), this.zoomToCursor && this._performCursorZoom) {
       let a = null;
       if (this.object.isPerspectiveCamera) {
-        const o = fe.length();
+        const o = pe.length();
         a = this._clampDistance(o * this._scale);
         const c = o - a;
         this.object.position.addScaledVector(this._dollyDirection, c), this.object.updateMatrixWorld(), s = !!c;
@@ -20548,7 +20548,7 @@ class Tm extends Bh {
         const c = this.object.zoom;
         this.object.zoom = Math.max(this.minZoom, Math.min(this.maxZoom, this.object.zoom / this._scale)), this.object.updateProjectionMatrix(), s = c !== this.object.zoom;
         const l = new L(this._mouse.x, this._mouse.y, 0);
-        l.unproject(this.object), this.object.position.sub(l).add(o), this.object.updateMatrixWorld(), a = fe.length();
+        l.unproject(this.object), this.object.position.sub(l).add(o), this.object.updateMatrixWorld(), a = pe.length();
       } else
         console.warn("WARNING: OrbitControls.js encountered an unknown camera type - zoom to cursor disabled."), this.zoomToCursor = !1;
       a !== null && (this.screenSpacePanning ? this.target.set(0, 0, -1).transformDirection(this.object.matrix).multiplyScalar(a).add(this.object.position) : (Lr.origin.copy(this.object.position), Lr.direction.set(0, 0, -1).transformDirection(this.object.matrix), Math.abs(this.object.up.dot(Lr.direction)) < ym ? this.object.lookAt(this.target) : (hl.setFromNormalAndCoplanarPoint(this.object.up, this.target), Lr.intersectPlane(hl, this.target))));
@@ -20572,18 +20572,18 @@ class Tm extends Bh {
     this._sphericalDelta.phi -= t;
   }
   _panLeft(t, e) {
-    fe.setFromMatrixColumn(e, 0), fe.multiplyScalar(-t), this._panOffset.add(fe);
+    pe.setFromMatrixColumn(e, 0), pe.multiplyScalar(-t), this._panOffset.add(pe);
   }
   _panUp(t, e) {
-    this.screenSpacePanning === !0 ? fe.setFromMatrixColumn(e, 1) : (fe.setFromMatrixColumn(e, 0), fe.crossVectors(this.object.up, fe)), fe.multiplyScalar(t), this._panOffset.add(fe);
+    this.screenSpacePanning === !0 ? pe.setFromMatrixColumn(e, 1) : (pe.setFromMatrixColumn(e, 0), pe.crossVectors(this.object.up, pe)), pe.multiplyScalar(t), this._panOffset.add(pe);
   }
   // deltaX and deltaY are in pixels; right and down are positive
   _pan(t, e) {
     const n = this.domElement;
     if (this.object.isPerspectiveCamera) {
       const r = this.object.position;
-      fe.copy(r).sub(this.target);
-      let s = fe.length();
+      pe.copy(r).sub(this.target);
+      let s = pe.length();
       s *= Math.tan(this.object.fov / 2 * Math.PI / 180), this._panLeft(2 * t * s / n.clientHeight, this.object.matrix), this._panUp(2 * e * s / n.clientHeight, this.object.matrix);
     } else this.object.isOrthographicCamera ? (this._panLeft(t * (this.object.right - this.object.left) / this.object.zoom / n.clientWidth, this.object.matrix), this._panUp(e * (this.object.top - this.object.bottom) / this.object.zoom / n.clientHeight, this.object.matrix)) : (console.warn("WARNING: OrbitControls.js encountered an unknown camera type - pan disabled."), this.enablePan = !1);
   }
@@ -21114,10 +21114,14 @@ class qa {
     this.last = t, this.playing && this.onTick(e), this.orbit.update(), this.drawFrame(), this.playing || t < this.movingUntil ? this.frame = requestAnimationFrame(this.render) : this.frame = 0;
   };
   drawFrame() {
-    this.host.dataset.camera = this.camera.position.toArray().map((t) => t.toFixed(2)).join(","), this.renderer.render(this.scene, this.camera);
-    for (const t of this.labelNodes) {
-      const e = t.point().clone().project(this.camera);
-      t.node.style.left = `${(e.x * 0.5 + 0.5) * this.host.clientWidth}px`, t.node.style.top = `${(-e.y * 0.5 + 0.5) * this.host.clientHeight}px`, t.node.classList.toggle("label-above", (-e.y * 0.5 + 0.5) * this.host.clientHeight > this.host.clientHeight - 145), t.node.style.visibility = Math.abs(e.x) > 1.05 || Math.abs(e.y) > 1.05 || e.z > 1 ? "hidden" : "visible";
+    this.host.dataset.camera = this.camera.position.toArray().map((s) => s.toFixed(2)).join(","), this.renderer.render(this.scene, this.camera);
+    const t = this.moon.position.clone().sub(this.camera.position), e = -this.camera.position.dot(t) / t.lengthSq(), n = e > 0 && e < 1 && this.camera.position.clone().addScaledVector(t, e).length() < 2.1;
+    this.moonButton.classList.toggle("occluded", n), this.moonButton.querySelector(".handle-label").textContent = n ? "月球在地球後方 · 拖動" : "月球 · 拖動";
+    const r = this.marker.position.dot(this.camera.position.clone().sub(this.marker.position)) > 0;
+    this.markerButton.querySelector(".handle-label").textContent = r ? "海岸觀測點" : "背側海岸觀測點";
+    for (const s of this.labelNodes) {
+      const a = s.point().clone().project(this.camera), o = (-a.y * 0.5 + 0.5) * this.host.clientHeight - (s.node === this.moonButton && n ? 64 : 0);
+      s.node.style.left = `${(a.x * 0.5 + 0.5) * this.host.clientWidth}px`, s.node.style.top = `${o}px`, s.node.classList.toggle("label-above", s.node === this.moonButton && n || o > this.host.clientHeight - 145), s.node.style.visibility = Math.abs(a.x) > 1.05 || Math.abs(a.y) > 1.05 || a.z > 1 ? "hidden" : "visible";
     }
     this.host.dataset.renderAngle = String(Math.round(Ue(this.moonAngle)) % 360);
   }
@@ -21144,9 +21148,9 @@ class Xm {
     this.utterance && "speechSynthesis" in window && speechSynthesis.cancel(), this.utterance = void 0;
   }
 }
-const ut = (i) => document.getElementById(i), pe = document.body.dataset.lesson === "moon", qm = new URL(document.body.dataset.root || "../../../../", document.baseURI), Ve = new Xm();
+const ut = (i) => document.getElementById(i), fe = document.body.dataset.lesson === "moon", qm = new URL(document.body.dataset.root || "../../../../", document.baseURI), Ve = new Xm();
 let Ze, ce = 45, Pe = 270, Ci = 0, Ya = !1, vi = !1, wa = "", $l = !1;
-const jl = "lp:tides3d:review:" + (pe ? "moon" : "tides");
+const jl = "lp:tides3d:review:" + (fe ? "moon" : "tides");
 let Jl = 0;
 try {
   const i = JSON.parse(sessionStorage.getItem(jl) || "{}");
@@ -21159,7 +21163,7 @@ function Ka() {
   } catch {
   }
 }
-const Ql = pe ? [
+const Ql = fe ? [
   ["陽光照到哪裡？", "先看亮面與夜面。空白處拖動，可以從不同方向觀察。", "地球只有朝向太陽的一半被照亮。"],
   ["月球可以直接拖", "抓住「月球」沿軌道移動。注意：從太空看亮面，和從地球看月相不同。", "試著讓日、地、月排成一直線。"],
   ["地球看見什麼月相？", "拖動或點月相圖卡，對照旁邊的「地球視角」。", "新月、上弦、滿月、下弦都可以親手排出來。"],
@@ -21180,18 +21184,18 @@ function Ra(i) {
   return `<svg viewBox="-26 -26 52 52" aria-hidden="true"><circle r="24" fill="#132b45" stroke="#9bb1c5"/><path d="${Hm(i)}" fill="#f6efd9"/></svg>`;
 }
 function fl(i) {
-  document.body.dataset.step = String(i), document.querySelectorAll("[data-step]").forEach((e) => e.setAttribute("aria-current", Number(e.dataset.step) === i ? "step" : "false"));
+  document.body.dataset.step = String(i), document.querySelectorAll("button[data-step]").forEach((e) => e.setAttribute("aria-current", Number(e.dataset.step) === i ? "step" : "false"));
   const t = Ql[i];
-  ut("question").textContent = t[0], ut("instruction").textContent = t[1], ut("science-note").textContent = t[2], ut("step-title").textContent = `${i + 1} / 4 · ${pe ? "地月觀察" : "潮汐探險"}`, ut("goal").textContent = pe ? "操作目標：移動月球，看看亮面如何改變。" : i === 0 ? "操作目標：改變觀測點，找到海岸高、低水位。" : i === 1 ? "操作目標：轉到俯視，指出兩側隆起。" : i === 2 ? "操作目標：排出小潮，再排出大潮。" : "操作目標：知道模型和真實預報的差別。", i === 3 ? (ut("official").hidden = !1, pe && (ut("official").href = "./tides/", ut("official").textContent = "進入立體潮汐探險 →")) : ut("official").hidden = !0, Za(t[0] + " " + t[1] + " " + t[2]), Ka();
+  ut("question").textContent = t[0], ut("instruction").textContent = t[1], ut("science-note").textContent = t[2], ut("step-title").textContent = `${i + 1} / 4 · ${fe ? "地月觀察" : "潮汐探險"}`, ut("goal").textContent = fe ? "操作目標：移動月球，看看亮面如何改變。" : i === 0 ? "操作目標：改變觀測點，找到海岸高、低水位。" : i === 1 ? "操作目標：轉到俯視，指出兩側隆起。" : i === 2 ? "操作目標：排出小潮，再排出大潮。" : "操作目標：知道模型和真實預報的差別。", i === 3 ? (ut("official").hidden = !1, fe && (ut("official").href = "./tides/", ut("official").textContent = "進入立體潮汐探險 →")) : ut("official").hidden = !0, Za(t[0] + " " + t[1] + " " + t[2]), Ka();
 }
 function Ei(i) {
   Ya = i, Ze && (Ze.playing = i, Ze.wake()), ut("play").setAttribute("aria-pressed", String(i)), ut("play").textContent = i ? "Ⅱ 暫停" : "▷ 播放";
 }
 function ki() {
   const i = Zr(ce), t = 2 * Zl(ce), e = Aa(Pe, ce);
-  ut("phase-view").innerHTML = Ra(ce), ut("phase-name").textContent = i.name, ut("phase-detail").textContent = `地球視角 · 受光約 ${Math.round(i.lit * 100)}%`, ut("range").textContent = pe ? Math.round(ce) + "°" : t.toFixed(2), pe || (ut("shore-height").textContent = (e >= 0 ? "+" : "") + e.toFixed(2)), ut("angle-readout").textContent = `月球 ${Math.round(ce) % 360}° · 觀測點 ${Math.round(Pe) % 360}°`, document.querySelectorAll("[data-angle]").forEach((r) => r.setAttribute("aria-pressed", String(Math.abs(Ue(ce) - Number(r.dataset.angle)) < 1)));
+  ut("phase-view").innerHTML = Ra(ce), ut("phase-name").textContent = i.name, ut("phase-detail").textContent = `地球視角 · 受光約 ${Math.round(i.lit * 100)}%`, ut("range").textContent = fe ? Math.round(ce) + "°" : t.toFixed(2), fe || (ut("shore-height").textContent = (e >= 0 ? "+" : "") + e.toFixed(2)), ut("angle-readout").textContent = `月球 ${Math.round(ce) % 360}° · 觀測點 ${Math.round(Pe) % 360}°`, document.querySelectorAll("[data-angle]").forEach((r) => r.setAttribute("aria-pressed", String(Math.abs(Ue(ce) - Number(r.dataset.angle)) < 1)));
   const n = Array.from({ length: 181 }, (r, s) => `${24 + s * 1.58},${70 - 25 * Aa(s * 2, ce)}`);
-  if (ut("curve-line").setAttribute("points", n.join(" ")), ut("curve-point").setAttribute("cx", String(24 + Pe / 360 * 284.4)), ut("curve-point").setAttribute("cy", String(70 - 25 * e)), pe)
+  if (ut("curve-line").setAttribute("points", n.join(" ")), ut("curve-point").setAttribute("cx", String(24 + Pe / 360 * 284.4)), ut("curve-point").setAttribute("cy", String(70 - 25 * e)), fe)
     ut("earth-moon-portrait").innerHTML = Ra(ce);
   else {
     const r = 89 - e * 17;
@@ -21210,10 +21214,10 @@ function Ur(i, t) {
 function pl() {
   Ka();
   const i = Zr(ce);
-  Hi(pe ? `觀察到了：${i.name}。月球位於 ${Math.round(ce)}°，地球看見約 ${Math.round(i.lit * 100)}% 的亮面。` : `觀察到了：${i.name}，示意潮差 ${(2 * Zl(ce)).toFixed(2)}；海岸相對水位 ${Aa(Pe, ce).toFixed(2)}。`);
+  Hi(fe ? `觀察到了：${i.name}。月球位於 ${Math.round(ce)}°，地球看見約 ${Math.round(i.lit * 100)}% 的亮面。` : `觀察到了：${i.name}，示意潮差 ${(2 * Zl(ce)).toFixed(2)}；海岸相對水位 ${Aa(Pe, ce).toFixed(2)}。`);
 }
 function ml(i) {
-  document.body.dataset.aux = i, document.querySelectorAll("[data-aux]").forEach((t) => t.setAttribute("aria-pressed", String(t.dataset.aux === i))), ut("shore-panel").hidden = i !== "shore", ut("curve-panel").hidden = i !== "curve", ut("model-panel").hidden = i !== "model";
+  document.body.dataset.aux = i, document.querySelectorAll("button[data-aux]").forEach((t) => t.setAttribute("aria-pressed", String(t.dataset.aux === i))), ut("shore-panel").hidden = i !== "shore", ut("curve-panel").hidden = i !== "curve", ut("model-panel").hidden = i !== "model";
 }
 function Ym() {
   vi = !1, Ei(!1), ce = 45, Pe = 270, Ci = 0, Ze?.setView("space"), ki(), Hi("已回到斜角觀察。試試拖月球或切到俯視。");
@@ -21222,23 +21226,23 @@ function Ca(i, t) {
   $l = Ya, Ei(!1), Ve.stop(), ut("dialog-title").textContent = i, ut("dialog-content").innerHTML = t, ut("dialog").showModal(), ut("close-dialog").focus();
 }
 function Km() {
-  const i = pe ? "哪一張是滿月的位置？地球在太陽和月球之間。" : "選出日月成直角的一張。小潮仍然有海水升降。", t = [0, 90, 180, 270].map((e, n) => `<button data-answer="${e}"><svg viewBox="0 0 140 90" aria-hidden="true"><circle cx="105" cy="45" r="15" fill="#ffd18a"/><circle cx="50" cy="45" r="15" fill="#6bc2db"/><circle cx="${50 + 30 * Math.cos(de(e))}" cy="${45 - 30 * Math.sin(de(e))}" r="7" fill="#eee7d2"/></svg><span>圖 ${n + 1} · ${Zr(e).name}</span></button>`).join("");
-  Ca(pe ? "看圖找滿月" : "看圖找小潮", "<p>" + i + '</p><div class="quiz-cards">' + t + '</div><p id="answer-feedback" role="status">選一張圖卡。</p>'), document.querySelectorAll("[data-answer]").forEach((e) => e.onclick = () => {
-    const n = pe ? Number(e.dataset.answer) === 180 : Number(e.dataset.answer) % 180 !== 0, r = pe ? n ? "答對！地球在日月之間時，從地球看見月球的整個亮面。" : "再觀察。找出地球在太陽和月球之間的一張。" : n ? "答對！日月成直角，小潮的潮差較小，仍有潮汐。" : "再觀察。日月排成一直線時，通常是大潮。";
+  const i = fe ? "哪一張是滿月的位置？地球在太陽和月球之間。" : "選出日月成直角的一張。小潮仍然有海水升降。", t = [0, 90, 180, 270].map((e, n) => `<button data-answer="${e}"><svg viewBox="0 0 140 90" aria-hidden="true"><circle cx="105" cy="45" r="15" fill="#ffd18a"/><circle cx="50" cy="45" r="15" fill="#6bc2db"/><circle cx="${50 + 30 * Math.cos(de(e))}" cy="${45 - 30 * Math.sin(de(e))}" r="7" fill="#eee7d2"/></svg><span>圖 ${n + 1} · ${Zr(e).name}</span></button>`).join("");
+  Ca(fe ? "看圖找滿月" : "看圖找小潮", "<p>" + i + '</p><div class="quiz-cards">' + t + '</div><p id="answer-feedback" role="status">選一張圖卡。</p>'), document.querySelectorAll("[data-answer]").forEach((e) => e.onclick = () => {
+    const n = fe ? Number(e.dataset.answer) === 180 : Number(e.dataset.answer) % 180 !== 0, r = fe ? n ? "答對！地球在日月之間時，從地球看見月球的整個亮面。" : "再觀察。找出地球在太陽和月球之間的一張。" : n ? "答對！日月成直角，小潮的潮差較小，仍有潮汐。" : "再觀察。日月排成一直線時，通常是大潮。";
     ut("answer-feedback").textContent = r, Za(r);
   });
 }
 async function Zm() {
-  document.body.dataset.lesson = pe ? "moon" : "tides", pe && (document.querySelector(".model-badge").textContent = "天體大小與距離已放大", document.querySelector(".world-hint").textContent = "拖月球改變位置 · 空白處轉視角", ut("shore-panel").setAttribute("aria-label", "從地球看月相"), document.querySelector(".range small").textContent = "月球位置", ut("shore-panel").innerHTML = '<div id="earth-moon-portrait"></div><p>這是從地球看見的月相。它和太空中俯視月球的亮面不同。</p><p>拖月球，親手排出四種月相。</p>', document.querySelector('[data-aux="shore"]').textContent = "地球視角", ut("model-panel").innerHTML = "<strong>太陽只照亮一半月球</strong><p>我們看見的亮面比例，隨日、地、月的位置而改變。新月不是月球消失。</p><p>地球視角以北方朝上示意；不模擬日月食、緯度與真實日曆。</p>"), ut("title").textContent = pe ? "地球與月球 · 立體觀測" : "潮汐 · 立體觀測", ut("tide-link").hidden = !pe, document.querySelectorAll("[data-angle]").forEach((e) => {
+  document.body.dataset.lesson = fe ? "moon" : "tides", fe && (document.querySelector(".model-badge").textContent = "天體大小與距離已放大", document.querySelector(".world-hint").textContent = "拖月球改變位置 · 空白處轉視角", ut("shore-panel").setAttribute("aria-label", "從地球看月相"), document.querySelector(".range small").textContent = "月球位置", ut("shore-panel").innerHTML = '<div id="earth-moon-portrait"></div><p>這是從地球看見的月相。它和太空中俯視月球的亮面不同。</p><p>拖月球，親手排出四種月相。</p>', document.querySelector('[data-aux="shore"]').textContent = "地球視角", ut("model-panel").innerHTML = "<strong>太陽只照亮一半月球</strong><p>我們看見的亮面比例，隨日、地、月的位置而改變。新月不是月球消失。</p><p>地球視角以北方朝上示意；不模擬日月食、緯度與真實日曆。</p>"), ut("title").textContent = fe ? "地球與月球 · 立體觀測" : "潮汐 · 立體觀測", ut("tide-link").hidden = !fe, document.querySelectorAll("[data-angle]").forEach((e) => {
     e.innerHTML = Ra(Number(e.dataset.angle)) + `<span>${Zr(Number(e.dataset.angle)).name}</span>`, e.onclick = () => {
       vi = !1, Ur("moon", Number(e.dataset.angle)), pl();
     };
-  }), document.querySelectorAll("[data-step]").forEach((e) => e.onclick = () => fl(Number(e.dataset.step))), document.querySelectorAll("[data-view]").forEach((e) => e.onclick = () => {
+  }), document.querySelectorAll("button[data-step]").forEach((e) => e.onclick = () => fl(Number(e.dataset.step))), document.querySelectorAll("[data-view]").forEach((e) => e.onclick = () => {
     Ze?.setView(e.dataset.view), document.querySelectorAll("[data-view]").forEach((n) => n.setAttribute("aria-pressed", String(n === e))), Hi("已切換觀測視角。空白處拖動可繼續旋轉。");
-  }), document.querySelectorAll("[data-aux]").forEach((e) => e.onclick = () => ml(e.dataset.aux || "shore")), ut("play").onclick = () => {
+  }), document.querySelectorAll("button[data-aux]").forEach((e) => e.onclick = () => ml(e.dataset.aux || "shore")), ut("play").onclick = () => {
     vi = !1, Ei(!Ya);
   }, ut("reset").onclick = Ym, ut("zoom-in").onclick = () => Ze?.zoom(0.85), ut("zoom-out").onclick = () => Ze?.zoom(1.17), ut("observer-back") && (ut("observer-back").onclick = () => Ur("observer", Pe - 20)), ut("observer-next") && (ut("observer-next").onclick = () => Ur("observer", Pe + 20)), ut("demo").onclick = () => {
-    vi = !0, ce = 0, Pe = 270, Ze?.setView("top"), Ei(!0), Hi("示範：月球沿軌道移動。看一直線與直角的潮差；按暫停可接手操作。");
+    vi = !0, ce = 0, Pe = 270, Ze?.setView("top"), Ei(!0), Hi(fe ? "示範：月球沿軌道移動。看地球視角的亮面變化；按暫停可接手操作。" : "示範：月球沿軌道移動。看一直線與直角的潮差；按暫停可接手操作。");
   }, ut("help").onclick = () => {
     const e = Ql[Number(document.body.dataset.step) || 0];
     Ca(e[0], "<p>" + e[1] + "</p><p>" + e[2] + "</p>");
@@ -21256,8 +21260,8 @@ async function Zm() {
   i.addEventListener("change", t), t(), fl(Jl), ki();
   try {
     Ze = await qa.create(ut("space"), qm, Ur, pl, (e) => {
-      e && (ce = Ue(ce + e * (vi ? 15 : 6)), pe || (Pe = Ue(Pe + e * 12), Ci += e * 12), ki());
-    }, pe), ut("loading").hidden = !0, document.body.dataset.tides3dReady = "true", ki();
+      e && (ce = Ue(ce + e * (vi ? 15 : 6)), fe || (Pe = Ue(Pe + e * 12), Ci += e * 12), ki());
+    }, fe), ut("loading").hidden = !0, document.body.dataset.tides3dReady = "true", ki();
   } catch (e) {
     console.error(e), ut("loading").textContent = "立體場景載入失敗。可以重整，或先使用旁邊的2D輔助圖。", document.body.dataset.tides3dReady = "error";
   }

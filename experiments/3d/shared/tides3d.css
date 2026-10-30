@@ -10,3 +10,5 @@ body:not([data-step="1"]) [data-kind="force"]{display:none}body[data-lesson="moo
 button{min-height:44px!important;min-width:44px!important}@media(max-height:700px) and (min-width:701px){#angle-readout,.lesson-copy small{display:none}.aux-tabs button{min-height:44px}#aux-home{min-height:100px}.observer-controls button{min-height:44px}.aux-panel svg{min-height:25px}}footer button{min-height:44px}
 .label-above .handle-label{top:auto;bottom:calc(100% + 4px)}
 body[data-step="3"] #goal{display:none}footer #official{font-size:12px;min-height:44px;padding:7px 10px}
+
+.world-handle.occluded::after{content:"";position:absolute;top:100%;left:50%;height:38px;border-left:1px dashed #b4c9df;pointer-events:none}.world-handle.occluded{background:#102a41d9}
