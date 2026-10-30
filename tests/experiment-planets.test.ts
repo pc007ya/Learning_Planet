@@ -5,6 +5,14 @@ import { buoyancyModel, density, displacedFraction, motionAcceleration } from '.
 const root = 'experiments/3d/';
 const pages = ['ocean-buoyancy','magnet','earth-moon','plants','weather','force-motion'];
 describe('3D experiment planets: independent deployment and regression', () => {
+  it('keeps all 14 original entry rows and order, with the new 3D card last',()=>{
+    const snapshot=JSON.parse(readFileSync('tests/fixtures/experiment-original-entries.json','utf8'));
+    const html=readFileSync('index.html','utf8');
+    const rows=html.match(/const EXPERIMENT_UNITS = \[\n([\s\S]*?)\n\];/)![1].split('\n');
+    expect(rows.slice(0,14)).toEqual(snapshot.rows);
+    expect(rows).toHaveLength(15);
+    expect(rows[14]).toContain('id: "exp-3d-new"');
+  });
   const index = readFileSync('index.html','utf8');
   it('leaves legacy experiments and their unit routes intact', () => {
     const legacy = ['exp-dissolve','exp-magnet','exp-magnet-ii','exp-plant-water','exp-day-night','exp-earth-orbit','exp-buoyancy','exp-clock-mechanism','exp-pullback-car','exp-mini4wd','exp-cube-mechanism'];

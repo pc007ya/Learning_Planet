@@ -1,0 +1,19 @@
+{
+  "baseline": "2899706cdadb0a8a8793ffeab888f415c0213d0b",
+  "rows": [
+    "  { id: \"exp-dissolve\", grade: 0, difficulty: 0, icon: \"🧪\", art: \"images/subject-unit-icons/v2/experiment-dissolve-v2.png\", tint: \"#fff3d8\", title: \"溶解科學實驗室\", sub: \"自由實驗 · 拖曳方糖、攪拌、加熱與觀察飽和\", kind: \"experiment\" },",
+    "  { id: \"exp-magnet\", grade: 0, difficulty: 0, icon: \"🧲\", art: \"images/subject-unit-icons/v2/experiment-magnet-v2.png\", tint: \"#e8f7ff\", title: \"磁鐵原理實驗室\", sub: \"自由實驗 · 吸引、排斥與磁性材料\", kind: \"experiment\" },",
+    "  { id: \"exp-magnet-ii\", grade: 0, difficulty: 0, icon: \"🧲\", art: \"images/subject-unit-icons/v2/experiment-magnet-ii-v2.png\", tint: \"#fff2d9\", title: \"磁鐵原理實驗室 II\", sub: \"任務實驗 · 預測、磁極旋轉、吸引排斥與材料測試\", kind: \"experiment\" },",
+    "  { id: \"exp-plant-water\", grade: 0, difficulty: 0, icon: \"🌱\", art: \"images/subject-unit-icons/v2/experiment-plant-water-v2.png\", tint: \"#eef8df\", title: \"植物怎麼喝水？\", sub: \"分鏡＋互動實驗 · 土壤、根毛、木質部、氣孔與蒸散\", kind: \"experiment\" },",
+    "  { id: \"exp-day-night\", grade: 0, difficulty: 0, icon: \"🌍\", art: \"images/subject-unit-icons/v2/experiment-day-night-v2.png\", tint: \"#eaf2ff\", title: \"白天與黑夜\", sub: \"分鏡＋互動實驗 · 旋轉地球、判斷臺灣日夜\", kind: \"experiment\" },",
+    "  { id: \"exp-earth-orbit\", grade: 0, difficulty: 0, icon: \"🌎\", art: \"images/subject-unit-icons/v2/experiment-earth-orbit-v2.png\", tint: \"#e8edff\", title: \"地球公轉\", sub: \"3D 互動實驗 · 地球公轉、月球繞行與日照方向\", kind: \"experiment\" },",
+    "  { id: \"exp-earth-lab\", grade: 0, difficulty: 0, icon: \"\", art: \"images/experiments/earth-lab.svg\", tint: \"#e6f5ff\", title: \"地球自轉與公轉（新）\", sub: \"3D 觀測台 · 臺灣晝夜、四季與地月同步\", kind: \"experiment\" },",
+    "  { id: \"exp-fire-weather\", grade: 0, difficulty: 0, icon: \"\", art: \"images/experiments/fire-weather/v1/storyboard.png\", tint: \"#e6f5ed\", title: \"大火也會製造天氣？\", sub: \"分鏡＋3D 互動 · 加熱、水氣與火積雨雲\", kind: \"experiment\" },",
+    "  { id: \"exp-optics\", grade: 0, difficulty: 0, icon: \"\", art: \"images/experiments/optics.svg\", tint: \"#e7f8ff\", title: \"光的魔法實驗室\", sub: \"3D 互動 · 透鏡成像、點光源與三稜鏡色散\", kind: \"experiment\" },",
+    "  { id: \"exp-buoyancy\", grade: 0, difficulty: 0, icon: \"🌊\", art: \"images/experiments/buoyancy.svg\", tint: \"#e8edff\", title: \"浮力實驗室\", sub: \"圖卡拖曳 · 8 種寶物、○ × 猜浮沉\", kind: \"experiment\" },",
+    "  { id: \"exp-clock-mechanism\", grade: 0, difficulty: 0, icon: \"🕒\", art: \"images/experiments/clock.svg\", tint: \"#e8edff\", title: \"簡單機構：時鐘\", sub: \"3D 互動 · 轉動指針、齒輪傳動與時間比例\", kind: \"experiment\" },",
+    "  { id: \"exp-pullback-car\", grade: 0, difficulty: 0, icon: \"🚙\", art: \"images/experiments/car.svg\", tint: \"#e8edff\", title: \"簡單機構：回力車\", sub: \"3D 互動 · 回拉儲能、放手前進與路面比較\", kind: \"experiment\" },",
+    "  { id: \"exp-mini4wd\", grade: 0, difficulty: 0, icon: \"\", art: \"images/experiments/mini4wd-diagram.svg\", tint: \"#e8edff\", title: \"電池四驅車研究所\", sub: \"3D 組裝 · 電路傳動、改裝測試與三圈試跑\", kind: \"experiment\" },",
+    "  { id: \"exp-cube-mechanism\", grade: 0, difficulty: 0, icon: \"◈\", art: \"images/experiments/cube.svg\", tint: \"#e8edff\", title: \"魔術方塊工坊\", sub: \"3D 互動 · 轉動六面、拆解機構與看圖挑戰\", kind: \"experiment\" },"
+  ]
+}
