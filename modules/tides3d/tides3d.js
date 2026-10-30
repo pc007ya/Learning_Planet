@@ -21086,7 +21086,7 @@ class Ya {
     this.markerButton.querySelector(".handle-label").textContent = s ? "海岸觀測點" : "背側海岸觀測點", this.moonButton.setAttribute("aria-valuenow", String(Math.round(Ue(t)) % 360)), this.markerButton.setAttribute("aria-valuenow", String(Math.round(Ue(e)) % 360)), this.wake();
   }
   setView(t) {
-    this.camera.up.set(0, t === "top" ? 0 : 1, t === "top" ? -1 : 0), this.orbit.target.set(t === "coast" ? 0 : this.host.clientWidth < 550 ? 1.7 : 1.05, 0, 0), t === "space" && this.host.clientWidth < 550 ? (this.orbit.target.x = 1.7, this.camera.position.set(6, 8, 20)) : this.camera.position.copy(t === "top" ? new L(this.host.clientWidth < 550 ? 1.7 : 1.05, this.host.clientWidth < 550 ? 23 : 17, 1e-3) : t === "coast" ? new L(0, 3.2, 8) : new L(5.4, 6.4, 12.8)), this.orbit.update(), this.movingUntil = performance.now() + 450, this.wake();
+    this.camera.up.set(0, t === "top" ? 0 : 1, t === "top" ? -1 : 0), this.orbit.target.set(t === "coast" ? 0 : this.host.clientWidth < 550 ? 1.7 : 1.05, 0, 0), t === "space" && (this.host.clientWidth < 550 || this.host.clientWidth / this.host.clientHeight < 1.5) ? (this.orbit.target.x = 1.7, this.camera.position.set(6, 8, 20)) : this.camera.position.copy(t === "top" ? new L(this.host.clientWidth < 550 ? 1.7 : 1.05, this.host.clientWidth < 550 ? 23 : 17, 1e-3) : t === "coast" ? new L(0, 3.2, 8) : new L(5.4, 6.4, 12.8)), this.orbit.update(), this.movingUntil = performance.now() + 450, this.wake();
   }
   zoom(t) {
     this.camera.position.sub(this.orbit.target).multiplyScalar(t).add(this.orbit.target), this.camera.position.clampLength(7, 25), this.orbit.update(), this.wake();
