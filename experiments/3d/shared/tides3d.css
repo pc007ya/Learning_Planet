@@ -12,3 +12,4 @@ button{min-height:44px!important;min-width:44px!important}@media(max-height:700p
 body[data-step="3"] #goal{display:none}footer #official{font-size:12px;min-height:44px;padding:7px 10px}
 
 .world-handle.occluded::after{content:"";position:absolute;top:100%;left:50%;height:38px;border-left:1px dashed #b4c9df;pointer-events:none}.world-handle.occluded{background:#102a41d9}
+@media(max-width:700px){.view-controls{bottom:26px}.observer .handle-label{left:calc(100% + 8px);top:50%;bottom:auto;transform:translateY(-50%)}}
