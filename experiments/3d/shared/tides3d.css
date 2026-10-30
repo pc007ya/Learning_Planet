@@ -11,7 +11,7 @@ button{min-height:44px!important;min-width:44px!important}@media(max-height:700p
 .label-above .handle-label{top:auto;bottom:calc(100% + 4px)}
 body[data-step="3"] #goal{display:none}footer #official{font-size:12px;min-height:44px;padding:7px 10px}
 
-.world-handle.occluded::after{content:"";position:absolute;top:100%;left:50%;height:38px;border-left:1px dashed #b4c9df;pointer-events:none}.world-handle.occluded{background:#102a41d9}
+.world-handle.occluded::after{display:none}.world-handle.occluded{background:#102a41d9}
 @media(max-width:700px){.view-controls{bottom:26px}.observer .handle-label{left:calc(100% + 8px);top:50%;bottom:auto;transform:translateY(-50%)}}
 @media(max-width:700px){.observer .handle-label{top:-22px;transform:none}}
 @media(max-width:700px){body:not([data-aux="space"]) #space>*{visibility:hidden!important}}
@@ -19,3 +19,4 @@ body[data-mission="true"] .lesson-copy p{display:none}body[data-mission="true"] 
 @media(max-height:700px) and (min-width:701px){#mission-hint{display:none}#mission-panel{gap:5px}#mission-target{font-size:13px}#mission-current{margin:0}}
 @media(max-width:700px){#mission-panel{gap:14px}#mission-target{font-size:18px}#mission-current{font-size:22px}#mission-progress li{font-size:12px}body[data-mission="true"] .aux-tabs button{font-size:11px}body[data-mission="true"] #goal{font-size:12px}.mission-start{flex-direction:column;align-items:stretch}.mission-start button{font-size:16px}.mission-start small{font-size:12px}}
 .world{container-type:inline-size}@media(min-width:701px){@container(max-width:600px){.world .phase-options,.world .actions{width:200px}.world .view-controls button{padding:5px 7px;font-size:12px}.world .world-hint{right:226px;font-size:10px}}}
+.label-leaders{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}.label-leaders line{stroke:#a4c9d6;stroke-width:1;opacity:.68}.world-label{z-index:2}.handle-label,.world-label{font-size:12px;line-height:1.4;box-shadow:0 1px 5px #020a16aa}.handle-label{border:1px solid #597b90;background:#10273ff0}.world-label{background:#10273ff0}

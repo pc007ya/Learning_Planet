@@ -25,3 +25,21 @@ describe('hands-on assessment uses the physical model',()=>{
  it('requires fine adjustment for a numeric range; none of the four preset answers suffice',()=>{for(const a of [0,90,180,270])expect(judgeChallenge('middle',a,true).passed).toBe(false);expect(judgeChallenge('middle',50,true).passed).toBe(true);expect(judgeChallenge('middle',130,true).passed).toBe(true);expect(judgeChallenge('middle',45,true).message).toContain('偏大');expect(judgeChallenge('middle',90,true).message).toContain('偏小');});
  it('does not accept invalid state',()=>{expect(judgeChallenge('middle',NaN,true).passed).toBe(false);});
 });
+
+import {placeLabels,intersects} from '../src/tides3d/labels';
+describe('camera-independent readable annotation placement',()=>{
+ it('separates the quarter-moon caption from the near-side direction',()=>{
+  const labels=[{id:'moon',x:440,y:96,width:90,height:27,handle:27},{id:'near',x:440,y:128,width:80,height:27},{id:'water',x:345,y:152,width:135,height:27}];
+  const placed=placeLabels(labels,[{x:413,y:69,width:54,height:54},{x:0,y:0,width:940,height:44}],940,518);
+  expect(placed.size).toBe(3);const rectangles=[...placed.values()];for(let i=0;i<rectangles.length;i++)for(let j=i+1;j<rectangles.length;j++)expect(intersects(rectangles[i],rectangles[j],9)).toBe(false);
+ });
+ it('keeps long mobile captions away from controls and viewport edges',()=>{
+  const blocked=[{x:0,y:0,width:342,height:40},{x:8,y:238,width:236,height:44},{x:100,y:130,width:54,height:54}];
+  const placed=placeLabels([{id:'back',x:127,y:157,width:220,height:28,handle:27},{id:'coast',x:145,y:190,width:104,height:28,handle:24}],blocked,342,310);
+  expect(placed.size).toBe(2);for(const rect of placed.values()){expect(rect.x).toBeGreaterThanOrEqual(8);expect(rect.x+rect.width).toBeLessThanOrEqual(334);for(const obstacle of blocked)expect(intersects(rect,obstacle,9)).toBe(false);}
+ });
+ it('respects reserved panels as the camera moves through important angles',()=>{
+  const panels=[{x:0,y:0,width:680,height:45},{x:12,y:330,width:250,height:44},{x:440,y:300,width:225,height:104}];
+  for(const angle of [0,45,90,180,270]){const a=angle*Math.PI/180;const placed=placeLabels([{id:'moon',x:340+150*Math.cos(a),y:190+100*Math.sin(a),width:90,height:28,handle:27},{id:'near',x:340+110*Math.cos(a),y:190+80*Math.sin(a),width:80,height:28}],panels,680,420);expect(placed.size).toBe(2);for(const r of placed.values())for(const p of panels)expect(intersects(r,p,9)).toBe(false);}
+ });
+});

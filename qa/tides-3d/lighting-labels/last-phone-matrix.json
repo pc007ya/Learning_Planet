@@ -1,0 +1,72 @@
+[
+  {
+    "view": "space",
+    "angle": 45,
+    "layout": "clear"
+  },
+  {
+    "view": "space",
+    "angle": 90,
+    "layout": "clear"
+  },
+  {
+    "view": "space",
+    "angle": 180,
+    "layout": "clear"
+  },
+  {
+    "view": "space",
+    "angle": 270,
+    "layout": "clear"
+  },
+  {
+    "view": "top",
+    "angle": 0,
+    "layout": "clear"
+  },
+  {
+    "view": "top",
+    "angle": 45,
+    "layout": "clear"
+  },
+  {
+    "view": "top",
+    "angle": 90,
+    "layout": "clear"
+  },
+  {
+    "view": "top",
+    "angle": 180,
+    "layout": "clear"
+  },
+  {
+    "view": "top",
+    "angle": 270,
+    "layout": "clear"
+  },
+  {
+    "view": "coast",
+    "angle": 0,
+    "layout": "clear"
+  },
+  {
+    "view": "coast",
+    "angle": 45,
+    "layout": "clear"
+  },
+  {
+    "view": "coast",
+    "angle": 90,
+    "layout": "clear"
+  },
+  {
+    "view": "coast",
+    "angle": 180,
+    "layout": "clear"
+  },
+  {
+    "view": "coast",
+    "angle": 270,
+    "layout": "clear"
+  }
+]

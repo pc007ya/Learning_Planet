@@ -5,7 +5,7 @@ export const worldVertex=`varying vec2 vUv;varying vec3 vNormal;varying vec3 vWo
 void main(){vUv=uv;vNormal=normalize(mat3(modelMatrix)*normal);vec4 w=modelMatrix*vec4(position,1.);vWorld=w.xyz;gl_Position=projectionMatrix*viewMatrix*w;}`;
 export function planetMaterial(texture:T.Texture,sun:T.Vector3,moon=false){
  return new T.ShaderMaterial({vertexShader:worldVertex,fragmentShader:`uniform sampler2D surface;uniform vec3 sun;uniform float lunar;varying vec2 vUv;varying vec3 vNormal;varying vec3 vWorld;
- void main(){vec3 n=normalize(vNormal);float d=dot(n,sun);vec3 tex=pow(texture2D(surface,vUv).rgb,vec3(2.2));float day=smoothstep(-.025,.055,d);vec3 base=tex*(.014+day*(.32+max(d,0.)*.95));vec3 view=normalize(cameraPosition-vWorld);float rim=pow(1.-max(dot(n,view),0.),3.5);base+=mix(vec3(.055,.20,.42),vec3(.10),lunar)*rim*(.1+.9*day);float water=clamp((tex.b-tex.r)*6.,0.,1.);base+=vec3(.65,.75,.7)*pow(max(dot(reflect(-sun,n),view),0.),60.)*water*.25;gl_FragColor=vec4(base,1.);
+ void main(){vec3 n=normalize(vNormal);float d=dot(n,sun);vec3 tex=pow(texture2D(surface,vUv).rgb,vec3(2.2));float day=smoothstep(-.025,.055,d);vec3 base=tex*(mix(.026,.014,lunar)+day*(mix(.52,.32,lunar)+max(d,0.)*mix(.72,.95,lunar)));vec3 view=normalize(cameraPosition-vWorld);float rim=pow(1.-max(dot(n,view),0.),3.5);base+=mix(vec3(.065,.24,.48),vec3(.10),lunar)*rim*(.14+.86*day);float cloud=smoothstep(.35,.78,min(tex.r,min(tex.g,tex.b)));base+=tex*cloud*.10*day*(1.-lunar);float water=clamp((tex.b-tex.r)*6.,0.,1.);base+=vec3(.65,.75,.7)*pow(max(dot(reflect(-sun,n),view),0.),60.)*water*.25;gl_FragColor=vec4(base,1.);
  #include <tonemapping_fragment>
  #include <colorspace_fragment>
  }`,uniforms:{surface:{value:texture},sun:{value:sun},lunar:{value:moon?1:0}}});
@@ -22,16 +22,16 @@ export function waterMaterial(){return new T.ShaderMaterial({vertexShader:worldV
   vec3 surfaceNormal=normalize(n+ripple);
   float facing=max(dot(n,view),0.),fresnel=pow(1.-facing,2.2);
   float depth=clamp((length(vWorld)-2.)/.78,0.,1.),day=smoothstep(-.24,.5,dot(n,sun));
-  vec3 shallow=vec3(.025,.34,.57),deep=vec3(.008,.105,.28);
-  vec3 color=mix(shallow,deep,depth)*(.44+.56*day);
+  vec3 shallow=vec3(.035,.44,.68),deep=vec3(.008,.14,.36);
+  vec3 color=mix(shallow,deep,depth)*(.56+.44*day);
   float glint=pow(max(dot(surfaceNormal,normalize(sun+view)),0.),90.)*day;
   float swell=.5+.5*sin(w3+sin(w1)*.2);float fine=.5+.5*sin(w1+sin(w2)*.4);
   color+=vec3(.025,.13,.17)*(swell*.6+fine*.4)*(.25+.75*day);
-  color=mix(color,vec3(.18,.68,.90)*(.62+.38*day),fresnel*.72);
+  color=mix(color,vec3(.22,.76,.98)*(.74+.26*day),fresnel*.72);
   float crest=pow(.5+.5*sin(w3+sin(w1*.45)*.65+sin(w2*.4)*.4),6.);
   color+=vec3(.12,.45,.49)*crest*.32*(.6+.4*day);
   color+=vec3(.95,.88,.65)*glint*.48;
-  float alpha=.11+depth*.15+fresnel*.44+glint*.08;
+  float alpha=.055+depth*.075+fresnel*.47+glint*.08;
   gl_FragColor=vec4(color,alpha);
   #include <tonemapping_fragment>
   #include <colorspace_fragment>
