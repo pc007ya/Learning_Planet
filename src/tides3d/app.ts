@@ -1,3 +1,4 @@
+import {learningText,initZhuyin} from './zhuyin';
 import {CHALLENGES,judgeChallenge,type ChallengeId} from './challenges';
 import { TideStage,type View } from './stage';
 import { phase,phasePath,radians,tideAmplitude,wrap } from '../tides/model';
@@ -24,35 +25,35 @@ const steps=moonMode?[
  ['模型可以預報潮時嗎？','不可以。真實海岸的地形、海深、摩擦與天氣，都會改變潮汐。','月亮在頭頂，也不代表當地正好滿潮。']
 ];
 function speak(text:string){lastSpoken=text;narration.say(text);}
-function feedback(text:string){$('feedback').textContent=text;speak(text);}
+function feedback(text:string){learningText($('feedback'),text);speak(text);}
 function phaseSvg(a:number){return `<svg viewBox="-26 -26 52 52" aria-hidden="true"><circle r="24" fill="#132b45" stroke="#9bb1c5"/><path d="${phasePath(a)}" fill="#f6efd9"/></svg>`;}
-function selectStep(n:number){if(mission&&n!==2){mission=null;missionPassed=false;renderMission();selectAux(matchMedia('(max-width:700px)').matches?'space':'shore');}document.body.dataset.step=String(n);document.querySelectorAll<HTMLButtonElement>('button[data-step]').forEach(b=>b.setAttribute('aria-current',Number(b.dataset.step)===n?'step':'false'));const s=steps[n];$('question').textContent=s[0];$('instruction').textContent=s[1];$('science-note').textContent=s[2];$('step-title').textContent=`${n+1} / 4 · ${moonMode?'地月觀察':'潮汐探險'}`;$('goal').textContent=moonMode?'操作目標：移動月球，看看亮面如何改變。':n===0?'操作目標：改變觀測點，找到海岸高、低水位。':n===1?'操作目標：轉到俯視，指出兩側隆起。':n===2?'操作目標：排出小潮，再排出大潮。':'操作目標：知道模型和真實預報的差別。';if(n===3){$('official').hidden=false;if(moonMode){$<HTMLAnchorElement>('official').href='./tides/';$<HTMLAnchorElement>('official').target='_self';$('official').textContent='進入立體潮汐探險 →';}}else $('official').hidden=true;speak(s[0]+' '+s[1]+' '+s[2]);renderMission();remember();}
-function setPlaying(value:boolean){playing=value;if(stage){stage.playing=value;stage.wake();}$('play').setAttribute('aria-pressed',String(value));$('play').textContent=value?'Ⅱ 暫停':'▷ 播放';}
+function selectStep(n:number){if(mission&&n!==2){mission=null;missionPassed=false;renderMission();selectAux(matchMedia('(max-width:700px)').matches?'space':'shore');}document.body.dataset.step=String(n);document.querySelectorAll<HTMLButtonElement>('button[data-step]').forEach(b=>b.setAttribute('aria-current',Number(b.dataset.step)===n?'step':'false'));const s=steps[n];learningText($('question'),s[0]);learningText($('instruction'),s[1]);learningText($('science-note'),s[2]);learningText($('step-title'),`${n+1} / 4 · ${moonMode?'地月觀察':'潮汐探險'}`);learningText($('goal'),moonMode?'操作目標：移動月球，看看亮面如何改變。':n===0?'操作目標：改變觀測點，找到海岸高、低水位。':n===1?'操作目標：轉到俯視，指出兩側隆起。':n===2?'操作目標：排出小潮，再排出大潮。':'操作目標：知道模型和真實預報的差別。');if(n===3){$('official').hidden=false;if(moonMode){$<HTMLAnchorElement>('official').href='./tides/';$<HTMLAnchorElement>('official').target='_self';learningText($('official'),'進入立體潮汐探險 →');}}else $('official').hidden=true;speak(s[0]+' '+s[1]+' '+s[2]);renderMission();remember();}
+function setPlaying(value:boolean){playing=value;if(stage){stage.playing=value;stage.wake();}$('play').setAttribute('aria-pressed',String(value));learningText($('play'),value?'Ⅱ 暫停':'▷ 播放');}
 function sync(){
  const p=phase(angle),range=2*tideAmplitude(angle),h=shoreLevel(observer,angle);
- $('phase-view').innerHTML=phaseSvg(angle);$('phase-name').textContent=p.name;$('phase-detail').textContent=`地球視角 · 受光約 ${Math.round(p.lit*100)}%`;
- $('range').textContent=moonMode?Math.round(angle)+'°':range.toFixed(2);if(!moonMode)$('shore-height').textContent=(h>=0?'+':'')+h.toFixed(2);$('angle-readout').textContent=`月球 ${Math.round(angle)%360}° · 觀測點 ${Math.round(observer)%360}°`;
+ $('phase-view').innerHTML=phaseSvg(angle);learningText($('phase-name'),p.name);learningText($('phase-detail'),`地球視角 · 受光約 ${Math.round(p.lit*100)}%`);
+ learningText($('range'),moonMode?Math.round(angle)+'°':range.toFixed(2));if(!moonMode)learningText($('shore-height'),(h>=0?'+':'')+h.toFixed(2));learningText($('angle-readout'),`月球 ${Math.round(angle)%360}° · 觀測點 ${Math.round(observer)%360}°`);
  document.querySelectorAll<HTMLButtonElement>('[data-angle]').forEach(b=>b.setAttribute('aria-pressed',String(Math.abs(wrap(angle)-Number(b.dataset.angle))<1)));
  const data=Array.from({length:181},(_,i)=>`${24+i*1.58},${70-25*shoreLevel(i*2,angle)}`);
  $('curve-line').setAttribute('points',data.join(' '));$('curve-point').setAttribute('cx',String(24+observer/360*284.4));$('curve-point').setAttribute('cy',String(70-25*h));
  if(!moonMode){const y=89-h*17;$('sea').setAttribute('d',`M0 ${y}Q35 ${y-3} 70 ${y}T140 ${y}T210 ${y}T320 ${y}V170H0Z`);$('water-mark').setAttribute('cy',String(y));
- $('shore-state').textContent=h>.7?'水位較高':h<-.7?'水位較低':'水位在中間';}else $('earth-moon-portrait').innerHTML=phaseSvg(angle);stage?.update(angle,observer,spin);renderMission();
+ learningText($('shore-state'),h>.7?'水位較高':h<-.7?'水位較低':'水位在中間');}else $('earth-moon-portrait').innerHTML=phaseSvg(angle);stage?.update(angle,observer,spin);renderMission();
 }
 function changed(kind:'moon'|'observer',value:number){if(!demo)setPlaying(false);if(kind==='moon'){if(mission&&!demo&&Math.abs(value-angle)>.5){missionMoved=true;missionPassed=false;}angle=wrap(value);}else{const delta=value-observer;observer=wrap(value);spin+=delta;}sync();}
 function stopDrag(){remember();const p=phase(angle);feedback(moonMode?`觀察到了：${p.name}。月球位於 ${Math.round(angle)}°，地球看見約 ${Math.round(p.lit*100)}% 的亮面。`:`觀察到了：${p.name}，示意潮差 ${ (2*tideAmplitude(angle)).toFixed(2)}；海岸相對水位 ${shoreLevel(observer,angle).toFixed(2)}。`);}
 function selectAux(value:string){document.body.dataset.aux=value;document.querySelectorAll<HTMLButtonElement>('button[data-aux]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.aux===value)));$('shore-panel').hidden=value!=='shore';$('curve-panel').hidden=value!=='curve';$('model-panel').hidden=value!=='model';if($('mission-panel'))$('mission-panel').hidden=value!=='mission';}
 function chooseView(view:View){stage?.setView(view);document.querySelectorAll<HTMLButtonElement>('button[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===view)));}
 function reset(){missionMoved=false;missionPassed=false;demo=false;setPlaying(false);angle=45;observer=270;spin=0;chooseView('space');sync();feedback('已回到斜角觀察。試試拖月球或切到俯視。');}
-function openOverlay(title:string,html:string){pausedByOverlay=playing;setPlaying(false);narration.stop();$('dialog-title').textContent=title;$('dialog-content').innerHTML=html;$<HTMLDialogElement>('dialog').showModal();$('close-dialog').focus();}
+function openOverlay(title:string,html:string){pausedByOverlay=playing;setPlaying(false);narration.stop();learningText($('dialog-title'),title);$('dialog-content').innerHTML=html;$<HTMLDialogElement>('dialog').showModal();$('close-dialog').focus();}
 function renderMission(){
  if(moonMode||!$('mission-panel'))return;
  document.body.dataset.mission=String(!!mission);$('mission-tab').hidden=!mission;$('mission-check').hidden=!mission;$('mission-exit').hidden=!mission;$('play').hidden=!!mission;$('demo').hidden=!!mission;
  if(!mission)return;
  const c=CHALLENGES.find(c=>c.id===mission)!;const index=CHALLENGES.indexOf(c);
- $('question').textContent=`任務 ${index+1}：${c.title}`;$('goal').textContent=c.target;$('mission-target').textContent=c.target;$('mission-hint').textContent=c.hint;
- $('mission-current').textContent=`目前 ${ (2*tideAmplitude(angle)).toFixed(2)} · 月球 ${Math.round(angle)}°`;
+ learningText($('question'),`任務 ${index+1}：${c.title}`);learningText($('goal'),c.target);learningText($('mission-target'),c.target);learningText($('mission-hint'),c.hint);
+ learningText($('mission-current'),`目前 ${ (2*tideAmplitude(angle)).toFixed(2)} · 月球 ${Math.round(angle)}°`);
  $('mission-progress').innerHTML=CHALLENGES.map((v,i)=>`<li class="${completed.has(v.id)?'done':''}">${completed.has(v.id)?'✓':i+1} ${v.title}</li>`).join('');
- $('mission-check').textContent=missionPassed?(completed.size===CHALLENGES.length?'完成':'下一關'):'檢查';
+ learningText($('mission-check'),missionPassed?(completed.size===CHALLENGES.length?'完成':'下一關'):'檢查');
 }
 function startMission(){
  if(completed.size===CHALLENGES.length)completed.clear();mission=CHALLENGES.find(c=>!completed.has(c.id))?.id||CHALLENGES[0].id;missionMoved=false;missionPassed=false;demo=false;setPlaying(false);angle=45;selectStep(2);chooseView('space');sync();selectAux(matchMedia('(max-width:700px)').matches?'space':'mission');remember();feedback(CHALLENGES.find(c=>c.id===mission)!.hint);
@@ -78,12 +79,12 @@ function showQuiz(){
  document.querySelectorAll<HTMLButtonElement>('[data-answer]').forEach(b=>b.onclick=()=>{
   const correct=moonMode?Number(b.dataset.answer)===180:Number(b.dataset.answer)%180!==0;
   const text=moonMode?(correct?'答對！地球在日月之間時，從地球看見月球的整個亮面。':'再觀察。找出地球在太陽和月球之間的一張。'):(correct?'答對！日月成直角，小潮的潮差較小，仍有潮汐。':'再觀察。日月排成一直線時，通常是大潮。');
-  $('answer-feedback').textContent=text;speak(text);
+  learningText($('answer-feedback'),text);speak(text);
  });
 }
 async function boot(){
- setupMission();
- document.body.dataset.lesson=moonMode?'moon':'tides';if(moonMode){document.querySelector<HTMLElement>('.model-badge')!.textContent='天體大小與距離已放大';document.querySelector<HTMLElement>('.world-hint')!.textContent='拖月球改變位置 · 空白處轉視角';$('shore-panel').setAttribute('aria-label','從地球看月相');document.querySelector<HTMLElement>('.range small')!.textContent='月球位置';$('shore-panel').innerHTML='<div id="earth-moon-portrait"></div><p>這是從地球看見的月相。它和太空中俯視月球的亮面不同。</p><p>拖月球，親手排出四種月相。</p>';document.querySelector<HTMLElement>('[data-aux="shore"]')!.textContent='地球視角';$('model-panel').innerHTML='<strong>太陽只照亮一半月球</strong><p>我們看見的亮面比例，隨日、地、月的位置而改變。新月不是月球消失。</p><p>地球視角以北方朝上示意；不模擬日月食、緯度與真實日曆。</p>';}$('title').textContent=moonMode?'地球與月球 · 立體觀測':'潮汐 · 立體觀測';$('tide-link').hidden=!moonMode;document.querySelectorAll<HTMLButtonElement>('[data-angle]').forEach(b=>{b.innerHTML=phaseSvg(Number(b.dataset.angle))+`<span>${phase(Number(b.dataset.angle)).name}</span>`;b.onclick=()=>{demo=false;changed('moon',Number(b.dataset.angle));stopDrag();};});
+ setupMission();initZhuyin(()=>stage?.wake());
+ document.body.dataset.lesson=moonMode?'moon':'tides';if(moonMode){document.querySelector<HTMLElement>('.model-badge')!.textContent='天體大小與距離已放大';document.querySelector<HTMLElement>('.world-hint')!.textContent='拖月球改變位置 · 空白處轉視角';$('shore-panel').setAttribute('aria-label','從地球看月相');document.querySelector<HTMLElement>('.range small')!.textContent='月球位置';$('shore-panel').innerHTML='<div id="earth-moon-portrait"></div><p>這是從地球看見的月相。它和太空中俯視月球的亮面不同。</p><p>拖月球，親手排出四種月相。</p>';document.querySelector<HTMLElement>('[data-aux="shore"]')!.textContent='地球視角';$('model-panel').innerHTML='<strong>太陽只照亮一半月球</strong><p>我們看見的亮面比例，隨日、地、月的位置而改變。新月不是月球消失。</p><p>地球視角以北方朝上示意；不模擬日月食、緯度與真實日曆。</p>';}learningText($('title'),moonMode?'地球與月球 · 立體觀測':'潮汐 · 立體觀測');$('tide-link').hidden=!moonMode;document.querySelectorAll<HTMLButtonElement>('[data-angle]').forEach(b=>{b.innerHTML=phaseSvg(Number(b.dataset.angle))+`<span>${phase(Number(b.dataset.angle)).name}</span>`;b.onclick=()=>{demo=false;changed('moon',Number(b.dataset.angle));stopDrag();};});
  document.querySelectorAll<HTMLButtonElement>('button[data-step]').forEach(b=>b.onclick=()=>selectStep(Number(b.dataset.step)));
  document.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(b=>b.onclick=()=>{chooseView(b.dataset.view as View);feedback('已切換觀測視角。空白處拖動可繼續旋轉。');});
  document.querySelectorAll<HTMLButtonElement>('button[data-aux]').forEach(b=>b.onclick=()=>selectAux(b.dataset.aux||'shore'));
@@ -94,7 +95,7 @@ async function boot(){
  $('sources').onclick=()=>openOverlay('模型、素材與限制','<p>地表與月球沿用學習星球原觀測台已入庫貼圖，沒有複製 X 或銅匠素材。地表／晨昏線沿用原觀測台光照做法；原模組不變。</p><p>海水殼是理想平衡潮 P₂ 模型，厚度、潮幅、天體大小與距離都誇大。赤道海岸與曲線取同一模型相對赤道平均水位的變化，不代表全球平均或實際公尺。細波紋只表示水面光感，不是流體或海流模擬；暫停時停止，減少動態設定下不播放波紋。</p><p>不是各海岸每天都固定兩次滿潮；月球在頭頂也不能判斷當地潮時。不是台灣潮時預報。</p><p><a href="https://www.noaa.gov/education/resource-collections/ocean-coasts/tides" target="_blank" rel="noopener">NOAA 潮汐原理</a> · <a href="https://science.nasa.gov/moon/tides/" target="_blank" rel="noopener">NASA 潮汐</a> · <a href="https://www.cwa.gov.tw/V8/C/M/tide.html" target="_blank" rel="noopener">中央氣象署</a></p>');
  $('close-dialog').onclick=()=>$<HTMLDialogElement>('dialog').close();$('dialog').addEventListener('close',()=>{narration.stop();if(pausedByOverlay)feedback('已暫停在原位置。按播放繼續。');});
  const media=matchMedia('(max-width:700px)');const adapt=()=>{const target=media.matches?$('mobile-aux'):$('aux-home');const phaseOptions=document.querySelector<HTMLElement>('.phase-options')!;const actions=document.querySelector<HTMLElement>('.actions')!;if(media.matches){$('phase-home').after(phaseOptions);$('actions-home').after(actions);}else{document.querySelector('.world')!.append(phaseOptions,actions);}for(const id of ['shore-panel','curve-panel','model-panel','mission-panel'])if($(id))target.append($(id));selectAux(mission?(media.matches?'space':'mission'):(media.matches?'space':'shore'));};media.addEventListener('change',adapt);adapt();selectStep(restoredStep);sync();
- try{stage=await TideStage.create($('space'),base,changed,stopDrag,dt=>{if(!dt)return;angle=wrap(angle+dt*(demo?15:6));if(!moonMode){observer=wrap(observer+dt*12);spin+=dt*12;}sync();},moonMode);$('loading').hidden=true;document.body.dataset.tides3dReady='true';sync();}catch(error){console.error(error);$('loading').textContent='立體場景載入失敗。可以重整，或先使用旁邊的2D輔助圖。';document.body.dataset.tides3dReady='error';}
+ try{stage=await TideStage.create($('space'),base,changed,stopDrag,dt=>{if(!dt)return;angle=wrap(angle+dt*(demo?15:6));if(!moonMode){observer=wrap(observer+dt*12);spin+=dt*12;}sync();},moonMode);$('loading').hidden=true;document.body.dataset.tides3dReady='true';sync();}catch(error){console.error(error);learningText($('loading'),'立體場景載入失敗。可以重整，或先使用旁邊的2D輔助圖。');document.body.dataset.tides3dReady='error';}
  document.addEventListener('visibilitychange',()=>{if(document.hidden){setPlaying(false);narration.stop();}});window.addEventListener('pagehide',()=>{remember();narration.stop();stage?.dispose();},{once:true});
 }
 window.addEventListener('pageshow',event=>{if(event.persisted)location.reload();});

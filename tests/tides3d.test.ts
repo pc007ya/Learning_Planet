@@ -43,3 +43,16 @@ describe('camera-independent readable annotation placement',()=>{
   for(const angle of [0,45,90,180,270]){const a=angle*Math.PI/180;const placed=placeLabels([{id:'moon',x:340+150*Math.cos(a),y:190+100*Math.sin(a),width:90,height:28,handle:27},{id:'near',x:340+110*Math.cos(a),y:190+80*Math.sin(a),width:80,height:28}],panels,680,420);expect(placed.size).toBe(2);for(const r of placed.values())for(const p of panels)expect(intersects(r,p,9)).toBe(false);}
  });
 });
+
+import {tideReadings} from '../src/tides3d/zhuyin';
+describe('tide lesson Traditional Chinese readings',()=>{
+ it('uses Taiwan scientific readings and context-sensitive polyphones',()=>{
+  const readings=(s:string)=>tideReadings(s).map(t=>t.reading);
+  expect(readings('潮汐月相')).toEqual(['ㄔㄠˊ','ㄒㄧˋ','ㄩㄝˋ','ㄒㄧㄤˋ']);
+  expect(readings('為什麼旋轉重設空白')).toEqual(['ㄨㄟˋ','ㄕㄣˊ','ㄇㄜ˙','ㄒㄩㄢˊ','ㄓㄨㄢˇ','ㄔㄨㄥˊ','ㄕㄜˋ','ㄎㄨㄥˋ','ㄅㄞˊ']);
+  expect(readings('上弦小潮仍有潮汐')).not.toContain('');
+ });
+ it('preserves every character, punctuation and numerical model value',()=>{
+  const text='小潮仍有潮汐，示意潮差 1.08；月球 90°。';expect(tideReadings(text).map(t=>t.char).join('')).toBe(text);
+ });
+});
