@@ -15,6 +15,7 @@ try{
   for(const a of [0,45,90,180,270]){
    if(a===45){await page.locator('#reset').click();assert.equal(await page.locator('button[data-view=space]').getAttribute('aria-pressed'),'true');}else await page.locator(`[data-angle="${a}"]`).click();
    assert.equal(await page.locator('.world-handle.moon').getAttribute('aria-valuenow'),String(a));await page.locator(`#space[data-render-angle="${a}"]`).waitFor({state:'visible'});
+   assert.equal(await page.locator('#space').getAttribute('data-sun-visible'),'true');const moonBox=await page.locator('.world-handle.moon').boundingBox(),spaceBox=await page.locator('#space').boundingBox();assert(moonBox.x>=spaceBox.x&&moonBox.x+moonBox.width<=spaceBox.x+spaceBox.width,'Moon handle clipped');
    await page.screenshot({path:`artifacts/tides3d/${size.width}x${size.height}-angle-${a}.png`});
    assert((await page.locator('#range').textContent()).includes(a%180===0?'2.92':a===45?'2.20':'1.08'));
   }
@@ -29,7 +30,7 @@ try{
   await page.locator('#quiz').click();await page.locator('[data-answer="90"]').click();assert((await page.locator('#answer-feedback').textContent()).includes('答對'));await page.screenshot({path:`artifacts/tides3d/${size.width}x${size.height}-quiz.png`});await page.locator('#close-dialog').click();
   await page.locator('#demo').click();await page.waitForTimeout(200);await page.locator('#play').click();assert.equal(await page.locator('#play').getAttribute('aria-pressed'),'false');
   const returnAngle=await page.locator('.world-handle.moon').getAttribute('aria-valuenow');
-  await page.getByRole('link',{name:'返回上一個實驗入口'}).click();await page.locator('body[data-tides3d-ready=true]').waitFor({timeout:30000});assert.equal(await page.locator('body').getAttribute('data-lesson'),'moon');await page.locator('[data-angle="180"]').click();await page.locator('#quiz').click();await page.locator('[data-answer="180"]').click();assert((await page.locator('#answer-feedback').textContent()).includes('答對'));await page.locator('#close-dialog').click();await page.screenshot({path:`artifacts/tides3d/${size.width}x${size.height}-moon-entry.png`});
+  await page.getByRole('link',{name:'返回上一個實驗入口'}).click();await page.locator('body[data-tides3d-ready=true]').waitFor({timeout:30000});assert.equal(await page.locator('body').getAttribute('data-lesson'),'moon');await page.locator('[data-angle="180"]').click();await page.locator('#quiz').click();await page.locator('[data-answer="180"]').click();assert((await page.locator('#answer-feedback').textContent()).includes('答對'));await page.locator('#close-dialog').click();await page.locator('#space[data-render-angle="180"]').waitFor();assert.equal(await page.locator('#space').getAttribute('data-sun-visible'),'true');await page.screenshot({path:`artifacts/tides3d/${size.width}x${size.height}-moon-entry.png`});await page.locator('button[data-step="3"]').click();assert.equal(await page.locator('#official').getAttribute('target'),'_self');
   await page.goBack();await page.locator('body[data-tides3d-ready=true]').waitFor({timeout:30000});assert.equal(await page.locator('body').getAttribute('data-lesson'),'tides');assert.equal(await page.locator('.world-handle.moon').getAttribute('aria-valuenow'),returnAngle);
   assert.deepEqual(errors,[]);results.push({size,fits,handle:{width:handle.width,height:handle.height},status:'PASS'});await context.close();
  }
