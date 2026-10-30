@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "source_commit": "d426db70e8625e4a0407c1c03c51a39d52f76b46",
+  "command": "npm ci --cache /tmp/learning-planet-quality-npm-cache --no-audit --no-fund; npm run check",
+  "tracked_files_missing": 0,
+  "test_files": 165,
+  "tests_passed": 1196,
+  "tests_failed": 0,
+  "dependencies": {
+    "vite": "7.3.6",
+    "vitest": "3.2.7",
+    "three": "0.180.0",
+    "typescript": "5.9.3"
+  },
+  "build_steps": [
+    "build:earth-orbit",
+    "build:experiments",
+    "build:stories",
+    "build:little-star",
+    "build:math-teaching",
+    "build:optics",
+    "build:earth-lab",
+    "build:fire-weather",
+    "build:underwater-world",
+    "build:amusement-park",
+    "build:experiment-planets",
+    "build:tides",
+    "build:tides3d"
+  ],
+  "candidate_source_changed": false,
+  "candidate_preview_preserved": true,
+  "remote_push": "denied_not_retried_pending_user_authorization",
+  "ci": "not_run",
+  "deployment": "not_performed",
+  "note": "Original sparse-checkout asset failures are resolved after same-commit tracked files were materialized. Preserve the prior failure report as history. Unrelated generated build outputs were restored to their pre-check tracked versions.",
+  "preview_runtime_files": 36,
+  "preview_runtime_hashes_match_after_locked_build": true
+}

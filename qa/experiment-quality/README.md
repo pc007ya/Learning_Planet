@@ -46,7 +46,18 @@
 - 台灣觀測點經緯度對應貼圖 UV、球面位置、自轉／傾角矩陣及太陽高度的一致性測試通過。畫面誤解來自背面觀測點投影與地軸靠近，已明示「台灣・背面」及可轉視角找金點。
 - 植物補根吸水／葉蒸散雙端點，葉端引線跟隨真實葉片；天氣改為有回連雲源的矩形放大窗；浮力題幹改物件中立；力的數值與 N 同行，切步驟會先顯示對應控制群組。
 - 原 3D 潮汐六尺寸、2D 潮汐四尺寸回歸通過；原地月 classic 引擎實際啟動、滿月控制可用。原首頁／3D 列表／潮汐 source、HTML、CSS 與基準 merge `26bc7258d316c0f3580e7061c6788dfdd4dbb5b9` 完全相同。
-- 完整 `npm run check` **未通過**：稀疏 checkout 缺 `roles/student-profile.html` 及大量原有圖片／音訊素材。最近一次全站 Vitest 共 1185 assertion，1107 通過、78 失敗，另有一個缺檔 suite；詳細限制列於 `complete-regression-limit.json`。不得把局部通過說成完整回歸／CI 成功。
+- 先前 sparse checkout 的完整 `npm run check` **未通過**（此限制已補齊解除，見下節）：稀疏 checkout 缺 `roles/student-profile.html` 及大量原有圖片／音訊素材。最近一次全站 Vitest 共 1185 assertion，1107 通過、78 失敗，另有一個缺檔 suite；詳細限制列於 `complete-regression-limit.json`。不得把局部通過說成完整回歸／CI 成功。
 - 推送既有公開 GitHub 儲存庫被自動批准審查拒絕，理由是尚未認定公開發布這批檔案已獲明確使用者授權。已停止遠端寫入，未建立 PR、未合併、未部署；等待父對話已提出的精確授權。完整 checkout 的精確 head CI 尚未執行。
 
 參考作品的多尺度細節、完整課程深度與真機效能仍不是本輪可宣稱同等的證據；本輪交付的是逐模組可操作候選與可追溯 QA。手機的 3D 視窗較桌面小，仍可切換／放大；水、雲、磁場與植物均是明示的教學近似，不是真實流體／工程／預報模型。
+
+
+## 同版本完整檢出後的補驗
+
+候選程式 commit `d426db70e8625e4a0407c1c03c51a39d52f76b46` 保持不變。唯讀從既有 Git 儲存庫取回缺漏物件後，解除本專案 sparse checkout；目前 Git 已追蹤檔缺漏為0，角色頁、auth-v2、functions、圖片、音訊與影片皆為同版本。未修改其他工作環境。
+
+先前78個失敗 assertion 與1個 collection failure 已消失，沒有留下真正產品測試失敗。先確認全套通過，再以 `npm ci` 恢復 lockfile 的精確依賴（Vite7.3.6、Vitest3.2.7、Three0.180.0、TypeScript5.9.3），重跑完整 `npm run check`：**165個測試檔、1196項測試全部通過，13個建置步驟全部成功，exit0**。原本未收集的 Firebase student progress suite 補齊後多收集11項測試。
+
+詳見 `evidence/complete-regression-materialized.json` 與 `evidence/complete-check-locked.log`。舊的缺檔報告保留作歷史，不代表目前狀態。全套建置生成的無關舊模組輸出已恢復至檢查前的Git版本；候選原始碼與已交Library預覽未改。預覽包36個runtime檔案的SHA-256與鎖定依賴重建後逐一相符。
+
+瀏覽器36尺寸案例與地面8態的既有驗證證據保持有效，沒有為補素材而改功能或測試門檻。公開push維持停止，等待父對話已詢問的使用者授權；遠端CI及部署仍未執行。
