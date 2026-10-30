@@ -9,7 +9,11 @@ on:
       - 'src/experiment-planets/**'
       - 'experiments/3d/**'
       - 'vite.experiment-planets.config.ts'
+      - 'tests/*quality.test.ts'
+      - 'tests/planet-picture-quiz.test.ts'
       - 'tests/experiment-planets.test.ts'
+      - 'src/experiment-planets-legacy/**'
+      - 'scripts/verify-experiment-planets.mjs'
       - 'src/tides/**'
       - 'src/tides3d/**'
       - 'tests/tides3d.test.ts'
@@ -41,7 +45,7 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
       - name: Science and isolation tests
-        run: npx vitest run tests/experiment-planets.test.ts tests/tides.test.ts tests/tides3d.test.ts
+        run: npx vitest run tests/experiment-planets.test.ts tests/*quality.test.ts tests/planet-picture-quiz.test.ts tests/tides.test.ts tests/tides3d.test.ts
       - name: Build independent 3D engine
         run: npm run build:experiment-planets
       - name: Verify six independent pages and lazy chunks
@@ -60,7 +64,7 @@ jobs:
           npx playwright install chromium
       - name: Install Traditional Chinese browser fonts
         run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
-      - name: Screenshot browser tests at tablet sizes
+      - name: Browser interactions and screenshots at six sizes
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/experiment-planets-server.log 2>&1 &
           node scripts/verify-experiment-planets.mjs
