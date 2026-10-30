@@ -16,3 +16,12 @@ describe('review revision keeps existing modules and offers real 3D',()=>{
  it('loads only from the new standalone lesson and preserves both classic shells',()=>{const html=readFileSync('experiments/3d/earth-moon/tides/index.html','utf8');expect(html).toContain('modules/tides3d/tides3d.js');expect(readFileSync('index.html','utf8')).not.toContain('modules/tides3d');expect(readFileSync('experiments/3d/earth-moon/tides/classic.html','utf8')).toContain('modules/tides/tides.js');expect(readFileSync('experiments/3d/earth-moon/classic.html','utf8')).toContain('modules/experiment-planets/planet.js');});
  it('uses the project textures, actual sunlight, OrbitControls and captured direct interaction',()=>{const s=readFileSync('src/tides3d/stage.ts','utf8');for(const text of ['earth-surface-equirect-v02.png','moon-lroc-2k.jpg','OrbitControls','setPointerCapture','shellRadius','pagehide'])if(text!=='pagehide')expect(s).toContain(text);expect(readFileSync('src/tides3d/app.ts','utf8')).toContain('pagehide');});
 });
+
+import {judgeChallenge} from '../src/tides3d/challenges';
+describe('hands-on assessment uses the physical model',()=>{
+ it('requires an actual adjustment instead of accepting an untouched target',()=>{expect(judgeChallenge('spring',0,false).passed).toBe(false);expect(judgeChallenge('neap',90,false).passed).toBe(false);});
+ it('accepts both alignments for spring and rejects the perpendicular case',()=>{for(const a of [0,180,359,7])expect(judgeChallenge('spring',a,true).passed).toBe(true);for(const a of [45,90,270])expect(judgeChallenge('spring',a,true).passed).toBe(false);});
+ it('accepts both quarter positions for neap without removing tides',()=>{for(const a of [90,270]){const result=judgeChallenge('neap',a,true);expect(result.passed).toBe(true);expect(result.range).toBeCloseTo(1.08);}expect(judgeChallenge('neap',0,true).passed).toBe(false);});
+ it('requires fine adjustment for a numeric range; none of the four preset answers suffice',()=>{for(const a of [0,90,180,270])expect(judgeChallenge('middle',a,true).passed).toBe(false);expect(judgeChallenge('middle',50,true).passed).toBe(true);expect(judgeChallenge('middle',130,true).passed).toBe(true);expect(judgeChallenge('middle',45,true).message).toContain('偏大');expect(judgeChallenge('middle',90,true).message).toContain('偏小');});
+ it('does not accept invalid state',()=>{expect(judgeChallenge('middle',NaN,true).passed).toBe(false);});
+});
