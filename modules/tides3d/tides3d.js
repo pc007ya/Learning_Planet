@@ -91,6 +91,7 @@ function wc(i) {
         }
         c.replaceWith(l);
       }
+      o.length && i();
     }
     n.observe(document.body, { childList: !0, subtree: !0 });
   }
