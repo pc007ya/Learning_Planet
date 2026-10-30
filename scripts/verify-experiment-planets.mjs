@@ -23,6 +23,13 @@ try{
       const target=root+planet+'/';
       const response=await page.goto(target,{waitUntil:'networkidle',timeout:30000});
       if(!response?.ok())throw Error(target+' '+response?.status());
+      if(planet==='earth-moon'){
+        await page.locator('body[data-tides3d-ready="true"]').waitFor({timeout:20000});
+        if(await page.locator('#space canvas').count()!==1)throw Error('Enhanced Earth-Moon canvas missing');
+        await page.screenshot({path:'artifacts/experiment-planets/'+planet+'-'+size.width+'x'+size.height+'-scene.png'});
+        await page.locator('#quiz').click();await page.locator('#dialog').waitFor({state:'visible'});await page.locator('#close-dialog').click();
+        await page.close();console.log('PASS',planet,'enhanced 3D shell');continue;
+      }
       await page.locator('body[data-planet-ready="true"]').waitFor({timeout:15000});
       await page.evaluate(()=>document.fonts.ready);
       await page.locator('#ep-controls button').first().waitFor();

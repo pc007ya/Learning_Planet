@@ -1,0 +1,18 @@
+{
+  "ROI": [
+    440,
+    315,
+    520,
+    410
+  ],
+  "before": {
+    "median_luma": 66.68,
+    "p95_luma": 165.98,
+    "all_channels_above_245": 0
+  },
+  "material_only": {
+    "median_luma": 61.66,
+    "p95_luma": 173.96,
+    "all_channels_above_245": 0
+  }
+}

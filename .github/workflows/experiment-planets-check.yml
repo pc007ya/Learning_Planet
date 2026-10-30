@@ -11,6 +11,10 @@ on:
       - 'vite.experiment-planets.config.ts'
       - 'tests/experiment-planets.test.ts'
       - 'src/tides/**'
+      - 'src/tides3d/**'
+      - 'tests/tides3d.test.ts'
+      - 'vite.tides3d.config.mjs'
+      - 'scripts/verify-tides3d.mjs'
       - 'tests/tides.test.ts'
       - 'vite.tides.config.mjs'
       - 'scripts/verify-tides.mjs'
@@ -37,7 +41,7 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
       - name: Science and isolation tests
-        run: npx vitest run tests/experiment-planets.test.ts tests/tides.test.ts
+        run: npx vitest run tests/experiment-planets.test.ts tests/tides.test.ts tests/tides3d.test.ts
       - name: Build independent 3D engine
         run: npm run build:experiment-planets
       - name: Verify six independent pages and lazy chunks
@@ -61,6 +65,7 @@ jobs:
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/experiment-planets-server.log 2>&1 &
           node scripts/verify-experiment-planets.mjs
           node scripts/verify-tides.mjs
+          node scripts/verify-tides3d.mjs
       - name: Upload scenes and quiz screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -69,4 +74,6 @@ jobs:
           path: |
             artifacts/experiment-planets/*.png
             artifacts/tides/*.png
+            artifacts/tides3d/*.png
+            artifacts/tides3d/*.json
           if-no-files-found: ignore

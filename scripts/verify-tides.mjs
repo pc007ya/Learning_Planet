@@ -11,7 +11,7 @@ try{
     const page=await context.newPage();const errors=[];
     page.on('pageerror',error=>errors.push(String(error)));
     const requests=[];page.on('request',r=>requests.push(r.url()));
-    assert((await page.goto('http://127.0.0.1:4173/experiments/3d/earth-moon/tides/'))?.ok());
+    assert((await page.goto('http://127.0.0.1:4173/experiments/3d/earth-moon/tides/classic.html'))?.ok());
     await page.locator('body[data-tides-ready=true]').waitFor();
     for(let step=0;step<4;step++){
       await page.locator(`[data-step="${step}"]`).click();
