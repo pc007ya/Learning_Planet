@@ -30,7 +30,7 @@ function bc(i, { singleReadings: t = Dl } = {}) {
 }
 const mr = "眉 ㄇㄟˊ 盈 ㄧㄥˊ 凸 ㄊㄨˊ 虧 ㄎㄨㄟ 殘 ㄘㄢˊ 和 ㄏㄢˋ 陽 ㄧㄤˊ 光 ㄍㄨㄤ 照 ㄓㄠˋ 亮 ㄌㄧㄤˋ 夜 ㄧㄝˋ 白 ㄅㄞˊ 處 ㄔㄨˋ 拖 ㄊㄨㄛ 動 ㄉㄨㄥˋ 察 ㄔㄚˊ 地 ㄉㄧˋ 球 ㄑㄧㄡˊ 朝 ㄔㄠˊ 太 ㄊㄞˋ 抓 ㄓㄨㄚ 沿 ㄧㄢˊ 軌 ㄍㄨㄟˇ 道 ㄉㄠˋ 注 ㄓㄨˋ 讓 ㄖㄤˋ 見 ㄐㄧㄢˋ 什 ㄕㄣˊ 麼 ㄇㄜ˙ 卡 ㄎㄚˇ 旁 ㄆㄤˊ 視 ㄕˋ 弦 ㄒㄧㄢˊ 親 ㄑㄧㄣ 手 ㄕㄡˇ 海 ㄏㄞˇ 潮 ㄔㄠˊ 汐 ㄒㄧˋ 探 ㄊㄢˋ 險 ㄒㄧㄢˇ 殼 ㄎㄜˊ 岸 ㄢˋ 曲 ㄑㄩ 本 ㄅㄣˇ 測 ㄘㄜˋ 台 ㄊㄞˊ 其 ㄑㄧˊ 他 ㄊㄚ 實 ㄕˊ 驗 ㄧㄢˋ 均 ㄐㄩㄣ 降 ㄐㄧㄤˋ 尺 ㄔˇ 轉 ㄓㄨㄢˇ 金 ㄐㄧㄣ 色 ㄙㄜˋ 它 ㄊㄚ 置 ㄓˋ 假 ㄐㄧㄚˇ 想 ㄒㄧㄤˇ 赤 ㄔˋ 灣 ㄨㄢ 際 ㄐㄧˋ 隆 ㄌㄨㄥˊ 旋 ㄒㄩㄢˊ 近 ㄐㄧㄣˋ 遠 ㄩㄢˇ 拉 ㄌㄚ 吸 ㄒㄧ 引 ㄧㄣˇ 推 ㄊㄨㄟ 立 ㄌㄧˋ 體 ㄊㄧˇ 仍 ㄖㄥˊ 會 ㄏㄨㄟˋ 模 ㄇㄛˊ 型 ㄒㄧㄥˊ 預 ㄩˋ 報 ㄅㄠˋ 嗎 ㄇㄚ˙ 真 ㄓㄣ 深 ㄕㄣ 摩 ㄇㄛˊ 擦 ㄘㄚ 氣 ㄑㄧˋ 頭 ㄊㄡˊ 頂 ㄉㄧㄥˇ 目 ㄇㄨˋ 如 ㄖㄨˊ 俯 ㄈㄨˇ 指 ㄓˇ 知 ㄓ 受 ㄕㄡˋ 已 ㄧˇ 斜 ㄒㄧㄝˊ 任 ㄖㄣˋ 務 ㄨˋ 前 ㄑㄧㄢˊ 檢 ㄐㄧㄢˇ 查 ㄔㄚˊ 你 ㄋㄧˇ 調 ㄊㄧㄠˊ 存 ㄘㄨㄣˊ 瀏 ㄌㄧㄡˊ 覽 ㄌㄢˇ 考 ㄎㄠˇ 核 ㄏㄜˊ 機 ㄐㄧ 錄 ㄌㄨˋ 退 ㄊㄨㄟˋ 然 ㄖㄢˊ 玩 ㄨㄢˊ 常 ㄔㄤˊ 我 ㄨㄛˇ 們 ㄇㄣ˙ 例 ㄌㄧˋ 隨 ㄙㄨㄟˊ 而 ㄦˊ 消 ㄒㄧㄠ 失 ㄕ 北 ㄅㄟˇ 擬 ㄋㄧˇ 食 ㄕˊ 緯 ㄨㄟˇ 素 ㄙㄨˋ 材 ㄘㄞˊ 限 ㄒㄧㄢˋ 制 ㄓˋ 庫 ㄎㄨˋ 貼 ㄊㄧㄝ 複 ㄈㄨˋ 製 ㄓˋ 銅 ㄊㄨㄥˊ 匠 ㄐㄧㄤˋ 晨 ㄔㄣˊ 昏 ㄏㄨㄣ 做 ㄗㄨㄛˋ 理 ㄌㄧˇ 衡 ㄏㄥˊ 厚 ㄏㄡˋ 幅 ㄈㄨˊ 誇 ㄎㄨㄚ 全 ㄑㄩㄢˊ 波 ㄅㄛ 紋 ㄨㄣˊ 感 ㄍㄢˇ 流 ㄌㄧㄡˊ 止 ㄓˇ 態 ㄊㄞˋ 設 ㄕㄜˋ 央 ㄧㄤ 象 ㄒㄧㄤˋ 署 ㄕㄨˇ 場 ㄔㄤˇ 景 ㄐㄧㄥˇ 載 ㄗㄞˋ 敗 ㄅㄞˋ 使 ㄕˇ 輔 ㄈㄨˇ 助 ㄓㄨˋ 曳 ㄧㄝˋ 背 ㄅㄟˋ 乎 ㄏㄨ 至 ㄓˋ 慢 ㄇㄢˋ 鍵 ㄐㄧㄢˋ 微 ㄨㄟˊ 請 ㄑㄧㄥˇ 替 ㄊㄧˋ 者 ㄓㄜˇ 效 ㄒㄧㄠˋ 強 ㄑㄧㄤˊ 反 ㄈㄢˇ 偏 ㄆㄧㄢ 返 ㄈㄢˇ 口 ㄎㄡˇ 室 ㄕˋ 導 ㄉㄠˇ 挑 ㄊㄧㄠˇ 戰 ㄓㄢˋ 聽 ㄊㄧㄥ 語 ㄩˇ 索 ㄙㄨㄛˇ 世 ㄕˋ 界 ㄐㄧㄝˋ 石 ㄕˊ 繞 ㄖㄠˋ 包 ㄅㄠ 弱 ㄖㄨㄛˋ 源 ㄩㄢˊ 閉 ㄅㄧˋ 話 ㄏㄨㄚˋ".split(/\s+/), Ul = {};
 for (let i = 0; i < mr.length; i += 2) Ul[mr[i]] = mr[i + 1];
-const xo = { 月相: ["ㄩㄝˋ", "ㄒㄧㄤˋ"], 為什麼: ["ㄨㄟˋ", "ㄕㄣˊ", "ㄇㄜ˙"], 重聽: ["ㄔㄨㄥˊ", "ㄊㄧㄥ"], 重設: ["ㄔㄨㄥˊ", "ㄕㄜˋ"], 重玩: ["ㄔㄨㄥˊ", "ㄨㄢˊ"], 空白: ["ㄎㄨㄥˋ", "ㄅㄞˊ"], 受光: ["ㄕㄡˋ", "ㄍㄨㄤ"] };
+const xo = { 月相: ["ㄩㄝˋ", "ㄒㄧㄤˋ"], 為什麼: ["ㄨㄟˋ", "ㄕㄣˊ", "ㄇㄜ˙"], 重聽: ["ㄔㄨㄥˊ", "ㄊㄧㄥ"], 重設: ["ㄔㄨㄥˊ", "ㄕㄜˋ"], 重整: ["ㄔㄨㄥˊ", "ㄓㄥˇ"], 重玩: ["ㄔㄨㄥˊ", "ㄨㄢˊ"], 空白: ["ㄎㄨㄥˋ", "ㄅㄞˊ"], 受光: ["ㄕㄡˋ", "ㄍㄨㄤ"] };
 function Ac(i) {
   const t = bc(i);
   for (const e of t) e.reading = Ul[e.char] || e.reading;
@@ -21239,7 +21239,7 @@ class ho {
     }
     s.needsUpdate = !0, this.shellGeometry.computeVertexNormals(), this.marker.position.set(Math.cos(me(e)) * 2.035, 0.03, -Math.sin(me(e)) * 2.035), this.markerButton.hidden = this.moonMode;
     const r = this.marker.position.dot(this.camera.position.clone().sub(this.marker.position)) > 0;
-    Jt(this.markerButton.querySelector(".handle-label"), r ? "海岸觀測點" : "背側海岸觀測點"), this.moonButton.setAttribute("aria-valuenow", String(Math.round(Re(t)) % 360)), this.markerButton.setAttribute("aria-valuenow", String(Math.round(Re(e)) % 360)), this.wake();
+    Jt(this.markerButton.querySelector(".handle-label"), r ? this.host.clientWidth < 550 ? "觀測點" : "海岸觀測點" : this.host.clientWidth < 550 ? "背側觀測點" : "背側海岸觀測點"), this.moonButton.setAttribute("aria-valuenow", String(Math.round(Re(t)) % 360)), this.markerButton.setAttribute("aria-valuenow", String(Math.round(Re(e)) % 360)), this.wake();
   }
   setView(t) {
     this.camera.up.set(0, t === "top" ? 0 : 1, t === "top" ? -1 : 0), this.orbit.target.set(t === "coast" ? 0 : this.host.clientWidth < 550 ? 1.7 : 1.05, 0, 0), t === "space" && (this.host.clientWidth < 550 || this.host.clientWidth / this.host.clientHeight < 1.5) ? (this.orbit.target.x = 1.7, this.camera.position.set(13, 7, 17)) : this.camera.position.copy(t === "top" ? new L(this.host.clientWidth < 550 ? 1.7 : 1.05, this.host.clientWidth < 550 ? 23 : 17, 1e-3) : t === "coast" ? new L(0, 3.2, 8) : new L(10, 3.2, 10.4)), this.orbit.update(), this.movingUntil = performance.now() + 450, this.wake();
@@ -21274,9 +21274,9 @@ class ho {
     const t = new L(7, 0, 0).project(this.camera);
     this.host.dataset.sunVisible = String(Math.abs(t.x) < 0.9 && Math.abs(t.y) < 0.9 && t.z < 1);
     const e = this.moon.position.clone().sub(this.camera.position), n = -this.camera.position.dot(e) / e.lengthSq(), s = n > 0 && n < 1 && this.camera.position.clone().addScaledVector(e, n).length() < 2.1;
-    this.moonButton.classList.toggle("occluded", s), Jt(this.moonButton.querySelector(".handle-label"), s ? "月球在地球後方 · 拖動" : "月球 · 拖動");
+    this.moonButton.classList.toggle("occluded", s), Jt(this.moonButton.querySelector(".handle-label"), s ? this.host.clientWidth < 550 ? "背側月球" : "月球在地球後方 · 拖動" : "月球 · 拖動");
     const r = this.marker.position.dot(this.camera.position.clone().sub(this.marker.position)) > 0;
-    Jt(this.markerButton.querySelector(".handle-label"), r ? "海岸觀測點" : "背側海岸觀測點");
+    Jt(this.markerButton.querySelector(".handle-label"), r ? this.host.clientWidth < 550 ? "觀測點" : "海岸觀測點" : this.host.clientWidth < 550 ? "背側觀測點" : "背側海岸觀測點");
     const a = this.host.getBoundingClientRect(), o = this.host.clientWidth, c = this.host.clientHeight, l = [], u = [], d = /* @__PURE__ */ new Map(), f = (E) => ({ x: E.left - a.left, y: E.top - a.top, width: E.width, height: E.height });
     for (const E of [".world-top", ".view-controls", ".phase-options", ".actions", ".world-hint"]) {
       const v = this.host.parentElement.querySelector(E);

@@ -28,3 +28,10 @@ body[data-zhuyin="true"] .handle-label,body[data-zhuyin="true"] .world-label{whi
 body[data-zhuyin="true"] .world-hint{top:55px;bottom:auto;left:14px;right:14px;max-width:none;width:auto}body[data-zhuyin="true"] .lesson-copy h2{line-height:1.75}body[data-zhuyin="true"] .phase-options button{white-space:nowrap}
 @media(min-width:701px){body[data-zhuyin="true"] #instruction{display:none}body[data-zhuyin="true"] #help{display:flex}body[data-zhuyin="true"] .lesson-copy h2{font-size:17px;line-height:1.5}body[data-zhuyin="true"] #step-title{display:none}body[data-zhuyin="true"] .observation{padding:8px;gap:6px}body[data-zhuyin="true"] #aux-home .aux-panel svg{min-height:35px;max-height:90px}body[data-zhuyin="true"] #feedback{font-size:11px}}
 @media(min-width:701px){body[data-lesson="tides"] header{grid-template-columns:44px auto minmax(0,1fr) auto}.lesson-tools{justify-self:start;margin-left:12px}}
+/* Keep the narrow phone header to one row so close-up labels retain room. */
+@media(max-width:700px){body[data-lesson="tides"] header{grid-template-columns:44px 34px minmax(0,1fr) auto;gap:4px}.lesson-tools{grid-row:auto;grid-column:auto;gap:4px;margin:0}.brand-tools img{width:32px;height:32px}body[data-lesson="tides"] header .brand h1{font-size:0}body[data-lesson="tides"] header .brand h1::after{content:'潮汐';font-size:16px;white-space:nowrap}}
+ruby.zhuyin-side rt{min-width:1em}
+@media(max-width:700px){body[data-zhuyin="true"] .world:has([data-view="coast"][aria-pressed="true"]) .world-hint{display:none}}
+/* On a phone, the same gesture guidance is available in the annotated feedback/help. */
+@media(max-width:700px){body[data-zhuyin="true"] .world-hint{display:none}}
+body[data-zhuyin="true"] .world-label[data-kind="general"]{max-width:150px}
