@@ -4,7 +4,7 @@ import {surfaceField,shellRadius,EARTH_RADIUS,EQUATOR_OFFSET,shoreLevel} from '.
 import {radians,tideHeight,tideAmplitude} from '../src/tides/model';
 describe('3D equilibrium shell and linked equatorial observation',()=>{
  it('matches the existing equatorial field after its constant latitude offset is removed',()=>{
-  for(const a of [0,45,90,135,180,270])for(let t=0;t<360;t+=5){expect(surfaceField(Math.cos(radians(t)),0,Math.sin(radians(t)),a)-EQUATOR_OFFSET).toBeCloseTo(tideHeight(t,a),10);expect(shoreLevel(t,a)).toBe(tideHeight(t,a));}
+  for(const a of [0,45,90,135,180,270])for(let t=0;t<360;t+=5){expect(surfaceField(Math.cos(radians(t)),0,-Math.sin(radians(t)),a)-EQUATOR_OFFSET).toBeCloseTo(tideHeight(t,a),10);expect(shoreLevel(t,a)).toBe(tideHeight(t,a));}
  });
  it('has two opposite bulges, nonzero neap tides, and never intersects the Earth',()=>{
   for(const a of [0,45,90,180,270])for(let lat=-90;lat<=90;lat+=5)for(let lon=0;lon<360;lon+=5){const y=Math.sin(radians(lat)),x=Math.cos(radians(lat))*Math.cos(radians(lon)),z=Math.cos(radians(lat))*Math.sin(radians(lon));expect(shellRadius(x,y,z,a)).toBeGreaterThan(EARTH_RADIUS);expect(surfaceField(x,y,z,a)).toBeCloseTo(surfaceField(-x,-y,-z,a),10);}

@@ -8,3 +8,5 @@
 @media(max-width:700px){#phase-home,#actions-home{display:none}#aux-home{display:none}.world-hint{right:10px}aside .phase-options{grid-column:2;grid-row:2}aside .actions{grid-column:1/-1;margin:0}.world .phase-options,.world .actions{position:static;width:auto}.mobile-aux .aux-panel[hidden]{display:none}}
 body:not([data-step="1"]) [data-kind="force"]{display:none}body[data-lesson="moon"] [data-aux="curve"]{display:none}#earth-moon-portrait svg{width:110px;height:110px;max-height:140px;display:block;margin:auto}#shore-panel:has(#earth-moon-portrait){justify-content:center;text-align:center}#shore-panel:has(#earth-moon-portrait) p{font-size:13px;padding:0 8px}
 button{min-height:44px!important;min-width:44px!important}@media(max-height:700px) and (min-width:701px){#angle-readout,.lesson-copy small{display:none}.aux-tabs button{min-height:44px}#aux-home{min-height:100px}.observer-controls button{min-height:44px}.aux-panel svg{min-height:25px}}footer button{min-height:44px}
+.label-above .handle-label{top:auto;bottom:calc(100% + 4px)}
+body[data-step="3"] #goal{display:none}footer #official{font-size:12px;min-height:44px;padding:7px 10px}
