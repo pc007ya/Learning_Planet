@@ -1,0 +1,130 @@
+[
+  {
+    "aside": 655,
+    "footer": 664,
+    "h": 720,
+    "labelLayout": "clear",
+    "metrics": [
+      "速度",
+      "位移",
+      "加速度"
+    ],
+    "minTarget": 44,
+    "overflow": false,
+    "reading": "true",
+    "ruby": 9,
+    "w": 1280
+  },
+  {
+    "aside": 655,
+    "footer": 664,
+    "h": 720,
+    "labelLayout": "clear",
+    "metrics": [
+      "速度",
+      "位移",
+      "加速度"
+    ],
+    "minTarget": 44,
+    "overflow": false,
+    "reading": "false",
+    "ruby": 0,
+    "w": 1280
+  },
+  {
+    "aside": 540,
+    "footer": 547,
+    "h": 600,
+    "labelLayout": "clear",
+    "metrics": [
+      "速度",
+      "位移",
+      "加速度"
+    ],
+    "minTarget": 44,
+    "overflow": false,
+    "reading": "true",
+    "ruby": 9,
+    "w": 1024
+  },
+  {
+    "aside": 540,
+    "footer": 547,
+    "h": 600,
+    "labelLayout": "clear",
+    "metrics": [
+      "速度",
+      "位移",
+      "加速度"
+    ],
+    "minTarget": 44,
+    "overflow": false,
+    "reading": "false",
+    "ruby": 0,
+    "w": 1024
+  },
+  {
+    "aside": 785,
+    "footer": 792,
+    "h": 844,
+    "labelLayout": "clear",
+    "metrics": [
+      "速度",
+      "位移",
+      "加速度"
+    ],
+    "minTarget": 44,
+    "overflow": false,
+    "reading": "true",
+    "ruby": 9,
+    "w": 390
+  },
+  {
+    "aside": 785,
+    "footer": 792,
+    "h": 844,
+    "labelLayout": "clear",
+    "metrics": [
+      "速度",
+      "位移",
+      "加速度"
+    ],
+    "minTarget": 44,
+    "overflow": false,
+    "reading": "false",
+    "ruby": 0,
+    "w": 390
+  },
+  {
+    "aside": 721,
+    "footer": 728,
+    "h": 780,
+    "labelLayout": "clear",
+    "metrics": [
+      "速度",
+      "位移",
+      "加速度"
+    ],
+    "minTarget": 44,
+    "overflow": false,
+    "reading": "true",
+    "ruby": 9,
+    "w": 360
+  },
+  {
+    "aside": 721,
+    "footer": 728,
+    "h": 780,
+    "labelLayout": "clear",
+    "metrics": [
+      "速度",
+      "位移",
+      "加速度"
+    ],
+    "minTarget": 44,
+    "overflow": false,
+    "reading": "false",
+    "ruby": 0,
+    "w": 360
+  }
+]

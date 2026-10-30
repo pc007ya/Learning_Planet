@@ -35,3 +35,22 @@ body[data-reading=true] .ep-options button>span{white-space:nowrap;line-height:1
 body[data-reading=true] .ep-options:not([data-count="6"]) button{flex-direction:column;gap:3px;min-height:76px}
 body[data-reading=true] .ep-options:not([data-count="6"]) svg{height:30px;width:48px}
 @media(max-width:700px){body[data-reading=true] .ep-options:not([data-count="6"]) button{min-height:69px}}
+/* Four alternatives remain a 2×2 grid; compact icons leave a whole phonetic word beside them. */
+body[data-reading=true] .ep-options[data-count="4"] button{flex-direction:row;min-height:52px;gap:5px}
+body[data-reading=true] .ep-options[data-count="4"] svg{width:32px;height:30px}
+@media(max-width:700px){body[data-reading=true] .ep-options[data-count="6"] button{min-height:56px}}
+.ep-view-tools .ep-earth-perspective{position:static;min-width:44px;width:44px;min-height:44px;padding:3px}
+@media(max-width:700px){body[data-planet=earth-moon][data-earth-view=ground] .ep-ground-inset{top:66px}}
+.zhuyin-word{white-space:nowrap}
+@media(max-width:700px){body[data-reading=true] .ep-options[data-count="6"] button{padding:2px;gap:2px}body[data-reading=true] .ep-options[data-count="6"] svg{width:24px;height:26px}body[data-reading=true] .ep-options[data-count="6"] button>span{font-size:12px}}
+.ep-label-leaders{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:.78}
+@media(max-width:700px){.ep-dialog{padding:10px}.ep-dialog h2{margin-bottom:9px}}
+body[data-reading=true] #ep-hint-open{width:64px;min-width:64px}
+.ep-record-head>strong{white-space:nowrap}
+/* The ground comparison is a separate view, so its diagram never covers a celestial body. */
+body[data-planet=earth-moon][data-earth-view=ground] #ep-scene canvas,body[data-planet=earth-moon][data-earth-view=ground] #ep-scene .ep-world-label,body[data-planet=earth-moon][data-earth-view=ground] #ep-scene .ep-moon-handle{visibility:hidden!important}
+body[data-planet=earth-moon][data-earth-view=ground] .ep-ground-inset{top:96px;bottom:76px;left:20px;right:20px;width:auto;display:flex;align-items:center;justify-content:center}
+body[data-planet=earth-moon][data-earth-view=ground] .ep-ground-inset svg{width:100%;height:100%;max-width:640px}
+body[data-planet=earth-moon][data-earth-view=ground] .ep-ground-inset text{font-size:13px}
+body[data-planet=earth-moon][data-earth-view=ground] .ep-view-tools button[data-view],body[data-planet=earth-moon][data-earth-view=ground] #ep-zoom-in,body[data-planet=earth-moon][data-earth-view=ground] #ep-zoom-out{display:none}
+@media(max-width:700px){body[data-planet=earth-moon][data-earth-view=ground] .ep-ground-inset{top:66px;bottom:64px;left:8px;right:8px;padding:3px}}

@@ -1,0 +1,138 @@
+[
+  {
+    "h": 720,
+    "metricsBottom": 197,
+    "pageH": 720,
+    "pageW": 1280,
+    "reading": "false",
+    "sky": {
+      "bottom": 578,
+      "left": 37,
+      "right": 911,
+      "top": 222
+    },
+    "toolsTop": 603,
+    "view": "ground",
+    "visibleCameraButtons": 0,
+    "w": 1280
+  },
+  {
+    "h": 720,
+    "metricsBottom": 199.375,
+    "pageH": 720,
+    "pageW": 1280,
+    "reading": "true",
+    "sky": {
+      "bottom": 578,
+      "left": 37,
+      "right": 911,
+      "top": 222
+    },
+    "toolsTop": 603,
+    "view": "ground",
+    "visibleCameraButtons": 0,
+    "w": 1280
+  },
+  {
+    "h": 600,
+    "metricsBottom": 190,
+    "pageH": 600,
+    "pageW": 1024,
+    "reading": "false",
+    "sky": {
+      "bottom": 463,
+      "left": 33,
+      "right": 659,
+      "top": 215
+    },
+    "toolsTop": 488,
+    "view": "ground",
+    "visibleCameraButtons": 0,
+    "w": 1024
+  },
+  {
+    "h": 600,
+    "metricsBottom": 192.375,
+    "pageH": 600,
+    "pageW": 1024,
+    "reading": "true",
+    "sky": {
+      "bottom": 463,
+      "left": 33,
+      "right": 659,
+      "top": 215
+    },
+    "toolsTop": 488,
+    "view": "ground",
+    "visibleCameraButtons": 0,
+    "w": 1024
+  },
+  {
+    "h": 844,
+    "metricsBottom": 165,
+    "pageH": 844,
+    "pageW": 390,
+    "reading": "false",
+    "sky": {
+      "bottom": 438.5,
+      "left": 17,
+      "right": 373,
+      "top": 177
+    },
+    "toolsTop": 451.5,
+    "view": "ground",
+    "visibleCameraButtons": 0,
+    "w": 390
+  },
+  {
+    "h": 844,
+    "metricsBottom": 172.375,
+    "pageH": 844,
+    "pageW": 390,
+    "reading": "true",
+    "sky": {
+      "bottom": 411.234375,
+      "left": 17,
+      "right": 373,
+      "top": 177
+    },
+    "toolsTop": 424.234375,
+    "view": "ground",
+    "visibleCameraButtons": 0,
+    "w": 390
+  },
+  {
+    "h": 780,
+    "metricsBottom": 165,
+    "pageH": 780,
+    "pageW": 360,
+    "reading": "false",
+    "sky": {
+      "bottom": 374.5,
+      "left": 17,
+      "right": 343,
+      "top": 177
+    },
+    "toolsTop": 387.5,
+    "view": "ground",
+    "visibleCameraButtons": 0,
+    "w": 360
+  },
+  {
+    "h": 780,
+    "metricsBottom": 172.375,
+    "pageH": 780,
+    "pageW": 360,
+    "reading": "true",
+    "sky": {
+      "bottom": 347.234375,
+      "left": 17,
+      "right": 343,
+      "top": 177
+    },
+    "toolsTop": 360.234375,
+    "view": "ground",
+    "visibleCameraButtons": 0,
+    "w": 360
+  }
+]

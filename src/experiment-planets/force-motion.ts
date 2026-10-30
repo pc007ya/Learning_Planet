@@ -70,7 +70,7 @@ export function createForceMotion(stage:Stage):World{
  const pushLabel=addLabel('推力',new THREE.Vector3(),'#8bf3ce',.85);pushLabel.position.set(0,1,0);
  const frictionLabel=addLabel('摩擦力',new THREE.Vector3(),'#ffc28e',1.05);const netLabel=addLabel('淨力',new THREE.Vector3(),'#9dd7ff',.8);
  const pushCaption=stage.label('推力',pushLabel),frictionCaption=stage.label('摩擦力',frictionLabel),netCaption=stage.label('淨力',netLabel);for(const label of [pushLabel,frictionLabel,netLabel])label.material.visible=false;
- for(const [caption,color] of [[pushCaption,'#8bf3ce'],[frictionCaption,'#ffc28e'],[netCaption,'#9dd7ff']] as const){caption.style.color=color;caption.style.borderColor=color;}
+ for(const [caption,color] of [[pushCaption,'#8bf3ce'],[frictionCaption,'#ffc28e'],[netCaption,'#9dd7ff']] as const){caption.style.color=color;caption.style.borderColor=color;caption.style.whiteSpace='nowrap';caption.style.maxWidth='none';}
  function settings(force=motor?(data.force==='strong'?8:3):0):ForceSettings{return {force,mass:data.mass==='heavy'?2:1,surface:data.surface};}
  function redrawMass(){weights[1].visible=data.mass==='heavy';const texture=massLabel.material.map!,canvas=texture.image as HTMLCanvasElement,c=canvas.getContext('2d')!;c.clearRect(0,0,512,128);c.fillStyle='#0a1d35e8';c.beginPath();c.roundRect(2,2,508,124,25);c.fill();c.strokeStyle='#ffe4a7';c.lineWidth=3;c.stroke();c.fillStyle='#ffe4a7';c.font='bold 52px sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText(data.mass==='heavy'?'2 kg':'1 kg',256,66);texture.needsUpdate=true;}
  function visuals(){

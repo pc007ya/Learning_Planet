@@ -1,0 +1,953 @@
+{
+  "selection": {
+    "planets": [
+      "ocean-buoyancy",
+      "magnet",
+      "earth-moon",
+      "plants",
+      "weather",
+      "force-motion"
+    ],
+    "sizes": [
+      {
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "width": 1024,
+        "height": 600
+      },
+      {
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "width": 390,
+        "height": 844
+      },
+      {
+        "width": 360,
+        "height": 780
+      }
+    ],
+    "expectedCases": 36
+  },
+  "complete": true,
+  "commit": null,
+  "results": [
+    {
+      "planet": "ocean-buoyancy",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "magnet",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "earth-moon",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "plants",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "weather",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "force-motion",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "ocean-buoyancy",
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "magnet",
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "earth-moon",
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "plants",
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "weather",
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "force-motion",
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "ocean-buoyancy",
+      "size": {
+        "width": 1024,
+        "height": 600
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "magnet",
+      "size": {
+        "width": 1024,
+        "height": 600
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "earth-moon",
+      "size": {
+        "width": 1024,
+        "height": 600
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "plants",
+      "size": {
+        "width": 1024,
+        "height": 600
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "weather",
+      "size": {
+        "width": 1024,
+        "height": 600
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "force-motion",
+      "size": {
+        "width": 1024,
+        "height": 600
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "ocean-buoyancy",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "magnet",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "earth-moon",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "plants",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "weather",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "force-motion",
+      "size": {
+        "width": 1024,
+        "height": 768
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "ocean-buoyancy",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "magnet",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "earth-moon",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "plants",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "weather",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "force-motion",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "magnet",
+      "size": {
+        "width": 360,
+        "height": 780
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "plants",
+      "size": {
+        "width": 360,
+        "height": 780
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "weather",
+      "size": {
+        "width": 360,
+        "height": 780
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "force-motion",
+      "size": {
+        "width": 360,
+        "height": 780
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "planet": "ocean-buoyancy",
+      "size": {
+        "width": 360,
+        "height": 780
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "message": "AssertionError [ERR_ASSERTION]: Sidebar/footer overlap {\"pane\":\"controls\",\"reading\":\"true\",\"viewport\":{\"w\":360,\"h\":780},\"page\":{\"w\":360,\"h\":780},\"side\":{\"x\":8,\"y\":357,\"w\":344,\"h\":364,\"right\":352,\"bottom\":721,\"overflow\":5},\"footer\":{\"x\":8,\"y\":728,\"w\":344,\"h\":44,\"right\":352,\"bottom\":772},\"buttons\":[{\"x\":118.8125,\"y\":8,\"w\":44,\"h\":44,\"right\":162.8125,\"bottom\":52,\"name\":\"這一步引導\",\"id\":\"ep-help\"},{\"x\":166.8125,\"y\":8,\"w\":44,\"h\":44,\"right\":210.8125,\"bottom\":52,\"name\":\"看圖挑戰\",\"id\":\"ep-quiz-open\"},{\"x\":214.8125,\"y\":8,\"w\":44,\"h\":44,\"right\":258.8125,\"bottom\":52,\"name\":\"語音開關\",\"id\":\"ep-voice\"},{\"x\":308,\"y\":8,\"w\":44,\"h\":44,\"right\":352,\"bottom\":52,\"name\":\"隱藏注音\",\"id\":\"ep-zhuyin\"},{\"x\":8,\"y\":59,\"w\":82.25,\"h\":44,\"right\":90.25,\"bottom\":103,\"name\":\"1猜浮沉\",\"id\":\"\"},{\"x\":95.25,\"y\":59,\"w\":82.25,\"h\":44,\"right\":177.5,\"bottom\":103,\"name\":\"2改體積\",\"id\":\"\"},{\"x\":182.5,\"y\":59,\"w\":82.25,\"h\":44,\"right\":264.75,\"bottom\":103,\"name\":\"3換水\",\"id\":\"\"},{\"x\":269.75,\"y\":59,\"w\":82.25,\"h\":44,\"right\":352,\"bottom\":103,\"name\":\"4壓載艙\",\"id\":\"\"},{\"x\":151.78125,\"y\":150.734375,\"w\":48,\"h\":48,\"right\":199.78125,\"bottom\":198.734375,\"name\":\"拖動寶物；方向鍵移動，空白鍵放開\",\"id\":\"\"},{\"x\":18,\"y\":298,\"w\":44,\"h\":44,\"right\":62,\"bottom\":342,\"name\":\"立體\",\"id\":\"\"},{\"x\":65,\"y\":298,\"w\":44,\"h\":44,\"right\":109,\"bottom\":342,\"name\":\"正面\",\"id\":\"\"},{\"x\":112,\"y\":298,\"w\":44,\"h\":44,\"right\":156,\"bottom\":342,\"name\":\"俯視\",\"id\":\"\"},{\"x\":159,\"y\":298,\"w\":44,\"h\":44,\"right\":203,\"bottom\":342,\"name\":\"拉近視角\",\"id\":\"ep-zoom-in\"},{\"x\":206,\"y\":298,\"w\":44,\"h\":44,\"right\":250,\"bottom\":342,\"name\":\"拉遠視角\",\"id\":\"ep-zoom-out\"},{\"x\":253,\"y\":298,\"w\":44,\"h\":44,\"right\":297,\"bottom\":342,\"name\":\"完整即時讀數\",\"id\":\"ep-data\"},{\"x\":300,\"y\":298,\"w\":44,\"h\":44,\"right\":344,\"bottom\":342,\"name\":\"潛水艇方向操作\",\"id\":\"ep-nav-mode\"},{\"x\":18,\"y\":403.390625,\"w\":104.65625,\"h\":44,\"right\":122.65625,\"bottom\":447.390625,\"name\":\"操作\",\"id\":\"\"},{\"x\":127.65625,\"y\":403.390625,\"w\":104.671875,\"h\":44,\"right\":232.328125,\"bottom\":447.390625,\"name\":\"比較\",\"id\":\"\"},{\"x\":237.328125,\"y\":403.390625,\"w\":104.671875,\"h\":44,\"right\":342,\"bottom\":447.390625,\"name\":\"考核\",\"id\":\"\"},{\"x\":18,\"y\":453.390625,\"w\":78.75,\"h\":44,\"right\":96.75,\"bottom\":497.390625,\"name\":\"選一個寶物\",\"id\":\"\"},{\"x\":99.75,\"y\":453.390625,\"w\":78.75,\"h\":44,\"right\":178.5,\"bottom\":497.390625,\"name\":\"水的種類\",\"id\":\"\"},{\"x\":181.5,\"y\":453.390625,\"w\":78.75,\"h\":44,\"right\":260.25,\"bottom\":497.390625,\"name\":\"重量\",\"id\":\"\"},{\"x\":263.25,\"y\":453.390625,\"w\":78.75,\"h\":44,\"right\":342,\"bottom\":497.390625,\"name\":\"體積\",\"id\":\"\"},{\"x\":18,\"y\":502.390625,\"w\":105.328125,\"h\":60,\"right\":123.328125,\"bottom\":562.390625,\"name\":\"木塊\",\"id\":\"\"},{\"x\":127.328125,\"y\":502.390625,\"w\":105.328125,\"h\":60,\"right\":232.65625,\"bottom\":562.390625,\"name\":\"石頭\",\"id\":\"\"},{\"x\":236.65625,\"y\":502.390625,\"w\":105.34375,\"h\":60,\"right\":342,\"bottom\":562.390625,\"name\":\"充氣球\",\"id\":\"\"},{\"x\":18,\"y\":566.390625,\"w\":105.328125,\"h\":60,\"right\":123.328125,\"bottom\":626.390625,\"name\":\"密度球\",\"id\":\"\"},{\"x\":127.328125,\"y\":566.390625,\"w\":105.328125,\"h\":60,\"right\":232.65625,\"bottom\":626.390625,\"name\":\"小潛水艇\",\"id\":\"\"},{\"x\":236.65625,\"y\":566.390625,\"w\":105.34375,\"h\":60,\"right\":342,\"bottom\":626.390625,\"name\":\"空心船\",\"id\":\"\"},{\"x\":18,\"y\":632.390625,\"w\":177,\"h\":44,\"right\":195,\"bottom\":676.390625,\"name\":\"開始觀察\",\"id\":\"ep-observe\"},{\"x\":200,\"y\":632.390625,\"w\":44,\"h\":44,\"right\":244,\"bottom\":676.390625,\"name\":\"播放或暫停\",\"id\":\"ep-play\"},{\"x\":249,\"y\":632.390625,\"w\":44,\"h\":44,\"right\":293,\"bottom\":676.390625,\"name\":\"示範\",\"id\":\"ep-demo\"},{\"x\":298,\"y\":632.390625,\"w\":44,\"h\":44,\"right\":342,\"bottom\":676.390625,\"name\":\"重玩本實驗\",\"id\":\"ep-reset\"},{\"x\":197.09375,\"y\":728,\"w\":77.109375,\"h\":44,\"right\":274.203125,\"bottom\":772,\"name\":\"模型與來源\",\"id\":\"ep-sources\"}],\"labels\":[{\"x\":106.65625,\"y\":206.484375,\"w\":144.296875,\"h\":32.53125,\"right\":250.953125,\"bottom\":239.015625,\"text\":\"浮ㄈㄨˊ力ㄌㄧˋ↑・重ㄓㄨㄥˋ力ㄌㄧˋ↓\",\"font\":12}],\"host\":{\"x\":9,\"y\":111,\"w\":342,\"h\":181,\"right\":351,\"bottom\":292},\"labelState\":\"clear\",\"dialog\":null}",
+      "pageErrors": []
+    },
+    {
+      "planet": "earth-moon",
+      "size": {
+        "width": 360,
+        "height": 780
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-C62dKzue.js"
+      ],
+      "message": "AssertionError [ERR_ASSERTION]: Sidebar/footer overlap {\"pane\":\"controls\",\"reading\":\"true\",\"viewport\":{\"w\":360,\"h\":780},\"page\":{\"w\":360,\"h\":780},\"side\":{\"x\":8,\"y\":357,\"w\":344,\"h\":364,\"right\":352,\"bottom\":721,\"overflow\":22},\"footer\":{\"x\":8,\"y\":728,\"w\":344,\"h\":44,\"right\":352,\"bottom\":772},\"buttons\":[{\"x\":118.8125,\"y\":8,\"w\":44,\"h\":44,\"right\":162.8125,\"bottom\":52,\"name\":\"這一步引導\",\"id\":\"ep-help\"},{\"x\":166.8125,\"y\":8,\"w\":44,\"h\":44,\"right\":210.8125,\"bottom\":52,\"name\":\"看圖挑戰\",\"id\":\"ep-quiz-open\"},{\"x\":214.8125,\"y\":8,\"w\":44,\"h\":44,\"right\":258.8125,\"bottom\":52,\"name\":\"語音開關\",\"id\":\"ep-voice\"},{\"x\":308,\"y\":8,\"w\":44,\"h\":44,\"right\":352,\"bottom\":52,\"name\":\"隱藏注音\",\"id\":\"ep-zhuyin\"},{\"x\":8,\"y\":59,\"w\":82.25,\"h\":44,\"right\":90.25,\"bottom\":103,\"name\":\"1白天黑夜\",\"id\":\"\"},{\"x\":95.25,\"y\":59,\"w\":82.25,\"h\":44,\"right\":177.5,\"bottom\":103,\"name\":\"2地面看\",\"id\":\"\"},{\"x\":182.5,\"y\":59,\"w\":82.25,\"h\":44,\"right\":264.75,\"bottom\":103,\"name\":\"3排月相\",\"id\":\"\"},{\"x\":269.75,\"y\":59,\"w\":82.25,\"h\":44,\"right\":352,\"bottom\":103,\"name\":\"4動手驗證\",\"id\":\"\"},{\"x\":209.265625,\"y\":181,\"w\":48,\"h\":48,\"right\":257.265625,\"bottom\":229,\"name\":\"拖動月球；方向鍵移動\",\"id\":\"\"},{\"x\":18,\"y\":298,\"w\":44,\"h\":44,\"right\":62,\"bottom\":342,\"name\":\"立體\",\"id\":\"\"},{\"x\":64,\"y\":298,\"w\":44,\"h\":44,\"right\":108,\"bottom\":342,\"name\":\"正面\",\"id\":\"\"},{\"x\":110,\"y\":298,\"w\":44,\"h\":44,\"right\":154,\"bottom\":342,\"name\":\"俯視\",\"id\":\"\"},{\"x\":156,\"y\":298,\"w\":44,\"h\":44,\"right\":200,\"bottom\":342,\"name\":\"拉近視角\",\"id\":\"ep-zoom-in\"},{\"x\":202,\"y\":298,\"w\":44,\"h\":44,\"right\":246,\"bottom\":342,\"name\":\"拉遠視角\",\"id\":\"ep-zoom-out\"},{\"x\":248,\"y\":298,\"w\":44,\"h\":44,\"right\":292,\"bottom\":342,\"name\":\"完整即時讀數\",\"id\":\"ep-data\"},{\"x\":282.125,\"y\":298,\"w\":60.875,\"h\":44,\"right\":343,\"bottom\":342,\"name\":\"切換到地面高度對照\",\"id\":\"\"},{\"x\":18,\"y\":433.78125,\"w\":104.65625,\"h\":44,\"right\":122.65625,\"bottom\":477.78125,\"name\":\"操作\",\"id\":\"\"},{\"x\":127.65625,\"y\":433.78125,\"w\":104.671875,\"h\":44,\"right\":232.328125,\"bottom\":477.78125,\"name\":\"比較\",\"id\":\"\"},{\"x\":237.328125,\"y\":433.78125,\"w\":104.671875,\"h\":44,\"right\":342,\"bottom\":477.78125,\"name\":\"考核\",\"id\":\"\"},{\"x\":18,\"y\":483.78125,\"w\":62.390625,\"h\":44,\"right\":80.390625,\"bottom\":527.78125,\"name\":\"月球位置\",\"id\":\"\"},{\"x\":83.390625,\"y\":483.78125,\"w\":62.40625,\"h\":44,\"right\":145.796875,\"bottom\":527.78125,\"name\":\"地球自轉\",\"id\":\"\"},{\"x\":148.796875,\"y\":483.78125,\"w\":62.390625,\"h\":44,\"right\":211.1875,\"bottom\":527.78125,\"name\":\"觀測時段\",\"id\":\"\"},{\"x\":214.1875,\"y\":483.78125,\"w\":62.40625,\"h\":44,\"right\":276.59375,\"bottom\":527.78125,\"name\":\"觀測地點\",\"id\":\"\"},{\"x\":279.59375,\"y\":483.78125,\"w\":62.40625,\"h\":44,\"right\":342,\"bottom\":527.78125,\"name\":\"觀測方式\",\"id\":\"\"},{\"x\":18,\"y\":532.78125,\"w\":159,\"h\":52,\"right\":177,\"bottom\":584.78125,\"name\":\"日出附近\",\"id\":\"\"},{\"x\":183,\"y\":532.78125,\"w\":159,\"h\":52,\"right\":342,\"bottom\":584.78125,\"name\":\"中午附近\",\"id\":\"\"},{\"x\":18,\"y\":590.78125,\"w\":159,\"h\":52,\"right\":177,\"bottom\":642.78125,\"name\":\"日落附近\",\"id\":\"\"},{\"x\":183,\"y\":590.78125,\"w\":159,\"h\":52,\"right\":342,\"bottom\":642.78125,\"name\":\"半夜附近\",\"id\":\"\"},{\"x\":18,\"y\":648.78125,\"w\":177,\"h\":44,\"right\":195,\"bottom\":692.78125,\"name\":\"開始觀察\",\"id\":\"ep-observe\"},{\"x\":200,\"y\":648.78125,\"w\":44,\"h\":44,\"right\":244,\"bottom\":692.78125,\"name\":\"播放或暫停\",\"id\":\"ep-play\"},{\"x\":249,\"y\":648.78125,\"w\":44,\"h\":44,\"right\":293,\"bottom\":692.78125,\"name\":\"示範\",\"id\":\"ep-demo\"},{\"x\":298,\"y\":648.78125,\"w\":44,\"h\":44,\"right\":342,\"bottom\":692.78125,\"name\":\"重玩本實驗\",\"id\":\"ep-reset\"},{\"x\":207.3125,\"y\":728,\"w\":77.109375,\"h\":44,\"right\":284.421875,\"bottom\":772,\"name\":\"模型與來源\",\"id\":\"ep-sources\"}],\"labels\":[{\"x\":264.265625,\"y\":179.375,\"w\":64.875,\"h\":31.59375,\"right\":329.140625,\"bottom\":210.96875,\"text\":\"太ㄊㄞˋ陽ㄧㄤˊ\",\"font\":12},{\"x\":208.453125,\"y\":236,\"w\":64.875,\"h\":32.53125,\"right\":273.328125,\"bottom\":268.53125,\"text\":\"月ㄩㄝˋ球ㄑㄧㄡˊ\",\"font\":12},{\"x\":34.3125,\"y\":179.375,\"w\":64.875,\"h\":32.53125,\"right\":99.1875,\"bottom\":211.90625,\"text\":\"地ㄉㄧˋ球ㄑㄧㄡˊ\",\"font\":12},{\"x\":136.453125,\"y\":247.828125,\"w\":64.875,\"h\":31.59375,\"right\":201.328125,\"bottom\":279.421875,\"text\":\"台ㄊㄞˊ灣ㄨㄢ\",\"font\":12}],\"host\":{\"x\":9,\"y\":111,\"w\":342,\"h\":181,\"right\":351,\"bottom\":292},\"labelState\":\"clear\",\"dialog\":null}",
+      "pageErrors": []
+    }
+  ]
+}

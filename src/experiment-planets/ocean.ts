@@ -122,7 +122,7 @@ export function createOcean(stage:Stage):World{
  refresh(true);
  const world:World={
   name:'海洋浮力實驗星球',intro:'拖寶物放進透明水槽。看水線、排開的水與兩支力箭頭一起變化。',controls:configs,
-  steps:[{title:'猜浮沉',question:'木塊與石頭，誰會浮？',detail:'先選寶物預測，再放入水中。青色向上是浮力，橘色向下是重力。'},{title:'改體積',question:'重量不變，體積變大呢？',detail:'選密度球，固定淡水和原來重量，只改體積，留下沉與浮的比較。'},{title:'換水',question:'同一顆球，在海水中呢？',detail:'固定寶物、重量與體積，只換淡水和海水，比較浸沒比例。'},{title:'壓載艙',question:'潛水艇怎麼控制浮沉？',detail:'固定外殼體積，只改重量。原來重量接近中性浮力，加重會下沉。'}],
+  steps:[{title:'猜浮沉',question:'木塊與石頭，誰會浮？',detail:'先選寶物預測，再放入水中。青色向上是浮力，橘色向下是重力。'},{title:'改體積',question:'重量不變，體積變大呢？',detail:'選密度球，固定淡水和原來重量，只改體積，留下沉與浮的比較。'},{title:'換水',question:'同一個物件，換海水呢？',detail:'固定寶物、重量與體積，只換淡水和海水，比較浸沒比例。'},{title:'壓載艙',question:'潛水艇怎麼控制浮沉？',detail:'固定外殼體積，只改重量。原來重量接近中性浮力，加重會下沉。'}],
   missions:[{title:'浮與沉',detail:'把木塊和石頭各放進水中一次'},{title:'體積的秘密',detail:'密度球選淡水與原來重量，試過縮小和放大'},{title:'海水不一樣',detail:'密度球原來大小，分別測淡水與海水'},{title:'潛水艇壓載',detail:'小潛水艇試過減輕與加重'},{title:'中性浮力',detail:'密度球在淡水中，重量與體積選原來'}],
   modelNote:'理想靜水模型。球／橢球切面、盒形、水平膠囊與梯形船殼分別計算排水體積；主外形用同一體積比例，附屬零件不計排水。青色水線是固定水面，不是刻度；導航小艇不參與浮力實驗。船艙視為密封，不模擬進水、波浪或流體渦流。兩支力箭頭同次等比例、自動縮尺，跨次比較請看牛頓讀數。水底另有支持力，沉底時不能把浮力當作零。',
   sourceLinks:[{label:'OpenStax：浮力與阿基米德原理',url:'https://openstax.org/books/university-physics-volume-1/pages/14-4-archimedes-principle-and-buoyancy'}],

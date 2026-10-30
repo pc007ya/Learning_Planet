@@ -1,0 +1,50 @@
+[
+  {
+    "aside": 655,
+    "bodyAria": null,
+    "footer": 664,
+    "h": 720,
+    "labels": "clear",
+    "minTarget": 44,
+    "overflow": false,
+    "sceneHeight": 471,
+    "toolsY": 603,
+    "w": 1280
+  },
+  {
+    "aside": 540,
+    "bodyAria": null,
+    "footer": 547,
+    "h": 600,
+    "labels": "clear",
+    "minTarget": 44,
+    "overflow": false,
+    "sceneHeight": 363,
+    "toolsY": 488,
+    "w": 1024
+  },
+  {
+    "aside": 785,
+    "bodyAria": null,
+    "footer": 792,
+    "h": 844,
+    "labels": "clear",
+    "minTarget": 44,
+    "overflow": false,
+    "sceneHeight": 332.234375,
+    "toolsY": 449.234375,
+    "w": 390
+  },
+  {
+    "aside": 721,
+    "bodyAria": null,
+    "footer": 728,
+    "h": 780,
+    "labels": "clear",
+    "minTarget": 44,
+    "overflow": false,
+    "sceneHeight": 268.234375,
+    "toolsY": 385.234375,
+    "w": 360
+  }
+]

@@ -1,0 +1,1072 @@
+{
+  "numTotalTestSuites": 31,
+  "numPassedTestSuites": 31,
+  "numFailedTestSuites": 0,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 85,
+  "numPassedTests": 85,
+  "numFailedTests": 0,
+  "numPendingTests": 0,
+  "numTodoTests": 0,
+  "snapshot": {
+    "added": 0,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0,
+    "didUpdate": false
+  },
+  "startTime": 1793380752475,
+  "success": true,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "linked geographic observer and lunar illumination"
+          ],
+          "fullName": "linked geographic observer and lunar illumination normal stays unit and day/night follows the same rotating surface point",
+          "status": "passed",
+          "title": "normal stays unit and day/night follows the same rotating surface point",
+          "duration": 1.186916999999994,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "linked geographic observer and lunar illumination"
+          ],
+          "fullName": "linked geographic observer and lunar illumination matches noon and midnight signs at Taiwan in the ideal fixed solar geometry",
+          "status": "passed",
+          "title": "matches noon and midnight signs at Taiwan in the ideal fixed solar geometry",
+          "duration": 0.3935419999999965,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "linked geographic observer and lunar illumination"
+          ],
+          "fullName": "linked geographic observer and lunar illumination full moon and Sun have opposite local altitudes and phases are continuous",
+          "status": "passed",
+          "title": "full moon and Sun have opposite local altitudes and phases are continuous",
+          "duration": 0.792459000000008,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "linked geographic observer and lunar illumination"
+          ],
+          "fullName": "linked geographic observer and lunar illumination requires both real configuration changes and consistent full-moon night geometry",
+          "status": "passed",
+          "title": "requires both real configuration changes and consistent full-moon night geometry",
+          "duration": 0.10662500000000819,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "keeps the Taiwan map UV, globe pin and solar normal on the same geography",
+          "status": "passed",
+          "title": "keeps the Taiwan map UV, globe pin and solar normal on the same geography",
+          "duration": 0.6962919999999997,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1793380752696,
+      "endTime": 1793380752699.6963,
+      "status": "passed",
+      "message": "",
+      "name": "tests/earth-moon-quality.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "3D experiment planets: independent deployment and regression"
+          ],
+          "fullName": "3D experiment planets: independent deployment and regression keeps all 14 original entry rows and order, with the new 3D card last",
+          "status": "passed",
+          "title": "keeps all 14 original entry rows and order, with the new 3D card last",
+          "duration": 5.3722080000000005,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "3D experiment planets: independent deployment and regression"
+          ],
+          "fullName": "3D experiment planets: independent deployment and regression leaves legacy experiments and their unit routes intact",
+          "status": "passed",
+          "title": "leaves legacy experiments and their unit routes intact",
+          "duration": 1.7709999999999866,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "3D experiment planets: independent deployment and regression"
+          ],
+          "fullName": "3D experiment planets: independent deployment and regression adds only a standalone entry on the old experiment map",
+          "status": "passed",
+          "title": "adds only a standalone entry on the old experiment map",
+          "duration": 0.3583329999999876,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "3D experiment planets: independent deployment and regression"
+          ],
+          "fullName": "3D experiment planets: independent deployment and regression serves six different HTML shells and a common lazy-loaded engine",
+          "status": "passed",
+          "title": "serves six different HTML shells and a common lazy-loaded engine",
+          "duration": 0.680041999999986,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "3D experiment planets: independent deployment and regression"
+          ],
+          "fullName": "3D experiment planets: independent deployment and regression keeps lesson graphics in the 3D environment instead of loading into main page",
+          "status": "passed",
+          "title": "keeps lesson graphics in the 3D environment instead of loading into main page",
+          "duration": 1.7521660000000168,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "scientific checks: Archimedes and dry friction classroom approximations"
+          ],
+          "fullName": "scientific checks: Archimedes and dry friction classroom approximations distinguishes object density and fluid density",
+          "status": "passed",
+          "title": "distinguishes object density and fluid density",
+          "duration": 2.055458999999985,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "scientific checks: Archimedes and dry friction classroom approximations"
+          ],
+          "fullName": "scientific checks: Archimedes and dry friction classroom approximations calculates actual forces for displaced fluid volume, even for sinking objects",
+          "status": "passed",
+          "title": "calculates actual forces for displaced fluid volume, even for sinking objects",
+          "duration": 0.15929199999999355,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "scientific checks: Archimedes and dry friction classroom approximations"
+          ],
+          "fullName": "scientific checks: Archimedes and dry friction classroom approximations uses continuous submerged fraction, not a fixed float-sink animation",
+          "status": "passed",
+          "title": "uses continuous submerged fraction, not a fixed float-sink animation",
+          "duration": 0.06108300000002487,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "scientific checks: Archimedes and dry friction classroom approximations"
+          ],
+          "fullName": "scientific checks: Archimedes and dry friction classroom approximations reduces net acceleration when mass or friction increases",
+          "status": "passed",
+          "title": "reduces net acceleration when mass or friction increases",
+          "duration": 0.3930829999999901,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1793380752656,
+      "endTime": 1793380752668.393,
+      "status": "passed",
+      "message": "",
+      "name": "tests/experiment-planets.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "force cart: friction, motion and fair comparisons"
+          ],
+          "fullName": "force cart: friction, motion and fair comparisons obeys the static threshold rather than displaying motion under insufficient force",
+          "status": "passed",
+          "title": "obeys the static threshold rather than displaying motion under insufficient force",
+          "duration": 1.3350419999999872,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "force cart: friction, motion and fair comparisons"
+          ],
+          "fullName": "force cart: friction, motion and fair comparisons matches x=at²/2 and v=at for constant force without an arbitrary speed ceiling",
+          "status": "passed",
+          "title": "matches x=at²/2 and v=at for constant force without an arbitrary speed ceiling",
+          "duration": 0.3924169999999947,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "force cart: friction, motion and fair comparisons"
+          ],
+          "fullName": "force cart: friction, motion and fair comparisons keeps moving after release and stops from friction without reversing",
+          "status": "passed",
+          "title": "keeps moving after release and stops from friction without reversing",
+          "duration": 0.2840839999999787,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "force cart: friction, motion and fair comparisons"
+          ],
+          "fullName": "force cart: friction, motion and fair comparisons opposes leftward motion and can reverse only if an applied force exceeds static friction",
+          "status": "passed",
+          "title": "opposes leftward motion and can reverse only if an applied force exceeds static friction",
+          "duration": 0.17583300000001145,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "force cart: friction, motion and fair comparisons"
+          ],
+          "fullName": "force cart: friction, motion and fair comparisons records a 4m crossing separately from the clearly marked end buffer",
+          "status": "passed",
+          "title": "records a 4m crossing separately from the clearly marked end buffer",
+          "duration": 0.26233299999998394,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "force cart: friction, motion and fair comparisons"
+          ],
+          "fullName": "force cart: friction, motion and fair comparisons requires valid single-variable measurements, excluding changed or unfinished runs",
+          "status": "passed",
+          "title": "requires valid single-variable measurements, excluding changed or unfinished runs",
+          "duration": 0.14204200000000355,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "force cart: friction, motion and fair comparisons"
+          ],
+          "fullName": "force cart: friction, motion and fair comparisons obtains controlled-variable comparisons from completed simulated measurements",
+          "status": "passed",
+          "title": "obtains controlled-variable comparisons from completed simulated measurements",
+          "duration": 0.5219999999999914,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "force cart: friction, motion and fair comparisons"
+          ],
+          "fullName": "force cart: friction, motion and fair comparisons keeps constant-force measurements stable across different frame durations",
+          "status": "passed",
+          "title": "keeps constant-force measurements stable across different frame durations",
+          "duration": 0.15837499999997817,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "force cart: friction, motion and fair comparisons"
+          ],
+          "fullName": "force cart: friction, motion and fair comparisons keeps earned comparisons after the ninth measurement evicts the original baseline",
+          "status": "passed",
+          "title": "keeps earned comparisons after the ninth measurement evicts the original baseline",
+          "duration": 0.5369169999999883,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "force cart: friction, motion and fair comparisons"
+          ],
+          "fullName": "force cart: friction, motion and fair comparisons rejects nonphysical mass and elapsed time",
+          "status": "passed",
+          "title": "rejects nonphysical mass and elapsed time",
+          "duration": 0.303040999999979,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1793380752655,
+      "endTime": 1793380752659.303,
+      "status": "passed",
+      "message": "",
+      "name": "tests/force-quality.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "finite dipole magnet classroom model"
+          ],
+          "fullName": "finite dipole magnet classroom model has attraction for unlike facing poles and repulsion for like facing poles",
+          "status": "passed",
+          "title": "has attraction for unlike facing poles and repulsion for like facing poles",
+          "duration": 0.8695409999999981,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "finite dipole magnet classroom model"
+          ],
+          "fullName": "finite dipole magnet classroom model weakens with distance without introducing a net isolated pole",
+          "status": "passed",
+          "title": "weakens with distance without introducing a net isolated pole",
+          "duration": 0.24483299999999986,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "finite dipole magnet classroom model"
+          ],
+          "fullName": "finite dipole magnet classroom model actually moves in opposite directions and keeps nonintersecting bounds",
+          "status": "passed",
+          "title": "actually moves in opposite directions and keeps nonintersecting bounds",
+          "duration": 1.3742499999999893,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "finite dipole magnet classroom model"
+          ],
+          "fullName": "finite dipole magnet classroom model points outward from N and inward toward S in the external field",
+          "status": "passed",
+          "title": "points outward from N and inward toward S in the external field",
+          "duration": 0.1369579999999928,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "finite dipole magnet classroom model"
+          ],
+          "fullName": "finite dipole magnet classroom model integrates finite, directed field lines rather than a decorative scale bubble",
+          "status": "passed",
+          "title": "integrates finite, directed field lines rather than a decorative scale bubble",
+          "duration": 0.3025829999999985,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "finite dipole magnet classroom model"
+          ],
+          "fullName": "finite dipole magnet classroom model enforces the visible 0.15-grid displacement goal exactly, excluding demonstration",
+          "status": "passed",
+          "title": "enforces the visible 0.15-grid displacement goal exactly, excluding demonstration",
+          "duration": 0.13100000000000023,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "finite dipole magnet classroom model"
+          ],
+          "fullName": "finite dipole magnet classroom model requires a causal intervention and actual observation for a challenge pass",
+          "status": "passed",
+          "title": "requires a causal intervention and actual observation for a challenge pass",
+          "duration": 0.1848749999999768,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1793380752660,
+      "endTime": 1793380752663.1848,
+      "status": "passed",
+      "message": "",
+      "name": "tests/magnet-quality.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "ocean exterior volumes and measured forces"
+          ],
+          "fullName": "ocean exterior volumes and measured forces uses spherical cap volume, not a linear height proxy",
+          "status": "passed",
+          "title": "uses spherical cap volume, not a linear height proxy",
+          "duration": 0.4608340000000055,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "ocean exterior volumes and measured forces"
+          ],
+          "fullName": "ocean exterior volumes and measured forces integrates every supported exterior, with continuous monotonic immersion",
+          "status": "passed",
+          "title": "integrates every supported exterior, with continuous monotonic immersion",
+          "duration": 1.9467499999999802,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "ocean exterior volumes and measured forces"
+          ],
+          "fullName": "ocean exterior volumes and measured forces sinks after reducing volume and floats after enlarging the same mass",
+          "status": "passed",
+          "title": "sinks after reducing volume and floats after enlarging the same mass",
+          "duration": 0.100750000000005,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "ocean exterior volumes and measured forces"
+          ],
+          "fullName": "ocean exterior volumes and measured forces changes submerged volume with fluid density and counts buoyancy on sunk bodies",
+          "status": "passed",
+          "title": "changes submerged volume with fluid density and counts buoyancy on sunk bodies",
+          "duration": 0.08062499999999773,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "ocean exterior volumes and measured forces"
+          ],
+          "fullName": "ocean exterior volumes and measured forces settles freely released bodies with the geometry-dependent force balance",
+          "status": "passed",
+          "title": "settles freely released bodies with the geometry-dependent force balance",
+          "duration": 5.088000000000022,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "ocean exterior volumes and measured forces"
+          ],
+          "fullName": "ocean exterior volumes and measured forces does not mistake an oscillation turning point for a settled measurement",
+          "status": "passed",
+          "title": "does not mistake an oscillation turning point for a settled measurement",
+          "duration": 0.2745840000000044,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "ocean exterior volumes and measured forces"
+          ],
+          "fullName": "ocean exterior volumes and measured forces requires observed controlled comparison and settled real forces for the challenge",
+          "status": "passed",
+          "title": "requires observed controlled comparison and settled real forces for the challenge",
+          "duration": 0.13025000000001796,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1793380752660,
+      "endTime": 1793380752668.1304,
+      "status": "passed",
+      "message": "",
+      "name": "tests/ocean-quality.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "phone caption packing"
+          ],
+          "fullName": "phone caption packing uses a narrow exact edge gutter skipped by a coarse grid",
+          "status": "passed",
+          "title": "uses a narrow exact edge gutter skipped by a coarse grid",
+          "duration": 1.5630829999999776,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "phone caption packing"
+          ],
+          "fullName": "phone caption packing repacks wide force captions around a cart instead of hiding them",
+          "status": "passed",
+          "title": "repacks wide force captions around a cart instead of hiding them",
+          "duration": 0.8537919999999986,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1793380752823,
+      "endTime": 1793380752825.8538,
+      "status": "passed",
+      "message": "",
+      "name": "tests/planet-label-quality.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "picture answer cards stay topic-specific"
+          ],
+          "fullName": "picture answer cards stay topic-specific ocean has four distinct self-contained diagrams without answer marks",
+          "status": "passed",
+          "title": "ocean has four distinct self-contained diagrams without answer marks",
+          "duration": 1.96983400000002,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "picture answer cards stay topic-specific"
+          ],
+          "fullName": "picture answer cards stay topic-specific magnet has four distinct self-contained diagrams without answer marks",
+          "status": "passed",
+          "title": "magnet has four distinct self-contained diagrams without answer marks",
+          "duration": 0.5287920000000099,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "picture answer cards stay topic-specific"
+          ],
+          "fullName": "picture answer cards stay topic-specific plants has four distinct self-contained diagrams without answer marks",
+          "status": "passed",
+          "title": "plants has four distinct self-contained diagrams without answer marks",
+          "duration": 0.2318339999999921,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "picture answer cards stay topic-specific"
+          ],
+          "fullName": "picture answer cards stay topic-specific weather has four distinct self-contained diagrams without answer marks",
+          "status": "passed",
+          "title": "weather has four distinct self-contained diagrams without answer marks",
+          "duration": 0.212333000000001,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "picture answer cards stay topic-specific"
+          ],
+          "fullName": "picture answer cards stay topic-specific force-motion has four distinct self-contained diagrams without answer marks",
+          "status": "passed",
+          "title": "force-motion has four distinct self-contained diagrams without answer marks",
+          "duration": 0.13270900000000552,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "picture answer cards stay topic-specific"
+          ],
+          "fullName": "picture answer cards stay topic-specific earth-moon has four distinct self-contained diagrams without answer marks",
+          "status": "passed",
+          "title": "earth-moon has four distinct self-contained diagrams without answer marks",
+          "duration": 0.1282500000000084,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "picture answer cards stay topic-specific"
+          ],
+          "fullName": "picture answer cards stay topic-specific does not silently reuse an unrelated card if the question mapping is missing",
+          "status": "passed",
+          "title": "does not silently reuse an unrelated card if the question mapping is missing",
+          "duration": 0.1263749999999959,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "picture answer cards stay topic-specific"
+          ],
+          "fullName": "picture answer cards stay topic-specific phase presets depict four different illuminated shapes",
+          "status": "passed",
+          "title": "phase presets depict four different illuminated shapes",
+          "duration": 0.2038750000000107,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1793380752655,
+      "endTime": 1793380752659.2039,
+      "status": "passed",
+      "message": "",
+      "name": "tests/planet-picture-quiz.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "Traditional Chinese science lesson readings"
+          ],
+          "fullName": "Traditional Chinese science lesson readings resolves scientific polyphones rather than using the mathematical default",
+          "status": "passed",
+          "title": "resolves scientific polyphones rather than using the mathematical default",
+          "duration": 0.7391250000000014,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "Traditional Chinese science lesson readings"
+          ],
+          "fullName": "Traditional Chinese science lesson readings covers authored lesson strings",
+          "status": "passed",
+          "title": "covers authored lesson strings",
+          "duration": 6.336917,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1793380752677,
+      "endTime": 1793380752684.337,
+      "status": "passed",
+      "message": "",
+      "name": "tests/planet-reading-quality.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "plant transport classroom model"
+          ],
+          "fullName": "plant transport classroom model isolates light comparisons while retaining identical water, nutrient and gas settings",
+          "status": "passed",
+          "title": "isolates light comparisons while retaining identical water, nutrient and gas settings",
+          "duration": 0.9915839999999889,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "plant transport classroom model"
+          ],
+          "fullName": "plant transport classroom model limits photosynthesis by water or carbon dioxide even when there is enough light",
+          "status": "passed",
+          "title": "limits photosynthesis by water or carbon dioxide even when there is enough light",
+          "duration": 0.14029200000001651,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "plant transport classroom model"
+          ],
+          "fullName": "plant transport classroom model does not teach that more light or more water always produces healthier plants",
+          "status": "passed",
+          "title": "does not teach that more light or more water always produces healthier plants",
+          "duration": 0.1650419999999997,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "plant transport classroom model"
+          ],
+          "fullName": "plant transport classroom model makes drought and recovery gradual, bounded and independent of frame subdivision",
+          "status": "passed",
+          "title": "makes drought and recovery gradual, bounded and independent of frame subdivision",
+          "duration": 0.6233330000000024,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "plant transport classroom model"
+          ],
+          "fullName": "plant transport classroom model requires actual observed drought and present recovered conditions for the goal",
+          "status": "passed",
+          "title": "requires actual observed drought and present recovered conditions for the goal",
+          "duration": 0.16491700000000264,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "plant transport classroom model"
+          ],
+          "fullName": "plant transport classroom model uses qualitative day comparison without changing water-flow physics or claiming measured growth",
+          "status": "passed",
+          "title": "uses qualitative day comparison without changing water-flow physics or claiming measured growth",
+          "duration": 0.11066700000000651,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "plant learning state integration"
+          ],
+          "fullName": "plant learning state integration requires a watched drought and real recovery, while demo and pause cannot grant the goal",
+          "status": "passed",
+          "title": "requires a watched drought and real recovery, while demo and pause cannot grant the goal",
+          "duration": 59.79204200000001,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "plant learning state integration"
+          ],
+          "fullName": "plant learning state integration only awards the light comparison with other conditions fixed and restores measured evidence",
+          "status": "passed",
+          "title": "only awards the light comparison with other conditions fixed and restores measured evidence",
+          "duration": 54.792666999999994,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1793380752702,
+      "endTime": 1793380752818.7927,
+      "status": "passed",
+      "message": "",
+      "name": "tests/plants-quality.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "ideal tide science, never a coastal prediction"
+          ],
+          "fullName": "ideal tide science, never a coastal prediction has larger equal ranges at new/full moon and smaller nonzero ranges at quarters",
+          "status": "passed",
+          "title": "has larger equal ranges at new/full moon and smaller nonzero ranges at quarters",
+          "duration": 0.5317919999999958,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "ideal tide science, never a coastal prediction"
+          ],
+          "fullName": "ideal tide science, never a coastal prediction is symmetric on opposite sides, conserves the mean and matches its analytic amplitude",
+          "status": "passed",
+          "title": "is symmetric on opposite sides, conserves the mean and matches its analytic amplitude",
+          "duration": 248.03625,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "ideal tide science, never a coastal prediction"
+          ],
+          "fullName": "ideal tide science, never a coastal prediction shows the Earth-view phases with correct illumination fractions",
+          "status": "passed",
+          "title": "shows the Earth-view phases with correct illumination fractions",
+          "duration": 0.4047080000000278,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "tide lesson isolation and scientific caveats"
+          ],
+          "fullName": "tide lesson isolation and scientific caveats is linked from Earth-Moon and loads only its own small module",
+          "status": "passed",
+          "title": "is linked from Earth-Moon and loads only its own small module",
+          "duration": 2.04849999999999,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "tide lesson isolation and scientific caveats"
+          ],
+          "fullName": "tide lesson isolation and scientific caveats keeps visible limits, official sources, pointer and keyboard access",
+          "status": "passed",
+          "title": "keeps visible limits, official sources, pointer and keyboard access",
+          "duration": 0.15295799999995552,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1793380752652,
+      "endTime": 1793380752903.153,
+      "status": "passed",
+      "message": "",
+      "name": "tests/tides.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "3D equilibrium shell and linked equatorial observation"
+          ],
+          "fullName": "3D equilibrium shell and linked equatorial observation matches the existing equatorial field after its constant latitude offset is removed",
+          "status": "passed",
+          "title": "matches the existing equatorial field after its constant latitude offset is removed",
+          "duration": 12.148584,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "3D equilibrium shell and linked equatorial observation"
+          ],
+          "fullName": "3D equilibrium shell and linked equatorial observation has two opposite bulges, nonzero neap tides, and never intersects the Earth",
+          "status": "passed",
+          "title": "has two opposite bulges, nonzero neap tides, and never intersects the Earth",
+          "duration": 150.10054200000002,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "3D equilibrium shell and linked equatorial observation"
+          ],
+          "fullName": "3D equilibrium shell and linked equatorial observation preserves zero spherical mean without clipping the low water",
+          "status": "passed",
+          "title": "preserves zero spherical mean without clipping the low water",
+          "duration": 1.7692089999999894,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "review revision keeps existing modules and offers real 3D"
+          ],
+          "fullName": "review revision keeps existing modules and offers real 3D loads only from the new standalone lesson and preserves both classic shells",
+          "status": "passed",
+          "title": "loads only from the new standalone lesson and preserves both classic shells",
+          "duration": 3.789291999999989,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "review revision keeps existing modules and offers real 3D"
+          ],
+          "fullName": "review revision keeps existing modules and offers real 3D uses the project textures, actual sunlight, OrbitControls and captured direct interaction",
+          "status": "passed",
+          "title": "uses the project textures, actual sunlight, OrbitControls and captured direct interaction",
+          "duration": 0.26224999999999454,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "hands-on assessment uses the physical model"
+          ],
+          "fullName": "hands-on assessment uses the physical model requires an actual adjustment instead of accepting an untouched target",
+          "status": "passed",
+          "title": "requires an actual adjustment instead of accepting an untouched target",
+          "duration": 0.15291600000000471,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "hands-on assessment uses the physical model"
+          ],
+          "fullName": "hands-on assessment uses the physical model accepts both alignments for spring and rejects the perpendicular case",
+          "status": "passed",
+          "title": "accepts both alignments for spring and rejects the perpendicular case",
+          "duration": 0.12791600000002745,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "hands-on assessment uses the physical model"
+          ],
+          "fullName": "hands-on assessment uses the physical model accepts both quarter positions for neap without removing tides",
+          "status": "passed",
+          "title": "accepts both quarter positions for neap without removing tides",
+          "duration": 0.09624999999999773,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "hands-on assessment uses the physical model"
+          ],
+          "fullName": "hands-on assessment uses the physical model requires fine adjustment for a numeric range; none of the four preset answers suffice",
+          "status": "passed",
+          "title": "requires fine adjustment for a numeric range; none of the four preset answers suffice",
+          "duration": 0.12012499999997317,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "hands-on assessment uses the physical model"
+          ],
+          "fullName": "hands-on assessment uses the physical model does not accept invalid state",
+          "status": "passed",
+          "title": "does not accept invalid state",
+          "duration": 0.06612499999999955,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "camera-independent readable annotation placement"
+          ],
+          "fullName": "camera-independent readable annotation placement separates the quarter-moon caption from the near-side direction",
+          "status": "passed",
+          "title": "separates the quarter-moon caption from the near-side direction",
+          "duration": 0.3702910000000088,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "camera-independent readable annotation placement"
+          ],
+          "fullName": "camera-independent readable annotation placement keeps long mobile captions away from controls and viewport edges",
+          "status": "passed",
+          "title": "keeps long mobile captions away from controls and viewport edges",
+          "duration": 0.2111250000000382,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "camera-independent readable annotation placement"
+          ],
+          "fullName": "camera-independent readable annotation placement respects reserved panels as the camera moves through important angles",
+          "status": "passed",
+          "title": "respects reserved panels as the camera moves through important angles",
+          "duration": 0.4726670000000013,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "tide lesson Traditional Chinese readings"
+          ],
+          "fullName": "tide lesson Traditional Chinese readings uses Taiwan scientific readings and context-sensitive polyphones",
+          "status": "passed",
+          "title": "uses Taiwan scientific readings and context-sensitive polyphones",
+          "duration": 0.9440840000000321,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "tide lesson Traditional Chinese readings"
+          ],
+          "fullName": "tide lesson Traditional Chinese readings preserves every character, punctuation and numerical model value",
+          "status": "passed",
+          "title": "preserves every character, punctuation and numerical model value",
+          "duration": 0.09058300000003783,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1793380752675,
+      "endTime": 1793380752846.0906,
+      "status": "passed",
+      "message": "",
+      "name": "tests/tides3d.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "weather teaching air-box causal model"
+          ],
+          "fullName": "weather teaching air-box causal model has a physically plausible saturation curve and dew point",
+          "status": "passed",
+          "title": "has a physically plausible saturation curve and dew point",
+          "duration": 0.6319159999999897,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "weather teaching air-box causal model"
+          ],
+          "fullName": "weather teaching air-box causal model does not make rain immediately when wet air is cooled",
+          "status": "passed",
+          "title": "does not make rain immediately when wet air is cooled",
+          "duration": 0.3326670000000149,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "weather teaching air-box causal model"
+          ],
+          "fullName": "weather teaching air-box causal model forms rain only after cloud water and finite growth time, then returns water",
+          "status": "passed",
+          "title": "forms rain only after cloud water and finite growth time, then returns water",
+          "duration": 0.2871250000000032,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "weather teaching air-box causal model"
+          ],
+          "fullName": "weather teaching air-box causal model does not make a cloud from dry warm air or sunshine alone",
+          "status": "passed",
+          "title": "does not make a cloud from dry warm air or sunshine alone",
+          "duration": 0.30299999999999727,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "weather teaching air-box causal model"
+          ],
+          "fullName": "weather teaching air-box causal model conserves water through phase changes, rain, infiltration and runoff",
+          "status": "passed",
+          "title": "conserves water through phase changes, rain, infiltration and runoff",
+          "duration": 0.9340830000000153,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "weather teaching air-box causal model"
+          ],
+          "fullName": "weather teaching air-box causal model warming evaporates existing cloud gradually rather than instantly toggling it off",
+          "status": "passed",
+          "title": "warming evaporates existing cloud gradually rather than instantly toggling it off",
+          "duration": 0.1662499999999909,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": [
+            "weather teaching air-box causal model"
+          ],
+          "fullName": "weather teaching air-box causal model rejects invalid time and temperature instead of producing NaNs",
+          "status": "passed",
+          "title": "rejects invalid time and temperature instead of producing NaNs",
+          "duration": 0.3628330000000233,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1793380752660,
+      "endTime": 1793380752663.3628,
+      "status": "passed",
+      "message": "",
+      "name": "tests/weather-quality.test.ts"
+    }
+  ]
+}

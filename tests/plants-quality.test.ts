@@ -17,7 +17,7 @@ import {createPlants} from '../src/experiment-planets/plants';
 function headlessPlant(){
  const context={fillStyle:'',fillRect(){},beginPath(){},ellipse(){},fill(){}};
  vi.stubGlobal('document',{createElement:()=>({width:0,height:0,getContext:()=>context})});
- const stage={worldRoot:new T.Group(),scene:new T.Scene(),camera:new T.PerspectiveCamera(),renderer:null,host:{dataset:{}},orbit:{target:new T.Vector3(),update(){}},label:()=>({style:{},hidden:false}),bindDrag:()=>()=>{},notify(){}} as unknown as Stage;
+ const stage={worldRoot:new T.Group(),scene:new T.Scene(),camera:new T.PerspectiveCamera(),renderer:null,host:{dataset:{}},orbit:{target:new T.Vector3(),update(){}},label:()=>({style:{},hidden:false,dataset:{}}),bindDrag:()=>()=>{},notify(){}} as unknown as Stage;
  try{return createPlants(stage);}finally{vi.unstubAllGlobals();}
 }
 describe('plant learning state integration',()=>{
