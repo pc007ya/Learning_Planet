@@ -13,7 +13,7 @@ try{
   assert(fits.pageW<=fits.w+1&&fits.sideOverflow<=2&&fits.sideBottom<=fits.footerTop,'Overlap '+JSON.stringify({size,fits}));
   const handle=await page.locator('.world-handle.moon').boundingBox();assert(handle.width>=44&&handle.height>=44);
   for(const a of [0,45,90,180,270]){
-   if(a===45)await page.locator('#reset').click();else await page.locator(`[data-angle="${a}"]`).click();
+   if(a===45){await page.locator('#reset').click();assert.equal(await page.locator('button[data-view=space]').getAttribute('aria-pressed'),'true');}else await page.locator(`[data-angle="${a}"]`).click();
    assert.equal(await page.locator('.world-handle.moon').getAttribute('aria-valuenow'),String(a));await page.locator(`#space[data-render-angle="${a}"]`).waitFor({state:'visible'});
    await page.screenshot({path:`artifacts/tides3d/${size.width}x${size.height}-angle-${a}.png`});
    assert((await page.locator('#range').textContent()).includes(a%180===0?'2.92':a===45?'2.20':'1.08'));
