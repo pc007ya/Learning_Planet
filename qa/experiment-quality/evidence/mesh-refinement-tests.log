@@ -1,0 +1,16 @@
+
+ RUN  v3.2.7 <workspace>
+
+ ✓ tests/weather-quality.test.ts (7 tests) 3ms
+ ✓ tests/magnet-quality.test.ts (7 tests) 4ms
+ ✓ tests/force-quality.test.ts (10 tests) 5ms
+ ✓ tests/ocean-quality.test.ts (7 tests) 8ms
+ ✓ tests/earth-moon-quality.test.ts (5 tests) 2ms
+ ✓ tests/experiment-planets.test.ts (9 tests) 9ms
+ ✓ tests/plants-quality.test.ts (8 tests) 77ms
+
+ Test Files  7 passed (7)
+      Tests  53 passed (53)
+   Start at  08:03:56
+   Duration  273ms (transform 153ms, setup 0ms, collect 259ms, tests 107ms, environment 0ms, prepare 207ms)
+
