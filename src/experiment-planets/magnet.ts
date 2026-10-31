@@ -9,8 +9,8 @@ export function createMagnet(stage:Stage):World{
  const metal=new T.MeshStandardMaterial({color:0x9badc1,metalness:.82,roughness:.26});
  const dark=new T.MeshStandardMaterial({color:0x172c44,metalness:.42,roughness:.42});
  const rubber=new T.MeshStandardMaterial({color:0x0c1626,roughness:.84});
- const red=new T.MeshPhysicalMaterial({color:0xbd1836,metalness:.08,roughness:.34,clearcoat:.35});
- const blue=new T.MeshPhysicalMaterial({color:0x1554ab,metalness:.08,roughness:.34,clearcoat:.35});
+ const red=new T.MeshPhysicalMaterial({color:0xbd1836,metalness:.08,roughness:.25,clearcoat:.6});
+ const blue=new T.MeshPhysicalMaterial({color:0x1554ab,metalness:.08,roughness:.25,clearcoat:.6});
  const glass=new T.MeshPhysicalMaterial({color:0x92d8dc,metalness:.05,roughness:.15,transparent:true,opacity:.19,depthWrite:false});
  const selected:Record<string,string>={pole:'opposite',distance:'near',material:'iron',field:'on'};
  const leftX=-2.15;let rightX=1.35,velocity=0,time=0,moving=false,playing=true,dragging=false,moved=false,observed=false,referenceX=rightX,materialTime=0,lastFieldX=NaN,lastPole='',fieldClock=0,disposed=false,demonstrating=false;
@@ -28,12 +28,38 @@ export function createMagnet(stage:Stage):World{
  const ruler=new T.Group();for(let i=0;i<=36;i++){const tick=rounded(.018,.018,i%4===0?.23:.10,new T.MeshBasicMaterial({color:0x95bbc6}),.003);tick.position.set(-4.5+i*.25,-.445,.99);ruler.add(tick);}root.add(ruler);
  const centerline=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(-4.7,-.43,0),new T.Vector3(4.7,-.43,0)]),new T.LineDashedMaterial({color:0x64b8b7,dashSize:.12,gapSize:.10,transparent:true,opacity:.4}));centerline.computeLineDistances();root.add(centerline);
  const poleStamps:T.Object3D[]=[],poleGlyphs:T.Sprite[]=[];
- function magnet(){const group=new T.Group();const s=rounded(.86,.55,.74,blue,.09);s.position.x=-.43;const n=rounded(.86,.55,.74,red,.09);n.position.x=.43;group.add(s,n);for(const [text,x] of [['S',-.43],['N',.43]] as const){const top=new T.Mesh(new T.PlaneGeometry(.62,.40),lettering(text));top.rotation.x=-Math.PI/2;top.position.set(x,.282,.02);group.add(top);poleStamps.push(top);const front=new T.Mesh(new T.PlaneGeometry(.62,.42),lettering(text));front.position.set(x,.01,.377);group.add(front);poleStamps.push(front);const glyphMaterial=lettering(text);const poleGlyph=new T.Sprite(new T.SpriteMaterial({map:glyphMaterial.map,transparent:true,depthWrite:false,depthTest:false,sizeAttenuation:false,toneMapped:false}));glyphMaterial.dispose();poleGlyph.position.set(x,.44,.42);poleGlyph.scale.set(.035,.035,1);poleGlyph.name='pole-glyph';group.add(poleGlyph);poleGlyphs.push(poleGlyph);}return group;}
+ function magnet(){
+  const group=new T.Group();
+  // A continuous chamfered steel core avoids the silhouette of two loose cubes.
+  const core=rounded(1.72,.55,.74,metal,.075);group.add(core);
+  for(const [x,paint]of [[-.427,blue],[.427,red]]as const){
+   const shell=rounded(.842,.556,.746,paint,.065);shell.position.x=x;group.add(shell);
+  }
+  const joint=rounded(.018,.56,.75,new T.MeshStandardMaterial({color:0x394957,metalness:.88,roughness:.24}),.007);group.add(joint);
+  for(const x of [-.855,.855]){
+   const cap=rounded(.024,.43,.62,metal,.015);cap.position.x=x;group.add(cap);
+   const inset=rounded(.027,.31,.46,x<0?blue:red,.012);inset.position.x=x*1.003;group.add(inset);
+  }
+  for(const [text,x] of [['S',-.43],['N',.43]] as const){
+   const top=new T.Mesh(new T.PlaneGeometry(.51,.34),lettering(text));top.rotation.x=-Math.PI/2;top.position.set(x,.282,.02);group.add(top);poleStamps.push(top);
+   const front=new T.Mesh(new T.PlaneGeometry(.51,.36),lettering(text));front.position.set(x,.01,.377);group.add(front);poleStamps.push(front);
+   // End-face markings remain recognizable when looking along the rail.
+   const end=new T.Mesh(new T.PlaneGeometry(.38,.32),lettering(text));end.rotation.y=x<0?-Math.PI/2:Math.PI/2;end.position.set(x<0?-.874:.874,.005,0);group.add(end);poleStamps.push(end);
+   const glyphMaterial=lettering(text);const poleGlyph=new T.Sprite(new T.SpriteMaterial({map:glyphMaterial.map,transparent:true,depthWrite:false,depthTest:false,sizeAttenuation:false,toneMapped:false}));glyphMaterial.dispose();poleGlyph.position.set(x,.44,.42);poleGlyph.scale.set(.035,.035,1);poleGlyph.name='pole-glyph';group.add(poleGlyph);poleGlyphs.push(poleGlyph);
+  }return group;
+ }
+
  function protectPoles(parent:T.Object3D){const protection=new T.Mesh(new T.BoxGeometry(2.2,.9,1),new T.MeshBasicMaterial({visible:false}));protection.name='pole-glyph-label-protection';protection.position.set(0,.52,.25);protection.userData.noFit=true;protection.raycast=()=>{};parent.add(protection);stage.protectLabelArea(protection);}
  const fixed=magnet();protectPoles(fixed);fixed.position.set(leftX,.14,0);fixed.name='fixed-magnet';root.add(fixed);
  const fixedMount=rounded(2.1,.22,1.27,metal);fixedMount.position.set(leftX,-.27,0);root.add(fixedMount);
  for(const x of [leftX-.99,leftX+.99]){const clampPart=rounded(.12,.55,1.18,metal,.025);clampPart.position.set(x,-.03,0);root.add(clampPart);}
  const carriage=new T.Group();carriage.position.set(rightX,.14,0);carriage.name='draggable-magnet';root.add(carriage);const right=magnet();carriage.add(right);protectPoles(right);const hitArea=new T.Mesh(new T.BoxGeometry(2.6,.95,1.6),new T.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false,colorWrite:false}));hitArea.name='magnet-touch-hit-area';carriage.add(hitArea);const sled=rounded(2.05,.19,1.35,metal);sled.position.y=-.42;carriage.add(sled);for(const x of [-.7,.7])for(const z of [-.59,.59]){const wheel=new T.Mesh(new T.CylinderGeometry(.12,.12,.12,24),rubber);wheel.rotation.x=Math.PI/2;wheel.position.set(x,-.43,z);carriage.add(wheel);}
+ // Machined carriage: inset saddle and paired bearing housings on the rails.
+ const saddle=rounded(1.82,.055,1.13,dark,.065);saddle.position.y=-.298;carriage.add(saddle);
+ for(const x of [-.72,.72])for(const z of [-.61,.61]){
+  const bearing=rounded(.38,.19,.25,metal,.055);bearing.position.set(x,-.45,z);carriage.add(bearing);
+  const bolt=new T.Mesh(new T.CylinderGeometry(.045,.045,.025,16),dark);bolt.position.set(x,-.339,z);carriage.add(bolt);
+ }
  const forceArrow=new T.ArrowHelper(new T.Vector3(-1,0,0),new T.Vector3(rightX,.95,0),1,0x7ef0d8,.22,.14);root.add(forceArrow);const fixedForceArrow=new T.ArrowHelper(new T.Vector3(1,0,0),new T.Vector3(leftX,.95,0),1,0x7ef0d8,.22,.14);root.add(fixedForceArrow);
  const tray=rounded(4.5,.11,1.1,dark,.06);tray.position.set(.15,-.35,2.42);root.add(tray);
  const sample=new T.Group();sample.position.set(1.5,-.16,2.4);root.add(sample);
@@ -42,7 +68,25 @@ export function createMagnet(stage:Stage):World{
  const testMagnet=magnet();testMagnet.scale.setScalar(.62);testMagnet.position.set(-1.65,-.09,2.4);root.add(testMagnet);
  const divider=rounded(9.6,.7,.065,glass,.02);divider.position.set(0,-.05,-2.9);root.add(divider);
  const compasses:{group:T.Group;needle:T.Group;x:number;z:number}[]=[];
- for(const z of [-1.65,1.65])for(const x of [-3.6,-1.2,1.2,3.6]){const c=new T.Group();c.position.set(x,-.37,z);c.scale.setScalar(1.22);const dial=new T.Mesh(new T.CylinderGeometry(.26,.26,.065,32),metal);c.add(dial);const face=new T.Mesh(new T.CylinderGeometry(.222,.222,.012,32),new T.MeshStandardMaterial({color:0xe6eef0,roughness:.48}));face.position.y=.04;c.add(face);const needle=new T.Group();for(const [direction,material]of [[1,red],[-1,blue]]as const){const half=new T.Mesh(new T.ConeGeometry(.075,.2,3),material);half.rotation.z=-direction*Math.PI/2;half.position.set(direction*.075,.075,0);needle.add(half);}c.add(needle);root.add(c);compasses.push({group:c,needle,x,z});}
+ const compassFace=new T.MeshStandardMaterial({color:0xf2eee0,roughness:.55});
+ const compassInk=new T.MeshBasicMaterial({color:0x37495c});
+ const lens=new T.MeshPhysicalMaterial({color:0xc5e7ef,transparent:true,opacity:.1,roughness:.08,clearcoat:1,depthWrite:false});
+ for(const z of [-1.65,1.65])for(const x of [-3.6,-1.2,1.2,3.6]){
+  const c=new T.Group();c.position.set(x,-.37,z);c.scale.setScalar(1.22);
+  const base=new T.Mesh(new T.CylinderGeometry(.26,.245,.09,48),dark);base.castShadow=true;c.add(base);
+  const rim=new T.Mesh(new T.TorusGeometry(.238,.025,10,48),metal);rim.rotation.x=Math.PI/2;rim.position.y=.053;c.add(rim);
+  const face=new T.Mesh(new T.CylinderGeometry(.217,.217,.014,48),compassFace);face.position.y=.045;c.add(face);
+  for(let i=0;i<16;i++){const tick=rounded(.009,.004,i%4===0?.047:.024,compassInk,.001);const angle=i*Math.PI/8;tick.position.set(Math.sin(angle)*.184,.056,Math.cos(angle)*.184);tick.rotation.y=angle;c.add(tick);}
+  const needle=new T.Group();
+  for(const [direction,material]of [[1,red],[-1,blue]]as const){
+   const shape=new T.Shape();shape.moveTo(0,-.042);shape.lineTo(direction*.18,0);shape.lineTo(0,.042);shape.closePath();
+   const half=new T.Mesh(new T.ExtrudeGeometry(shape,{depth:.018,bevelEnabled:true,bevelSegments:1,steps:1,bevelSize:.004,bevelThickness:.003}),material);half.rotation.x=-Math.PI/2;half.position.y=.075;needle.add(half);
+  }
+  const pivot=new T.Mesh(new T.SphereGeometry(.026,16,8),metal);pivot.position.y=.095;needle.add(pivot);c.add(needle);
+  const cover=new T.Mesh(new T.CylinderGeometry(.213,.213,.008,48),lens);cover.position.y=.117;c.add(cover);
+  root.add(c);compasses.push({group:c,needle,x,z});
+ }
+
  const lines=new T.Group();lines.name='magnetic-field-lines';root.add(lines);
  const lineMat=new T.MeshBasicMaterial({color:0x35d8b5,transparent:true,opacity:.64});const arrowMat=new T.MeshBasicMaterial({color:0xb5fff0});
  function clearLines(){while(lines.children.length){const o=lines.children[0];lines.remove(o);o.traverse(v=>{if(v instanceof T.Mesh)v.geometry.dispose();});}}

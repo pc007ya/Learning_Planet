@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {Stage,type World} from './core';
 import {setText} from './reading';
+import {trolleyShell,trolleyWheel,brassMass,hardwareBolt,gateDetails} from './force-hardware';
 import {advanceCart,cartForces,initialCart,updateComparisonProgress,type CartState,type ForceSettings,type ForceTrial,type ForceSurface} from './force-model';
 
 type Choices={force:'weak'|'strong';mass:'light'|'heavy';surface:ForceSurface;hand:'hold'|'release'};
@@ -40,28 +41,28 @@ export function createForceMotion(stage:Stage):World{
  const footMat=material(0x1c2c40,.65,.3);for(const x of [-4,4])for(const z of [-1.5,1.5]){const foot=new THREE.Mesh(new THREE.CylinderGeometry(.16,.23,.7,20),footMat);foot.position.set(x,-1.75,z);root.add(foot);}
  const rail=block(9.6,.17,1.6,0xe2c99b,.035);rail.position.set(0,-.935,0);rail.receiveShadow=true;root.add(rail);
  const smoothMap=surfaceTexture(false),roughMap=surfaceTexture(true);ownTextures.push(smoothMap,roughMap);(rail.material as THREE.MeshStandardMaterial).map=smoothMap;
- for(const z of [-.91,.91]){const edge=block(9.65,.17,.09,0x97b5c8,.025,.8);edge.position.set(0,-.91,z);root.add(edge);}
+ for(const z of [-.91,.91]){const edge=block(9.65,.17,.12,0x97b5c8,.025,.8);edge.position.set(0,-.91,z);root.add(edge);
+  const groove=block(9.5,.018,.026,0x344958,.005,.55);groove.position.set(0,-.814,z);root.add(groove);
+  for(const x of [-4.4,-2,0,2,4.4])hardwareBolt(root,x,-.812,z,.8);
+ }
+ for(const z of [-1.76,1.76]){const channel=block(8.9,.085,.15,0x9aaeb9,.025,.75);channel.position.set(0,-1.045,z);root.add(channel);for(const x of [-4,0,4])hardwareBolt(root,x,-.994,z);}
+ for(const x of [-4.65,4.65])for(const z of [-1.82,1.82])hardwareBolt(root,x,-1.057,z,1.3);
  // Metre marks and the 4 m light gate belong to the same fixed track in every condition.
  for(let i=0;i<=70;i++){const x=START+i/10;if(x>4.2)break;const tick=block(.014,.012,i%10===0?.29:.13,0x193e55,.002);tick.position.set(x,-.842,.68);root.add(tick);if(i%10===0)addLabel(String(i/10)+' m',new THREE.Vector3(x,-.72,1.13),'#c9e9f2',.46);}
  for(const [x,label,color] of [[START,'起點',0x63ddbb],[START+4,'4 m 光電門',0xffc678]] as const){
   const gate=new THREE.Group();gate.position.x=x;
   for(const z of [-1.04,1.04]){const pole=block(.09,1.3,.09,color,.02,.4);pole.position.set(0,-.22,z);gate.add(pole);const foot=block(.4,.08,.3,0x152f48,.03,.3);foot.position.set(0,-.85,z);gate.add(foot);}
-  const beam=new THREE.Mesh(new THREE.CylinderGeometry(.008,.008,2.05,8),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.55}));beam.rotation.x=Math.PI/2;beam.position.y=-.28;gate.add(beam);root.add(gate);stage.label(label,new THREE.Vector3(x,.68,-1.05));
+  const beam=new THREE.Mesh(new THREE.CylinderGeometry(.008,.008,2.05,8),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.55}));beam.rotation.x=Math.PI/2;beam.position.y=-.28;gate.add(beam);gateDetails(gate);root.add(gate);stage.label(label,new THREE.Vector3(x,.68,-1.05));
  }
  const endPlate=block(.2,.82,1.6,0xe6a363,.06);endPlate.position.set(4.47,-.5,0);root.add(endPlate);for(const z of [-.4,.4]){const coil=spring(.45);coil.position.set(3.94,-.52,z);root.add(coil);}addLabel('緩衝區',new THREE.Vector3(4.4,.24,0),'#ffd8a2',1.05);
  const car=new THREE.Group();car.name='force-cart';root.add(car);stage.protectLabelArea(car);
- const chassis=block(1.42,.25,.94,0x22b3ce,.09,.4);chassis.position.y=.29;chassis.castShadow=true;car.add(chassis);
- const deck=block(1.16,.08,.8,0xc2d1d6,.04,.8);deck.position.y=.46;car.add(deck);
+ car.add(trolleyShell());
  const wheelGroups:THREE.Group[]=[];
- for(const x of [-.49,.49])for(const z of [-.52,.52]){
-  const wheel=new THREE.Group();wheel.position.set(x,0,z);const tire=new THREE.Mesh(new THREE.CylinderGeometry(.28,.28,.17,32),material(0x152638,.15,.68));tire.rotation.x=Math.PI/2;wheel.add(tire);
-  const hub=new THREE.Mesh(new THREE.CylinderGeometry(.145,.145,.19,24),material(0xcee2eb,.85,.25));hub.rotation.x=Math.PI/2;wheel.add(hub);
-  for(let k=0;k<5;k++){const spoke=block(.025,.25,.018,0x5b8497,.006,.7);spoke.rotation.z=k*Math.PI*2/5;spoke.position.z=z>0?.107:-.107;wheel.add(spoke);}wheel.castShadow=true;car.add(wheel);wheelGroups.push(wheel);
- }
+ for(const x of [-.49,.49])for(const z of [-.52,.52]){const wheel=trolleyWheel();wheel.position.set(x,0,z);car.add(wheel);wheelGroups.push(wheel);}
  for(const x of [-.49,.49]){const axle=new THREE.Mesh(new THREE.CylinderGeometry(.045,.045,1.17,16),material(0xc4d4da,.9,.2));axle.rotation.x=Math.PI/2;axle.position.x=x;car.add(axle);}
  const brake=block(.62,.08,.47,0x9b5745,.02);brake.position.y=-.24;car.add(brake);const padLabel=textSprite('摩擦片','#ffc49d',1.2);padLabel.position.set(0,-.12,.88);car.add(padLabel);labels.push(padLabel);ownTextures.push(padLabel.material.map!);
  const weights:THREE.Mesh[]=[];
- for(let i=0;i<2;i++){const weight=new THREE.Mesh(new THREE.CylinderGeometry(.32,.35,.25,32),material(0xe5b85e,.72,.3));weight.position.set(0,.62+i*.26,0);weight.castShadow=true;car.add(weight);weights.push(weight);const handle=new THREE.Mesh(new THREE.TorusGeometry(.12,.025,8,20,Math.PI),material(0x7a5726,.7));handle.position.set(0,.79+i*.26,0);weight.add(handle);handle.position.y=.15;}
+ for(let i=0;i<2;i++){const weight=brassMass();weight.position.set(0,.64+i*.305,0);car.add(weight);weights.push(weight);}
  const massLabel=textSprite('1 kg','#ffe4a7',.8);massLabel.position.set(0,1.08,0);car.add(massLabel);labels.push(massLabel);ownTextures.push(massLabel.material.map!);
  // A controlled actuator follows the trolley; its gauge reports the commanded constant force.
  const actuator=new THREE.Group();const housing=block(.46,.27,.36,0xcedce5,.06,.6);actuator.add(housing);const rod=new THREE.Mesh(new THREE.CylinderGeometry(.042,.042,.45,16),material(0x97b5c8,.85,.2));rod.rotation.z=Math.PI/2;rod.position.x=.32;actuator.add(rod);car.add(actuator);actuator.position.set(-1.05,.33,0);
@@ -72,9 +73,10 @@ export function createForceMotion(stage:Stage):World{
  const pushCaption=stage.label('推力',pushLabel),frictionCaption=stage.label('摩擦力',frictionLabel),netCaption=stage.label('淨力',netLabel);for(const label of [pushLabel,frictionLabel,netLabel])label.material.visible=false;
  for(const [caption,color] of [[pushCaption,'#8bf3ce'],[frictionCaption,'#ffc28e'],[netCaption,'#9dd7ff']] as const){caption.style.color=color;caption.style.borderColor=color;caption.style.whiteSpace='nowrap';caption.style.maxWidth='none';}
  function settings(force=motor?(data.force==='strong'?8:3):0):ForceSettings{return {force,mass:data.mass==='heavy'?2:1,surface:data.surface};}
- function redrawMass(){weights[1].visible=data.mass==='heavy';const texture=massLabel.material.map!,canvas=texture.image as HTMLCanvasElement,c=canvas.getContext('2d')!;c.clearRect(0,0,512,128);c.fillStyle='#0a1d35e8';c.beginPath();c.roundRect(2,2,508,124,25);c.fill();c.strokeStyle='#ffe4a7';c.lineWidth=3;c.stroke();c.fillStyle='#ffe4a7';c.font='bold 52px sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText(data.mass==='heavy'?'2 kg':'1 kg',256,66);texture.needsUpdate=true;}
+ function updateMassStack(){const heavy=data.mass==='heavy';weights[1].visible=heavy;const lowerHandle=weights[0].getObjectByName('mass-folding-handle');if(lowerHandle)lowerHandle.visible=!heavy;}
+ function redrawMass(){updateMassStack();const texture=massLabel.material.map!,canvas=texture.image as HTMLCanvasElement,c=canvas.getContext('2d')!;c.clearRect(0,0,512,128);c.fillStyle='#0a1d35e8';c.beginPath();c.roundRect(2,2,508,124,25);c.fill();c.strokeStyle='#ffe4a7';c.lineWidth=3;c.stroke();c.fillStyle='#ffe4a7';c.font='bold 52px sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText(data.mass==='heavy'?'2 kg':'1 kg',256,66);texture.needsUpdate=true;}
  function visuals(){
-  car.position.set(START+cart.x,-.565,0);weights[1].visible=data.mass==='heavy';for(const wheel of wheelGroups)wheel.rotation.z=-cart.x/.28;
+  car.position.set(START+cart.x,-.565,0);updateMassStack();for(const wheel of wheelGroups)wheel.rotation.z=-cart.x/.28;
   const railMat=rail.material as THREE.MeshStandardMaterial;const map=data.surface==='rough'?roughMap:smoothMap;if(railMat.map!==map){railMat.map=map;railMat.roughness=data.surface==='rough'?.95:.4;railMat.needsUpdate=true;}
   const applied=settings().force,forces=cartForces(settings(),cart.v);const active=!cart.hitBuffer;if(active){cart.a=forces.acceleration;cart.friction=forces.friction;cart.netForce=forces.netForce;}
   const updateArrow=(arrow:THREE.ArrowHelper,value:number,y:number,z:number,label:THREE.Sprite)=>{arrow.visible=active&&Math.abs(value)>.02;label.visible=arrow.visible;if(!arrow.visible)return;arrow.setDirection(new THREE.Vector3(Math.sign(value),0,0));arrow.position.set(car.position.x,y,z);arrow.setLength(Math.max(.22,Math.abs(value)*.19),.18,.1);label.position.set(car.position.x+Math.sign(value)*Math.max(.45,Math.abs(value)*.1),y+.24,z);};

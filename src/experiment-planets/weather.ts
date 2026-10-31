@@ -3,11 +3,29 @@ import {type World,type Stage} from './core';
 import {createWeatherState,stepWeather,setHumidity,relativeHumidity,dewPoint,weatherPhase,saturationDensity,type WeatherControls,type WeatherState} from './weather-model';
 
 const clamp=T.MathUtils.clamp;
+// Smooth analytic ridges and drainage incision; the teaching physics stays separate.
+function riverXZ(t:number){return new T.Vector2(2.55-4.65*t,.05+1.25*Math.sin(t*Math.PI*.78)+.12*Math.sin(t*7));}
+function rawSurface(x:number,z:number){
+ const coast=-.85+.22*Math.sin(z*1.2)+.09*Math.sin(z*2.7);
+ const inland=1/(1+Math.exp(-(x-coast)*3.8));
+ const spine=2.8*Math.exp(-((x-2.7-.32*Math.sin(z*1.7))**2/1.15+(z+.8)**2/4.8));
+ const shoulders=.62*Math.exp(-((x-4.3)**2/2.8+(z-1.6)**2/3.2));
+ const relief=(Math.sin(x*3.1+z*1.2)*Math.sin(z*2.4-x*.8)*.10+Math.sin(x*6-z*3)*.025)*Math.min(1,Math.max(0,spine));
+ return -1.72+inland*(1.12+spine+shoulders+relief);
+}
+// Shared monotone water/bed profile: every downstream sample loses height.
+const riverProfile:number[]=[];
+for(let i=0;i<=256;i++){const p=riverXZ(i/256),natural=rawSurface(p.x,p.y)-.10;riverProfile.push(i===0?natural:Math.min(natural,riverProfile[i-1]-.0015));}
+function riverHeight(t:number){const q=clamp(t,0,1)*256,i=Math.min(255,Math.floor(q));return Math.max(-1.005,T.MathUtils.lerp(riverProfile[i],riverProfile[i+1],q-i));}
+class RunoffCurve extends T.Curve<T.Vector3>{constructor(){super();}getPoint(t:number,target=new T.Vector3()){const p=riverXZ(t);return target.set(p.x,riverHeight(t),p.y);}}
+const lakeLevel=.16;
 function surface(x:number,z:number){
- const inland=1/(1+Math.exp(-(x+.65)*3));
- const ridge=2.9*Math.exp(-((x-2.3)**2/2+(z+1)**2/2.4));
- const hill=.7*Math.exp(-((x-3.7)**2/4+(z-1.5)**2/2.6));
- return -1.7+inland*(1.05+ridge+hill)+Math.sin(x*2.1+z*1.5)*.055*inland;
+ let y=rawSurface(x,z);
+ const t=clamp((2.55-x)/4.65,0,1),p=riverXZ(t),distance=Math.hypot(x-p.x,z-p.y),width=.055+.065*t;
+ if(distance<width+.22){const blend=1-T.MathUtils.smoothstep(distance,width*.95,width+.22);y=T.MathUtils.lerp(y,riverHeight(t)-.045,blend);}
+ const r=Math.hypot((x-3.8)/.61,(z-1.65)/.366);
+ if(r<1.35){const bowl=lakeLevel-.19*(1-r*r);y=T.MathUtils.lerp(y,bowl,1-T.MathUtils.smoothstep(r,1,1.35));}
+ return y;
 }
 const material=(color:number,roughness=.8)=>new T.MeshStandardMaterial({color,roughness,metalness:.02});
 function mesh(g:T.BufferGeometry,m:T.Material){return new T.Mesh(g,m);}
@@ -25,22 +43,22 @@ export function createWeather(stage:Stage):World {
  const cleanups:(()=>void)[]=[];
  scene.background=new T.Color(0x172e49);scene.fog=new T.Fog(0x172e49,22,50);
  stage.camera.position.set(9,7.2,12.8);stage.camera.lookAt(0,.3,0);
- const terrainGeometry=new T.PlaneGeometry(12,7,72,44);terrainGeometry.rotateX(-Math.PI/2);const pos=terrainGeometry.attributes.position;const colors=[];
- for(let i=0;i<pos.count;i++){const x=pos.getX(i),z=pos.getZ(i),y=surface(x,z);pos.setY(i,y);const color=new T.Color(y<-.99?0xa58d61:y>.9?0x526c5c:0x315d3e);color.offsetHSL(0,0,Math.sin(x*4+z*2)*.025);colors.push(color.r,color.g,color.b);}
+ const terrainGeometry=new T.PlaneGeometry(12,7,160,96);terrainGeometry.rotateX(-Math.PI/2);const pos=terrainGeometry.attributes.position;const colors=[];
+ for(let i=0;i<pos.count;i++){const x=pos.getX(i),z=pos.getZ(i),y=surface(x,z);pos.setY(i,y);const slope=Math.hypot(surface(x+.03,z)-surface(x-.03,z),surface(x,z+.03)-surface(x,z-.03))/.06;const color=new T.Color(0x25482d);if(y<-.93)color.setHex(0x93815d);else if(slope>1.15||y>1.3)color.lerp(new T.Color(0x59675e),clamp((slope-.5)*.5+(y-.7)*.3,0,.85));else color.lerp(new T.Color(0x48643a),clamp(y*.2+.25,0,.6));color.offsetHSL(0,0,(Math.sin(x*8+z*3)*Math.sin(z*7)*.012));colors.push(color.r,color.g,color.b);}
  terrainGeometry.setAttribute('color',new T.Float32BufferAttribute(colors,3));terrainGeometry.computeVertexNormals();const terrain=mesh(terrainGeometry,new T.MeshStandardMaterial({vertexColors:true,roughness:.94}));terrain.receiveShadow=true;root.add(terrain);
  const base=mesh(new T.BoxGeometry(12,.5,7),material(0x3b5367));base.position.y=-2.08;root.add(base);
  const normalData=new Uint8Array(128*128*4);for(let y=0;y<128;y++)for(let x=0;x<128;x++){const n=(y*128+x)*4;normalData[n]=128+Math.cos(x*.31+y*.13)*24;normalData[n+1]=128+Math.sin(y*.28-x*.09)*23;normalData[n+2]=250;normalData[n+3]=255;}const seaNormal=new T.DataTexture(normalData,128,128);seaNormal.wrapS=seaNormal.wrapT=T.RepeatWrapping;seaNormal.repeat.set(5,5);seaNormal.needsUpdate=true;
  const water=mesh(new T.PlaneGeometry(5.3,6.85,44,30),new T.MeshPhysicalMaterial({color:0x146d88,roughness:.24,metalness:.08,clearcoat:.8,clearcoatRoughness:.22,normalMap:seaNormal,normalScale:new T.Vector2(.3,.3),transparent:true,opacity:.9,side:T.DoubleSide}));water.rotation.x=-Math.PI/2;water.position.set(-3.3,-1.02,0);root.add(water);
- // Soil profile is a separate visible front section, not baked into a background.
- for(let i=0;i<4;i++){const stratum=mesh(new T.BoxGeometry(7.3,.15,.09),material([0x5d756a,0xa88c69,0x806a55,0x586a70][i]));stratum.position.set(2.3,-1.41-i*.15,3.54);root.add(stratum);}
- const riverPoints=[new T.Vector3(2.4,surface(2.4,.1)+.04,.1),new T.Vector3(1.9,surface(1.9,.8)+.05,.8),new T.Vector3(1.3,surface(1.3,1.3)+.05,1.3),new T.Vector3(.45,surface(.45,1.5)+.06,1.5),new T.Vector3(-.8,-.96,1.2),new T.Vector3(-2,-1,1)];
- const riverCurve=new T.CatmullRomCurve3(riverPoints);root.add(mesh(new T.TubeGeometry(riverCurve,52,.08,10,false),new T.MeshPhysicalMaterial({color:0x68d9eb,metalness:.15,roughness:.2,clearcoat:1})));
+ // Continuous terrain-following front section with softly undulating strata.
+ for(let layer=0;layer<4;layer++){const vertices:number[]=[],indices:number[]=[];for(let i=0;i<=120;i++){const x=-6+i*.1,top=surface(x,3.5),base=-2.32;const f0=layer/4,f1=(layer+1)/4;const wave=Math.sin(x*1.4)*.025*Math.sin(f0*Math.PI);vertices.push(x,T.MathUtils.lerp(top,base,f0)+wave,3.505,x,T.MathUtils.lerp(top,base,f1),3.505);if(i<120){const n=i*2;indices.push(n,n+1,n+2,n+1,n+3,n+2);}}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(vertices,3));g.setIndex(indices);g.computeVertexNormals();root.add(mesh(g,new T.MeshStandardMaterial({color:[0x7d8259,0xae9870,0x8c765c,0x656b67][layer],roughness:1,side:T.DoubleSide})));}
+ // River ribbon follows the analytic ground at every sample instead of floating tube sections.
+ const riverCurve=new RunoffCurve();const rv:number[]=[],ri:number[]=[];for(let i=0;i<100;i++){const t=i/99,p=riverXZ(t),next=riverXZ(Math.min(1,t+.01)),direction=next.sub(p).normalize(),width=.055+.065*t;for(const side of [-1,1]){const x=p.x-direction.y*width*side,z=p.y+direction.x*width*side;rv.push(x,riverHeight(t),z);}if(i<99){const n=i*2;ri.push(n,n+1,n+2,n+1,n+3,n+2);}}const rg=new T.BufferGeometry();rg.setAttribute('position',new T.Float32BufferAttribute(rv,3));rg.setIndex(ri);rg.computeVertexNormals();root.add(mesh(rg,new T.MeshPhysicalMaterial({color:0x499daf,roughness:.23,metalness:.05,clearcoat:.7,side:T.DoubleSide})));
  const groundCurve=new T.CatmullRomCurve3([new T.Vector3(2.6,-1.45,3.64),new T.Vector3(2.2,-1.8,3.64),new T.Vector3(.4,-1.84,3.64),new T.Vector3(-1.2,-1.78,3.64),new T.Vector3(-2.6,-1.18,2.7)]);
  const groundLine=mesh(new T.TubeGeometry(groundCurve,48,.035,8,false),new T.MeshStandardMaterial({color:0x64c7d7,emissive:0x125477,emissiveIntensity:.5}));root.add(groundLine);
  // A small lake makes accumulation distinct from falling rain and runoff.
- const lake=mesh(new T.CircleGeometry(.61,48),new T.MeshPhysicalMaterial({color:0x3cb2d2,roughness:.15,clearcoat:1,metalness:.1}));lake.rotation.x=-Math.PI/2;lake.scale.set(1,.6,1);lake.position.set(3.8,surface(3.8,1.65)+.025,1.65);root.add(lake);
- // Evergreen trees use tapered crown geometry with a visible trunk and tiers.
- for(let i=0;i<12;i++){const x=.2+(i*.73)%4.8,z=-2.55+(i*1.27)%5;if(surface(x,z)>.9)continue;const tree=new T.Group();tree.position.set(x,surface(x,z),z);const trunk=mesh(new T.CylinderGeometry(.035,.055,.34,9),material(0x7d6044));trunk.position.y=.13;tree.add(trunk);for(let n=0;n<3;n++){const crown=mesh(new T.ConeGeometry(.23-n*.045,.46,11),material(n===0?0x2b6c51:0x3e8960));crown.position.y=.35+n*.18;tree.add(crown);}root.add(tree);}
+ const lake=mesh(new T.CircleGeometry(.61,48),new T.MeshPhysicalMaterial({color:0x3cb2d2,roughness:.15,clearcoat:1,metalness:.1}));lake.rotation.x=-Math.PI/2;lake.scale.set(1,.6,1);lake.position.set(3.8,lakeLevel+.006,1.65);root.add(lake);
+ // Small mixed tree groups, scaled to the mountain rather than oversized cones.
+ for(let i=0;i<32;i++){const x=.05+(i*.817)%5.5,z=-2.8+(i*1.713)%5.9,y=surface(x,z);if(y>.95||y<-.76)continue;const tree=new T.Group();tree.position.set(x,y,z);const scale=.65+(Math.sin(i*9)*.5+.5)*.5;tree.scale.setScalar(scale);const trunk=mesh(new T.CylinderGeometry(.022,.034,.30,7),material(0x72523c));trunk.position.y=.14;tree.add(trunk);for(let n=0;n<3;n++){const crown=mesh(new T.SphereGeometry(.15,12,9),material([0x365c3f,0x456f49,0x537d50][n]));crown.scale.set(1,.95+n*.15,.85);crown.position.set(Math.sin(i+n)*.055,.32+n*.08,Math.cos(i+n)*.045);tree.add(crown);}root.add(tree);}
  const sunlight=new T.DirectionalLight(0xffd998,1.8);sunlight.position.set(-5,8,2);scene.add(sunlight);
  const sun=mesh(new T.SphereGeometry(.48,40,28),new T.MeshBasicMaterial({color:0xffdc92}));sun.position.set(-4.1,3.3,-1);root.add(sun);
  const sunHalo=mesh(new T.SphereGeometry(.58,32,24),new T.MeshBasicMaterial({color:0xffd479,transparent:true,opacity:.15,depthWrite:false}));sunHalo.position.copy(sun.position);root.add(sunHalo);
@@ -48,7 +66,13 @@ export function createWeather(stage:Stage):World {
  const liftCurve=new T.CatmullRomCurve3([new T.Vector3(-3.3,-.7,.2),new T.Vector3(-3.1,.55,.1),new T.Vector3(-2,2.15,0),new T.Vector3(.5,2.9,-.3)]);
  const transportArrows=Array.from({length:8},(_,i)=>{const a=arrowOn(liftCurve,i/8,0xf5d17c);root.add(a);return a;});
  const cloud=new T.Group();cloud.position.set(1.25,2.65,-.3);root.add(cloud);const cloudTexture=softCloudTexture();const cloudSprites:T.Sprite[]=[];
- for(let i=0;i<22;i++){const sprite=new T.Sprite(new T.SpriteMaterial({map:cloudTexture,color:i%3===0?0xb5c9d6:0xf5fbff,transparent:true,opacity:0,depthWrite:false}));sprite.position.set(Math.sin(i*2.3)*(1.15+(i%3)*.16),Math.cos(i*1.7)*.32,Math.sin(i*1.1)*.65);sprite.scale.set(2.1+(i%4)*.18,1.28+(i%3)*.16,1);cloud.add(sprite);cloudSprites.push(sprite);}
+ for(let i=0;i<34;i++){const sprite=new T.Sprite(new T.SpriteMaterial({map:cloudTexture,color:i%3===0?0xb5c9d6:0xf5fbff,transparent:true,opacity:0,depthWrite:false}));sprite.position.set(Math.sin(i*2.3)*(1.0+(i%3)*.13),.12+Math.abs(Math.cos(i*1.7))*.28,Math.sin(i*1.1)*.55);sprite.scale.set(1.8+(i%4)*.16,1.05+(i%3)*.13,1);cloud.add(sprite);cloudSprites.push(sprite);}
+ // One continuous irregular cloud envelope: shaded underside and rounded rising top.
+ const cloudVolumeGeometry=new T.SphereGeometry(1,64,40);const cloudVertices=cloudVolumeGeometry.attributes.position;
+ for(let i=0;i<cloudVertices.count;i++){const x=cloudVertices.getX(i),y=cloudVertices.getY(i),z=cloudVertices.getZ(i);const detail=1+.085*Math.sin(x*8+z*4)*Math.cos(y*9-z*5)+.045*Math.sin(z*13+x*7);cloudVertices.setXYZ(i,x*1.6*detail,(y<0?y*.25:y*.75)*detail+.1,z*.68*detail);}
+ cloudVolumeGeometry.computeVertexNormals();const cloudVolumeMaterial=new T.MeshStandardMaterial({color:0xd3e0e7,roughness:1,transparent:true,opacity:0,depthWrite:false});const cloudVolume=mesh(cloudVolumeGeometry,cloudVolumeMaterial);cloud.add(cloudVolume);
+ // Narrow teaching-focus keepouts; no terrain-wide rectangle that would exhaust label space.
+ const mountainLabelKeepout=mesh(new T.BoxGeometry(2.1,2.7,1.9),new T.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false,colorWrite:false}));mountainLabelKeepout.position.set(2.65,.65,-.6);mountainLabelKeepout.userData.noFit=true;root.add(mountainLabelKeepout);stage.protectLabelArea(mountainLabelKeepout);stage.protectLabelArea(cloudVolume);
  const parcel=new T.Group();parcel.position.set(-.55,1.05,.25);root.add(parcel);
  const parcelGlass=mesh(new T.SphereGeometry(.35,28,20),new T.MeshPhysicalMaterial({color:0xe5bd62,roughness:.1,transparent:true,opacity:.1,depthWrite:false}));parcel.add(parcelGlass);
  const parcelRing=mesh(new T.TorusGeometry(.42,.025,10,56),new T.MeshBasicMaterial({color:0xffd37f}));parcel.add(parcelRing);
@@ -66,11 +90,11 @@ export function createWeather(stage:Stage):World {
  airHandle.addEventListener('keydown',e=>{if(!['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();e.stopPropagation();const p=parcel.position.clone();if(e.key==='Home')p.y=.65;else if(e.key==='End')p.y=3.2;else if(e.key==='ArrowUp'||e.key==='ArrowDown')p.y+=e.key==='ArrowUp'?.15:-.15;else p.x+=e.key==='ArrowRight'?.15:-.15;moveAir(p);stage.notify();},{signal:pointerAbort.signal});
  stage.orbit.addEventListener('change',updateAirHandle);const handleResize=new ResizeObserver(updateAirHandle);handleResize.observe(stage.host);cleanups.push(()=>{pointerAbort.abort();handleResize.disconnect();stage.orbit.removeEventListener('change',updateAirHandle);airHandle.remove();});
  const parcelCaption=new T.Object3D();parcelCaption.position.y=.8;parcel.add(parcelCaption);const vapourCaption=new T.Object3D();vapourCaption.position.set(-2.9,.8,.15);root.add(vapourCaption);const groundwaterCaption=new T.Object3D();groundwaterCaption.position.set(1.1,-1.75,3.65);root.add(groundwaterCaption);
- if(bindStage.label){bindStage.label('空氣團 · 拖高冷卻',parcelCaption);bindStage.label('水氣不可見',vapourCaption);bindStage.label('地下回流',groundwaterCaption);}
+ if(bindStage.label){const airLabel=bindStage.label('空氣團 ↑ 冷卻',parcelCaption);airLabel.dataset.tether='true';bindStage.label('水氣不可見',vapourCaption);bindStage.label('地下回流',groundwaterCaption);}
  const rainPositions=new Float32Array(90*6);const rainGeometry=new T.BufferGeometry();rainGeometry.setAttribute('position',new T.BufferAttribute(rainPositions,3));const rainMaterial=new T.LineBasicMaterial({color:0xa7e6ff,transparent:true,opacity:0});const rain=new T.LineSegments(rainGeometry,rainMaterial);root.add(rain);
  const flowDots=Array.from({length:11},(_,i)=>{const dot=mesh(new T.SphereGeometry(i<6?.055:.04,10,8),new T.MeshBasicMaterial({color:i<6?0xa2ecf9:0x8fd7dc}));root.add(dot);return dot;});
  // An inset shows liquid droplets, distinct from the invisible vapour path.
- const dropletInset=new T.Group();dropletInset.position.set(4.5,3.05,1.8);dropletInset.scale.setScalar(1.55);root.add(dropletInset);
+ const dropletInset=new T.Group();dropletInset.position.set(6.6,3.1,-.7);dropletInset.scale.setScalar(1.15);dropletInset.userData.noFit=true;root.add(dropletInset);
  // A floating rounded window, rather than a dark hole in the hillside.
  const frameShape=new T.Shape();frameShape.moveTo(-.63,-.7);frameShape.lineTo(.63,-.7);frameShape.quadraticCurveTo(.75,-.7,.75,-.58);frameShape.lineTo(.75,.58);frameShape.quadraticCurveTo(.75,.7,.63,.7);frameShape.lineTo(-.63,.7);frameShape.quadraticCurveTo(-.75,.7,-.75,.58);frameShape.lineTo(-.75,-.58);frameShape.quadraticCurveTo(-.75,-.7,-.63,-.7);
  const insetBack=mesh(new T.ShapeGeometry(frameShape,12),new T.MeshBasicMaterial({color:0x102d43,transparent:true,opacity:.96,side:T.DoubleSide}));insetBack.position.z=-.08;dropletInset.add(insetBack);
@@ -86,7 +110,7 @@ export function createWeather(stage:Stage):World {
  function visual(){
   stage.host.dataset.weatherAirX=parcel.position.x.toFixed(4);stage.host.dataset.weatherAirY=parcel.position.y.toFixed(4);updateAirHandle();
   vapourCaption.visible=teachingStep===0;groundwaterCaption.visible=teachingStep===3;
-  const cloudFraction=1-Math.exp(-Math.max(0,state.cloud)/1.2);cloudSprites.forEach((s,i)=>{s.material.opacity=cloudFraction*(.65+(i%3)*.1);s.material.color.setHex(state.rainRate>.02?(i%3===0?0x829eae:0xd3e2e9):(i%3===0?0xc6dae4:0xf5fbff));});cloud.visible=state.cloud>.015;
+  const cloudFraction=1-Math.exp(-Math.max(0,state.cloud)/1.2);cloudSprites.forEach((s,i)=>{s.material.opacity=cloudFraction*(.13+(i%3)*.035);s.material.color.setHex(state.rainRate>.02?(i%3===0?0x829eae:0xd3e2e9):(i%3===0?0xc6dae4:0xf5fbff));});cloudVolumeMaterial.opacity=cloudFraction*.94;cloudVolumeMaterial.color.setHex(state.rainRate>.02?0x879ba9:0xc8d8e2);cloud.visible=state.cloud>.015;
   sunlight.intensity=choice.sun==='strong'?1.8:.55;sun.scale.setScalar(choice.sun==='strong'?1:.75);sunHalo.visible=choice.sun==='strong';
   rainMaterial.opacity=clamp(state.rainRate/.5,0,.75);rain.visible=state.rainRate>.005;
   for(let i=0;i<90;i++){const x=-.15+(i*1.73%3.4),z=-.85+(i*.91%2.1),floor=surface(x,z)+.04,y=3.15-((phase*2+i*.37)%Math.max(.2,3.15-floor));rainPositions.set([x,y,z,x+.025,y+.16,z],i*6);}rainGeometry.attributes.position.needsUpdate=true;

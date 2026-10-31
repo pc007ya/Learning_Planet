@@ -1,16 +1,11 @@
 import * as T from 'three';
 import {Stage,type World} from './core';
+import {organicLeafGeometry as leafGeometry,leafSurface,addLeafVeins,taperedPlantTube} from './plants-geometry';
 import {advancePlantHydration,plantBalance,plantRecoveryGoal,PLANT_DEFAULTS,type PlantConditions} from './plants-model';
 
 const MODEL_NOTE='這是加速的理想植物示意，指數不是實際流量；第 7 天不代表真實植物必然長到這個高度。藍白粒子是水與水氣的追蹤符號，水氣本身看不見。太陽圖像表示光照條件，不代表實際太陽方位。根吸收水和礦物質，植物的糖主要由光合作用製造。';
 const color=(hex:number,roughness=.55)=>new T.MeshStandardMaterial({color:hex,roughness,metalness:.02});
 function pipe(points:T.Vector3[],radius:number,material:T.Material){return new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(points),32,radius,7,false),material);}
-function leafGeometry(length:number,width:number){
- const vertices:number[]=[],uvs:number[]=[],indices:number[]=[];const rows=22,cols=8;
- for(let i=0;i<=rows;i++){const t=i/rows,half=width*Math.pow(Math.sin(Math.PI*t),.78)*(.98-.2*t);for(let j=0;j<=cols;j++){const across=j/cols*2-1;vertices.push(length*t,.12*Math.sin(Math.PI*t)+.13*across*across*Math.sin(Math.PI*t),half*across);uvs.push(t,j/cols);}}
- for(let i=0;i<rows;i++)for(let j=0;j<cols;j++){const a=i*(cols+1)+j,b=a+cols+1;indices.push(a,b,a+1,b,b+1,a+1);}
- const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(vertices,3));g.setAttribute('uv',new T.Float32BufferAttribute(uvs,2));g.setIndex(indices);g.computeVertexNormals();return g;
-}
 function soilTexture(){
  const canvas=document.createElement('canvas');canvas.width=canvas.height=256;const c=canvas.getContext('2d')!;c.fillStyle='#513b27';c.fillRect(0,0,256,256);let seed=32;
  for(let i=0;i<1200;i++){seed=(seed*1664525+1013904223)>>>0;const x=seed%256;seed=(seed*1664525+1013904223)>>>0;const y=seed%256;const r=1+seed%4;c.fillStyle=['#765339','#9e7752','#312a20','#be9b6c'][i%4];c.beginPath();c.ellipse(x,y,r,r*.65,(i%6)*.5,0,Math.PI*2);c.fill();}
@@ -35,8 +30,8 @@ export function createPlants(stage:Stage):World{
  stage.camera.position.set(6,4.5,8.6);stage.camera.lookAt(0,.6,0);
  const orbit=stage.orbit;orbit.target.set(0,.6,0);orbit.update();
  const fill=new T.PointLight(0xa0ddba,5,12,2);fill.position.set(-3,4,2);stage.scene.add(fill);
- const pedestal=new T.Mesh(new T.CylinderGeometry(2.55,2.68,.28,64),new T.MeshStandardMaterial({color:0x21474f,roughness:.36,metalness:.22}));pedestal.position.y=-2.02;pedestal.userData.noFit=true;root.add(pedestal);
- const rimLight=new T.Mesh(new T.TorusGeometry(2.56,.025,8,96),new T.MeshBasicMaterial({color:0x70d5cf}));rimLight.rotation.x=Math.PI/2;rimLight.position.y=-1.86;rimLight.userData.noFit=true;root.add(rimLight);
+ const pedestal=new T.Mesh(new T.CylinderGeometry(2.55,2.68,.28,64),new T.MeshStandardMaterial({color:0x183a41,roughness:.78,metalness:.04}));pedestal.position.y=-2.02;pedestal.userData.noFit=true;root.add(pedestal);
+ const rimLight=new T.Mesh(new T.TorusGeometry(2.56,.025,8,96),new T.MeshStandardMaterial({color:0x547778,roughness:.8}));rimLight.rotation.x=Math.PI/2;rimLight.position.y=-1.86;rimLight.userData.noFit=true;root.add(rimLight);
  const pot=new T.Group();root.add(pot);
  const potMat=new T.MeshStandardMaterial({color:0xb56c48,roughness:.68,metalness:.03,side:T.DoubleSide});
  const outline=[new T.Vector2(.67,-1.85),new T.Vector2(.73,-1.8),new T.Vector2(.97,-.54),new T.Vector2(1.03,-.52),new T.Vector2(1.03,-.40),new T.Vector2(.91,-.40),new T.Vector2(.89,-.58),new T.Vector2(.66,-1.75)];
@@ -46,27 +41,36 @@ export function createPlants(stage:Stage):World{
  const soilMap=soilTexture();const soilMat=new T.MeshStandardMaterial({color:0x72503b,map:soilMap,roughness:.98,transparent:true,opacity:1});
  const soil=new T.Mesh(new T.CylinderGeometry(.88,.66,1.25,48),soilMat);soil.position.y=-1.08;pot.add(soil);
  const soilSurface=new T.Mesh(new T.CircleGeometry(.88,48),new T.MeshStandardMaterial({map:soilMap,roughness:.95}));soilSurface.rotation.x=-Math.PI/2;soilSurface.position.y=-.445;root.add(soilSurface);
+ // A literal open-front half-section, rather than an almost invisible whole pot.
+ const cutPot=new T.Group();root.add(cutPot);const sectionStart=Math.PI*.62;
+ const sectionWall=new T.Mesh(new T.LatheGeometry(outline,48,sectionStart,Math.PI),potMat);sectionWall.castShadow=true;sectionWall.receiveShadow=true;cutPot.add(sectionWall);
+ const lipProfile=Array.from({length:13},(_,i)=>new T.Vector2(.97+.075*Math.cos(i/12*Math.PI*2),-.44+.075*Math.sin(i/12*Math.PI*2)));const sectionLip=new T.Mesh(new T.LatheGeometry(lipProfile,48,sectionStart,Math.PI),color(0xd19a70,.76));cutPot.add(sectionLip);
+ const sectionSoil=new T.Mesh(new T.CylinderGeometry(.88,.66,1.25,40,1,false,sectionStart,Math.PI),new T.MeshStandardMaterial({map:soilMap,color:0x725442,roughness:.98,side:T.DoubleSide}));sectionSoil.position.y=-1.08;sectionSoil.receiveShadow=true;cutPot.add(sectionSoil);
+ // Exposed ceramic cut edges show real wall thickness at both sides of the section.
+ for(const angle of [sectionStart,sectionStart+Math.PI]){const points=[new T.Vector3(Math.sin(angle)*.69,-1.78,Math.cos(angle)*.69),new T.Vector3(Math.sin(angle)*.81,-1.15,Math.cos(angle)*.81),new T.Vector3(Math.sin(angle)*.98,-.43,Math.cos(angle)*.98)];cutPot.add(taperedPlantTube(new T.CatmullRomCurve3(points),.04,.05,color(0xe0b58d,.85),20));}
+
  const rootMat=new T.MeshStandardMaterial({color:0xe7d6ab,roughness:.78});
  const roots=new T.Group();root.add(roots);
  const rootPaths:T.CatmullRomCurve3[]=[];
- for(let i=0;i<10;i++){const a=i*Math.PI*2/10;const end=new T.Vector3(Math.cos(a)*(.48+i%3*.12),-1.60+(i%2)*.14,Math.sin(a)*.55);const points=[new T.Vector3(0,-.38,0),new T.Vector3(Math.cos(a)*.15,-.72,Math.sin(a)*.15),new T.Vector3(end.x*.8,-1.10,end.z*.8),end];const curve=new T.CatmullRomCurve3(points);rootPaths.push(curve);roots.add(new T.Mesh(new T.TubeGeometry(curve,28,.026,7,false),rootMat));
-  for(let j=0;j<3;j++){const origin=curve.getPoint(.4+j*.18);const branch=[origin,origin.clone().add(new T.Vector3(Math.cos(a+.9)*.18,-.1,Math.sin(a+.9)*.18)),origin.clone().add(new T.Vector3(Math.cos(a+.9)*.29,-.23,Math.sin(a+.9)*.29))];roots.add(pipe(branch,.011,rootMat));}
+ for(let i=0;i<10;i++){const a=i*Math.PI*2/10+.16*Math.sin(i*2.7);const end=new T.Vector3(Math.cos(a)*(.48+i%3*.12),-1.60+(i%2)*.14,Math.sin(a)*.55);const points=[new T.Vector3(0,-.38,0),new T.Vector3(Math.cos(a+.35)*(.12+i%3*.025),-.68-i%2*.07,Math.sin(a+.35)*.15),new T.Vector3(end.x*.8,-1.10,end.z*.8),end];const curve=new T.CatmullRomCurve3(points);rootPaths.push(curve);roots.add(taperedPlantTube(curve,.047-i%3*.004,.004,rootMat));
+  for(let j=0;j<3;j++){const origin=curve.getPoint(.4+j*.18);const branch=[origin,origin.clone().add(new T.Vector3(Math.cos(a+.9)*.18,-.1,Math.sin(a+.9)*.18)),origin.clone().add(new T.Vector3(Math.cos(a+.9)*.29,-.23,Math.sin(a+.9)*.29))];roots.add(taperedPlantTube(new T.CatmullRomCurve3(branch),.016-j*.003,.0015,rootMat,18));}
  }
  const plant=new T.Group();plant.position.y=-.41;root.add(plant);
- const stemMat=color(0x4e9b54,.6);const stem=new T.Mesh(new T.CylinderGeometry(.052,.085,2.6,16),stemMat);stem.position.y=1.3;plant.add(stem);
+ const stemMat=color(0x4c8644,.72);const stemCurve=new T.CatmullRomCurve3([new T.Vector3(0,0,0),new T.Vector3(.045,.8,-.025),new T.Vector3(-.035,1.7,.025),new T.Vector3(.015,2.6,0)]);const stem=taperedPlantTube(stemCurve,.075,.026,stemMat,32);plant.add(stem);
  const xylem=new T.Group();plant.add(xylem);
  const transportMaterials=[new T.MeshStandardMaterial({color:0x5edbe4,emissive:0x2a8399,emissiveIntensity:.4,roughness:.3}),new T.MeshStandardMaterial({color:0xf2d08b,roughness:.5})];
- for(const [i,x] of [-.035,.035].entries()){const vessel=new T.Mesh(new T.CylinderGeometry(.015,.015,2.6,8),transportMaterials[i]);vessel.position.set(x,1.3,.075);xylem.add(vessel);}
- const leaves:T.Group[]=[];const blades:T.Mesh[]=[];const leafMats:T.MeshStandardMaterial[]=[];
+ for(const [i,x] of [-.035,.035].entries()){const vessel=taperedPlantTube(stemCurve,.015,.010,transportMaterials[i],32);vessel.position.set(x,0,.075);xylem.add(vessel);}
+ const leaves:T.Group[]=[];const blades:T.Mesh[]=[];const leafMats:T.MeshStandardMaterial[]=[];const leafSpecs:{len:number;width:number}[]=[];
  for(let i=0;i<8;i++){
-  const g=new T.Group();g.position.y=.30+i*.29;g.rotation.y=(i%2?Math.PI:0)+(i%3-.8)*.24;plant.add(g);leaves.push(g);
-  const len=1.15-(i>5?(i-5)*.18:0),width=.39-(i>5?(i-5)*.06:0);
-  const leafMat=new T.MeshStandardMaterial({color:i%2?0x4d9e52:0x62b563,roughness:.68,metalness:.01,envMapIntensity:.35,side:T.DoubleSide});leafMats.push(leafMat);
-  const leaf=new T.Mesh(leafGeometry(len,width),leafMat);leaf.name='leaf-blade';g.add(leaf);blades.push(leaf);
-  const veinMat=new T.MeshStandardMaterial({color:0xb4d98a,roughness:.6});
-  g.add(pipe([new T.Vector3(0,.008,0),new T.Vector3(len*.5,.13,0),new T.Vector3(len,.01,0)],.011,veinMat));
-  for(let j=1;j<6;j++){const t=j/7,half=width*Math.pow(Math.sin(Math.PI*t),.78)*(.98-.2*t);for(const side of [-1,1])g.add(pipe([new T.Vector3(len*t,.12*Math.sin(Math.PI*t)+.012,0),new T.Vector3(len*(t+.09),.17*Math.sin(Math.PI*t),side*half*.8)],.004,veinMat));}
-  const petiole=pipe([new T.Vector3(0,0,0),new T.Vector3(.2,.06,0)],.022,stemMat);g.add(petiole);
+  const g=new T.Group();g.position.y=.30+i*.29;g.rotation.y=(i%2?Math.PI+.38:-.42)+(i%3-.8)*.24;g.rotation.x=.48+(i%3-1)*.13;plant.add(g);leaves.push(g);
+  const len=1.02-(i>5?(i-5)*.13:0),width=.35-(i>5?(i-5)*.045:0);
+  leafSpecs.push({len,width});
+  const leafMat=new T.MeshStandardMaterial({color:i%2?0x4d9e52:0x62b563,roughness:.68,metalness:.01,envMapIntensity:.28,vertexColors:true,side:T.DoubleSide});leafMats.push(leafMat);
+  const leaf=new T.Mesh(leafGeometry(len,width),leafMat);leaf.name='leaf-blade';leaf.position.set(.24,.09,0);g.add(leaf);blades.push(leaf);
+  const veinMat=new T.MeshStandardMaterial({color:0x86ae65,roughness:.76});
+  const veinGroup=new T.Group();veinGroup.position.copy(leaf.position);g.add(veinGroup);addLeafVeins(veinGroup,len,width,veinMat);
+  const petiole=taperedPlantTube(new T.CatmullRomCurve3([new T.Vector3(0,0,0),new T.Vector3(.11,.065,.015),new T.Vector3(.28,.105,0)]),.027,.012,stemMat,16);g.add(petiole);
+  const node=new T.Mesh(new T.SphereGeometry(.069,12,8),stemMat);node.scale.set(.7,1,.7);g.add(node);
  }
  const bud=new T.Group();for(const side of [-1,1]){const shoot=new T.Mesh(leafGeometry(.31,.105),color(0x5c9d3e,.65));shoot.rotation.z=Math.PI/2+side*.17;shoot.rotation.y=side*.28;shoot.position.z=side*.025;shoot.castShadow=true;bud.add(shoot);}bud.position.y=2.7;plant.add(bud);
  const sunGroup=new T.Group();sunGroup.position.set(-2.2,.45,0);root.add(sunGroup);
@@ -82,7 +86,7 @@ export function createPlants(stage:Stage):World{
  const pourDrops=Array.from({length:14},()=>{const drop=new T.Mesh(new T.SphereGeometry(.035,8,6),waterDropMat);drop.visible=false;root.add(drop);return drop;});
  // Mark water entry and transpiration exit; protect the model between both endpoints.
  const flowLabel=stage.label('根吸水',new T.Vector3(-.65,-1.15,.5));
- const leafTip=new T.Object3D();leafTip.position.set(1.08,.06,0);leaves[4].add(leafTip);const exitLabel=stage.label('葉蒸散',leafTip);flowLabel.dataset.tether=exitLabel.dataset.tether='true';
+ const leafTip=new T.Object3D();leafTip.position.copy(leafSurface(leafSpecs[4].len,leafSpecs[4].width,.86,.2));blades[4].add(leafTip);const exitLabel=stage.label('葉蒸散',leafTip);flowLabel.dataset.tether=exitLabel.dataset.tether='true';
  const leafLabel=stage.label('葉片',new T.Vector3(1.15,1.2,.4));
  const lightLabel=stage.label('光照',new T.Vector3(-2.2,-.45,0));
  stage.protectLabelArea?.(plant);stage.protectLabelArea?.(roots);stage.protectLabelArea?.(sun);
@@ -107,9 +111,9 @@ export function createPlants(stage:Stage):World{
  function record(){if(demoTime!==null)return;const p=plantBalance(conditions,hydration);if(conditions.water==='dry'&&p.turgor<.35){wasDry=true;completed[1]=true;}if(p.photosynthesis>.7&&p.turgor>.7&&conditions.days==='seven'&&conditions.soil==='rich'&&conditions.water==='enough'&&conditions.light==='enough'&&conditions.air==='normal')completed[0]=true;
   const match=observations.find(o=>o.conditions.water===conditions.water&&o.conditions.soil===conditions.soil&&o.conditions.air===conditions.air&&o.conditions.days===conditions.days&&o.conditions.light!==conditions.light&&Math.abs(o.hydration-hydration)<.2);if(match&&conditions.water==='enough'&&hydration>.6)completed[2]=true;
  }
- function visual(){updateCanHit();const p=plantBalance(conditions,hydration);const cut=data.view==='cutaway';ceramic.castShadow=!cut;flowLabel.style.display=cut?'':'none';exitLabel.style.display=cut?'':'none';leafLabel.style.display=!cut&&teachingStep!==2?'':'none';lightLabel.style.display=!cut&&teachingStep===2?'':'none';potMat.transparent=cut;potMat.opacity=cut?.15:1;soilMat.opacity=cut?.12:1;(soilSurface.material as T.Material).transparent=cut;(soilSurface.material as T.Material).opacity=cut?.12:1;roots.visible=cut;xylem.visible=cut;stemMat.transparent=cut;stemMat.opacity=cut?.32:1;
-  const growth=.86+.48*p.growth;plant.scale.setScalar(growth);const stemHeight=conditions.days==='seven'?2.6:1.8;stem.scale.y=stemHeight/2.6;stem.position.y=stemHeight/2;for(const vessel of xylem.children){vessel.scale.y=stemHeight/2.6;vessel.position.y=stemHeight/2;}bud.position.y=stemHeight+.06;
-  leaves.forEach((g,i)=>{g.rotation.z=.28-(1-p.turgor)*1.15;g.position.y=(.30+i*.29);g.visible=i<5||conditions.days==='seven';g.scale.setScalar(i<5?1:.6+.4*p.growth);leafMats[i].color.setHSL(.23+.09*p.turgor,.56+.12*p.turgor,.19+.06*p.turgor,T.SRGBColorSpace);});
+ function visual(){updateCanHit();const p=plantBalance(conditions,hydration);const cut=data.view==='cutaway';pot.visible=!cut;soilSurface.visible=!cut;cutPot.visible=cut;ceramic.castShadow=!cut;flowLabel.style.display=cut?'':'none';exitLabel.style.display=cut?'':'none';leafLabel.style.display=!cut&&teachingStep!==2?'':'none';lightLabel.style.display=!cut&&teachingStep===2?'':'none';potMat.transparent=false;potMat.opacity=1;soilMat.opacity=1;(soilSurface.material as T.Material).transparent=false;(soilSurface.material as T.Material).opacity=1;roots.visible=cut;xylem.visible=cut;stemMat.transparent=cut;stemMat.opacity=cut?.55:1;
+  const growth=.86+.48*p.growth;plant.scale.setScalar(growth);const stemHeight=conditions.days==='seven'?2.6:1.8;stem.scale.y=stemHeight/2.6;stem.position.y=0;for(const vessel of xylem.children){vessel.scale.y=stemHeight/2.6;vessel.position.y=0;}bud.position.copy(stemCurve.getPointAt(1));bud.position.y=stemHeight;
+  leaves.forEach((g,i)=>{g.rotation.z=.10+(i%3)*.035-(1-p.turgor)*1.15;g.position.y=(.30+i*.29);g.position.x=.035*Math.sin(g.position.y*2.4);g.visible=i<5||conditions.days==='seven';g.scale.setScalar(i<5?1:.6+.4*p.growth);leafMats[i].color.setHSL(.23+.09*p.turgor,.56+.12*p.turgor,.19+.06*p.turgor,T.SRGBColorSpace);});
   sunGroup.scale.setScalar(conditions.light==='shade'?.68:conditions.light==='strong'?1.12:1);sunLight.intensity=conditions.light==='shade'?1:conditions.light==='strong'?7:5;lightRays.visible=conditions.light!=='shade';soilSurface.material instanceof T.MeshStandardMaterial&&soilSurface.material.color.setHex(conditions.water==='dry'?0xc6a986:conditions.water==='flood'?0x514a3a:0x806046);
   stage.host.dataset.plantWater=conditions.water;stage.host.dataset.plantView=data.view;stage.host.dataset.plantHydration=String(Math.round(hydration*100));stage.host.dataset.plantPhotosynthesis=String(Math.round(p.photosynthesis*100));stage.host.dataset.plantFlow=!playing?'paused':p.uptake>.1?'moving':'limited';
  }
@@ -137,9 +141,9 @@ export function createPlants(stage:Stage):World{
   setStep(index){teachingStep=index;data.view=index===0?'cutaway':'whole';visual();},
   tick(dt){if(!playing||dt<=0)return;clock+=dt;if(demoTime!==null){demoTime+=dt;if(demoTime>4&&data.water==='dry'){data.water='enough';syncConditions();pouring=2.6;}if(demoTime>9)demoTime=null;}
    hydration=advancePlantHydration(hydration,conditions,dt);const p=plantBalance(conditions,hydration);if(observing)record();visual();
-   const plantScale=plant.scale.x;
-   waterDrops.forEach((drop,i)=>{const t=(clock*(.25+.45*p.uptake)+i/36)%1;drop.visible=data.view==='cutaway'&&p.uptake>.05;if(t<.38){const path=rootPaths[i%rootPaths.length];drop.position.copy(path.getPoint(1-t/.38));}else{const stemT=(t-.38)/.62;drop.position.set(Math.sin(i*2)*.035,(-.41+stemT*(conditions.days==='seven'?2.6:1.8)*plantScale),.11);}});
-   steam.forEach((dot,i)=>{const t=(clock*(.2+.45*p.transpiration)+i/18)%1;dot.visible=p.transpiration>.1;const leaf=leaves[i%5];const start=new T.Vector3(.65,.15,0);leaf.localToWorld(start);root.worldToLocal(start);dot.position.copy(start).add(new T.Vector3(Math.sin(i*3)*t*.25,t*.85,.18));(dot.material as T.MeshBasicMaterial).opacity=(1-t)*.55;});
+
+   waterDrops.forEach((drop,i)=>{const t=(clock*(.25+.45*p.uptake)+i/36)%1;drop.visible=data.view==='cutaway'&&p.uptake>.05;if(t<.38){const path=rootPaths[i%rootPaths.length];drop.position.copy(path.getPoint(1-t/.38));}else{const stemT=(t-.38)/.62;const stemPoint=stemCurve.getPointAt(stemT);stemPoint.y*=(conditions.days==='seven'?2.6:1.8)/2.6;stemPoint.x+=(i%2?1:-1)*.035;stemPoint.z+=.075;plant.localToWorld(stemPoint);root.worldToLocal(stemPoint);drop.position.copy(stemPoint);}});
+   steam.forEach((dot,i)=>{const t=(clock*(.2+.45*p.transpiration)+i/18)%1;dot.visible=p.transpiration>.1;const leafIndex=i%5,spec=leafSpecs[leafIndex];const start=leafSurface(spec.len,spec.width,.55+(i%3)*.1,(i%2?1:-1)*.35);start.y+=.015;blades[leafIndex].localToWorld(start);root.worldToLocal(start);dot.position.copy(start).add(new T.Vector3(Math.sin(i*3)*t*.25,t*.85,.015));(dot.material as T.MeshBasicMaterial).opacity=(1-t)*.55;});
    if(pouring>0){pouring-=dt;can.rotation.z=.35;pourDrops.forEach((drop,i)=>{drop.visible=true;const t=(clock*1.5+i/14)%1;const start=new T.Vector3(-.96,.44,0);can.localToWorld(start);root.worldToLocal(start);drop.position.copy(start).lerp(new T.Vector3((i%3-.8)*.12,-.44,.1),t);});if(pouring<=0){can.position.copy(canHome);can.rotation.z=0;}}else pourDrops.forEach(drop=>drop.visible=false);
   },
   snapshot(){return {conditions:{...conditions},view:data.view,hydration,clock,wasDry,completed:[...completed],observations:observations.map(o=>({...o,conditions:{...o.conditions}}))};},
