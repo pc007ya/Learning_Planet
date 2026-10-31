@@ -1,179 +1,41 @@
-import { Stage, type World } from './core';
-
-type PlanetId = 'ocean'|'magnet'|'earth-moon'|'plants'|'weather'|'force-motion';
-const allowed:PlanetId[]=['ocean','magnet','earth-moon','plants','weather','force-motion'];
-const body=document.body;
-const id=body.dataset.planet as PlanetId;
-const host=document.getElementById('ep-scene');
-const controls=document.getElementById('ep-controls');
-const missions=document.getElementById('ep-missions');
-const message=document.getElementById('ep-message');
-const readout=document.getElementById('ep-readout');
-const progress=document.getElementById('ep-progress');
-const quiz=document.getElementById('ep-quiz');
-const quizBody=document.getElementById('ep-quiz-body');
-const reward=document.getElementById('ep-reward');
-const log=document.getElementById('ep-log');
-let voice=true;
-let mode:'guide'|'free'='guide';
-let tab:'object'|'conditions'='object';
-let world:World|null=null;
-let stage:Stage|null=null;
-let completedAtStart:number[]=[];
-let quizPassed=false;
-let rewarded=false;
-const key='lp:experiment-planets:v1:'+id;
-function currentSave():{missions:number[];quizPassed:boolean;rewarded:boolean}{
-  try {
-    const saved=JSON.parse(localStorage.getItem(key)||'{}') as {missions?:unknown;quizPassed?:unknown;rewarded?:unknown};
-    return {missions:Array.isArray(saved.missions)?saved.missions.filter((x):x is number=>typeof x==='number'&&x>=0&&x<8):[],quizPassed:saved.quizPassed===true,rewarded:saved.rewarded===true};
-  }catch{return {missions:[],quizPassed:false,rewarded:false};}
-}
-function save(){
-  try{localStorage.setItem(key,JSON.stringify({missions:completedAtStart,quizPassed,rewarded,updatedAt:Date.now()}));}
-  catch { if(log)log.textContent='無法使用本機儲存，這次的學習紀錄只保留在目前頁面。'; }
-}
-function say(text:string){
-  if(!voice||!('speechSynthesis' in window))return;
-  window.speechSynthesis.cancel();
-  const utterance=new SpeechSynthesisUtterance(text);
-  utterance.lang='zh-TW';utterance.rate=.88;utterance.pitch=1.1;
-  window.speechSynthesis.speak(utterance);
-}
-function setText(el:HTMLElement|null,text:string){if(el)el.textContent=text;}
-function sync(){
-  if(!world)return;
-  setText(readout,world.readout());
-  const done=world.completed().map((yes,i)=>yes||completedAtStart.includes(i));
-  completedAtStart=done.flatMap((yes,i)=>yes?[i]:[]);
-  if(quizPassed && done.every(Boolean))rewarded=true;
-  if(id==='earth-moon')document.body.dataset.phase=world.selected('phase');
-  setText(progress,done.filter(Boolean).length+' / '+done.length+' 項任務');
-  if(missions){
-    missions.innerHTML=world.missions.map((m,i)=>
-      '<li class="'+(done[i]?'is-done':'')+'"><span aria-hidden="true">'+(done[i]?'✓':(i+1))+'</span><div><strong>'+m.title+'</strong><small>'+m.detail+'</small></div></li>'
-    ).join('');
-  }
-  if(reward)reward.textContent=rewarded?'已獲本模組成就：20 XP・5 星幣（本機紀錄）':done.every(Boolean)?'任務完成！點上方鉛筆作答領取本機成就':'完成任務再挑戰考題';
-  if(log)log.textContent=done.filter(Boolean).length+' 項已完成。成就目前只儲存在此瀏覽器，尚未併入主站帳戶。';
-  save();
-}
-function showControls(){
-  if(!world||!controls)return;
-  const groups= id==='ocean'?world.controls.filter(x=>tab==='object'?x.id==='object':x.id!=='object'):world.controls;
-  controls.innerHTML=groups.map(group=>'<fieldset class="ep-group"><legend>'+group.title+'</legend><div class="ep-options">'+group.values.map(v=>
-    '<button type="button" data-control="'+group.id+'" data-value="'+v.id+'" aria-pressed="'+(world!.selected(group.id)===v.id)+'">'+v.label+'</button>'
-  ).join('')+'</div></fieldset>').join('');
-}
-function selectTab(next:'object'|'conditions'){
-  tab=next;
-  body.dataset.tab=tab;
-  document.querySelectorAll<HTMLButtonElement>('[data-control-tab]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.controlTab===tab)));
-  showControls();
-}
-function handleQuiz(){
-  if(!world||!quiz||!quizBody)return;
-  const q=world.quiz;
-  const complete=completedAtStart.length===world.missions.length;
-  quizBody.innerHTML='<h2>看圖想一想</h2><p>'+q.question+'</p><div class="ep-answers">'+q.answers.map((answer,i)=>
-    '<button type="button" data-answer="'+i+'"><span aria-hidden="true">'+(i+1)+'</span>'+answer+'</button>').join('')+'</div><p id="ep-quiz-feedback" role="status">'+
-    (complete?'請挑一張答案卡。':'可以先試答；要完成任務才能領取成就。')+'</p>';
-  quiz.hidden=false;
-  const button=quiz.querySelector<HTMLElement>('[data-answer]');
-  button?.focus();
-}
-function closeQuiz(){if(quiz)quiz.hidden=true;}
-function handleAnswer(answer:number){
-  if(!world||!quiz)return;
-  const feedback=document.getElementById('ep-quiz-feedback');
-  const correct=answer===world.quiz.correct;
-  if(feedback)feedback.textContent=(correct?'答對了！ ':'再觀察一下。 ')+world.quiz.explanation;
-  if(correct){
-    quizPassed=true;
-    if(completedAtStart.length===world.missions.length&&!rewarded)rewarded=true;
-    sync();
-  }
-  quiz.querySelectorAll<HTMLButtonElement>('[data-answer]').forEach(b=>{b.setAttribute('aria-pressed',String(Number(b.dataset.answer)===answer));});
-  say((feedback?.textContent)||'');
-}
-function observe(){
-  if(!world)return;
-  world.observe();
-  sync();
-  const t=world.readout();
-  setText(message,'觀察完成。'+t);
-  say(t);
-}
-function reset(){
-  if(!world)return;
-  world.reset();
-  completedAtStart=[];
-  quizPassed=false;
-  // A completed reward is earned once; restarting never grants it again.
-  sync();showControls();closeQuiz();setText(message,'重新開始探索！選好條件後按「放入／觀察」。');
-}
-function installEvents(){
-  document.getElementById('ep-observe')?.addEventListener('click',observe);
-  document.getElementById('ep-reset')?.addEventListener('click',reset);
-  document.getElementById('ep-quiz-open')?.addEventListener('click',handleQuiz);
-  document.getElementById('ep-quiz-close')?.addEventListener('click',closeQuiz);
-  document.getElementById('ep-voice')?.addEventListener('click',event=>{
-    voice=!voice;(event.currentTarget as HTMLButtonElement).setAttribute('aria-pressed',String(voice));
-    if(!voice&&'speechSynthesis' in window)window.speechSynthesis.cancel();
-    else if(world)say(world.intro);
-  });
-  document.getElementById('ep-replay')?.addEventListener('click',()=>world&&say(world.intro+' '+world.readout()));
-  controls?.addEventListener('click',event=>{
-    const button=(event.target as Element).closest<HTMLButtonElement>('[data-control][data-value]');
-    if(!button||!world)return;
-    world.choose(button.dataset.control||'',button.dataset.value||'');
-    controls.querySelectorAll<HTMLButtonElement>('[data-control="'+button.dataset.control+'"]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
-    sync();setText(message,world.readout());
-  });
-  document.querySelectorAll<HTMLButtonElement>('[data-control-tab]').forEach(b=>b.addEventListener('click',()=>selectTab(b.dataset.controlTab as 'object'|'conditions')));
-  document.querySelectorAll<HTMLButtonElement>('[data-mode]').forEach(b=>b.addEventListener('click',()=>{
-    mode=b.dataset.mode==='free'?'free':'guide';
-    body.dataset.mode=mode;
-    document.querySelectorAll<HTMLButtonElement>('[data-mode]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.mode===mode)));
-  }));
-  quiz?.addEventListener('click',event=>{
-    const option=(event.target as Element).closest<HTMLButtonElement>('[data-answer]');
-    if(option)handleAnswer(Number(option.dataset.answer));
-  });
-  document.querySelectorAll<HTMLButtonElement>('[data-move]').forEach(b=>b.addEventListener('click',()=>world?.move?.(b.dataset.move||'')));
-  window.addEventListener('keydown',event=>{
-    if(!world?.move||!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key))return;
-    if(event.target instanceof HTMLButtonElement||event.target instanceof HTMLInputElement)return;
-    event.preventDefault();world.move(event.key.replace('Arrow','').toLowerCase());
-  });
-  window.addEventListener('pagehide',()=>{if('speechSynthesis' in window)window.speechSynthesis.cancel();world?.dispose();stage?.destroy();},{once:true});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden&&'speechSynthesis' in window)window.speechSynthesis.cancel();});
-}
+import {Stage,type World,type Metric} from './core';
+import {phasePath} from '../tides/model';
+import {SceneNarration} from '../experiments/narration';
+import {installReading,setText} from './reading';
+import {choiceIcon,quizIcon} from './icons';
+const $=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
+const id=document.body.dataset.planet||'';const key='lp:experiment-quality:v2:'+id;let world:World,stage:Stage,step=0,group='object',pane='controls',playing=true,manual=true,quizPassed=false,voice=false;const narration=new SceneNarration();let lastSpeech='',lastSync=0,plotClock=0;let samples:{label:string;value:string;conditions:string}[]=[];let savedWorld:Record<string,unknown>|undefined;const history:{time:number;value:number}[]=[];let time=0;let recordFingerprint='';let fullFeedback='';let chartDescription='';
+const esc=(s:string)=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
+try{const saved=JSON.parse(localStorage.getItem(key)||'{}');step=Number.isInteger(saved.step)?saved.step:0;group=typeof saved.group==='string'?saved.group:'object';samples=Array.isArray(saved.samples)?saved.samples.slice(-4):[];savedWorld=saved.world;quizPassed=!!saved.quizPassed;}catch{/* optional local record */}
+function save(){try{localStorage.setItem(key,JSON.stringify({step,group,samples,world:world?.snapshot?.(),quizPassed}));}catch{/* all controls still operate */}}
+function say(text:string){lastSpeech=text;narration.say(text);}
+function feedback(text:string,speak=true){fullFeedback=text;const sentence=text.match(/^.*?[。！？]/)?.[0]||text;const brief=sentence.length>20?sentence.slice(0,19)+'…':sentence;setText($('ep-message'),brief);$('ep-feedback-more').hidden=brief===text;if(speak)say(text);}
+function play(value:boolean){playing=value;world.setPlaying?.(value);$('ep-play').setAttribute('aria-pressed',String(value));setText($('ep-play'),value?'Ⅱ':'▷');if(world)sync();}
+function steps(){return world.steps||world.missions.slice(0,4).map(m=>({title:m.title,question:m.title+'，怎麼做到？',detail:m.detail}));}
+function selectStep(n:number,speak=true,apply=true){const list=steps();step=Math.max(0,Math.min(n,list.length-1));document.body.dataset.step=String(step);document.querySelectorAll<HTMLButtonElement>('button[data-step]').forEach(b=>b.setAttribute('aria-current',Number(b.dataset.step)===step?'step':'false'));const s=list[step];setText($('ep-question'),s.question);setText($('ep-intro'),s.detail);setText($('ep-step-label'),`${step+1} / ${list.length} · ${s.title}`);if(apply)world.setStep?.(step);if(speak)say(s.question+' '+s.detail);if(pane==='challenge')renderChallenge();save();}
+function groupName(value:string){return ({object:'物件',water:'水分',mass:'質量',volume:'體積',light:'光照',days:'時間',soil:'土壤',air:'空氣',view:'觀察',sun:'加熱',humidity:'水氣',pole:'磁極',distance:'距離',material:'材料',force:'推力',surface:'地面',release:'放手',hand:'推桿',field:'磁場',phase:'月相',spin:'自轉',time:'時段',observer:'地點'} as Record<string,string>)[value]||value;}
+function showControls(){if(!world.controls.some(c=>c.id===group))group=world.controls[0].id;const nav=$('ep-tab-bar');nav.innerHTML=world.controls.map(c=>`<button data-group="${c.id}" data-control-tab="${c.id==='object'?'object':'conditions'}" aria-label="${esc(c.title)}" aria-pressed="${c.id===group}">${esc(groupName(c.id))}</button>`).join('');const c=world.controls.find(c=>c.id===group)!;$('ep-controls').innerHTML=`<div class="ep-options" data-count="${c.values.length}">${c.values.map((v,i)=>`<button data-control="${c.id}" data-value="${v.id}" aria-label="${esc(v.label)}" aria-pressed="${world.selected(c.id)===v.id}">${choiceIcon(c.id,v.id,i)}<span>${esc(({submarine:'潛艇'} as Record<string,string>)[v.id]||v.label)}</span></button>`).join('')}</div>`;}
+function selectPane(value:string){pane=value;document.body.dataset.pane=value;document.querySelectorAll<HTMLButtonElement>('button[data-pane]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.pane===value)));$('ep-control-pane').hidden=value!=='controls';$('ep-record-pane').hidden=value!=='records';$('ep-challenge-pane').hidden=value!=='challenge';if(value==='records'){if(matchMedia('(max-width:700px)').matches)play(false);setText($('ep-question'),'一次只改一個條件');renderRecords();}if(value==='challenge')renderChallenge();else if(value!=='records')setText($('ep-question'),steps()[step].question);}
+function metrics(){return world.metrics?.()||[{label:'觀察狀態',value:world.readout().split('｜')[0]}];}
+function sync(){if(!world)return;document.querySelectorAll<HTMLButtonElement>('[data-control]').forEach(b=>b.setAttribute('aria-pressed',String(world.selected(b.dataset.control!)===b.dataset.value)));setText($('ep-readout'),world.readout());const list=metrics();let nodes=$('ep-metrics').children;if(nodes.length!==Math.min(3,list.length)){$('ep-metrics').innerHTML=list.slice(0,3).map(()=>'<div class="ep-metric"><small></small><strong></strong><span></span></div>').join('');nodes=$('ep-metrics').children;}list.slice(0,3).forEach((m,i)=>{const row=nodes[i] as HTMLElement;setText(row.querySelector('small'),m.label);setText(row.querySelector('strong'),String(m.value));setText(row.querySelector(':scope > span'),m.unit||'');if(id==='earth-moon'&&i===0){let portrait=row.querySelector<SVGElement>('.ep-phase-portrait');if(!portrait){row.insertAdjacentHTML('beforeend','<svg class="ep-phase-portrait" viewBox="-26 -26 52 52" aria-label="從地球看月球亮面" role="img"></svg>');portrait=row.querySelector('.ep-phase-portrait')!;}portrait.innerHTML=`<circle r="24" fill="#11243c" stroke="#97b1c5"/><path d="${phasePath(Number(stage.host.dataset.earthAngle)||0)}" fill="#f4ecd5"/>`;}});const done=world.completed();setText($('ep-progress'),`${done.filter(Boolean).length} / ${done.length} 項任務`);setText($('ep-reward'),quizPassed&&done.every(Boolean)?'已獲本模組成就：20 XP・5 星幣（本機紀錄）':'操作、比較，再解釋原因');if(pane==='challenge')renderChallenge();setText(document.querySelector<HTMLElement>('.ep-world-note'),world.status?.()||world.readout().split(/[｜·]/).pop()?.trim()||'理想模型');if(pane==='records'){const fingerprint=JSON.stringify(world.records?.()||samples);if(fingerprint!==recordFingerprint){recordFingerprint=fingerprint;renderRecords();}else renderChart(list);}}
+function renderChallenge(){const challenge=world.challenge?.()||{title:'動手完成觀察',target:world.missions[step%world.missions.length].detail,hint:'只改一個條件，觀察現象和讀數。'};setText($('ep-challenge-title'),challenge.title);if(pane==='challenge')setText($('ep-question'),challenge.title);setText($('ep-target'),challenge.target);setText($('ep-hint'),challenge.hint);const done=world.completed();const html=world.missions.map((m,i)=>`<li class="${done[i]?'is-done':''}" aria-label="${esc(m.title)}${done[i]?'已完成':'未完成'}">${done[i]?'✓':i+1} ${esc(m.title)}</li>`).join('');if($('ep-missions').dataset.render!==html){$('ep-missions').dataset.render=html;$('ep-missions').innerHTML=html;}}
+function conditions(){return world.controls.filter(c=>c.id!=='view').map(c=>`${groupName(c.id)}：${c.values.find(v=>v.id===world.selected(c.id))?.label||''}`).join(' · ');}
+function record(){samples.push({label:conditions(),value:metrics().map(m=>`${m.label} ${m.value}${m.unit||''}`).join(' · '),conditions:JSON.stringify(Object.fromEntries(world.controls.map(c=>[c.id,world.selected(c.id)])))});samples=samples.slice(-4);save();renderRecords();feedback('已留下此刻讀數。下次只改一個條件再比較。');}
+function renderRecords(){const own=world.records?.()||[];const records=own.length?own:samples.map((r,i)=>({label:`${i+1}. ${r.label}`,value:r.value}));const brief=(text:string,budget:number)=>{let used=0,out='';for(const c of text){used+=/[\u3400-\u9fff]/.test(c)?2.3:1;if(used>budget)return out+'…';out+=c;}return out;};$('ep-comparison').innerHTML=records.length?'<div class="ep-record-pair">'+records.slice(-2).map((r,i)=>`<button class="ep-record" data-record="${Math.max(0,records.length-2)+i}"><strong>${esc(brief(r.label,14))}</strong><span>${esc(brief(r.value.split(' · ').slice(0,2).join(' · '),20))}</span><small>完整資料 ↗</small></button>`).join('')+'</div>':'<p class="ep-empty">先觀察，按「留一筆」。保持其他條件，再改一個條件比較。</p>';$('ep-all-records').hidden=!records.length;$('ep-all-records').onclick=()=>open('全部比較紀錄',records.map(r=>`<p><strong>${esc(r.label)}</strong><br>${esc(r.value)}</p>`).join(''));document.querySelectorAll<HTMLButtonElement>('[data-record]').forEach(button=>button.onclick=()=>{const r=records[Number(button.dataset.record)];open('這次觀察紀錄',`<p>${esc(r.label)}</p><p>${esc(r.value)}</p>`);});renderChart(metrics());}
+function renderChart(list:ReadonlyArray<Metric>){const metric=list.find(m=>typeof m.value==='number'||Number.isFinite(Number(m.value)));if(!metric)return;const points=history.slice(-70);if(points.length){const values=points.map(p=>p.value),lo=Math.min(...values),hi=Math.max(...values),span=hi-lo||1;$('ep-plot').setAttribute('points',points.map((p,i)=>`${25+i/Math.max(1,points.length-1)*260},${58-(p.value-lo)/span*45}`).join(' '));chartDescription=`${metric.label} ${metric.unit||''} · ${lo.toFixed(2)} 至 ${hi.toFixed(2)}（本次觀察）`;setText($('ep-chart-label'),chartDescription);}}
+function open(title:string,html:string){play(false);narration.stop();setText($('ep-dialog-title'),title);$('ep-quiz-body').innerHTML=html;$<HTMLDialogElement>('ep-quiz').showModal();$('ep-quiz-close').focus();}
+function showQuiz(){const q=world.quiz;open('看圖想一想',`<p>${esc(q.question)}</p><div class="ep-answers">${q.answers.map((a,i)=>`<button data-answer="${i}"><span class="ep-answer-index">${i+1}</span>${quizIcon(id,i)}<span>${esc(a)}</span></button>`).join('')}</div><p id="ep-quiz-feedback" role="status">先看圖，再選答案。</p>`);document.querySelectorAll<HTMLButtonElement>('[data-answer]').forEach(b=>b.onclick=()=>{const correct=Number(b.dataset.answer)===q.correct;const t=(correct?'答對了！':'再觀察。')+q.explanation;setText($('ep-quiz-feedback'),t);say(t);quizPassed||=correct;document.querySelectorAll<HTMLButtonElement>('[data-answer]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));save();sync();});}
+function observe(){manual=true;history.length=0;time=0;lastSync=0;plotClock=0;world.observe();play(true);sync();feedback(id==='ocean'?'放手觀察浮沉，再比較浮力與重力。':id==='force-motion'?'開始量測。保持條件，等小車通過終點。':'觀察開始，注意現象和讀數的連動。');save();}
+function reset(){world.reset();manual=true;history.length=0;time=0;lastSync=0;plotClock=0;play(true);showControls();sync();feedback('已重設這次實驗；比較紀錄仍保留。');save();}
+function showData(){open('完整即時讀數',`<div class="ep-data-grid">${metrics().map(m=>`<div><small>${esc(m.label)}</small><strong>${esc(String(m.value))} ${esc(m.unit||'')}</strong></div>`).join('')}</div><p>${esc(world.readout())}</p>`);}
 async function boot(){
-  if(!allowed.includes(id)||!host){setText(message,'找不到這顆實驗星球。請返回實驗列表。');return;}
-  installEvents();
-  try{
-    stage=new Stage(host,id==='ocean');
-    world=id==='ocean' ? (await import('./ocean')).createOcean(stage) : (await import('./five')).createOther(stage,id);
-    stage.onFrame=(dt:number)=>world?.tick(dt);
-    setText(document.getElementById('ep-title'),world.name);
-    setText(document.getElementById('ep-intro'),world.intro);
-    document.body.dataset.planetReady='true';
-    const stored=currentSave();
-    completedAtStart=stored.missions;
-    quizPassed=stored.quizPassed;
-    rewarded=stored.rewarded;
-    document.getElementById('ep-dpad')?.classList.toggle('is-hidden',id!=='ocean');
-    document.getElementById('ep-tab-bar')?.classList.toggle('is-hidden',id!=='ocean');
-    if(id!=='ocean')body.dataset.tab='conditions';
-    setText(document.getElementById('ep-observe'),id==='ocean'?'放入水中':'觀察變化');
-    selectTab(id==='ocean'?'object':'conditions');
-    sync();
-    setText(message,'選好條件後，按「'+(id==='ocean'?'放入水中':'觀察變化')+'」。');
-  }catch(error){
-    console.error('Experiment planet initialization failed',error);
-    setText(message,'這顆星球載入失敗。請返回實驗列表後重試。');
-    stage?.destroy();
-  }
+ stage=new Stage($('ep-scene'),id==='ocean');installReading(id,()=>stage.renderOnce());
+ try{world=id==='ocean'?(await import('./ocean')).createOcean(stage):id==='magnet'?(await import('./magnet')).createMagnet(stage):id==='plants'?(await import('./plants')).createPlants(stage):id==='weather'?(await import('./weather')).createWeather(stage):id==='force-motion'?(await import('./force-motion')).createForceMotion(stage):id==='earth-moon'?await (await import('./earth-moon-quality')).createEarthMoon(stage):(await import('./five')).createOther(stage,id);
+ if(savedWorld){world.restore?.(savedWorld);play(false);}const titleMedia=matchMedia('(max-width:700px)');const updateTitle=()=>setText($('ep-title'),titleMedia.matches?({ocean:'海洋浮力',magnet:'磁鐵',plants:'植物',weather:'水循環','force-motion':'力與運動','earth-moon':'地球月球'} as Record<string,string>)[id]||world.name:world.name.replace('實驗星球','').replace('星球',''));titleMedia.addEventListener('change',updateTitle);updateTitle();$('ep-title').setAttribute('aria-label',world.name);$('ep-steps').innerHTML=steps().map((s,i)=>`<button data-step="${i}"><span>${i+1}</span>${esc(s.title)}</button>`).join('');selectStep(step,false,!savedWorld);showControls();sync();stage.setView(id==='ocean'?'front':'orbit');document.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===(id==='ocean'?'front':'orbit'))));$('ep-loading').hidden=true;document.body.dataset.planetReady='true';stage.onInteraction=()=>{manual=true;playing=stage.host.dataset.playing!=='false';$('ep-play').setAttribute('aria-pressed',String(playing));setText($('ep-play'),playing?'Ⅱ':'▷');sync();save();};stage.onFrame=dt=>{if(playing)time+=dt;world.tick(playing?dt:0);if(time-lastSync>.15){sync();lastSync=time;}if(time-plotClock>(id==='force-motion'?.1:.5)){const metric=metrics().find(m=>Number.isFinite(Number(m.value)));if(metric)history.push({time,value:Number(metric.value)});if(history.length>70)history.shift();plotClock=time;}if(pane==='records')renderChart(metrics());};
+ $('ep-tab-bar').onclick=e=>{const b=(e.target as Element).closest<HTMLButtonElement>('[data-group]');if(!b)return;group=b.dataset.group!;showControls();save();};$('ep-controls').onclick=e=>{const b=(e.target as Element).closest<HTMLButtonElement>('[data-control]');if(!b)return;const control=b.dataset.control!,value=b.dataset.value!;manual||=world.selected(control)!==value;world.choose(control,value);if(stage.host.dataset.playing!==undefined){playing=stage.host.dataset.playing==='true';$('ep-play').setAttribute('aria-pressed',String(playing));setText($('ep-play'),playing?'Ⅱ':'▷');}history.length=0;sync();showControls();feedback(`已改變${groupName(control)}，觀察現象與讀數。`);save();};document.querySelectorAll<HTMLButtonElement>('button[data-step]').forEach(b=>b.onclick=()=>{const next=Number(b.dataset.step);if(id==='force-motion')group=['force','mass','surface','hand'][next]||group;selectStep(next);showControls();});document.querySelectorAll<HTMLButtonElement>('button[data-pane]').forEach(b=>b.onclick=()=>selectPane(b.dataset.pane!));document.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(b=>b.onclick=()=>{stage.setView(b.dataset.view!);document.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));feedback('空白處拖曳可旋轉，物件本體可直接操作。',false);});
+ $('ep-observe').onclick=observe;$('ep-record').onclick=record;$('ep-show-chart').onclick=()=>{renderChart(metrics());open('讀數隨時間變化',`<div class="ep-chart-full">${$('ep-chart').outerHTML.replace(/\sid="[^"]*"/g,'')}</div><p>${esc(chartDescription||'先播放觀察，再看讀數的變化。')}</p>`);};$('ep-reset').onclick=reset;$('ep-play').onclick=()=>play(!playing);$('ep-demo').onclick=()=>{world.demo?.();manual=false;play(true);showControls();sync();feedback('示範中。暫停後親手操作，才能通過操作考核。');};$('ep-check').onclick=()=>{const result=!manual?{passed:false,message:'先親手改變條件或操作物件，再檢查。'}:world.checkChallenge?.()||{passed:world.completed().every(Boolean),message:'請完成實際觀察任務，再說出原因。'};feedback(result.message);$('ep-check').dataset.passed=String(result.passed);sync();save();};$('ep-feedback-more').onclick=()=>open('操作回饋',`<p>${esc(fullFeedback)}</p>`);$('ep-hint-open').onclick=()=>{const c=world.challenge?.();if(c)open(c.title,`<p>${esc(c.target)}</p><p>${esc(c.hint)}</p>`);};$('ep-quiz-open').onclick=showQuiz;$('ep-quiz-close').onclick=()=>$<HTMLDialogElement>('ep-quiz').close();$('ep-help').onclick=()=>open(steps()[step].question,`<p>${esc(steps()[step].detail)}</p><p>${esc(world.intro)}</p>`);$('ep-voice').onclick=()=>{voice=!voice;narration.enabled=voice;$('ep-voice').setAttribute('aria-pressed',String(voice));if(voice)narration.say(lastSpeech||steps()[step].detail,true);else narration.stop();};$('ep-replay').onclick=()=>narration.say(lastSpeech||steps()[step].detail,true);$('ep-data').onclick=showData;$('ep-zoom-in').onclick=()=>stage.zoom(.85);$('ep-zoom-out').onclick=()=>stage.zoom(1.17);$('ep-sources').onclick=()=>open('模型與資料來源',`<p>${esc(world.modelNote||'這是理想化教學模型，不是實際預報或工程測量。')}</p>${(world.sourceLinks||[]).map(s=>`<p><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></p>`).join('')}<p>場景採本專案原創程序幾何與材質，沒有複製參考課件素材。比較與進度只保存在這個瀏覽器。</p>`);
+ $('ep-dpad').classList.add('is-hidden');$('ep-nav-mode').hidden=id!=='ocean';$('ep-nav-mode').onclick=()=>{const active=document.body.dataset.navigation!=='true';document.body.dataset.navigation=String(active);$('ep-nav-mode').setAttribute('aria-pressed',String(active));$('ep-nav-mode').setAttribute('aria-label',active?'返回觀測視角':'潛水艇方向操作');setText($('ep-nav-mode'),active?'↶':'導航');$('ep-dpad').classList.toggle('is-hidden',!active);};document.querySelectorAll<HTMLButtonElement>('[data-move]').forEach(b=>b.onclick=()=>{world.move?.(b.dataset.move!);stage.notify();});$('ep-scene').onkeydown=e=>{if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)&&world.move){e.preventDefault();world.move(e.key.replace('Arrow','').toLowerCase());stage.notify();}};
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){play(false);narration.stop();save();}});window.addEventListener('pagehide',()=>{save();narration.stop();world.dispose();stage.destroy();},{once:true});window.addEventListener('pageshow',e=>{if(e.persisted)location.reload();});const panelMedia=matchMedia('(max-width:700px)');const adaptPanels=()=>{const target=panelMedia.matches?document.querySelector<HTMLElement>('.ep-view')!:$('ep-record-home');target.append($('ep-record-pane'));$('ep-record-pane').classList.toggle('ep-mobile-records',panelMedia.matches);};panelMedia.addEventListener('change',adaptPanels);adaptPanels();selectPane('controls');
+ }catch(error){console.error(error);setText($('ep-loading'),'實驗載入失敗，請重整後再試。');document.body.dataset.planetReady='error';}
 }
 void boot();

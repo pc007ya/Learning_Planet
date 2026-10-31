@@ -1,0 +1,122 @@
+[
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "fits": {
+      "h": 900,
+      "w": 1440,
+      "pageH": 900,
+      "pageW": 1440,
+      "sideOverflow": 0,
+      "sideBottom": 834,
+      "footerTop": 844
+    },
+    "handle": {
+      "width": 54,
+      "height": 54
+    },
+    "status": "PASS"
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 720
+    },
+    "fits": {
+      "h": 720,
+      "w": 1280,
+      "pageH": 720,
+      "pageW": 1280,
+      "sideOverflow": 0,
+      "sideBottom": 654,
+      "footerTop": 664
+    },
+    "handle": {
+      "width": 54,
+      "height": 54
+    },
+    "status": "PASS"
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 600
+    },
+    "fits": {
+      "h": 600,
+      "w": 1024,
+      "pageH": 600,
+      "pageW": 1024,
+      "sideOverflow": 0,
+      "sideBottom": 542,
+      "footerTop": 549
+    },
+    "handle": {
+      "width": 54,
+      "height": 54
+    },
+    "status": "PASS"
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "fits": {
+      "h": 768,
+      "w": 1024,
+      "pageH": 768,
+      "pageW": 1024,
+      "sideOverflow": 0,
+      "sideBottom": 702,
+      "footerTop": 712
+    },
+    "handle": {
+      "width": 54,
+      "height": 54
+    },
+    "status": "PASS"
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "fits": {
+      "h": 844,
+      "w": 390,
+      "pageH": 844,
+      "pageW": 390,
+      "sideOverflow": 0,
+      "sideBottom": 785,
+      "footerTop": 792
+    },
+    "handle": {
+      "width": 54,
+      "height": 54
+    },
+    "status": "PASS"
+  },
+  {
+    "size": {
+      "width": 360,
+      "height": 780
+    },
+    "fits": {
+      "h": 780,
+      "w": 360,
+      "pageH": 780,
+      "pageW": 360,
+      "sideOverflow": 0,
+      "sideBottom": 721,
+      "footerTop": 728
+    },
+    "handle": {
+      "width": 54,
+      "height": 54
+    },
+    "status": "PASS"
+  }
+]

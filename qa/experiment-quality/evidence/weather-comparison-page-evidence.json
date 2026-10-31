@@ -1,0 +1,20 @@
+{
+  "compareReport": {
+    "asideBottom": 721,
+    "docHeight": 780,
+    "footerTop": 728,
+    "handleVisibility": "hidden",
+    "horizontalOverflow": false,
+    "sceneVisibility": "hidden",
+    "viewport": 780
+  },
+  "beforeCompare": {
+    "x": "-0.0072",
+    "y": "1.4231"
+  },
+  "afterCompare": {
+    "x": "-0.0072",
+    "y": "1.4231"
+  },
+  "preserved": true
+}

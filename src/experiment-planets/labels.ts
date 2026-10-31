@@ -1,0 +1,11 @@
+export type Rect={x:number;y:number;width:number;height:number};
+export type LabelAnchor=Rect&{id:string;handle?:number};
+export function intersects(a:Rect,b:Rect,gap=0){return a.x<b.x+b.width+gap&&a.x+a.width+gap>b.x&&a.y<b.y+b.height+gap&&a.y+a.height+gap>b.y;}
+// Keep labels near their anchors, but use exact obstacle edges: a 12px grid
+// skips narrow valid gutters. When greedy placement fragments the available
+// space, bounded backtracking repacks every caption rather than hiding one.
+export function placeLabels(labels:LabelAnchor[],blocked:Rect[],width:number,height:number,gap=7){
+ function candidates(item:LabelAnchor,occupied:Rect[]){const w=item.width,h=item.height,x=item.x,y=item.y,offset=(item.handle||0)+8;const result:Rect[]=[];const add=(cx:number,cy:number)=>result.push({x:cx-w/2,y:cy-h/2,width:w,height:h});if(!item.handle)add(x,y);add(x,y+offset+h/2);add(x,y-offset-h/2);add(x+offset+w/2,y);add(x-offset-w/2,y);for(const radius of [24,48,80,112,152])for(const [dx,dy] of [[1,0],[-1,0],[0,-1],[0,1],[1,-1],[-1,-1],[1,1],[-1,1]])add(x+dx*radius,y+dy*radius);const xs=[8,width-w-8,...occupied.flatMap(b=>[b.x-w-gap,b.x+b.width+gap])],ys=[8,height-h-8,...occupied.flatMap(b=>[b.y-h-gap,b.y+b.height+gap])];for(const cx of xs)for(const cy of ys)result.push({x:cx,y:cy,width:w,height:h});const seen=new Set<string>();return result.filter(r=>{const key=r.x.toFixed(2)+','+r.y.toFixed(2);if(seen.has(key))return false;seen.add(key);return r.x>=8&&r.y>=8&&r.x+w<=width-8&&r.y+h<=height-8&&!occupied.some(b=>intersects(r,b,gap));}).sort((a,b)=>(a.x+w/2-x)**2+(a.y+h/2-y)**2-((b.x+w/2-x)**2+(b.y+h/2-y)**2));}
+ const result=new Map<string,Rect>(),occupied=[...blocked];for(const item of labels){const r=candidates(item,occupied)[0];if(r){result.set(item.id,r);occupied.push(r);}}if(result.size===labels.length)return result;
+ const sorted=[...labels].sort((a,b)=>b.width*b.height-a.width*a.height);let visits=0;const packed=new Map<string,Rect>();function solve(index:number,used:Rect[]):boolean{if(index===sorted.length)return true;if(++visits>4000)return false;const item=sorted[index];for(const r of candidates(item,used).slice(0,36)){packed.set(item.id,r);if(solve(index+1,[...used,r]))return true;packed.delete(item.id);}return false;}return solve(0,[...blocked])?packed:result;
+}

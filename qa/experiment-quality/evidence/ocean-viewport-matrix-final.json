@@ -1,0 +1,222 @@
+[
+  {
+    "size": [
+      1280,
+      720
+    ],
+    "pane": "controls",
+    "reading": false,
+    "handle": 48,
+    "labelLayout": "clear",
+    "metric": "浮力",
+    "page": [
+      1280,
+      720
+    ],
+    "sideOverflow": 0,
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "size": [
+      1280,
+      720
+    ],
+    "pane": "controls",
+    "reading": true,
+    "handle": 48,
+    "labelLayout": "clear",
+    "metric": "浮ㄈㄨˊ力ㄌㄧˋ",
+    "page": [
+      1280,
+      720
+    ],
+    "sideOverflow": 0,
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "size": [
+      1280,
+      720
+    ],
+    "pane": "records",
+    "reading": true,
+    "page": [
+      1280,
+      720
+    ],
+    "sideOverflow": 0,
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "size": [
+      1024,
+      600
+    ],
+    "pane": "controls",
+    "reading": false,
+    "handle": 48,
+    "labelLayout": "clear",
+    "metric": "浮力",
+    "page": [
+      1024,
+      600
+    ],
+    "sideOverflow": 0,
+    "viewport": [
+      1024,
+      600
+    ]
+  },
+  {
+    "size": [
+      1024,
+      600
+    ],
+    "pane": "controls",
+    "reading": true,
+    "handle": 48,
+    "labelLayout": "clear",
+    "metric": "浮ㄈㄨˊ力ㄌㄧˋ",
+    "page": [
+      1024,
+      600
+    ],
+    "sideOverflow": 0,
+    "viewport": [
+      1024,
+      600
+    ]
+  },
+  {
+    "size": [
+      1024,
+      600
+    ],
+    "pane": "records",
+    "reading": true,
+    "page": [
+      1024,
+      600
+    ],
+    "sideOverflow": 0,
+    "viewport": [
+      1024,
+      600
+    ]
+  },
+  {
+    "size": [
+      390,
+      844
+    ],
+    "pane": "controls",
+    "reading": false,
+    "handle": 48,
+    "labelLayout": "clear",
+    "metric": "浮力",
+    "page": [
+      390,
+      844
+    ],
+    "sideOverflow": 0,
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "size": [
+      390,
+      844
+    ],
+    "pane": "controls",
+    "reading": true,
+    "handle": 48,
+    "labelLayout": "clear",
+    "metric": "浮ㄈㄨˊ力ㄌㄧˋ",
+    "page": [
+      390,
+      844
+    ],
+    "sideOverflow": 0,
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "size": [
+      390,
+      844
+    ],
+    "pane": "records",
+    "reading": true,
+    "page": [
+      390,
+      844
+    ],
+    "sideOverflow": 0
+  },
+  {
+    "size": [
+      360,
+      780
+    ],
+    "pane": "controls",
+    "reading": false,
+    "handle": 48,
+    "labelLayout": "clear",
+    "metric": "浮力",
+    "page": [
+      360,
+      780
+    ],
+    "sideOverflow": 0,
+    "viewport": [
+      360,
+      780
+    ]
+  },
+  {
+    "size": [
+      360,
+      780
+    ],
+    "pane": "controls",
+    "reading": true,
+    "handle": 48,
+    "labelLayout": "clear",
+    "metric": "浮ㄈㄨˊ力ㄌㄧˋ",
+    "page": [
+      360,
+      780
+    ],
+    "sideOverflow": 0,
+    "viewport": [
+      360,
+      780
+    ]
+  },
+  {
+    "size": [
+      360,
+      780
+    ],
+    "pane": "records",
+    "reading": true,
+    "page": [
+      360,
+      780
+    ],
+    "sideOverflow": 0
+  }
+]

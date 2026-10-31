@@ -1,0 +1,34 @@
+{
+  "finalStart": {
+    "x": "0.7754",
+    "y": "3.0500"
+  },
+  "finalDragged": {
+    "x": "-0.0072",
+    "y": "1.2731"
+  },
+  "changed": true,
+  "afterKeyboard": {
+    "x": "-0.0072",
+    "y": "1.4231"
+  },
+  "ariaValue": "30",
+  "restored": {
+    "x": "-0.0072",
+    "y": "1.4231"
+  },
+  "exact": true,
+  "pausedAfter": "false",
+  "metricBefore": [
+    "12.8",
+    "100",
+    "100"
+  ],
+  "metricAfter": [
+    "12.8",
+    "100",
+    "100"
+  ],
+  "physicsUnchangedWhilePaused": true,
+  "validProof": true
+}

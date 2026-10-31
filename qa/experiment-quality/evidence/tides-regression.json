@@ -1,0 +1,74 @@
+[
+  {
+    "size": {
+      "width": 1024,
+      "height": 600
+    },
+    "status": "PASS",
+    "checks": [
+      "four-step-layout",
+      "phase-and-range",
+      "keyboard",
+      "mouse-drag",
+      "touch-drag",
+      "play-pause",
+      "quiz-return",
+      "reset",
+      "no-three"
+    ]
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "status": "PASS",
+    "checks": [
+      "four-step-layout",
+      "phase-and-range",
+      "keyboard",
+      "mouse-drag",
+      "touch-drag",
+      "play-pause",
+      "quiz-return",
+      "reset",
+      "no-three"
+    ]
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 720
+    },
+    "status": "PASS",
+    "checks": [
+      "four-step-layout",
+      "phase-and-range",
+      "keyboard",
+      "mouse-drag",
+      "touch-drag",
+      "play-pause",
+      "quiz-return",
+      "reset",
+      "no-three"
+    ]
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "status": "PASS",
+    "checks": [
+      "four-step-layout",
+      "phase-and-range",
+      "keyboard",
+      "mouse-drag",
+      "touch-drag",
+      "play-pause",
+      "quiz-return",
+      "reset",
+      "no-three"
+    ]
+  }
+]

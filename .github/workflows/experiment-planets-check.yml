@@ -9,7 +9,11 @@ on:
       - 'src/experiment-planets/**'
       - 'experiments/3d/**'
       - 'vite.experiment-planets.config.ts'
+      - 'tests/*quality.test.ts'
+      - 'tests/planet-picture-quiz.test.ts'
       - 'tests/experiment-planets.test.ts'
+      - 'src/experiment-planets-legacy/**'
+      - 'scripts/verify-experiment-planets.mjs'
       - 'src/tides/**'
       - 'src/tides3d/**'
       - 'tests/tides3d.test.ts'
@@ -27,7 +31,7 @@ concurrency:
   group: experiment-planets-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  verify:
+  build_regression:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -41,7 +45,7 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
       - name: Science and isolation tests
-        run: npx vitest run tests/experiment-planets.test.ts tests/tides.test.ts tests/tides3d.test.ts
+        run: npx vitest run tests/experiment-planets.test.ts tests/*quality.test.ts tests/planet-picture-quiz.test.ts tests/tides.test.ts tests/tides3d.test.ts
       - name: Build independent 3D engine
         run: npm run build:experiment-planets
       - name: Verify six independent pages and lazy chunks
@@ -54,26 +58,76 @@ jobs:
           find modules/experiment-planets/chunks -name '*.js' | grep -q .
       - name: Complete existing site regression checks
         run: npm run check
-      - name: Install browser verification tools
+      - name: Preserve exact built modules for browser shards
+        uses: actions/upload-artifact@v4
+        with:
+          name: experiment-built-modules-${{ github.sha }}
+          path: |
+            modules/experiment-planets/
+            modules/tides/
+            modules/tides3d/
+          if-no-files-found: error
+
+  browser:
+    needs: build_regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        target: [ocean-buoyancy, magnet, earth-moon, plants, weather, force-motion, tides2d, tides3d]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies and browser
         run: |
+          npm ci
           npm install --no-save --package-lock=false playwright@1.56.1
           npx playwright install chromium
       - name: Install Traditional Chinese browser fonts
         run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
-      - name: Screenshot browser tests at tablet sizes
+      - name: Restore exact built modules
+        uses: actions/download-artifact@v4
+        with:
+          name: experiment-built-modules-${{ github.sha }}
+          path: modules
+      - name: Verify complete target across original sizes and states
+        env:
+          TARGET: ${{ matrix.target }}
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/experiment-planets-server.log 2>&1 &
-          node scripts/verify-experiment-planets.mjs
-          node scripts/verify-tides.mjs
-          node scripts/verify-tides3d.mjs
-      - name: Upload scenes and quiz screenshots
+          case "$TARGET" in
+            tides2d) node scripts/verify-tides.mjs ;;
+            tides3d) node scripts/verify-tides3d.mjs ;;
+            *) EXPERIMENT_ONLY="$TARGET" node scripts/verify-experiment-planets.mjs ;;
+          esac
+      - name: Upload target screenshots and result data
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: experiment-planets-acceptance
+          name: experiment-acceptance-${{ matrix.target }}
           path: |
             artifacts/experiment-planets/*.png
+            artifacts/experiment-planets/*.json
             artifacts/tides/*.png
+            artifacts/tides/*.json
             artifacts/tides3d/*.png
             artifacts/tides3d/*.json
           if-no-files-found: ignore
+
+  verify:
+    if: always()
+    needs: [build_regression, browser]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require regression and every browser shard
+        env:
+          BUILD_RESULT: ${{ needs.build_regression.result }}
+          BROWSER_RESULT: ${{ needs.browser.result }}
+        run: |
+          test "$BUILD_RESULT" = success
+          test "$BROWSER_RESULT" = success

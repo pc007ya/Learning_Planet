@@ -1,0 +1,303 @@
+{
+  "selection": {
+    "planets": [
+      "ocean-buoyancy",
+      "magnet",
+      "earth-moon",
+      "plants",
+      "weather",
+      "force-motion"
+    ],
+    "sizes": [
+      {
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "width": 1024,
+        "height": 600
+      },
+      {
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "width": 390,
+        "height": 844
+      },
+      {
+        "width": 360,
+        "height": 780
+      }
+    ],
+    "expectedCases": 36
+  },
+  "complete": false,
+  "commit": null,
+  "results": [
+    {
+      "planet": "ocean-buoyancy",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-OZKqc4I-.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "magnet",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-OZKqc4I-.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "plants",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-OZKqc4I-.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "weather",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-OZKqc4I-.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "force-motion",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-OZKqc4I-.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "ocean-buoyancy",
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-OZKqc4I-.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "magnet",
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-OZKqc4I-.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "plants",
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-OZKqc4I-.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    },
+    {
+      "planet": "weather",
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-OZKqc4I-.js"
+      ],
+      "status": "PASS",
+      "states": [
+        "reading-off",
+        "reading-on"
+      ],
+      "checks": [
+        "WebGL-painted",
+        "44px-controls",
+        "no-overflow",
+        "three-camera-label-layouts",
+        "model-readout-link",
+        "picture-quiz-feedback-return",
+        "comparison-record",
+        "operation-challenge-feedback",
+        "navigation-and-reading-persistence"
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "planet": "earth-moon",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-OZKqc4I-.js"
+      ],
+      "message": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n3 !== 0\n",
+      "pageErrors": []
+    },
+    {
+      "planet": "earth-moon",
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "appChunks": [
+        "http://127.0.0.1:4173/modules/experiment-planets/chunks/app-OZKqc4I-.js"
+      ],
+      "message": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n3 !== 0\n",
+      "pageErrors": []
+    }
+  ]
+}

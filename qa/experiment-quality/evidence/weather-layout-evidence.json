@@ -1,0 +1,218 @@
+[
+  {
+    "asideBottom": 655,
+    "docHeight": 720,
+    "footerTop": 664,
+    "handle": {
+      "height": 48,
+      "hitCenter": true,
+      "inScene": true,
+      "inViewport": true,
+      "overMetrics": false,
+      "overTools": false,
+      "visible": true,
+      "width": 48
+    },
+    "horizontalOverflow": false,
+    "labelFonts": [
+      12,
+      12
+    ],
+    "layout": "clear",
+    "reading": "false",
+    "size": [
+      1280,
+      720
+    ],
+    "smallButtons": 0
+  },
+  {
+    "asideBottom": 655,
+    "docHeight": 720,
+    "footerTop": 664,
+    "handle": {
+      "height": 48,
+      "hitCenter": true,
+      "inScene": true,
+      "inViewport": true,
+      "overMetrics": false,
+      "overTools": false,
+      "visible": true,
+      "width": 48
+    },
+    "horizontalOverflow": false,
+    "labelFonts": [
+      12,
+      12
+    ],
+    "layout": "clear",
+    "reading": "true",
+    "size": [
+      1280,
+      720
+    ],
+    "smallButtons": 0
+  },
+  {
+    "asideBottom": 540,
+    "docHeight": 600,
+    "footerTop": 547,
+    "handle": {
+      "height": 48,
+      "hitCenter": true,
+      "inScene": true,
+      "inViewport": true,
+      "overMetrics": false,
+      "overTools": false,
+      "visible": true,
+      "width": 48
+    },
+    "horizontalOverflow": false,
+    "labelFonts": [
+      12,
+      12
+    ],
+    "layout": "clear",
+    "reading": "false",
+    "size": [
+      1024,
+      600
+    ],
+    "smallButtons": 0
+  },
+  {
+    "asideBottom": 540,
+    "docHeight": 600,
+    "footerTop": 547,
+    "handle": {
+      "height": 48,
+      "hitCenter": true,
+      "inScene": true,
+      "inViewport": true,
+      "overMetrics": false,
+      "overTools": false,
+      "visible": true,
+      "width": 48
+    },
+    "horizontalOverflow": false,
+    "labelFonts": [
+      12,
+      12
+    ],
+    "layout": "clear",
+    "reading": "true",
+    "size": [
+      1024,
+      600
+    ],
+    "smallButtons": 0
+  },
+  {
+    "asideBottom": 785,
+    "docHeight": 844,
+    "footerTop": 792,
+    "handle": {
+      "height": 48,
+      "hitCenter": true,
+      "inScene": true,
+      "inViewport": true,
+      "overMetrics": false,
+      "overTools": false,
+      "visible": true,
+      "width": 48
+    },
+    "horizontalOverflow": false,
+    "labelFonts": [
+      12,
+      12
+    ],
+    "layout": "clear",
+    "reading": "false",
+    "size": [
+      390,
+      844
+    ],
+    "smallButtons": 0
+  },
+  {
+    "asideBottom": 785,
+    "docHeight": 844,
+    "footerTop": 792,
+    "handle": {
+      "height": 48,
+      "hitCenter": true,
+      "inScene": true,
+      "inViewport": true,
+      "overMetrics": false,
+      "overTools": false,
+      "visible": true,
+      "width": 48
+    },
+    "horizontalOverflow": false,
+    "labelFonts": [
+      12,
+      12
+    ],
+    "layout": "clear",
+    "reading": "true",
+    "size": [
+      390,
+      844
+    ],
+    "smallButtons": 0
+  },
+  {
+    "asideBottom": 721,
+    "docHeight": 780,
+    "footerTop": 728,
+    "handle": {
+      "height": 48,
+      "hitCenter": true,
+      "inScene": true,
+      "inViewport": true,
+      "overMetrics": false,
+      "overTools": false,
+      "visible": true,
+      "width": 48
+    },
+    "horizontalOverflow": false,
+    "labelFonts": [
+      12,
+      12
+    ],
+    "layout": "clear",
+    "reading": "false",
+    "size": [
+      360,
+      780
+    ],
+    "smallButtons": 0
+  },
+  {
+    "asideBottom": 721,
+    "docHeight": 780,
+    "footerTop": 728,
+    "handle": {
+      "height": 48,
+      "hitCenter": true,
+      "inScene": true,
+      "inViewport": true,
+      "overMetrics": false,
+      "overTools": false,
+      "visible": true,
+      "width": 48
+    },
+    "horizontalOverflow": false,
+    "labelFonts": [
+      12,
+      12
+    ],
+    "layout": "clear",
+    "reading": "true",
+    "size": [
+      360,
+      780
+    ],
+    "smallButtons": 0
+  }
+]

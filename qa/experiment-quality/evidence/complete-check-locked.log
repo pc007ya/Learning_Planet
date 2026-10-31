@@ -1,0 +1,426 @@
+
+> check
+> npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit && npm run build:experiments && npm run build:stories && npm run build:little-star && npm run build:math-teaching && npm run build:optics && npm run build:earth-lab && npm run build:fire-weather && npm run build:underwater-world && npm run build:amusement-park && npm run build:experiment-planets && npm run build:tides && npm run build:tides3d
+
+
+> typecheck
+> tsc --noEmit
+
+
+> test:earth-orbit
+> vitest run
+
+
+ RUN  v3.2.7 <workspace>
+
+ ✓ tests/firebase-progress-sync.test.ts (11 tests) 7ms
+ ✓ tests/language-ui.test.ts (12 tests) 17ms
+ ✓ tests/math-master-template.test.ts (11 tests) 12ms
+ ✓ tests/experiment-resilience.test.ts (8 tests) 15ms
+ ✓ tests/tides3d.test.ts (15 tests) 132ms
+ ✓ tests/chinese-primer.test.ts (8 tests) 13ms
+ ✓ tests/chinese-practice.test.ts (19 tests) 153ms
+ ✓ tests/book39-effects.test.ts (8 tests) 15ms
+ ✓ tests/book30-r3.test.ts (7 tests) 16ms
+ ✓ tests/math-concepts.test.ts (5 tests) 127ms
+ ✓ tests/book38-effects.test.ts (7 tests) 9ms
+ ✓ tests/gifted-reasoning-generated.test.ts (2 tests) 320ms
+   ✓ automatic original mock exams > generates every original family with unique verified answers and matching diagrams across 3072 questions  317ms
+ ✓ tests/book35-effects.test.ts (7 tests) 12ms
+ ✓ tests/role-loading.test.ts (10 tests) 261ms
+ ✓ tests/book36-effects.test.ts (7 tests) 9ms
+ ✓ tests/book38-full-image.test.ts (6 tests) 11ms
+ ✓ tests/entry-image-cache.test.ts (7 tests) 68ms
+ ✓ tests/book34-effects.test.ts (7 tests) 9ms
+ ✓ tests/book33-effects.test.ts (7 tests) 13ms
+ ✓ tests/book29-reader-preparation.test.ts (10 tests) 13ms
+ ✓ tests/book39-full-image.test.ts (6 tests) 8ms
+ ✓ tests/chinese-practice-grades45.test.ts (7 tests) 365ms
+   ✓ 115-upper Chinese grades 4–5 expansion > ships a complete non-interim lookup audit with explicit dictionary provenance and no copied definitions  350ms
+ ✓ tests/optics-model.test.ts (21 tests) 2ms
+ ✓ tests/story-access.test.ts (21 tests) 26ms
+ ✓ tests/book32-full-image.test.ts (6 tests) 8ms
+ ✓ tests/book34-full-image.test.ts (6 tests) 11ms
+ ✓ tests/moon-lab-model.test.ts (12 tests) 15ms
+ ✓ tests/book30-full-image.test.ts (6 tests) 12ms
+ ✓ tests/book33-full-image.test.ts (6 tests) 10ms
+ ✓ tests/book49-entry.test.ts (10 tests) 15ms
+ ✓ tests/book36-full-image.test.ts (6 tests) 8ms
+ ✓ tests/book35-full-image.test.ts (6 tests) 7ms
+ ✓ tests/book30-source.test.ts (5 tests) 14ms
+ ✓ tests/plants-quality.test.ts (8 tests) 76ms
+ ✓ tests/force-quality.test.ts (10 tests) 5ms
+ ✓ tests/book35-source.test.ts (7 tests) 19ms
+ ✓ tests/book32-source.test.ts (7 tests) 9ms
+ ✓ tests/book28-quiz-preparation.test.ts (7 tests) 7ms
+ ✓ tests/book33-source.test.ts (7 tests) 12ms
+ ✓ tests/book38-source.test.ts (7 tests) 10ms
+ ✓ tests/gifted-exam.test.ts (5 tests) 10ms
+ ✓ tests/book34-source.test.ts (7 tests) 8ms
+ ✓ tests/math-question-engine.test.ts (7 tests) 5ms
+ ✓ tests/book36-source.test.ts (7 tests) 8ms
+ ✓ tests/book39-source.test.ts (7 tests) 7ms
+ ✓ tests/book54-template.test.ts (6 tests) 12ms
+ ✓ tests/experiment-planets.test.ts (9 tests) 7ms
+ ✓ tests/book32-effects.test.ts (6 tests) 10ms
+ ✓ tests/listening-feelings.test.ts (5 tests) 18ms
+ ✓ tests/math-grade1-curriculum.test.ts (6 tests) 1043ms
+   ✓ grade two through six math unit art > replaces every existing grade 2–6 emoji card with alpha-safe reusable PNG art  420ms
+   ✓ grade two through six math unit art > keeps the unused cells in the final 4×4 source sheet transparent  394ms
+ ✓ tests/star-graded.test.ts (5 tests) 8ms
+ ✓ tests/english-phonics.test.ts (7 tests) 15ms
+ ✓ tests/vocabulary-asset-integrity.test.ts (5 tests) 34ms
+ ✓ tests/book30-effects.test.ts (5 tests) 4ms
+ ✓ tests/book07-quiz-repair.test.ts (8 tests) 13ms
+ ✓ tests/mechanism-pointer.test.ts (6 tests) 2ms
+ ✓ tests/book06-quiz-repair.test.ts (7 tests) 17ms
+ ✓ tests/book32-r2.test.ts (4 tests) 4ms
+ ✓ tests/book33-r2.test.ts (4 tests) 5ms
+ ✓ tests/book36-r2.test.ts (5 tests) 5ms
+ ✓ tests/ocean-quality.test.ts (7 tests) 11ms
+ ✓ tests/book34-cover.test.ts (4 tests) 29ms
+ ✓ tests/book35-cover.test.ts (4 tests) 21ms
+ ✓ tests/cube-state.test.ts (16 tests) 24ms
+ ✓ tests/story-vocabulary.test.ts (6 tests) 62ms
+ ✓ tests/book05-quiz-repair.test.ts (7 tests) 9ms
+ ✓ tests/earth-orbit.test.ts (9 tests) 3ms
+ ✓ tests/book08-quiz-repair.test.ts (7 tests) 7ms
+ ✓ tests/earth-lab-model.test.ts (11 tests) 13ms
+ ✓ tests/interactive-labs.test.ts (9 tests) 4ms
+ ✓ tests/book35-r3.test.ts (3 tests) 5ms
+ ✓ tests/book39-targeted.test.ts (2 tests) 5ms
+ ✓ tests/book03-quiz-repair.test.ts (7 tests) 9ms
+ ✓ tests/gifted-generated.test.ts (2 tests) 214ms
+ ✓ tests/mini4wd-physics.test.ts (9 tests) 26ms
+ ✓ tests/experiment-narration.test.ts (5 tests) 4ms
+ ✓ tests/princess.test.ts (8 tests) 26ms
+ ✓ tests/book04-quiz-repair.test.ts (7 tests) 9ms
+ ✓ tests/magnet-quality.test.ts (7 tests) 3ms
+ ✓ tests/earth-lab-navigation.test.ts (3 tests) 3ms
+ ✓ tests/elf.test.ts (3 tests) 8ms
+ ✓ tests/time.test.ts (3 tests) 7ms
+ ✓ tests/dragon.test.ts (10 tests) 15ms
+ ✓ tests/book09-completion.test.ts (8 tests) 17ms
+ ✓ tests/car-workspace.test.ts (5 tests) 3ms
+ ✓ tests/spatial-teaching.test.ts (5 tests) 30ms
+ ✓ tests/phonics-image-retry.test.ts (2 tests) 2ms
+ ✓ tests/book02-quiz-repair.test.ts (7 tests) 11ms
+ ✓ tests/book38-cover.test.ts (3 tests) 36ms
+ ✓ tests/result-summary.test.ts (5 tests) 2ms
+ ✓ tests/book36-cover.test.ts (3 tests) 36ms
+ ✓ tests/tides.test.ts (5 tests) 198ms
+ ✓ tests/weather-quality.test.ts (7 tests) 3ms
+ ✓ tests/layered-three-reader.test.ts (10 tests) 75ms
+ ✓ tests/book39-cover.test.ts (3 tests) 32ms
+ ✓ tests/story-cover-request.test.ts (4 tests) 3ms
+ ✓ tests/earth-moon-quality.test.ts (5 tests) 3ms
+ ✓ tests/story-quiz-speech-cancel.test.ts (1 test) 4ms
+ ✓ tests/story-book-request.test.ts (4 tests) 5ms
+ ✓ tests/underwater-world.test.ts (5 tests) 6ms
+ ✓ tests/car-art.test.ts (3 tests) 36ms
+ ✓ tests/book34-quiz-repair.test.ts (4 tests) 10ms
+ ✓ tests/book28-reader.test.ts (7 tests) 11ms
+ ✓ tests/quiz-readings.test.ts (2 tests) 29ms
+ ✓ tests/science-channel-videos.test.ts (3 tests) 2ms
+ ✓ tests/clock-workspace.test.ts (4 tests) 3ms
+ ✓ tests/cube-book.test.ts (6 tests) 119ms
+ ✓ tests/mini4wd-shell.test.ts (3 tests) 164ms
+ ✓ tests/birthday.test.ts (5 tests) 10ms
+ ✓ tests/mini4wd-ghost.test.ts (4 tests) 12ms
+ ✓ tests/mini4wd-track.test.ts (5 tests) 55ms
+ ✓ tests/unicorn.test.ts (2 tests) 8ms
+ ✓ tests/experiment-workspace.test.ts (4 tests) 1ms
+ ✓ tests/wizard.test.ts (3 tests) 5ms
+ ✓ tests/bears.test.ts (2 tests) 10ms
+ ✓ tests/little-star.test.ts (5 tests) 4ms
+ ✓ tests/books54-55-reader.test.ts (3 tests) 3ms
+ ✓ tests/red-hood.test.ts (4 tests) 4ms
+ ✓ tests/buoyancy-play.test.ts (4 tests) 10ms
+ ✓ tests/pirate.test.ts (2 tests) 4ms
+ ✓ tests/moonlight-garden.test.ts (4 tests) 5ms
+ ✓ tests/cloud.test.ts (2 tests) 7ms
+ ✓ tests/math-foundations.test.ts (3 tests) 183ms
+ ✓ tests/mermaid.test.ts (2 tests) 10ms
+ ✓ tests/knight.test.ts (2 tests) 9ms
+ ✓ tests/fairy.test.ts (2 tests) 11ms
+ ✓ tests/genie.test.ts (2 tests) 6ms
+ ✓ tests/cube-experience.test.ts (3 tests) 4ms
+ ✓ tests/music.test.ts (2 tests) 6ms
+ ✓ tests/bear.test.ts (2 tests) 4ms
+ ✓ tests/math-zhuyin.test.ts (3 tests) 43ms
+ ✓ tests/book38-39-jackets.test.ts (3 tests) 4ms
+ ✓ tests/book55.test.ts (3 tests) 573ms
+   ✓ Book 55 publication contract > resolves every layer, word card and quiz illustration  569ms
+ ✓ tests/giant.test.ts (2 tests) 9ms
+ ✓ tests/fox.test.ts (2 tests) 8ms
+ ✓ tests/mechanism.test.ts (3 tests) 3ms
+ ✓ tests/story-navigation.test.ts (3 tests) 3ms
+ ✓ tests/fraction-teaching.test.ts (4 tests) 153ms
+ ✓ tests/rabbit.test.ts (2 tests) 8ms
+ ✓ tests/story-planet.test.ts (4 tests) 4ms
+ ✓ tests/math-curriculum.test.ts (2 tests) 4ms
+ ✓ tests/clock-transmission.test.ts (3 tests) 3ms
+ ✓ tests/clock-demo.test.ts (3 tests) 5ms
+ ✓ tests/story-vocabulary-quiz.test.ts (3 tests) 306ms
+   ✓ keeps every answer and distractor in selected books with exactly one correct word  305ms
+ ✓ tests/clock-drive.test.ts (2 tests) 2ms
+ ✓ tests/clock-axes.test.ts (2 tests) 2ms
+ ✓ tests/planet-reading-quality.test.ts (2 tests) 8ms
+ ✓ tests/little-star-motion.test.ts (2 tests) 3ms
+ ✓ tests/gacha-navigation.test.ts (2 tests) 2ms
+ ✓ tests/geometry-camera.test.ts (1 test) 1ms
+ ✓ tests/division-teaching.test.ts (3 tests) 285ms
+ ✓ tests/planet-label-quality.test.ts (2 tests) 3ms
+ ✓ tests/scene-narration-visibility.test.ts (1 test) 2ms
+ ✓ tests/planet-picture-quiz.test.ts (8 tests) 3ms
+ ✓ tests/math-image-guard.test.ts (2 tests) 3ms
+ ✓ tests/multiplication-teaching.test.ts (3 tests) 29ms
+ ✓ tests/fraction-colors.test.ts (2 tests) 2ms
+ ✓ tests/story-jacket-titles.test.ts (5 tests) 3ms
+ ✓ tests/clock-speed.test.ts (3 tests) 2ms
+ ✓ tests/fire-weather.test.ts (2 tests) 1ms
+ ✓ tests/reading-voice.test.ts (3 tests) 2ms
+ ✓ tests/little-star-speech.test.ts (3 tests) 1ms
+ ✓ tests/geometry-teaching.test.ts (2 tests) 100ms
+ ✓ tests/cube-teaching-plan.test.ts (305 tests) 1799ms
+ ✓ tests/math-teaching.test.ts (5 tests) 1115ms
+   ✓ interactive math teaching > preserves quantity and reaches correct results for all two-digit pairs  1114ms
+
+ Test Files  165 passed (165)
+      Tests  1196 passed (1196)
+   Start at  01:52:34
+   Duration  3.67s (transform 2.49s, setup 0ms, collect 6.91s, tests 9.33s, environment 11ms, prepare 4.72s)
+
+
+> build:earth-orbit
+> vite build
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 721 modules transformed.
+rendering chunks...
+computing gzip size...
+modules/earth-orbit/earth-orbit-v01.js  1,911.06 kB │ gzip: 446.23 kB
+✓ built in 1.15s
+
+> build:experiments
+> vite build --config vite.experiments.config.ts
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 36 modules transformed.
+rendering chunks...
+computing gzip size...
+modules/interactive-labs/book-v1/part-1.svg                        0.32 kB │ gzip:   0.24 kB
+modules/interactive-labs/book-v1/part-2.svg                        0.32 kB │ gzip:   0.24 kB
+modules/interactive-labs/book-v1/part-3.svg                        0.32 kB │ gzip:   0.24 kB
+modules/interactive-labs/book-v1/asset-manifest.json               3.42 kB │ gzip:   0.50 kB
+modules/interactive-labs/book-v1/families-0.svg                    4.22 kB │ gzip:   0.82 kB
+modules/interactive-labs/book-v1/yellow-face-0.svg                 4.23 kB │ gzip:   0.86 kB
+modules/interactive-labs/book-v1/yellow-face-1.svg                 4.23 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/yellow-face-2.svg                 4.23 kB │ gzip:   0.86 kB
+modules/interactive-labs/book-v1/yellow-face-3.svg                 4.23 kB │ gzip:   0.86 kB
+modules/interactive-labs/book-v1/yellow-face-4.svg                 4.23 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/yellow-face-5.svg                 4.23 kB │ gzip:   0.86 kB
+modules/interactive-labs/book-v1/yellow-face-6.svg                 4.23 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/yellow-face-7.svg                 4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/yellow-face-8.svg                 4.23 kB │ gzip:   0.83 kB
+modules/interactive-labs/book-v1/turn-0.svg                        4.23 kB │ gzip:   0.82 kB
+modules/interactive-labs/book-v1/turn-1.svg                        4.23 kB │ gzip:   0.82 kB
+modules/interactive-labs/book-v1/cross-0.svg                       4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/cross-1.svg                       4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/yellow-cross-0.svg                4.23 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/yellow-cross-1.svg                4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/yellow-cross-2.svg                4.23 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/yellow-cross-3.svg                4.23 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/yellow-cross-4.svg                4.23 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/yellow-cross-5.svg                4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/yellow-cross-6.svg                4.23 kB │ gzip:   0.83 kB
+modules/interactive-labs/book-v1/four-moves-0.svg                  4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/four-moves-1.svg                  4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/four-moves-2.svg                  4.23 kB │ gzip:   0.83 kB
+modules/interactive-labs/book-v1/four-moves-3.svg                  4.23 kB │ gzip:   0.82 kB
+modules/interactive-labs/book-v1/four-moves-4.svg                  4.23 kB │ gzip:   0.82 kB
+modules/interactive-labs/book-v1/corners-0.svg                     4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/corners-1.svg                     4.23 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/corners-2.svg                     4.23 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/corners-3.svg                     4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/middle-0.svg                      4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/middle-1.svg                      4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/middle-2.svg                      4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/middle-3.svg                      4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/middle-4.svg                      4.23 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/middle-5.svg                      4.23 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/middle-6.svg                      4.23 kB │ gzip:   0.86 kB
+modules/interactive-labs/book-v1/middle-7.svg                      4.23 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/middle-8.svg                      4.23 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/last-places-0.svg                 4.24 kB │ gzip:   0.83 kB
+modules/interactive-labs/book-v1/last-places-1.svg                 4.24 kB │ gzip:   0.83 kB
+modules/interactive-labs/book-v1/last-places-2.svg                 4.24 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/last-places-3.svg                 4.24 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/last-places-4.svg                 4.24 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/last-places-5.svg                 4.24 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/last-places-6.svg                 4.24 kB │ gzip:   0.86 kB
+modules/interactive-labs/book-v1/last-places-7.svg                 4.24 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/last-places-8.svg                 4.24 kB │ gzip:   0.85 kB
+modules/interactive-labs/book-v1/last-places-9.svg                 4.24 kB │ gzip:   0.84 kB
+modules/interactive-labs/book-v1/last-places-10.svg                4.24 kB │ gzip:   0.83 kB
+modules/interactive-labs/book-v1/last-places-11.svg                4.24 kB │ gzip:   0.82 kB
+modules/interactive-labs/book-v1/last-places-12.svg                4.24 kB │ gzip:   0.82 kB
+modules/interactive-labs/assets/cube-teacher.worker-CQ54QlFn.js   52.15 kB
+modules/interactive-labs/book-v1/storyboard.json                 131.81 kB │ gzip:   5.64 kB
+modules/interactive-labs/narration-B1vEaqqd.mjs                    0.78 kB │ gzip:   0.47 kB
+modules/interactive-labs/interactive-labs.js                       1.38 kB │ gzip:   0.69 kB
+modules/interactive-labs/RoomEnvironment-CAidMGg-.mjs              2.57 kB │ gzip:   1.05 kB
+modules/interactive-labs/car-art-D34K7c64.mjs                      3.79 kB │ gzip:   2.09 kB
+modules/interactive-labs/experience-CssEAh1V.mjs                   9.13 kB │ gzip:   3.49 kB
+modules/interactive-labs/buoyancy-play-BKIvg6O1.mjs               10.37 kB │ gzip:   3.66 kB
+modules/interactive-labs/phonics-BZvQ7JDX.mjs                     14.05 kB │ gzip:   5.01 kB
+modules/interactive-labs/lab-0xy_HpFq.mjs                         66.52 kB │ gzip:  21.85 kB
+modules/interactive-labs/mini4wd-lab-BIu6hzbp.mjs                 75.53 kB │ gzip:  25.10 kB
+modules/interactive-labs/cube-lab-Dv60DT5S.mjs                    87.21 kB │ gzip:  25.98 kB
+modules/interactive-labs/RoundedBoxGeometry-CQPJIpnr.mjs         904.19 kB │ gzip: 192.73 kB
+✓ built in 449ms
+
+> build:stories
+> vite build --config vite.story.config.ts
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 9 modules transformed.
+rendering chunks...
+computing gzip size...
+modules/story-planet/catalog-index.json                  0.22 kB │ gzip:   0.21 kB
+modules/story-planet/books/book-11a710d00c078f11.json   14.45 kB │ gzip:   4.28 kB
+modules/story-planet/story-planet.css                    7.56 kB │ gzip:   2.33 kB
+modules/story-planet/story-planet.js                   814.66 kB │ gzip: 175.08 kB
+✓ built in 300ms
+
+> build:little-star
+> vite build --config vite.little-star.config.ts
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 193 modules transformed.
+rendering chunks...
+computing gzip size...
+modules/little-star/little-star.css     87.69 kB │ gzip:  16.59 kB
+modules/little-star/little-star.js   2,763.69 kB │ gzip: 694.06 kB
+✓ built in 578ms
+
+> build:math-teaching
+> vite build --config vite.math-teaching.config.mjs
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 11 modules transformed.
+rendering chunks...
+computing gzip size...
+modules/math-teaching/three-view.js  874.15 kB │ gzip: 188.21 kB
+✓ built in 312ms
+
+> build:optics
+> vite build --config vite.optics.config.mjs
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 9 modules transformed.
+rendering chunks...
+computing gzip size...
+modules/optics/optics-lab.mjs  974.76 kB │ gzip: 212.32 kB
+✓ built in 340ms
+
+> build:earth-lab
+> vite build --config vite.earth-lab.config.mjs
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 11 modules transformed.
+rendering chunks...
+computing gzip size...
+modules/earth-lab/earth-lab.mjs  890.77 kB │ gzip: 193.31 kB
+✓ built in 317ms
+
+> build:fire-weather
+> vite build --config vite.fire-weather.config.mjs
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 8 modules transformed.
+rendering chunks...
+computing gzip size...
+modules/fire-weather/fire-weather.css    5.90 kB │ gzip:   2.04 kB
+modules/fire-weather/fire-weather.mjs  829.68 kB │ gzip: 179.37 kB
+✓ built in 301ms
+
+> build:underwater-world
+> vite build --config vite.underwater-world.config.mjs
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 4 modules transformed.
+rendering chunks...
+computing gzip size...
+modules/underwater-world/underwater-world.css   6.09 kB │ gzip:  2.34 kB
+modules/underwater-world/underwater-world.js   44.93 kB │ gzip: 13.63 kB
+✓ built in 31ms
+
+> build:amusement-park
+> vite build --config vite.amusement-park.config.mjs
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 4 modules transformed.
+rendering chunks...
+computing gzip size...
+modules/amusement-park/amusement-park.css  10.67 kB │ gzip:  3.47 kB
+modules/amusement-park/amusement-park.js   50.00 kB │ gzip: 16.78 kB
+✓ built in 32ms
+
+> build:experiment-planets
+> vite build --config vite.experiment-planets.config.ts
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 34 modules transformed.
+rendering chunks...
+computing gzip size...
+modules/experiment-planets/legacy.js                                0.04 kB │ gzip:   0.06 kB
+modules/experiment-planets/planet.js                                0.04 kB │ gzip:   0.06 kB
+modules/experiment-planets/chunks/science-BFQ68Eg6.js               1.06 kB │ gzip:   0.58 kB
+modules/experiment-planets/chunks/RoundedBoxGeometry-BssYKOai.js    3.26 kB │ gzip:   1.19 kB
+modules/experiment-planets/chunks/ocean-CaYreDrs.js                 8.48 kB │ gzip:   3.70 kB
+modules/experiment-planets/chunks/app-LmF4nVHm.js                  11.86 kB │ gzip:   4.55 kB
+modules/experiment-planets/chunks/five-2K8qzAOa.js                 15.03 kB │ gzip:   5.81 kB
+modules/experiment-planets/chunks/five-zruYCo4I.js                 15.18 kB │ gzip:   5.89 kB
+modules/experiment-planets/chunks/magnet-DCzFdIXe.js               19.10 kB │ gzip:   7.63 kB
+modules/experiment-planets/chunks/earth-moon-quality-4HuOBZkU.js   19.18 kB │ gzip:   8.06 kB
+modules/experiment-planets/chunks/plants-DLwVXJdq.js               22.75 kB │ gzip:   8.77 kB
+modules/experiment-planets/chunks/force-motion-CWpC9shs.js         24.05 kB │ gzip:   9.41 kB
+modules/experiment-planets/chunks/weather-BzB_F0vU.js              24.92 kB │ gzip:   9.75 kB
+modules/experiment-planets/chunks/ocean-Cr2JnvKU.js                25.61 kB │ gzip:  10.00 kB
+modules/experiment-planets/chunks/app-BJpiQgj_.js                  87.77 kB │ gzip:  29.44 kB
+modules/experiment-planets/chunks/three.module-lfMlTqBw.js        924.67 kB │ gzip: 194.71 kB
+✓ built in 407ms
+
+> build:tides
+> vite build --config vite.tides.config.mjs
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 3 modules transformed.
+rendering chunks...
+computing gzip size...
+modules/tides/tides.js  18.50 kB │ gzip: 7.74 kB
+✓ built in 27ms
+
+> build:tides3d
+> vite build --config vite.tides3d.config.mjs
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 13 modules transformed.
+rendering chunks...
+computing gzip size...
+modules/tides3d/tides3d.js  897.76 kB │ gzip: 199.35 kB
+✓ built in 314ms

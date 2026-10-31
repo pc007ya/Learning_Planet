@@ -1,0 +1,95 @@
+{
+  "verified_at": "2026-10-30T16:07:41.152885+00:00",
+  "source_files": [
+    "src/experiment-planets/force-motion.ts",
+    "src/experiment-planets/force-model.ts"
+  ],
+  "candidate_build": "app-DIBeZ2Bb",
+  "reference_url": "https://lab.tongjiang.app/accel-force-step",
+  "measurements": [
+    {
+      "force": 3,
+      "mass": 1,
+      "surface": "smooth",
+      "time": 1.9
+    },
+    {
+      "force": 8,
+      "mass": 1,
+      "surface": "smooth",
+      "time": 1.05
+    },
+    {
+      "force": 8,
+      "mass": 2,
+      "surface": "smooth",
+      "time": 1.58
+    },
+    {
+      "force": 8,
+      "mass": 1,
+      "surface": "rough",
+      "time": 1.17
+    },
+    {
+      "force": 8,
+      "mass": 2,
+      "surface": "rough",
+      "time": 2.08
+    }
+  ],
+  "comparisons_completed": 3,
+  "coasting_challenge": {
+    "passed": true,
+    "release_velocity": 1.967,
+    "deceleration": -2.158,
+    "stopped_x": 2.175,
+    "buffer_x": 6.7
+  },
+  "static_friction": {
+    "force": 3,
+    "mass": 2,
+    "surface": "rough",
+    "friction": -3,
+    "x": 0,
+    "v": 0,
+    "a": 0
+  },
+  "pointer_drag_360": {
+    "x_before": 0.449,
+    "x_after": 3.476,
+    "v_after": 3.568,
+    "stopped_x": 6.425,
+    "background_drag_changed_model": false
+  },
+  "keyboard": [
+    "zhuyin toggle Enter",
+    "answer Enter",
+    "force selection Enter",
+    "observe Enter"
+  ],
+  "model_ui_paused": {
+    "force": 8,
+    "friction": -2.158,
+    "a": 5.842,
+    "displayed_a": 5.84,
+    "v": 2.289,
+    "displayed_v": 2.29,
+    "x": 0.449,
+    "displayed_x": 0.45
+  },
+  "visible_force_label_font_px": 12,
+  "console_errors": [],
+  "not_tested": [
+    "physical touchscreen",
+    "iOS Safari",
+    "low-end GPU"
+  ],
+  "remaining_shared_ui": [],
+  "final_targeted_qa": {
+    "label_solver": "five labels visible; clear; cart protected at 360x780, held8N x2.366",
+    "chart": "1024x600 visible 650x220 SVG with 13 speed samples and raw zhuyin legend",
+    "earned_after_nine_trials": "3/3 persists after baseline leaves last8 and page reload",
+    "latest_screenshot": "360x780-all-forces-protected-cart-solver-final.png"
+  }
+}

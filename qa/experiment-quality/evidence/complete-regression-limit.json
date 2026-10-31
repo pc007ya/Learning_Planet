@@ -1,0 +1,210 @@
+{
+  "command": "npm run check / final vitest JSON run",
+  "status": "not_passed_in_sparse_checkout",
+  "total_tests": 1185,
+  "passed": 1107,
+  "failed": 78,
+  "failed_files": [
+    {
+      "file": "tests/bear.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/bears.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/birthday.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/book30-full-image.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/book32-full-image.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/book33-full-image.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/book34-cover.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/book34-full-image.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/book34-quiz-repair.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/book35-full-image.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/book36-full-image.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/book38-full-image.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/book39-full-image.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/book55.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/buoyancy-play.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/car-art.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/cloud.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/cube-experience.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/dragon.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/elf.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/english-phonics.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/entry-image-cache.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/fairy.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/firebase-progress-sync.test.ts",
+      "failed_assertions": 0
+    },
+    {
+      "file": "tests/fox.test.ts",
+      "failed_assertions": 2
+    },
+    {
+      "file": "tests/genie.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/giant.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/interactive-labs.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/knight.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/language-ui.test.ts",
+      "failed_assertions": 4
+    },
+    {
+      "file": "tests/layered-three-reader.test.ts",
+      "failed_assertions": 6
+    },
+    {
+      "file": "tests/listening-feelings.test.ts",
+      "failed_assertions": 2
+    },
+    {
+      "file": "tests/math-grade1-curriculum.test.ts",
+      "failed_assertions": 4
+    },
+    {
+      "file": "tests/math-master-template.test.ts",
+      "failed_assertions": 3
+    },
+    {
+      "file": "tests/mechanism.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/mermaid.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/mini4wd-track.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/moonlight-garden.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/music.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/pirate.test.ts",
+      "failed_assertions": 2
+    },
+    {
+      "file": "tests/princess.test.ts",
+      "failed_assertions": 7
+    },
+    {
+      "file": "tests/rabbit.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/red-hood.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/role-loading.test.ts",
+      "failed_assertions": 4
+    },
+    {
+      "file": "tests/story-planet.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/story-vocabulary.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/time.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/underwater-world.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/unicorn.test.ts",
+      "failed_assertions": 1
+    },
+    {
+      "file": "tests/vocabulary-asset-integrity.test.ts",
+      "failed_assertions": 5
+    }
+  ],
+  "limitation": "Sparse checkout excludes roles/student-profile.html and many original image/audio assets. Existing asset-presence/hash checks fail. Complete repository CI remains unverified because GitHub push was denied; do not report whole-site regression as passed."
+}

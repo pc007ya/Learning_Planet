@@ -1,0 +1,341 @@
+{
+  "source_commit": "bc2e84d6b264e708b4196ca94620e2c2cbe3bad0",
+  "app_chunk": "app-YvENbtaQ.js",
+  "case_count": 18,
+  "cases": [
+    {
+      "planet": "ocean-buoyancy",
+      "width": 1280,
+      "height": 720,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 36,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "plants",
+      "width": 1280,
+      "height": 720,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 31,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "weather",
+      "width": 1280,
+      "height": 720,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 29,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "magnet",
+      "width": 1280,
+      "height": 720,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 28,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "earth-moon",
+      "width": 1280,
+      "height": 720,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 32,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "force-motion",
+      "width": 1280,
+      "height": 720,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 29,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "ocean-buoyancy",
+      "width": 1024,
+      "height": 600,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 36,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "plants",
+      "width": 1024,
+      "height": 600,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 31,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "weather",
+      "width": 1024,
+      "height": 600,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 29,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "magnet",
+      "width": 1024,
+      "height": 600,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 28,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "earth-moon",
+      "width": 1024,
+      "height": 600,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 32,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "force-motion",
+      "width": 1024,
+      "height": 600,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 29,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "ocean-buoyancy",
+      "width": 390,
+      "height": 844,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 35,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "plants",
+      "width": 390,
+      "height": 844,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 30,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "weather",
+      "width": 390,
+      "height": 844,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 28,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "magnet",
+      "width": 390,
+      "height": 844,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 27,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "earth-moon",
+      "width": 390,
+      "height": 844,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 31,
+      "invalid_buttons": []
+    },
+    {
+      "planet": "force-motion",
+      "width": 390,
+      "height": 844,
+      "overflow": [
+        0,
+        0
+      ],
+      "label": "clear",
+      "reading": "true",
+      "visible_button_count": 28,
+      "invalid_buttons": []
+    }
+  ],
+  "camera_checks": [
+    {
+      "planet": "ocean-buoyancy",
+      "view": "front",
+      "label": "clear"
+    },
+    {
+      "planet": "ocean-buoyancy",
+      "view": "top",
+      "label": "clear"
+    },
+    {
+      "planet": "ocean-buoyancy",
+      "view": "orbit",
+      "label": "clear"
+    },
+    {
+      "planet": "plants",
+      "view": "front",
+      "label": "clear"
+    },
+    {
+      "planet": "plants",
+      "view": "top",
+      "label": "clear"
+    },
+    {
+      "planet": "plants",
+      "view": "orbit",
+      "label": "clear"
+    },
+    {
+      "planet": "weather",
+      "view": "front",
+      "label": "clear"
+    },
+    {
+      "planet": "weather",
+      "view": "top",
+      "label": "clear"
+    },
+    {
+      "planet": "weather",
+      "view": "orbit",
+      "label": "clear"
+    },
+    {
+      "planet": "magnet",
+      "view": "front",
+      "label": "clear"
+    },
+    {
+      "planet": "magnet",
+      "view": "top",
+      "label": "clear"
+    },
+    {
+      "planet": "magnet",
+      "view": "orbit",
+      "label": "clear"
+    },
+    {
+      "planet": "earth-moon",
+      "view": "front",
+      "label": "clear"
+    },
+    {
+      "planet": "earth-moon",
+      "view": "top",
+      "label": "clear"
+    },
+    {
+      "planet": "earth-moon",
+      "view": "orbit",
+      "label": "clear"
+    },
+    {
+      "planet": "force-motion",
+      "view": "front",
+      "label": "clear"
+    },
+    {
+      "planet": "force-motion",
+      "view": "top",
+      "label": "clear"
+    },
+    {
+      "planet": "force-motion",
+      "view": "orbit",
+      "label": "clear"
+    }
+  ],
+  "typecheck": "PASS",
+  "related_test_files": 7,
+  "related_tests": 53,
+  "build_experiment_planets": "PASS",
+  "full_regression_this_commit": "not_repeated_visual_scope",
+  "remote_push": "not_retried_prior_denial_pending_user",
+  "deployment": "not_performed",
+  "physical_ios_safari": "not_tested"
+}

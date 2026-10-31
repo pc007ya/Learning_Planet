@@ -1,0 +1,82 @@
+[
+  {
+    "w": 1280,
+    "h": 720,
+    "labels": [
+      "磁極間距",
+      "相對磁力",
+      "移動方向"
+    ],
+    "fit": {
+      "aside": 655,
+      "footer": 664,
+      "h": 720,
+      "label": "clear",
+      "minButton": 44,
+      "pageH": 720,
+      "pageW": 1280,
+      "visibleLabels": 3,
+      "w": 1280
+    }
+  },
+  {
+    "w": 1024,
+    "h": 600,
+    "labels": [
+      "磁極間距",
+      "相對磁力",
+      "移動方向"
+    ],
+    "fit": {
+      "aside": 540,
+      "footer": 547,
+      "h": 600,
+      "label": "clear",
+      "minButton": 44,
+      "pageH": 600,
+      "pageW": 1024,
+      "visibleLabels": 3,
+      "w": 1024
+    }
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "labels": [
+      "磁極間距",
+      "相對磁力",
+      "移動方向"
+    ],
+    "fit": {
+      "aside": 785,
+      "footer": 792,
+      "h": 844,
+      "label": "clear",
+      "minButton": 44,
+      "pageH": 844,
+      "pageW": 390,
+      "visibleLabels": 3,
+      "w": 390
+    }
+  },
+  {
+    "w": 360,
+    "h": 780,
+    "labels": [
+      "磁極間距",
+      "相對磁力",
+      "移動方向"
+    ],
+    "fit": {
+      "aside": 721,
+      "footer": 728,
+      "h": 780,
+      "label": "clear",
+      "minButton": 44,
+      "pageH": 780,
+      "pageW": 360,
+      "visibleLabels": 3,
+      "w": 360
+    }
+  }
+]
