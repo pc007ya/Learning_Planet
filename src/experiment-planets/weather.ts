@@ -57,8 +57,35 @@ export function createWeather(stage:Stage):World {
  const groundLine=mesh(new T.TubeGeometry(groundCurve,48,.035,8,false),new T.MeshStandardMaterial({color:0x64c7d7,emissive:0x125477,emissiveIntensity:.5}));root.add(groundLine);
  // A small lake makes accumulation distinct from falling rain and runoff.
  const lake=mesh(new T.CircleGeometry(.61,48),new T.MeshPhysicalMaterial({color:0x3cb2d2,roughness:.15,clearcoat:1,metalness:.1}));lake.rotation.x=-Math.PI/2;lake.scale.set(1,.6,1);lake.position.set(3.8,lakeLevel+.006,1.65);root.add(lake);
- // Small mixed tree groups, scaled to the mountain rather than oversized cones.
- for(let i=0;i<32;i++){const x=.05+(i*.817)%5.5,z=-2.8+(i*1.713)%5.9,y=surface(x,z);if(y>.95||y<-.76)continue;const tree=new T.Group();tree.position.set(x,y,z);const scale=.65+(Math.sin(i*9)*.5+.5)*.5;tree.scale.setScalar(scale);const trunk=mesh(new T.CylinderGeometry(.022,.034,.30,7),material(0x72523c));trunk.position.y=.14;tree.add(trunk);for(let n=0;n<3;n++){const crown=mesh(new T.SphereGeometry(.15,12,9),material([0x365c3f,0x456f49,0x537d50][n]));crown.scale.set(1,.95+n*.15,.85);crown.position.set(Math.sin(i+n)*.055,.32+n*.08,Math.cos(i+n)*.045);tree.add(crown);}root.add(tree);}
+ // Original broadleaf trees: bent trunks, exposed forks, continuous scalloped crowns,
+ // and leaf sprays at the silhouette. Three instanced batches for the whole grove.
+ const woodTransforms:T.Matrix4[]=[],crownTransforms:T.Matrix4[]=[],leafTransforms:T.Matrix4[]=[];
+ const treeColors:T.Color[]=[],leafColors:T.Color[]=[];
+ const up=new T.Vector3(0,1,0),dummy=new T.Object3D();
+ function woodSegment(a:T.Vector3,b:T.Vector3,r:number){dummy.position.copy(a).add(b).multiplyScalar(.5);dummy.quaternion.setFromUnitVectors(up,b.clone().sub(a).normalize());dummy.scale.set(r,a.distanceTo(b),r);dummy.updateMatrix();woodTransforms.push(dummy.matrix.clone());}
+ const crownGeometry=new T.SphereGeometry(1,18,14),cp=crownGeometry.attributes.position;
+ for(let v=0;v<cp.count;v++){const x=cp.getX(v),y=cp.getY(v),z=cp.getZ(v),az=Math.atan2(z,x);const lobes=1+.13*Math.sin(az*5+y*4)+.07*Math.cos(az*9-y*7);cp.setXYZ(v,x*lobes,y*(1+.08*Math.sin(az*4)),z*lobes);}crownGeometry.computeVertexNormals();
+ // A folded pointed leaf, not a billboard disk or a spherical foliage blob.
+ const leafGeometry=new T.BufferGeometry();leafGeometry.setAttribute('position',new T.Float32BufferAttribute([0,0,0,-.045,.055,0,0,.13,.014,.045,.055,0,0,.055,.025],3));leafGeometry.setIndex([0,1,4,1,2,4,2,3,4,3,0,4]);leafGeometry.computeVertexNormals();
+ let treeCount=0;
+ for(let i=0;i<32;i++){
+  const x=.05+(i*.817)%5.5,z=-2.8+(i*1.713)%5.9,y=surface(x,z);if(y>.95||y<-.76)continue;
+  const lakeDistance=Math.hypot((x-3.8)/.61,(z-1.65)/.366),rt=clamp((2.55-x)/4.65,0,1),rp=riverXZ(rt);if(lakeDistance<1.25||Math.hypot(x-rp.x,z-rp.y)<.20)continue;
+  treeCount++;const size=.73+(Math.sin(i*9)*.5+.5)*.34,base=new T.Vector3(x,y,z),bend=new T.Vector3(x+.025*Math.sin(i),y+.28*size,z+.025*Math.cos(i));
+  woodSegment(base,bend,.032*size);const top=bend.clone().add(new T.Vector3(-.025,.27*size,.025));woodSegment(bend,top,.022*size);
+  for(let k=0;k<4;k++){
+   const angle=i*1.7+k*2.399,center=base.clone().add(new T.Vector3(Math.cos(angle)*.135*size,(.43+(k%2)*.14)*size,Math.sin(angle)*.135*size));
+   const fork=bend.clone().lerp(top,.25+k*.13);woodSegment(fork,center,.012*size);
+   dummy.position.copy(center);dummy.rotation.set(.13*Math.sin(i+k),angle,.12*Math.cos(k));dummy.scale.set(.21*size,(.22+(k%2)*.035)*size,.18*size);dummy.updateMatrix();crownTransforms.push(dummy.matrix.clone());treeColors.push(new T.Color().setHSL(.29+(k%3)*.012,.65,.24+(k%3)*.025));
+   // Edge leaves follow the crown volume with reproducible varied directions.
+   for(let j=0;j<16;j++){const az=j*2.399+k,ny=1-2*(j+.5)/16,rad=Math.sqrt(1-ny*ny),normal=new T.Vector3(Math.cos(az)*rad,ny,Math.sin(az)*rad);dummy.position.copy(center).add(new T.Vector3(normal.x*.21*size,normal.y*.23*size,normal.z*.18*size));const leafDirection=new T.Vector3(normal.x*.55,.65+Math.abs(normal.y)*.25,normal.z*.55).normalize();dummy.quaternion.setFromUnitVectors(up,leafDirection);dummy.rotateY(j*1.7);dummy.scale.set(size*.68,size*(.32+(j%3)*.06),size*.65);dummy.updateMatrix();leafTransforms.push(dummy.matrix.clone());leafColors.push(new T.Color().setHSL(.27+(j%4)*.012,.62,.28+(j%4)*.025));}
+  }
+ }
+ function groveBatch(g:T.BufferGeometry,m:T.Material,transforms:T.Matrix4[],colors?:T.Color[]){const batch=new T.InstancedMesh(g,m,transforms.length);transforms.forEach((matrix,i)=>{batch.setMatrixAt(i,matrix);if(colors)batch.setColorAt(i,colors[i]);});batch.castShadow=true;batch.receiveShadow=true;root.add(batch);return batch;}
+ groveBatch(new T.CylinderGeometry(.65,1,1,7),new T.MeshStandardMaterial({color:0x51301a,roughness:1,metalness:0,envMapIntensity:0}),woodTransforms);
+ groveBatch(crownGeometry,new T.MeshStandardMaterial({color:0x40852c,roughness:1,metalness:0,envMapIntensity:0}),crownTransforms,treeColors);
+ groveBatch(leafGeometry,new T.MeshStandardMaterial({color:0x529b35,roughness:1,metalness:0,envMapIntensity:0,side:T.DoubleSide}),leafTransforms,leafColors);
+ stage.host.dataset.weatherGrove=JSON.stringify({trees:treeCount,drawCalls:3,wood:woodTransforms.length,crowns:crownTransforms.length,leaves:leafTransforms.length});
  const sunlight=new T.DirectionalLight(0xffd998,1.8);sunlight.position.set(-5,8,2);scene.add(sunlight);
  const sun=mesh(new T.SphereGeometry(.48,40,28),new T.MeshBasicMaterial({color:0xffdc92}));sun.position.set(-4.1,3.3,-1);root.add(sun);
  const sunHalo=mesh(new T.SphereGeometry(.58,32,24),new T.MeshBasicMaterial({color:0xffd479,transparent:true,opacity:.15,depthWrite:false}));sunHalo.position.copy(sun.position);root.add(sunHalo);

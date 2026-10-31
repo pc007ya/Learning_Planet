@@ -54,3 +54,13 @@ body[data-planet=earth-moon][data-earth-view=ground] .ep-ground-inset svg{width:
 body[data-planet=earth-moon][data-earth-view=ground] .ep-ground-inset text{font-size:13px}
 body[data-planet=earth-moon][data-earth-view=ground] .ep-view-tools button[data-view],body[data-planet=earth-moon][data-earth-view=ground] #ep-zoom-in,body[data-planet=earth-moon][data-earth-view=ground] #ep-zoom-out{display:none}
 @media(max-width:700px){body[data-planet=earth-moon][data-earth-view=ground] .ep-ground-inset{top:66px;bottom:64px;left:8px;right:8px;padding:3px}}
+
+/* Long teaching sentences use horizontal readings above each character, keeping the main sentence continuous. */
+body[data-reading=true] :is(#ep-question,#ep-target,#ep-message,.ep-world-note,.ep-world-label) ruby.zhuyin-side{flex-direction:column-reverse;vertical-align:bottom;margin-inline-end:.06em;line-height:1.18}
+body[data-reading=true] :is(#ep-question,#ep-target,#ep-message,.ep-world-note,.ep-world-label) ruby.zhuyin-side rt{display:flex;align-items:center;align-self:center;min-width:0;padding-right:0;font-size:7px;line-height:1.1;white-space:nowrap}
+body[data-reading=true] :is(#ep-question,#ep-target,#ep-message,.ep-world-note,.ep-world-label) .zhuyin-sounds{flex-direction:row;line-height:1}
+body[data-reading=true] :is(#ep-question,#ep-target,#ep-message,.ep-world-note,.ep-world-label) .zhuyin-sounds>span{height:auto}
+body[data-reading=true] :is(#ep-question,#ep-target,#ep-message,.ep-world-note,.ep-world-label) .zhuyin-tone{position:static;transform:none;width:auto;line-height:1}
+body[data-reading=true] :is(#ep-question,#ep-target,#ep-message,.ep-world-note,.ep-world-label) .zhuyin-tone.neutral{order:-1}
+body[data-reading=true] #ep-question{line-height:1.85;letter-spacing:0}
+body[data-reading=true] .ep-world-note{max-width:min(250px,40%);line-height:1.9}

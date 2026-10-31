@@ -3,21 +3,28 @@ import {Stage,type World} from './core';
 import {organicLeafGeometry as leafGeometry,leafSurface,addLeafVeins,taperedPlantTube} from './plants-geometry';
 import {advancePlantHydration,plantBalance,plantRecoveryGoal,PLANT_DEFAULTS,type PlantConditions} from './plants-model';
 
-const MODEL_NOTE='這是加速的理想植物示意，指數不是實際流量；第 7 天不代表真實植物必然長到這個高度。藍白粒子是水與水氣的追蹤符號，水氣本身看不見。太陽圖像表示光照條件，不代表實際太陽方位。根吸收水和礦物質，植物的糖主要由光合作用製造。';
+const MODEL_NOTE='這是加速的理想植物示意，指數不是實際流量；第 7 天不代表真實植物必然長到這個高度。藍色粒子是輸水追蹤符號；葉旁淡虛線只表示蒸散路徑，水氣本身看不見，也不是可見水滴或蒸汽。太陽圖像表示光照條件，不代表實際太陽方位。根吸收水和礦物質，植物的糖主要由光合作用製造。';
 const color=(hex:number,roughness=.55)=>new T.MeshStandardMaterial({color:hex,roughness,metalness:.02});
-function pipe(points:T.Vector3[],radius:number,material:T.Material){return new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(points),32,radius,7,false),material);}
 function soilTexture(){
  const canvas=document.createElement('canvas');canvas.width=canvas.height=256;const c=canvas.getContext('2d')!;c.fillStyle='#513b27';c.fillRect(0,0,256,256);let seed=32;
  for(let i=0;i<1200;i++){seed=(seed*1664525+1013904223)>>>0;const x=seed%256;seed=(seed*1664525+1013904223)>>>0;const y=seed%256;const r=1+seed%4;c.fillStyle=['#765339','#9e7752','#312a20','#be9b6c'][i%4];c.beginPath();c.ellipse(x,y,r,r*.65,(i%6)*.5,0,Math.PI*2);c.fill();}
  const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;return texture;
 }
 function makeCan(){
- const can=new T.Group();const blue=new T.MeshStandardMaterial({color:0x5eafc4,roughness:.3,metalness:.35});
- const body=new T.Mesh(new T.CylinderGeometry(.34,.30,.55,36),blue);can.add(body);
- const rim=new T.Mesh(new T.TorusGeometry(.32,.035,10,36),color(0xd4edf0,.25));rim.rotation.x=Math.PI/2;rim.position.y=.275;can.add(rim);
- const handle=new T.Mesh(new T.TorusGeometry(.31,.055,10,36,Math.PI*1.4),blue);handle.position.set(.32,.03,0);handle.rotation.z=-Math.PI*.2;can.add(handle);
- can.add(pipe([new T.Vector3(-.22,-.1,0),new T.Vector3(-.55,.05,0),new T.Vector3(-.92,.4,0)],.065,blue));
- const rose=new T.Mesh(new T.CylinderGeometry(.13,.10,.10,24),color(0xd5e9ed,.3));rose.position.set(-.96,.44,0);rose.rotation.z=Math.PI*.25;can.add(rose);
+ const can=new T.Group();const enamel=new T.MeshPhysicalMaterial({color:0x327d94,roughness:.34,metalness:.18,clearcoat:.55,clearcoatRoughness:.3});const edge=color(0xbed2cf,.33);
+ const profile=[new T.Vector2(.04,-.30),new T.Vector2(.23,-.30),new T.Vector2(.31,-.25),new T.Vector2(.35,-.09),new T.Vector2(.35,.11),new T.Vector2(.31,.25),new T.Vector2(.22,.32),new T.Vector2(.18,.33)];
+ const body=new T.Mesh(new T.LatheGeometry(profile,48),enamel);can.add(body);
+ const opening=new T.Mesh(new T.CircleGeometry(.18,32),color(0x173b45,.8));opening.rotation.x=-Math.PI/2;opening.position.y=.323;can.add(opening);
+ const topRim=new T.Mesh(new T.TorusGeometry(.185,.022,10,36),edge);topRim.rotation.x=Math.PI/2;topRim.position.y=.33;can.add(topRim);
+ // A broad bevelled grip with an actual opening, rather than a clipped torus.
+ const grip=new T.Shape();grip.moveTo(.22,.27);grip.bezierCurveTo(.87,.54,.96,-.40,.23,-.28);grip.lineTo(.23,-.15);grip.bezierCurveTo(.66,-.22,.68,.31,.23,.15);grip.closePath();
+ const handle=new T.Mesh(new T.ExtrudeGeometry(grip,{depth:.075,bevelEnabled:true,bevelSize:.024,bevelThickness:.025,bevelSegments:3,curveSegments:20,steps:1}),enamel);handle.position.z=-.0375;can.add(handle);
+ const spout=new T.CatmullRomCurve3([new T.Vector3(-.25,-.13,0),new T.Vector3(-.48,-.055,0),new T.Vector3(-.72,.16,0),new T.Vector3(-.98,.36,0)]);can.add(taperedPlantTube(spout,.115,.065,enamel,30));
+ const nozzleNormal=new T.Vector3(-.85,-.52,0).normalize(),nozzleCenter=new T.Vector3(-1.015,.385,0);const roseGroup=new T.Group();roseGroup.position.copy(nozzleCenter);roseGroup.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),nozzleNormal);can.add(roseGroup);
+ const rose=new T.Mesh(new T.CylinderGeometry(.17,.085,.13,32),enamel);roseGroup.add(rose);
+ const plate=new T.Mesh(new T.CylinderGeometry(.157,.157,.018,32),edge);plate.position.y=.074;roseGroup.add(plate);
+ const holeMat=color(0x234e59,.75);for(let i=0;i<13;i++){const radius=i===12?0:i<8?.112:.055,a=i*Math.PI*2/(i<8?8:4);const hole=new T.Mesh(new T.CircleGeometry(.013,8),holeMat);hole.rotation.x=-Math.PI/2;hole.position.set(Math.cos(a)*radius,.085,Math.sin(a)*radius);roseGroup.add(hole);}
+ const outlet=new T.Object3D();outlet.name='can-outlet';outlet.position.copy(nozzleCenter).addScaledVector(nozzleNormal,.09);can.add(outlet);
  return can;
 }
 function validConditions(input:Record<string,unknown>):PlantConditions{
@@ -68,7 +75,7 @@ export function createPlants(stage:Stage):World{
   const leafMat=new T.MeshStandardMaterial({color:i%2?0x4d9e52:0x62b563,roughness:.68,metalness:.01,envMapIntensity:.28,vertexColors:true,side:T.DoubleSide});leafMats.push(leafMat);
   const leaf=new T.Mesh(leafGeometry(len,width),leafMat);leaf.name='leaf-blade';leaf.position.set(.24,.09,0);g.add(leaf);blades.push(leaf);
   const veinMat=new T.MeshStandardMaterial({color:0x86ae65,roughness:.76});
-  const veinGroup=new T.Group();veinGroup.position.copy(leaf.position);g.add(veinGroup);addLeafVeins(veinGroup,len,width,veinMat);
+  const veinGroup=new T.Group();veinGroup.name='leaf-veins';veinGroup.position.copy(leaf.position);g.add(veinGroup);addLeafVeins(veinGroup,len,width,veinMat);
   const petiole=taperedPlantTube(new T.CatmullRomCurve3([new T.Vector3(0,0,0),new T.Vector3(.11,.065,.015),new T.Vector3(.28,.105,0)]),.027,.012,stemMat,16);g.add(petiole);
   const node=new T.Mesh(new T.SphereGeometry(.069,12,8),stemMat);node.scale.set(.7,1,.7);g.add(node);
  }
@@ -80,10 +87,14 @@ export function createPlants(stage:Stage):World{
  const lightRays=new T.Group();root.add(lightRays);
  for(let i=0;i<5;i++){const dir=new T.Vector3(1,.5,(i-2)*.16).normalize();lightRays.add(new T.ArrowHelper(dir,new T.Vector3(-1.82,.64,0),1.2,0xffde8a,.13,.06));}
  const can=makeCan();const canHit=new T.Mesh(new T.SphereGeometry(1,12,8),new T.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false}));canHit.name='watering-can-touch-target';canHit.userData.noFit=true;can.add(canHit);const canHome=new T.Vector3(1.8,-1.55,1.2);can.position.copy(canHome);can.name='watering-can';root.add(can);
- const waterDropMat=new T.MeshStandardMaterial({color:0x74e7ec,emissive:0x1f6b7c,emissiveIntensity:.55,roughness:.15,transparent:true,opacity:.9});
- const waterDrops=Array.from({length:36},(_,i)=>{const drop=new T.Mesh(new T.SphereGeometry(.029+(i%3)*.007,8,6),waterDropMat);drop.visible=false;root.add(drop);return drop;});
- const steam=Array.from({length:18},(_,i)=>{const dot=new T.Mesh(new T.SphereGeometry(.018+(i%2)*.008,8,6),new T.MeshBasicMaterial({color:0xd0f8ed,transparent:true,opacity:.7,depthWrite:false}));dot.visible=false;root.add(dot);return dot;});
- const pourDrops=Array.from({length:14},()=>{const drop=new T.Mesh(new T.SphereGeometry(.035,8,6),waterDropMat);drop.visible=false;root.add(drop);return drop;});
+ const waterDropMat=new T.MeshPhysicalMaterial({color:0x70cfe1,emissive:0x174958,emissiveIntensity:.12,roughness:.12,metalness:.05,clearcoat:1,clearcoatRoughness:.06,transparent:true,opacity:.82});const dropGeometry=new T.SphereGeometry(1,14,10);
+ const waterDrops=Array.from({length:36},(_,i)=>{const drop=new T.Mesh(dropGeometry,waterDropMat);drop.scale.setScalar(.021+(i%3)*.004);drop.visible=false;root.add(drop);return drop;});
+ // Transpired water vapour is invisible: moving dashes are symbolic trajectories, never droplets or steam clouds.
+ const vapourDashGeometry=new T.BufferGeometry().setFromPoints([new T.Vector3(0,0,0),new T.Vector3(.012,.065,0),new T.Vector3(.018,.10,0),new T.Vector3(.025,.15,0)]);
+ const steam=Array.from({length:12},()=>{const dash=new T.LineSegments(vapourDashGeometry,new T.LineBasicMaterial({color:0xb3cbd0,transparent:true,opacity:.25,depthWrite:false}));dash.visible=false;root.add(dash);return dash;});
+ const pourDrops=Array.from({length:24},(_,i)=>{const drop=new T.Mesh(dropGeometry,waterDropMat);drop.scale.set(.022,.030+i%3*.004,.022);drop.visible=false;root.add(drop);return drop;});
+ const outlet=can.getObjectByName('can-outlet')!;
+
  // Mark water entry and transpiration exit; protect the model between both endpoints.
  const flowLabel=stage.label('根吸水',new T.Vector3(-.65,-1.15,.5));
  const leafTip=new T.Object3D();leafTip.position.copy(leafSurface(leafSpecs[4].len,leafSpecs[4].width,.86,.2));blades[4].add(leafTip);const exitLabel=stage.label('葉蒸散',leafTip);flowLabel.dataset.tether=exitLabel.dataset.tether='true';
@@ -113,18 +124,18 @@ export function createPlants(stage:Stage):World{
  }
  function visual(){updateCanHit();const p=plantBalance(conditions,hydration);const cut=data.view==='cutaway';pot.visible=!cut;soilSurface.visible=!cut;cutPot.visible=cut;ceramic.castShadow=!cut;flowLabel.style.display=cut?'':'none';exitLabel.style.display=cut?'':'none';leafLabel.style.display=!cut&&teachingStep!==2?'':'none';lightLabel.style.display=!cut&&teachingStep===2?'':'none';potMat.transparent=false;potMat.opacity=1;soilMat.opacity=1;(soilSurface.material as T.Material).transparent=false;(soilSurface.material as T.Material).opacity=1;roots.visible=cut;xylem.visible=cut;stemMat.transparent=cut;stemMat.opacity=cut?.55:1;
   const growth=.86+.48*p.growth;plant.scale.setScalar(growth);const stemHeight=conditions.days==='seven'?2.6:1.8;stem.scale.y=stemHeight/2.6;stem.position.y=0;for(const vessel of xylem.children){vessel.scale.y=stemHeight/2.6;vessel.position.y=0;}bud.position.copy(stemCurve.getPointAt(1));bud.position.y=stemHeight;
-  leaves.forEach((g,i)=>{g.rotation.z=.10+(i%3)*.035-(1-p.turgor)*1.15;g.position.y=(.30+i*.29);g.position.x=.035*Math.sin(g.position.y*2.4);g.visible=i<5||conditions.days==='seven';g.scale.setScalar(i<5?1:.6+.4*p.growth);leafMats[i].color.setHSL(.23+.09*p.turgor,.56+.12*p.turgor,.19+.06*p.turgor,T.SRGBColorSpace);});
+  leaves.forEach((g,i)=>{g.rotation.z=.10+(i%3)*.035-(1-p.turgor)*1.15;g.position.y=(.30+i*.29);g.position.x=.035*Math.sin(g.position.y*2.4);g.visible=i<5||conditions.days==='seven';g.scale.setScalar(i<5?1:.6+.4*p.growth);const fade=cut&&i<2;leafMats[i].transparent=fade;leafMats[i].opacity=fade?.12:1;leafMats[i].depthWrite=!fade;blades[i].castShadow=!fade;g.getObjectByName('leaf-veins')?.traverse(o=>{if(o instanceof T.Mesh){const m=o.material as T.MeshStandardMaterial;m.transparent=fade;m.opacity=fade?.14:1;m.depthWrite=!fade;}});leafMats[i].color.setHSL(.23+.09*p.turgor,.56+.12*p.turgor,.19+.06*p.turgor,T.SRGBColorSpace);});
   sunGroup.scale.setScalar(conditions.light==='shade'?.68:conditions.light==='strong'?1.12:1);sunLight.intensity=conditions.light==='shade'?1:conditions.light==='strong'?7:5;lightRays.visible=conditions.light!=='shade';soilSurface.material instanceof T.MeshStandardMaterial&&soilSurface.material.color.setHex(conditions.water==='dry'?0xc6a986:conditions.water==='flood'?0x514a3a:0x806046);
   stage.host.dataset.plantWater=conditions.water;stage.host.dataset.plantView=data.view;stage.host.dataset.plantHydration=String(Math.round(hydration*100));stage.host.dataset.plantPhotosynthesis=String(Math.round(p.photosynthesis*100));stage.host.dataset.plantFlow=!playing?'paused':p.uptake>.1?'moving':'limited';
  }
  const canvas=stage.renderer?.domElement;const abort=new AbortController();let canMoved=false;
  const unbindCan=stage.bindDrag(can,point=>{canMoved=true;demoTime=null;can.position.set(T.MathUtils.clamp(point.x,-1.2,3),T.MathUtils.clamp(point.y,-.6,3),1.2);can.rotation.z=can.position.x<1.7?.35:0;},new T.Plane(new T.Vector3(0,0,1),-1.2));
- canvas?.addEventListener('pointerup',()=>{if(!canMoved)return;canMoved=false;can.updateMatrixWorld(true);const tip=new T.Vector3(-.96,.44,0).applyMatrix4(can.matrixWorld);if(Math.abs(tip.x)<1&&tip.y>-.1){data.water='enough';syncConditions();pouring=2.6;observing=true;}else{can.position.copy(canHome);can.rotation.z=0;}stage.notify();},{signal:abort.signal});
+ canvas?.addEventListener('pointerup',()=>{if(!canMoved)return;canMoved=false;can.updateMatrixWorld(true);const tip=outlet.getWorldPosition(new T.Vector3());if(Math.abs(tip.x)<1&&tip.y>-.1){data.water='enough';syncConditions();pouring=2.6;observing=true;}else{can.position.copy(canHome);can.rotation.z=0;}stage.notify();},{signal:abort.signal});
  canvas?.addEventListener('pointercancel',()=>{canMoved=false;can.position.copy(canHome);can.rotation.z=0;},{signal:abort.signal});
  visual();
  const world:World={
   name:'植物的水與光',intro:'旋轉盆栽，追蹤水從根到葉。拖水壺澆水，或用圖卡比較條件；指數是理想示意。',controls,
-  steps:[{title:'水去哪裡',question:'根吸進的水，最後到哪裡？',detail:'切到「根與莖」，追蹤藍色水點從根向上移動；水也會經葉片散到空氣。'},{title:'葉片站起來',question:'缺水的葉片，可以恢復嗎？',detail:'先選缺水並觀察，再給適量水。看水分指數和葉片，恢復需要示意時間。'},{title:'公平比較',question:'只改光照，會看見什麼？',detail:'把水、土壤和空氣固定，只切換光照；先觀察再比較讀數。'},{title:'照顧挑戰',question:'把缺水植物救回來',detail:'保留缺水觀察，再調整水、光、土壤與空氣，讓葉片恢復。'}],
+  steps:[{title:'水去哪裡',question:'根吸進的水，最後到哪裡？',detail:'切到「根與莖」，追蹤藍色水點從根向上移動；水也會經葉片散到空氣。水氣看不見，葉旁淡虛線只是路徑示意。'},{title:'葉片站起來',question:'缺水的葉片，可以恢復嗎？',detail:'先選缺水並觀察，再給適量水。看水分指數和葉片，恢復需要示意時間。'},{title:'公平比較',question:'只改光照，會看見什麼？',detail:'把水、土壤和空氣固定，只切換光照；先觀察再比較讀數。'},{title:'照顧挑戰',question:'把缺水植物救回來',detail:'保留缺水觀察，再調整水、光、土壤與空氣，讓葉片恢復。'}],
   missions:[{title:'健康生長',detail:'第 7 天，水、光與養分適當，觀察高光合指數。'},{title:'看見缺水',detail:'選缺水，等葉片下垂、水分低於 35，再觀察。'},{title:'只改光照',detail:'保持水、養分、空氣、日數相同，觀察兩種光照。'}],
   quiz:{question:'植物葉片下垂時，哪個做法是合理的實驗？',answers:['不看土壤就一直加水','先看土壤與水分，給適量水並等葉片恢復','只把植物拉高','把二氧化碳完全拿走'],correct:1,explanation:'水分支持細胞的膨壓，缺水可能讓葉片下垂；積水也會使根部缺氧。要看條件與讀數，不是水越多越好。'},
   modelNote:MODEL_NOTE,sourceLinks:[{label:'OSU：植物環境與水分',url:'https://extension.oregonstate.edu/catalog/em-9903-environmental-factors-affecting-plant-growth'},{label:'OpenStax：光合作用',url:'https://openstax.org/books/biology-2e/pages/8-1-overview-of-photosynthesis'}],
@@ -139,12 +150,12 @@ export function createPlants(stage:Stage):World{
   demo(){demoTime=0;playing=true;data.water='dry';data.view='cutaway';syncConditions();observing=false;visual();},
   setPlaying(value){playing=value;visual();},
   setStep(index){teachingStep=index;data.view=index===0?'cutaway':'whole';visual();},
-  tick(dt){if(!playing||dt<=0)return;clock+=dt;if(demoTime!==null){demoTime+=dt;if(demoTime>4&&data.water==='dry'){data.water='enough';syncConditions();pouring=2.6;}if(demoTime>9)demoTime=null;}
+  tick(dt){if(!playing||dt<=0)return;clock+=dt;if(demoTime!==null){demoTime+=dt;if(demoTime>4&&data.water==='dry'){data.water='enough';syncConditions();can.position.set(1.0,.65,1.2);pouring=2.6;}if(demoTime>9)demoTime=null;}
    hydration=advancePlantHydration(hydration,conditions,dt);const p=plantBalance(conditions,hydration);if(observing)record();visual();
 
    waterDrops.forEach((drop,i)=>{const t=(clock*(.25+.45*p.uptake)+i/36)%1;drop.visible=data.view==='cutaway'&&p.uptake>.05;if(t<.38){const path=rootPaths[i%rootPaths.length];drop.position.copy(path.getPoint(1-t/.38));}else{const stemT=(t-.38)/.62;const stemPoint=stemCurve.getPointAt(stemT);stemPoint.y*=(conditions.days==='seven'?2.6:1.8)/2.6;stemPoint.x+=(i%2?1:-1)*.035;stemPoint.z+=.075;plant.localToWorld(stemPoint);root.worldToLocal(stemPoint);drop.position.copy(stemPoint);}});
-   steam.forEach((dot,i)=>{const t=(clock*(.2+.45*p.transpiration)+i/18)%1;dot.visible=p.transpiration>.1;const leafIndex=i%5,spec=leafSpecs[leafIndex];const start=leafSurface(spec.len,spec.width,.55+(i%3)*.1,(i%2?1:-1)*.35);start.y+=.015;blades[leafIndex].localToWorld(start);root.worldToLocal(start);dot.position.copy(start).add(new T.Vector3(Math.sin(i*3)*t*.25,t*.85,.015));(dot.material as T.MeshBasicMaterial).opacity=(1-t)*.55;});
-   if(pouring>0){pouring-=dt;can.rotation.z=.35;pourDrops.forEach((drop,i)=>{drop.visible=true;const t=(clock*1.5+i/14)%1;const start=new T.Vector3(-.96,.44,0);can.localToWorld(start);root.worldToLocal(start);drop.position.copy(start).lerp(new T.Vector3((i%3-.8)*.12,-.44,.1),t);});if(pouring<=0){can.position.copy(canHome);can.rotation.z=0;}}else pourDrops.forEach(drop=>drop.visible=false);
+   steam.forEach((dot,i)=>{const t=(clock*(.12+.25*p.transpiration)+i/12)%1;dot.visible=p.transpiration>.1;const leafIndex=i%5,spec=leafSpecs[leafIndex];const start=leafSurface(spec.len,spec.width,.55+(i%3)*.1,(i%2?1:-1)*.35);start.y+=.015;blades[leafIndex].localToWorld(start);root.worldToLocal(start);dot.position.copy(start).add(new T.Vector3(Math.sin(i*3)*t*.25,t*.72,.015));(dot.material as T.LineBasicMaterial).opacity=Math.sin(Math.PI*t)*.30;});
+   if(pouring>0){pouring-=dt;can.rotation.z=.35;pourDrops.forEach((drop,i)=>{drop.visible=true;const t=(clock*1.45+i/24)%1;const start=outlet.position.clone().add(new T.Vector3(Math.sin(i*2.4)*.052,-Math.sin(i*2.4)*.085,Math.cos(i*2.4)*.09));can.localToWorld(start);root.worldToLocal(start);const end=new T.Vector3((i%5-2)*.07,-.44,(i%3-1)*.07);drop.position.copy(start).lerp(end,t);drop.position.y+=.18*Math.sin(Math.PI*t);drop.scale.y=.030+.018*t;});if(pouring<=0){can.position.copy(canHome);can.rotation.z=0;}}else pourDrops.forEach(drop=>drop.visible=false);
   },
   snapshot(){return {conditions:{...conditions},view:data.view,hydration,clock,wasDry,completed:[...completed],observations:observations.map(o=>({...o,conditions:{...o.conditions}}))};},
   restore(saved){if(saved.conditions&&typeof saved.conditions==='object')Object.assign(data,validConditions(saved.conditions as Record<string,unknown>));data.view=saved.view==='cutaway'?'cutaway':'whole';syncConditions();if(typeof saved.hydration==='number'&&Number.isFinite(saved.hydration))hydration=T.MathUtils.clamp(saved.hydration,0,1);if(typeof saved.clock==='number'&&Number.isFinite(saved.clock))clock=Math.max(0,saved.clock);wasDry=saved.wasDry===true;observations.length=0;if(Array.isArray(saved.observations))for(const o of saved.observations.slice(-20)){if(!o||typeof o!=='object')continue;const row=o as Record<string,unknown>;if(!row.conditions||typeof row.conditions!=='object'||typeof row.hydration!=='number'||typeof row.photo!=='number'||typeof row.time!=='number'||![row.hydration,row.photo,row.time].every(Number.isFinite))continue;observations.push({conditions:validConditions(row.conditions as Record<string,unknown>),hydration:T.MathUtils.clamp(row.hydration,0,1),photo:T.MathUtils.clamp(row.photo,0,1),time:Math.max(0,row.time)});}if(Array.isArray(saved.completed))for(let i=0;i<3;i++)completed[i]=saved.completed[i]===true;visual();},

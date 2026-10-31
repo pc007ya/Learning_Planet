@@ -22,6 +22,24 @@ function texture(kind:'wood'|'stone'|'ball'){
  }
  const tex=new T.CanvasTexture(canvas);tex.colorSpace=T.SRGBColorSpace;tex.wrapS=tex.wrapT=T.RepeatWrapping;tex.anisotropy=4;return tex;
 }
+function woodBlock(m:T.MeshStandardMaterial){
+ // Rounded vertical corners preserve a constant horizontal area and exact box immersion law.
+ const w=.95,d=.6/(.95*.84),r=.065,k=Math.sqrt(w*d/(w*d-(4-Math.PI)*r*r)),shape=new T.Shape();
+ shape.moveTo(-w/2+r,-d/2);shape.lineTo(w/2-r,-d/2);shape.absarc(w/2-r,-d/2+r,r,-Math.PI/2,0,false);shape.lineTo(w/2,d/2-r);shape.absarc(w/2-r,d/2-r,r,0,Math.PI/2,false);shape.lineTo(-w/2+r,d/2);shape.absarc(-w/2+r,d/2-r,r,Math.PI/2,Math.PI,false);shape.lineTo(-w/2,-d/2+r);shape.absarc(-w/2+r,-d/2+r,r,Math.PI,Math.PI*1.5,false);
+
+ const g=new T.ExtrudeGeometry(shape,{depth:.84,bevelEnabled:false,curveSegments:24});g.rotateX(Math.PI/2);g.translate(0,.42,0);g.scale(k,1,k);g.computeVertexNormals();m.bumpMap=m.map;m.bumpScale=.009;return new T.Mesh(g,m);
+}
+function beachBall(radius:number,m:T.MeshStandardMaterial){
+ const mesh=ball(radius,m);m.roughness=.36;
+ for(let i=0;i<6;i++){const angle=i*Math.PI/3,pts=Array.from({length:49},(_,j)=>{const t=j/48*Math.PI;return new T.Vector3(Math.sin(t)*Math.cos(angle),Math.cos(t),Math.sin(t)*Math.sin(angle)).multiplyScalar(radius+.001);});mesh.add(new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(pts),48,.0035,5,false),material(0xeae3d5,.55)));}
+ const valve=new T.Mesh(new T.CylinderGeometry(.035,.035,.008,24),material(0xeee7d4,.6));valve.position.y=radius;mesh.add(valve);const plug=new T.Mesh(new T.CylinderGeometry(.013,.013,.012,16),material(0x6e9caa,.55));plug.position.y=radius+.006;mesh.add(plug);return mesh;
+}
+function laboratoryBall(radius:number){
+ const shell=new T.MeshPhysicalMaterial({color:0x6978bd,roughness:.24,metalness:.18,clearcoat:.8,clearcoatRoughness:.2,transparent:true,opacity:.86});const mesh=ball(radius,shell);
+ for(const a of [0,Math.PI/2]){const band=new T.Mesh(new T.TorusGeometry(radius+.002,.008,10,64),material(0xc5d7e2,.25,.55));band.rotation.x=a;mesh.add(band);}
+ for(let i=0;i<12;i++){const mark=cube(.004,i%3===0?.035:.018,.006,material(0xeff9ff,.35,.2)),angle=i*Math.PI/6;mark.position.set(Math.sin(angle)*(radius+.005),0,Math.cos(angle)*(radius+.005));mark.rotation.y=angle;mesh.add(mark);}
+ const cap=new T.Mesh(new T.CylinderGeometry(.053,.053,.012,32),material(0x9fb0c4,.24,.72));cap.position.y=radius;mesh.add(cap);return mesh;
+}
 // Each rounded section is area-normalized to the former rectangular section.
 // Thus the tapered hull's exact submerged-volume polynomial stays unchanged.
 function hull(m:T.Material){
@@ -84,7 +102,7 @@ export function createOcean(stage:Stage):World{
  const surface=new T.Mesh(new T.PlaneGeometry(7.33,3.6,64,32),waterMaterial);surface.rotation.x=-Math.PI/2;surface.position.y=SURFACE;surface.renderOrder=3;root.add(surface);
  // A continuous waterline marks the fixed ideal-water surface, not a measurement ruler.
  const waterLine=cube(7.32,.025,.035,material(0x96f5ee,.25));waterLine.position.set(0,SURFACE,1.81);root.add(waterLine);
- const specimen=new T.Group();specimen.position.set(-.3,2.1,.05);specimen.name='ocean-specimen';root.add(specimen);
+ const specimen=new T.Group();specimen.position.set(-.3,2.1,.05);specimen.name='ocean-specimen';root.add(specimen);stage.protectLabelArea(specimen);
  const woodTexture=texture('wood'),stoneTexture=texture('stone'),ballTexture=texture('ball');ownTextures.push(woodTexture,stoneTexture,ballTexture);
  let specimenVisual=new T.Group();specimen.add(specimenVisual);let height=.84;
  const arrowUp=new T.ArrowHelper(new T.Vector3(0,1,0),new T.Vector3(2.55,-.1,1.1),.4,0x6de9ec,.16,.10);
@@ -98,7 +116,7 @@ export function createOcean(stage:Stage):World{
  Object.assign(floatButtons.style,{position:'absolute',width:'48px',height:'48px',minWidth:'48px',minHeight:'48px',border:'1px dashed #f4e2a9aa',borderRadius:'50%',background:'transparent',padding:'0',zIndex:'4',touchAction:'none',cursor:'grab'});stage.host.append(floatButtons);
  // Explicit close inspection changes the camera only on a deliberate press, never while dragging.
  const closeView=document.createElement('button');closeView.type='button';closeView.className='ep-ocean-near';closeView.textContent='近看';closeView.setAttribute('aria-label','近看主實驗物件');closeView.setAttribute('aria-pressed','false');Object.assign(closeView.style,{minWidth:'44px',minHeight:'44px',position:'absolute',right:'10px',bottom:'10px',zIndex:'5',padding:'0 10px'});stage.host.append(closeView);
- closeView.addEventListener('click',()=>{const active=closeView.getAttribute('aria-pressed')!=='true';closeView.setAttribute('aria-pressed',String(active));closeView.textContent=active?'全景':'近看';if(!active){stage.setView('front');return;}specimen.updateMatrixWorld(true);const box=new T.Box3().setFromObject(specimenVisual),size=box.getSize(new T.Vector3()),h=stage.host.clientHeight,tan=Math.tan(T.MathUtils.degToRad(stage.camera.fov/2)),target=new T.Vector3(specimen.position.x,clamp(specimen.position.y,-.2,.4),specimen.position.z);const desired=Math.min(190,stage.host.clientWidth*.55),distance=Math.max(3.4,size.x*h/(2*tan*desired),(box.max.y-target.y)*1.1/tan,(target.y-FLOOR)*1.06/tan);const direction=new T.Vector3(.20,.17,1).normalize();stage.orbit.target.copy(target);stage.camera.position.copy(target).addScaledVector(direction,distance);stage.orbit.update();stage.renderOnce();},{signal:abort.signal});
+ closeView.addEventListener('click',()=>{const active=closeView.getAttribute('aria-pressed')!=='true';closeView.setAttribute('aria-pressed',String(active));closeView.textContent=active?'全景':'近看';if(!active){stage.setView('front');return;}specimen.updateMatrixWorld(true);const box=new T.Box3().setFromObject(specimenVisual),size=box.getSize(new T.Vector3()),h=stage.host.clientHeight,tan=Math.tan(T.MathUtils.degToRad(stage.camera.fov/2)),target=new T.Vector3(specimen.position.x,clamp(specimen.position.y,-.2,.4),specimen.position.z);const desired=Math.min(190,stage.host.clientWidth*.55),distance=Math.max(3.4,size.x*h/(2*tan*desired),(box.max.y-target.y)*1.1/tan,(target.y-FLOOR)*1.06/tan);const direction=new T.Vector3(.55,.42,1).normalize();stage.orbit.target.copy(target);stage.camera.position.copy(target).addScaledVector(direction,distance);stage.orbit.update();stage.renderOnce();},{signal:abort.signal});
 
  const configs=[
   {id:'object',title:'選一個寶物',values:(Object.entries(OCEAN_SAMPLES) as [OceanSample,typeof OCEAN_SAMPLES[OceanSample]][]).map(([id,o])=>({id,label:o.label}))},
@@ -119,10 +137,11 @@ export function createOcean(stage:Stage):World{
  function release(){ready=true;releaseTime=0;trialRecorded=false;stableTime=0;verticalSpeed=0;seen.add(marker());playing=true;updateDiagnostic();stage.notify();}
  function clearVisual(){specimen.remove(specimenVisual);specimenVisual.traverse(o=>{if(o instanceof T.Mesh){o.geometry.dispose();const ms=Array.isArray(o.material)?o.material:[o.material];ms.forEach(m=>m.dispose());}});specimenVisual=new T.Group();specimen.add(specimenVisual);}
  function refresh(resetPosition=false){const p=parameters();clearVisual();let scale=Math.cbrt(p.volume/100);let mesh:T.Object3D;
-  if(state.object==='wood'){const wood=material(0xffffff,.78);wood.map=woodTexture;mesh=cube(.95,.84,.6/(.95*.84),wood);height=.84*scale;}
+  if(state.object==='wood'){const wood=material(0xffffff,.78);wood.map=woodTexture;mesh=woodBlock(wood);height=.84*scale;}
   else if(state.object==='boat'){const wood=material(0xffffff,.62);wood.map=woodTexture;mesh=hull(wood);scale*=Math.cbrt(.6/(.7*(1.65*.65+(1.65*.5+.35*.65)/2+.35*.5/3)));height=.7*scale;}
   else if(state.object==='submarine'){mesh=submarine();scale*=Math.cbrt(.6/(Math.PI*.35*.35*.95+4/3*Math.PI*.35**3));height=.7*scale;}
-  else {const m=material(state.object==='stone'?0xffffff:state.object==='ball'?0xffffff:0xa3a1e1,state.object==='stone'?.96:.28,state.object==='neutral'?.18:.02);m.map=state.object==='stone'?stoneTexture:state.object==='ball'?ballTexture:null;const radius=Math.cbrt(.6*3/(4*Math.PI));mesh=state.object==='stone'?rock(radius,m):ball(radius,m);height=2*radius*scale;if(state.object==='stone'){mesh.scale.set(1.13,.88,1/(1.13*.88));height*=.88;}if(state.object==='neutral'){for(const a of [0,Math.PI/2]){const band=new T.Mesh(new T.TorusGeometry(Math.cbrt(.6*3/(4*Math.PI))+.002,.012,10,48),material(0xd8f8ff,.22,.3));band.rotation.x=a;mesh.add(band);}}}
+  else {const m=material(0xffffff,state.object==='stone'?.96:.36);m.envMapIntensity=state.object==='stone'?.12:.6;if(state.object==='stone')m.color.setHex(0x7a858a);m.map=state.object==='stone'?stoneTexture:ballTexture;const radius=Math.cbrt(.6*3/(4*Math.PI));mesh=state.object==='stone'?rock(radius,m):state.object==='neutral'?laboratoryBall(radius):beachBall(radius,m);if(state.object==='neutral')m.dispose();height=2*radius*scale;if(state.object==='stone'){mesh.scale.set(1.13,.88,1/(1.13*.88));height*=.88;}}
+
   mesh.scale.multiplyScalar(scale);mesh.traverse(o=>{if(o instanceof T.Mesh){o.castShadow=true;o.receiveShadow=true;}});specimenVisual.add(mesh);
   waterMaterial.uniforms.sea.value=state.water==='sea'?1:0;
   stableTime=0;if(resetPosition||!ready){specimen.position.set(-.3,2.1,.05);verticalSpeed=0;ready=false;}else{specimen.position.y=Math.max(FLOOR+height/2,specimen.position.y);releaseTime=0;trialRecorded=false;stableTime=0;}
@@ -143,7 +162,7 @@ export function createOcean(stage:Stage):World{
   name:'海洋浮力實驗星球',intro:'拖寶物放進透明水槽。看水線、排開的水與兩支力箭頭一起變化。',controls:configs,
   steps:[{title:'猜浮沉',question:'木塊與石頭，誰會浮？',detail:'先選寶物預測，再放入水中。青色向上是浮力，橘色向下是重力。'},{title:'改體積',question:'重量不變，體積變大呢？',detail:'選密度球，固定淡水和原來重量，只改體積，留下沉與浮的比較。'},{title:'換水',question:'同一個物件，換海水呢？',detail:'固定寶物、重量與體積，只換淡水和海水，比較浸沒比例。'},{title:'壓載艙',question:'潛水艇怎麼控制浮沉？',detail:'固定外殼體積，只改重量。原來重量接近中性浮力，加重會下沉。'}],
   missions:[{title:'浮與沉',detail:'把木塊和石頭各放進水中一次'},{title:'體積的秘密',detail:'密度球選淡水與原來重量，試過縮小和放大'},{title:'海水不一樣',detail:'密度球原來大小，分別測淡水與海水'},{title:'潛水艇壓載',detail:'小潛水艇試過減輕與加重'},{title:'中性浮力',detail:'密度球在淡水中，重量與體積選原來'}],
-  modelNote:'理想靜水模型。球／等截面積岩石、盒形、水平膠囊與等截面積圓角梯形船殼分別計算排水體積；主外形用同一體積比例，附屬零件不計排水。青色水線是固定水面，不是刻度；導航小艇不參與浮力實驗。船艙視為密封，不模擬進水、波浪或流體渦流。兩支力箭頭同次等比例、自動縮尺，跨次比較請看牛頓讀數。水底另有支持力，沉底時不能把浮力當作零。',
+  modelNote:'理想靜水模型。球／等截面積岩石、等截面積圓角盒形、水平膠囊與等截面積圓角梯形船殼分別計算排水體積；主外形用同一體積比例，附屬零件不計排水。球面縫線、氣嘴、密度球刻線／封口及船艇附屬零件僅供辨識，不另計體積與質量。青色水線是固定水面，不是刻度；導航小艇不參與浮力實驗。船艙視為密封，不模擬進水、波浪或流體渦流。兩支力箭頭同次等比例、自動縮尺，跨次比較請看牛頓讀數。水底另有支持力，沉底時不能把浮力當作零。',
   sourceLinks:[{label:'OpenStax：浮力與阿基米德原理',url:'https://openstax.org/books/university-physics-volume-1/pages/14-4-archimedes-principle-and-buoyancy'}],
   quiz:{question:'同一顆密度球、同樣重量，體積變大後可能浮起，因為？',answers:['只要顏色變亮就會浮','排開更多水，能得到足夠浮力','下沉時完全沒有浮力','重量自己消失了'],correct:1,explanation:'浮力等於排開的水的重量。只改體積會改變整體密度，浮起穩定時浮力與重力相等；沉底還有水底的支持力。'},
   selected(id){return state[id]||'';},choose(id,value){if(!configs.some(c=>c.id===id&&c.values.some(v=>v.id===value)))return;state[id]=value;refresh(id==='object');},observe(){release();},
