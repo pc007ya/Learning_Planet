@@ -1,5 +1,5 @@
 import { curriculum, groups, nodes, edges, courseOrder, neighbors, practiceStatus, grade, gradeName, shortName, visuals, routeVisuals } from './dataset.mjs';
-import { labMarkup, changeLab } from './labs.mjs';
+import { labMarkup, changeLab } from './labs.mjs?v=20261101-grades123-final';
 import { actionIcon } from './visuals.mjs';
 
 const $ = id => document.getElementById(id);
@@ -136,7 +136,7 @@ $('extensions').hidden = !nodes.some(n => n.scope === 'extension');
 render();
 send('lp-knowledge-ready');
 try {
-  const { createUniverse } = await import('./scene.mjs?v=20261101-grades123');
+  const { createUniverse } = await import('./scene.mjs?v=20261101-grades123-final');
   scene = createUniverse($('stage'), $('labels'));
   document.body.dataset.threeRevision = scene.revision;
   $('render-status').hidden = true;
@@ -144,7 +144,7 @@ try {
 } catch (error) {
   console.warn('Knowledge map 3D view unavailable:', error);
   try {
-    const { createUniverse } = await import('./scene-fallback.mjs?v=20261101-grades123');
+    const { createUniverse } = await import('./scene-fallback.mjs?v=20261101-grades123-final');
     scene = createUniverse($('stage'), $('labels'));
     document.body.dataset.threeRevision = scene.revision;
     document.body.dataset.knowledgeRenderer = 'cpu';

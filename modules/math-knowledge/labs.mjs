@@ -49,7 +49,7 @@ export function labMarkup(id) {
   } else if(id==='fraction') {
     const parts=[2,4,8][s.step%3];
     picture=svg(Array.from({length:parts},(_,i)=>`<rect x="${20+i*260/parts}" y="24" width="${260/parts}" height="74" fill="${i===0?colors[3]:'#ffffff0d'}" stroke="#c0c7e7" stroke-width="1.5"/>`).join('')+text(150,135,`其中一份：1/${parts}`,22),'同一長方形等分，取其中一份');
-    tools=button('next','再對半分');caption='每一份，都一樣大。';
+    tools=button('next',parts===8?'換一張紙':'再對半分');caption='每一份，都一樣大。';
   } else if(id==='shapes'||id==='rectangle') {
     if(id==='rectangle') {
       const square=s.step%2===0;

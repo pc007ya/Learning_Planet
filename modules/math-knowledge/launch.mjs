@@ -11,7 +11,7 @@ export function openKnowledgeMap({ grade = 1, courses, records, onAction }) {
   dialog.style.cssText = 'width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#080d24;';
   const frame = document.createElement('iframe');
   const url = new URL(`../../math-knowledge-grade${grade}.html`, import.meta.url);
-  url.searchParams.set('v', '20261101-grades123');
+  url.searchParams.set('v', '20261101-grades123-final');
   frame.src = url.href;
   frame.title = `${shortName}數學知識星圖`;
   frame.style.cssText = 'width:100%;height:100%;border:0;display:block';
