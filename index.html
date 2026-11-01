@@ -8372,7 +8372,7 @@ class Component extends DCLogic {
     const learnerId = this.state.currentId;
     this.knowledgeOpening = true;
     try {
-      const { openKnowledgeMap } = await import("./modules/math-knowledge/launch.mjs");
+      const { openKnowledgeMap } = await import("./modules/math-knowledge/launch.mjs?v=20261101-progress-glow");
       if (this.state.currentId !== learnerId) return;
       const profile = this.prof();
       const history = new Set(Object.values(profile.masteryHistory || {}).flat());

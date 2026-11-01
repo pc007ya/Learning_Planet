@@ -7,7 +7,9 @@ export function openKnowledgeMap({ courses, records, onAction }) {
   dialog.setAttribute('aria-label', '小一數學知識星圖');
   dialog.style.cssText = 'width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#080d24;';
   const frame = document.createElement('iframe');
-  frame.src = new URL('../../math-knowledge-grade1.html', import.meta.url).href;
+  const url = new URL('../../math-knowledge-grade1.html', import.meta.url);
+  url.searchParams.set('v', '20261101-progress-glow');
+  frame.src = url.href;
   frame.title = '小一數學知識星圖';
   frame.style.cssText = 'width:100%;height:100%;border:0;display:block';
   dialog.append(frame);

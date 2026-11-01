@@ -8,6 +8,9 @@ let scene;
 const visibleNodes = () => nodes.filter(n => state.extensions || n.scope !== 'extension');
 const groupFor = node => groups.find(g => g.id === node.group);
 function send(type, extra = {}) { if (window.parent !== window) parent.postMessage({ type, ...extra }, location.origin); }
+function earnedOrbit(practiced) {
+  return practiced ? '<span class="earned-aura" aria-hidden="true"><span class="earned-ring"></span><span class="earned-ring earned-ring-tilt"></span><span class="earned-orbit"></span><span class="earned-orbit earned-orbit-small"></span></span>' : '';
+}
 
 function select(id) {
   if (!nodes.some(node => node.id === id && (state.extensions || node.scope !== 'extension'))) return;
@@ -35,13 +38,14 @@ function renderDetail() {
     <h2>${visual.caption}</h2><p class="goal">${visual.hint}</p>
     <div class="detail-scroll">
       ${courseRows.map(course => `<article class="course"><div class="course-title" title="${escape(course.title)}"><span class="course-code">${escape(course.code)}</span><b>${escape(course.title)}</b></div><div class="course-actions">${state.connected ? `${course.hasVideo ? `<button aria-label="看影片" data-action="video" data-unit="${course.id}">${actionIcon('video')}<span>看影片</span></button>` : ''}${course.hasTeaching ? `<button aria-label="動手做" data-action="teaching" data-unit="${course.id}">${actionIcon('teaching')}<span>動手做</span></button>` : ''}<button class="primary" aria-label="玩練習" data-action="practice" data-unit="${course.id}">${actionIcon('practice')}<span>玩練習</span></button>` : `<a class="standalone-action" href="index.html?planet=math&grade=1&knowledgeUnit=${encodeURIComponent(course.id)}">${actionIcon('practice')}<span>去玩練習 ↗</span></a>`}</div></article>`).join('') || '<p class="note">準備中…</p>'}
-      ${related.length ? `<p class="section-label">先玩這些</p><div class="related picture-related">${related.map(({ topic, edge }) => `<button data-select="${topic.id}" aria-label="${escape(topic.label)}" title="${escape(edge.reason)}"><img src="${visuals[topic.id].art}" alt=""><span>${visuals[topic.id].caption}</span></button>`).join('')}</div>` : ''}
-      ${next.length ? `<p class="section-label">下一站 →</p><div class="related picture-related">${next.map(n => `<button data-select="${n.id}" aria-label="${escape(n.label)}"><img src="${visuals[n.id].art}" alt=""><span>${visuals[n.id].caption}</span></button>`).join('')}</div>` : ''}
+      ${related.length ? `<p class="section-label">先玩這些</p><div class="related picture-related">${related.map(({ topic, edge }) => `<button class="${practiceStatus(topic,state.records).practiced ? 'is-practiced' : 'is-unplayed'}" data-select="${topic.id}" aria-label="${escape(topic.label)}" title="${escape(edge.reason)}"><img src="${visuals[topic.id].art}" alt=""><span>${visuals[topic.id].caption}</span></button>`).join('')}</div>` : ''}
+      ${next.length ? `<p class="section-label">下一站 →</p><div class="related picture-related">${next.map(n => `<button class="${practiceStatus(n,state.records).practiced ? 'is-practiced' : 'is-unplayed'}" data-select="${n.id}" aria-label="${escape(n.label)}"><img src="${visuals[n.id].art}" alt=""><span>${visuals[n.id].caption}</span></button>`).join('')}</div>` : ''}
     </div>
     <p class="record-note">✦ 跟著你的進度，繼續探索。</p>`;
 }
 
 function render() {
+  document.body.classList.toggle('knowledge-motion-paused', state.paused);
   const focusedList = document.activeElement?.closest('#topic-list [data-select]')?.dataset.select;
   renderFilters();
   renderDetail();
@@ -50,7 +54,7 @@ function render() {
   const labelHTML = topics.map(node => {
     const group = groupFor(node), status = practiceStatus(node, state.records);
     const dim = state.group !== 'all' && state.group !== node.group;
-    return `<button class="star-label ${dim ? 'is-dim' : ''} ${status.practiced ? 'is-practiced' : ''} ${node.scope === 'extension' ? 'is-extension' : ''}" style="--route:${group.color}" data-select="${node.id}" aria-label="${escape(node.label)}，${status.practiced ? '已有練習紀錄' : '尚無練習紀錄'}" aria-pressed="${node.id === state.selected}"><span class="orb" aria-hidden="true"><img src="${visuals[node.id].art}" alt="" decoding="async"><i>${status.practiced ? '✓' : ''}</i></span><span class="name">${visuals[node.id].caption}</span></button>`;
+    return `<button class="star-label ${dim ? 'is-dim' : ''} ${status.practiced ? 'is-practiced' : 'is-unplayed'} ${node.scope === 'extension' ? 'is-extension' : ''}" style="--route:${group.color}" data-select="${node.id}" aria-label="${escape(node.label)}，${status.practiced ? '已有練習紀錄' : '尚無練習紀錄'}" aria-pressed="${node.id === state.selected}"><span class="orb" aria-hidden="true">${earnedOrbit(status.practiced)}<img src="${visuals[node.id].art}" alt="" decoding="async"><i>${status.practiced ? '✓' : ''}</i></span><span class="name">${visuals[node.id].caption}</span></button>`;
   }).join('');
   // Retain keyboard focus while labels are re-created after a selection.
   const focused = document.activeElement?.closest('#labels [data-select]')?.dataset.select;
@@ -58,7 +62,7 @@ function render() {
   if (focused) $('labels').querySelector(`[data-select="${focused}"]`)?.focus({ preventScroll: true });
   $('topic-list').innerHTML = topics.filter(n => state.group === 'all' || n.group === state.group).map(node => {
     const g = groupFor(node), status = practiceStatus(node, state.records);
-    return `<button data-select="${node.id}" aria-pressed="${node.id === state.selected}" style="--route:${g.color}"><img src="${visuals[node.id].art}" alt="">${visuals[node.id].caption}${status.practiced ? '<small>✓</small>' : ''}</button>`;
+    return `<button class="${status.practiced ? 'is-practiced' : 'is-unplayed'}" data-select="${node.id}" aria-pressed="${node.id === state.selected}" style="--route:${g.color}"><span class="list-picture">${earnedOrbit(status.practiced)}<img src="${visuals[node.id].art}" alt=""></span>${visuals[node.id].caption}${status.practiced ? '<small>✓</small>' : ''}</button>`;
   }).join('');
   if (focusedList) $('topic-list').querySelector(`[data-select="${focusedList}"]`)?.focus({ preventScroll: true });
   $('extensions').textContent = state.extensions ? '− 收起延伸挑戰' : '＋ 看看延伸挑戰';
@@ -129,7 +133,7 @@ try {
 render();
 send('lp-knowledge-ready');
 try {
-  const { createUniverse } = await import('./scene.mjs');
+  const { createUniverse } = await import('./scene.mjs?v=20261101-progress-glow');
   scene = createUniverse($('stage'), $('labels'));
   document.body.dataset.threeRevision = scene.revision;
   $('render-status').hidden = true;
@@ -137,7 +141,7 @@ try {
 } catch (error) {
   console.warn('Knowledge map 3D view unavailable:', error);
   try {
-    const { createUniverse } = await import('./scene-fallback.mjs');
+    const { createUniverse } = await import('./scene-fallback.mjs?v=20261101-progress-glow');
     scene = createUniverse($('stage'), $('labels'));
     document.body.dataset.threeRevision = scene.revision;
     document.body.dataset.knowledgeRenderer = 'cpu';

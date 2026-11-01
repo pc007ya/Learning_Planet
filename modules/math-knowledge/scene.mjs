@@ -145,18 +145,21 @@ export function createUniverse(stage, labels) {
       entry.mesh.visible = visible.has(id);
       const dim = value.group !== 'all' && value.group !== entry.node.group;
       const practiced = entry.node.units.some(unitId => value.records[unitId]?.practiced);
-      entry.mesh.material.color.set(id === value.selected ? '#ffe0a0' : practiced ? '#91edd6' : entry.color);
-      entry.mesh.material.opacity = dim ? .25 : 1;
-      entry.halo.material.opacity = dim ? .18 : id === value.selected ? 1 : .6;
+      entry.mesh.material.color.set(id === value.selected ? '#ffe0a0' : practiced ? '#91edd6' : '#788496');
+      entry.mesh.material.opacity = dim ? .18 : practiced || id === value.selected ? 1 : .4;
+      entry.halo.material.color.set(practiced ? '#91edd6' : id === value.selected ? '#ffe0a0' : '#788496');
+      entry.halo.material.opacity = dim ? .1 : practiced ? .95 : id === value.selected ? .8 : .18;
       entry.mesh.scale.setScalar(id === value.selected ? 1.4 : 1);
     }
     for (const row of edgeMeshes) {
       row.line.visible = visible.has(row.edge.from) && visible.has(row.edge.to);
       const active = row.edge.from === value.selected || row.edge.to === value.selected;
+      const bothPlayed = [row.edge.from, row.edge.to].every(id => nodeMeshes.get(id).node.units.some(unitId => value.records[unitId]?.practiced));
       const inGroup = value.group === 'all' || [row.edge.from, row.edge.to].every(id => nodeMeshes.get(id).node.group === value.group);
-      row.line.material.opacity = inGroup ? active ? .62 : .12 : .035;
-      row.line.material.color.set(active ? '#dac3ff' : '#9da1c5');
-      row.particle.visible = active && row.line.visible && !paused;
+      row.line.material.opacity = inGroup ? active ? .62 : bothPlayed ? .38 : .075 : .025;
+      row.line.material.color.set(active ? '#dac3ff' : bothPlayed ? '#91dfc5' : '#788496');
+      row.particle.material.color.set(bothPlayed ? '#b7f8d5' : '#efdcff');
+      row.particle.visible = (active || bothPlayed && inGroup) && row.line.visible && !paused;
     }
     resize();
   }

@@ -36,14 +36,15 @@ export function createUniverse(stage, labels) {
     }
     svg.querySelector('.cpu-edges').innerHTML=edges.filter(e=>positions.has(e.from)&&positions.has(e.to)).map(e=>{
       const a=positions.get(e.from),b=positions.get(e.to),active=e.from===current.selected||e.to===current.selected;
+      const bothPlayed=[e.from,e.to].every(id=>current.topics.find(n=>n.id===id).units.some(unit=>current.records[unit]?.practiced));
       const inGroup=current.group==='all'||current.topics.filter(n=>n.id===e.from||n.id===e.to).every(n=>n.group===current.group);
       const path=`M${a[0]} ${a[1]} Q${(a[0]+b[0])/2+4} ${(a[1]+b[1])/2-7} ${b[0]} ${b[1]}`;
-      return `<path d="${path}" fill="none" stroke="${active?'#d1bbf5':'#9b96bd'}" stroke-width="${active?'1.2':'.7'}" opacity="${inGroup?active?'.65':'.19':'.045'}" ${e.strength==='suggested'&&!active?'stroke-dasharray="2 4"':''}/>${active&&!current.paused?`<circle r="1.6" fill="#e3d4ff" opacity=".85"><animateMotion dur="${5+random()*5}s" repeatCount="indefinite" path="${path}"/></circle>`:''}`;
+      return `<path d="${path}" fill="none" stroke="${active?'#d1bbf5':bothPlayed?'#91dfc5':'#788496'}" stroke-width="${active?'1.2':bothPlayed?'1':'.7'}" opacity="${inGroup?active?'.65':bothPlayed?'.42':'.1':'.035'}" ${e.strength==='suggested'&&!active&&!bothPlayed?'stroke-dasharray="2 4"':''}/>${(active||bothPlayed&&inGroup)&&!current.paused?`<circle r="1.6" fill="${bothPlayed?'#b7f8d5':'#e3d4ff'}" opacity=".85"><animateMotion dur="${5+random()*5}s" repeatCount="indefinite" path="${path}"/></circle>`:''}`;
     }).join('');
     svg.querySelector('.cpu-nodes').innerHTML=current.topics.map(n=>{
       const[x,y]=positions.get(n.id),selected=n.id===current.selected,dim=current.group!=='all'&&n.group!==current.group;
-      const color=selected?'#ffe2a5':n.units.some(id=>current.records[id]?.practiced)?'#91edd6':groups.find(g=>g.id===n.group).color;
-      return `<g opacity="${dim?'.23':'1'}"><circle cx="${x}" cy="${y}" r="${selected?24:17}" fill="url(#node-glow)"/><circle cx="${x}" cy="${y}" r="${selected?'3':'2'}" fill="${color}"/></g>`;
+      const practiced=n.units.some(id=>current.records[id]?.practiced),color=selected?'#ffe2a5':practiced?'#91edd6':'#788496';
+      return `<g opacity="${dim?'.16':practiced||selected?'1':'.3'}"><circle cx="${x}" cy="${y}" r="${selected?24:17}" fill="url(#node-glow)"/><circle cx="${x}" cy="${y}" r="${selected?'3':'2'}" fill="${color}"/></g>`;
     }).join('');
   }
   function update(value){current=value;svg.classList.toggle('is-paused',value.paused);projectLabels();}
