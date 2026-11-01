@@ -2,7 +2,10 @@
   'use strict';
   const base = new URL('./', document.baseURI);
   let component;
-  let pending = route() || (new URLSearchParams(location.search).get("planet") === "experiment" ? "experiments" : "");
+  const launchParams = new URLSearchParams(location.search);
+  const gradeOneLink = launchParams.get('planet') === 'math' && launchParams.get('grade') === '1';
+  let knowledgeUnit = gradeOneLink ? launchParams.get('knowledgeUnit') || '' : '';
+  let pending = gradeOneLink ? 'math/grade-1' : route() || (launchParams.get("planet") === "experiment" ? "experiments" : "");
   let changing = false;
   const paths = {math:'math/',chinese:'chinese/',english:'english/',science:'science/',experiment:'experiments/'};
   function route() { return location.pathname.startsWith(base.pathname) ? location.pathname.slice(base.pathname.length).replace(/^\/+|\/+$/g,'') : ''; }
@@ -27,7 +30,13 @@
       requestAnimationFrame(() => document.querySelector('a[data-subject="story"]')?.click());
     } else {
       const subject = Object.keys(paths).find(key => path === paths[key].replace(/\/$/,'') || path.startsWith(paths[key]));
-      component.setState(subject ? {screen:'map',subject,grade: path === 'math/grade-3' || subject === 'science' ? 3 : state.grade === 7 ? 1 : state.grade} : {screen:'home'});
+      const mathGrade = /^math\/grade-([1-6])$/.exec(path);
+      component.setState(subject ? {screen:'map',subject,grade: mathGrade ? Number(mathGrade[1]) : subject === 'science' ? 3 : state.grade === 7 ? 1 : state.grade} : {screen:'home'}, () => {
+        if (path === 'math/grade-1' && knowledgeUnit) {
+          const unit = knowledgeUnit; knowledgeUnit = '';
+          component.startKnowledgeUnit?.(unit);
+        }
+      });
     }
     changing = false;
   }
@@ -50,5 +59,5 @@
   }
   addEventListener('popstate', () => { pending = ''; const path = route(); if (!path.startsWith('stories')) { changing = true; document.dispatchEvent(new Event('lp-story-close')); changing = false; } apply(path); });
   document.addEventListener('lp-story-route', () => { if (component) sync(component); });
-  window.LPHomeRoutes = {sync, requestedRole:roleRoute, reset() { pending=''; changing=true; document.dispatchEvent(new Event('lp-story-close')); changing=false; history.replaceState({},'',base); }};
+  window.LPHomeRoutes = {sync, requestedRole:roleRoute, reset() { pending=''; knowledgeUnit=''; changing=true; document.dispatchEvent(new Event('lp-story-close')); changing=false; history.replaceState({},'',base); }};
 })();
