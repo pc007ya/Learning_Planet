@@ -11,13 +11,13 @@
 <body>
   <header class="topbar">
     <button id="back" class="back" aria-label="回到數學星球一年級"><span aria-hidden="true">←</span><span>數學星球</span></button>
-    <span class="brand">LEARNING PLANET <i>／</i> GRADE 01</span>
-    <button id="motion" class="quiet" aria-pressed="false" title="切換星空動畫">暫停星空</button>
+    <span class="brand" aria-label="學習星球">✦</span>
+    <button id="motion" class="quiet" aria-pressed="false" aria-label="暫停星空" title="切換星空動畫">Ⅱ</button>
   </header>
   <main>
     <section class="intro">
-      <div><p class="eyebrow"><span class="tiny-star">✦</span> 跟著好奇心，找到下一站</p><h1>小一數學<span>知識星圖</span></h1><p class="subtitle">每一顆星，都是一個新發現。點選星點，開始你的探索。</p></div>
-      <div class="summary"><span><b id="concept-count">22</b>核心概念</span><span><b>27</b>現有單元</span><span><b id="practiced-count">0</b>有練習紀錄</span></div>
+      <div><p class="eyebrow"><span class="tiny-star">✦</span> 數學星球・一年級</p><h1>小一<span>知識星圖</span></h1><p class="subtitle">點圖案，選任務。</p></div>
+      <div class="summary"><span><b id="concept-count">22</b>顆星</span><span><b>27</b>單元</span><span><b id="practiced-count">0</b>玩過</span></div>
     </section>
     <nav id="filters" class="filters" aria-label="選擇知識航線"></nav>
     <div class="workspace">
@@ -26,14 +26,14 @@
         <div id="stage" tabindex="0" aria-label="拖曳轉動星圖，滾輪或雙指縮放；也可按星點或切換清單。"><div id="labels"></div><p id="render-status" role="status">正在打開你的星空…</p></div>
         <div id="topic-list" class="topic-list" hidden></div>
         <div class="map-bottom"><div class="legend"><span><i class="dot"></i>尚無紀錄</span><span><i class="dot practiced"></i>已有練習</span><span><i class="line"></i>概念銜接</span></div><div class="map-tools"><button id="zoom-out" aria-label="縮小星圖">−</button><button id="reset" aria-label="回到星圖全景">全景</button><button id="zoom-in" aria-label="放大星圖">＋</button></div></div>
-        <p class="map-help" id="map-help">拖曳轉動・雙指縮放・點星點看課程</p>
+        <p class="map-help" id="map-help">拖一拖・放大看・點圖案</p>
       </section>
       <aside class="detail" id="detail" aria-label="知識點與對應課程" aria-live="polite"></aside>
     </div>
-    <footer><span>依台灣數學課綱建立・航線為教學建議，可自由探索</span><button id="extensions" aria-pressed="false">＋ 看看延伸挑戰</button><button id="source">課綱對照</button></footer>
-    <p id="connection-status" class="connection-status" role="status">可先自由探索；從數學星球進入，可開啟課程並查看自己的練習紀錄。</p>
+    <footer><span>✦ 自由探索，每一站都可以玩。</span><button id="extensions" aria-pressed="false">＋ 看看延伸挑戰</button><button id="source" aria-label="給大人：課綱與學習說明">ⓘ 給大人</button></footer>
+    <p id="connection-status" class="connection-status" role="status">✦ 選一個圖案，開始探索。</p>
   </main>
-  <dialog id="standards-dialog"><div class="source-head"><h2>小一課綱對照</h2><button id="close-source" aria-label="關閉課綱對照">✕</button></div><div id="standards-content"></div></dialog>
+  <dialog id="standards-dialog"><div class="source-head"><h2>給大人・學習說明</h2><button id="close-source" aria-label="關閉課綱對照">✕</button></div><div id="standards-content"></div></dialog>
   <script type="module" src="modules/math-knowledge/app.mjs"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@ import vm from 'node:vm';
 import { nodes, edges, groups, curriculum, courseOrder, practiceStatus } from '../modules/math-knowledge/grade1.mjs';
 import { openKnowledgeMap } from '../modules/math-knowledge/launch.mjs';
 import { REVISION, OrthographicCamera, Vector3 } from '../modules/math-knowledge/vendor/three-r187/three.core.js';
+import { visuals, routeVisuals, actionIcon } from '../modules/math-knowledge/visuals.mjs';
 
 const index = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const courses = JSON.parse(fs.readFileSync(new URL('../modules/math-knowledge/courses.json', import.meta.url)));
@@ -115,4 +116,17 @@ test('the production host passes only activity flags and dispatches actions for 
   assert.deepEqual(actions,['practice:u108','video:u108','teaching:u108']);
   host.state.currentId='learner-B';await opened.onAction('practice',target);
   assert.equal(actions.length,3);
+});
+
+test('every concept has an existing short-caption illustration and exact quantity diagrams', () => {
+  for(const topic of nodes){const visual=visuals[topic.id];assert.ok(visual,topic.id);assert.ok([...visual.caption].length<=8,topic.id);assert.ok(fs.existsSync(new URL('../'+visual.art,import.meta.url)),visual.art);}
+  for(const group of groups)assert.ok(visuals[routeVisuals[group.id].topic]);
+  const frame=fs.readFileSync(new URL('../modules/math-knowledge/icons/ten-frame.svg',import.meta.url),'utf8');
+  assert.equal((frame.match(/<circle /g)||[]).length,10);
+  const place=fs.readFileSync(new URL('../modules/math-knowledge/icons/place-value.svg',import.meta.url),'utf8');
+  assert.equal((place.match(/fill="url\(#b\)"/g)||[]).length,10);
+  for(const action of ['video','teaching','practice'])assert.ok(actionIcon(action).includes('<svg'));
+  const app=fs.readFileSync(new URL('../modules/math-knowledge/app.mjs',import.meta.url),'utf8');
+  assert.ok(app.includes('id="current-standard"'));
+  assert.ok(!app.includes('<p class="goal">${node.goal}'));
 });

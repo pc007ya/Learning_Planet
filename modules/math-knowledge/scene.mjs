@@ -104,6 +104,7 @@ export function createUniverse(stage, labels) {
     height = stage.clientHeight;
     renderer.setSize(width, height, false);
     const aspect = width / height;
+    world.scale.y = aspect < .95 ? 1.65 : 1;
     const desiredHeight = extensions ? 104 : 89;
     const visibleHeight = Math.max(desiredHeight, 119 / aspect) / zoom;
     camera.left = -visibleHeight * aspect / 2;
@@ -118,6 +119,7 @@ export function createUniverse(stage, labels) {
   }
   const projected = new THREE.Vector3();
   function projectLabels() {
+    labels.style.visibility = "visible";
     world.updateMatrixWorld();
     camera.updateMatrixWorld();
     for (const label of labels.querySelectorAll('[data-select]')) {

@@ -22,8 +22,9 @@ export function createUniverse(stage, labels) {
   function project(position){const v=new Vector3(...position).applyMatrix4(world.matrixWorld).project(camera);return[(v.x*.5+.5)*width,(-v.y*.5+.5)*height];}
   function projectLabels(){
     if(!visible||!stage.clientWidth)return;
-    width=stage.clientWidth;height=stage.clientHeight;
+    width=stage.clientWidth;height=stage.clientHeight;labels.style.visibility="visible";
     const aspect=width/height,viewHeight=Math.max(current.extensions?104:89,119/aspect)/zoom;
+    world.scale.y=aspect<.95?1.65:1;
     camera.left=-viewHeight*aspect/2;camera.right=-camera.left;camera.top=viewHeight/2;camera.bottom=-camera.top;
     camera.position.set(0,current.extensions?-9:-3,150);camera.lookAt(0,camera.position.y,0);
     camera.updateProjectionMatrix();camera.updateMatrixWorld();world.updateMatrixWorld();svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
