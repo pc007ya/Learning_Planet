@@ -3,9 +3,10 @@
   const base = new URL('./', document.baseURI);
   let component;
   const launchParams = new URLSearchParams(location.search);
-  const gradeOneLink = launchParams.get('planet') === 'math' && launchParams.get('grade') === '1';
-  let knowledgeUnit = gradeOneLink ? launchParams.get('knowledgeUnit') || '' : '';
-  let pending = gradeOneLink ? 'math/grade-1' : route() || (launchParams.get("planet") === "experiment" ? "experiments" : "");
+  const knowledgeGrade = Number(launchParams.get('grade'));
+  const knowledgeLink = launchParams.get('planet') === 'math' && [1,2,3].includes(knowledgeGrade);
+  let knowledgeUnit = knowledgeLink ? launchParams.get('knowledgeUnit') || '' : '';
+  let pending = knowledgeLink ? `math/grade-${knowledgeGrade}` : route() || (launchParams.get("planet") === "experiment" ? "experiments" : "");
   let changing = false;
   const paths = {math:'math/',chinese:'chinese/',english:'english/',science:'science/',experiment:'experiments/'};
   function route() { return location.pathname.startsWith(base.pathname) ? location.pathname.slice(base.pathname.length).replace(/^\/+|\/+$/g,'') : ''; }
@@ -32,7 +33,7 @@
       const subject = Object.keys(paths).find(key => path === paths[key].replace(/\/$/,'') || path.startsWith(paths[key]));
       const mathGrade = /^math\/grade-([1-6])$/.exec(path);
       component.setState(subject ? {screen:'map',subject,grade: mathGrade ? Number(mathGrade[1]) : subject === 'science' ? 3 : state.grade === 7 ? 1 : state.grade} : {screen:'home'}, () => {
-        if (path === 'math/grade-1' && knowledgeUnit) {
+        if (mathGrade && Number(mathGrade[1]) === knowledgeGrade && knowledgeUnit) {
           const unit = knowledgeUnit; knowledgeUnit = '';
           component.startKnowledgeUnit?.(unit);
         }

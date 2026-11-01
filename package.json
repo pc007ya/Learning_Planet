@@ -23,7 +23,7 @@
     "build:experiment-planets": "vite build --config vite.experiment-planets.config.ts",
     "build:tides": "vite build --config vite.tides.config.mjs",
     "build:tides3d": "vite build --config vite.tides3d.config.mjs",
-    "test:math-knowledge": "node --test tests/math-knowledge-grade1.check.mjs"
+    "test:math-knowledge": "node --test tests/math-knowledge-*.check.mjs"
   },
   "dependencies": {
     "pixi.js": "^8.18.1",

@@ -57,8 +57,8 @@ test('the pinned r187 camera places every core node inside the tablet map', () =
 });
 
 test('the first Grade 1 entry precedes the unit grid and is scoped to math/grade 1', () => {
-  assert.ok(index.indexOf('data-grade1-knowledge-open')<index.indexOf('<sc-for list="{{ units }}"'));
-  assert.ok(index.includes('showGradeOneKnowledge: s.subject === "math" && s.grade === 1'));
+  assert.ok(index.indexOf('data-math-knowledge-open')<index.indexOf('<sc-for list="{{ units }}"'));
+  assert.ok(index.includes('showMathKnowledge: s.subject === "math" && [1, 2, 3].includes(s.grade)'));
   assert.ok(index.includes('this.state.currentId !== learnerId'));
 });
 
@@ -71,7 +71,7 @@ test('frame actions require both same origin and exact frame, and reject unknown
   globalThis.window={addEventListener:(key,fn)=>listeners.set(key,fn),removeEventListener:(key)=>listeners.delete(key)};
   globalThis.document={activeElement:{focus(){}},querySelector:()=>null,body:{append(){}},createElement(tag){const e=element(tag);if(tag==='dialog')dialog=e;if(tag==='iframe'){frame=e;e.contentWindow={postMessage(){}};}return e;}};
   try{
-    openKnowledgeMap({courses:[{id:'u108',hasVideo:false,hasTeaching:true}],records:{},onAction:(...args)=>actions.push(args)});
+    openKnowledgeMap({courses:[{id:'u108',code:'1-16',hasVideo:false,hasTeaching:true}],records:{},onAction:(...args)=>actions.push(args)});
     const listener=listeners.get('message');
     const event=(origin,source,unitId,action='practice')=>({origin,source,data:{type:'lp-knowledge-action',unitId,action}});
     listener(event('https://other.example',frame.contentWindow,'u108'));
@@ -80,7 +80,7 @@ test('frame actions require both same origin and exact frame, and reject unknown
     listener(event(location.origin,frame.contentWindow,'u108','video'));
     assert.equal(actions.length,0);
     listener(event(location.origin,frame.contentWindow,'u108'));
-    assert.deepEqual(actions,[['practice',{id:'u108',hasVideo:false,hasTeaching:true}]]);
+    assert.deepEqual(actions,[['practice',{id:'u108',code:'1-16',hasVideo:false,hasTeaching:true}]]);
     assert.equal(listeners.has('message'),false);
   }finally{Object.assign(globalThis,previous);}
 });
@@ -96,17 +96,17 @@ test('standalone links resume the chosen first-grade course after login and cann
   state.screen='home';context.LPHomeRoutes.sync(owner);
   assert.equal(state.grade,1);assert.equal(state.subject,'math');assert.deepEqual(actions,['u108']);
   context.LPHomeRoutes.sync(owner);assert.equal(actions.length,1);
-  assert.ok(index.includes('MATH_UNITS.some(u => u.id === id && u.grade === 1)'));
+  assert.ok(index.includes('MATH_UNITS.some(u => u.id === id && u.grade === this.state.grade && [1, 2, 3].includes(u.grade))'));
 });
 
 test('the production host passes only activity flags and dispatches actions for the same learner', async () => {
-  const source=index.match(/  async openGradeOneKnowledge\(\) \{[\s\S]*?\n  \}\n\n  startUnit/)[0].replace(/\n\n  startUnit$/,'').replace(/await import\("\.\/modules\/math-knowledge\/launch\.mjs[^"\n]*"\)/,'await suppliedImport()');
+  const source=index.match(/  async openMathKnowledge\(\) \{[\s\S]*?\n  \}\n\n  startUnit/)[0].replace(/\n\n  startUnit$/,'').replace(/await import\("\.\/modules\/math-knowledge\/launch\.mjs[^"\n]*"\)/,'await suppliedImport()');
   let opened;
   const actions=[];
   const runtime={MATH_UNITS:courses.map(c=>({...c,grade:1,displayCode:c.code})),VIDEO_LIB:{u108:{}},dailyMasteryRound:()=>0,document:{querySelector:selector=>selector.includes('1-16')?{click:()=>actions.push('teaching:u108')}:null},suppliedImport:async()=>({openKnowledgeMap:args=>{opened=args;return()=>{};}}),console};
   const methods=vm.runInNewContext('({'+source+'})',runtime);
   const host={...methods,state:{subject:'math',grade:1,currentId:'learner-A'},prof:()=>({cleared:['u104'],masteryHistory:{'2026-10-31':['u108']},mathQuestionHistory:{},name:'Do not transmit'}),loadLearningData:async()=>{},startUnit:id=>actions.push('practice:'+id),startVideo:id=>actions.push('video:'+id),flash:message=>assert.fail(message)};
-  await host.openGradeOneKnowledge();
+  await host.openMathKnowledge();
   assert.equal(opened.courses.length,27);
   assert.equal(opened.records.u104.practiced,true);
   assert.equal(opened.records.u108.practiced,true);

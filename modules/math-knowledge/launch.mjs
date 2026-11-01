@@ -1,16 +1,19 @@
 // The host keeps login and the active learner mounted. No credentials cross frames.
-export function openKnowledgeMap({ courses, records, onAction }) {
+export function openKnowledgeMap({ grade = 1, courses, records, onAction }) {
+  if (![1,2,3].includes(grade)) return;
+  const shortName = ['','小一','小二','小三'][grade];
+  courses = courses.filter(course => String(course.code).startsWith(grade + '-'));
   if (document.querySelector('[data-knowledge-dialog]')) return;
   const opener = document.activeElement;
   const dialog = document.createElement('dialog');
-  dialog.dataset.knowledgeDialog = 'grade1';
-  dialog.setAttribute('aria-label', '小一數學知識星圖');
+  dialog.dataset.knowledgeDialog = `grade${grade}`;
+  dialog.setAttribute('aria-label', `${shortName}數學知識星圖`);
   dialog.style.cssText = 'width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#080d24;';
   const frame = document.createElement('iframe');
-  const url = new URL('../../math-knowledge-grade1.html', import.meta.url);
-  url.searchParams.set('v', '20261101-progress-glow');
+  const url = new URL(`../../math-knowledge-grade${grade}.html`, import.meta.url);
+  url.searchParams.set('v', '20261101-grades123');
   frame.src = url.href;
-  frame.title = '小一數學知識星圖';
+  frame.title = `${shortName}數學知識星圖`;
   frame.style.cssText = 'width:100%;height:100%;border:0;display:block';
   dialog.append(frame);
   const allowed = new Map(courses.map(course => [course.id, course]));

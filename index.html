@@ -31,7 +31,7 @@
 <script type="module" src="./src/firebase-config.js"></script>
 <script type="module" src="./auth-v2/firebase-client.js"></script>
 <script src="./home-resources.js" defer></script>
-<script src="./home-routes.js?v=grade1-knowledge-20261101" defer></script>
+<script src="./home-routes.js?v=grades123-knowledge-20261101" defer></script>
 
 
 
@@ -1716,10 +1716,10 @@
           <a href="chinese-practice.html?from=map" target="_blank" rel="noopener noreferrer" aria-label="開啟國語生字練習簿" style="display:flex;align-items:center;gap:16px;margin:0 0 20px;padding:18px 24px;border:1px solid rgba(255,205,121,.5);border-radius:22px;background:rgba(76,42,96,.65);color:#fff;text-decoration:none;backdrop-filter:blur(12px)"><img src="images/subject-unit-icons/v1/chinese-writing-v1.png" alt="" style="width:60px;height:60px;object-fit:contain"><span><strong style="font-size:20px;display:block">國語生字練習簿 ↗</strong><small style="color:#ffe4ae">選教材・勾生字・自訂字・A4 列印／PDF</small></span></a>
         </sc-if>
         <div class="subject-world-content">
-        <sc-if value="{{ showGradeOneKnowledge }}" hint-placeholder-val="{{ false }}">
-          <button type="button" data-grade1-knowledge-open="true" onClick="{{ openGradeOneKnowledge }}" aria-label="開啟小一數學知識星圖" style="width:100%;display:flex;align-items:center;gap:18px;text-align:left;margin:0 0 20px;padding:20px 24px;border:1px solid rgba(198,173,255,.48);border-radius:24px;background:radial-gradient(ellipse at 15% 35%,rgba(127,86,180,.48),transparent 58%),linear-gradient(110deg,rgba(24,26,65,.94),rgba(16,38,62,.9));color:#fff;font-family:inherit;cursor:pointer;box-shadow:0 10px 35px rgba(17,12,48,.22)">
+        <sc-if value="{{ showMathKnowledge }}" hint-placeholder-val="{{ false }}">
+          <button type="button" data-math-knowledge-open="true" onClick="{{ openMathKnowledge }}" aria-label="{{ knowledgeLabel }}" style="width:100%;display:flex;align-items:center;gap:18px;text-align:left;margin:0 0 20px;padding:20px 24px;border:1px solid rgba(198,173,255,.48);border-radius:24px;background:radial-gradient(ellipse at 15% 35%,rgba(127,86,180,.48),transparent 58%),linear-gradient(110deg,rgba(24,26,65,.94),rgba(16,38,62,.9));color:#fff;font-family:inherit;cursor:pointer;box-shadow:0 10px 35px rgba(17,12,48,.22)">
             <img src="modules/math-knowledge/entry.svg" alt="" style="width:70px;height:70px;object-fit:contain;flex:none">
-            <span style="flex:1;min-width:0"><small style="display:block;color:#c1b5e6;font-size:10px;letter-spacing:.15em;margin-bottom:6px">點圖案，開始玩</small><strong style="font-size:21px;display:block">小一知識星圖</strong></span>
+            <span style="flex:1;min-width:0"><small style="display:block;color:#c1b5e6;font-size:10px;letter-spacing:.15em;margin-bottom:6px">點圖案，開始玩</small><strong style="font-size:21px;display:block">{{ knowledgeTitle }}</strong></span>
             <span aria-hidden="true" style="font-size:25px;color:#cfb6ff">↗</span>
           </button>
         </sc-if>
@@ -8361,22 +8361,23 @@ class Component extends DCLogic {
   }
 
   async startKnowledgeUnit(id) {
-    if (!MATH_UNITS.some(u => u.id === id && u.grade === 1) || !this.state.currentId || this.state.teacher) return;
-    const learnerId = this.state.currentId;
+    if (!MATH_UNITS.some(u => u.id === id && u.grade === this.state.grade && [1, 2, 3].includes(u.grade)) || !this.state.currentId || this.state.teacher) return;
+    const learnerId = this.state.currentId, grade = this.state.grade;
     await this.loadLearningData();
-    if (this.state.currentId === learnerId) this.startUnit(id);
+    if (this.state.currentId === learnerId && this.state.grade === grade && this.state.subject === "math") this.startUnit(id);
   }
 
-  async openGradeOneKnowledge() {
-    if (this.knowledgeOpening || this.state.subject !== "math" || this.state.grade !== 1) return;
+  async openMathKnowledge() {
+    if (this.knowledgeOpening || this.state.subject !== "math" || ![1, 2, 3].includes(this.state.grade)) return;
     const learnerId = this.state.currentId;
+    const grade = this.state.grade;
     this.knowledgeOpening = true;
     try {
-      const { openKnowledgeMap } = await import("./modules/math-knowledge/launch.mjs?v=20261101-progress-glow");
-      if (this.state.currentId !== learnerId) return;
+      const { openKnowledgeMap } = await import("./modules/math-knowledge/launch.mjs?v=20261101-grades123");
+      if (this.state.currentId !== learnerId || this.state.grade !== grade || this.state.subject !== "math") return;
       const profile = this.prof();
       const history = new Set(Object.values(profile.masteryHistory || {}).flat());
-      const courses = MATH_UNITS.filter(u => u.grade === 1).map(u => ({
+      const courses = MATH_UNITS.filter(u => u.grade === grade).map(u => ({
         id: u.id, code: u.displayCode, title: u.title, hasVideo: !!VIDEO_LIB[u.id],
         hasTeaching: !!document.querySelector('[data-math-code="' + u.displayCode + '"] [data-math-teaching-open]'),
       }));
@@ -8384,14 +8385,14 @@ class Component extends DCLogic {
         (profile.cleared || []).includes(u.id) || history.has(u.id) || dailyMasteryRound(profile, u.id) > 0 ||
         (profile.mathQuestionHistory && profile.mathQuestionHistory[u.id] || []).length > 0
       }]));
-      this.knowledgeClose = openKnowledgeMap({ courses, records, onAction: async (action, course) => {
-        if (this.state.currentId !== learnerId) return;
+      this.knowledgeClose = openKnowledgeMap({ grade, courses, records, onAction: async (action, course) => {
+        if (this.state.currentId !== learnerId || this.state.grade !== grade || this.state.subject !== "math") return;
         if (action === "video") this.startVideo(course.id, "map");
         else if (action === "teaching") document.querySelector('[data-math-code="' + course.code + '"] [data-math-teaching-open]')?.click();
-        else { await this.loadLearningData(); if (this.state.currentId === learnerId) this.startUnit(course.id); }
+        else { await this.loadLearningData(); if (this.state.currentId === learnerId && this.state.grade === grade && this.state.subject === "math") this.startUnit(course.id); }
       }});
     } catch (error) {
-      console.warn("Grade 1 knowledge map could not open:", error);
+      console.warn("Math knowledge map could not open:", error);
       this.flash("星圖暫時無法開啟，請稍後再試。");
     } finally { this.knowledgeOpening = false; }
   }
@@ -11130,8 +11131,10 @@ class Component extends DCLogic {
       showChallengeRules: s.subject !== "experiment",
       isExperimentSubject: s.subject === "experiment",
       showGeoExplore: false,
-      showGradeOneKnowledge: s.subject === "math" && s.grade === 1,
-      openGradeOneKnowledge: () => this.openGradeOneKnowledge(),
+      showMathKnowledge: s.subject === "math" && [1, 2, 3].includes(s.grade),
+      knowledgeTitle: ["", "小一", "小二", "小三"][s.grade] + "知識星圖",
+      knowledgeLabel: "開啟" + ["", "小一", "小二", "小三"][s.grade] + "數學知識星圖",
+      openMathKnowledge: () => this.openMathKnowledge(),
       gradeTabs: (s.subject === "experiment" ? [] : s.subject === "english" ? [1, 2, 3, 4, 5, 6, 7] : s.subject === "math" ? [1, 2, 3, 4, 5, 6] : s.subject === "science" ? [3, 4, 5, 6] : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級", "繪本單字"][g], active: String(s.grade === g),
         go: () => this.setState({ grade: g }),
         bg: s.grade === g ? "#7c5cff" : "#fff",

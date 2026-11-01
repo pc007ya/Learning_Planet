@@ -1,5 +1,6 @@
 import * as THREE from './vendor/three-r187/three.module.js';
-import { groups, edges } from './grade1.mjs';
+import { groups, edges } from './dataset.mjs';
+import { constellationFrame } from './layout.mjs';
 
 export function createUniverse(stage, labels) {
   if (THREE.REVISION !== '187') throw new Error('This knowledge map requires Three.js r187.');
@@ -104,15 +105,16 @@ export function createUniverse(stage, labels) {
     height = stage.clientHeight;
     renderer.setSize(width, height, false);
     const aspect = width / height;
-    world.scale.y = aspect < .95 ? 1.65 : 1;
-    const desiredHeight = extensions ? 104 : 89;
-    const visibleHeight = Math.max(desiredHeight, 119 / aspect) / zoom;
+    if (!current.topics.length) return;
+    const frame = constellationFrame(current.topics, width, height, zoom);
+    world.scale.y = frame.stretch;
+    const visibleHeight = frame.viewHeight;
     camera.left = -visibleHeight * aspect / 2;
     camera.right = visibleHeight * aspect / 2;
     camera.top = visibleHeight / 2;
     camera.bottom = -visibleHeight / 2;
-    camera.position.y = extensions ? -9 : -3;
-    camera.lookAt(0, camera.position.y, 0);
+    camera.position.set(frame.centerX, frame.centerY, 150);
+    camera.lookAt(frame.centerX, frame.centerY, 0);
     camera.updateProjectionMatrix();
     dirty = true;
     projectLabels();

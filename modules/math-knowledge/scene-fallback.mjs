@@ -1,6 +1,7 @@
 // CPU projection for devices without WebGL. Both views use Three.js r187 cameras.
 import { REVISION, OrthographicCamera, Group, Vector3, MathUtils } from './vendor/three-r187/three.core.js';
-import { edges, groups } from './grade1.mjs';
+import { edges } from './dataset.mjs';
+import { constellationFrame } from './layout.mjs';
 
 export function createUniverse(stage, labels) {
   const NS = 'http://www.w3.org/2000/svg';
@@ -23,10 +24,11 @@ export function createUniverse(stage, labels) {
   function projectLabels(){
     if(!visible||!stage.clientWidth)return;
     width=stage.clientWidth;height=stage.clientHeight;labels.style.visibility="visible";
-    const aspect=width/height,viewHeight=Math.max(current.extensions?104:89,119/aspect)/zoom;
-    world.scale.y=aspect<.95?1.65:1;
+    if(!current.topics.length)return;
+    const aspect=width/height,frame=constellationFrame(current.topics,width,height,zoom),viewHeight=frame.viewHeight;
+    world.scale.y=frame.stretch;
     camera.left=-viewHeight*aspect/2;camera.right=-camera.left;camera.top=viewHeight/2;camera.bottom=-camera.top;
-    camera.position.set(0,current.extensions?-9:-3,150);camera.lookAt(0,camera.position.y,0);
+    camera.position.set(frame.centerX,frame.centerY,150);camera.lookAt(frame.centerX,frame.centerY,0);
     camera.updateProjectionMatrix();camera.updateMatrixWorld();world.updateMatrixWorld();svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
     const positions=new Map(current.topics.map(n=>[n.id,project(n.position)]));
     for(const label of labels.querySelectorAll('[data-select]')){

@@ -6,18 +6,13 @@
   <meta name="theme-color" content="#080d24">
   <meta name="description" content="學習星球小一數學知識星圖：依台灣課綱探索概念航線，連結原有課程、教學與練習。">
   <title>小一知識星圖｜學習星球</title>
-  <link rel="stylesheet" href="modules/math-knowledge/style.css?v=20261101-progress-glow">
+  <link rel="stylesheet" href="modules/math-knowledge/style.css?v=20261101-grades123">
 </head>
-<body>
-  <header class="topbar">
-    <button id="back" class="back" aria-label="回到數學星球一年級"><span aria-hidden="true">←</span><span>數學星球</span></button>
-    <span class="brand" aria-label="學習星球">✦</span>
-    <button id="motion" class="quiet" aria-pressed="false" aria-label="暫停星空" title="切換星空動畫">Ⅱ</button>
-  </header>
+<body data-grade="1">
   <main>
     <section class="intro">
-      <div><p class="eyebrow"><span class="tiny-star">✦</span> 數學星球・一年級</p><h1>小一<span>知識星圖</span></h1><p class="subtitle">點圖案，選任務。</p></div>
-      <div class="summary"><span><b id="concept-count">22</b>顆星</span><span><b>27</b>單元</span><span><b id="practiced-count">0</b>玩過</span></div>
+      <div><div class="eyebrow"><button id="back" class="back" aria-label="回到數學星球一年級"><span aria-hidden="true">←</span></button><span>數學星球・一年級</span></div><h1>小一<span>知識星圖</span></h1><p class="subtitle">點圖案，選任務。</p></div>
+      <div class="summary"><span><b id="concept-count">22</b>顆星</span><span><b id="unit-count">27</b>單元</span><span><b id="practiced-count">0</b>玩過</span></div>
     </section>
     <nav id="filters" class="filters" aria-label="選擇知識航線"></nav>
     <div class="workspace">
@@ -34,6 +29,6 @@
     <p id="connection-status" class="connection-status" role="status">✦ 選一個圖案，開始探索。</p>
   </main>
   <dialog id="standards-dialog"><div class="source-head"><h2>給大人・學習說明</h2><button id="close-source" aria-label="關閉課綱對照">✕</button></div><div id="standards-content"></div></dialog>
-  <script type="module" src="modules/math-knowledge/app.mjs?v=20261101-progress-glow"></script>
+  <script type="module" src="modules/math-knowledge/app.mjs?v=20261101-grades123"></script>
 </body>
 </html>
