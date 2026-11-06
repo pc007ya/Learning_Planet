@@ -44,11 +44,19 @@
   add(131, '概數與估算', (r,i) => {
     const n=r(115,875), place=10**(i%2+1), mode=i%4;
     if(mode===3) {
-      const b=r(105,789), a0=Math.round(n/100)*100, b0=Math.round(b/100)*100, op=Math.floor(i/4)%4;
+      const op=Math.floor(i/4)%4;
+      if(op===3) {
+        const quotient=r(2,9), divisor=r(1,4)*100, dividend=divisor*quotient;
+        const a=dividend+r(-39,39), b=divisor+r(-29,29);
+        return exercise(`${a} ÷ ${b}，兩數先四捨五入到百位，商約是多少？`,quotient,[quotient*10,quotient+1,quotient-1],[
+          step(`${b} 四捨五入到百位是多少？`,divisor,[divisor+100,divisor-100],'先用接近的整百數，讓除法容易心算。')
+        ],cards([['原算式',`${a} ÷ ${b}`],['先取','百位概數'],['估算','≈ ？']]),`${dividend} ÷ ${divisor} ＝ ${quotient}，所以原算式約為 ${quotient}。`);
+      }
+      const b=r(105,789), a0=Math.round(n/100)*100, b0=Math.round(b/100)*100;
       const x=op===1?Math.max(a0,b0):a0, y=op===1?Math.min(a0,b0):b0;
       const a=op===1?Math.max(n,b):n, c=op===1?Math.min(n,b):b;
-      const signs=['＋','−','×','÷'], values=[x+y,x-y,x*y,Number((x/y).toFixed(2))];
-      return exercise(`${a} ${signs[op]} ${c}，兩數先四捨五入到百位，估算是多少？${op===3?'（商取到百分位）':''}`,values[op],values.filter((_,j)=>j!==op),[
+      const signs=['＋','−','×'], values=[x+y,x-y,x*y];
+      return exercise(`${a} ${signs[op]} ${c}，兩數先四捨五入到百位，估算是多少？`,values[op],values.filter((_,j)=>j!==op),[
         step(`${a} 四捨五入到百位是多少？`,x,[x+100],'看十位決定進位或捨去。')
       ],cards([['原算式',`${a} ${signs[op]} ${c}`],['百位概數','先估兩數'],['估算','≈ ？']]),`${x} ${signs[op]} ${y} ≈ ${values[op]}。`);
     }
@@ -59,14 +67,14 @@
     ],cards([['較小概數',low],['原數',n],['較大概數',high]]),`${n} ≈ ${answer}（${method}）。`);
   });
   add(132, '數表規律與奇偶', (r,i) => {
-    const n=r(12,77);
     if(i%3===2) {
-      const b=r(5,n), op=Math.floor(i/3)%3, sign=['＋','−','×'][op], total=[n+b,n-b,n*b][op];
+      const n=r(12,77), b=r(5,n), op=Math.floor(i/3)%3, sign=['＋','−','×'][op], total=[n+b,n-b,n*b][op];
       return exercise(`${n} ${sign} ${b} 的結果是奇數還是偶數？`,total%2?'奇數':'偶數',['奇數','偶數','無法判斷'],[
         step(`${n} 是哪一種數？`,n%2?'奇數':'偶數',['奇數','偶數'],'看個位是否能配成兩個一組。')
       ],cards([['第一個數',n],[['加上','減去','乘上'][op],b],['結果','奇或偶？']]),`${n} ${sign} ${b} ＝ ${total}，是${total%2?'奇數':'偶數'}。`);
     }
     const gap=i%2===0?10:7;
+    const n=gap===10?r(0,7)*10+r(1,8):r(0,1)*7+r(1,5);
     const values=[[n,n+1,n+2],[n+gap,n+gap+1,n+gap+2],[n+2*gap,n+2*gap+1,'？']];
     return exercise(`${gap===7?'月曆式數表':'百數表'}從 ${n} 開始，右下角是多少？`,n+2*gap+2,[n+gap+2,n+2*gap,n+2*gap+3],[
       step('同一欄往下一格，增加多少？',gap,[1,7,10],'對照上下兩列的同一欄。')
