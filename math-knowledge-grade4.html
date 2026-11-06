@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080d24">
+  <meta name="description" content="學習星球小四數學知識星圖：依台灣課綱探索概念航線，連結原有課程、教學與練習。">
+  <title>小四知識星圖｜學習星球</title>
+  <link rel="stylesheet" href="modules/math-knowledge/style.css?v=20261106-grades456">
+</head>
+<body data-grade="4">
+  <main>
+    <section class="intro">
+      <div><div class="eyebrow"><button id="back" class="back" aria-label="回到數學星球四年級"><span aria-hidden="true">←</span></button><span>數學星球・四年級</span></div><h1>小四<span>知識星圖</span></h1><p class="subtitle">點圖案，選任務。</p></div>
+      <div class="summary"><span><b id="concept-count">20</b>顆星</span><span><b id="unit-count">26</b>單元</span><span><b id="practiced-count">0</b>玩過</span></div>
+    </section>
+    <nav id="filters" class="filters" aria-label="選擇知識航線"></nav>
+    <div class="workspace">
+      <section class="universe" aria-label="可互動的三維知識星圖">
+        <div class="map-head"><span class="map-kicker"><i></i> 四年級探索航線</span><div class="view-toggle"><button id="map-view" aria-pressed="true">星圖</button><button id="list-view" aria-pressed="false">清單</button></div></div>
+        <div id="stage" tabindex="0" aria-label="拖曳轉動星圖，滾輪或雙指縮放；也可按星點或切換清單。"><div id="labels"></div><p id="render-status" role="status">正在打開你的星空…</p></div>
+        <div id="topic-list" class="topic-list" hidden></div>
+        <div class="map-bottom"><div class="legend"><span><i class="dot"></i>尚無紀錄</span><span><i class="dot practiced"></i>已有練習</span><span><i class="line"></i>概念銜接</span></div><div class="map-tools"><button id="zoom-out" aria-label="縮小星圖">−</button><button id="reset" aria-label="回到星圖全景">全景</button><button id="zoom-in" aria-label="放大星圖">＋</button></div></div>
+        <p class="map-help" id="map-help">拖一拖・放大看・點圖案</p>
+      </section>
+      <aside class="detail" id="detail" aria-label="知識點與對應課程" aria-live="polite"></aside>
+    </div>
+    <footer><span>✦ 自由探索，每一站都可以玩。</span><button id="extensions" aria-pressed="false">＋ 看看延伸挑戰</button><button id="source" aria-label="給大人：課綱與學習說明">ⓘ 給大人</button></footer>
+    <p id="connection-status" class="connection-status" role="status">✦ 選一個圖案，開始探索。</p>
+  </main>
+  <dialog id="standards-dialog"><div class="source-head"><h2>給大人・學習說明</h2><button id="close-source" aria-label="關閉課綱對照">✕</button></div><div id="standards-content"></div></dialog>
+  <script type="module" src="modules/math-knowledge/app.mjs?v=20261106-grades456"></script>
+</body>
+</html>

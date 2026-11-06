@@ -1,14 +1,17 @@
-import { curriculum, groups, nodes, edges, courseOrder, neighbors, practiceStatus, grade, gradeName, shortName, visuals, routeVisuals } from './dataset.mjs';
-import { labMarkup, changeLab } from './labs.mjs?v=20261101-grades123-final';
+import { catalog, mapPath, shortNames } from './catalog.mjs';
+import { crossGrade } from './cross-grade.mjs';
+import { curriculum, groups, nodes, edges, courseOrder, neighbors, practiceStatus, grade, gradeName, shortName, visuals, routeVisuals } from './dataset.mjs?v=20261106-grades456';
+import { labMarkup, changeLab } from './labs.mjs?v=20261106-grades456';
 import { actionIcon } from './visuals.mjs';
 
 const $ = id => document.getElementById(id);
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const state = { selected: nodes[0].id, group: 'all', extensions: false, list: false, connected: false, records: {}, courses: [], paused: matchMedia('(prefers-reduced-motion: reduce)').matches };
+const initialNode = new URLSearchParams(location.search).get('node');
+const state = { selected: nodes.find(node => node.id === initialNode && node.scope === 'core')?.id || nodes[0].id, group: 'all', extensions: false, list: false, connected: false, records: {}, courses: [], paused: matchMedia('(prefers-reduced-motion: reduce)').matches };
 let scene;
 const visibleNodes = () => nodes.filter(n => state.extensions || n.scope !== 'extension');
 const groupFor = node => groups.find(g => g.id === node.group);
-function send(type, extra = {}) { if (window.parent !== window) parent.postMessage({ type, ...extra }, location.origin); }
+function send(type, extra = {}) { if (window.parent !== window) parent.postMessage({ type, grade, ...extra }, location.origin); }
 function earnedOrbit(practiced) {
   return practiced ? '<span class="earned-aura" aria-hidden="true"><span class="earned-ring"></span><span class="earned-ring earned-ring-tilt"></span><span class="earned-orbit"></span><span class="earned-orbit earned-orbit-small"></span></span>' : '';
 }
@@ -26,6 +29,23 @@ function renderFilters() {
   if (focused) $('filters').querySelector(`[data-group="${focused}"]`)?.focus({ preventScroll: true });
 }
 
+function crossGradeCards(nodeId, direction) {
+  const back = direction === 'back';
+  const links = crossGrade.filter(([fromGrade, from, toGrade, to]) => back
+    ? toGrade === grade && to === nodeId
+    : fromGrade === grade && from === nodeId);
+  if (!links.length) return '';
+  const cards = links.map(([fromGrade, from, toGrade, to]) => {
+    const nextGrade = back ? fromGrade : toGrade;
+    const nextNode = back ? from : to;
+    const target = catalog[nextGrade];
+    const topic = target.nodes.find(item => item.id === nextNode);
+    const visual = topic.visual || target.visuals[topic.id];
+    return `<a href="${mapPath(nextGrade, nextNode)}" data-jump-grade="${nextGrade}" data-jump-node="${nextNode}" aria-label="${shortNames[nextGrade]} ${escape(topic.label)}"><img src="${visual.art}" alt=""><small>${shortNames[nextGrade]}</small><span>${escape(visual.caption)}</span></a>`;
+  }).join('');
+  return `<p class="section-label">${back ? '↶ 跨年級回顧' : '✦ 跨年級接著學'}</p><div class="related picture-related cross-grade">${cards}</div>`;
+}
+
 function renderDetail() {
   const node = nodes.find(n => n.id === state.selected), group = groupFor(node), status = practiceStatus(node, state.records);
   const visual = visuals[node.id];
@@ -38,10 +58,12 @@ function renderDetail() {
     <div class="detail-picture"><img src="${visual.art}" alt="${escape(node.label)}"></div>
     <h2>${visual.caption}</h2><p class="goal">${visual.hint}</p>
     <div class="detail-scroll">
+      ${crossGradeCards(node.id, 'back')}
       ${node.lab ? `<div class="picture-lab" data-lab="${node.lab}">${labMarkup(node.lab)}</div>` : ''}
       ${courseRows.map(course => `<article class="course"><div class="course-title" title="${escape(course.title)}"><span class="course-code">${escape(course.code)}</span><b>${escape(course.title)}</b></div><div class="course-actions">${state.connected ? `${course.hasVideo ? `<button aria-label="看影片" data-action="video" data-unit="${course.id}">${actionIcon('video')}<span>看影片</span></button>` : ''}${course.hasTeaching ? `<button aria-label="動手做" data-action="teaching" data-unit="${course.id}">${actionIcon('teaching')}<span>動手做</span></button>` : ''}<button class="primary" aria-label="玩練習" data-action="practice" data-unit="${course.id}">${actionIcon('practice')}<span>玩練習</span></button>` : `<a class="standalone-action" href="index.html?planet=math&grade=${grade}&knowledgeUnit=${encodeURIComponent(course.id)}">${actionIcon('practice')}<span>去玩練習 ↗</span></a>`}</div></article>`).join('') || ''}
       ${related.length ? `<p class="section-label">先玩這些</p><div class="related picture-related">${related.map(({ topic, edge }) => `<button class="${practiceStatus(topic,state.records).practiced ? 'is-practiced' : 'is-unplayed'}" data-select="${topic.id}" aria-label="${escape(topic.label)}" title="${escape(edge.reason)}"><img src="${visuals[topic.id].art}" alt=""><span>${visuals[topic.id].caption}</span></button>`).join('')}</div>` : ''}
       ${next.length ? `<p class="section-label">下一站 →</p><div class="related picture-related">${next.map(n => `<button class="${practiceStatus(n,state.records).practiced ? 'is-practiced' : 'is-unplayed'}" data-select="${n.id}" aria-label="${escape(n.label)}"><img src="${visuals[n.id].art}" alt=""><span>${visuals[n.id].caption}</span></button>`).join('')}</div>` : ''}
+      ${crossGradeCards(node.id, 'next')}
     </div>
     <p class="record-note">✦ 跟著你的進度，繼續探索。</p>`;
 }
@@ -75,6 +97,12 @@ function render() {
 }
 
 document.addEventListener('click', event => {
+  const jump = event.target.closest('[data-jump-grade]');
+  if (jump && state.connected && parent !== window && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) {
+    event.preventDefault();
+    send('lp-knowledge-jump', { targetGrade: Number(jump.dataset.jumpGrade), node: jump.dataset.jumpNode });
+    return;
+  }
   const lab = event.target.closest('[data-lab-action]');
   if (lab) { const box = lab.closest('[data-lab]'), action = lab.dataset.labAction; changeLab(box.dataset.lab, action); box.innerHTML = labMarkup(box.dataset.lab); box.querySelector(`[data-lab-action="${action}"]`)?.focus({ preventScroll: true }); return; }
   const selected = event.target.closest('[data-select]');
@@ -136,7 +164,7 @@ $('extensions').hidden = !nodes.some(n => n.scope === 'extension');
 render();
 send('lp-knowledge-ready');
 try {
-  const { createUniverse } = await import('./scene.mjs?v=20261101-grades123-final');
+  const { createUniverse } = await import('./scene.mjs?v=20261106-grades456');
   scene = createUniverse($('stage'), $('labels'));
   document.body.dataset.threeRevision = scene.revision;
   $('render-status').hidden = true;
@@ -144,7 +172,7 @@ try {
 } catch (error) {
   console.warn('Knowledge map 3D view unavailable:', error);
   try {
-    const { createUniverse } = await import('./scene-fallback.mjs?v=20261101-grades123-final');
+    const { createUniverse } = await import('./scene-fallback.mjs?v=20261106-grades456');
     scene = createUniverse($('stage'), $('labels'));
     document.body.dataset.threeRevision = scene.revision;
     document.body.dataset.knowledgeRenderer = 'cpu';

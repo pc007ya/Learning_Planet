@@ -3,7 +3,10 @@
 const definitions=[
 [118,2,'兩步驟生活應用題','story','plan-2-05'],[119,3,'找規律','pattern','plan-3-02'],[120,3,'公斤與公克','mass','plan-3-03'],[121,3,'圓的認識','circle','plan-3-04'],[122,3,'時間的計算','clock','plan-3-05'],[123,3,'統計表','table','plan-3-06'],[124,4,'一億以內的數','large','plan-4-01'],[125,4,'多位數乘除','arithmetic','plan-4-02'],[126,4,'公里與距離','distance','plan-4-03'],[127,4,'三角形分類','triangle','plan-4-04'],[128,4,'多位小數','decimal','plan-4-05'],[129,4,'整數四則與括號','order','plan-4-06'],[130,4,'統計圖','chart','plan-4-07'],[131,4,'概數與四捨五入','round','plan-4-08'],[132,4,'數量規律','relation','plan-4-09'],[133,4,'小數乘整數','decimalMul','plan-4-10'],[134,4,'四邊形分類','quad','plan-4-11'],[135,4,'等值分數','equivalent','plan-4-12'],[136,4,'簡化計算','simplify','plan-4-13'],[137,4,'時間單位換算與計算','duration','plan-4-14']
 ];
-const units=definitions.map(([n,grade,title,kind,plan])=>({id:'u'+n,grade,title,kind,plan,batch:2}));
+const upper = root.MathUpper;
+const originalUnits = definitions.map(([n,grade,title,kind,plan])=>({id:'u'+n,grade,title,kind,plan,batch:2}));
+const units = originalUnits.map(unit => upper?.units.find(item => item.id === unit.id) || unit);
+for (const unit of upper?.units || []) if (!units.some(item => item.id === unit.id)) units.push(unit);
 const byId=id=>units.find(u=>u.id===id);
 const shuffle=(a,rng)=>{a=[...a];for(let i=a.length-1;i;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
 const fixed=(n,p=2)=>p===0?String(n):(n/10**p).toFixed(p).replace(/\.?0+$/,'')||'0';
@@ -11,7 +14,9 @@ const time=n=>`${n>=1440?'次日 ':''}${String(Math.floor(n/60)%24).padStart(2,'
 const duration=(n,unit='分')=>`${Math.floor(n/60)} ${unit==='分'?'時':'分'} ${n%60} ${unit}`;
 const alternatives=a=>typeof a==='number'?[a,Math.max(0,a-1),a+1,a+10,a+100]:[a];
 function question(id,index=0,rng=Math.random){
- const u=byId(id);if(!u)throw Error('Unknown concept unit');const r=(a,b)=>a+Math.floor(rng()*(b-a+1)),v=((index%3)+3)%3;
+ const u=byId(id);if(!u)throw Error('Unknown concept unit');
+ if(u.kind==='upper') return upper.question(id,index,rng);
+ const r=(a,b)=>a+Math.floor(rng()*(b-a+1)),v=((index%3)+3)%3;
  const q={unitId:id,kind:u.kind,title:u.title,variant:v,stages:[],fig:'foundation',figData:{}};
  const stage=(prompt,answer,choices,explain)=>q.stages.push({prompt,answer,choices:[...new Set([answer,...(choices||alternatives(answer))])].slice(0,4),explain});
  const finish=(stem,ans,choices)=>{q.stem=stem;q.ans=ans;q.opts=shuffle([...new Set([ans,...(choices||alternatives(ans))])].slice(0,4),rng);};
@@ -94,6 +99,7 @@ const rect=(x,y,w,h,fill='#6ad6ca')=>`<rect x="${x}" y="${y}" width="${w}" heigh
 const art=(key,x,y,w,h)=>`<image href="${root.MathConceptObjects?.[key]||''}" x="${x}" y="${y}" width="${w}" height="${h}" preserveAspectRatio="xMidYMid meet"/>`;
 const line=(x,y,a,b,color='#31546a',width=3)=>`<path d="M${x} ${y}L${a} ${b}" fill="none" stroke="${color}" stroke-width="${width}"/>`;
 function picture(q,step=0){
+ if(q.kind==='upper') return upper.picture(q,step);
  let b='',reveal=step>=q.steps;
  const boxes=items=>items.map((s,i)=>rect(30+i*600/items.length,120,580/items.length,95,i<step?'#b6f2e4':'#fffaf0')+text(30+(i+.48)*600/items.length,175,s,22)).join('');
  if(q.kind==='story'){
@@ -153,7 +159,7 @@ function picture(q,step=0){
  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" role="img" aria-label="${esc(q.stem)}"><rect width="660" height="380" rx="16" fill="#f5edda"/>${b}</svg>`;
 }
 
-function session(id,count=10,rng=Math.random){const out=[],seen=new Set();for(let i=0;out.length<count&&i<count*200;i++){const q=question(id,i,rng),key=JSON.stringify([q.stem,q.counts,q.sides,q.angles]);if(seen.has(key))continue;seen.add(key);q.picture='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(picture(q,0));out.push(q);}return out;}
+function session(id,count=10,rng=Math.random){const out=[],seen=new Set();for(let i=0;out.length<count&&i<count*200;i++){const q=question(id,i,rng),key=JSON.stringify([q.stem,q.counts,q.sides,q.angles,q.kind==='upper'?q.art:null]);if(seen.has(key))continue;seen.add(key);q.picture='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(picture(q,0));out.push(q);}return out;}
 const api={units,byId,question,picture,session,time,duration};root.MathConcepts=api;
 // Use the existing normal-quiz engine, records and rewards without changing IDs.
 if(root.MathFoundations){const old={...root.MathFoundations};root.MathFoundations={...old,units:[...old.units,...units],byId:id=>byId(id)||old.byId(id),question:(id,...args)=>(byId(id)?question:old.question)(id,...args),session:(id,...args)=>(byId(id)?session:old.session)(id,...args),picture:(q,...args)=>(byId(q.unitId)?picture:old.picture)(q,...args)};}

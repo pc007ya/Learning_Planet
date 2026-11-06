@@ -4,7 +4,7 @@
   let component;
   const launchParams = new URLSearchParams(location.search);
   const knowledgeGrade = Number(launchParams.get('grade'));
-  const knowledgeLink = launchParams.get('planet') === 'math' && [1,2,3].includes(knowledgeGrade);
+  const knowledgeLink = launchParams.get('planet') === 'math' && [1,2,3,4,5,6].includes(knowledgeGrade);
   let knowledgeUnit = knowledgeLink ? launchParams.get('knowledgeUnit') || '' : '';
   let pending = knowledgeLink ? `math/grade-${knowledgeGrade}` : route() || (launchParams.get("planet") === "experiment" ? "experiments" : "");
   let changing = false;

@@ -354,7 +354,10 @@
     "after": "5-01 前",
     "title": "多位小數加減",
     "method": "依清單順序補先備；分數與小數先具體模型再算式",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u147",
+    "lesson": "math-concepts.html?unit=u147",
+    "displayCode": "5-04"
   },
   {
     "id": "plan-5-02",
@@ -363,7 +366,10 @@
     "after": "5-01 前",
     "title": "因數與公因數",
     "method": "依清單順序補先備；分數與小數先具體模型再算式",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u148",
+    "lesson": "math-concepts.html?unit=u148",
+    "displayCode": "5-05"
   },
   {
     "id": "plan-5-03",
@@ -372,7 +378,10 @@
     "after": "5-01 前",
     "title": "倍數與公倍數",
     "method": "依清單順序補先備；分數與小數先具體模型再算式",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u149",
+    "lesson": "math-concepts.html?unit=u149",
+    "displayCode": "5-06"
   },
   {
     "id": "plan-5-04",
@@ -381,7 +390,10 @@
     "after": "5-01 前",
     "title": "擴分約分通分",
     "method": "依清單順序補先備；分數與小數先具體模型再算式",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u150",
+    "lesson": "math-concepts.html?unit=u150",
+    "displayCode": "5-07"
   },
   {
     "id": "plan-5-05",
@@ -390,7 +402,13 @@
     "after": "5-01 前",
     "title": "多邊形與扇形",
     "method": "依清單順序補先備；分數與小數先具體模型再算式",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u152",
+    "lesson": "math-concepts.html?unit=u152",
+    "displayCode": "5-09",
+    "relatedUnits": [
+      "u153"
+    ]
   },
   {
     "id": "plan-5-06",
@@ -399,7 +417,10 @@
     "after": "5-01 前",
     "title": "異分母分數加減",
     "method": "依清單順序補先備；分數與小數先具體模型再算式",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u151",
+    "lesson": "math-concepts.html?unit=u151",
+    "displayCode": "5-08"
   },
   {
     "id": "plan-5-07",
@@ -408,7 +429,10 @@
     "after": "5-01 前",
     "title": "線對稱",
     "method": "依清單順序補先備；分數與小數先具體模型再算式",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u154",
+    "lesson": "math-concepts.html?unit=u154",
+    "displayCode": "5-11"
   },
   {
     "id": "plan-5-08",
@@ -417,7 +441,10 @@
     "after": "5-01 前",
     "title": "整數四則應用",
     "method": "依清單順序補先備；分數與小數先具體模型再算式",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u155",
+    "lesson": "math-concepts.html?unit=u155",
+    "displayCode": "5-12"
   },
   {
     "id": "plan-5-09",
@@ -426,7 +453,10 @@
     "after": "5-01",
     "title": "平行四邊形與梯形面積",
     "method": "剪拼面積；沿用形體教學桌擴充",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u156",
+    "lesson": "math-concepts.html?unit=u156",
+    "displayCode": "5-13"
   },
   {
     "id": "plan-5-10",
@@ -435,7 +465,13 @@
     "after": "5-01",
     "title": "柱體錐體球的特徵",
     "method": "剪拼面積；沿用形體教學桌擴充",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u157",
+    "lesson": "math-concepts.html?unit=u157",
+    "displayCode": "5-14",
+    "relatedUnits": [
+      "u169"
+    ]
   },
   {
     "id": "plan-5-11",
@@ -444,7 +480,10 @@
     "after": "5-02",
     "title": "分數乘法",
     "method": "等分面積與量的幾分之幾",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u158",
+    "lesson": "math-concepts.html?unit=u158",
+    "displayCode": "5-15"
   },
   {
     "id": "plan-5-12",
@@ -453,7 +492,10 @@
     "after": "5-03",
     "title": "小數乘法",
     "method": "面積／分配模型、展開圖、百分格；保留獨立概念",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u159",
+    "lesson": "math-concepts.html?unit=u159",
+    "displayCode": "5-16"
   },
   {
     "id": "plan-5-13",
@@ -462,7 +504,13 @@
     "after": "5-03",
     "title": "大數與折線圖",
     "method": "面積／分配模型、展開圖、百分格；保留獨立概念",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u147",
+    "lesson": "math-concepts.html?unit=u147",
+    "displayCode": "5-04",
+    "relatedUnits": [
+      "u160"
+    ]
   },
   {
     "id": "plan-5-14",
@@ -471,7 +519,10 @@
     "after": "5-03",
     "title": "整數小數除以整數",
     "method": "面積／分配模型、展開圖、百分格；保留獨立概念",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u161",
+    "lesson": "math-concepts.html?unit=u161",
+    "displayCode": "5-18"
   },
   {
     "id": "plan-5-15",
@@ -480,7 +531,10 @@
     "after": "5-03",
     "title": "表面積",
     "method": "面積／分配模型、展開圖、百分格；保留獨立概念",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u162",
+    "lesson": "math-concepts.html?unit=u162",
+    "displayCode": "5-19"
   },
   {
     "id": "plan-5-16",
@@ -489,7 +543,10 @@
     "after": "5-03",
     "title": "比率與百分率",
     "method": "面積／分配模型、展開圖、百分格；保留獨立概念",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u163",
+    "lesson": "math-concepts.html?unit=u163",
+    "displayCode": "5-20"
   },
   {
     "id": "plan-5-17",
@@ -498,7 +555,10 @@
     "after": "5-03",
     "title": "時間乘除",
     "method": "面積／分配模型、展開圖、百分格；保留獨立概念",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u164",
+    "lesson": "math-concepts.html?unit=u164",
+    "displayCode": "5-21"
   },
   {
     "id": "plan-5-18",
@@ -507,7 +567,10 @@
     "after": "5-03",
     "title": "生活中的大單位",
     "method": "面積／分配模型、展開圖、百分格；保留獨立概念",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u165",
+    "lesson": "math-concepts.html?unit=u165",
+    "displayCode": "5-22"
   },
   {
     "id": "plan-6-01",
@@ -516,7 +579,13 @@
     "after": "6-01 前",
     "title": "最大公因數與最小公倍數",
     "method": "先因倍數再分數除法；沿用分數與分配教具",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u171",
+    "lesson": "math-concepts.html?unit=u171",
+    "displayCode": "6-02",
+    "relatedUnits": [
+      "u172"
+    ]
   },
   {
     "id": "plan-6-02",
@@ -525,7 +594,10 @@
     "after": "6-01 前",
     "title": "分數除法",
     "method": "先因倍數再分數除法；沿用分數與分配教具",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u173",
+    "lesson": "math-concepts.html?unit=u173",
+    "displayCode": "6-04"
   },
   {
     "id": "plan-6-03",
@@ -534,7 +606,10 @@
     "after": "6-01 前",
     "title": "數量關係",
     "method": "先因倍數再分數除法；沿用分數與分配教具",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u175",
+    "lesson": "math-concepts.html?unit=u175",
+    "displayCode": "6-06"
   },
   {
     "id": "plan-6-04",
@@ -543,7 +618,10 @@
     "after": "6-01 前",
     "title": "小數除法",
     "method": "先因倍數再分數除法；沿用分數與分配教具",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u174",
+    "lesson": "math-concepts.html?unit=u174",
+    "displayCode": "6-05"
   },
   {
     "id": "plan-6-05",
@@ -552,7 +630,10 @@
     "after": "6-01 前",
     "title": "比與比值",
     "method": "先因倍數再分數除法；沿用分數與分配教具",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u176",
+    "lesson": "math-concepts.html?unit=u176",
+    "displayCode": "6-07"
   },
   {
     "id": "plan-6-06",
@@ -561,7 +642,10 @@
     "after": "6-01",
     "title": "扇形周長與面積",
     "method": "接既有圓單元；路程時間模擬、縮放、展開與圖表",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u177",
+    "lesson": "math-concepts.html?unit=u177",
+    "displayCode": "6-08"
   },
   {
     "id": "plan-6-07",
@@ -570,7 +654,10 @@
     "after": "6-01",
     "title": "速率與應用",
     "method": "接既有圓單元；路程時間模擬、縮放、展開與圖表",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u178",
+    "lesson": "math-concepts.html?unit=u178",
+    "displayCode": "6-09"
   },
   {
     "id": "plan-6-08",
@@ -579,7 +666,13 @@
     "after": "6-01",
     "title": "放大縮小與比例尺",
     "method": "接既有圓單元；路程時間模擬、縮放、展開與圖表",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u179",
+    "lesson": "math-concepts.html?unit=u179",
+    "displayCode": "6-10",
+    "relatedUnits": [
+      "u180"
+    ]
   },
   {
     "id": "plan-6-09",
@@ -588,7 +681,10 @@
     "after": "6-01",
     "title": "分數小數混合計算",
     "method": "接既有圓單元；路程時間模擬、縮放、展開與圖表",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u181",
+    "lesson": "math-concepts.html?unit=u181",
+    "displayCode": "6-12"
   },
   {
     "id": "plan-6-10",
@@ -597,7 +693,10 @@
     "after": "6-01",
     "title": "柱體體積與表面積",
     "method": "接既有圓單元；路程時間模擬、縮放、展開與圖表",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u182",
+    "lesson": "math-concepts.html?unit=u182",
+    "displayCode": "6-13"
   },
   {
     "id": "plan-6-11",
@@ -606,7 +705,10 @@
     "after": "6-01",
     "title": "基準量與比較量",
     "method": "接既有圓單元；路程時間模擬、縮放、展開與圖表",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u183",
+    "lesson": "math-concepts.html?unit=u183",
+    "displayCode": "6-14"
   },
   {
     "id": "plan-6-12",
@@ -615,7 +717,10 @@
     "after": "6-01",
     "title": "解題策略",
     "method": "接既有圓單元；路程時間模擬、縮放、展開與圖表",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u184",
+    "lesson": "math-concepts.html?unit=u184",
+    "displayCode": "6-15"
   },
   {
     "id": "plan-6-13",
@@ -624,6 +729,177 @@
     "after": "6-01",
     "title": "圓形圖",
     "method": "接既有圓單元；路程時間模擬、縮放、展開與圖表",
-    "status": "待新增"
+    "status": "已實作",
+    "unitId": "u185",
+    "lesson": "math-concepts.html?unit=u185",
+    "displayCode": "6-16"
+  },
+  {
+    "id": "plan-4-15",
+    "grade": 4,
+    "batch": 3,
+    "after": "4-19",
+    "title": "乘除兩步驟應用",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u138",
+    "lesson": "math-concepts.html?unit=u138",
+    "displayCode": "4-19"
+  },
+  {
+    "id": "plan-4-16",
+    "grade": 4,
+    "batch": 3,
+    "after": "4-20",
+    "title": "同分母分數的比較與運算",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u139",
+    "lesson": "math-concepts.html?unit=u139",
+    "displayCode": "4-20"
+  },
+  {
+    "id": "plan-4-17",
+    "grade": 4,
+    "batch": 3,
+    "after": "4-21",
+    "title": "簡單異分母分數與小數",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u140",
+    "lesson": "math-concepts.html?unit=u140",
+    "displayCode": "4-21"
+  },
+  {
+    "id": "plan-4-18",
+    "grade": 4,
+    "batch": 3,
+    "after": "4-22",
+    "title": "分數小數數線",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u141",
+    "lesson": "math-concepts.html?unit=u141",
+    "displayCode": "4-22"
+  },
+  {
+    "id": "plan-4-19",
+    "grade": 4,
+    "batch": 3,
+    "after": "4-23",
+    "title": "旋轉角與平角周角",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u142",
+    "lesson": "math-concepts.html?unit=u142",
+    "displayCode": "4-23"
+  },
+  {
+    "id": "plan-4-20",
+    "grade": 4,
+    "batch": 3,
+    "after": "4-24",
+    "title": "平方公尺與複合面積",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u143",
+    "lesson": "math-concepts.html?unit=u143",
+    "displayCode": "4-24"
+  },
+  {
+    "id": "plan-4-21",
+    "grade": 4,
+    "batch": 3,
+    "after": "4-25",
+    "title": "立方公分與數積木",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u144",
+    "lesson": "math-concepts.html?unit=u144",
+    "displayCode": "4-25"
+  },
+  {
+    "id": "plan-4-22",
+    "grade": 4,
+    "batch": 3,
+    "after": "4-26",
+    "title": "垂直與平行",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u145",
+    "lesson": "math-concepts.html?unit=u145",
+    "displayCode": "4-26"
+  },
+  {
+    "id": "plan-4-23",
+    "grade": 4,
+    "batch": 3,
+    "after": "4-27",
+    "title": "圖形全等與疊合",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u146",
+    "lesson": "math-concepts.html?unit=u146",
+    "displayCode": "4-27"
+  },
+  {
+    "id": "plan-5-19",
+    "grade": 5,
+    "batch": 3,
+    "after": "5-23",
+    "title": "整數相除的分數表示",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u166",
+    "lesson": "math-concepts.html?unit=u166",
+    "displayCode": "5-23"
+  },
+  {
+    "id": "plan-5-20",
+    "grade": 5,
+    "batch": 3,
+    "after": "5-24",
+    "title": "分數除以整數",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u167",
+    "lesson": "math-concepts.html?unit=u167",
+    "displayCode": "5-24"
+  },
+  {
+    "id": "plan-5-21",
+    "grade": 5,
+    "batch": 3,
+    "after": "5-25",
+    "title": "小數取概數",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u168",
+    "lesson": "math-concepts.html?unit=u168",
+    "displayCode": "5-25"
+  },
+  {
+    "id": "plan-5-22",
+    "grade": 5,
+    "batch": 3,
+    "after": "5-27",
+    "title": "液體體積與排水",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u170",
+    "lesson": "math-concepts.html?unit=u170",
+    "displayCode": "5-27"
+  },
+  {
+    "id": "plan-6-14",
+    "grade": 6,
+    "batch": 4,
+    "after": "6-17",
+    "title": "從資料判斷可能性",
+    "method": "圖解、分步操作與練習",
+    "status": "已實作",
+    "unitId": "u186",
+    "lesson": "math-concepts.html?unit=u186",
+    "displayCode": "6-17"
   }
 ]

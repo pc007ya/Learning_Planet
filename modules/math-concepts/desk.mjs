@@ -28,7 +28,7 @@ root.addEventListener('click',e=>{
  if(a==='zhuyin'){zhuyin=!zhuyin;render();return;}
  if(a==='voice'){voice=!voice;if(!voice)window.speechSynthesis?.cancel();else speak(q.stem);render();return;}
  stop();if(a==='step')advance();if(a==='reset')reset();if(a==='new'){index++;q=F.question(id,index);reset();}if(a==='hint'){feedback=(phase==='quiz'?q.hint:q.stages[Math.min(step,q.steps-1)].explain);render();speak(feedback);}if(a==='review'){review=true;render();speak(q.explain);}
- if(a==='back'){if(parent!==window)parent.postMessage({type:'math-teaching-close'},location.origin);else location.href='index.html';}
+ if(a==='back'){if(parent!==window)parent.postMessage({type:'math-teaching-close'},location.origin);else location.href=`index.html?planet=math&grade=${unit.grade}`;}
 });
 window.addEventListener('pagehide',stop);document.addEventListener('visibilitychange',()=>{if(document.hidden){stop();if(q)render();}});
 if(unit){q=F.question(id);render();}else root.textContent='找不到這個單元。';

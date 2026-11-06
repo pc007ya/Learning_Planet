@@ -1,6 +1,6 @@
 // CPU projection for devices without WebGL. Both views use Three.js r187 cameras.
 import { REVISION, OrthographicCamera, Group, Vector3, MathUtils } from './vendor/three-r187/three.core.js';
-import { edges } from './dataset.mjs';
+import { edges } from './dataset.mjs?v=20261106-grades456';
 import { constellationFrame } from './layout.mjs';
 
 export function createUniverse(stage, labels) {

@@ -58,7 +58,7 @@ test('the pinned r187 camera places every core node inside the tablet map', () =
 
 test('the first Grade 1 entry precedes the unit grid and is scoped to math/grade 1', () => {
   assert.ok(index.indexOf('data-math-knowledge-open')<index.indexOf('<sc-for list="{{ units }}"'));
-  assert.ok(index.includes('showMathKnowledge: s.subject === "math" && [1, 2, 3].includes(s.grade)'));
+  assert.ok(index.includes('showMathKnowledge: s.subject === "math" && [1, 2, 3, 4, 5, 6].includes(s.grade)'));
   assert.ok(index.includes('this.state.currentId !== learnerId'));
 });
 
@@ -96,7 +96,7 @@ test('standalone links resume the chosen first-grade course after login and cann
   state.screen='home';context.LPHomeRoutes.sync(owner);
   assert.equal(state.grade,1);assert.equal(state.subject,'math');assert.deepEqual(actions,['u108']);
   context.LPHomeRoutes.sync(owner);assert.equal(actions.length,1);
-  assert.ok(index.includes('MATH_UNITS.some(u => u.id === id && u.grade === this.state.grade && [1, 2, 3].includes(u.grade))'));
+  assert.ok(index.includes('MATH_UNITS.some(u => u.id === id && u.grade === this.state.grade && [1, 2, 3, 4, 5, 6].includes(u.grade))'));
 });
 
 test('the production host passes only activity flags and dispatches actions for the same learner', async () => {

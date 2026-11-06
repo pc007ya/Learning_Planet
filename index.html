@@ -15,7 +15,11 @@
 <meta name="description" content="提供小學數學、國文、英文、自然與科學實驗的互動學習網站。">
 <script src="./support.js"></script>
 <script src="./modules/math-foundations/model.js"></script>
-<script src="./modules/math-concepts/model.js"></script>
+<script src="./modules/math-concepts/upper/core.js?v=20261106-grades456"></script>
+<script src="./modules/math-concepts/upper/grade4.js?v=20261106-grades456"></script>
+<script src="./modules/math-concepts/upper/grade5.js?v=20261106-grades456"></script>
+<script src="./modules/math-concepts/upper/grade6.js?v=20261106-grades456"></script>
+<script src="./modules/math-concepts/model.js?v=20261106-grades456"></script>
 <script src="./entry-image-manifest.js" defer></script>
 <script src="./entry-image-progress.js" defer></script>
 <script src="./sci-art.js"></script>
@@ -24,14 +28,14 @@
 <link rel="stylesheet" href="./story-vocabulary-quiz.css?v=20261026-2">
 <script type="module" src="./modules/math-image-guard.mjs"></script>
 <script type="module" src="./modules/story-launch.mjs"></script>
-<script type="module" src="./modules/math-teaching/launch.mjs"></script>
+<script type="module" src="./modules/math-teaching/launch.mjs?v=20261106-grades456"></script>
 
 <script type="module" src="./modules/earth-lab/launch.mjs"></script>
 <script type="module" src="./modules/math-question-engine/math-question-engine-v1.js?v=20260909-concept-engine-v1"></script>
 <script type="module" src="./src/firebase-config.js"></script>
 <script type="module" src="./auth-v2/firebase-client.js"></script>
 <script src="./home-resources.js" defer></script>
-<script src="./home-routes.js?v=grades123-knowledge-20261101" defer></script>
+<script src="./home-routes.js?v=20261106-grades456" defer></script>
 
 
 
@@ -3684,22 +3688,71 @@ const MATH_UNITS = [
   { id: "u52", grade: 4, displayCode: "4-03", displayOrder: 3, difficulty: 2, icon: "", art: "images/math-grade4/v1/u52-protractor-angle-v1.png", tint: "#dff7fa", title: "量角器與角度", sub: "四年級 · 認識「度」、估角度" },
   { id: "u126", grade: 4, displayCode: "4-04", displayOrder: 4, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u126.svg", tint: "#eafbfd", title: "公里與距離", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
   { id: "u127", grade: 4, displayCode: "4-05", displayOrder: 5, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u127.svg", tint: "#eafbfd", title: "三角形分類", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
-  { id: "u128", grade: 4, displayCode: "4-06", displayOrder: 6, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u128.svg", tint: "#eafbfd", title: "多位小數", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u128", grade: 4, displayCode: "4-06", displayOrder: 6, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u128.svg", tint: "#eafbfd", title: "二位小數的認識與加減", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
   { id: "u129", grade: 4, displayCode: "4-07", displayOrder: 7, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u129.svg", tint: "#eafbfd", title: "整數四則與括號", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
   { id: "u43", grade: 4, displayCode: "4-08", displayOrder: 8, difficulty: 1, icon: "", art: "images/math-grade3/v1/u43-improper-mixed-fractions-v1.png", tint: "#ffe0ef", title: "假分數與帶分數", sub: "四年級 · 4個1/3是4/3" },
-  { id: "u130", grade: 4, displayCode: "4-09", displayOrder: 9, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u130.svg", tint: "#eafbfd", title: "統計圖", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
-  { id: "u131", grade: 4, displayCode: "4-10", displayOrder: 10, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u131.svg", tint: "#eafbfd", title: "概數與四捨五入", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
-  { id: "u132", grade: 4, displayCode: "4-11", displayOrder: 11, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u132.svg", tint: "#eafbfd", title: "數量規律", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u130", grade: 4, displayCode: "4-09", displayOrder: 9, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u130.svg", tint: "#eafbfd", title: "長條圖與折線圖", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u131", grade: 4, displayCode: "4-10", displayOrder: 10, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u131.svg", tint: "#eafbfd", title: "概數與估算", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u132", grade: 4, displayCode: "4-11", displayOrder: 11, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u132.svg", tint: "#eafbfd", title: "數表規律與奇偶", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
   { id: "u133", grade: 4, displayCode: "4-12", displayOrder: 12, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u133.svg", tint: "#eafbfd", title: "小數乘整數", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
   { id: "u53", grade: 4, displayCode: "4-13", displayOrder: 13, difficulty: 2, icon: "", art: "images/math-grade4/v1/u53-rectangle-square-area-v1.png", tint: "#e6f7ee", title: "正方形與長方形", sub: "四年級 · 周長與面積公式" },
   { id: "u134", grade: 4, displayCode: "4-14", displayOrder: 14, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u134.svg", tint: "#eafbfd", title: "四邊形分類", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
   { id: "u135", grade: 4, displayCode: "4-15", displayOrder: 15, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u135.svg", tint: "#eafbfd", title: "等值分數", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
-  { id: "u136", grade: 4, displayCode: "4-16", displayOrder: 16, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u136.svg", tint: "#eafbfd", title: "簡化計算", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u136", grade: 4, displayCode: "4-16", displayOrder: 16, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u136.svg", tint: "#eafbfd", title: "四則計算規律", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
   { id: "u137", grade: 4, displayCode: "4-17", displayOrder: 17, difficulty: 1, icon: "", art: "modules/math-concepts/icons/u137.svg", tint: "#eafbfd", title: "時間單位換算與計算", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u138", grade: 4, displayCode: "4-19", displayOrder: 19, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/steps.svg", tint: "#eafbfd", title: "乘除兩步驟應用", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u139", grade: 4, displayCode: "4-20", displayOrder: 20, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/fraction.svg", tint: "#eafbfd", title: "同分母分數的比較與運算", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u140", grade: 4, displayCode: "4-21", displayOrder: 21, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/fraction.svg", tint: "#eafbfd", title: "簡單異分母分數與小數", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u141", grade: 4, displayCode: "4-22", displayOrder: 22, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/numberline.svg", tint: "#eafbfd", title: "分數小數數線", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u142", grade: 4, displayCode: "4-23", displayOrder: 23, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/turn.svg", tint: "#eafbfd", title: "旋轉角與平角周角", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u143", grade: 4, displayCode: "4-24", displayOrder: 24, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/area.svg", tint: "#eafbfd", title: "平方公尺與複合面積", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u144", grade: 4, displayCode: "4-25", displayOrder: 25, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/cube.svg", tint: "#eafbfd", title: "立方公分與數積木", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u145", grade: 4, displayCode: "4-26", displayOrder: 26, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/lines.svg", tint: "#eafbfd", title: "垂直與平行", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u146", grade: 4, displayCode: "4-27", displayOrder: 27, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/shapes.svg", tint: "#eafbfd", title: "圖形全等與疊合", sub: "四年級 · 示範、操作與練習", foundation: true, concept: true },
   { id: "u56", grade: 5, displayCode: "5-01", displayOrder: 1, difficulty: 3, icon: "", art: "images/math-grade5/v1/u56-triangle-area-v1.png", tint: "#ffe0e6", title: "三角形面積", sub: "五年級 · 底×高÷2、各式三角形" },
   { id: "u54", grade: 5, displayCode: "5-02", displayOrder: 2, difficulty: 2, icon: "", art: "images/math-grade5/v1/u54-cuboid-cube-volume-v1.png", tint: "#eafbfd", title: "長方體與正方體的體積", sub: "五年級 · 長×寬×高、立方公分" },
   { id: "u55", grade: 5, displayCode: "5-03", displayOrder: 3, difficulty: 2, icon: "", art: "images/math-grade5/v1/u55-capacity-conversion-v1.png", tint: "#fff6e0", title: "容積與容量換算", sub: "五年級 · 公升、毫升、立方公分" },
+  { id: "u147", grade: 5, displayCode: "5-04", displayOrder: 4, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/place-value.svg", tint: "#eafbfd", title: "十進位位值與多位小數", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u148", grade: 5, displayCode: "5-05", displayOrder: 5, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/factor.svg", tint: "#eafbfd", title: "因數與公因數", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u149", grade: 5, displayCode: "5-06", displayOrder: 6, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/factor.svg", tint: "#eafbfd", title: "倍數與公倍數", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u150", grade: 5, displayCode: "5-07", displayOrder: 7, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/fraction.svg", tint: "#eafbfd", title: "擴分、約分與通分", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u151", grade: 5, displayCode: "5-08", displayOrder: 8, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/fraction.svg", tint: "#eafbfd", title: "異分母分數加減", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u152", grade: 5, displayCode: "5-09", displayOrder: 9, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/shapes.svg", tint: "#eafbfd", title: "三角形與四邊形的性質", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u153", grade: 5, displayCode: "5-10", displayOrder: 10, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/sector.svg", tint: "#eafbfd", title: "扇形與圓心角", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u154", grade: 5, displayCode: "5-11", displayOrder: 11, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/mirror.svg", tint: "#eafbfd", title: "線對稱", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u155", grade: 5, displayCode: "5-12", displayOrder: 12, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/steps.svg", tint: "#eafbfd", title: "三步驟併式、分配律與平均", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u156", grade: 5, displayCode: "5-13", displayOrder: 13, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/area.svg", tint: "#eafbfd", title: "平行四邊形與梯形面積", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u157", grade: 5, displayCode: "5-14", displayOrder: 14, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/cube.svg", tint: "#eafbfd", title: "球、柱體與錐體", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u158", grade: 5, displayCode: "5-15", displayOrder: 15, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/fraction.svg", tint: "#eafbfd", title: "分數乘法", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u159", grade: 5, displayCode: "5-16", displayOrder: 16, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/place-value.svg", tint: "#eafbfd", title: "小數乘法", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u160", grade: 5, displayCode: "5-17", displayOrder: 17, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/chart.svg", tint: "#eafbfd", title: "製作折線圖", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u161", grade: 5, displayCode: "5-18", displayOrder: 18, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/place-value.svg", tint: "#eafbfd", title: "整數與小數除以整數", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u162", grade: 5, displayCode: "5-19", displayOrder: 19, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/cube.svg", tint: "#eafbfd", title: "正方體與長方體表面積", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u163", grade: 5, displayCode: "5-20", displayOrder: 20, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/sector.svg", tint: "#eafbfd", title: "比率、百分率與折扣", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u164", grade: 5, displayCode: "5-21", displayOrder: 21, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/calendar.svg", tint: "#eafbfd", title: "時間的乘除", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u165", grade: 5, displayCode: "5-22", displayOrder: 22, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/area.svg", tint: "#eafbfd", title: "公畝、公頃、公噸與立方公尺", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u166", grade: 5, displayCode: "5-23", displayOrder: 23, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/fraction.svg", tint: "#eafbfd", title: "整數相除的分數表示", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u167", grade: 5, displayCode: "5-24", displayOrder: 24, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/fraction.svg", tint: "#eafbfd", title: "分數除以整數", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u168", grade: 5, displayCode: "5-25", displayOrder: 25, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/numberline.svg", tint: "#eafbfd", title: "小數取概數", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u169", grade: 5, displayCode: "5-26", displayOrder: 26, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/cube.svg", tint: "#eafbfd", title: "立體的面與面", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u170", grade: 5, displayCode: "5-27", displayOrder: 27, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/capacity.svg", tint: "#eafbfd", title: "液體體積與排水", sub: "五年級 · 示範、操作與練習", foundation: true, concept: true },
   { id: "u57", grade: 6, displayCode: "6-01", displayOrder: 1, difficulty: 3, icon: "", art: "images/math-grade6/v1/u57-circle-circumference-area-v1.png", tint: "#ffeef6", title: "圓周長與圓面積", sub: "六年級 · 圓周率 3.14" },
+  { id: "u171", grade: 6, displayCode: "6-02", displayOrder: 2, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/factor.svg", tint: "#eafbfd", title: "質數與質因數分解", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u172", grade: 6, displayCode: "6-03", displayOrder: 3, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/factor.svg", tint: "#eafbfd", title: "最大公因數、最小公倍數與互質", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u173", grade: 6, displayCode: "6-04", displayOrder: 4, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/fraction.svg", tint: "#eafbfd", title: "分數除法", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u174", grade: 6, displayCode: "6-05", displayOrder: 5, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/place-value.svg", tint: "#eafbfd", title: "小數除法", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u175", grade: 6, displayCode: "6-06", displayOrder: 6, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/table.svg", tint: "#eafbfd", title: "數量關係與關係式", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u176", grade: 6, displayCode: "6-07", displayOrder: 7, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/fraction.svg", tint: "#eafbfd", title: "比、比值與等比", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u177", grade: 6, displayCode: "6-08", displayOrder: 8, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/sector.svg", tint: "#eafbfd", title: "扇形弧長與面積", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u178", grade: 6, displayCode: "6-09", displayOrder: 9, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/speed.svg", tint: "#eafbfd", title: "速率、時間與距離", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u179", grade: 6, displayCode: "6-10", displayOrder: 10, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/shapes.svg", tint: "#eafbfd", title: "放大與縮小", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u180", grade: 6, displayCode: "6-11", displayOrder: 11, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/speed.svg", tint: "#eafbfd", title: "地圖比例尺", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u181", grade: 6, displayCode: "6-12", displayOrder: 12, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/steps.svg", tint: "#eafbfd", title: "整數分數小數混合應用", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u182", grade: 6, displayCode: "6-13", displayOrder: 13, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/cube.svg", tint: "#eafbfd", title: "柱體體積與表面積", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u183", grade: 6, displayCode: "6-14", displayOrder: 14, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/fraction.svg", tint: "#eafbfd", title: "基準量與比較量", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u184", grade: 6, displayCode: "6-15", displayOrder: 15, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/steps.svg", tint: "#eafbfd", title: "列式解題與搭配計數", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u185", grade: 6, displayCode: "6-16", displayOrder: 16, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/sector.svg", tint: "#eafbfd", title: "讀與製作圓形圖", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
+  { id: "u186", grade: 6, displayCode: "6-17", displayOrder: 17, difficulty: 2, icon: "", art: "modules/math-knowledge/icons/chart.svg", tint: "#eafbfd", title: "從資料判斷可能性", sub: "六年級 · 示範、操作與練習", foundation: true, concept: true },
 ];
 
 // Teaching-only entries do not enter quizzes or mastery records.
@@ -8361,35 +8414,51 @@ class Component extends DCLogic {
   }
 
   async startKnowledgeUnit(id) {
-    if (!MATH_UNITS.some(u => u.id === id && u.grade === this.state.grade && [1, 2, 3].includes(u.grade)) || !this.state.currentId || this.state.teacher) return;
+    if (!MATH_UNITS.some(u => u.id === id && u.grade === this.state.grade && [1, 2, 3, 4, 5, 6].includes(u.grade)) || !this.state.currentId || this.state.teacher) return;
     const learnerId = this.state.currentId, grade = this.state.grade;
     await this.loadLearningData();
     if (this.state.currentId === learnerId && this.state.grade === grade && this.state.subject === "math") this.startUnit(id);
   }
 
   async openMathKnowledge() {
-    if (this.knowledgeOpening || this.state.subject !== "math" || ![1, 2, 3].includes(this.state.grade)) return;
+    if (this.knowledgeOpening || this.state.subject !== "math" || ![1, 2, 3, 4, 5, 6].includes(this.state.grade)) return;
     const learnerId = this.state.currentId;
     const grade = this.state.grade;
     this.knowledgeOpening = true;
     try {
-      const { openKnowledgeMap } = await import("./modules/math-knowledge/launch.mjs?v=20261101-grades123-final");
+      const { openKnowledgeMap } = await import("./modules/math-knowledge/launch.mjs?v=20261106-grades456");
       if (this.state.currentId !== learnerId || this.state.grade !== grade || this.state.subject !== "math") return;
       const profile = this.prof();
       const history = new Set(Object.values(profile.masteryHistory || {}).flat());
-      const courses = MATH_UNITS.filter(u => u.grade === grade).map(u => ({
-        id: u.id, code: u.displayCode, title: u.title, hasVideo: !!VIDEO_LIB[u.id],
-        hasTeaching: !!document.querySelector('[data-math-code="' + u.displayCode + '"] [data-math-teaching-open]'),
-      }));
-      const records = Object.fromEntries(courses.map(u => [u.id, { practiced:
-        (profile.cleared || []).includes(u.id) || history.has(u.id) || dailyMasteryRound(profile, u.id) > 0 ||
-        (profile.mathQuestionHistory && profile.mathQuestionHistory[u.id] || []).length > 0
-      }]));
-      this.knowledgeClose = openKnowledgeMap({ grade, courses, records, onAction: async (action, course) => {
-        if (this.state.currentId !== learnerId || this.state.grade !== grade || this.state.subject !== "math") return;
-        if (action === "video") this.startVideo(course.id, "map");
-        else if (action === "teaching") document.querySelector('[data-math-code="' + course.code + '"] [data-math-teaching-open]')?.click();
-        else { await this.loadLearningData(); if (this.state.currentId === learnerId && this.state.grade === grade && this.state.subject === "math") this.startUnit(course.id); }
+      const learnerStillActive = () => this.state.currentId === learnerId && this.state.grade === grade && this.state.subject === "math";
+      const forGrade = targetGrade => {
+        if (!learnerStillActive()) return null;
+        const courses = MATH_UNITS.filter(u => u.grade === targetGrade).map(u => ({
+          id: u.id, code: u.displayCode, title: u.title, hasVideo: !!VIDEO_LIB[u.id],
+          hasTeaching: !!(u.concept || u.foundation || u.teaching ||
+            ["u105", "u29", "u31", "u32", "u54", "u55", "u45", "u46", "u16", "u6", "u108", "u14", "u20", "u15", "u21", "u5", "u37", "u9"].includes(u.id) ||
+            document.querySelector('[data-math-code="' + u.displayCode + '"] [data-math-teaching-open]')),
+        }));
+        const records = Object.fromEntries(courses.map(u => [u.id, { practiced:
+          (profile.cleared || []).includes(u.id) || history.has(u.id) || dailyMasteryRound(profile, u.id) > 0 ||
+          (profile.mathQuestionHistory && profile.mathQuestionHistory[u.id] || []).length > 0
+        }]));
+        return { courses, records };
+      };
+      this.knowledgeClose = openKnowledgeMap({ grade, ...forGrade(grade), forGrade, onAction: async (action, course) => {
+        if (!learnerStillActive()) return;
+        const targetGrade = Number(course.code.split('-')[0]);
+        if (!MATH_UNITS.some(unit => unit.id === course.id && unit.grade === targetGrade)) return;
+        if (action === "practice") await this.loadLearningData();
+        if (!learnerStillActive()) return;
+        const run = () => {
+          if (this.state.currentId !== learnerId || this.state.grade !== targetGrade || this.state.subject !== "math") return;
+          if (action === "video") this.startVideo(course.id, "map");
+          else if (action === "teaching") document.querySelector('[data-math-code="' + course.code + '"] [data-math-teaching-open]')?.click();
+          else this.startUnit(course.id);
+        };
+        if (targetGrade === grade) run();
+        else this.setState({ grade: targetGrade }, run);
       }});
     } catch (error) {
       console.warn("Math knowledge map could not open:", error);
@@ -11131,9 +11200,9 @@ class Component extends DCLogic {
       showChallengeRules: s.subject !== "experiment",
       isExperimentSubject: s.subject === "experiment",
       showGeoExplore: false,
-      showMathKnowledge: s.subject === "math" && [1, 2, 3].includes(s.grade),
-      knowledgeTitle: ["", "小一", "小二", "小三"][s.grade] + "知識星圖",
-      knowledgeLabel: "開啟" + ["", "小一", "小二", "小三"][s.grade] + "數學知識星圖",
+      showMathKnowledge: s.subject === "math" && [1, 2, 3, 4, 5, 6].includes(s.grade),
+      knowledgeTitle: ["", "小一", "小二", "小三", "小四", "小五", "小六"][s.grade] + "知識星圖",
+      knowledgeLabel: "開啟" + ["", "小一", "小二", "小三", "小四", "小五", "小六"][s.grade] + "數學知識星圖",
       openMathKnowledge: () => this.openMathKnowledge(),
       gradeTabs: (s.subject === "experiment" ? [] : s.subject === "english" ? [1, 2, 3, 4, 5, 6, 7] : s.subject === "math" ? [1, 2, 3, 4, 5, 6] : s.subject === "science" ? [3, 4, 5, 6] : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級", "繪本單字"][g], active: String(s.grade === g),
         go: () => this.setState({ grade: g }),

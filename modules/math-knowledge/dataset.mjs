@@ -1,14 +1,12 @@
-import * as first from './grade1.mjs';
-import * as second from './grade2.mjs';
-import * as third from './grade3.mjs';
-import { visuals as firstVisuals, routeVisuals as firstRoutes } from './visuals.mjs';
+import { catalog, gradeNames, shortNames } from './catalog.mjs';
 import { neighbors as adjacent, practiceStatus } from './shared.mjs';
 export { practiceStatus };
-export const grade = [1,2,3].includes(Number(globalThis.document?.body?.dataset.grade)) ? Number(globalThis.document.body.dataset.grade) : 1;
-const data = {1:first,2:second,3:third}[grade];
-export const { curriculum, groups, nodes, edges, courseOrder } = data;
-export const visuals = grade === 1 ? firstVisuals : Object.fromEntries(nodes.map(n => [n.id,n.visual]));
-export const routeVisuals = grade === 1 ? firstRoutes : data.routeVisuals;
-export const gradeName = ['','一年級','二年級','三年級'][grade];
-export const shortName = ['','小一','小二','小三'][grade];
+
+const requestedGrade = Number(globalThis.document?.body?.dataset.grade);
+export const grade = catalog[requestedGrade] ? requestedGrade : 1;
+const data = catalog[grade];
+export const { curriculum, groups, nodes, edges, courseOrder, routeVisuals } = data;
+export const visuals = data.visuals || Object.fromEntries(nodes.map(n => [n.id, n.visual]));
+export const gradeName = gradeNames[grade];
+export const shortName = shortNames[grade];
 export const neighbors = id => adjacent(id, edges);

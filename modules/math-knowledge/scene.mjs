@@ -1,5 +1,5 @@
 import * as THREE from './vendor/three-r187/three.module.js';
-import { groups, edges } from './dataset.mjs';
+import { groups, edges } from './dataset.mjs?v=20261106-grades456';
 import { constellationFrame } from './layout.mjs';
 
 export function createUniverse(stage, labels) {
