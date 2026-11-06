@@ -220,14 +220,30 @@
       step('保留的最後一位要看哪一位決定進位？',p===1?'百分位':'千分位',['十分位','百分位','千分位'],'看保留位數的下一位，滿 5 進一。')
     ],cards([['原數',v?`${Math.round(value*d)}÷${d}`:a],['取到',p===1?'十分位':'百分位'],['概數','≈？']]),`${v?`${Math.round(value*d)} ÷ ${d}`:a} ≈ ${answer}。`);
   });
-  add(169, '立體的面與面', (r,i) => {
-    const n=r(2,16), parallel=i%2===0, face=parallel?'底面':'前面';
-    const top=polygon('185,85 400,85 485,144 270,144',colors[0]);
-    const front=polygon('270,144 485,144 485,264 270,264',parallel?colors[3]:colors[1]);
-    const side=polygon('185,85 270,144 270,264 185,205',colors[3]);
-    return exercise(`長方體的頂面和${face}（模型長 ${n} cm）是什麼關係？`,parallel?'平行':'垂直',['平行','垂直','相交但不垂直'],[
-      step('兩個相對的面，延伸後會相交嗎？','不會',['會','只有正方體不會'],'相對的面不相交，相鄰的面可以共用一條邊。')
-    ],top+front+side+label(336,115,'頂面',18)+label(378,205,'前面',18),parallel?'頂面和底面是相對的兩面，彼此平行。':'頂面與前面相鄰，像長方體的兩個面一樣成直角。');
+  add(169, '立體的面與面', (r) => {
+    const faces = ['頂面','底面','前面','後面','左面','右面'];
+    const pairs = [[0,1],[0,2],[1,2],[2,3],[0,3],[1,3],[4,5],[0,4],
+      [0,5],[1,4],[1,5],[2,4],[2,5],[3,4],[3,5]];
+    const i = r(0,pairs.length*4-1);
+    const [a,b] = pairs[Math.floor(i / 4)];
+    const cube = i % 4 >= 2;
+    const solid = cube ? '正方體' : '長方體';
+    const pair = `${faces[a]}和${faces[b]}`;
+    const parallel = (a ^ 1) === b;
+    const askEdge = i % 2 === 1;
+    const stem = askEdge ? `${solid}的${pair}共用幾條邊？` : `${solid}的${pair}是什麼關係？`;
+    const answer = askEdge ? (parallel ? 0 : 1) : (parallel ? '平行' : '垂直');
+    const choices = askEdge ? [0,1,2,4] : ['平行','垂直','相交但不垂直'];
+    const right = cube ? 390 : 485;
+    const top = polygon(`185,85 ${right-85},85 ${right},144 270,144`,colors[0]);
+    const front = polygon(`270,144 ${right},144 ${right},264 270,264`,colors[1]);
+    const side = polygon('185,85 270,144 270,264 185,205',colors[3]);
+    const center = (270+right)/2;
+    const diagram = top+front+side+label(center-32,115,'頂面',18)+label(center,205,'前面',18)+label(228,180,'左面',18)
+      +label(330,285,'圖中看不到底面、後面和右面',16);
+    return exercise(stem,answer,choices,[
+      step(`${pair}的位置是？`,parallel?'相對':'相鄰',['相對','相鄰'],'找找這兩個面是否分處兩側，還是沿一條邊接在一起。')
+    ],diagram,parallel?`${pair}相對，彼此平行，共用 0 條邊。`:`${pair}相鄰，彼此垂直，共用 1 條邊。`);
   });
   add(170, '液體體積與排水', (r,i) => {
     const w=r(3,9), l=r(4,10), h=r(1,5), before=r(2,6), after=before+h, answer=w*l*h;

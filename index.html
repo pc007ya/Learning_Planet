@@ -17,7 +17,7 @@
 <script src="./modules/math-foundations/model.js"></script>
 <script src="./modules/math-concepts/upper/core.js?v=20261106-grades456"></script>
 <script src="./modules/math-concepts/upper/grade4.js?v=20261106-grades456-2"></script>
-<script src="./modules/math-concepts/upper/grade5.js?v=20261106-grades456"></script>
+<script src="./modules/math-concepts/upper/grade5.js?v=20261106-quiz-pool50"></script>
 <script src="./modules/math-concepts/upper/grade6.js?v=20261106-grades456"></script>
 <script src="./modules/math-concepts/model.js?v=20261106-grades456"></script>
 <script src="./entry-image-manifest.js" defer></script>
@@ -7392,6 +7392,7 @@ class Component extends DCLogic {
     const shuffle = (a) => a.slice().sort(() => Math.random() - 0.5);
     const list = [];
     const usedKeys = new Set();
+    const smallPoolUnit = ["u43", "u52", "u53", "u54", "u55", "u56", "u57"].includes(unitId);
     const generate = () => {
       let q;
       if (unitId === "u101") {
@@ -7687,7 +7688,7 @@ class Component extends DCLogic {
           explain: "這個角是 " + deg + " 度。比 90 度小是銳角，剛好 90 度是直角，比 90 度大、比 180 度小是鈍角" + (lvl >= 2 ? "，剛好 180 度是平角" : "") + "。所以是" + name + "。",
         };
       } else if (unitId === "u52") {
-        const deg = lvl === 0 ? 10 * r(2, 15) : lvl === 1 ? 5 * r(5, 33) : r(20, 168);
+        const deg = lvl < 2 ? r(20, 165) : r(10, 175);
         const wrongs = new Set();
         const deltas = [10, -10, 20, -20, 15, -15, 30, -30];
         for (const d of deltas) {
@@ -7702,7 +7703,7 @@ class Component extends DCLogic {
         };
       } else if (unitId === "u53") {
         const square = r(0, 1) === 1;
-        const maxSide = lvl === 0 ? 9 : lvl === 1 ? 15 : 25;
+        const maxSide = lvl === 0 ? 14 : lvl === 1 ? 18 : 25;
         const w = square ? r(3, maxSide) : r(4, maxSide);
         const h = square ? w : Math.max(2, r(2, w - 1));
         const askArea = lvl === 0 ? true : r(0, 1) === 1;
@@ -7719,7 +7720,7 @@ class Component extends DCLogic {
         };
       } else if (unitId === "u54") {
         const square = lvl === 0 ? r(0, 1) === 1 : r(0, 2) === 0;
-        const maxSide = lvl === 0 ? 5 : lvl === 1 ? 9 : 12;
+        const maxSide = lvl === 0 ? 7 : lvl === 1 ? 9 : 12;
         const l = square ? r(2, Math.min(6, maxSide)) : r(2, maxSide);
         const wd = square ? l : r(2, maxSide);
         const h = square ? l : r(2, maxSide);
@@ -7733,40 +7734,23 @@ class Component extends DCLogic {
           explain: (square ? "正方體體積＝邊長×邊長×邊長＝" + l + "×" + l + "×" + l : "長方體體積＝長×寬×高＝" + l + "×" + wd + "×" + h) + "＝" + ans + " 立方公分。",
         };
       } else if (unitId === "u55") {
-        let stem, ans, explain;
-        const wrongs = new Set();
-        if (lvl === 0) {
-          const a = r(1, 9);
-          stem = a + " 公升 ＝ ？ 毫升";
-          ans = a * 1000;
-          explain = "1 公升＝1000 毫升，所以 " + a + " 公升＝" + a + "×1000＝" + ans + " 毫升。";
-          [a * 100, a * 10000, a * 1000 + 100, (a + 1) * 1000].forEach((w) => { if (w !== ans) wrongs.add(w); });
-        } else if (lvl === 1) {
-          if (r(0, 1) === 1) {
-            const a = r(2, 9);
-            stem = a * 1000 + " 毫升 ＝ ？ 公升";
-            ans = a;
-            explain = "1000 毫升＝1 公升，" + (a * 1000) + " 毫升就是 " + a + " 公升。";
-            [a * 10, a * 100, a + 1, a - 1].forEach((w) => { if (w > 0 && w !== ans) wrongs.add(w); });
-          } else {
-            const a = r(2, 9) * 100;
-            stem = a + " 毫升 ＝ ？ 立方公分";
-            ans = a;
-            explain = "1 毫升的水剛好裝滿 1 立方公分的空間，所以 " + a + " 毫升＝" + a + " 立方公分。";
-            [a * 10, Math.round(a / 10), a + 100, a - 100].forEach((w) => { if (w > 0 && w !== ans) wrongs.add(w); });
-          }
-        } else {
-          const a = r(1, 5), b = r(1, 9) * 100;
-          stem = a + " 公升 " + b + " 毫升 ＝ ？ 毫升";
-          ans = a * 1000 + b;
-          explain = a + " 公升＝" + (a * 1000) + " 毫升，再加 " + b + " 毫升，共 " + ans + " 毫升。";
-          [a * 1000, a * 100 + b, ans + 1000, ans - 100].forEach((w) => { if (w > 0 && w !== ans) wrongs.add(w); });
-        }
-        while (wrongs.size < 3) { const w = ans + r(1, 9) * 100; if (w !== ans) wrongs.add(w); }
-        q = { stem, ans, fig: "capacity", figData: {}, opts: shuffle([ans].concat(Array.from(wrongs).slice(0, 3))), explain };
+        const form = r(0, 3);
+        const litres = r(1, 15), extra = r(1, 9) * 100, total = litres * 1000 + extra;
+        const ml = r(1, 99) * 100;
+        const [stem, ans, wrongs, explain] = [
+          [litres + " 公升 " + extra + " 毫升 ＝ ？ 毫升", total,
+            [litres * 1000, litres * 100 + extra, total + 1000], "1 公升＝1000 毫升，先換算公升再加上剩下的毫升。"],
+          [total + " 毫升 ＝ " + litres + " 公升 ？ 毫升", extra,
+            [total, extra / 10, extra + 100], "先取出 " + litres + " 公升，也就是 " + litres * 1000 + " 毫升，再算剩下多少。"],
+          [ml + " 毫升 ＝ ？ 立方公分", ml,
+            [ml * 10, ml / 10, ml + 100], "1 毫升等於 1 立方公分，所以數字一樣。"],
+          [ml + " 立方公分 ＝ ？ 毫升", ml,
+            [ml * 10, ml / 10, ml + 100], "1 立方公分等於 1 毫升，所以數字一樣。"],
+        ][form];
+        q = { stem, ans, fig: "capacity", figData: {}, opts: shuffle([ans, ...wrongs]), explain };
       } else if (unitId === "u56") {
         const type = lvl === 0 ? "right" : lvl === 1 ? ["right", "acute"][r(0, 1)] : ["right", "acute", "obtuse"][r(0, 2)];
-        const maxB = lvl === 0 ? 10 : lvl === 1 ? 14 : 20;
+        const maxB = lvl === 0 ? 14 : lvl === 1 ? 17 : 20;
         let base = r(4, maxB), height = r(3, Math.min(12, maxB));
         if ((base * height) % 2 === 1) base += 1;
         const ans = base * height / 2;
@@ -7780,9 +7764,9 @@ class Component extends DCLogic {
           explain: "三角形面積＝底×高÷2＝" + base + "×" + height + "÷2＝" + ans + " 平方公分。不管是哪一種三角形，公式都一樣！",
         };
       } else if (unitId === "u57") {
-        const ask = lvl === 0 ? "circ" : lvl === 1 ? ["circ", "area"][r(0, 1)] : ["circ", "area"][r(0, 1)];
-        const giveDiameter = lvl >= 1 && r(0, 1) === 1;
-        const rad = lvl === 0 ? r(2, 8) : r(2, 10);
+        const ask = r(0, 1) === 0 ? "circ" : "area";
+        const giveDiameter = r(0, 1) === 1;
+        const rad = lvl === 0 ? r(2, 20) : r(2, 25);
         const d = rad * 2;
         const round2 = (x) => Math.round(x * 100) / 100;
         const ans = ask === "circ" ? round2(d * 3.14) : round2(rad * rad * 3.14);
@@ -7937,7 +7921,7 @@ class Component extends DCLogic {
           q.opts = shuffle([ans].concat(Array.from(w).slice(0, 3)));
         }
       } else if (unitId === "u43") {
-        const den = [2, 3, 4, 5][r(0, 3)];
+        const den = r(2, 12);
         const total = r(den + 1, den * 2);
         const wholeBars = Math.floor(total / den), remainder = total % den;
         const ans = total + "/" + den;
@@ -8013,6 +7997,17 @@ class Component extends DCLogic {
       }
       return q;
     };
+    if (smallPoolUnit) {
+      const poolSize = Math.max(50, n);
+      for (let i = 0; list.length < poolSize && i < poolSize * 200; i++) {
+        const q = generate();
+        const key = JSON.stringify([q.stem, q.figData]);
+        if (usedKeys.has(key)) continue;
+        usedKeys.add(key);
+        list.push(q);
+      }
+      return Array.from({ length: Math.min(n, list.length) }, () => list.splice(r(0, list.length - 1), 1)[0]);
+    }
     for (let i = 0; i < n; i += 1) {
       let q, key, attempts = 0;
       do {
