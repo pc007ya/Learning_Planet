@@ -26,6 +26,7 @@
 <script src="./english-vocabulary-tools.js?v=20261026"></script>
 <script src="./story-vocabulary-quiz.js?v=20261026-2"></script>
 <link rel="stylesheet" href="./story-vocabulary-quiz.css?v=20261026-2">
+<link rel="stylesheet" href="./modules/math-mission-map/style.css?v=20261107">
 <script type="module" src="./modules/math-image-guard.mjs"></script>
 <script type="module" src="./modules/story-launch.mjs"></script>
 <script type="module" src="./modules/math-teaching/launch.mjs?v=20261106-grades456"></script>
@@ -1715,17 +1716,30 @@
             <button data-active="{{ g.active }}" onClick="{{ g.go }}" style="border:1.5px solid {{ g.border }};background:{{ g.bg }};color:{{ g.fg }};border-radius:99px;padding:8px 18px;font-size:14px;font-weight:900;font-family:inherit;cursor:pointer">{{ g.label }}</button>
           </sc-for>
         </div>
-        </details></div>
+        </details>
+        <sc-if value="{{ showMathKnowledge }}" hint-placeholder-val="{{ false }}">
+          <div class="math-mission-switch">
+            <span>子單元呈現</span>
+            <div role="group" aria-label="選擇數學子單元呈現方式">
+              <button type="button" aria-pressed="{{ mathClassicActive }}" onClick="{{ showMathClassic }}">傳統</button>
+              <button type="button" aria-pressed="{{ mathMissionActive }}" onClick="{{ showMathMissions }}">新版・3D 探索</button>
+            </div>
+          </div>
+        </sc-if>
+        </div>
         <sc-if value="{{ isChineseMap }}" hint-placeholder-val="{{ false }}">
           <a href="chinese-practice.html?from=map" target="_blank" rel="noopener noreferrer" aria-label="開啟國語生字練習簿" style="display:flex;align-items:center;gap:16px;margin:0 0 20px;padding:18px 24px;border:1px solid rgba(255,205,121,.5);border-radius:22px;background:rgba(76,42,96,.65);color:#fff;text-decoration:none;backdrop-filter:blur(12px)"><img src="images/subject-unit-icons/v1/chinese-writing-v1.png" alt="" style="width:60px;height:60px;object-fit:contain"><span><strong style="font-size:20px;display:block">國語生字練習簿 ↗</strong><small style="color:#ffe4ae">選教材・勾生字・自訂字・A4 列印／PDF</small></span></a>
         </sc-if>
-        <div class="subject-world-content">
+        <div class="subject-world-content" data-math-view="{{ mathMapView }}">
         <sc-if value="{{ showMathKnowledge }}" hint-placeholder-val="{{ false }}">
           <button type="button" data-math-knowledge-open="true" onClick="{{ openMathKnowledge }}" aria-label="{{ knowledgeLabel }}" style="width:100%;display:flex;align-items:center;gap:18px;text-align:left;margin:0 0 20px;padding:20px 24px;border:1px solid rgba(198,173,255,.48);border-radius:24px;background:radial-gradient(ellipse at 15% 35%,rgba(127,86,180,.48),transparent 58%),linear-gradient(110deg,rgba(24,26,65,.94),rgba(16,38,62,.9));color:#fff;font-family:inherit;cursor:pointer;box-shadow:0 10px 35px rgba(17,12,48,.22)">
             <img src="modules/math-knowledge/entry.svg" alt="" style="width:70px;height:70px;object-fit:contain;flex:none">
             <span style="flex:1;min-width:0"><small style="display:block;color:#c1b5e6;font-size:10px;letter-spacing:.15em;margin-bottom:6px">點圖案，開始玩</small><strong style="font-size:21px;display:block">{{ knowledgeTitle }}</strong></span>
             <span aria-hidden="true" style="font-size:25px;color:#cfb6ff">↗</span>
           </button>
+        </sc-if>
+        <sc-if value="{{ showMathMissionMap }}" hint-placeholder-val="{{ false }}">
+          {{ mathMissionMap }}
         </sc-if>
         <div class="subject-world-grid">
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="6">
@@ -5430,7 +5444,33 @@ const STANDARD_SCHOOL_CLASSES = Object.freeze(Array.from({ length: 6 }, (_, grad
   })
 ).flat());
 
+const MATH_MAP_VIEW_KEY = "learning-planet:math-map-view";
+
+function readMathMapView() {
+  try { return localStorage.getItem(MATH_MAP_VIEW_KEY) === "mission" ? "mission" : "classic"; }
+  catch { return "classic"; }
+}
+
+function MathMissionMap(props) {
+  const [View, setView] = React.useState(null);
+  const [failed, setFailed] = React.useState(false);
+  React.useEffect(() => {
+    let active = true;
+    import("./modules/math-mission-map/view.mjs?v=20261107").then(
+      ({ createMissionMapView }) => { if (active) setView(() => createMissionMapView(React)); },
+      () => { if (active) setFailed(true); }
+    );
+    return () => { active = false; };
+  }, []);
+  if (View) return React.createElement(View, props);
+  return React.createElement("p", { className: "math-mission-loading", role: "status" },
+    failed ? "探索地圖暫時無法載入。" : "正在準備探索地圖…",
+    failed && React.createElement("button", { type: "button", onClick: props.onClassic }, "切回傳統"));
+}
+
 class Component extends DCLogic {
+  mathMissionFocus = new Map();
+
   state = {
     screen: "login",
     students: makeStudents(),
@@ -5442,6 +5482,7 @@ class Component extends DCLogic {
     adminTab: "students",
     subject: "math",
     grade: 1,
+    mathMapView: readMathMapView(),
     unit: null, quizSubject: "math",
     quizZhuyin: false, quizZhuyinLoading: false, quizZhuyinError: false, chineseZhuyin: null,
     qs: [], qi: 0, picked: null, mathChoice: null, sciChoice: null, locked: false, correct: 0, timeLeft: 30, quizRound: 0, quizRunId: "", feedbackTitle: "", resultMastery: 0, resultNote: "",
@@ -8415,6 +8456,12 @@ class Component extends DCLogic {
     if (this.state.currentId === learnerId && this.state.grade === grade && this.state.subject === "math") this.startUnit(id);
   }
 
+  setMathMapView(view) {
+    if (this.state.mathMapView === view) return;
+    try { localStorage.setItem(MATH_MAP_VIEW_KEY, view); } catch {}
+    this.setState({ mathMapView: view });
+  }
+
   async openMathKnowledge() {
     if (this.knowledgeOpening || this.state.subject !== "math" || ![1, 2, 3, 4, 5, 6].includes(this.state.grade)) return;
     const learnerId = this.state.currentId;
@@ -10207,6 +10254,52 @@ class Component extends DCLogic {
     const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "library" || s.screen === "writing" || s.screen === "memory" || s.screen === "video" || String(s.screen).indexOf("english") === 0 ? "map" : s.screen === "weeklyQuiz" || s.screen === "weeklyResult" ? "weekly" : s.screen === "collection" ? "gacha" : s.screen;
     const subjectUnits = s.subject === "math" ? [...MATH_UNITS,...MATH_EXPLORE_UNITS].sort((a,b)=>a.grade-b.grade||a.displayOrder-b.displayOrder) : s.subject === "english" ? EN_UNITS : s.subject === "science" ? SCI_UNITS : s.subject === "experiment" ? EXPERIMENT_UNITS : CH_UNITS;
     const gradeWords = this.gradeWords(s.grade);
+    const worldUnits = subjectUnits.filter((u) => s.subject === "experiment" || u.grade === s.grade).map((u) => {
+      const isLib = u.kind === "library";
+      const isExperiment = u.kind === "experiment";
+      const isPhonics = u.kind === "english-phonics";
+      const round = isLib || isExperiment ? 0 : dailyMasteryRound(p, u.id);
+      const atLimit = !isExperiment && round >= 3;
+      const difficulty = Math.max(1, Math.min(3, Number(u.difficulty) || 1));
+      const subjectPlanet = { math: "images/home/planets/math-planet-v1.jpg", chinese: "images/home/planets/chinese-planet-v1.jpg", english: "images/home/planets/english-planet-v1.jpg", experiment: "images/home/planets/experiment-planet-v1.jpg" }[s.subject];
+      const unitArt = u.art || (s.subject === "math" && MATH_OBJECT_ASSETS[u.icon] ? mathObjectAsset(u.icon).image : "");
+      const iconEl = /^s\d/.test(u.id) ? SCI_ICON_EL(u.icon, 34) : React.createElement("img", { src: unitArt || subjectPlanet || "images/home/planets/experiment-planet-v1.jpg", alt: "", style: { width: 54, height: 54, objectFit: "contain", filter: "drop-shadow(0 5px 6px rgba(38,50,112,.2))" } });
+      return {
+        id: u.id, art: unitArt || subjectPlanet, round, atLimit, difficulty,
+        icon: u.icon, iconEl, tint: u.tint, title: u.title, sub: u.sub, displayCode: u.displayCode || "", showStart: u.kind !== "math-explore",
+        pct: isLib ? 100 : isExperiment ? 0 : Math.round(round / 3 * 100),
+        stars: isLib || isExperiment ? [] : [0, 1, 2].map((i) => ({ opacity: i < difficulty ? 1 : .28, gray: i < difficulty ? 0 : 1 })),
+        showMastery: u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
+        showStatus: u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
+        showProgress: u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
+        masteryMark: isLib ? "字庫" : isExperiment ? "" : masteryRoman(round),
+        masteryBg: round ? "#e6f7ee" : "#fbfaff",
+        masteryFg: round ? "#1d7a55" : "#b3a9d8",
+        masteryBorder: round ? "#9fe3c4" : "#ece7ff",
+        stateLabel: isLib ? gradeWords.length + " 個字" : isExperiment ? "" : atLimit ? "今日已完成上限" : round ? "今日完成 " + masteryRoman(round) : "今日未開始",
+        stateColor: isLib || round ? "#35c98a" : "#b3a9d8",
+        btnLabel: u.kind === "english-story-library" ? "進入單字" : isPhonics ? "開始練習" : isLib ? "進入學習庫" : isExperiment ? "進入實驗室" : atLimit ? "今日改練其他單元" : round ? "挑戰第 " + masteryRoman(round + 1) + " 輪" : "開始第 I 輪",
+        btnBg: atLimit ? "#ece9f5" : "linear-gradient(90deg,#7c5cff,#22c8d8)",
+        btnFg: atLimit ? "#9a90c8" : "#fff",
+        start: () => this.startUnit(u.id),
+        teachingLinks: s.subject === "math" ? (u.concept ? ["concept-" + u.id] : u.foundation ? ["foundation-" + u.id] : u.teaching ? [u.teaching] : ({ u105: ["geo-shapes"], u29: ["geo-shapes"], u31: ["geo-space"], u32: ["geo-space"], u54: ["geo-volume"], u55: ["capacity"], u45: ["frac-add"], u46: ["frac-sub"], u16: ["mul"], u6: ["mul"], u108: ["ten"], u14: ["add"], u20: ["add"], u15: ["sub"], u21: ["sub"], u5: ["add", "sub"], u37: ["add", "sub"], u9: ["division"] }[u.id] || [])).map((lesson) => ({lesson, max: ["u14", "u15"].includes(u.id) ? 50 : 99, label: u.foundation ? "先看教學" : "先看教學 · " + ({"geo-area":"面積","geo-shapes":"形狀與立體","geo-count":"數積木","geo-space":"空間","geo-volume":"體積","geo-capacity":"容積與容量",capacity:"容積與容量",ten:"湊十",add:"加法",sub:"減法",mul:"乘法","frac-add":"分數加法","frac-sub":"分數減法",division:"長除法"}[lesson])})) : [],
+        teachingClass: u.foundation || u.teaching ? "has-teaching" : s.subject === "math" && ["u105","u29","u31","u32","u54","u55","u45","u46","u16","u6","u108","u14","u20","u15","u21","u5","u37","u9"].includes(u.id) ? "has-teaching" : "",
+        hasVideo: !!VIDEO_LIB[u.id],
+        watchVideo: () => this.startVideo(u.id, "map"),
+        hasLesson: ["u40", "u41", "u42", "u47", "u48", "u49", "u50", "u51", "u52", "u53", "u54", "u55", "u56", "u57", "u58", "u59", "u60", "u61", "u62", "s1", "s2", "s3", "s4", "s5", "s9", "s10", "s11", "s12", "s13", "s14", "s15", "s16", "s17", "s18"].indexOf(u.id) >= 0,
+        lessonLabel: "📺 老師示範",
+        lesson: () => {
+          if (u.id === "u47") return this.startVertLesson("add", 1);
+          if (u.id === "u48") return this.startVertLesson("sub", 1);
+          if (u.id === "u49") return this.startVertLesson("mul", 1);
+          const geoTopic = Object.keys(GEO_LESSON_UNIT).find((k) => GEO_LESSON_UNIT[k] === u.id);
+          if (geoTopic) return this.startGeoLesson(geoTopic);
+          return this.startDivLesson(u.id === "u40" ? 1 : 2);
+        },
+      };
+    });
+    const showMathMissionMap = s.screen === "map" && s.subject === "math" && s.mathMapView === "mission";
+    const missionFocusKey = s.currentId + ":" + s.grade;
     const libFiltered = s.libUnit === "全部" ? gradeWords : gradeWords.filter((w) => w.u === s.libUnit);
     const detail = s.detailChar ? this.allWords().find((w) => w.c === s.detailChar) : null;
     const weeklyExamDone = !!(p.weeklyExam && p.weeklyExam.week === weekKey() && p.weeklyExam.submitted);
@@ -11195,6 +11288,20 @@ class Component extends DCLogic {
       showChallengeRules: s.subject !== "experiment",
       isExperimentSubject: s.subject === "experiment",
       showGeoExplore: false,
+      mathMapView: s.subject === "math" ? s.mathMapView : "",
+      mathClassicActive: String(s.mathMapView === "classic"),
+      mathMissionActive: String(s.mathMapView === "mission"),
+      showMathClassic: () => this.setMathMapView("classic"),
+      showMathMissions: () => this.setMathMapView("mission"),
+      showMathMissionMap,
+      mathMissionMap: showMathMissionMap ? React.createElement(MathMissionMap, {
+        key: missionFocusKey,
+        grade: s.grade,
+        units: worldUnits,
+        initialUnit: this.mathMissionFocus.get(missionFocusKey),
+        onSelect: (id) => this.mathMissionFocus.set(missionFocusKey, id),
+        onClassic: () => this.setMathMapView("classic"),
+      }) : null,
       showMathKnowledge: s.subject === "math" && [1, 2, 3, 4, 5, 6].includes(s.grade),
       knowledgeTitle: ["", "小一", "小二", "小三", "小四", "小五", "小六"][s.grade] + "知識星圖",
       knowledgeLabel: "開啟" + ["", "小一", "小二", "小三", "小四", "小五", "小六"][s.grade] + "數學知識星圖",
@@ -11205,49 +11312,7 @@ class Component extends DCLogic {
         fg: s.grade === g ? "#fff" : "#7c74a8",
         border: s.grade === g ? "#7c5cff" : "#ece7ff",
       })),
-      units: subjectUnits.filter((u) => s.subject === "experiment" || u.grade === s.grade).map((u) => {
-        const isLib = u.kind === "library";
-        const isExperiment = u.kind === "experiment";
-        const isPhonics = u.kind === "english-phonics";
-        const round = isLib || isExperiment ? 0 : dailyMasteryRound(p, u.id);
-        const atLimit = !isExperiment && round >= 3;
-        const difficulty = Math.max(1, Math.min(3, Number(u.difficulty) || 1));
-        const subjectPlanet = { math: "images/home/planets/math-planet-v1.jpg", chinese: "images/home/planets/chinese-planet-v1.jpg", english: "images/home/planets/english-planet-v1.jpg", experiment: "images/home/planets/experiment-planet-v1.jpg" }[s.subject];
-        const unitArt = u.art || (s.subject === "math" && MATH_OBJECT_ASSETS[u.icon] ? mathObjectAsset(u.icon).image : "");
-        const iconEl = /^s\d/.test(u.id) ? SCI_ICON_EL(u.icon, 34) : React.createElement("img", { src: unitArt || subjectPlanet || "images/home/planets/experiment-planet-v1.jpg", alt: "", style: { width: 54, height: 54, objectFit: "contain", filter: "drop-shadow(0 5px 6px rgba(38,50,112,.2))" } });
-        return {
-          icon: u.icon, iconEl, tint: u.tint, title: u.title, sub: u.sub, displayCode: u.displayCode || "", showStart: u.kind !== "math-explore",
-          pct: isLib ? 100 : isExperiment ? 0 : Math.round(round / 3 * 100),
-          stars: isLib || isExperiment ? [] : [0, 1, 2].map((i) => ({ opacity: i < difficulty ? 1 : .28, gray: i < difficulty ? 0 : 1 })),
-          showMastery: u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
-          showStatus: u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
-          showProgress: u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
-          masteryMark: isLib ? "字庫" : isExperiment ? "" : masteryRoman(round),
-          masteryBg: round ? "#e6f7ee" : "#fbfaff",
-          masteryFg: round ? "#1d7a55" : "#b3a9d8",
-          masteryBorder: round ? "#9fe3c4" : "#ece7ff",
-          stateLabel: isLib ? gradeWords.length + " 個字" : isExperiment ? "" : atLimit ? "今日已完成上限" : round ? "今日完成 " + masteryRoman(round) : "今日未開始",
-          stateColor: isLib || round ? "#35c98a" : "#b3a9d8",
-          btnLabel: u.kind === "english-story-library" ? "進入單字" : isPhonics ? "開始練習" : isLib ? "進入學習庫" : isExperiment ? "進入實驗室" : atLimit ? "今日改練其他單元" : round ? "挑戰第 " + masteryRoman(round + 1) + " 輪" : "開始第 I 輪",
-          btnBg: atLimit ? "#ece9f5" : "linear-gradient(90deg,#7c5cff,#22c8d8)",
-          btnFg: atLimit ? "#9a90c8" : "#fff",
-          start: () => this.startUnit(u.id),
-          teachingLinks: s.subject === "math" ? (u.concept ? ["concept-" + u.id] : u.foundation ? ["foundation-" + u.id] : u.teaching ? [u.teaching] : ({ u105: ["geo-shapes"], u29: ["geo-shapes"], u31: ["geo-space"], u32: ["geo-space"], u54: ["geo-volume"], u55: ["capacity"], u45: ["frac-add"], u46: ["frac-sub"], u16: ["mul"], u6: ["mul"], u108: ["ten"], u14: ["add"], u20: ["add"], u15: ["sub"], u21: ["sub"], u5: ["add", "sub"], u37: ["add", "sub"], u9: ["division"] }[u.id] || [])).map((lesson) => ({lesson, max: ["u14", "u15"].includes(u.id) ? 50 : 99, label: u.foundation ? "先看教學" : "先看教學 · " + ({"geo-area":"面積","geo-shapes":"形狀與立體","geo-count":"數積木","geo-space":"空間","geo-volume":"體積","geo-capacity":"容積與容量",capacity:"容積與容量",ten:"湊十",add:"加法",sub:"減法",mul:"乘法","frac-add":"分數加法","frac-sub":"分數減法",division:"長除法"}[lesson])})) : [],
-          teachingClass: u.foundation || u.teaching ? "has-teaching" : s.subject === "math" && ["u105","u29","u31","u32","u54","u55","u45","u46","u16","u6","u108","u14","u20","u15","u21","u5","u37","u9"].includes(u.id) ? "has-teaching" : "",
-          hasVideo: !!VIDEO_LIB[u.id],
-          watchVideo: () => this.startVideo(u.id, "map"),
-          hasLesson: ["u40", "u41", "u42", "u47", "u48", "u49", "u50", "u51", "u52", "u53", "u54", "u55", "u56", "u57", "u58", "u59", "u60", "u61", "u62", "s1", "s2", "s3", "s4", "s5", "s9", "s10", "s11", "s12", "s13", "s14", "s15", "s16", "s17", "s18"].indexOf(u.id) >= 0,
-          lessonLabel: "📺 老師示範",
-          lesson: () => {
-            if (u.id === "u47") return this.startVertLesson("add", 1);
-            if (u.id === "u48") return this.startVertLesson("sub", 1);
-            if (u.id === "u49") return this.startVertLesson("mul", 1);
-            const geoTopic = Object.keys(GEO_LESSON_UNIT).find((k) => GEO_LESSON_UNIT[k] === u.id);
-            if (geoTopic) return this.startGeoLesson(geoTopic);
-            return this.startDivLesson(u.id === "u40" ? 1 : 2);
-          },
-        };
-      }),
+      units: worldUnits,
 
       libraryTitleReading: React.createElement("span", { className: "chinese-library-title-readings", "aria-hidden": true }, chineseReading("學", "ㄒㄩㄝˊ"), chineseReading("習", "ㄒㄧˊ"), chineseReading("庫", "ㄎㄨˋ")),
       libCount: libFiltered.length,
