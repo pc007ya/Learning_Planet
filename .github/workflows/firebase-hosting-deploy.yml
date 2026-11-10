@@ -36,7 +36,7 @@ jobs:
       - name: Stage public site
         run: |
           mkdir -p _site
-          rsync -a --exclude='_site' --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='functions' --exclude='firebase-debug.log' --exclude='src' --exclude='tests' ./ _site/
+          rsync -a --exclude='_site' --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='functions' --exclude='firebase-debug.log' --exclude='src' --exclude='tests' --exclude='modules/math-mission-map/v11/qa' --exclude='*.check.mjs' --exclude='*.test.mjs' ./ _site/
 
       - name: Authenticate deployment service account
         uses: google-github-actions/auth@v2

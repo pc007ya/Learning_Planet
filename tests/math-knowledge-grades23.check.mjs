@@ -50,7 +50,7 @@ for(const [grade,data,count,coreCount] of [[2,second,28,21],[3,third,23,26]]) {
     assert.equal(state.grade,grade);assert.deepEqual(actions,[courses[0].id]);context.LPHomeRoutes.sync(owner);assert.equal(actions.length,1);
   });
   test(`grade ${grade}: host action callbacks isolate learner and grade`,async()=>{
-    const source=index.match(/  async openMathKnowledge\(\) \{[\s\S]*?\n  \}\n\n  startUnit/)[0].replace(/\n\n  startUnit$/,'').replace(/await import\("\.\/modules\/math-knowledge\/launch\.mjs[^"\n]*"\)/,'await suppliedImport()');
+    const source=index.match(/  async openMathKnowledge\(\) \{[\s\S]*?\n  \}\n\n  (?:async )?startUnit/)[0].replace(/\n\n  (?:async )?startUnit$/,'').replace(/await import\("\.\/modules\/math-knowledge\/launch\.mjs[^"\n]*"\)/,'await suppliedImport()');
     let opened;const actions=[],target=courses[0];
     const runtime={MATH_UNITS:courses.map(c=>({...c,grade,displayCode:c.code})),VIDEO_LIB:{[target.id]:{}},dailyMasteryRound:()=>0,document:{querySelector:()=>({click:()=>actions.push('teaching')})},suppliedImport:async()=>({openKnowledgeMap:args=>{opened=args;return()=>{};}}),console};
     const methods=vm.runInNewContext('({'+source+'})',runtime);

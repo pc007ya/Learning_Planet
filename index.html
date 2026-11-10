@@ -14,19 +14,13 @@
 <title>Learning Planet | 學習星球</title>
 <meta name="description" content="提供小學數學、國文、英文、自然與科學實驗的互動學習網站。">
 <script src="./support.js"></script>
-<script src="./modules/math-foundations/model.js"></script>
-<script src="./modules/math-concepts/upper/core.js?v=20261106-grades456"></script>
-<script src="./modules/math-concepts/upper/grade4.js?v=20261106-grades456-2"></script>
-<script src="./modules/math-concepts/upper/grade5.js?v=20261106-quiz-pool50"></script>
-<script src="./modules/math-concepts/upper/grade6.js?v=20261106-grades456"></script>
-<script src="./modules/math-concepts/model.js?v=20261106-grades456"></script>
 <script src="./entry-image-manifest.js" defer></script>
 <script src="./entry-image-progress.js" defer></script>
 <script src="./sci-art.js"></script>
 <script src="./english-vocabulary-tools.js?v=20261026"></script>
 <script src="./story-vocabulary-quiz.js?v=20261026-2"></script>
 <link rel="stylesheet" href="./story-vocabulary-quiz.css?v=20261026-2">
-<link rel="stylesheet" href="./modules/math-mission-map/style.css?v=20261107">
+<link rel="stylesheet" href="./modules/math-mission-map/style.css?v=20261110-v11-release1">
 <script type="module" src="./modules/math-image-guard.mjs"></script>
 <script type="module" src="./modules/story-launch.mjs"></script>
 <script type="module" src="./modules/math-teaching/launch.mjs?v=20261106-grades456"></script>
@@ -5454,22 +5448,26 @@ function readMathMapView() {
 function MathMissionMap(props) {
   const [View, setView] = React.useState(null);
   const [failed, setFailed] = React.useState(false);
+  const [attempt, setAttempt] = React.useState(0);
   React.useEffect(() => {
+    setFailed(false);
     let active = true;
-    import("./modules/math-mission-map/view.mjs?v=20261107").then(
+    import("./modules/math-mission-map/view.mjs?v=20261110-v11-release1" + (attempt ? "&retry=" + attempt : "")).then(
       ({ createMissionMapView }) => { if (active) setView(() => createMissionMapView(React)); },
       () => { if (active) setFailed(true); }
     );
     return () => { active = false; };
-  }, []);
+  }, [attempt]);
   if (View) return React.createElement(View, props);
   return React.createElement("p", { className: "math-mission-loading", role: "status" },
     failed ? "探索地圖暫時無法載入。" : "正在準備探索地圖…",
+    failed && React.createElement("button", { type: "button", onClick: () => setAttempt(value => value + 1) }, "重試"),
     failed && React.createElement("button", { type: "button", onClick: props.onClassic }, "切回傳統"));
 }
 
 class Component extends DCLogic {
   mathMissionFocus = new Map();
+  mathPlanetExploration = new Map();
 
   state = {
     screen: "login",
@@ -5775,6 +5773,9 @@ class Component extends DCLogic {
     } catch (error) { console.warn("Student progress sync failed:", error); }
   }
   componentDidUpdate(prevProps, prevState) {
+    const mathNavigation = JSON.stringify([this.state.screen, this.state.subject, this.state.grade, this.state.currentId, this.state.unit, this.state.teacher, this.state.mathMapView]);
+    if (this.lastMathNavigation !== undefined && mathNavigation !== this.lastMathNavigation) this.mathResourceNavigation = (this.mathResourceNavigation || 0) + 1;
+    this.lastMathNavigation = mathNavigation;
     // The DC host supplies prevProps only, so track the last mounted screen.
     const previousScreen = this.lastResourceScreen ?? prevState?.screen;
     this.lastResourceScreen = this.state.screen;
@@ -5813,6 +5814,8 @@ class Component extends DCLogic {
     }
   }
   componentWillUnmount() {
+    this.mathCourseRequest = (this.mathCourseRequest || 0) + 1;
+    this.mathResourceNavigation = (this.mathResourceNavigation || 0) + 1;
     this.knowledgeClose?.();
     window.removeEventListener("lp-english-voices",this.englishVoicesChanged);
     window.removeEventListener("lp-english-speech-error",this.englishSpeechError);
@@ -8363,11 +8366,18 @@ class Component extends DCLogic {
     }
     if (this.weeklyStarting) return;
     this.weeklyStarting = true;
+    const navigation = this.captureMathNavigation();
     const generation = this.sessionGeneration || 0;
     this.setState({weeklyStarting:true});
     try {
       await this.loadLearningData(true);
-      await window.LPHomeResources?.ensureMathObjects();
+      if (!this.matchesMathNavigation(navigation)) return;
+      const selectedMath = MATH_UNITS.filter(unit => unit.grade === this.state.grade && Number(this.state.weeklyConfig.modules[unit.id]?.count) > 0);
+      if (selectedMath.some(unit => unit.foundation || unit.concept)) {
+        const { ensureGrade } = await import("./modules/math-grade-resources.mjs");
+        await Promise.all([ensureGrade(this.state.grade), selectedMath.some(unit => unit.concept) ? window.LPHomeResources?.ensureMathObjects() : null]);
+      }
+      if (!this.matchesMathNavigation(navigation)) return;
       if (generation !== (this.sessionGeneration || 0) || this.state.screen !== "weekly") return;
     const units = MATH_UNITS.concat(CH_UNITS, SCI_UNITS).filter((unit) => unit.grade === this.state.grade && unit.kind !== "library" && unit.kind !== "writing" && unit.kind !== "math-game" && unit.kind !== "memory");
     const questions = [];
@@ -8456,6 +8466,11 @@ class Component extends DCLogic {
     if (this.state.currentId === learnerId && this.state.grade === grade && this.state.subject === "math") this.startUnit(id);
   }
 
+  captureMathNavigation() {
+    return JSON.stringify([this.mathResourceNavigation || 0, this.sessionGeneration || 0, this.state.screen, this.state.subject, this.state.grade, this.state.currentId, this.state.unit, this.state.teacher, this.state.mathMapView]);
+  }
+  matchesMathNavigation(snapshot) { return this.captureMathNavigation() === snapshot; }
+
   setMathMapView(view) {
     if (this.state.mathMapView === view) return;
     try { localStorage.setItem(MATH_MAP_VIEW_KEY, view); } catch {}
@@ -8508,7 +8523,21 @@ class Component extends DCLogic {
     } finally { this.knowledgeOpening = false; }
   }
 
-  startUnit(id) {
+  async startUnit(id) {
+    const request = this.mathCourseRequest = (this.mathCourseRequest || 0) + 1;
+    const course = MATH_UNITS.find(unit => unit.id === id);
+    if (course?.foundation || course?.concept) {
+      const navigation = this.captureMathNavigation();
+      this.flash("正在準備這一課…");
+      try {
+        const { ensureGrade } = await import("./modules/math-grade-resources.mjs");
+        await Promise.all([ensureGrade(course.grade), course.concept ? window.LPHomeResources?.ensureMathObjects() : null]);
+        if (request !== this.mathCourseRequest || !this.matchesMathNavigation(navigation)) return;
+      } catch (_) {
+        if (request === this.mathCourseRequest && this.matchesMathNavigation(navigation)) this.flash("這一課載入失敗，請再按開始重試。");
+        return;
+      }
+    }
     clearTimeout(this.autoNextTimer);
     const englishUnit = EN_UNITS.find((unit) => unit.id === id);
     if (englishUnit) { this.startEnglishUnit(englishUnit); return; }
@@ -11299,8 +11328,11 @@ class Component extends DCLogic {
         grade: s.grade,
         units: worldUnits,
         initialUnit: this.mathMissionFocus.get(missionFocusKey),
+        initialExploration: this.mathPlanetExploration.get(missionFocusKey),
+        onExplorationChange: (value) => this.mathPlanetExploration.set(missionFocusKey, value),
         onSelect: (id) => this.mathMissionFocus.set(missionFocusKey, id),
         onClassic: () => this.setMathMapView("classic"),
+        onKnowledge: () => this.openMathKnowledge(),
       }) : null,
       showMathKnowledge: s.subject === "math" && [1, 2, 3, 4, 5, 6].includes(s.grade),
       knowledgeTitle: ["", "小一", "小二", "小三", "小四", "小五", "小六"][s.grade] + "知識星圖",

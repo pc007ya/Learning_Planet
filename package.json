@@ -11,7 +11,7 @@
     "test:earth-orbit": "vitest run",
     "build:experiments": "vite build --config vite.experiments.config.ts",
     "build:stories": "vite build --config vite.story.config.ts",
-    "check": "npm run test:math-knowledge && npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit && npm run build:experiments && npm run build:stories && npm run build:little-star && npm run build:math-teaching && npm run build:optics && npm run build:earth-lab && npm run build:fire-weather && npm run build:underwater-world && npm run build:amusement-park && npm run build:experiment-planets && npm run build:tides && npm run build:tides3d",
+    "check": "npm run test:math-planet-v11 && npm run test:math-knowledge && npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit && npm run build:experiments && npm run build:stories && npm run build:little-star && npm run build:math-teaching && npm run build:optics && npm run build:earth-lab && npm run build:fire-weather && npm run build:underwater-world && npm run build:amusement-park && npm run build:experiment-planets && npm run build:tides && npm run build:tides3d",
     "deploy": "npx -y firebase-tools@latest deploy --only hosting",
     "deploy:all": "npx -y firebase-tools@latest deploy",
     "build:little-star": "vite build --config vite.little-star.config.ts",
@@ -23,7 +23,8 @@
     "build:experiment-planets": "vite build --config vite.experiment-planets.config.ts",
     "build:tides": "vite build --config vite.tides.config.mjs",
     "build:tides3d": "vite build --config vite.tides3d.config.mjs",
-    "test:math-knowledge": "node --test tests/math-knowledge-*.check.mjs"
+    "test:math-knowledge": "node --test tests/math-knowledge-*.check.mjs",
+    "test:math-planet-v11": "node --test tests/math-planet-v11-host.check.mjs tests/math-planet-v11-entry.check.mjs tests/math-planet-grade-loading.check.mjs tests/math-planet-landing.check.mjs modules/math-mission-map/v11/runtime.check.mjs modules/math-mission-map/v11/walking-broadphase.check.mjs"
   },
   "dependencies": {
     "pixi.js": "^8.18.1",

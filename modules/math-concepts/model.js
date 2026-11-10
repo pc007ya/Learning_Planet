@@ -160,7 +160,15 @@ function picture(q,step=0){
 }
 
 function session(id,count=10,rng=Math.random){const out=[],seen=new Set();for(let i=0;out.length<count&&i<count*200;i++){const q=question(id,i,rng),key=JSON.stringify([q.stem,q.counts,q.sides,q.angles,q.kind==='upper'?q.art:null]);if(seen.has(key))continue;seen.add(key);q.picture='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(picture(q,0));out.push(q);}return out;}
-const api={units,byId,question,picture,session,time,duration};root.MathConcepts=api;
+function registerUpperUnits(){
+ for(const unit of upper?.units||[]){
+  const index=units.findIndex(item=>item.id===unit.id);
+  if(index<0)units.push(unit);else units[index]=unit;
+  const foundationUnits=root.MathFoundations?.units;
+  if(foundationUnits){const i=foundationUnits.findIndex(item=>item.id===unit.id);if(i<0)foundationUnits.push(unit);else foundationUnits[i]=unit;}
+ }
+}
+const api={units,byId,question,picture,session,time,duration,registerUpperUnits};root.MathConcepts=api;
 // Use the existing normal-quiz engine, records and rewards without changing IDs.
 if(root.MathFoundations){const old={...root.MathFoundations};root.MathFoundations={...old,units:[...old.units,...units],byId:id=>byId(id)||old.byId(id),question:(id,...args)=>(byId(id)?question:old.question)(id,...args),session:(id,...args)=>(byId(id)?session:old.session)(id,...args),picture:(q,...args)=>(byId(q.unitId)?picture:old.picture)(q,...args)};}
 })(typeof window==='undefined'?globalThis:window);

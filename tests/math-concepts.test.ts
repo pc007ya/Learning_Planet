@@ -38,7 +38,7 @@ it('calculates every variant independently using integer arithmetic',()=>{
 it('keeps first-batch dispatch and all new quiz entries compatible',()=>{
  expect(ctx.MathFoundations.units).toHaveLength(29);
  for(const id of ['u109','u110','u117','u118','u125','u137']){expect(ctx.MathFoundations.byId(id)).toBeTruthy();expect(ctx.MathFoundations.session(id,10,rng())).toHaveLength(10);}
- const html=readFileSync('index.html','utf8');expect(html.indexOf('math-foundations/model.js')).toBeLessThan(html.indexOf('math-concepts/model.js'));expect(html).toContain('u.concept ? ["concept-" + u.id]');expect(readFileSync('modules/math-teaching/launch.mjs','utf8')).toContain("lesson?.startsWith('concept-')?'../../math-concepts.html'");
+ const html=readFileSync('index.html','utf8');const loader=readFileSync('modules/math-grade-resources.mjs','utf8');expect(loader.indexOf('modules/math-foundations/model.js')).toBeLessThan(loader.indexOf('modules/math-concepts/model.js'));expect(html).not.toMatch(/<script[^>]+src=["'][^"']*math-(?:foundations|concepts)\/model\.js/);expect(html).toContain('await Promise.all([ensureGrade(course.grade)');expect(html).toContain('u.concept ? ["concept-" + u.id]');expect(readFileSync('modules/math-teaching/launch.mjs','utf8')).toContain("lesson?.startsWith('concept-')?'../../math-concepts.html'");
 });
 it('supports midnight and exact carrying boundaries without decimal time',()=>{expect(C.time(1440)).toBe('次日 00:00');expect(C.time(1505)).toBe('次日 01:05');expect(C.duration(120)).toBe('2 時 0 分');expect(C.duration(60,'秒')).toBe('1 分 0 秒');});
 it('uses one existing object per quantity and conserves objects after giving some away',()=>{

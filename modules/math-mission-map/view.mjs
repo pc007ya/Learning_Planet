@@ -1,3 +1,4 @@
+export const usesV11Planet = grade => [1,2,3].includes(grade);
 const STATIONS_PER_ROUTE = 8;
 const GRADE_NAMES = ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"];
 const STATION_LAYOUT = [
@@ -54,7 +55,7 @@ export function createMissionMapView(React) {
         h("button", { type: "button", onClick: () => move(1), disabled: index === count - 1 }, "下一站 →")));
   }
 
-  return function MissionMapView({ grade, units, initialUnit, onSelect }) {
+  function MissionMapView({ grade, units, initialUnit, onSelect }) {
     const [selectedId, setSelected] = React.useState(initialUnit);
     const [projected, setProjected] = React.useState(null);
     const stage = React.useRef(null);
@@ -156,5 +157,28 @@ export function createMissionMapView(React) {
               h("button", { type: "button", onClick: () => scene.current?.reset() }, "全景"),
               h("button", { type: "button", "aria-label": "向右轉動地圖", onClick: () => scene.current?.rotate(.22) }, "↷")))),
         h(MissionDetails, { unit: selected, move: (delta) => choose(selectedIndex + delta), index: selectedIndex, count: units.length })));
-  };
+  }
+  // art-v2 remains a review URL alias, using the same transferred v11 assets.
+  // Grades four through six retain their existing mission map.
+
+  function GradeOneMap(props) {
+    const [View, setView] = React.useState(null);
+    const [failed, setFailed] = React.useState(false);
+    const [attempt, setAttempt] = React.useState(0);
+    React.useEffect(() => {
+      let active = true;
+      setFailed(false);
+      const path = './v11-host/view.mjs?v=20261110-v11-release1';
+      import(path + (attempt ? '&retry=' + attempt : '')).then(module => {
+        if (active) setView(() => module.createV11PlanetView(React));
+      }).catch(() => { if (active) setFailed(true); });
+      return () => { active = false; };
+    }, [attempt]);
+    if (View) return h(View, {...props,key:props.grade});
+    return h('p', {className:'math-mission-loading',role:'status'},
+      failed ? '探索地圖載入失敗。' : '正在準備'+GRADE_NAMES[props.grade]+'星球…',
+      failed && h('button', {type:'button',onClick:()=>setAttempt(value=>value+1)}, '重試'),
+      failed && h('button', {type:'button',onClick:props.onClassic}, '切回傳統'));
+  }
+  return props => h(usesV11Planet(props.grade) ? GradeOneMap : MissionMapView, props);
 }

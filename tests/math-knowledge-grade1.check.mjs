@@ -100,7 +100,7 @@ test('standalone links resume the chosen first-grade course after login and cann
 });
 
 test('the production host passes only activity flags and dispatches actions for the same learner', async () => {
-  const source=index.match(/  async openMathKnowledge\(\) \{[\s\S]*?\n  \}\n\n  startUnit/)[0].replace(/\n\n  startUnit$/,'').replace(/await import\("\.\/modules\/math-knowledge\/launch\.mjs[^"\n]*"\)/,'await suppliedImport()');
+  const source=index.match(/  async openMathKnowledge\(\) \{[\s\S]*?\n  \}\n\n  (?:async )?startUnit/)[0].replace(/\n\n  (?:async )?startUnit$/,'').replace(/await import\("\.\/modules\/math-knowledge\/launch\.mjs[^"\n]*"\)/,'await suppliedImport()');
   let opened;
   const actions=[];
   const runtime={MATH_UNITS:courses.map(c=>({...c,grade:1,displayCode:c.code})),VIDEO_LIB:{u108:{}},dailyMasteryRound:()=>0,document:{querySelector:selector=>selector.includes('1-16')?{click:()=>actions.push('teaching:u108')}:null},suppliedImport:async()=>({openKnowledgeMap:args=>{opened=args;return()=>{};}}),console};

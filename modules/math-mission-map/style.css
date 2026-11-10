@@ -481,3 +481,104 @@
   .math-mission-pin-art { width: 44px; height: 44px; }
   .math-mission-pin-art img { width: 34px; height: 34px; }
 }
+
+/* Grade-one territory pilot; other grades keep their existing mission islands. */
+.subject-focus .subject-world:has(.math-planet-map){width:min(1510px,100%);height:calc(100svh - 105px);max-height:none}
+.math-planet-map{padding:14px;background:linear-gradient(145deg,#171d38e8,#13162dee)}
+.math-planet-map .math-mission-heading h2{font-size:1.45rem;letter-spacing:.06em}
+.math-planet-map .math-mission-heading p{font-size:.65rem;letter-spacing:.18em;color:#96dfee}
+.math-planet-map .math-mission-heading>button{min-height:44px;padding:8px 12px;font-size:.8rem}
+.math-planet-summary{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin:8px 0 14px;color:#a6bbd4;font-size:.74rem}
+.math-planet-layout{grid-template-columns:minmax(0,1fr) minmax(230px,25%);align-items:start}
+.math-planet-stage{position:relative;isolation:isolate;height:clamp(460px,62svh,650px);overflow:hidden;touch-action:pan-y;background:radial-gradient(ellipse at 45% 45%,#284763,#0d1834 70%);outline-offset:-4px}
+.math-planet-stage:focus-visible{outline:3px solid #ffdc92}
+.math-planet-canvas,.math-planet-labels{position:absolute;inset:0;pointer-events:none}
+.math-planet-canvas canvas{display:block;width:100%;height:100%}
+.math-planet-badge{position:absolute;top:12px;left:12px;max-width:calc(100% - 24px);padding:7px 12px;border:1px solid #b8d3ee40;border-radius:30px;background:#111e3cdb;color:#dff3ff;font-size:.74rem;pointer-events:none;z-index:4}
+.math-planet-landing{position:absolute;top:48px;left:0;right:0;text-align:center;padding:10px}
+.math-planet-landing p{font-size:.8rem;color:#daebff;text-shadow:0 2px 5px #101a37}
+.math-planet-landing button{padding:12px 24px;min-height:48px;background:linear-gradient(150deg,#b5e7ed,#a29de6);color:#142c49;border-color:#e1f9ff;box-shadow:0 5px 24px #0b163188}
+.math-planet-stage .math-planet-landmark{position:absolute;pointer-events:auto;transform:translate(-50%,-100%);display:flex;align-items:center;gap:5px;width:134px;min-height:48px;border:1px solid #94a8c862;border-bottom:2px solid var(--landmark-color);border-radius:12px;background:linear-gradient(135deg,#23324aed,#131e36f5);color:#fff;padding:5px 7px;box-shadow:0 5px 16px #05112766;text-align:left;line-height:1.2;z-index:2}
+.math-planet-landmark>img{width:34px;height:34px;object-fit:contain;flex:none;filter:drop-shadow(0 2px 3px #090d2c88)}
+.math-planet-unit-label{display:block;min-width:0}
+.math-planet-unit-label small{display:block;color:var(--landmark-color);font-size:.55rem;line-height:1.2}
+.math-planet-unit-label b{display:block;font-size:.7rem;font-weight:800;overflow-wrap:anywhere}
+.math-planet-landmark>em{position:absolute;right:-5px;top:-8px;padding:2px 4px;border-radius:8px;background:#216d61;color:#d6fff1;font-style:normal;font-size:.6rem}
+.math-planet-landmark[data-related=true]{border-color:#86e6f4;box-shadow:0 0 14px #87d6f22b}
+.math-planet-landmark[aria-pressed=true]{outline:2px solid #ffe4a9;outline-offset:3px;z-index:3;background:linear-gradient(135deg,#514669ef,#243047f5)}
+.math-planet-stage[data-view=overview] .math-planet-landmark{width:88px;gap:3px;padding:4px;min-height:44px;border-radius:9px}
+.math-planet-stage[data-view=overview] .math-planet-landmark>img{width:24px;height:28px}
+.math-planet-stage[data-view=overview] .math-planet-unit-label b{font-size:.58rem}
+.math-planet-stage[data-view=overview] .math-planet-unit-label small{font-size:.5rem}
+.math-planet-yuyu{position:absolute;transform:translate(-50%,-100%);pointer-events:none;text-align:center;z-index:1}
+.math-planet-yuyu>span{display:block;font-size:.65rem;padding:2px 7px;border:1px solid #d7c5ff77;border-radius:12px;background:#402c60d9;color:white}
+.math-planet-yuyu img{display:block;width:44px;height:68px;object-fit:contain}
+.math-planet-camera-controls{display:flex;align-items:center;flex-wrap:wrap;gap:5px;padding:8px;border-bottom:1px solid #ffffff14}
+.math-planet-camera-controls button{min-width:44px;min-height:44px;padding:5px 9px;font-size:.72rem}
+.math-planet-camera-controls button[aria-pressed=true]{background:#3e4e7a;border-color:#a7d8ec}
+.math-planet-mobile-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:7px 10px 10px}
+.math-planet-mobile-controls>span{font-size:.68rem;color:#becce3}
+.math-planet-mobile-controls button{min-width:44px;min-height:44px;font-size:1.1rem}
+.math-planet-mobile-controls output{margin-left:auto;color:#b4c3df;font-size:.65rem;font-variant-numeric:tabular-nums}
+.math-planet-detail{max-height:740px;overflow-y:auto;scrollbar-width:thin}
+.math-planet-detail .math-mission-cover{height:100px}
+.math-planet-detail .math-mission-cover img{width:78px;height:78px}
+.math-planet-return-note{padding:8px 12px;margin:0;color:#b8c8e1;font-size:.71rem;line-height:1.6}
+.math-planet-extension{color:#e6c196!important;font-size:.7rem!important}
+.math-planet-related{padding:10px 12px 14px;border-top:1px solid #b9c4e62b}
+.math-planet-related h3{font-size:.86rem;margin:0 0 9px;color:#cceaf5}
+.math-planet-related>p{font-size:.73rem;color:#b0bfd5}
+.math-planet-related button{display:flex;align-items:center;gap:8px;width:100%;min-height:50px;text-align:left;margin-top:6px;padding:7px;background:#172a445e;border-color:#94b3d33c}
+.math-planet-related img{width:34px;height:34px;object-fit:contain;flex:none}
+.math-planet-related b{display:block;font-size:.74rem}
+.math-planet-related small{display:block;font-size:.65rem;color:#a8bed8;line-height:1.5;margin-top:3px}
+.math-planet-catalog{margin-top:16px;border-top:1px solid #c7d7ee26;padding-top:12px}
+.math-planet-catalog-heading{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.math-planet-catalog-heading h3{font-size:1rem;margin:0}
+.math-planet-catalog-heading>span{font-size:.7rem;color:#a6bdd6}
+.math-planet-filters{display:flex;gap:5px;flex-wrap:wrap;margin:10px 0}
+.math-planet-filters button{min-height:44px;padding:5px 12px;font-size:.74rem}
+.math-planet-filters [aria-pressed=true]{background:#4b4579;border-color:#c4bcff}
+.math-planet-course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:7px}
+.math-planet-course-grid button{display:flex;align-items:center;gap:8px;min-height:62px;padding:8px;text-align:left;background:#14213c8a;border-color:#b7c3e132}
+.math-planet-course-grid button[aria-pressed=true]{border-color:#eed49b;background:#444566}
+.math-planet-course-grid img{width:40px;height:40px;object-fit:contain;flex:none}
+.math-planet-course-grid small{display:block;font-size:.62rem;color:#a7c4e4}
+.math-planet-course-grid b{display:block;font-size:.76rem}
+.math-planet-course-grid em{font-size:.64rem;font-style:normal;color:#a9e3cb;margin-left:auto}
+.math-planet-map .math-planet-all-courses{margin:14px 0 0;min-height:44px;padding:7px 12px;font-size:.76rem}
+.math-planet-fallback{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 35%,#375872,#172642 70%);pointer-events:none}
+.math-planet-fallback:after{content:'';position:absolute;inset:10%;border:1px solid #8cd0ea80;border-radius:20%;background:repeating-linear-gradient(0deg,transparent 0 42px,#d1ecff12 43px 44px),repeating-linear-gradient(90deg,transparent 0 42px,#d1ecff12 43px 44px);transform:perspective(600px) rotateX(20deg)}
+@media(max-width:1100px){.math-planet-layout{grid-template-columns:minmax(0,1fr) 240px}.math-planet-stage{height:480px}.math-planet-stage[data-view=overview] .math-planet-landmark{width:78px}.math-planet-stage[data-view=overview] .math-planet-landmark>img{width:20px;height:24px}}
+@media(max-width:800px){.math-planet-layout{grid-template-columns:1fr}.math-planet-stage{height:480px}.math-planet-detail{max-height:none}.math-planet-detail .math-mission-cover{height:70px}.math-planet-detail .math-mission-cover img{width:58px;height:58px}.math-planet-related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.math-planet-related h3,.math-planet-related>p{grid-column:1/-1}.math-planet-related button{margin:0}.subject-focus .subject-world:has(.math-planet-map){height:calc(100svh - 145px)}}
+@media(max-width:460px){.math-planet-map{padding:9px}.math-planet-stage{height:420px}.math-planet-summary{font-size:.65rem}.math-planet-map .math-mission-heading h2{font-size:1.18rem}.math-planet-map .math-mission-heading>button{font-size:.66rem;max-width:90px}.math-planet-stage .math-planet-landmark{width:110px;gap:3px;padding:4px}.math-planet-landmark>img{width:29px;height:32px}.math-planet-unit-label b{font-size:.65rem}.math-planet-stage[data-view=overview] .math-planet-landmark{width:54px;min-height:44px;display:block;text-align:center}.math-planet-stage[data-view=overview] .math-planet-landmark>img{width:18px;height:18px;float:left}.math-planet-stage[data-view=overview] .math-planet-unit-label b{font-size:.49rem}.math-planet-stage[data-view=overview] .math-planet-unit-label small{font-size:.44rem}.math-planet-camera-controls{gap:4px;padding:7px}.math-planet-camera-controls button{font-size:.64rem;padding:4px 7px}.math-planet-mobile-controls{gap:4px}.math-planet-mobile-controls>span{width:100%}.math-planet-badge{font-size:.64rem}.math-planet-related{grid-template-columns:1fr}.math-planet-course-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.math-planet-course-grid button{padding:6px;gap:5px}.math-planet-course-grid img{width:30px;height:34px}.math-planet-course-grid b{font-size:.68rem}}
+@media(prefers-reduced-motion:reduce){.math-planet-map *{animation:none!important;transition:none!important}}
+
+/* A larger field can be viewed without the surrounding subject toolbar. */
+.math-planet-heading-actions{display:flex;gap:6px}
+.math-planet-heading-actions button{min-height:44px;padding:6px 10px;font-size:.76rem}
+.math-planet-map[data-expanded=true]{position:fixed;inset:12px;z-index:10000;overflow:auto;width:auto;margin:0;background:linear-gradient(135deg,#17213a,#141329);box-shadow:0 0 0 30px #080c1be6}
+.math-planet-map[data-expanded=true] .math-planet-stage{height:calc(100svh - 230px);min-height:340px}
+.math-planet-map[data-expanded=true] .math-planet-detail{max-height:calc(100svh - 100px)}
+@media(max-width:800px){.math-planet-map[data-expanded=true]{inset:6px}.math-planet-map[data-expanded=true] .math-planet-stage{height:calc(100svh - 280px);min-height:340px}.math-planet-map[data-expanded=true] .math-planet-detail{max-height:none}}
+@media(max-width:460px){.math-planet-heading-actions{gap:4px}.math-planet-heading-actions button{font-size:.62rem;padding:5px 7px;max-width:72px}.math-planet-map .math-mission-heading h2{font-size:1.05rem}}
+/* The shared app header is z-index 30 inside the same isolated app shell. */
+.subject-world:has(.math-planet-map[data-expanded=true]){z-index:40}
+.app-shell:has(.math-planet-map[data-expanded=true]) .app-header{visibility:hidden}
+
+.math-planet-landing-art{display:block;width:112px;height:142px;object-fit:contain;margin:0 auto 4px;filter:drop-shadow(0 6px 18px #8ad9ff55)}
+@media(max-width:460px){.math-planet-landing-art{width:88px;height:112px}}
+
+/* Difficulty appears only when Yuyu is physically within the course arrival radius.
+   Camera, selection, focus and hover never reveal it for distant courses. */
+.math-planet-map .math-planet-landmark[data-nearby=true]{z-index:4}
+.math-planet-map .math-planet-near-difficulty{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);display:grid;justify-items:center;gap:1px;min-width:112px;padding:6px 10px;border:1px solid #d8c492;border-radius:13px;background:linear-gradient(160deg,#32415ef5,#18283cf5);box-shadow:0 4px 12px #07112788;color:#f6e6bd;pointer-events:none;white-space:nowrap}
+.math-planet-map .math-planet-near-difficulty::after{content:'';position:absolute;left:calc(50% - 4px);bottom:-5px;width:8px;height:8px;transform:rotate(45deg);background:#18283c;border-right:1px solid #d8c492;border-bottom:1px solid #d8c492}
+.math-planet-map .math-planet-stars{display:flex;gap:4px;font-size:25px;line-height:1.1;color:#b6c6dc}
+.math-planet-map .math-planet-stars [data-difficulty-active=true]{color:#ffcf55;text-shadow:0 1px 0 #9d6e25,0 0 8px #f5c86644}
+.math-planet-map .math-planet-near-difficulty small{font-size:10px;font-weight:600;line-height:1.4;color:#ecf1fa}
+/* No reliable lasting mastery value is supplied. Gray means unrecorded, not failure.
+   Related-course and selected outlines stay distinct from the neutral mastery frame. */
+.math-planet-map .math-planet-landmark[data-mastery=unrecorded]{border-color:#a7adb6;border-bottom-color:#a7adb6;box-shadow:0 0 0 1px #a7adb633,0 0 10px #a7adb629,0 5px 16px #05112766}
+.math-planet-map .math-planet-landmark[data-mastery=unrecorded][data-related=true]{outline:1px dashed #86e6f4;outline-offset:3px}
+.math-planet-map .math-planet-landmark[data-mastery=unrecorded][aria-pressed=true]{outline:2px solid #ffe4a9;outline-offset:3px}

@@ -1,0 +1,34 @@
+{
+  "release": "2026-11-10-v11-integrated",
+  "grades": [
+    1,
+    2,
+    3
+  ],
+  "models": [
+    {
+      "grade": 1,
+      "model": "modules/math-mission-map/v11/assets/grade1-terrain.glb",
+      "bytes": 11103992,
+      "sha256": "b8c3b445a8ca6a4332105713a321513a17b3b0da0327cc3991f5318bd66b42c5",
+      "scene": "modules/math-mission-map/v11/assets/grade1-scene.json",
+      "sceneSha256": "7a439344bd667cdbbee3618a9bcc4794ab341551e32ed90cf8c0d14a36981aac"
+    },
+    {
+      "grade": 2,
+      "model": "modules/math-mission-map/v11/assets/grade2-terrain.glb",
+      "bytes": 11199592,
+      "sha256": "728b8e36a855036b12003699bd7f40e845e4ad740778b820c4bc69ef565fba4b",
+      "scene": "modules/math-mission-map/v11/assets/grade2-scene.json",
+      "sceneSha256": "82fb4beb5d34f7bac091c72e8d6e0249763cc29d293cb543bf10cb915fdcfff6"
+    },
+    {
+      "grade": 3,
+      "model": "modules/math-mission-map/v11/assets/grade3-terrain.glb",
+      "bytes": 10842992,
+      "sha256": "f504470b9093b394d1c4fffe28bf028d4912b1590cbca6a55c23fa574bca13d8",
+      "scene": "modules/math-mission-map/v11/assets/grade3-scene.json",
+      "sceneSha256": "56c4d73cc3c92b48396671c7ef7353775cfd0af53358b28e6925ec51e9c9fb7e"
+    }
+  ]
+}

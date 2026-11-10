@@ -22,7 +22,6 @@
   const mockHosts = new WeakSet();
   let decorationFrame = 0;
   let owner = null;
-  let mathPending = false;
   function loadScript(path) {
     if (!scripts.has(path)) scripts.set(path, new Promise((resolve, reject) => {
       const script = document.createElement('script');
@@ -85,14 +84,7 @@
     for (const [host, scene] of mounted) if (!host.isConnected) { scene.destroy(); mounted.delete(host); }
     for (const [host, ticket] of pending) if (!host.isConnected) { ticket.cancel(); pending.delete(host); }
     const state = component.state;
-    // Subject metadata remains small; the 813 KB embedded math pictures arrive only on math entry.
-    if (!state.teacher && ['map','quiz','divLesson','vertLesson','geoLesson','weekly','weeklyQuiz'].includes(state.screen) && (state.subject === 'math' || state.screen.startsWith('weekly')) && !window.MathConceptObjects && !mathPending) {
-      const root = document.querySelector('.subject-world') || document.querySelector('#dc-root');
-      mathPending = true;
-      ensureMathObjects().then(() => {
-        if (owner === component) component.setState({ resourceRevision: (component.state.resourceRevision || 0) + 1 });
-      }).catch(() => { if (root?.isConnected) showError(root, () => sync(component)); }).finally(() => { mathPending = false; });
-    }
+    // Embedded concept pictures load only for an explicitly started concept course/exam.
     document.querySelectorAll('#dc-root lp-mock-exam').forEach(host => {
       if (mockHosts.has(host) || customElements.get('lp-mock-exam')) return;
       mockHosts.add(host); host.style.minHeight = '240px'; host.textContent = '正在準備模擬考…';
