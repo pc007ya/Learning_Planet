@@ -1,0 +1,11 @@
+# Raw local verification output, not publication-ready review summaries.
+*-review.json
+*-review.md
+*.log
+*-results.txt
+math-regression.txt
+deliverable-manifest.json
+node_modules/
+
+# Private interactive QA harnesses.
+v3-*-review.html

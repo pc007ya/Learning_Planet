@@ -1,0 +1,700 @@
+{
+  "kind": "legacy_topic_catalog",
+  "version": "legacy-science-candidate-v3-cf014a96b1f8fdfa",
+  "status": "candidate",
+  "units": [
+    {
+      "id": "s1",
+      "title": "植物的身體",
+      "grade": 3,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s1",
+      "activities": [
+        {
+          "id": "s1-a01",
+          "title": "植物部位觀察",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s1-a02",
+          "title": "根莖葉的功能",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s1-a03",
+          "title": "花、果實和種子",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s2",
+      "title": "磁鐵與磁力",
+      "grade": 3,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s2",
+      "activities": [
+        {
+          "id": "s2-a01",
+          "title": "磁力測試",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s2-a02",
+          "title": "磁極特性",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s2-a03",
+          "title": "磁鐵生活應用",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s3",
+      "title": "千變萬化的水",
+      "grade": 3,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s3",
+      "activities": [
+        {
+          "id": "s3-a01",
+          "title": "水的三態與轉變",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s3-a02",
+          "title": "吸水與水的移動",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s3-a03",
+          "title": "水的性質與循環",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s9",
+      "title": "溶解",
+      "grade": 3,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s9",
+      "activities": [
+        {
+          "id": "s9-a01",
+          "title": "溶解條件與觀察",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s9-a02",
+          "title": "溶液資料與分離",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s9-a03",
+          "title": "溶解原主題應用",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s19",
+      "title": "月相變化",
+      "grade": 3,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s19",
+      "activities": [
+        {
+          "id": "s19-a01",
+          "title": "月相觀察",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s19-a02",
+          "title": "月相週期與生活",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s19-a03",
+          "title": "亮面與月相模型",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s4",
+      "title": "光與影",
+      "grade": 4,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s4",
+      "activities": [
+        {
+          "id": "s4-a01",
+          "title": "光路與反射",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s4-a02",
+          "title": "光影的生活應用",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s4-a03",
+          "title": "影子觀察",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s5",
+      "title": "電路與能源",
+      "grade": 4,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s5",
+      "activities": [
+        {
+          "id": "s5-a01",
+          "title": "電路與通路",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s5-a02",
+          "title": "串聯與並聯",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s5-a03",
+          "title": "用電與能源",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s10",
+      "title": "空氣與風",
+      "grade": 4,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s10",
+      "activities": [
+        {
+          "id": "s10-a01",
+          "title": "空氣的特性",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s10-a02",
+          "title": "氣流與風",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s10-a03",
+          "title": "空氣品質",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s22",
+      "title": "地球轉動",
+      "grade": 4,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s22",
+      "activities": [
+        {
+          "id": "s22-a01",
+          "title": "地球自轉與日夜",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s22-a02",
+          "title": "日照與桿影",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s22-a03",
+          "title": "公轉與相對位置",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s11",
+      "title": "星空",
+      "grade": 5,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s11",
+      "activities": [
+        {
+          "id": "s11-a01",
+          "title": "認識天體",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s11-a02",
+          "title": "觀測星空",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s11-a03",
+          "title": "星空視運動",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s12",
+      "title": "力與運動",
+      "grade": 5,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s12",
+      "activities": [
+        {
+          "id": "s12-a01",
+          "title": "各種力",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s12-a02",
+          "title": "力與運動變化",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s12-a03",
+          "title": "快慢與測量",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s13",
+      "title": "熱與物質",
+      "grade": 5,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s13",
+      "activities": [
+        {
+          "id": "s13-a01",
+          "title": "溫度與物質變化",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s13-a02",
+          "title": "熱的傳播",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s13-a03",
+          "title": "保溫與散熱",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s14",
+      "title": "簡單機械",
+      "grade": 5,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s14",
+      "activities": [
+        {
+          "id": "s14-a01",
+          "title": "槓桿",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s14-a02",
+          "title": "滑輪與輪軸",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s14-a03",
+          "title": "其他簡單機械",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s23",
+      "title": "燃燒與氧氣",
+      "grade": 5,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s23",
+      "activities": [
+        {
+          "id": "s23-a01",
+          "title": "燃燒條件",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s23-a02",
+          "title": "防火與安全",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s23-a03",
+          "title": "氣體與燃燒資料",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s15",
+      "title": "地表變化",
+      "grade": 6,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s15",
+      "activities": [
+        {
+          "id": "s15-a01",
+          "title": "流水與地表變化",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s15-a02",
+          "title": "水岸與風的作用",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s15-a03",
+          "title": "土壤岩石與化石",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s16",
+      "title": "天氣變化",
+      "grade": 6,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s16",
+      "activities": [
+        {
+          "id": "s16-a01",
+          "title": "水與天氣",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s16-a02",
+          "title": "天氣預報與變化",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s16-a03",
+          "title": "氣候變化",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s17",
+      "title": "防鏽與防腐",
+      "grade": 6,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s17",
+      "activities": [
+        {
+          "id": "s17-a01",
+          "title": "防鏽原理與維護",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s17-a02",
+          "title": "食品防腐與保存",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    },
+    {
+      "id": "s18",
+      "title": "生態環境",
+      "grade": 6,
+      "subject": "自然科學",
+      "publisher": "原主題",
+      "semester": 0,
+      "school_year": null,
+      "source_id": "legacy-topic-s18",
+      "activities": [
+        {
+          "id": "s18-a01",
+          "title": "食物關係與群集",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s18-a02",
+          "title": "多樣生態系",
+          "scope": "legacy_topic"
+        },
+        {
+          "id": "s18-a03",
+          "title": "保育行動",
+          "scope": "legacy_topic"
+        }
+      ],
+      "verification": "original_topic_candidate_not_publisher_alignment"
+    }
+  ],
+  "sources": {
+    "legacy-topic-s1": {
+      "title": "植物的身體原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang3",
+        "nani3_115"
+      ]
+    },
+    "legacy-topic-s2": {
+      "title": "磁鐵與磁力原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "nani3_115"
+      ]
+    },
+    "legacy-topic-s3": {
+      "title": "千變萬化的水原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang3",
+        "kang4",
+        "nani3_115"
+      ]
+    },
+    "legacy-topic-s9": {
+      "title": "溶解原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang3",
+        "kang6",
+        "nani3_115",
+        "nani5_115"
+      ]
+    },
+    "legacy-topic-s19": {
+      "title": "月相變化原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang4",
+        "nani4"
+      ]
+    },
+    "legacy-topic-s4": {
+      "title": "光與影原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang4",
+        "legacy-topic-s22",
+        "nani4"
+      ]
+    },
+    "legacy-topic-s5": {
+      "title": "電路與能源原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang4",
+        "nani4"
+      ]
+    },
+    "legacy-topic-s10": {
+      "title": "空氣與風原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang3",
+        "nani3_115"
+      ]
+    },
+    "legacy-topic-s22": {
+      "title": "地球轉動原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": []
+    },
+    "legacy-topic-s11": {
+      "title": "星空原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang5",
+        "nani5_115"
+      ]
+    },
+    "legacy-topic-s12": {
+      "title": "力與運動原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang5"
+      ]
+    },
+    "legacy-topic-s13": {
+      "title": "熱與物質原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang5"
+      ]
+    },
+    "legacy-topic-s14": {
+      "title": "簡單機械原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang6"
+      ]
+    },
+    "legacy-topic-s23": {
+      "title": "燃燒與氧氣原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang5",
+        "nani5_115"
+      ]
+    },
+    "legacy-topic-s15": {
+      "title": "地表變化原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "nani6"
+      ]
+    },
+    "legacy-topic-s16": {
+      "title": "天氣變化原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang6"
+      ]
+    },
+    "legacy-topic-s17": {
+      "title": "防鏽與防腐原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang5"
+      ]
+    },
+    "legacy-topic-s18": {
+      "title": "生態環境原主題候選題設計",
+      "type": "legacy_topic_design",
+      "publisher_alignment": false,
+      "source_note": "保留原入口主題與年級，以已審原創題適題重用及新編補缺；不是出版社試題或官方題庫。",
+      "frozen_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+      "reused_original_source_ids": [
+        "kang6"
+      ]
+    }
+  },
+  "coverage_note": "18個原自然測驗入口，每庫30題；s6記憶及s7/s8/s20/s21心智圖不納普通題庫。"
+}

@@ -1,0 +1,2096 @@
+{
+  "schema_version": 1,
+  "content_version": "science-curriculum-v3-4dcfcaae95a653f1",
+  "units": 110,
+  "core_questions": 3325,
+  "extension_questions": 3,
+  "retained_historical_questions": 33,
+  "corrected_questions": 2,
+  "total_questions": 3361,
+  "new_questions": 2209,
+  "minimum_per_unit": 30,
+  "maximum_per_unit": 35,
+  "fixed_round_size": 10,
+  "baseline": {
+    "content_version": "science-curriculum-v2-954846a2da1c34f7",
+    "question_prefix_count": 1152,
+    "question_prefix_sha256": "c1157bd40bfc6a160e4e10a48c74799e1929f8e8fa707c73ea160bf3c173d532",
+    "tasks_count": 164,
+    "tasks_sha256": "3aed02ad31f993dbcb67c17bf5ab1d192e86d6025279633a5c9bf2a5fba8b1c6",
+    "catalog_sha256": "227b574aa821f760d1ef3577cee6916b1a1686645cf6c9c9afeda34cc8d95c26"
+  },
+  "by_unit": [
+    {
+      "unit_id": "s-kh-g1-t1-u01",
+      "title": "我上一年級",
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g1-t1-u02",
+      "title": "走，校園探索去",
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g1-t1-u03",
+      "title": "一起來玩吧",
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g1-t1-u04",
+      "title": "風兒吹過來",
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g1-t1-u05",
+      "title": "聽！那是什麼聲音",
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g1-t1-u06",
+      "title": "過年囉",
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g1-t2-u01",
+      "title": "更好的自己",
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g1-t2-u02",
+      "title": "大樹小花我愛你",
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g1-t2-u03",
+      "title": "和書做朋友",
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g1-t2-u04",
+      "title": "玩具同樂會",
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g1-t2-u05",
+      "title": "五月五慶端午",
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g1-t2-u06",
+      "title": "生活中的水",
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g2-t1-u01",
+      "title": "防震小達人",
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g2-t1-u02",
+      "title": "光影好好玩",
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 2,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g2-t1-u03",
+      "title": "玩泡泡",
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g2-t1-u04",
+      "title": "學校附近",
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g2-t1-u05",
+      "title": "歲末傳溫情",
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g2-t1-u06",
+      "title": "米粒魔術師",
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g2-t2-u01",
+      "title": "減塑行動家",
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g2-t2-u02",
+      "title": "奇妙的種子",
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g2-t2-u03",
+      "title": "彩色的世界",
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g2-t2-u04",
+      "title": "有您真好",
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g2-t2-u05",
+      "title": "磁鐵真好玩",
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 2,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g2-t2-u06",
+      "title": "我的成長故事",
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g1-t1-u01",
+      "title": "我上一年級了",
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g1-t1-u02",
+      "title": "認識校園",
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g1-t1-u03",
+      "title": "哇！好想吃",
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g1-t1-u04",
+      "title": "一起來閱讀",
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g1-t1-u05",
+      "title": "聲音好好玩",
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g1-t1-u06",
+      "title": "新的一年",
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g1-t2-u01",
+      "title": "訊息的傳達",
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g1-t2-u02",
+      "title": "美麗的春天",
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g1-t2-u03",
+      "title": "玩具總動員",
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g1-t2-u04",
+      "title": "有電話真方便",
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g1-t2-u05",
+      "title": "夏天與端午",
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g1-t2-u06",
+      "title": "雨和水",
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g2-t1-u01",
+      "title": "標誌與生活",
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g2-t1-u02",
+      "title": "吸住了",
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g2-t1-u03",
+      "title": "我愛泡泡",
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g2-t1-u04",
+      "title": "大樹",
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g2-t1-u05",
+      "title": "和風做朋友",
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g2-t1-u06",
+      "title": "冬天",
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g2-t2-u01",
+      "title": "有你真好",
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g2-t2-u02",
+      "title": "小種子長大了",
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g2-t2-u03",
+      "title": "美麗的彩色世界",
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 3,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g2-t2-u04",
+      "title": "環保達人",
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g2-t2-u05",
+      "title": "光和影",
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g2-t2-u06",
+      "title": "成長與學習",
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g3-t1-u01",
+      "title": "多采多姿的植物",
+      "publisher": "康軒",
+      "grade": 3,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g3-t1-u02",
+      "title": "生活中的力",
+      "publisher": "康軒",
+      "grade": 3,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g3-t1-u03",
+      "title": "奇妙的空氣",
+      "publisher": "康軒",
+      "grade": 3,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g3-t1-u04",
+      "title": "廚房裡的科學",
+      "publisher": "康軒",
+      "grade": 3,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g3-t2-u01",
+      "title": "田園樂",
+      "publisher": "康軒",
+      "grade": 3,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g3-t2-u02",
+      "title": "溫度變化對物質的影響",
+      "publisher": "康軒",
+      "grade": 3,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g3-t2-u03",
+      "title": "我是動物解說員",
+      "publisher": "康軒",
+      "grade": 3,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g3-t2-u04",
+      "title": "天氣變變變",
+      "publisher": "康軒",
+      "grade": 3,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g4-t1-u01",
+      "title": "地表的靜與動",
+      "publisher": "康軒",
+      "grade": 4,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g4-t1-u02",
+      "title": "水生生物與環境",
+      "publisher": "康軒",
+      "grade": 4,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g4-t1-u03",
+      "title": "有趣的聲光現象",
+      "publisher": "康軒",
+      "grade": 4,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 31,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g4-t1-u04",
+      "title": "好玩的電路",
+      "publisher": "康軒",
+      "grade": 4,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 31,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g4-t2-u01",
+      "title": "白天和夜晚的天空",
+      "publisher": "康軒",
+      "grade": 4,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 31,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g4-t2-u02",
+      "title": "水的移動",
+      "publisher": "康軒",
+      "grade": 4,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g4-t2-u03",
+      "title": "昆蟲大解密",
+      "publisher": "康軒",
+      "grade": 4,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g4-t2-u04",
+      "title": "自然資源與利用",
+      "publisher": "康軒",
+      "grade": 4,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 31,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g5-t1-u01",
+      "title": "動物世界",
+      "publisher": "康軒",
+      "grade": 5,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g5-t1-u02",
+      "title": "探索聲光世界",
+      "publisher": "康軒",
+      "grade": 5,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g5-t1-u03",
+      "title": "神祕的天空",
+      "publisher": "康軒",
+      "grade": 5,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 31,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g5-t1-u04",
+      "title": "燃燒與生鏽",
+      "publisher": "康軒",
+      "grade": 5,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g5-t2-u01",
+      "title": "力與運動",
+      "publisher": "康軒",
+      "grade": 5,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 31,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g5-t2-u02",
+      "title": "大地的奧祕",
+      "publisher": "康軒",
+      "grade": 5,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 31,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g5-t2-u03",
+      "title": "植物世界面面觀",
+      "publisher": "康軒",
+      "grade": 5,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 31,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g5-t2-u04",
+      "title": "熱的作用與傳播",
+      "publisher": "康軒",
+      "grade": 5,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g6-t1-u01",
+      "title": "探索天氣的變化",
+      "publisher": "康軒",
+      "grade": 6,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g6-t1-u02",
+      "title": "水溶液",
+      "publisher": "康軒",
+      "grade": 6,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g6-t1-u03",
+      "title": "動物大解密",
+      "publisher": "康軒",
+      "grade": 6,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g6-t1-u04",
+      "title": "電磁作用",
+      "publisher": "康軒",
+      "grade": 6,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g6-t2-u01",
+      "title": "簡單機械",
+      "publisher": "康軒",
+      "grade": 6,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g6-t2-u02",
+      "title": "能量與生活",
+      "publisher": "康軒",
+      "grade": 6,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-kh-g6-t2-u03",
+      "title": "地球的生態",
+      "publisher": "康軒",
+      "grade": 6,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g3-t1-u01",
+      "title": "認識植物",
+      "publisher": "南一",
+      "grade": 3,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict"
+      ]
+    },
+    {
+      "unit_id": "s-na-g3-t1-u02",
+      "title": "空氣和水",
+      "publisher": "南一",
+      "grade": 3,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict"
+      ]
+    },
+    {
+      "unit_id": "s-na-g3-t1-u03",
+      "title": "認識動物",
+      "publisher": "南一",
+      "grade": 3,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g3-t1-u04",
+      "title": "磁鐵",
+      "publisher": "南一",
+      "grade": 3,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict"
+      ]
+    },
+    {
+      "unit_id": "s-na-g3-t2-u01",
+      "title": "種菜好好玩",
+      "publisher": "南一",
+      "grade": 3,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 2,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict"
+      ]
+    },
+    {
+      "unit_id": "s-na-g3-t2-u02",
+      "title": "溫度與物質變化的關係",
+      "publisher": "南一",
+      "grade": 3,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict"
+      ]
+    },
+    {
+      "unit_id": "s-na-g3-t2-u03",
+      "title": "天氣特派員",
+      "publisher": "南一",
+      "grade": 3,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe"
+      ]
+    },
+    {
+      "unit_id": "s-na-g3-t2-u04",
+      "title": "廚房中的科學",
+      "publisher": "南一",
+      "grade": 3,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict"
+      ]
+    },
+    {
+      "unit_id": "s-na-g4-t1-u01",
+      "title": "地球的夥伴—日月星辰",
+      "publisher": "南一",
+      "grade": 4,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 32,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g4-t1-u02",
+      "title": "水中世界",
+      "publisher": "南一",
+      "grade": 4,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g4-t1-u03",
+      "title": "光和能源",
+      "publisher": "南一",
+      "grade": 4,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g4-t1-u04",
+      "title": "電路好好玩",
+      "publisher": "南一",
+      "grade": 4,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 31,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g4-t2-u01",
+      "title": "生活中有趣的力",
+      "publisher": "南一",
+      "grade": 4,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g4-t2-u02",
+      "title": "昆蟲家族",
+      "publisher": "南一",
+      "grade": 4,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 31,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g4-t2-u03",
+      "title": "水的移動",
+      "publisher": "南一",
+      "grade": 4,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g4-t2-u04",
+      "title": "了解臺灣的環境",
+      "publisher": "南一",
+      "grade": 4,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g5-t1-u01",
+      "title": "太陽與光",
+      "publisher": "南一",
+      "grade": 5,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g5-t1-u02",
+      "title": "植物世界",
+      "publisher": "南一",
+      "grade": 5,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 3,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g5-t1-u03",
+      "title": "水溶液",
+      "publisher": "南一",
+      "grade": 5,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 31,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g5-t1-u04",
+      "title": "力與運動",
+      "publisher": "南一",
+      "grade": 5,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 33,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g5-t2-u01",
+      "title": "星星的世界",
+      "publisher": "南一",
+      "grade": 5,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 2,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g5-t2-u02",
+      "title": "認識燃燒與生鏽",
+      "publisher": "南一",
+      "grade": 5,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g5-t2-u03",
+      "title": "動物的生活",
+      "publisher": "南一",
+      "grade": 5,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 31,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g5-t2-u04",
+      "title": "聲音與樂器",
+      "publisher": "南一",
+      "grade": 5,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g6-t1-u01",
+      "title": "多樣的天氣變化",
+      "publisher": "南一",
+      "grade": 6,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g6-t1-u02",
+      "title": "熱對物質的影響",
+      "publisher": "南一",
+      "grade": 6,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g6-t1-u03",
+      "title": "變動的大地",
+      "publisher": "南一",
+      "grade": 6,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 32,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g6-t1-u04",
+      "title": "奇妙的電磁世界",
+      "publisher": "南一",
+      "grade": 6,
+      "semester": 1,
+      "subject": "自然科學",
+      "core_questions": 31,
+      "extension_questions": 0,
+      "retained_historical_questions": 1,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g6-t2-u01",
+      "title": "巧妙的施力工具",
+      "publisher": "南一",
+      "grade": 6,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g6-t2-u02",
+      "title": "地球的環境與生態",
+      "publisher": "南一",
+      "grade": 6,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 30,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    },
+    {
+      "unit_id": "s-na-g6-t2-u03",
+      "title": "我們只有一個地球",
+      "publisher": "南一",
+      "grade": 6,
+      "semester": 2,
+      "subject": "自然科學",
+      "core_questions": 35,
+      "extension_questions": 0,
+      "retained_historical_questions": 0,
+      "skills": [
+        "apply",
+        "classify",
+        "evidence",
+        "observe",
+        "predict",
+        "safety"
+      ]
+    }
+  ]
+}
