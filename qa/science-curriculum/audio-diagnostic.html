@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Local audio diagnostics</title>
+<style>body{font:16px/1.5 system-ui;background:#10263e;color:#eef7ff;margin:24px}button{font:inherit;padding:12px;margin:5px;border-radius:9px;cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#08172a;padding:16px;max-height:48vh;overflow:auto;border:1px solid #8ec8dc}p{max-width:950px}.row{display:flex;flex-wrap:wrap}h1{font-size:26px}</style>
+<h1>Local audio diagnostics</h1>
+<p>No authentication, microphone, external speech service, or production progress. These controls run in the real page context. Digital playback events do not establish audible output. The imported candidate runtime is unchanged.</p>
+<div class="row"><button id="snapshot">Read voice list now</button><button id="zh">Native zh-TW</button><button id="en">Native en-US</button><button id="default">Native default language</button><button id="cancel">Cancel speech</button></div>
+<div class="row"><button id="tone">Web Audio 300ms tone</button><button id="wav">HTML Audio local WAV</button><button id="module">Open actual candidate module</button></div>
+<h2>Environment and voices</h2><pre id="info"></pre>
+<h2>Event log</h2><pre id="log"></pre>
+<script type="module">
+if(!['localhost','127.0.0.1','[::1]'].includes(location.hostname))throw Error('Local QA only');
+const revision=new URL(location.href).searchParams.get('runtime')||'';const runtimeQuery=/^[a-f0-9]{7,64}$/.test(revision)?'?qaSource='+revision:'';
+const info=document.querySelector('#info'),log=document.querySelector('#log');
+const records=[],start=performance.now(),keep=new Set();let seq=0;const ids=new WeakMap();
+const synth=window.speechSynthesis;const nativeSpeak=synth?.speak.bind(synth),nativeCancel=synth?.cancel.bind(synth);
+function state(){return synth?{speaking:synth.speaking,pending:synth.pending,paused:synth.paused}:{};}
+function activation(){return {isActive:navigator.userActivation?.isActive,hasBeenActive:navigator.userActivation?.hasBeenActive,visibility:document.visibilityState};}
+function emit(type,data={}){records.push({ms:Math.round(performance.now()-start),type,...data});log.textContent=JSON.stringify(records,null,2);log.scrollTop=log.scrollHeight;}
+function voices(reason){const vs=synth?.getVoices()||[];const data={reason,count:vs.length,voices:vs.map(v=>({name:v.name,lang:v.lang,default:v.default,localService:v.localService,voiceURI:v.voiceURI}))};info.textContent=JSON.stringify({origin:location.origin,runtimeRevision:revision||'default',language:navigator.language,languages:navigator.languages,userAgent:navigator.userAgent,secureContext:isSecureContext,speechSynthesis:!!synth,SpeechSynthesisUtterance:typeof window.SpeechSynthesisUtterance,AudioContext:typeof window.AudioContext,...data},null,2);emit('voices',data);return vs;}
+if(synth){
+ synth.addEventListener('voiceschanged',()=>voices('voiceschanged'));
+ synth.speak=function(u){const id=++seq;ids.set(u,id);keep.add(u);emit('speak.call',{id,text:u.text,lang:u.lang,rate:u.rate,voice:u.voice?{name:u.voice.name,lang:u.voice.lang}:null,activation:activation(),state:state()});for(const event of ['start','end','error','pause','resume','boundary'])u.addEventListener(event,e=>{emit('utterance.'+event,{id,error:e.error||null,charIndex:e.charIndex,elapsedTime:e.elapsedTime,name:e.name||null,state:state()});if(event==='end'||event==='error')keep.delete(u);});try{const ret=nativeSpeak(u);emit('speak.return',{id,state:state()});return ret;}catch(e){emit('speak.throw',{id,name:e.name,message:e.message});throw e;}};
+ synth.cancel=function(){emit('cancel.call',{activation:activation(),state:state()});try{return nativeCancel();}finally{emit('cancel.return',{state:state()});}};
+}
+document.addEventListener('visibilitychange',()=>emit('visibilitychange',{visibility:document.visibilityState,state:state()}));
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(b)emit('ui.click',{label:b.textContent.trim().slice(0,80),trusted:e.isTrusted,activation:activation()});},true);
+function say(lang,text){if(!synth||!window.SpeechSynthesisUtterance){emit('api.missing');return;}const u=new SpeechSynthesisUtterance(text);if(lang)u.lang=lang;u.rate=1;synth.speak(u);}
+document.querySelector('#zh').onclick=()=>say('zh-TW','這是生活與自然語音測試。');
+document.querySelector('#en').onclick=()=>say('en-US','This is a short audio diagnostic.');
+document.querySelector('#default').onclick=()=>say('','This is a default voice test.');
+document.querySelector('#snapshot').onclick=()=>voices('manual');
+document.querySelector('#cancel').onclick=()=>synth?.cancel();
+document.querySelector('#tone').onclick=async()=>{let ctx;try{ctx=new AudioContext();emit('webaudio.created',{state:ctx.state,sampleRate:ctx.sampleRate,baseLatency:ctx.baseLatency,activation:activation()});await ctx.resume();const osc=ctx.createOscillator(),gain=ctx.createGain(),analyser=ctx.createAnalyser();osc.frequency.value=440;gain.gain.value=.08;osc.connect(gain).connect(analyser).connect(ctx.destination);osc.onended=async()=>{emit('webaudio.ended',{state:ctx.state,currentTime:ctx.currentTime});await ctx.close();emit('webaudio.closed',{state:ctx.state});};osc.start();emit('webaudio.started',{state:ctx.state,currentTime:ctx.currentTime});setTimeout(()=>{const buf=new Float32Array(analyser.fftSize);analyser.getFloatTimeDomainData(buf);emit('webaudio.digital_sample',{rms:Math.sqrt(buf.reduce((s,v)=>s+v*v,0)/buf.length),state:ctx.state,currentTime:ctx.currentTime});},150);osc.stop(ctx.currentTime+.3);}catch(e){emit('webaudio.error',{name:e.name,message:e.message,state:ctx?.state});try{await ctx?.close();}catch{}}};
+function wav(){const rate=22050,n=Math.round(rate*.3),buf=new ArrayBuffer(44+n*2),v=new DataView(buf);const str=(o,s)=>[...s].forEach((c,i)=>v.setUint8(o+i,c.charCodeAt()));str(0,'RIFF');v.setUint32(4,36+n*2,true);str(8,'WAVE');str(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,rate,true);v.setUint32(28,rate*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);str(36,'data');v.setUint32(40,n*2,true);for(let i=0;i<n;i++)v.setInt16(44+2*i,Math.round(Math.sin(2*Math.PI*440*i/rate)*2000),true);return new Blob([buf],{type:'audio/wav'});}
+document.querySelector('#wav').onclick=()=>{const url=URL.createObjectURL(wav()),a=new Audio(url);keep.add(a);for(const ev of ['loadedmetadata','canplay','play','playing','ended','error'])a.addEventListener(ev,()=>{emit('htmlaudio.'+ev,{readyState:a.readyState,currentTime:a.currentTime,duration:a.duration,error:a.error?{code:a.error.code,message:a.error.message}:null});if(ev==='ended'||ev==='error'){URL.revokeObjectURL(url);keep.delete(a);}});emit('htmlaudio.play.call',{activation:activation()});a.play().then(()=>emit('htmlaudio.play.resolved')).catch(e=>emit('htmlaudio.play.rejected',{name:e.name,message:e.message}));};
+document.querySelector('#module').onclick=async()=>{emit('module.open',{runtimeRevision:revision||'default'});try{const {openScienceCurriculum}=await import('../../modules/science-curriculum/launch.mjs'+runtimeQuery);await openScienceCurriculum({grade:2,learnerId:'audio-diagnostic-local',onClose:()=>emit('module.closed')});}catch(e){emit('module.error',{name:e.name,message:e.message});}};
+voices('load');for(const ms of [250,1000,3000])setTimeout(()=>voices('delay-'+ms+'ms'),ms);
+</script></html>

@@ -17,6 +17,7 @@
 <script src="./entry-image-manifest.js" defer></script>
 <script src="./entry-image-progress.js" defer></script>
 <script src="./sci-art.js"></script>
+<script src="./science-rollout.js"></script>
 <script src="./english-vocabulary-tools.js?v=20261026"></script>
 <script src="./story-vocabulary-quiz.js?v=20261026-2"></script>
 <link rel="stylesheet" href="./story-vocabulary-quiz.css?v=20261026-2">
@@ -30,7 +31,7 @@
 <script type="module" src="./src/firebase-config.js"></script>
 <script type="module" src="./auth-v2/firebase-client.js"></script>
 <script src="./home-resources.js" defer></script>
-<script src="./home-routes.js?v=20261106-grades456" defer></script>
+<script src="./home-routes.js?v=20261112-science-release" defer></script>
 
 
 
@@ -8477,6 +8478,49 @@ class Component extends DCLogic {
     this.setState({ mathMapView: view });
   }
 
+  isLegacyScienceCandidate(id) {
+    return !!this.state.currentId && this.state.subject === "science" &&
+      window.LPScienceRollout?.enabled === true &&
+      SCI_UNITS.some(unit => unit.id === id && !unit.kind);
+  }
+
+  async openScienceCurriculumCandidate(legacyUnitId = null) {
+    if (!this.state.currentId || this.state.subject !== "science" || this.scienceCurriculumOpening || this.naturePlanetOpening) return;
+    if (window.LPScienceRollout?.enabled !== true) return;
+    if (legacyUnitId !== null && !this.isLegacyScienceCandidate(legacyUnitId)) return;
+    const learnerId = this.state.currentId, grade = this.state.grade, generation = this.sessionGeneration;
+    const isActive = () => this.state.currentId === learnerId && this.state.subject === "science" && this.state.grade === grade && this.sessionGeneration === generation;
+    this.scienceCurriculumOpening = true;
+    let dismissed = false;
+    try {
+      const { openScienceCurriculum } = await import("./modules/science-curriculum/launch.mjs?v=20261112-v3");
+      if (!isActive()) return;
+      const close = await openScienceCurriculum({ grade, learnerId, isActive, unitId: legacyUnitId, curriculum: legacyUnitId === null ? "publisher" : "legacy",
+        onClose: () => { dismissed = true; this.scienceCurriculumClose = null; } });
+      if (!dismissed && isActive()) this.scienceCurriculumClose = close;
+      else await close?.();
+    } catch (error) { if (isActive()) this.flash("生活與自然練習暫時無法開啟，請重試。"); }
+    finally { this.scienceCurriculumOpening = false; }
+  }
+
+  async openNaturePlanetCandidate() {
+    if (!this.state.currentId || this.state.subject !== "science" || this.naturePlanetOpening || this.scienceCurriculumOpening) return;
+    if (window.LPScienceRollout?.enabled !== true) return;
+    const learnerId = this.state.currentId, grade = this.state.grade, generation = this.sessionGeneration;
+    const isActive = () => this.state.currentId === learnerId && this.state.subject === "science" && this.state.grade === grade && this.sessionGeneration === generation;
+    this.naturePlanetOpening = true;
+    let dismissed = false;
+    try {
+      const { openNaturePracticePlanet } = await import("./modules/science-curriculum/nature-entry.mjs?v=20261112-v3");
+      if (!isActive()) return;
+      const close = await openNaturePracticePlanet({ grade, learnerId, isActive,
+        onClose: () => { dismissed = true; this.naturePlanetClose = null; } });
+      if (!dismissed && isActive()) this.naturePlanetClose = close;
+      else await close?.();
+    } catch (error) { if (isActive()) this.flash("自然星球地圖暫時無法開啟，可先使用生活與自然單元練習。"); }
+    finally { this.naturePlanetOpening = false; }
+  }
+
   async openMathKnowledge() {
     if (this.knowledgeOpening || this.state.subject !== "math" || ![1, 2, 3, 4, 5, 6].includes(this.state.grade)) return;
     const learnerId = this.state.currentId;
@@ -8524,6 +8568,9 @@ class Component extends DCLogic {
   }
 
   async startUnit(id) {
+    if (this.state.subject === "science" && this.isLegacyScienceCandidate(id)) { await this.openScienceCurriculumCandidate(id); return; }
+    if (/^s-nature-planet-candidate-g[1-6]$/.test(String(id))) { await this.openNaturePlanetCandidate(); return; }
+    if (/^s-curriculum-candidate-g[1-6]$/.test(String(id))) { await this.openScienceCurriculumCandidate(); return; }
     const request = this.mathCourseRequest = (this.mathCourseRequest || 0) + 1;
     const course = MATH_UNITS.find(unit => unit.id === id);
     if (course?.foundation || course?.concept) {
@@ -10281,14 +10328,18 @@ class Component extends DCLogic {
       { key: "gacha", icon: "🫧", label: "扭蛋" },
     ];
     const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "library" || s.screen === "writing" || s.screen === "memory" || s.screen === "video" || String(s.screen).indexOf("english") === 0 ? "map" : s.screen === "weeklyQuiz" || s.screen === "weeklyResult" ? "weekly" : s.screen === "collection" ? "gacha" : s.screen;
-    const subjectUnits = s.subject === "math" ? [...MATH_UNITS,...MATH_EXPLORE_UNITS].sort((a,b)=>a.grade-b.grade||a.displayOrder-b.displayOrder) : s.subject === "english" ? EN_UNITS : s.subject === "science" ? SCI_UNITS : s.subject === "experiment" ? EXPERIMENT_UNITS : CH_UNITS;
+    const scienceCurriculumCandidate = s.subject === "science" && window.LPScienceRollout?.enabled === true;
+    const subjectUnits = s.subject === "math" ? [...MATH_UNITS,...MATH_EXPLORE_UNITS].sort((a,b)=>a.grade-b.grade||a.displayOrder-b.displayOrder) : s.subject === "english" ? EN_UNITS : s.subject === "science" ? SCI_UNITS.concat(scienceCurriculumCandidate ? [{ id: "s-nature-planet-candidate-g" + s.grade, grade: s.grade, kind: "nature-planet-candidate", difficulty: 1, icon: "🌿", art: "images/subject-unit-icons/v2/experiment-plant-water-v2.png", tint: "#d9efdb", title: "自然星球3D地圖", sub: "森林・花田・水岸 · 獨立自然地景" }, { id: "s-curriculum-candidate-g" + s.grade, grade: s.grade, kind: "curriculum-candidate", difficulty: 1, icon: "🌱", art: "images/subject-unit-icons/v2/experiment-plant-water-v2.png", tint: "#dff7ed", title: s.grade <= 2 ? "生活單元練習" : "自然單元練習", sub: "康軒・南一・上下學期 · 每回10題" }] : []) : s.subject === "experiment" ? EXPERIMENT_UNITS : CH_UNITS;
     const gradeWords = this.gradeWords(s.grade);
     const worldUnits = subjectUnits.filter((u) => s.subject === "experiment" || u.grade === s.grade).map((u) => {
       const isLib = u.kind === "library";
+      const isNatureCandidate = u.kind === "nature-planet-candidate";
+      const isCurriculumCandidate = u.kind === "curriculum-candidate" || isNatureCandidate;
+      const isLegacyScienceCandidate = this.isLegacyScienceCandidate(u.id);
       const isExperiment = u.kind === "experiment";
       const isPhonics = u.kind === "english-phonics";
-      const round = isLib || isExperiment ? 0 : dailyMasteryRound(p, u.id);
-      const atLimit = !isExperiment && round >= 3;
+      const round = isLib || isExperiment || isCurriculumCandidate ? 0 : dailyMasteryRound(p, u.id);
+      const atLimit = !isLegacyScienceCandidate && !isCurriculumCandidate && !isExperiment && round >= 3;
       const difficulty = Math.max(1, Math.min(3, Number(u.difficulty) || 1));
       const subjectPlanet = { math: "images/home/planets/math-planet-v1.jpg", chinese: "images/home/planets/chinese-planet-v1.jpg", english: "images/home/planets/english-planet-v1.jpg", experiment: "images/home/planets/experiment-planet-v1.jpg" }[s.subject];
       const unitArt = u.art || (s.subject === "math" && MATH_OBJECT_ASSETS[u.icon] ? mathObjectAsset(u.icon).image : "");
@@ -10297,17 +10348,17 @@ class Component extends DCLogic {
         id: u.id, art: unitArt || subjectPlanet, round, atLimit, difficulty,
         icon: u.icon, iconEl, tint: u.tint, title: u.title, sub: u.sub, displayCode: u.displayCode || "", showStart: u.kind !== "math-explore",
         pct: isLib ? 100 : isExperiment ? 0 : Math.round(round / 3 * 100),
-        stars: isLib || isExperiment ? [] : [0, 1, 2].map((i) => ({ opacity: i < difficulty ? 1 : .28, gray: i < difficulty ? 0 : 1 })),
-        showMastery: u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
-        showStatus: u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
-        showProgress: u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
+        stars: isLib || isExperiment || isCurriculumCandidate ? [] : [0, 1, 2].map((i) => ({ opacity: i < difficulty ? 1 : .28, gray: i < difficulty ? 0 : 1 })),
+        showMastery: !isCurriculumCandidate && u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
+        showStatus: !isCurriculumCandidate && u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
+        showProgress: !isCurriculumCandidate && u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
         masteryMark: isLib ? "字庫" : isExperiment ? "" : masteryRoman(round),
         masteryBg: round ? "#e6f7ee" : "#fbfaff",
         masteryFg: round ? "#1d7a55" : "#b3a9d8",
         masteryBorder: round ? "#9fe3c4" : "#ece7ff",
-        stateLabel: isLib ? gradeWords.length + " 個字" : isExperiment ? "" : atLimit ? "今日已完成上限" : round ? "今日完成 " + masteryRoman(round) : "今日未開始",
+        stateLabel: isLegacyScienceCandidate ? (round ? "原版今日完成 " + masteryRoman(round) + " · 練習另存" : "練習另存，不改原版成績") : isCurriculumCandidate ? "" : isLib ? gradeWords.length + " 個字" : isExperiment ? "" : atLimit ? "今日已完成上限" : round ? "今日完成 " + masteryRoman(round) : "今日未開始",
         stateColor: isLib || round ? "#35c98a" : "#b3a9d8",
-        btnLabel: u.kind === "english-story-library" ? "進入單字" : isPhonics ? "開始練習" : isLib ? "進入學習庫" : isExperiment ? "進入實驗室" : atLimit ? "今日改練其他單元" : round ? "挑戰第 " + masteryRoman(round + 1) + " 輪" : "開始第 I 輪",
+        btnLabel: isNatureCandidate ? "開啟自然3D地圖" : isCurriculumCandidate ? "開啟單元練習" : isLegacyScienceCandidate ? "開始10題練習" : u.kind === "english-story-library" ? "進入單字" : isPhonics ? "開始練習" : isLib ? "進入學習庫" : isExperiment ? "進入實驗室" : atLimit ? "今日改練其他單元" : round ? "挑戰第 " + masteryRoman(round + 1) + " 輪" : "開始第 I 輪",
         btnBg: atLimit ? "#ece9f5" : "linear-gradient(90deg,#7c5cff,#22c8d8)",
         btnFg: atLimit ? "#9a90c8" : "#fff",
         start: () => this.startUnit(u.id),
@@ -11338,7 +11389,7 @@ class Component extends DCLogic {
       knowledgeTitle: ["", "小一", "小二", "小三", "小四", "小五", "小六"][s.grade] + "知識星圖",
       knowledgeLabel: "開啟" + ["", "小一", "小二", "小三", "小四", "小五", "小六"][s.grade] + "數學知識星圖",
       openMathKnowledge: () => this.openMathKnowledge(),
-      gradeTabs: (s.subject === "experiment" ? [] : s.subject === "english" ? [1, 2, 3, 4, 5, 6, 7] : s.subject === "math" ? [1, 2, 3, 4, 5, 6] : s.subject === "science" ? [3, 4, 5, 6] : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級", "繪本單字"][g], active: String(s.grade === g),
+      gradeTabs: (s.subject === "experiment" ? [] : s.subject === "english" ? [1, 2, 3, 4, 5, 6, 7] : s.subject === "math" ? [1, 2, 3, 4, 5, 6] : s.subject === "science" ? (scienceCurriculumCandidate ? [1, 2, 3, 4, 5, 6] : [3, 4, 5, 6]) : [1, 2]).map((g) => ({        label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級", "繪本單字"][g], active: String(s.grade === g),
         go: () => this.setState({ grade: g }),
         bg: s.grade === g ? "#7c5cff" : "#fff",
         fg: s.grade === g ? "#fff" : "#7c74a8",
@@ -12151,6 +12202,14 @@ class Component extends DCLogic {
     if (button) burst(button);
   });
 })();
+</script>
+<script type="module">
+// Resource measurements are opt-in; ordinary visits do not load diagnostics.
+if (new URLSearchParams(location.search).get('lpPerf') === '1') {
+  import('./modules/performance-diagnostics/launch.mjs')
+    .then(({ startPerformanceDiagnostics }) => startPerformanceDiagnostics())
+    .catch(error => console.warn('Resource timing diagnostics could not load.', error));
+}
 </script>
 </body>
 </html>

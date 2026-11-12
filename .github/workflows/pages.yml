@@ -31,7 +31,7 @@ jobs:
       - name: Stage public site without development dependencies
         run: |
           mkdir -p _site
-          rsync -a --exclude='_site' --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='functions' --exclude='firebase-debug.log' --exclude='src' --exclude='tests' --exclude='modules/math-mission-map/v11/qa' --exclude='*.check.mjs' --exclude='*.test.mjs' ./ _site/
+          rsync -a --exclude='_site' --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='functions' --exclude='firebase-debug.log' --exclude='src' --exclude='tests' --exclude='modules/math-mission-map/v11/qa' --exclude='docs/science-curriculum' --exclude='qa/science-curriculum' --exclude='science-curriculum-preview.html' --exclude='nature-planet-preview.html' --exclude='*.check.mjs' --exclude='*.test.mjs' ./ _site/
       - name: Inject Cloudflare Web Analytics
         run: |
           python3 - <<'PY'

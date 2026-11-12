@@ -1,0 +1,349 @@
+{
+  "status": "candidate_content_read_reviewed_not_formal_teaching_validation",
+  "version": "legacy-science-candidate-v3-cf014a96b1f8fdfa",
+  "units": 18,
+  "questions": 540,
+  "fixed_round_size": 10,
+  "minimum_per_unit": 30,
+  "maximum_per_unit": 30,
+  "reused_placements": 452,
+  "reused_from_frozen_sources": 450,
+  "reused_cross_legacy_placements": 2,
+  "new_original_question_designs": 88,
+  "unique_frozen_source_question_ids": 450,
+  "unique_designs_represented": 538,
+  "global_semantic_uniqueness_claim": false,
+  "reuse_note": "540是題位數，不是540新題。450題已有來源原創，88題本次新編，2題跨legacy共用，沒有把出版社改寫當獨立題疊加。",
+  "by_unit": [
+    {
+      "unit_id": "s1",
+      "title": "植物的身體",
+      "grade": 3,
+      "question_count": 30,
+      "reused": 30,
+      "reused_frozen_source": 30,
+      "reused_cross_legacy": 0,
+      "new_originals": 0,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "限植物身體與構造功能；剔除泛物質組成、食物鏈起源及個體死亡等較遠題，補根固定、花苞、葉形。",
+      "activities": {
+        "s1-a01": 9,
+        "s1-a02": 10,
+        "s1-a03": 11
+      }
+    },
+    {
+      "unit_id": "s2",
+      "title": "磁鐵與磁力",
+      "grade": 3,
+      "question_count": 30,
+      "reused": 30,
+      "reused_frozen_source": 30,
+      "reused_cross_legacy": 0,
+      "new_originals": 0,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "採三年級已審磁鐵題，涵蓋材料、距離、磁極、控制與應用；每題有不同觀察、推論或決策。",
+      "activities": {
+        "s2-a01": 11,
+        "s2-a02": 10,
+        "s2-a03": 9
+      }
+    },
+    {
+      "unit_id": "s3",
+      "title": "千變萬化的水",
+      "grade": 3,
+      "question_count": 30,
+      "reused": 24,
+      "reused_frozen_source": 24,
+      "reused_cross_legacy": 0,
+      "new_originals": 6,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "採三年級三態與四年級中較直觀的紙巾吸水題；不取虹吸壓力或連通管條件推導。補水面積、濕度、結冰體積及水循環。",
+      "activities": {
+        "s3-a01": 15,
+        "s3-a02": 9,
+        "s3-a03": 6
+      }
+    },
+    {
+      "unit_id": "s9",
+      "title": "溶解",
+      "grade": 3,
+      "question_count": 30,
+      "reused": 24,
+      "reused_frozen_source": 24,
+      "reused_cross_legacy": 0,
+      "new_originals": 6,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "只取溶解與簡單質量／分離內容；高年級來源只留小整數、可見記錄與安全題，不含微粒運動、酸鹼或導電。跨出版社同義題未疊加。",
+      "activities": {
+        "s9-a01": 15,
+        "s9-a02": 9,
+        "s9-a03": 6
+      }
+    },
+    {
+      "unit_id": "s19",
+      "title": "月相變化",
+      "grade": 3,
+      "question_count": 30,
+      "reused": 21,
+      "reused_frozen_source": 21,
+      "reused_cross_legacy": 0,
+      "new_originals": 9,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "四年級來源只取可見月相、日期、月曆與簡單模型，移除日照季節及日落時刻跨題；不計月球運行角度或推導潮汐。",
+      "activities": {
+        "s19-a01": 8,
+        "s19-a02": 13,
+        "s19-a03": 9
+      }
+    },
+    {
+      "unit_id": "s4",
+      "title": "光與影",
+      "grade": 4,
+      "question_count": 30,
+      "reused": 21,
+      "reused_frozen_source": 19,
+      "reused_cross_legacy": 2,
+      "new_originals": 9,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "從混合聲光單元逐題挑光學，不含聲音題；以直進、反射、影子、光源與接影面為主，不借高年級折射計算填數。與地球轉動共用2題，另計重用。",
+      "activities": {
+        "s4-a01": 10,
+        "s4-a02": 9,
+        "s4-a03": 11
+      }
+    },
+    {
+      "unit_id": "s5",
+      "title": "電路與能源",
+      "grade": 4,
+      "question_count": 30,
+      "reused": 30,
+      "reused_frozen_source": 30,
+      "reused_cross_legacy": 0,
+      "new_originals": 0,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "保留低電壓通路、開關及紙上串並聯，移除部分電池比較及重複安全題，納入太陽能、儲能、能源限制與節電。",
+      "activities": {
+        "s5-a01": 10,
+        "s5-a02": 6,
+        "s5-a03": 14
+      }
+    },
+    {
+      "unit_id": "s10",
+      "title": "空氣與風",
+      "grade": 4,
+      "question_count": 30,
+      "reused": 30,
+      "reused_frozen_source": 30,
+      "reused_cross_legacy": 0,
+      "new_originals": 0,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "三年級空氣題對四年級可作基礎複習；去掉魚／昆蟲一般生存題及重複空杯斷言，補風向、風速、空間氣流。",
+      "activities": {
+        "s10-a02": 16,
+        "s10-a03": 8,
+        "s10-a01": 6
+      }
+    },
+    {
+      "unit_id": "s22",
+      "title": "地球轉動",
+      "grade": 4,
+      "question_count": 30,
+      "reused": 0,
+      "reused_frozen_source": 0,
+      "reused_cross_legacy": 0,
+      "new_originals": 30,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "新編四年級原主題，不聲稱任何出版社對齊；固定光源模型、自轉方向／約24小時、日夜、桿影及公轉約一年。無時區計算或四季角度推導。",
+      "activities": {
+        "s22-a01": 15,
+        "s22-a02": 10,
+        "s22-a03": 5
+      }
+    },
+    {
+      "unit_id": "s11",
+      "title": "星空",
+      "grade": 5,
+      "question_count": 30,
+      "reused": 30,
+      "reused_frozen_source": 30,
+      "reused_cross_legacy": 0,
+      "new_originals": 0,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "採五年級星空候選，剔除獨立微米與單位換算；補公轉與季節星空及自轉／公轉的時間尺度區分。",
+      "activities": {
+        "s11-a01": 8,
+        "s11-a02": 10,
+        "s11-a03": 12
+      }
+    },
+    {
+      "unit_id": "s12",
+      "title": "力與運動",
+      "grade": 5,
+      "question_count": 30,
+      "reused": 30,
+      "reused_frozen_source": 30,
+      "reused_cross_legacy": 0,
+      "new_originals": 0,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "採五年級力與運動；刪掉只比較通用長度測量集中程度的題。",
+      "activities": {
+        "s12-a01": 9,
+        "s12-a02": 11,
+        "s12-a03": 10
+      }
+    },
+    {
+      "unit_id": "s13",
+      "title": "熱與物質",
+      "grade": 5,
+      "question_count": 30,
+      "reused": 30,
+      "reused_frozen_source": 30,
+      "reused_cross_legacy": 0,
+      "new_originals": 0,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "採同年級熱的作用與傳播；來源既有非熱學蜂巢承重題已由最終政策排除，未重用。",
+      "activities": {
+        "s13-a01": 9,
+        "s13-a02": 10,
+        "s13-a03": 11
+      }
+    },
+    {
+      "unit_id": "s14",
+      "title": "簡單機械",
+      "grade": 5,
+      "question_count": 30,
+      "reused": 26,
+      "reused_frozen_source": 26,
+      "reused_cross_legacy": 0,
+      "new_originals": 4,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "六年級來源只取五年級可理解的槓桿／滑輪／齒輪概念及模型判讀；移除力矩數值、斜向力臂、張力數值、未定義效率，補斜面／螺旋／輪子／楔形的文字模型。",
+      "activities": {
+        "s14-a02": 8,
+        "s14-a03": 13,
+        "s14-a01": 9
+      }
+    },
+    {
+      "unit_id": "s23",
+      "title": "燃燒與氧氣",
+      "grade": 5,
+      "question_count": 30,
+      "reused": 24,
+      "reused_frozen_source": 24,
+      "reused_cross_legacy": 0,
+      "new_originals": 6,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "從燃燒與生鏽單元排除生鏽與一般氣體熱脹內容，只取燃燒條件、氧氣等性質與安全；補組成資料、物質收支、熔化比較和隔絕助燃。",
+      "activities": {
+        "s23-a01": 12,
+        "s23-a02": 8,
+        "s23-a03": 10
+      }
+    },
+    {
+      "unit_id": "s15",
+      "title": "地表變化",
+      "grade": 6,
+      "question_count": 30,
+      "reused": 30,
+      "reused_frozen_source": 30,
+      "reused_cross_legacy": 0,
+      "new_originals": 0,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "取流水侵蝕搬運堆積、海岸與風、風化土壤化石；移除純地球系統分類和一般選材用途。",
+      "activities": {
+        "s15-a01": 9,
+        "s15-a02": 11,
+        "s15-a03": 10
+      }
+    },
+    {
+      "unit_id": "s16",
+      "title": "天氣變化",
+      "grade": 6,
+      "question_count": 30,
+      "reused": 30,
+      "reused_frozen_source": 30,
+      "reused_cross_legacy": 0,
+      "new_originals": 0,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "採六年級水循環、天氣圖、預報、氣候資料；無生活安全題跨入地質原因。",
+      "activities": {
+        "s16-a01": 12,
+        "s16-a03": 9,
+        "s16-a02": 9
+      }
+    },
+    {
+      "unit_id": "s17",
+      "title": "防鏽與防腐",
+      "grade": 6,
+      "question_count": 30,
+      "reused": 12,
+      "reused_frozen_source": 12,
+      "reused_cross_legacy": 0,
+      "new_originals": 18,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "12題鐵生鏽、塗層與記錄，另18題食品保存；剔除單純酵母發酵題。不試吃、不培養、不以冷藏當殺菌或永久保證。",
+      "activities": {
+        "s17-a01": 12,
+        "s17-a02": 18
+      }
+    },
+    {
+      "unit_id": "s18",
+      "title": "生態環境",
+      "grade": 6,
+      "question_count": 30,
+      "reused": 30,
+      "reused_frozen_source": 30,
+      "reused_cross_legacy": 0,
+      "new_originals": 0,
+      "exact_stems_unique": true,
+      "topic_age_review_note": "採六年級食物網、能量／物質、族群群集、生態系與保育；記錄策略與資料推論分開，不宣稱單次未見即滅絕。",
+      "activities": {
+        "s18-a01": 11,
+        "s18-a02": 10,
+        "s18-a03": 9
+      }
+    }
+  ],
+  "source_engine_projection": "createCurriculumEngine(final catalog, final exercises).getQuestion(id), with isCoreQuestion(id) required true",
+  "excluded_source_count": 33,
+  "corrections_in_source_policy": 2,
+  "source_scope_originally_missing_count": 84,
+  "new_item_review": "All88 new designs read by a reviewer distinct from author:22 by earth/food author,65 by integrator,1 replacement s22-q29 by moon/shadow author. Two unused independently authored parallels are represented as cross-legacy reuse instead.",
+  "limitations": [
+    "All questions remain candidate; no teacher validation or child pilot.",
+    "Topic/age suitability is content review, not formal learning-attainment certification.",
+    "No GPU, visual, deployment or live history checks included in this artifact task."
+  ],
+  "data_sha256": {
+    "catalog.json": "402aa127f91c5cd1f77bfb31d51b48bcf04e2fc3793fef5ea178a7d2f968f431",
+    "exercises.json": "ee38672046e5fcd613bb2a895b1db1b12a73c6c2592bdcb3144ed8d036529fb3"
+  },
+  "publisher_source_version": "science-curriculum-v3-4dcfcaae95a653f1",
+  "combined_quiz_unit_count": 128,
+  "combined_active_question_placements": 3865,
+  "nature_3d_landmark_count": 110,
+  "nonquiz_legacy_ids": [
+    "s6",
+    "s7",
+    "s8",
+    "s20",
+    "s21"
+  ]
+}

@@ -1,0 +1,696 @@
+{
+  "scope": "Grades1–2 Living; Grades3–6 Natural Science; 2 publishers × 6 grades × 2 semesters = 24 book-grade-semester cells.",
+  "book_cells": 24,
+  "books": [
+    {
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "unit_count": 6,
+      "current_publisher_activity_count": 13,
+      "candidate_activity_slots": 13,
+      "source_id": "nani-living-official-115",
+      "source": {
+        "url": "https://naniexpo.nani.com.tw/uploads/pdf/20260312_201419_4ea29e252cdd.pdf",
+        "title": "115 南一教材簡介本｜低年級",
+        "year_confirmation": "官方PDF封面搜尋擷取明示115；生活架構印刷頁20–21涵蓋一上一下二上二下。",
+        "retrieval": "直接下載及open逾時／連線錯誤；官方URL搜尋索引返回封面與完整生活架構。尚未本機渲染視覺復核。"
+      },
+      "verification": "publisher_official_115_index_text_not_visual_verified",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-na-g1-t1-u01",
+        "s-na-g1-t1-u02",
+        "s-na-g1-t1-u03",
+        "s-na-g1-t1-u04",
+        "s-na-g1-t1-u05",
+        "s-na-g1-t1-u06"
+      ]
+    },
+    {
+      "publisher": "南一",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "unit_count": 6,
+      "current_publisher_activity_count": 15,
+      "candidate_activity_slots": 15,
+      "source_id": "nani-living-official-115",
+      "source": {
+        "url": "https://naniexpo.nani.com.tw/uploads/pdf/20260312_201419_4ea29e252cdd.pdf",
+        "title": "115 南一教材簡介本｜低年級",
+        "year_confirmation": "官方PDF封面搜尋擷取明示115；生活架構印刷頁20–21涵蓋一上一下二上二下。",
+        "retrieval": "直接下載及open逾時／連線錯誤；官方URL搜尋索引返回封面與完整生活架構。尚未本機渲染視覺復核。"
+      },
+      "verification": "publisher_official_115_index_text_not_visual_verified",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-na-g1-t2-u01",
+        "s-na-g1-t2-u02",
+        "s-na-g1-t2-u03",
+        "s-na-g1-t2-u04",
+        "s-na-g1-t2-u05",
+        "s-na-g1-t2-u06"
+      ]
+    },
+    {
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "unit_count": 6,
+      "current_publisher_activity_count": 16,
+      "candidate_activity_slots": 16,
+      "source_id": "nani-living-official-115",
+      "source": {
+        "url": "https://naniexpo.nani.com.tw/uploads/pdf/20260312_201419_4ea29e252cdd.pdf",
+        "title": "115 南一教材簡介本｜低年級",
+        "year_confirmation": "官方PDF封面搜尋擷取明示115；生活架構印刷頁20–21涵蓋一上一下二上二下。",
+        "retrieval": "直接下載及open逾時／連線錯誤；官方URL搜尋索引返回封面與完整生活架構。尚未本機渲染視覺復核。"
+      },
+      "verification": "publisher_official_115_index_text_not_visual_verified",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-na-g2-t1-u01",
+        "s-na-g2-t1-u02",
+        "s-na-g2-t1-u03",
+        "s-na-g2-t1-u04",
+        "s-na-g2-t1-u05",
+        "s-na-g2-t1-u06"
+      ]
+    },
+    {
+      "publisher": "南一",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "unit_count": 6,
+      "current_publisher_activity_count": 15,
+      "candidate_activity_slots": 16,
+      "source_id": "nani-living-official-115",
+      "source": {
+        "url": "https://naniexpo.nani.com.tw/uploads/pdf/20260312_201419_4ea29e252cdd.pdf",
+        "title": "115 南一教材簡介本｜低年級",
+        "year_confirmation": "官方PDF封面搜尋擷取明示115；生活架構印刷頁20–21涵蓋一上一下二上二下。",
+        "retrieval": "直接下載及open逾時／連線錯誤；官方URL搜尋索引返回封面與完整生活架構。尚未本機渲染視覺復核。"
+      },
+      "verification": "publisher_official_115_index_text_not_visual_verified",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-na-g2-t2-u01",
+        "s-na-g2-t2-u02",
+        "s-na-g2-t2-u03",
+        "s-na-g2-t2-u04",
+        "s-na-g2-t2-u05",
+        "s-na-g2-t2-u06"
+      ]
+    },
+    {
+      "publisher": "南一",
+      "grade": 3,
+      "semester": 1,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 12,
+      "candidate_activity_slots": 12,
+      "source_id": "nani3_115",
+      "source": {
+        "title": "115課程計畫三年級自然(南一) (1709K)",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=16222542818392409397za5z6x9xtwu5g84r8zq2m7wjr3i24w6ndivmsc.pdf&q_year=115",
+        "index": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104682",
+        "file": "104682-3.pdf",
+        "sha256": "fb97b5d978623d41b3a2ff5ac9aed1981189be841ec10e82661a7a1f6880e47d",
+        "local_sha256": "fb97b5d978623d41b3a2ff5ac9aed1981189be841ec10e82661a7a1f6880e47d",
+        "id": "nani3_115",
+        "school": "嘉義縣中埔鄉大有國民小學",
+        "academic_year_roc": 115,
+        "edition_status": "115學年度正式學校採用計畫，非出版社審定版次或ISBN核驗"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-na-g3-t1-u01",
+        "s-na-g3-t1-u02",
+        "s-na-g3-t1-u03",
+        "s-na-g3-t1-u04"
+      ]
+    },
+    {
+      "publisher": "南一",
+      "grade": 3,
+      "semester": 2,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 12,
+      "candidate_activity_slots": 12,
+      "source_id": "nani3_115",
+      "source": {
+        "title": "115課程計畫三年級自然(南一) (1709K)",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=16222542818392409397za5z6x9xtwu5g84r8zq2m7wjr3i24w6ndivmsc.pdf&q_year=115",
+        "index": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104682",
+        "file": "104682-3.pdf",
+        "sha256": "fb97b5d978623d41b3a2ff5ac9aed1981189be841ec10e82661a7a1f6880e47d",
+        "local_sha256": "fb97b5d978623d41b3a2ff5ac9aed1981189be841ec10e82661a7a1f6880e47d",
+        "id": "nani3_115",
+        "school": "嘉義縣中埔鄉大有國民小學",
+        "academic_year_roc": 115,
+        "edition_status": "115學年度正式學校採用計畫，非出版社審定版次或ISBN核驗"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-na-g3-t2-u01",
+        "s-na-g3-t2-u02",
+        "s-na-g3-t2-u03",
+        "s-na-g3-t2-u04"
+      ]
+    },
+    {
+      "publisher": "南一",
+      "grade": 4,
+      "semester": 1,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 12,
+      "candidate_activity_slots": 12,
+      "source_id": "nani4",
+      "source": {
+        "id": "nani4",
+        "title": "嘉義縣中和國小115學年度4年級自然課程計畫",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=1622274396478616968v5akcaaku6f4tha4nsuc7wk69337779f9eq2ae5.pdf&q_year=115",
+        "index_url": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104708",
+        "academic_year_roc": 115,
+        "gregorian_start_year": 2026,
+        "source_type": "school_published_curriculum_plan",
+        "local_pdf": "nani4.pdf",
+        "edition": "108課綱學校採用課程計畫；出版社審定年月與ISBN尚未獨立核對"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-na-g4-t1-u01",
+        "s-na-g4-t1-u02",
+        "s-na-g4-t1-u03",
+        "s-na-g4-t1-u04"
+      ]
+    },
+    {
+      "publisher": "南一",
+      "grade": 4,
+      "semester": 2,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 12,
+      "candidate_activity_slots": 12,
+      "source_id": "nani4",
+      "source": {
+        "id": "nani4",
+        "title": "嘉義縣中和國小115學年度4年級自然課程計畫",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=1622274396478616968v5akcaaku6f4tha4nsuc7wk69337779f9eq2ae5.pdf&q_year=115",
+        "index_url": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104708",
+        "academic_year_roc": 115,
+        "gregorian_start_year": 2026,
+        "source_type": "school_published_curriculum_plan",
+        "local_pdf": "nani4.pdf",
+        "edition": "108課綱學校採用課程計畫；出版社審定年月與ISBN尚未獨立核對"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-na-g4-t2-u01",
+        "s-na-g4-t2-u02",
+        "s-na-g4-t2-u03",
+        "s-na-g4-t2-u04"
+      ]
+    },
+    {
+      "publisher": "南一",
+      "grade": 5,
+      "semester": 1,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 11,
+      "candidate_activity_slots": 11,
+      "source_id": "nani5_115",
+      "source": {
+        "title": "115大有國小自然五年級課程計畫(南一) (1630K)",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=1622254258174075491egu2mry7dn68wjcdndn6s22bztu9k3cv3pc4pau.pdf&q_year=115",
+        "index": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104682",
+        "file": "104682-5.pdf",
+        "sha256": "5161e1564e02babfa73308adb97ca5fbb47bfcda306e209673714f27e7d6e4b8",
+        "local_sha256": "5161e1564e02babfa73308adb97ca5fbb47bfcda306e209673714f27e7d6e4b8",
+        "id": "nani5_115",
+        "school": "嘉義縣中埔鄉大有國民小學",
+        "academic_year_roc": 115,
+        "edition_status": "115學年度正式學校採用計畫，非出版社審定版次或ISBN核驗"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-na-g5-t1-u01",
+        "s-na-g5-t1-u02",
+        "s-na-g5-t1-u03",
+        "s-na-g5-t1-u04"
+      ]
+    },
+    {
+      "publisher": "南一",
+      "grade": 5,
+      "semester": 2,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 11,
+      "candidate_activity_slots": 12,
+      "source_id": "nani5_115",
+      "source": {
+        "title": "115大有國小自然五年級課程計畫(南一) (1630K)",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=1622254258174075491egu2mry7dn68wjcdndn6s22bztu9k3cv3pc4pau.pdf&q_year=115",
+        "index": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104682",
+        "file": "104682-5.pdf",
+        "sha256": "5161e1564e02babfa73308adb97ca5fbb47bfcda306e209673714f27e7d6e4b8",
+        "local_sha256": "5161e1564e02babfa73308adb97ca5fbb47bfcda306e209673714f27e7d6e4b8",
+        "id": "nani5_115",
+        "school": "嘉義縣中埔鄉大有國民小學",
+        "academic_year_roc": 115,
+        "edition_status": "115學年度正式學校採用計畫，非出版社審定版次或ISBN核驗"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-na-g5-t2-u01",
+        "s-na-g5-t2-u02",
+        "s-na-g5-t2-u03",
+        "s-na-g5-t2-u04"
+      ]
+    },
+    {
+      "publisher": "南一",
+      "grade": 6,
+      "semester": 1,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 12,
+      "candidate_activity_slots": 12,
+      "source_id": "nani6",
+      "source": {
+        "id": "nani6",
+        "title": "嘉義縣中和國小115學年度6年級自然課程計畫",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=162227423176415713253vevdi6e2e2g5df28nvu49m86w5grk676ibvbg.pdf&q_year=115",
+        "index_url": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104708",
+        "academic_year_roc": 115,
+        "gregorian_start_year": 2026,
+        "source_type": "school_published_curriculum_plan",
+        "local_pdf": "nani6.pdf",
+        "edition": "108課綱學校採用課程計畫；出版社審定年月與ISBN尚未獨立核對"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-na-g6-t1-u01",
+        "s-na-g6-t1-u02",
+        "s-na-g6-t1-u03",
+        "s-na-g6-t1-u04"
+      ]
+    },
+    {
+      "publisher": "南一",
+      "grade": 6,
+      "semester": 2,
+      "subject": "自然科學",
+      "unit_count": 3,
+      "current_publisher_activity_count": 9,
+      "candidate_activity_slots": 9,
+      "source_id": "nani6",
+      "source": {
+        "id": "nani6",
+        "title": "嘉義縣中和國小115學年度6年級自然課程計畫",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=162227423176415713253vevdi6e2e2g5df28nvu49m86w5grk676ibvbg.pdf&q_year=115",
+        "index_url": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104708",
+        "academic_year_roc": 115,
+        "gregorian_start_year": 2026,
+        "source_type": "school_published_curriculum_plan",
+        "local_pdf": "nani6.pdf",
+        "edition": "108課綱學校採用課程計畫；出版社審定年月與ISBN尚未獨立核對"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-na-g6-t2-u01",
+        "s-na-g6-t2-u02",
+        "s-na-g6-t2-u03"
+      ]
+    },
+    {
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 1,
+      "subject": "生活",
+      "unit_count": 6,
+      "current_publisher_activity_count": 15,
+      "candidate_activity_slots": 15,
+      "source_id": "k1",
+      "source": {
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=16222709785182866218w322t6ce56684djy962ak6gdvqnb6659433pe4.pdf&q_year=115",
+        "title": "大崙國小115學年度一年級生活課程計畫",
+        "edition": "115學年度 康軒第一、二冊",
+        "type": "school_curriculum_plan"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-kh-g1-t1-u01",
+        "s-kh-g1-t1-u02",
+        "s-kh-g1-t1-u03",
+        "s-kh-g1-t1-u04",
+        "s-kh-g1-t1-u05",
+        "s-kh-g1-t1-u06"
+      ]
+    },
+    {
+      "publisher": "康軒",
+      "grade": 1,
+      "semester": 2,
+      "subject": "生活",
+      "unit_count": 6,
+      "current_publisher_activity_count": 14,
+      "candidate_activity_slots": 14,
+      "source_id": "k1",
+      "source": {
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=16222709785182866218w322t6ce56684djy962ak6gdvqnb6659433pe4.pdf&q_year=115",
+        "title": "大崙國小115學年度一年級生活課程計畫",
+        "edition": "115學年度 康軒第一、二冊",
+        "type": "school_curriculum_plan"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-kh-g1-t2-u01",
+        "s-kh-g1-t2-u02",
+        "s-kh-g1-t2-u03",
+        "s-kh-g1-t2-u04",
+        "s-kh-g1-t2-u05",
+        "s-kh-g1-t2-u06"
+      ]
+    },
+    {
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 1,
+      "subject": "生活",
+      "unit_count": 6,
+      "current_publisher_activity_count": 14,
+      "candidate_activity_slots": 14,
+      "source_id": "k2",
+      "source": {
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=162227445289754248062d3b95u9mb5mdk7i789cz9gu74g9k2bkm9x237.pdf&q_year=115",
+        "title": "中和國小115學年度二年級生活課程計畫",
+        "edition": "115學年度 康軒第三、四冊",
+        "type": "school_curriculum_plan"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-kh-g2-t1-u01",
+        "s-kh-g2-t1-u02",
+        "s-kh-g2-t1-u03",
+        "s-kh-g2-t1-u04",
+        "s-kh-g2-t1-u05",
+        "s-kh-g2-t1-u06"
+      ]
+    },
+    {
+      "publisher": "康軒",
+      "grade": 2,
+      "semester": 2,
+      "subject": "生活",
+      "unit_count": 6,
+      "current_publisher_activity_count": 14,
+      "candidate_activity_slots": 14,
+      "source_id": "k2",
+      "source": {
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=162227445289754248062d3b95u9mb5mdk7i789cz9gu74g9k2bkm9x237.pdf&q_year=115",
+        "title": "中和國小115學年度二年級生活課程計畫",
+        "edition": "115學年度 康軒第三、四冊",
+        "type": "school_curriculum_plan"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-kh-g2-t2-u01",
+        "s-kh-g2-t2-u02",
+        "s-kh-g2-t2-u03",
+        "s-kh-g2-t2-u04",
+        "s-kh-g2-t2-u05",
+        "s-kh-g2-t2-u06"
+      ]
+    },
+    {
+      "publisher": "康軒",
+      "grade": 3,
+      "semester": 1,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 12,
+      "candidate_activity_slots": 12,
+      "source_id": "kang3",
+      "source": {
+        "id": "kang3",
+        "title": "嘉義縣大崙國小115學年度3年級自然科學課程計畫",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=1622271012181375926h4827gs9udavg5ri4im49pi3i4f794k39n827cw.pdf&q_year=115",
+        "index_url": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104674",
+        "academic_year_roc": 115,
+        "gregorian_start_year": 2026,
+        "source_type": "school_published_curriculum_plan",
+        "local_pdf": "kang3-115.pdf",
+        "edition": "108課綱學校採用課程計畫；出版社審定年月與ISBN尚未獨立核對"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-kh-g3-t1-u01",
+        "s-kh-g3-t1-u02",
+        "s-kh-g3-t1-u03",
+        "s-kh-g3-t1-u04"
+      ]
+    },
+    {
+      "publisher": "康軒",
+      "grade": 3,
+      "semester": 2,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 12,
+      "candidate_activity_slots": 12,
+      "source_id": "kang3",
+      "source": {
+        "id": "kang3",
+        "title": "嘉義縣大崙國小115學年度3年級自然科學課程計畫",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=1622271012181375926h4827gs9udavg5ri4im49pi3i4f794k39n827cw.pdf&q_year=115",
+        "index_url": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104674",
+        "academic_year_roc": 115,
+        "gregorian_start_year": 2026,
+        "source_type": "school_published_curriculum_plan",
+        "local_pdf": "kang3-115.pdf",
+        "edition": "108課綱學校採用課程計畫；出版社審定年月與ISBN尚未獨立核對"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-kh-g3-t2-u01",
+        "s-kh-g3-t2-u02",
+        "s-kh-g3-t2-u03",
+        "s-kh-g3-t2-u04"
+      ]
+    },
+    {
+      "publisher": "康軒",
+      "grade": 4,
+      "semester": 1,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 12,
+      "candidate_activity_slots": 12,
+      "source_id": "kang4",
+      "source": {
+        "id": "kang4",
+        "title": "嘉義縣大崙國小115學年度4年級自然科學課程計畫",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=162227100945173345733qx4cm6467aqu2397565gdyv98afwqe75hywcg.pdf&q_year=115",
+        "index_url": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104674",
+        "academic_year_roc": 115,
+        "gregorian_start_year": 2026,
+        "source_type": "school_published_curriculum_plan",
+        "local_pdf": "kang4-115.pdf",
+        "edition": "108課綱學校採用課程計畫；出版社審定年月與ISBN尚未獨立核對"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-kh-g4-t1-u01",
+        "s-kh-g4-t1-u02",
+        "s-kh-g4-t1-u03",
+        "s-kh-g4-t1-u04"
+      ]
+    },
+    {
+      "publisher": "康軒",
+      "grade": 4,
+      "semester": 2,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 12,
+      "candidate_activity_slots": 12,
+      "source_id": "kang4",
+      "source": {
+        "id": "kang4",
+        "title": "嘉義縣大崙國小115學年度4年級自然科學課程計畫",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=162227100945173345733qx4cm6467aqu2397565gdyv98afwqe75hywcg.pdf&q_year=115",
+        "index_url": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104674",
+        "academic_year_roc": 115,
+        "gregorian_start_year": 2026,
+        "source_type": "school_published_curriculum_plan",
+        "local_pdf": "kang4-115.pdf",
+        "edition": "108課綱學校採用課程計畫；出版社審定年月與ISBN尚未獨立核對"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-kh-g4-t2-u01",
+        "s-kh-g4-t2-u02",
+        "s-kh-g4-t2-u03",
+        "s-kh-g4-t2-u04"
+      ]
+    },
+    {
+      "publisher": "康軒",
+      "grade": 5,
+      "semester": 1,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 12,
+      "candidate_activity_slots": 12,
+      "source_id": "kang5",
+      "source": {
+        "id": "kang5",
+        "title": "嘉義縣大崙國小115學年度5年級自然科學課程計畫",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=16222710021736622552pc3yfg236nr5qcgr7gtv3ftr95adwia8ddtgve.pdf&q_year=115",
+        "index_url": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104674",
+        "academic_year_roc": 115,
+        "gregorian_start_year": 2026,
+        "source_type": "school_published_curriculum_plan",
+        "local_pdf": "kang5-115.pdf",
+        "edition": "108課綱學校採用課程計畫；出版社審定年月與ISBN尚未獨立核對"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-kh-g5-t1-u01",
+        "s-kh-g5-t1-u02",
+        "s-kh-g5-t1-u03",
+        "s-kh-g5-t1-u04"
+      ]
+    },
+    {
+      "publisher": "康軒",
+      "grade": 5,
+      "semester": 2,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 12,
+      "candidate_activity_slots": 12,
+      "source_id": "kang5",
+      "source": {
+        "id": "kang5",
+        "title": "嘉義縣大崙國小115學年度5年級自然科學課程計畫",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=16222710021736622552pc3yfg236nr5qcgr7gtv3ftr95adwia8ddtgve.pdf&q_year=115",
+        "index_url": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104674",
+        "academic_year_roc": 115,
+        "gregorian_start_year": 2026,
+        "source_type": "school_published_curriculum_plan",
+        "local_pdf": "kang5-115.pdf",
+        "edition": "108課綱學校採用課程計畫；出版社審定年月與ISBN尚未獨立核對"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-kh-g5-t2-u01",
+        "s-kh-g5-t2-u02",
+        "s-kh-g5-t2-u03",
+        "s-kh-g5-t2-u04"
+      ]
+    },
+    {
+      "publisher": "康軒",
+      "grade": 6,
+      "semester": 1,
+      "subject": "自然科學",
+      "unit_count": 4,
+      "current_publisher_activity_count": 12,
+      "candidate_activity_slots": 12,
+      "source_id": "kang6",
+      "source": {
+        "id": "kang6",
+        "title": "嘉義縣大崙國小115學年度6年級自然科學課程計畫",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=1622270958499448202f3ipkpit5vdaspcs7z3tbkg29bep42969448m7b.pdf&q_year=115",
+        "index_url": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104674",
+        "academic_year_roc": 115,
+        "gregorian_start_year": 2026,
+        "source_type": "school_published_curriculum_plan",
+        "local_pdf": "kang6-115.pdf",
+        "edition": "108課綱學校採用課程計畫；出版社審定年月與ISBN尚未獨立核對"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-kh-g6-t1-u01",
+        "s-kh-g6-t1-u02",
+        "s-kh-g6-t1-u03",
+        "s-kh-g6-t1-u04"
+      ]
+    },
+    {
+      "publisher": "康軒",
+      "grade": 6,
+      "semester": 2,
+      "subject": "自然科學",
+      "unit_count": 3,
+      "current_publisher_activity_count": 8,
+      "candidate_activity_slots": 8,
+      "source_id": "kang6",
+      "source": {
+        "id": "kang6",
+        "title": "嘉義縣大崙國小115學年度6年級自然科學課程計畫",
+        "url": "https://course.cyc.edu.tw/course/pub/cou_down.php?fn=1622270958499448202f3ipkpit5vdaspcs7z3tbkg29bep42969448m7b.pdf&q_year=115",
+        "index_url": "https://course.cyc.edu.tw/course/pub/cou_dsp.php?sch_id=104674",
+        "academic_year_roc": 115,
+        "gregorian_start_year": 2026,
+        "source_type": "school_published_curriculum_plan",
+        "local_pdf": "kang6-115.pdf",
+        "edition": "108課綱學校採用課程計畫；出版社審定年月與ISBN尚未獨立核對"
+      },
+      "verification": "school_published_115_adoption_plan",
+      "publisher_approval_date_and_isbn_verified": false,
+      "unit_ids": [
+        "s-kh-g6-t2-u01",
+        "s-kh-g6-t2-u02",
+        "s-kh-g6-t2-u03"
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "s-na-g2-t2-u03-a02",
+      "meaning": "Retained 114 living extension 色彩很特別, excluded from 115 official activity count."
+    },
+    {
+      "id": "s-na-g5-t2-u04-a02",
+      "meaning": "Retained instrument-making subtopic within 115 聲音三要素, not a separate official activity."
+    }
+  ],
+  "limits": [
+    "School adoption plans are evidence of that school year and publisher, not full publisher edition/ISBN verification.",
+    "Nani official living brochure was retrieved through official URL search-index text, not downloaded and visually inspected.",
+    "Titles are curriculum alignment metadata. Candidate questions and tasks are original, not publisher question reproduction.",
+    "Topic/activity presence is not complete textbook concept or curriculum-performance coverage."
+  ]
+}

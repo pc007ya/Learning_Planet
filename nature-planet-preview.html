@@ -1,0 +1,8 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>學習星球 · 自然星球候選</title><style>html,body{margin:0;min-height:100%;background:#0d1630;color:#fff;font:16px system-ui}main{max-width:680px;margin:8vh auto;padding:24px}button{padding:12px 20px;color:white;background:#554580;border:1px solid #b7a2da;border-radius:12px;font:inherit;cursor:pointer;margin:8px 8px 8px 0}p{line-height:1.7}</style></head><body><main><h1>自然星球 · 本機候選</h1><p>獨立的自然地景，沿用數學星球的瑜瑜、降落、碰撞、步行與六小時日夜。抵達單元後，開啟與數學相同結構的練習面板。不連接學生帳號、不寫入正式成績。</p><button id="open">開啟自然星球3D地圖</button><button id="list">直接開啟單元清單</button><p>若這個瀏覽器無法顯示3D，可先返回這頁，使用單元清單。全部內容仍是候選審查版。</p><p id="status" role="status"></p></main><script type="module">
+import {openNaturePracticePlanet} from './modules/science-curriculum/nature-entry.mjs?v=20261112-v3';
+import {openScienceCurriculum} from './modules/science-curriculum/launch.mjs?v=20261112-v3';
+const options={grade:Number(new URL(location.href).searchParams.get('grade'))||1,learnerId:'nature-local-preview'};
+const fail=e=>document.querySelector('#status').textContent=e.message;
+document.querySelector('#open').onclick=()=>openNaturePracticePlanet(options).catch(fail);
+document.querySelector('#list').onclick=()=>openScienceCurriculum(options).catch(fail);
+</script></body></html>

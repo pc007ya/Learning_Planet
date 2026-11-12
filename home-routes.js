@@ -3,6 +3,8 @@
   const base = new URL('./', document.baseURI);
   let component;
   const launchParams = new URLSearchParams(location.search);
+  const performanceDiagnostics = launchParams.get('lpPerf') === '1';
+  const scienceCurriculumEnabled = window.LPScienceRollout?.enabled === true;
   const knowledgeGrade = Number(launchParams.get('grade'));
   const knowledgeLink = launchParams.get('planet') === 'math' && [1,2,3,4,5,6].includes(knowledgeGrade);
   let knowledgeUnit = knowledgeLink ? launchParams.get('knowledgeUnit') || '' : '';
@@ -32,7 +34,7 @@
     } else {
       const subject = Object.keys(paths).find(key => path === paths[key].replace(/\/$/,'') || path.startsWith(paths[key]));
       const mathGrade = /^math\/grade-([1-6])$/.exec(path);
-      component.setState(subject ? {screen:'map',subject,grade: mathGrade ? Number(mathGrade[1]) : subject === 'science' ? 3 : state.grade === 7 ? 1 : state.grade} : {screen:'home'}, () => {
+      component.setState(subject ? {screen:'map',subject,grade: mathGrade ? Number(mathGrade[1]) : subject === 'science' ? (scienceCurriculumEnabled && [1,2,3,4,5,6].includes(state.grade) ? state.grade : 3) : state.grade === 7 ? 1 : state.grade} : {screen:'home'}, () => {
         if (mathGrade && Number(mathGrade[1]) === knowledgeGrade && knowledgeUnit) {
           const unit = knowledgeUnit; knowledgeUnit = '';
           component.startKnowledgeUnit?.(unit);
@@ -56,9 +58,10 @@
     if (state.screen === 'dayNightLab' && state.unit === 'exp-earth-orbit') path = 'experiments/earth-orbit/';
     if (document.querySelector('dialog[data-story-dialog]')) path = 'stories/';
     const url = new URL(path, base);
+    if (performanceDiagnostics) url.searchParams.set('lpPerf','1');
     if (url.pathname !== location.pathname) history.pushState({},'',url);
   }
   addEventListener('popstate', () => { pending = ''; const path = route(); if (!path.startsWith('stories')) { changing = true; document.dispatchEvent(new Event('lp-story-close')); changing = false; } apply(path); });
   document.addEventListener('lp-story-route', () => { if (component) sync(component); });
-  window.LPHomeRoutes = {sync, requestedRole:roleRoute, reset() { pending=''; knowledgeUnit=''; changing=true; document.dispatchEvent(new Event('lp-story-close')); changing=false; history.replaceState({},'',base); }};
+  window.LPHomeRoutes = {sync, requestedRole:roleRoute, reset() { pending=''; knowledgeUnit=''; changing=true; document.dispatchEvent(new Event('lp-story-close')); changing=false; const url = new URL(base); if (performanceDiagnostics) url.searchParams.set('lpPerf','1'); history.replaceState({},'',url); }};
 })();
