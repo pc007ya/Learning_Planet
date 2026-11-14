@@ -1,0 +1,10 @@
+.subject-world-content[data-science-view="mission"] > .subject-world-grid{display:none}
+.science-mission-switch button{min-height:44px;min-width:44px}
+.nature-inline-host{min-width:0;width:100%}
+.nature-dialog.nature-inline{position:relative;inset:auto;margin:0;width:100%;height:clamp(570px,calc(100dvh - 190px),820px);max-width:100%;max-height:none;display:block}
+.nature-inline .nature-grade-switch[hidden]{display:none}
+.nature-inline-host>p button{min-height:44px;margin:4px 8px}
+@media(max-height:500px){.nature-dialog.nature-inline{height:auto;min-height:570px}}
+
+.nature-inline-host>p{color:#fff;background:rgba(18,31,53,.9);padding:18px;border-radius:16px}
+.nature-inline-host>p button{background:#fff;color:#263554;border:1px solid #a8bbcb;border-radius:10px;font:inherit}

@@ -1,0 +1,57 @@
+{
+  "baseCommit": "d26f17165da57b329b84eca035d2f6e78289c1bc",
+  "branch": "codex/life-science-inline-switch-v2",
+  "scope": {
+    "grades": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "labels": {
+      "1": "生活",
+      "2": "生活",
+      "3": "自然",
+      "4": "自然",
+      "5": "自然",
+      "6": "自然"
+    },
+    "samePage": true,
+    "default": "classic",
+    "preferenceKey": "learning-planet:science-map-view",
+    "mathPreferenceKeyUnchanged": "learning-planet:math-map-view",
+    "traditionalUnitIdsPreserved": 23,
+    "practiceBridgePreserved": true,
+    "mapHistoryLayerAdded": false,
+    "childPracticeHistoryPreserved": true,
+    "explorationCache": "learner and grade, like mathematics"
+  },
+  "validation": {
+    "tests": 273,
+    "passed": 273,
+    "failed": 0,
+    "skipped": 0,
+    "buildModules": 73,
+    "dcHostSyntaxPassed": true,
+    "loadTimeBenchmarked": false,
+    "realBrowserVisualAccepted": false,
+    "physicalTouchAccepted": false
+  },
+  "unchangedScopes": [
+    "modules/math-mission-map",
+    "modules/math-grade-resources.mjs",
+    "modules/nature-planet/runtime",
+    "modules/nature-planet/assets",
+    "modules/shared-actors",
+    "assets/models"
+  ],
+  "restoreReference": {
+    "libraryZipSha256": "b556a3dcaa0f0f0009920245cfbf409ed1922dbd4d1d8731f28f1bd8509dd271",
+    "usedToOverwriteLatestMain": false
+  },
+  "published": false,
+  "pushed": false,
+  "merged": false
+}

@@ -6,12 +6,12 @@ import { openScienceCurriculum } from './launch.mjs?v=20261112-v3';
 
 let session = null;
 /** The map owns exploration; its explicitly owned child owns local records. */
-export async function openNaturePracticePlanet({ grade = 1, publisher = '康軒', semester = 1, learnerId = 'preview', catalog, isActive = () => true, onClose } = {}) {
+export async function openNaturePracticePlanet({ grade = 1, publisher = '康軒', semester = 1, learnerId = 'preview', catalog, isActive = () => true, onClose, onOpen, container = null, onClassic, initialExploration, onExplorationChange } = {}) {
   if (!isScienceCurriculumEnabled()) throw Error('自然星球暫時未開放。');
   await waitForOverlayHistory(window);
   if (session && (session.closing || !session.isActive())) await session.close();
   if (!isActive()) return () => Promise.resolve();
-  if (session && session.learnerId === String(learnerId) && session.grade === grade && session.publisher === publisher && session.semester === semester && session.onClose === onClose) return session.close;
+  if (session && session.learnerId === String(learnerId) && session.grade === grade && session.publisher === publisher && session.semester === semester && session.container === container && session.onClose === onClose) return session.close;
   const owner = await claimRootOverlay({ window, isActive });
   if (!owner?.isActive()) { owner?.release(); return () => Promise.resolve(); }
   let mapClose = null, childClose = null, childHandle = null, closePromise = null;
@@ -39,10 +39,11 @@ export async function openNaturePracticePlanet({ grade = 1, publisher = '康軒'
     })();
     return closePromise;
   };
-  const current = { close, isActive: () => isActive() && owner.isActive(), learnerId: String(learnerId), grade, publisher, semester, onClose, get closing() { return closing; } };
+  const current = { close, isActive: () => isActive() && owner.isActive(), learnerId: String(learnerId), grade, publisher, semester, container, onClose, get closing() { return closing; } };
   session = current; owner.publishClose(close);
+  try { onOpen?.(close); } catch (error) { resolveMapHandle(null); finish(); throw error; }
   try {
-    mapClose = await openNaturePlanet({ grade, publisher, semester, catalog,
+    mapClose = await openNaturePlanet({ grade, publisher, semester, catalog, container, onClassic, initialExploration, onExplorationChange,
       // While a child is open, it checks identity and closes its history first.
       isActive: () => !closed && (childOpen || (!closing && owner.isActive())),
       onOpen: handle => { mapClose = handle; resolveMapHandle(handle); if (closed) handle(true); },

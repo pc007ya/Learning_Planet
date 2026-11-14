@@ -22,6 +22,7 @@
 <script src="./story-vocabulary-quiz.js?v=20261026-2"></script>
 <link rel="stylesheet" href="./story-vocabulary-quiz.css?v=20261026-2">
 <link rel="stylesheet" href="./modules/math-mission-map/style.css?v=20261110-v11-release1">
+<link rel="stylesheet" href="./modules/nature-planet/inline.css?v=20261114-inline-switch">
 <script type="module" src="./modules/math-image-guard.mjs"></script>
 <script type="module" src="./modules/story-launch.mjs"></script>
 <script type="module" src="./modules/math-teaching/launch.mjs?v=20261106-grades456"></script>
@@ -1721,11 +1722,20 @@
             </div>
           </div>
         </sc-if>
+        <sc-if value="{{ showScienceMapSwitch }}" hint-placeholder-val="{{ false }}">
+          <div class="math-mission-switch science-mission-switch">
+            <span>子單元呈現</span>
+            <div role="group" aria-label="{{ scienceMapSwitchLabel }}">
+              <button type="button" aria-pressed="{{ scienceClassicActive }}" onClick="{{ showScienceClassic }}">傳統</button>
+              <button type="button" aria-pressed="{{ scienceMissionActive }}" onClick="{{ showScienceMissions }}">新版・3D 探索</button>
+            </div>
+          </div>
+        </sc-if>
         </div>
         <sc-if value="{{ isChineseMap }}" hint-placeholder-val="{{ false }}">
           <a href="chinese-practice.html?from=map" target="_blank" rel="noopener noreferrer" aria-label="開啟國語生字練習簿" style="display:flex;align-items:center;gap:16px;margin:0 0 20px;padding:18px 24px;border:1px solid rgba(255,205,121,.5);border-radius:22px;background:rgba(76,42,96,.65);color:#fff;text-decoration:none;backdrop-filter:blur(12px)"><img src="images/subject-unit-icons/v1/chinese-writing-v1.png" alt="" style="width:60px;height:60px;object-fit:contain"><span><strong style="font-size:20px;display:block">國語生字練習簿 ↗</strong><small style="color:#ffe4ae">選教材・勾生字・自訂字・A4 列印／PDF</small></span></a>
         </sc-if>
-        <div class="subject-world-content" data-math-view="{{ mathMapView }}">
+        <div class="subject-world-content" data-math-view="{{ mathMapView }}" data-science-view="{{ scienceMapView }}">
         <sc-if value="{{ showMathKnowledge }}" hint-placeholder-val="{{ false }}">
           <button type="button" data-math-knowledge-open="true" onClick="{{ openMathKnowledge }}" aria-label="{{ knowledgeLabel }}" style="width:100%;display:flex;align-items:center;gap:18px;text-align:left;margin:0 0 20px;padding:20px 24px;border:1px solid rgba(198,173,255,.48);border-radius:24px;background:radial-gradient(ellipse at 15% 35%,rgba(127,86,180,.48),transparent 58%),linear-gradient(110deg,rgba(24,26,65,.94),rgba(16,38,62,.9));color:#fff;font-family:inherit;cursor:pointer;box-shadow:0 10px 35px rgba(17,12,48,.22)">
             <img src="modules/math-knowledge/entry.svg" alt="" style="width:70px;height:70px;object-fit:contain;flex:none">
@@ -1735,6 +1745,9 @@
         </sc-if>
         <sc-if value="{{ showMathMissionMap }}" hint-placeholder-val="{{ false }}">
           {{ mathMissionMap }}
+        </sc-if>
+        <sc-if value="{{ showScienceMissionMap }}" hint-placeholder-val="{{ false }}">
+          {{ scienceMissionMap }}
         </sc-if>
         <div class="subject-world-grid">
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="6">
@@ -5466,9 +5479,22 @@ function MathMissionMap(props) {
     failed && React.createElement("button", { type: "button", onClick: props.onClassic }, "切回傳統"));
 }
 
+const SCIENCE_MAP_VIEW_KEY = "learning-planet:science-map-view";
+function readScienceMapView() {
+  try { return localStorage.getItem(SCIENCE_MAP_VIEW_KEY) === "mission" ? "mission" : "classic"; }
+  catch { return "classic"; }
+}
+function ScienceMissionMap(props) {
+  const [View,setView]=React.useState(null),[failed,setFailed]=React.useState(false),[attempt,setAttempt]=React.useState(0);
+  React.useEffect(()=>{let active=true;setFailed(false);import("./modules/nature-planet/inline-view.mjs?v=20261114-inline-switch"+(attempt?"&retry="+attempt:"")).then(({createNatureInlineView})=>{if(active)setView(()=>createNatureInlineView(React));},()=>{if(active)setFailed(true);});return()=>{active=false;};},[attempt]);
+  if(View)return React.createElement(View,props);
+  return React.createElement("p",{className:"math-mission-loading",role:"status"},failed?"探索地圖暫時無法載入。":"正在準備探索地圖…",failed&&React.createElement("button",{type:"button",onClick:()=>setAttempt(n=>n+1)},"重試"),failed&&React.createElement("button",{type:"button",onClick:props.onClassic},"切回傳統"));
+}
+
 class Component extends DCLogic {
   mathMissionFocus = new Map();
   mathPlanetExploration = new Map();
+  sciencePlanetExploration = new Map();
 
   state = {
     screen: "login",
@@ -5482,6 +5508,7 @@ class Component extends DCLogic {
     subject: "math",
     grade: 1,
     mathMapView: readMathMapView(),
+    scienceMapView: readScienceMapView(),
     unit: null, quizSubject: "math",
     quizZhuyin: false, quizZhuyinLoading: false, quizZhuyinError: false, chineseZhuyin: null,
     qs: [], qi: 0, picked: null, mathChoice: null, sciChoice: null, locked: false, correct: 0, timeLeft: 30, quizRound: 0, quizRunId: "", feedbackTitle: "", resultMastery: 0, resultNote: "",
@@ -8478,6 +8505,12 @@ class Component extends DCLogic {
     this.setState({ mathMapView: view });
   }
 
+  setScienceMapView(view) {
+    if (this.state.subject !== "science" || window.LPScienceRollout?.enabled !== true || !["classic","mission"].includes(view) || this.state.scienceMapView === view) return;
+    try { localStorage.setItem(SCIENCE_MAP_VIEW_KEY, view); } catch {}
+    this.setState({ scienceMapView: view });
+  }
+
   isLegacyScienceCandidate(id) {
     return !!this.state.currentId && this.state.subject === "science" &&
       window.LPScienceRollout?.enabled === true &&
@@ -10329,7 +10362,7 @@ class Component extends DCLogic {
     ];
     const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "library" || s.screen === "writing" || s.screen === "memory" || s.screen === "video" || String(s.screen).indexOf("english") === 0 ? "map" : s.screen === "weeklyQuiz" || s.screen === "weeklyResult" ? "weekly" : s.screen === "collection" ? "gacha" : s.screen;
     const scienceCurriculumCandidate = s.subject === "science" && window.LPScienceRollout?.enabled === true;
-    const subjectUnits = s.subject === "math" ? [...MATH_UNITS,...MATH_EXPLORE_UNITS].sort((a,b)=>a.grade-b.grade||a.displayOrder-b.displayOrder) : s.subject === "english" ? EN_UNITS : s.subject === "science" ? SCI_UNITS.concat(scienceCurriculumCandidate ? [{ id: "s-nature-planet-candidate-g" + s.grade, grade: s.grade, kind: "nature-planet-candidate", difficulty: 1, icon: "🌿", art: "images/subject-unit-icons/v2/experiment-plant-water-v2.png", tint: "#d9efdb", title: "自然星球3D地圖", sub: "森林・花田・水岸 · 獨立自然地景" }, { id: "s-curriculum-candidate-g" + s.grade, grade: s.grade, kind: "curriculum-candidate", difficulty: 1, icon: "🌱", art: "images/subject-unit-icons/v2/experiment-plant-water-v2.png", tint: "#dff7ed", title: s.grade <= 2 ? "生活單元練習" : "自然單元練習", sub: "康軒・南一・上下學期 · 每回10題" }] : []) : s.subject === "experiment" ? EXPERIMENT_UNITS : CH_UNITS;
+    const subjectUnits = s.subject === "math" ? [...MATH_UNITS,...MATH_EXPLORE_UNITS].sort((a,b)=>a.grade-b.grade||a.displayOrder-b.displayOrder) : s.subject === "english" ? EN_UNITS : s.subject === "science" ? SCI_UNITS.concat(scienceCurriculumCandidate ? [{ id: "s-curriculum-candidate-g" + s.grade, grade: s.grade, kind: "curriculum-candidate", difficulty: 1, icon: "🌱", art: "images/subject-unit-icons/v2/experiment-plant-water-v2.png", tint: "#dff7ed", title: s.grade <= 2 ? "生活單元練習" : "自然單元練習", sub: "康軒・南一・上下學期 · 每回10題" }] : []) : s.subject === "experiment" ? EXPERIMENT_UNITS : CH_UNITS;
     const gradeWords = this.gradeWords(s.grade);
     const worldUnits = subjectUnits.filter((u) => s.subject === "experiment" || u.grade === s.grade).map((u) => {
       const isLib = u.kind === "library";
@@ -10379,6 +10412,9 @@ class Component extends DCLogic {
       };
     });
     const showMathMissionMap = s.screen === "map" && s.subject === "math" && s.mathMapView === "mission";
+    const showScienceMapSwitch = s.subject === "science" && scienceCurriculumCandidate && [1,2,3,4,5,6].includes(s.grade);
+    const showScienceMissionMap = !!s.currentId && s.screen === "map" && showScienceMapSwitch && s.scienceMapView === "mission";
+    const scienceMapGrade = s.grade, scienceMapLearner = s.currentId, scienceMapGeneration = this.sessionGeneration;
     const missionFocusKey = s.currentId + ":" + s.grade;
     const libFiltered = s.libUnit === "全部" ? gradeWords : gradeWords.filter((w) => w.u === s.libUnit);
     const detail = s.detailChar ? this.allWords().find((w) => w.c === s.detailChar) : null;
@@ -11290,19 +11326,19 @@ class Component extends DCLogic {
         { key: "english", title: "英文", image: "images/home/planets/english-planet-v1-card.webp", glow: "rgba(60,205,255,.76)" },
         { key: "science", title: "自然", image: "images/home/learning-planet-hero-v1-card.webp", glow: "rgba(123,116,255,.72)" },
         { key: "experiment", title: "實驗", image: "images/home/planets/experiment-planet-v1-card.webp", glow: "rgba(63,255,215,.72)" },
-      ].map((c) => Object.assign({}, c, { go: () => this.setState({ screen: "map", subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : c.key === "english" ? s.grade : Math.min(6, s.grade) }) })),
+      ].map((c) => Object.assign({}, c, { go: () => this.setState({ screen: "map", subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(window.LPScienceRollout?.enabled === true ? 1 : 3, Math.min(6, s.grade)) : c.key === "english" ? s.grade : Math.min(6, s.grade) }) })),
       subjectWorldImage: ({ math: "images/home/planets/math-planet-v1.jpg", chinese: "images/home/planets/chinese-planet-v1.jpg", english: "images/home/planets/english-planet-v1.jpg", science: "images/home/learning-planet-hero-v1.jpg", experiment: "images/home/planets/experiment-planet-v1.jpg" })[moduleWorldSubject] || "images/home/planets/math-planet-v1.jpg",
       subjectWorldAccent: ({ math: "#9f79ff", chinese: "#ffb454", english: "#56d7ff", science: "#8c7cff", experiment: "#48e7c9" })[moduleWorldSubject] || "#9f79ff",
-      subjectWorldTitle: ({ math: "數學", chinese: "國文", english: "英文", science: "自然", experiment: "實驗" })[moduleWorldSubject] || "數學",
+      subjectWorldTitle: ({ math: "數學", chinese: "國文", english: "英文", science: s.grade <= 2 ? "生活" : "自然", experiment: "實驗" })[moduleWorldSubject] || "數學",
       subjectTabs: [
         { key: "math", icon: "🧮", label: "數學" },
         { key: "chinese", icon: "📖", label: "國文" },
         { key: "english", icon: "🔤", label: "英文" },
-        { key: "science", icon: "🔬", label: "自然" },
+        { key: "science", icon: "🔬", label: s.grade <= 2 ? "生活" : "自然" },
         { key: "experiment", icon: "🧪", label: "實驗" },
       ].map((c) => ({
         icon: c.icon, label: c.label, active: String(s.subject === c.key),
-        go: () => this.setState({ subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(3, Math.min(6, s.grade)) : c.key === "english" ? s.grade : Math.min(6, s.grade) }),
+        go: () => this.setState({ subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(window.LPScienceRollout?.enabled === true ? 1 : 3, Math.min(6, s.grade)) : c.key === "english" ? s.grade : Math.min(6, s.grade) }),
         bg: s.subject === c.key ? "#7c5cff" : "#fff",
         fg: s.subject === c.key ? "#fff" : "#7c74a8",
         border: s.subject === c.key ? "#7c5cff" : "#ece7ff",
@@ -11368,6 +11404,22 @@ class Component extends DCLogic {
       showChallengeRules: s.subject !== "experiment",
       isExperimentSubject: s.subject === "experiment",
       showGeoExplore: false,
+      showScienceMapSwitch,
+      scienceMapSwitchLabel: "選擇" + (s.grade <= 2 ? "生活" : "自然") + "子單元呈現方式",
+      scienceMapView: showScienceMissionMap ? "mission" : "classic",
+      scienceClassicActive: String(s.scienceMapView !== "mission"),
+      scienceMissionActive: String(s.scienceMapView === "mission"),
+      showScienceClassic: () => this.setScienceMapView("classic"),
+      showScienceMissions: () => this.setScienceMapView("mission"),
+      showScienceMissionMap,
+      scienceMissionMap: showScienceMissionMap ? React.createElement(ScienceMissionMap, {
+        key: "science:" + s.currentId + ":" + s.grade,
+        grade: s.grade, learnerId: s.currentId,
+        initialExploration: this.sciencePlanetExploration.get("science:" + s.currentId + ":" + s.grade),
+        onExplorationChange: value => this.sciencePlanetExploration.set("science:" + scienceMapLearner + ":" + scienceMapGrade, value),
+        isActive: () => this.state.screen === "map" && this.state.subject === "science" && this.state.grade === scienceMapGrade && this.state.currentId === scienceMapLearner && this.sessionGeneration === scienceMapGeneration && this.state.scienceMapView === "mission",
+        onClassic: () => this.setScienceMapView("classic"),
+      }) : null,
       mathMapView: s.subject === "math" ? s.mathMapView : "",
       mathClassicActive: String(s.mathMapView === "classic"),
       mathMissionActive: String(s.mathMapView === "mission"),

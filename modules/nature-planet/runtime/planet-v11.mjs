@@ -88,7 +88,9 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
     if(y===null) { fail(new Error('出生點缺少可走表面')); return false; }
     characterYaw=-.54;character.position.set(x,y,z);character.quaternion.setFromAxisAngle(new THREE.Vector3(0,1,0),characterYaw);character.visible=true;state.blocked=null;cameraSettling=true;emit();wake();return true;
   }
-  function setMode(mode) { if(life.disposed || !state.landed || flight?.active || !['overview','follow'].includes(mode))return false;state.mode=mode;if(mode==='follow')cameraPan=[0,0];cameraSettling=true;emit();wake();return true; }
+  // Transport owns the camera until the passenger is safely outside again.
+  const cameraTransportLocked=()=>!!(flight?.active||crewedArrival?.active||crewApproach||crew?.getState().active||crew?.getState().occupancy==='aboard');
+  function setMode(mode) { if(life.disposed || state.contextLost || !state.landed || cameraTransportLocked() || !['overview','follow'].includes(mode))return false;state.mode=mode;if(mode==='follow')cameraPan=[0,0];cameraSettling=true;emit();wake();return true; }
   const movementReady=()=>!flight?.active&&!crewApproach&&!crew?.getState().active&&crew?.getState().occupancy!=='aboard'&&state.ready&&state.landed&&(!manualLanding||(state.resourcesReady&&state.rocketReady))&&!state.contextLost&&!life.disposed;
   function setMovement(key,pressed) {
     const k=movementKey(key);if(!k || life.disposed)return false;
@@ -128,7 +130,7 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
     keys.clear();clearNav();path=route;state.blocked=null;state.mode='follow';cameraSettling=true;emit();wake();return true;
   }
   function setCameraPan(point){
-    if(life.disposed||flight?.active||!Array.isArray(point)||point.length!==2||!point.every(Number.isFinite))return false;
+    if(life.disposed||state.contextLost||cameraTransportLocked()||!Array.isArray(point)||point.length!==2||!point.every(Number.isFinite))return false;
     cameraPan=point.map(n=>Math.max(-100,Math.min(100,n)));cameraSettling=true;wake();return true;
   }
   function panBy(dx,dz){return setCameraPan([cameraPan[0]+dx,cameraPan[1]+dz]);}
