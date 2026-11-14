@@ -14,7 +14,7 @@ export function createUnitArtRenderer(cover, {urlFor=unitArtURL, imageFactory=()
   cover.innerHTML=fallback;
   const url=urlFor(id); if(!url) return;
   const img=imageFactory(); img.alt=unit.title||''; img.decoding='async'; img.draggable=false;
-  img.style.cssText='width:100%;height:100%;object-fit:contain;display:block';
+  img.style.cssText='position:absolute;inset:0;width:100%;height:100%;min-width:0;min-height:0;box-sizing:border-box;object-fit:contain;display:block';
   img.onload=()=>{if(active===ticket)cover.replaceChildren(img);};
   img.onerror=()=>{}; // leave the existing fallback visible, no broken-image marker
   img.src=url;

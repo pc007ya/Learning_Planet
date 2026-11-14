@@ -15,6 +15,6 @@ test('parsed DOM keeps original SVG on missing/error and ignores stale completio
  render({id:'missing-unit-b',title:'奇妙的電磁世界'});assert.equal(cover.innerHTML,original);assert.equal(images.length,0);
  render({id:'s-kh-g1-t1-u01',title:'我上一年級'});images[0].onerror();assert.equal(cover.innerHTML,original);
  render({id:'s-kh-g1-t1-u02',title:'走，校園探索去'});render({id:'missing-unit-a',title:'電磁作用'});images[1].onload();assert.equal(cover.innerHTML,original);
- render({id:'s-kh-g1-t1-u01',title:'我上一年級'});images[2].onload();assert.equal(cover.querySelector('img').alt,'我上一年級');assert.equal(cover.querySelector('svg'),null);
+ render({id:'s-kh-g1-t1-u01',title:'我上一年級'});images[2].onload();assert.equal(cover.querySelector('img').alt,'我上一年級');assert.equal(cover.querySelector('img').style.position,'absolute');assert.equal(cover.querySelector('img').style.inset,'0');assert.equal(cover.querySelector('img').style.height,'100%');assert.equal(cover.querySelector('img').style.objectFit,'contain');assert.equal(cover.querySelector('svg'),null);
  render({id:'missing-unit-b',title:'奇妙的電磁世界'});assert.equal(cover.innerHTML,original);
 });
