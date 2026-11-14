@@ -1,4 +1,4 @@
-import {createUnitArtRenderer} from './unit-art.mjs';
+import {createUnitArtRenderer} from './unit-art.mjs?v=20261114-unit-art-v2';
 import {isScienceCurriculumEnabled} from '../science-curriculum/rollout.mjs';
 import {leaveOverlayHistory,waitForOverlayHistory} from '../science-curriculum/overlay-history.mjs';
 import {createNaturePlanetScene,WORLD_VERSION} from './runtime/planet-v11.mjs';

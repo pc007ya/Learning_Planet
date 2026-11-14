@@ -18,3 +18,5 @@ test('parsed DOM keeps original SVG on missing/error and ignores stale completio
  render({id:'s-kh-g1-t1-u01',title:'我上一年級'});images[2].onload();assert.equal(cover.querySelector('img').alt,'我上一年級');assert.equal(cover.querySelector('img').style.position,'absolute');assert.equal(cover.querySelector('img').style.inset,'0');assert.equal(cover.querySelector('img').style.height,'100%');assert.equal(cover.querySelector('img').style.objectFit,'contain');assert.equal(cover.querySelector('svg'),null);
  render({id:'missing-unit-b',title:'奇妙的電磁世界'});assert.equal(cover.innerHTML,original);
 });
+
+ test('production ESM chain versions the art revision end-to-end',async()=>{for(const [path,dependency] of [['../../index.html','inline-view.mjs'],['../../modules/nature-planet/inline-view.mjs','nature-entry.mjs'],['../../modules/science-curriculum/nature-entry.mjs','launch.mjs'],['../../modules/nature-planet/launch.mjs','unit-art.mjs']]){const source=await fs.readFile(new URL(path,import.meta.url),'utf8');assert.ok(source.includes(dependency+'?v=20261114-unit-art-v2'),path);}});
