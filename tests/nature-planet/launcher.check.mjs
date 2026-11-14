@@ -41,3 +41,14 @@ test('camera buttons stay locked through transport and recover after exit or can
  updateNatureState({contextLost:true});assert.equal(near.disabled,true);
  updateNatureState({contextLost:false});assert.equal(near.disabled,false);
 });
+
+
+test('day-night preview controls stay local while public time display remains',async()=>{
+ for(const origin of ['https://learnplanet.win/science/','https://learnplanet-cce52.web.app/science/','http://localhost:4173/']){
+  env();globalThis.location=new URL(origin);const close=await openNaturePlanet({catalog});
+  const local=location.hostname==='localhost';
+  assert.equal(Boolean(button('晨')),local);assert.equal(Boolean(button('夜')),local);
+  assert.equal(Boolean(button('即時')),local);assert.ok(document.querySelector('.nature-time'));
+  await close();
+ }
+});
