@@ -9,7 +9,7 @@ export function restoreNatureState(value,grade,metadata) {
 }
 export function canEnterNatureUnit(state,unitId,metadata) {
  const s=metadata?.stationsData?.find(x=>x.id===unitId);
- if(!s||!state?.ready||!state.landed||state.contextLost||state.moving||state.remainingWaypoints>0)return false;
+ if(!s||!state?.ready||!state.landed||state.contextLost||state.flight?.active||state.boarding?.active||state.boarding?.approaching||state.boarding?.occupancy==='aboard'||state.moving||state.remainingWaypoints>0)return false;
  const p=state.position;if(!Array.isArray(p)||p.length!==3)return false;
  return Math.hypot(p[0]-s.entry[0],p[2]+s.entry[1])<1.8-1e-9;
 }

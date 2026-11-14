@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "sourceSHA256": "ec9c6fecd4367c0f884158a4c0aa73e0cc416ec337ebb9524da67fa555a9f972",
+  "offlineOnly": true,
+  "realPageAccepted": false,
+  "models": [
+    {
+      "kind": "pterosaur",
+      "sha256": "bce0e3f1d571af7a6ebc9a0ec20ccbf0520658e60a8fc22b42374cfc03a0f33d",
+      "bytes": 608652,
+      "triangles": 24384,
+      "vertices": 13851,
+      "measuredAnimatedRadius": 3.494824743877091,
+      "conservativeRadius": 3.5861577238451923,
+      "routeRadius": 3.8361577238451923
+    },
+    {
+      "kind": "alien-ray",
+      "sha256": "aedc4dc0173f0b491f6c9612234dce47f99727d032ae73201db6bf79b5941a9c",
+      "bytes": 1260896,
+      "triangles": 52160,
+      "vertices": 28851,
+      "measuredAnimatedRadius": 2.8331391219771094,
+      "conservativeRadius": 2.8331391219771094,
+      "routeRadius": 3.0831391219771094
+    },
+    {
+      "kind": "survey-satellite",
+      "sha256": "2a760f38990d1976750611119c8e006778843d68ad32a421177d30d87ee6183e",
+      "bytes": 309056,
+      "triangles": 9104,
+      "vertices": 6104,
+      "measuredAnimatedRadius": 2.2761789213676407,
+      "conservativeRadius": 2.3555736327465384,
+      "routeRadius": 2.6055736327465384
+    },
+    {
+      "kind": "round-balloon",
+      "sha256": "0e002acf633a09d392f34ce2f384262c539da10eef2bbeaf0dd5aca80bf4cc3b",
+      "bytes": 1053832,
+      "triangles": 41092,
+      "vertices": 23235,
+      "measuredAnimatedRadius": 3.55,
+      "conservativeRadius": 3.550000115004149,
+      "routeRadius": 3.800000115004149
+    }
+  ]
+}

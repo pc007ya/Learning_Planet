@@ -141,7 +141,7 @@ export function createOceanClock(){
   }};
 }
 /** Bind only declared roots of the selected grade; all allocations happen here. */
-export function createOceanMotion(THREE,terrain,{grade,actors=[],mode='auto',lowPower=false,reduced=false,clock:sharedClock,obstacles=[],getPlayerPosition}={}){
+export function createOceanMotion(THREE,terrain,{grade,actors=[],mode='auto',lowPower=false,reduced=false,clock:sharedClock,obstacles=[],getPlayerPosition,sampleGround}={}){
   let currentMode=OCEAN_MOTION_MODES.includes(mode)?mode:'auto',isReduced=reduced===true,disposed=false,adaptiveLow=false,costSamples=0,costMean=0;
   const clock=sharedClock??createOceanClock(),pauseClock=()=>{if(!sharedClock)clock.pause();},bindings=[],pose=createOceanPose(),delta=new THREE.Quaternion(),shift=new THREE.Vector3();
   const seen=new Set();
@@ -160,12 +160,21 @@ export function createOceanMotion(THREE,terrain,{grade,actors=[],mode='auto',low
     });
     bindings.push(binding);
   }
+  const groundWorld=new THREE.Vector3(),groundShift=new THREE.Vector3();
+  function groundBinding(b){
+    if(typeof sampleGround!=='function')return;
+    b.root.updateWorldMatrix(true,false);b.root.getWorldPosition(groundWorld);
+    const floor=sampleGround(b.actor,groundWorld.x,groundWorld.z);
+    if(!Number.isFinite(floor))return;
+    groundShift.set(0,floor-groundWorld.y,0).applyMatrix3(b.inverseParent);b.root.position.add(groundShift);
+  }
+  const refreshGround=()=>{for(const b of bindings)groundBinding(b);};
   // Establish route-start transforms and matching collision circles before the host
   // validates a restored player position. Reduced/static mode uses the same safe pose.
   for(const b of bindings){if(!b.motion.route)continue;
     evaluateOceanMotion(b.motion,0,pose,b.rotationZ);
     shift.set(pose.offset[0],pose.offset[2],-pose.offset[1]).applyMatrix3(b.inverseParent);
-    b.root.position.copy(b.position).add(shift);
+    b.root.position.copy(b.position).add(shift);groundBinding(b);
     delta.set(pose.quaternion[0],pose.quaternion[2],-pose.quaternion[1],pose.quaternion[3]);
     b.root.quaternion.copy(b.quaternion).multiply(delta);
     if(b.obstacle){b.obstacle.x=b.actor.p[0]+pose.offset[0];b.obstacle.y=b.actor.p[1]+pose.offset[1];}
@@ -177,6 +186,7 @@ export function createOceanMotion(THREE,terrain,{grade,actors=[],mode='auto',low
     for(const b of bindings){b.lastClock=null;if(preserveCruise&&b.motion.route)continue;if(b.obstacle){b.obstacle.x=b.actor.p[0];b.obstacle.y=b.actor.p[1];}b.root.position.copy(b.position);b.root.quaternion.copy(b.quaternion);for(const p of b.parts)p.node.quaternion.copy(p.quaternion);}
   }
   return {
+    refreshGround,
     get active(){return active();},get seconds(){return clock.seconds;},
     get routeCount(){return bindings.filter(b=>b.motion.route).length;},get yieldingCount(){return bindings.filter(b=>b.yielding).length;},
     get interval(){return currentMode==='low'||lowPower||adaptiveLow?1000/15:1000/30;},
@@ -184,8 +194,8 @@ export function createOceanMotion(THREE,terrain,{grade,actors=[],mode='auto',low
     get actorCount(){return bindings.length;},get partCount(){let n=0;for(const b of bindings)n+=b.parts.length;return n;},
     get quality(){return !active()?'static':currentMode==='low'||lowPower||adaptiveLow?'low':'normal';},
     pause(){pauseClock();for(const b of bindings)b.lastClock=null;},
-    setMode(value){if(disposed||!OCEAN_MOTION_MODES.includes(value))return false;currentMode=value;pauseClock();if(!active())restore(true);return true;},
-    setReduced(value){if(disposed)return;isReduced=value===true;pauseClock();if(!active())restore(true);},
+    setMode(value){if(disposed||!OCEAN_MOTION_MODES.includes(value))return false;currentMode=value;pauseClock();if(!active()){restore(true);refreshGround();}return true;},
+    setReduced(value){if(disposed)return;isReduced=value===true;pauseClock();if(!active()){restore(true);refreshGround();}},
     recordFrameCost(ms){
       if(disposed||currentMode!=='auto'||adaptiveLow||!Number.isFinite(ms))return;
       costMean=costSamples?costMean*.9+ms*.1:ms;costSamples++;
@@ -205,7 +215,7 @@ export function createOceanMotion(THREE,terrain,{grade,actors=[],mode='auto',low
         if(b.yielding){localSeconds=b.routeSeconds;evaluateOceanMotion(b.motion,localSeconds,pose,b.rotationZ);}else if(b.motion.route)b.routeSeconds=localSeconds;
         if(b.obstacle){b.obstacle.x=b.actor.p[0]+pose.offset[0];b.obstacle.y=b.actor.p[1]+pose.offset[1];}
         shift.set(pose.offset[0],pose.offset[2],-pose.offset[1]).applyMatrix3(b.inverseParent);
-        b.root.position.copy(b.position).add(shift);
+        b.root.position.copy(b.position).add(shift);groundBinding(b);
         delta.set(pose.quaternion[0],pose.quaternion[2],-pose.quaternion[1],pose.quaternion[3]);
         b.root.quaternion.copy(b.quaternion).multiply(delta);
         for(const p of b.parts){delta.setFromAxisAngle(p.axis,evaluateOceanPart(p.part,localSeconds));p.node.quaternion.copy(p.quaternion).multiply(delta);}

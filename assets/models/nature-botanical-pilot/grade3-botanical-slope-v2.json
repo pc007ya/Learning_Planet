@@ -1,0 +1,117 @@
+{
+  "version": "astra-botanical-pilot-v2",
+  "grade": 3,
+  "stationId": "s-kh-g3-t1-u01",
+  "center": [
+    -26.961922535723918,
+    -12.2620158482745
+  ],
+  "radius": 12.5,
+  "baseTerrainSha256": "458d7dad2983e60d6ff9ac62bf5194f877fa93e6de296a96e070ee14152eb0a1",
+  "baseHeight": 0.16,
+  "clearStaticMaterialNames": [
+    "Nature_wood",
+    "Nature_cream",
+    "Nature_leaf",
+    "Nature_seed",
+    "Nature_reed",
+    "Nature_flower",
+    "Nature_stone",
+    "Nature_deep"
+  ],
+  "removeProps": [
+    {
+      "x": -22.71384661076966,
+      "y": -8.400120931003894,
+      "r": 0.36321277701596183
+    },
+    {
+      "x": -29.131327694081218,
+      "y": -7.720864221892533,
+      "r": 0.3376610243060738
+    },
+    {
+      "x": -35.52582688046878,
+      "y": -8.527665077047882,
+      "r": 0.2486426814625114
+    }
+  ],
+  "replaceStation": {
+    "x": -26.961922535723918,
+    "y": -12.2620158482745,
+    "r": 3.0
+  },
+  "additionalObstacles": [
+    {
+      "x": -26.961922535723918,
+      "y": -12.2620158482745,
+      "r": 2.55
+    },
+    {
+      "x": -21.7,
+      "y": -10.2,
+      "r": 0.48
+    },
+    {
+      "x": -34.0,
+      "y": -9.4,
+      "r": 0.48
+    },
+    {
+      "x": -24.1,
+      "y": -6.8,
+      "r": 0.48
+    },
+    {
+      "x": -19.7,
+      "y": -12.3,
+      "r": 1.0625
+    },
+    {
+      "x": -20.6,
+      "y": -11.5,
+      "r": 0.6375
+    },
+    {
+      "x": -34.3,
+      "y": -8.1,
+      "r": 0.8075
+    },
+    {
+      "x": -35.2,
+      "y": -8.8,
+      "r": 0.5525
+    },
+    {
+      "x": -23.0,
+      "y": -7.5,
+      "r": 0.5525
+    }
+  ],
+  "groundNode": "Walk_Pilot_BotanicalSlope",
+  "preserves": [
+    "stationsData",
+    "nodes",
+    "edges",
+    "spawn",
+    "landingZone"
+  ],
+  "note": "Real world-positioned GLB asset. Requires component filtering for old static props and adding the new ground to floor raycasts; not a conceptual image.",
+  "removeRegionRadius": 10.7,
+  "sha256": "a278c41a22cf4c40235f2a400461cf8ca69f0db0b5822c4f8101e641fee1fdea",
+  "bytes": 7189056,
+  "verification": {
+    "removedTriangles": 2016,
+    "components": 42,
+    "maskedMeshes": 6,
+    "addedObstacles": 9,
+    "meshes": 16,
+    "triangles": 214556,
+    "patchBytes": 7189056,
+    "actualTerrainRelief": 4.451769486069679,
+    "roadSamples": 2070,
+    "maxRoadHeightChange": 0,
+    "preservedStations": 16,
+    "disposal": "passed"
+  }
+}

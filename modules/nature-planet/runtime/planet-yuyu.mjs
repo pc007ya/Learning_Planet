@@ -154,7 +154,7 @@ export function createYuyu(THREE, { own, color, mesh }) {
   oval(head,pink,[-.285,.16,.294],[.024,.024,.012],'yuyu-clip-pink-centre');
   body.rotation.y=.54;
   function animate(time,walking,reduced=false) {
-    const stride=walking&&!reduced?Math.sin(time*.015):0;
+    const stride=walking&&!reduced?Math.sin(time*.0109):0;
     legs.forEach((leg,i)=>{leg.rotation.x=stride*(i?-.32:.32);});
     arms.forEach((arm,i)=>{arm.rotation.x=stride*(i?.22:-.22);});
   }

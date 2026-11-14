@@ -1,0 +1,35 @@
+{
+  "method": "Deterministic CPU correctness/mesh dispatch counts, not GPU or device performance",
+  "results": [
+    {
+      "grade": 1,
+      "walkMeshes": 71,
+      "walkTriangles": 35142,
+      "floorSamples": 642,
+      "baselineMeshRaycastDispatches": 45582,
+      "optimizedMeshRaycastDispatches": 0,
+      "reductionPercent": 100,
+      "parity": true
+    },
+    {
+      "grade": 2,
+      "walkMeshes": 71,
+      "walkTriangles": 35377,
+      "floorSamples": 645,
+      "baselineMeshRaycastDispatches": 45795,
+      "optimizedMeshRaycastDispatches": 0,
+      "reductionPercent": 100,
+      "parity": true
+    },
+    {
+      "grade": 3,
+      "walkMeshes": 67,
+      "walkTriangles": 29715,
+      "floorSamples": 630,
+      "baselineMeshRaycastDispatches": 42210,
+      "optimizedMeshRaycastDispatches": 0,
+      "reductionPercent": 100,
+      "parity": true
+    }
+  ]
+}

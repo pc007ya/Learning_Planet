@@ -1,0 +1,13 @@
+// Offline conservative actual-triangle envelope checker. No production hooks.
+export function createTriangleGrid(T,meshes,{cell=.25}={}){
+ const map=new Map(),triangles=[],boxes=[];const key=(x,y,z)=>`${x},${y},${z}`;
+ for(const mesh of meshes){mesh.updateWorldMatrix(true,false);const p=mesh.geometry.attributes.position,ix=mesh.geometry.index,n=ix?.count??p.count;for(let i=0;i<n;i+=3){const points=[0,1,2].map(j=>new T.Vector3().fromBufferAttribute(p,ix?ix.getX(i+j):i+j).applyMatrix4(mesh.matrixWorld)),tri=new T.Triangle(...points),box=new T.Box3().setFromPoints(points);const id=triangles.length;triangles.push({tri,mesh:mesh.name});boxes.push(box);for(let x=Math.floor(box.min.x/cell);x<=Math.floor(box.max.x/cell);x++)for(let y=Math.floor(box.min.y/cell);y<=Math.floor(box.max.y/cell);y++)for(let z=Math.floor(box.min.z/cell);z<=Math.floor(box.max.z/cell);z++){const k=key(x,y,z);if(!map.has(k))map.set(k,[]);map.get(k).push(id);}}}
+ const overall=new T.Box3();boxes.forEach(b=>overall.union(b));
+ return{triangles,overall,query(box){if(!box.intersectsBox(overall))return [];const ids=new Set();for(let x=Math.floor(box.min.x/cell);x<=Math.floor(box.max.x/cell);x++)for(let y=Math.floor(box.min.y/cell);y<=Math.floor(box.max.y/cell);y++)for(let z=Math.floor(box.min.z/cell);z<=Math.floor(box.max.z/cell);z++)for(const id of map.get(key(x,y,z))||[])ids.add(id);return [...ids];}};
+}
+export function captureSkinnedVertices(T,rig){rig.root.updateWorldMatrix(true,true);rig.skeleton.update();const point=new T.Vector3();return rig.meshes.map(mesh=>{const p=mesh.geometry.attributes.position,positions=new Float64Array(p.count*3);for(let i=0;i<p.count;i++){mesh.getVertexPosition(i,point).applyMatrix4(mesh.matrixWorld);positions.set(point.toArray(),i*3);}return{mesh,positions};});}
+export function conservativeTriangleEnvelopeCheck(T,frames,grid,{margin=.006}={}){
+ const a=new T.Vector3(),b=new T.Vector3(),c=new T.Vector3(),box=new T.Box3();let triangles=0,candidates=0;
+ const current=frames[frames.length-1];for(let m=0;m<current.length;m++){const mesh=current[m].mesh,ix=mesh.geometry.index,n=ix?.count??mesh.geometry.attributes.position.count;for(let k=0;k<n;k+=3){box.makeEmpty();for(const frame of frames)for(let j=0;j<3;j++){a.fromArray(frame[m].positions,(ix?ix.getX(k+j):k+j)*3);box.expandByPoint(a);}box.expandByScalar(margin);triangles++;for(const id of grid.query(box)){candidates++;if(box.intersectsTriangle(grid.triangles[id].tri))return{ok:false,actorMesh:mesh.name,triangle:k/3,obstacle:grid.triangles[id].mesh,triangles,candidates,margin};}}}
+ return{ok:true,triangles,candidates,margin};
+}

@@ -3,6 +3,8 @@ import { createWalking, isWalkSurface } from './walking.mjs';
 import { dijkstra, toWorld } from './nav.mjs';
 import { createLandingTimeline, createLandingDirector } from '../planet-art-v2-landing.mjs';
 import { createYuyu } from './planet-yuyu.mjs';
+import { GROUND_WALK_SPEED, advanceGroundPath, samplePathLookahead, stepGroundYaw } from './ground-motion.mjs';
+import { installVisualQuality, pickQualityTier, QUALITY_SETTINGS } from './visual-quality.mjs';
 
 /** A grade is immutable for one mount. Host owns lesson entry and learning progress. */
 export const WORLD_VERSION = 'planet-v11-world-v1';
@@ -26,7 +28,7 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
   const manualLanding=options.manualLanding===true;
   const state = {worldVersion:WORLD_VERSION,grade,resourcesReady:options.resourcesReady!==false && !options.resourcesReady?.then,rocketReady:!manualLanding,landingStarted:!manualLanding,landingShot:'orbit',loading:true,ready:false,error:null,contextLost:false,landed:false,landingProgress:0,positionReady:false,mode:restored?.mode === 'follow'?'follow':'overview',position:[0,0,0],target:null,arrived:false,blocked:null,nearbyCourseId:null};
   let THREE,renderer,scene,camera,look,character,yuyu,terrain,data,physics,frameId=0,last=0,path=[],width=1,height=1,visible=true;
-  let director=null,props=null,walkMeshes=[],cameraPan=[0,0],viewport={left:0,right:0,top:0,bottom:0};
+  let director=null,props=null,visualQuality=null,walkMeshes=[],cameraPan=[0,0],viewport={left:0,right:0,top:0,bottom:0},characterYaw=-.54;
   const timeline=createLandingTimeline();
   let cameraSettling=true,lastNotify=0,landingElapsed=0,lastProject=-Infinity;
   const keys = new Set();
@@ -42,7 +44,7 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
     if(!physics || !data || life.disposed || state.contextLost || !state.ready)return false;
     clearNav();keys.clear();const [x,,z]=toWorld(data.spawn), y=physics.floor(x,z);
     if(y===null) { fail(new Error('出生點缺少可走表面')); return false; }
-    character.position.set(x,y,z);character.visible=true;state.blocked=null;cameraSettling=true;emit();wake();return true;
+    characterYaw=-.54;character.position.set(x,y,z);character.rotation.y=characterYaw;character.visible=true;state.blocked=null;cameraSettling=true;emit();wake();return true;
   }
   function setMode(mode) { if(life.disposed || !state.landed || !['overview','follow'].includes(mode))return false;state.mode=mode;cameraSettling=true;emit();wake();return true; }
   const movementReady=()=>state.ready&&state.landed&&(!manualLanding||(state.resourcesReady&&state.rocketReady))&&!state.contextLost&&!life.disposed;
@@ -102,17 +104,29 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
     if(life.disposed)return false;
     timeline.cancel();state.landed=false;state.landingStarted=false;if(character)character.visible=false;state.landingProgress=0;state.landingShot='orbit';state.mode='overview';director?.hide();stop();cameraSettling=true;emit();wake();return true;
   }
-  function move(dx,dz) {const result=physics.step(character.position,dx,dz);state.blocked=result.blocked;if(result.moved){character.rotation.y=Math.atan2(dx,dz)-.54;state.arrived=false;}return result.moved;}
+  function faceYaw(targetYaw,dt){characterYaw=stepGroundYaw(characterYaw,targetYaw,dt);character.rotation.y=characterYaw;}
+  function move(dx,dz,{yaw=Math.atan2(dx,dz)-.54,dt=1/60}={}) {const result=physics.step(character.position,dx,dz);state.blocked=result.blocked;if(result.moved){faceYaw(yaw,dt);state.arrived=false;}return result.moved;}
   const reducedMotion=win.matchMedia?.('(prefers-reduced-motion: reduce)');
   function frame(now) {
     frameId=0;if(life.disposed || !renderer || !camera || !data || state.contextLost || doc.hidden || !visible)return;
     const dt=last?Math.min((now-last)/1000,.05):1/60;last=now;
     let walking=false;
     const dx=Number(keys.has('right'))-Number(keys.has('left')),dz=Number(keys.has('down'))-Number(keys.has('up'));
-    if(movementReady()&&(dx||dz)){const n=Math.hypot(dx,dz);walking=move(dx/n*dt*6,dz/n*dt*6);}
-    else if(movementReady()&&path.length){const p=character.position,dest=path[0],distance=Math.hypot(dest.x-p.x,dest.z-p.z);
-      if(distance<.16){path.shift();if(!path.length){state.arrived=true;const station=data.stationsData.find(s=>s.id===state.target);emit();if(station)notify(onArrive,{grade,courseId:station.id,title:station.title});}}
-      else {const step=Math.min(distance,dt*6);walking=move((dest.x-p.x)/distance*step,(dest.z-p.z)/distance*step);if(!walking){path=[];emit();}}
+    if(movementReady()&&(dx||dz)){const n=Math.hypot(dx,dz);walking=move(dx/n*dt*GROUND_WALK_SPEED,dz/n*dt*GROUND_WALK_SPEED,{yaw:Math.atan2(dx,dz)-.54,dt});}
+    else if(movementReady()&&path.length){
+      const prevX=character.position.x,prevZ=character.position.z;
+      const lookTarget=samplePathLookahead(character.position,path);
+      const travelRes=advanceGroundPath({position:character.position,path,distanceBudget:dt*GROUND_WALK_SPEED,stopRadius:.16,step:(sx,sz)=>physics.step(character.position,sx,sz)});
+      state.blocked=travelRes.blocked?travelRes.blockReason:null;
+      walking=travelRes.moved;
+      if(walking){
+        state.arrived=false;
+        const tx=(lookTarget?.x??character.position.x)-prevX,tz=(lookTarget?.z??character.position.z)-prevZ;
+        if(Math.hypot(tx,tz)>1e-6)faceYaw(Math.atan2(tx,tz)-.54,dt);
+        else if(Math.hypot(character.position.x-prevX,character.position.z-prevZ)>1e-6)faceYaw(Math.atan2(character.position.x-prevX,character.position.z-prevZ)-.54,dt);
+      }
+      if(travelRes.arrived){state.arrived=true;const station=data.stationsData.find(s=>s.id===state.target);emit();if(station)notify(onArrive,{grade,courseId:station.id,title:station.title});}
+      else if(travelRes.blocked){emit();}
     }
     yuyu.animate(now,walking,reducedMotion?.matches===true);
     const view=data.view || {},follow=state.mode==='follow';
@@ -149,13 +163,14 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
       state.nearbyCourseId=nearestDistance<=4?nearest:null;
       notify(onProject,projected);
       const avatar=character.position.clone().add(new THREE.Vector3(0,1.6,0)).project(camera);
-      const box=new THREE.Box3().setFromObject(character),corners=[];
-      for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z])corners.push(new THREE.Vector3(x,y,z).project(camera));
+      const corners=[];
+      for(const x of [character.position.x-.48,character.position.x+.48])for(const y of [character.position.y,character.position.y+2.25])for(const z of [character.position.z-.48,character.position.z+.48])corners.push(new THREE.Vector3(x,y,z).project(camera));
       const bodyFocus=character.position.clone().add(new THREE.Vector3(0,2.4,0)).project(camera);
       notify(onActorProject,{bodyFocus:{x:(bodyFocus.x+1)/2,y:(1-bodyFocus.y)/2},avatar:{x:(avatar.x+1)/2,y:(1-avatar.y)/2,visible:character.visible&&avatar.z>-1&&avatar.z<1},actorBounds:{left:Math.min(...corners.map(p=>(p.x+1)/2)),right:Math.max(...corners.map(p=>(p.x+1)/2)),top:Math.min(...corners.map(p=>(1-p.y)/2)),bottom:Math.max(...corners.map(p=>(1-p.y)/2))}});
       notify(onPosition,character.position.toArray());
     }
     cameraSettling=camera.position.distanceToSquared(targetCam)>.0001 || look.distanceToSquared(targetLook)>.0001;
+    visualQuality?.update(camera,look,state.mode==='overview');
     try {renderer.render(scene,camera);} catch(e) {fail(e);return;}
     if(now-lastNotify>200 && (walking||path.length||!state.landed)){lastNotify=now;emit();}
     if(keys.size||path.length||cameraSettling||(!state.landed&&(!manualLanding||timeline.active)))wake();else {last=0;emit();}
@@ -204,14 +219,14 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
       // Constructing the renderer happens before any model/JSON fetch. No graphics fallback bypass.
       const modules=await loadModules();
       if(life.disposed||assets.signal.aborted)return false;THREE=modules[0];const {GLTFLoader}=modules[1];
+      const qualityTier=pickQualityTier(win),qualitySettings=QUALITY_SETTINGS[qualityTier]||QUALITY_SETTINGS.medium;
       scene=new THREE.Scene();scene.background=new THREE.Color('#14263b');scene.fog=new THREE.Fog('#14263b',140,340);
-      renderer=new THREE.WebGLRenderer({canvas,antialias:false,powerPreference:'low-power'});life.own(()=>{renderer?.renderLists.dispose();renderer?.dispose();renderer=null;});
-      renderer.setPixelRatio(Math.min(win.devicePixelRatio||1,1));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.18;resolveInitialized(true);
+      renderer=new THREE.WebGLRenderer({canvas,antialias:qualitySettings.antialias,powerPreference:qualityTier==='low'?'low-power':'high-performance'});life.own(()=>{renderer?.renderLists.dispose();renderer?.dispose();renderer=null;});
+      renderer.setPixelRatio(Math.min(win.devicePixelRatio||1,qualitySettings.pixelRatio));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.08;resolveInitialized(true);
       camera=new THREE.PerspectiveCamera(43,1,.1,600);camera.position.set(104,118,130);look=new THREE.Vector3(0,2,-15);
-      scene.add(new THREE.HemisphereLight(0xd5efff,0x596274,1.7));const sun=new THREE.DirectionalLight(0xffe5c5,3.3);sun.position.set(-40,85,50);scene.add(sun);
-      // Mobile-safe default: no shadows, original geometry and character unchanged.
+      visualQuality=installVisualQuality(THREE,{renderer,scene,win,tier:qualityTier});life.own(()=>visualQuality?.dispose());
       yuyu=createYuyu(THREE,{own:x=>x,color:(c,opts)=>new THREE.MeshStandardMaterial({color:c,...opts}),mesh:(parent,g,m,pos=[0,0,0])=>{const mesh=new THREE.Mesh(g,m);mesh.position.set(...pos);parent.add(mesh);return mesh;}});
-      character=yuyu.root;character.scale.setScalar(1.15);character.visible=false;scene.add(character);life.own(()=>{disposeTree(character);character=null;});
+      character=yuyu.root;character.scale.setScalar(1.15);character.visible=false;scene.add(character);visualQuality.polishActor(character);life.own(()=>{disposeTree(character);character=null;});
       const base=new URL(assetBaseUrl.endsWith('/')?assetBaseUrl:assetBaseUrl+'/',doc.baseURI);
       if(options.sceneData)data=options.sceneData;else {const fetchJson=await win.fetch(new URL(`grade${grade}-scene.json`,base),{signal:assets.signal});if(!fetchJson.ok)throw Error(`場景資料 HTTP ${fetchJson.status}`);data=await fetchJson.json();}
       if(life.disposed||assets.signal.aborted)return false;
@@ -237,6 +252,7 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
       const gltf=await new GLTFLoader().parseAsync(buffer,base.href);parsedRoot=gltf.scene;
       if(life.disposed||assets.signal.aborted){disposeTree(parsedRoot);parsedRoot=null;return false;}
       terrain=parsedRoot;parsedRoot=null;life.own(()=>{disposeTree(terrain);terrain=null;});scene.add(terrain);terrain.updateMatrixWorld(true);
+      visualQuality?.polishTerrain(terrain);
       const meshes=[];walkMeshes=meshes;terrain.traverse(o=>{if(isWalkSurface(o)){meshes.push(o);for(const m of Array.isArray(o.material)?o.material:[o.material])m.side=THREE.DoubleSide;}});
       if(!meshes.length)throw Error('模型未提供可走表面');
       physics=createWalking(THREE,()=>data,()=>meshes);state.loading=false;state.ready=true;

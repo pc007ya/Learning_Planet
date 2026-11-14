@@ -1,0 +1,114 @@
+{
+  "anchor": [
+    0,
+    -11,
+    0.16
+  ],
+  "coordinateSystem": "Blender XY/Z; GLB Three Y-up",
+  "deckHeight": 0.16,
+  "radius": 2.68,
+  "walkNodes": [
+    "Walk_FlightPad_Deck"
+  ],
+  "exitCorridor": {
+    "from": [
+      0,
+      -8.3,
+      0.22
+    ],
+    "to": [
+      0,
+      -4.7,
+      0.22
+    ],
+    "width": 1.5,
+    "roadSurfaceHeight": 0.22,
+    "existingThresholdHeight": 0.06
+  },
+  "persistentObstacles": [
+    {
+      "x": 2.49,
+      "y": -11.0,
+      "r": 0.13
+    },
+    {
+      "x": -2.49,
+      "y": -11.0,
+      "r": 0.13
+    },
+    {
+      "x": -1.7606958851545038,
+      "y": -12.760695885154503,
+      "r": 0.13
+    },
+    {
+      "x": -4.574055794815364e-16,
+      "y": -13.49,
+      "r": 0.13
+    },
+    {
+      "x": 1.7606958851545031,
+      "y": -12.760695885154504,
+      "r": 0.13
+    }
+  ],
+  "additionalObstacles": [
+    {
+      "x": 2.49,
+      "y": -11.0,
+      "r": 0.13
+    },
+    {
+      "x": -2.49,
+      "y": -11.0,
+      "r": 0.13
+    },
+    {
+      "x": -1.7606958851545038,
+      "y": -12.760695885154503,
+      "r": 0.13
+    },
+    {
+      "x": -4.574055794815364e-16,
+      "y": -13.49,
+      "r": 0.13
+    },
+    {
+      "x": 1.7606958851545031,
+      "y": -12.760695885154504,
+      "r": 0.13
+    }
+  ],
+  "hiddenRenderNodes": [
+    "Walk_FlightPad_Deck"
+  ],
+  "surfaceOverlayRequiresPolygonOffset": true,
+  "conditionalShipKeepout": {
+    "x": 0,
+    "y": -11,
+    "r": 1.25,
+    "enabledWhen": [
+      "landed",
+      "touchdown",
+      "pre-takeoff"
+    ],
+    "disabledWhen": [
+      "absent",
+      "cruising",
+      "airborne"
+    ]
+  },
+  "maxAboveDeck": 0.46,
+  "sourceTerrainModified": false,
+  "sha256": "ac3365727ea7efa18e45d19d95c9fa7cd670b43d11714056cde35adacc84fe91",
+  "bytes": 689284,
+  "version": "arrival-flight-platform-v4",
+  "applicableGrades": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ]
+}

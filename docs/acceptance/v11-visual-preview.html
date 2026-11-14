@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>數學星球 v11・視覺預覽</title>
+<style>
+  html,body{margin:0;height:100%;background:#0d1426;color:#fff;font:14px system-ui}
+  #stage{position:absolute;inset:0}
+  #hud{position:absolute;left:12px;top:10px;z-index:2;background:#0008;padding:6px 10px;border-radius:8px}
+</style>
+<div id="stage"></div>
+<div id="hud">載入中…</div>
+<script type="module">
+// Review-only page: mounts the production v11 runtime directly (no login, no lesson host).
+// ?grade=1|2|3  &mode=follow|overview  &pan=x,z
+import { createV11PlanetScene } from '../../modules/math-mission-map/v11/planet-v11.mjs';
+const params = new URLSearchParams(location.search);
+const grade = Number(params.get('grade') || 1);
+const hud = document.querySelector('#hud');
+const api = createV11PlanetScene(document.querySelector('#stage'), {
+  grade,
+  assetBaseUrl: new URL('../../modules/math-mission-map/v11/assets/', location.href).href,
+  onError: e => { hud.textContent = '錯誤：' + e.message; }
+});
+api.ready.then(ok => {
+  if (!ok) return;
+  api.skipLanding();
+  api.setMode(params.get('mode') === 'overview' ? 'overview' : 'follow');
+  const pan = (params.get('pan') || '').split(',').map(Number);
+  if (pan.length === 2 && pan.every(Number.isFinite)) api.setCameraPan(pan[0], pan[1]);
+  setTimeout(() => { hud.textContent = '年級 ' + grade + ' · ready'; document.body.dataset.ready = '1'; }, 1500);
+});
+</script>
+</html>

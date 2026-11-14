@@ -1,0 +1,11 @@
+/** Explicit isolated candidate coordinator. Never grants public flight acceptance. */
+export function createCrewedTransport(T,{crew,flight,rig,candidate=false}={}){
+ if(candidate!==true||!crew?.validatePassenger||!flight?.startArrival||!rig?.root)throw Error('Explicit candidate and real crew/flight required');
+ let active=false,dead=false,kind=null,failure=null,checks=0,snapshot=null,proof=null;
+ const pose=()=>{const values=[];rig.root.traverse(node=>{node.updateMatrix();values.push(...node.matrix.elements,Number(node.visible),...(node.morphTargetInfluences||[]));});values.push(...crew.craft.root.getWorldQuaternion(new T.Quaternion()).toArray(),...crew.craft.root.getWorldScale(new T.Vector3()).toArray());return values;};
+ function invariant(){const s=crew.getState();if(s.active||s.occupancy!=='aboard'||s.door!=='closed'||s.ramp!=='stowed'||rig.root.parent!==crew.craft.root||!rig.root.visible)return false;const p=pose();return p.length===snapshot.length&&p.every((v,i)=>Math.abs(v-snapshot[i])<1e-9);}
+ function cancel(reason='verification-cancel'){if(!active)return false;flight.cancel(reason);active=false;crew.cancel(reason);failure=reason;return true;}
+ return{start(mode='roundtrip'){if(dead||active||!['roundtrip','initial-arrival'].includes(mode))return false;proof=crew.validatePassenger();if(!proof.ok){failure=proof.reason;return false;}snapshot=pose();kind=mode;failure=null;checks=0;const ok=mode==='initial-arrival'?flight.startArrival():flight.start();active=ok;if(!ok)failure='flight-not-started';return ok;},
+ update(dt,{ready=true,paused=false,reduced=false}={}){if(!active||dead)return false;if(reduced)return cancel('reduced-motion');if(!ready||paused)return false;if(!invariant())return cancel('passenger-or-mechanism-changed');checks++;const changed=flight.update(dt,{ready});if(!invariant())return cancel('passenger-invariant-after-motion');if(!flight.active){active=false;const landed=crew.validatePassenger();if(!landed.ok){crew.cancel('landed-passenger-rejected');failure=landed.reason;}}return changed;},
+ requestReturn(){return active&&flight.requestReturn();},cancel,getState(){return{active,kind,failure,checks,passengers:active?1:0,passengerProof:proof,geometryOnly:true,realPageAccepted:false,safeToFly:false,flight:flight.getState()};},dispose(){if(dead)return;if(active)cancel('disposed');dead=true;}};
+}
