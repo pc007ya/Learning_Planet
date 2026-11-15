@@ -6,7 +6,7 @@ import { validateCandidateData, createCurriculumEngine } from '../../modules/sci
 
 const predicate = hostSource.match(/  isLegacyScienceCandidate\(id\) \{[\s\S]*?\n  \}/)[0];
 const start = hostSource.slice(hostSource.indexOf('  async startUnit(id) {'), hostSource.indexOf('\n  newPlantLabState()'));
-const gateway = hostSource.slice(hostSource.indexOf('  async openScienceCurriculumCandidate('), hostSource.indexOf('\n  async openNaturePlanetCandidate()')).replace('await import("./modules/science-curriculum/launch.mjs?v=20261115-quiz-v3")', 'await importCandidate()');
+const gateway = hostSource.slice(hostSource.indexOf('  async openScienceCurriculumCandidate('), hostSource.indexOf('\n  async openNaturePlanetCandidate()')).replace('await import("./modules/science-curriculum/launch.mjs?v=20261115-reading-v1")', 'await importCandidate()');
 function host({ hostname = 'localhost', search = '?scienceCandidate=1', subject = 'science', currentId = 'learner', enabled = true } = {}, additions = {}) {
   const context = vm.createContext({ window: { LPScienceRollout: { enabled } }, SCI_UNITS: scienceUnits, URLSearchParams, location: { hostname, search }, MATH_UNITS: [], EN_UNITS: [], clearTimeout,
     dailyMasteryRound: () => { throw Error('Legacy daily gate must not run'); }, ...additions });

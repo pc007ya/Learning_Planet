@@ -14,8 +14,10 @@ export function isLocalCandidate(locationLike = location) {
 }
 const el = (tag, text, cls) => { const n = document.createElement(tag); if (text != null) n.textContent = text; if (cls) n.className = cls; return n; };
 const button = (text, action, cls = '') => { const n = el('button', text, cls); n.type = 'button'; n.addEventListener('click', action); return n; };
+const SPEECH_MUTE_STORE_KEY = 'learning-planet.question-speech-muted.v1';
+function readSpeechMuted() { try { return localStorage.getItem(SPEECH_MUTE_STORE_KEY) === '1'; } catch (_) { return false; } }
 let opened = null;
-export async function openScienceCurriculum({ grade = 1, unitId = null, curriculum = 'publisher', publisher = '康軒', semester = 1, learnerId = 'preview', onClose, onOpen, onReward, parentSession = null, isActive: identityActive = () => true } = {}) {
+export async function openScienceCurriculum({ grade = 1, unitId = null, curriculum = 'publisher', publisher = '康軒', semester = 1, learnerId = 'preview', onClose, onOpen, onReward, onSpeechMuteChange, parentSession = null, isActive: identityActive = () => true } = {}) {
   if (!isScienceCurriculumEnabled()) throw Error('生活與自然練習暫時未開放。');
   if (!['publisher', 'legacy'].includes(curriculum)) throw new RangeError('不支援的課程模式。');
   const legacy = curriculum === 'legacy';
@@ -38,6 +40,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
   const body = el('main', null, 'sc-shell'); dialog.append(body); document.body.append(dialog);
   let quizTimer = null, activeWatch, activeUtterance = null, speechToken = 0, lease = null;
   let closed = false, closeCompletion = null, readings = null, readingBusy = false, notice = '', speechNotice = '', view = 'catalog', selectedUnit = null, run = null, pickedChoice = null;
+  let speechMuted = readSpeechMuted();
   let resultPresenter=null;const rewardResults=new Map(),rewardRequests=new Map();
   const abort = new AbortController();
   const originalHistory = history.state;
@@ -71,7 +74,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
   if (closed) return close;
   activeWatch = setInterval(() => { ensureActive(); }, 300);
   if (!document.getElementById('science-curriculum-css')) {
-    const css = el('link'); css.id = 'science-curriculum-css'; css.rel = 'stylesheet'; const cssUrl = new URL('./style.css', import.meta.url); cssUrl.searchParams.set('v', '20261115-quiz-parity-v3'); css.href = cssUrl; document.head.append(css);
+    const css = el('link'); css.id = 'science-curriculum-css'; css.rel = 'stylesheet'; const cssUrl = new URL('./style.css', import.meta.url); cssUrl.searchParams.set('v', '20261115-reading-v1'); css.href = cssUrl; document.head.append(css);
   }
   body.append(button('← 返回自然星球', () => close()), el('p', '正在準備生活與自然練習…', 'sc-loading'));
   let catalog, content, engine, store;
@@ -102,7 +105,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     engine = createCurriculumEngine(catalog, content); store = createProgressStore(localStorage, learnerId, { canWrite: () => ensureActive() && !!lease?.acquired });
     if(catalog.integrated&&needsIntegration(store.read(),catalog)) store.update(s=>integrateProgress(s,catalog));
     if (store.read().settings.zhuyin) {
-      try { readings = await import('../quiz-readings.mjs'); await readings.load(); }
+      try { readings = await import('./readings.mjs?v=20261115-complete-v1'); await readings.load(); }
       catch (_) { if (!closed) notice = '注音暫時無法載入，這次先顯示文字。'; }
     }
     if (!closed && isActive()) { if (entry) begin(entry); else render(); } else close();
@@ -112,7 +115,14 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     if (!readings || !store?.read().settings.zhuyin) { n.textContent = text; return n; }
     for (const { char, reading } of readings.tokens(text)) {
       if (!reading) n.append(document.createTextNode(char));
-      else { const ruby = el('ruby', char); ruby.setAttribute('aria-label', char); const rt = el('rt', reading); rt.setAttribute('aria-hidden', 'true'); ruby.append(rt); n.append(ruby); }
+      else {
+        const ruby = el('ruby', char, 'sc-reading'); ruby.setAttribute('aria-label', char);
+        const rt = el('rt'), sounds = el('span', null, 'sc-reading-sounds');
+        for (const sound of reading.replace(/[ˊˇˋ˙]/g, '')) sounds.append(el('span', sound));
+        rt.append(sounds); const tone = reading.match(/[ˊˇˋ˙]/)?.[0];
+        if (tone) rt.append(el('span', tone, 'sc-reading-tone' + (tone === '˙' ? ' neutral' : '')));
+        rt.setAttribute('aria-hidden', 'true'); ruby.append(rt); n.append(ruby);
+      }
     }
     return n;
   }
@@ -157,8 +167,25 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
   }
-  function say(text, control) {
+  function toggleSpeechMute() {
     if (!ensureActive()) return;
+    speechMuted = !speechMuted;
+    try { localStorage.setItem(SPEECH_MUTE_STORE_KEY, speechMuted ? '1' : '0'); } catch (_) {}
+    if (speechMuted) stopSpeech();
+    try { onSpeechMuteChange?.(speechMuted); } catch (_) {}
+    render();
+  }
+  function speakQuestion(question, control, automatic = false) {
+    if (!question || (automatic && speechMuted)) return;
+    const text = automatic && question.speakText ? question.stem + '。' + question.speakText : question.speakText || question.stem;
+    say(text, control);
+  }
+  function speakCurrentQuestion() {
+    const question = run?.questions[run.index];
+    if (view === 'quiz' && question && !run.answers[question.id]) speakQuestion(question, null, true);
+  }
+  function say(text, control) {
+    if (!ensureActive() || document.hidden || !text) return;
     stopSpeech();
     // Keep feedback beside the clicked control without replacing a form,
     // scrolling away from a draft, or moving keyboard focus.
@@ -175,8 +202,8 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
       }
     };
     try {
-      const utterance = new window.SpeechSynthesisUtterance(text); activeUtterance = utterance;
-      utterance.lang = 'zh-TW'; utterance.rate = filters.grade <= 2 ? 0.8 : 0.9;
+      const utterance = new window.SpeechSynthesisUtterance(String(text).replace(/＋/g, '加').replace(/－/g, '減').replace(/×/g, '乘以').replace(/÷/g, '除以').replace(/＝/g, '等於')); activeUtterance = utterance;
+      utterance.lang = 'zh-TW'; utterance.rate = 0.8;
       // Voice enumeration can arrive late or fail independently of speech. Keep
       // the synchronous user-gesture call and let the browser choose its default.
       try {
@@ -199,7 +226,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     if (readingBusy) return;
     if (store.read().settings.zhuyin) { store.update(s => { s.settings.zhuyin = false; }); render(); return; }
     readingBusy = true; render();
-    try { readings = await import('../quiz-readings.mjs'); await readings.load(); if (closed) return; store.update(s => { s.settings.zhuyin = true; }); notice = '注音沿用已核讀音；不確定讀音保留空白，可搭配朗讀。'; }
+    try { readings = await import('./readings.mjs?v=20261115-complete-v1'); await readings.load(); if (closed) return; store.update(s => { s.settings.zhuyin = true; }); notice = '注音已開啟，可再次按注音按鈕關閉。'; }
     catch (_) { if (!closed) notice = '注音暫時無法載入，文字練習仍可使用。'; }
     finally { readingBusy = false; if (!closed) render(); }
   }
@@ -228,7 +255,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
       });
       if (!ok) { notice = store.error() || '未能保留這回合題目，尚未開始練習。'; render(); return; }
       selectedUnit = unit; run = store.read().units[unit.id].active; pickedChoice = null;
-      view = 'quiz'; notice = ''; render();
+      view = 'quiz'; notice = ''; render(); speakCurrentQuestion();
     } catch (error) { notice = error.message === '這個單元尚未備妥至少30題核心題，暫不開始新回合。' ? error.message : '題池紀錄無法安全使用，原資料保留，尚未開始新回合。'; render(); }
   }
   function selectAnswer(index, questionId) {
@@ -236,6 +263,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     if (!Number.isInteger(index) || index < 0 || index > 3) return;
     stopSpeech(); pickedChoice = index; render();
     body.querySelector('[data-option-index="'+index+'"]')?.focus({ preventScroll: true });
+    if (!speechMuted) say(run.questions[run.index].opts[index]);
   }
   function submitAnswer(questionId) {
     if (pickedChoice == null) return;
@@ -255,6 +283,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     if (ok && changed) run = store.read().units[run.unitId].active;
     else notice = store.error() || '這個回合已變更，請關閉後重新開啟。';
     render();
+    if (ok && changed && !speechMuted) say(timedOut ? '時間到了，這題未作答' : run.answers[q.id].correct ? '答對了！' : '再一起想一想');
   }
   function next() {
     if (!ensureActive() || !run) return;
@@ -274,6 +303,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     if (ok && changed) { run = store.read().units[run.unitId].active; pickedChoice = null; view = run.finished ? 'result' : 'quiz'; if(run.finished)awardCurrent(run); }
     else notice = store.error() || '未能保存這一步，仍保留原來進度。';
     render();
+    if (ok && changed) speakCurrentQuestion();
   }
   function header() {
     if (view !== 'quiz') {
@@ -330,7 +360,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     const track = el('div', null, 'sc-progress-track'), fill = el('div', null, 'sc-progress-fill');
     track.setAttribute('role','progressbar');track.setAttribute('aria-label','本回作答進度');track.setAttribute('aria-valuemin','0');track.setAttribute('aria-valuemax',String(run.questions.length));track.setAttribute('aria-valuenow',String(Object.keys(run.answers).length));fill.style.width=(Object.keys(run.answers).length/run.questions.length*100)+'%';track.append(fill);copy.append(line,track);
     const tools = el('div',null,'sc-quiz-tools'), pace=el('div',null,'sc-pace-circle');pace.setAttribute('aria-label','每題30秒');pace.append(el('strong',String(secondsRemaining(run.questionDeadline || Date.now()+30000))),el('small','秒'));
-    const reading=button(readingBusy?'注音準備中':'ㄅ 注音',toggleReading,'sc-quiz-reading');reading.disabled=readingBusy;reading.setAttribute('aria-pressed',String(!!store.read().settings.zhuyin));tools.append(pace,reading);progress.append(back,copy,tools);layout.append(progress);
+    const reading=button(readingBusy?'注音準備中':'ㄅ 注音',toggleReading,'sc-quiz-reading');reading.disabled=readingBusy;reading.setAttribute('aria-pressed',String(!!store.read().settings.zhuyin));const mute=button(speechMuted?'🔇 語音已靜音':'🔊 語音開啟',toggleSpeechMute,'sc-quiz-reading sc-speech-toggle');mute.setAttribute('aria-pressed',String(speechMuted));mute.setAttribute('aria-label',speechMuted?'開啟自動朗讀':'靜音自動朗讀');tools.append(pace,reading,mute);progress.append(back,copy,tools);layout.append(progress);
     const rail=el('aside',null,'sc-math-rail');
     const guidance=a?(a.correct?'答對了！再看看解釋，說說你用到的證據。':'沒關係，一起看看解釋，再想想怎麼判斷。'):'先讀題目，再比較選項；選好後按提交答案。';
     const guide=button('',event=>say(guidance,event.currentTarget),'sc-presenter');guide.setAttribute('aria-label','聽學習提示');
@@ -338,7 +368,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     layout.append(rail);
     const card=el('section',null,'sc-question');card.dataset.questionId=q.id;
     card.append(el('p',legacy?`原主題 · ${selectedUnit.grade}年級 · ${selectedUnit.subject}`:`${selectedUnit.grade}年級${selectedUnit.semester===1?'上':'下'} · ${selectedUnit.subject}`,'sc-label'));
-    const heading=el('div',null,'sc-question-heading'),sound=button('',event=>say(q.stem+'。'+q.opts.map((o,i)=>'選項'+(i+1)+'，'+o).join('。'),event.currentTarget),'sc-speak sc-quiz-sound');sound.setAttribute('aria-label','聽題目');const icon=el('img');icon.src=new URL('../../images/ui/sound-rounded.svg',import.meta.url);icon.alt='';sound.append(icon,el('span','🔊 聽題目','sc-sr-only'));heading.append(textNode(q.stem,'h1','sc-stem'),sound);card.append(heading);
+    const heading=el('div',null,'sc-question-heading'),sound=button('',event=>speakQuestion(q,event.currentTarget),'sc-speak sc-quiz-sound');sound.setAttribute('aria-label','聽題目');const icon=el('img');icon.src=new URL('../../images/ui/sound-rounded.svg',import.meta.url);icon.alt='';sound.append(icon,el('span','🔊 聽題目','sc-sr-only'));heading.append(textNode(q.stem,'h1','sc-stem'),sound);card.append(heading);
     const options=el('div',null,'sc-options sc-math-options');q.opts.forEach((o,i)=>{
       const selected=a?o===a.selected:pickedChoice===i,b=button('',()=>selectAnswer(i,q.id),'sc-option');b.dataset.optionIndex=String(i);b.setAttribute('aria-pressed',String(selected));b.disabled=!!a||store.readonly();b.append(el('span',String(i+1),'sc-option-no'),textNode(o,'span','sc-option-text'));
       if(a&&o===q.ans)b.classList.add('sc-correct');else if(a&&o===a.selected)b.classList.add('sc-wrong');else if(!a&&selected)b.classList.add('sc-selected');else if(a)b.classList.add('sc-muted');
@@ -347,7 +377,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     if(!a){const submit=button('',()=>submitAnswer(q.id),'sc-submit');submit.disabled=pickedChoice==null||store.readonly();submit.dataset.ready=String(pickedChoice!=null);const mark=el('span','✓');mark.setAttribute('aria-hidden','true');submit.append(mark,el('strong',pickedChoice==null?'先選答案':'提交答案'));layout.append(submit);}
     const analysis=el('section',null,'sc-analysis'+(a?' sc-feedback '+(a.correct?'is-correct':'is-wrong'):''));analysis.setAttribute('aria-live','polite');const label=el('header');label.append(el('strong','本題分析'));analysis.append(label);
     if(!a)analysis.append(el('p','選擇答案並按「提交答案」，這裡會顯示解題方法。','sc-analysis-placeholder'));
-    else {analysis.setAttribute('role','status');const result=el('div',null,'sc-analysis-result');result.append(el('h2',a.correct?'答對了！':'再一起想一想'),el('p',a.timedOut?'時間到了，這題未作答':'你的答案：'+a.selected),el('p','正確答案：'+q.ans));analysis.append(result,textNode(q.explain,'p'),button(run.index===run.questions.length-1?'看看這次成果':'下一題 →',next,'sc-primary sc-next'));}
+    else {analysis.setAttribute('role','status');const result=el('div',null,'sc-analysis-result');result.append(el('h2',a.correct?'答對了！':'再一起想一想'),textNode(a.timedOut?'時間到了，這題未作答':'你的答案：'+a.selected,'p'),textNode('正確答案：'+q.ans,'p'));analysis.append(result,textNode(q.explain,'p'),button(run.index===run.questions.length-1?'看看這次成果':'下一題 →',next,'sc-primary sc-next'));}
     layout.append(analysis);
     const pool=store.read().units[selectedUnit.id]?.questionPool;
     const cycleNotice=run.poolCycleEnd>run.poolCycleStart?'前一輪題池已抽完，這回已開始下一輪；同一回合仍不重複。 ':'';

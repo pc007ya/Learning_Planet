@@ -1,0 +1,26 @@
+{
+  "method": "Automated Han-character coverage, not human full-context pronunciation certification",
+  "scopes": [
+    {
+      "scope": "integrated",
+      "questions": 3361,
+      "units": 110,
+      "textFields": 20580,
+      "fullyCoveredFields": 20580,
+      "han": 296828,
+      "covered": 296828,
+      "percent": 100
+    },
+    {
+      "scope": "legacy/",
+      "questions": 540,
+      "units": 18,
+      "textFields": 3314,
+      "fullyCoveredFields": 3314,
+      "han": 53326,
+      "covered": 53326,
+      "percent": 100
+    }
+  ],
+  "missing": []
+}
