@@ -1,8 +1,8 @@
 import { waitForOverlayHistory } from './overlay-history.mjs';
 import { claimRootOverlay } from './overlay-owner.mjs';
-import { openNaturePlanet } from '../nature-planet/launch.mjs?v=20261115-tablet-load-v2';
+import { openNaturePlanet } from '../nature-planet/launch.mjs?v=20261115-integrated-v1';
 import { isScienceCurriculumEnabled } from './rollout.mjs';
-import { openScienceCurriculum } from './launch.mjs?v=20261115-tablet-load-v2';
+import { openScienceCurriculum } from './launch.mjs?v=20261115-integrated-v1';
 
 let session = null;
 /** The map owns exploration; its explicitly owned child owns local records. */

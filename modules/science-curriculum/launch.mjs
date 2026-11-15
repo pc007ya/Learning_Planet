@@ -1,4 +1,5 @@
-import {loadScopedCurriculum} from './scoped-data.mjs';
+import {integrateProgress,needsIntegration} from './integration-progress.mjs';
+import {loadIntegratedCurriculum} from './scoped-data.mjs?v=20261115-integrated-v1';
 import { isScienceCurriculumEnabled } from './rollout.mjs';
 import { createCurriculumEngine } from './engine.mjs';
 import { createProgressStore, PREFIX } from './store.mjs';
@@ -71,18 +72,18 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
   }
   body.append(button('← 返回自然星球', () => close()), el('p', '正在準備生活與自然練習…', 'sc-loading'));
   let catalog, content, engine, store;
-  const filters = { grade: Math.min(6, Math.max(legacy ? 3 : 1, Number(grade) || 1)), publisher: legacy ? '原主題' : ['康軒','南一'].includes(publisher) ? publisher : '康軒', semester: legacy ? 0 : semester === 2 ? 2 : 1 };
+  const filters = { grade: Math.min(6, Math.max(legacy ? 3 : 1, Number(grade) || 1)), publisher: legacy ? '原主題' : undefined, semester: legacy ? 0 : semester === 2 ? 2 : 1 };
   function ensureActive() { if (closed) return false; if (!isActive()) { close(false, 'inactive'); return false; } if (lease && !lease.acquired) { close(false, 'lock-lost'); return false; } return true; }
   async function load() {
     const dataPath = legacy ? '../../data/science-curriculum/legacy/' : '../../data/science-curriculum/';
     const get = async name => { const r = await fetch(new URL(dataPath + name, import.meta.url), { signal: abort.signal, cache: 'no-cache' }); if (!r.ok) throw Error('課程資料暫時無法讀取'); return r.json(); };
     if (legacy) [catalog, content] = await Promise.all([get('catalog.json'), get('exercises.json')]);
-    else { const loaded=await loadScopedCurriculum(filters,{unitId,signal:abort.signal}); catalog=loaded.catalog; content=loaded.content; Object.assign(filters,loaded.scope); }
+    else { const loaded=await loadIntegratedCurriculum(filters,{unitId,signal:abort.signal}); catalog=loaded.catalog; content=loaded.content; Object.assign(filters,loaded.scope); }
     if ((catalog.kind === 'legacy_topic_catalog') !== legacy) throw new RangeError('課程資料與開啟模式不符，尚未開始練習。');
     if (closed || !isActive()) { close(); return; }
-    const entry = unitId == null ? null : catalog.units.find(u => u.id === unitId);
+    const entry = unitId == null ? null : catalog.units.find(u => u.id === unitId || u.source_unit_ids?.includes(unitId));
     if (unitId != null && !entry) throw new RangeError('指定的生活／自然單元不存在，沒有改開其他單元。');
-    if (entry) Object.assign(filters, { grade: entry.grade, publisher: entry.publisher, semester: entry.semester });
+    if (entry) Object.assign(filters, { grade: entry.grade, publisher: legacy ? entry.publisher : undefined, semester: entry.semester });
     if (!lease?.acquired) {
       const acquired = await acquireProgressLease(window.navigator?.locks, PREFIX + encodeURIComponent(String(learnerId)), { isActive: () => !closed && isActive() });
       if (closed || !isActive()) { acquired.release(); close(); return; }
@@ -96,6 +97,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
       lease = acquired;
     }
     engine = createCurriculumEngine(catalog, content); store = createProgressStore(localStorage, learnerId, { canWrite: () => ensureActive() && !!lease?.acquired });
+    if(catalog.integrated&&needsIntegration(store.read(),catalog)) store.update(s=>integrateProgress(s,catalog));
     if (store.read().settings.zhuyin) {
       try { readings = await import('../quiz-readings.mjs'); await readings.load(); }
       catch (_) { if (!closed) notice = '注音暫時無法載入，這次先顯示文字。'; }
@@ -290,7 +292,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     const ticket=++scopeTicket;scopeAbort?.abort();scopeAbort=new AbortController();
     const cancel=()=>scopeAbort?.abort();abort.signal.addEventListener('abort',cancel,{once:true});
     body.replaceChildren(button('← 返回自然星球',()=>close()),el('p','正在載入選定的教材…'));
-    try{const loaded=await loadScopedCurriculum(filters,{signal:scopeAbort.signal});if(closed||ticket!==scopeTicket||!ensureActive())return;catalog=loaded.catalog;content=loaded.content;engine=createCurriculumEngine(catalog,content);view='catalog';render();}
+    try{const loaded=await loadIntegratedCurriculum(filters,{signal:scopeAbort.signal});if(closed||ticket!==scopeTicket||!ensureActive())return;catalog=loaded.catalog;content=loaded.content;engine=createCurriculumEngine(catalog,content);if(catalog.integrated&&needsIntegration(store.read(),catalog))store.update(s=>integrateProgress(s,catalog));view='catalog';render();}
     catch(error){if(closed||ticket!==scopeTicket||error.name==='AbortError')return;body.replaceChildren(button('← 返回自然星球',()=>close()),el('p','教材暫時無法載入，請重試。'),button('重新載入',reloadScope));}
     finally{abort.signal.removeEventListener('abort',cancel);}
   }
@@ -298,13 +300,13 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     body.append(textNode('選一個單元，開始探索', 'h1'));
     const groups = el('section', null, 'sc-filter-panel');
     groups.append(filterGroup('年級', (legacy ? [3,4,5,6] : [1,2,3,4,5,6]).map(g => [g,g+'年級']), filters.grade, v => filters.grade=v));
-    if (!legacy) groups.append(filterGroup('教材版本', [['康軒','康軒'],['南一','南一']], filters.publisher, v => filters.publisher=v),filterGroup('學期', [[1,'上學期'],[2,'下學期']], filters.semester, v => filters.semester=v));
+    if (!legacy) groups.append(filterGroup('學期', [[1,'上學期'],[2,'下學期']], filters.semester, v => filters.semester=v));
     groups.append(el('p','每單元至少30題 · 每回10題 · 題池用完才重新循環','sc-round-policy')); body.append(groups);
     body.append(el('p', filters.grade <= 2 ? '生活：觀察、表達、創作，也練習合作與照顧環境。' : '自然科學：先觀察，再用證據想一想。', 'sc-intro'));
     const grid=el('section',null,'sc-grid');grid.setAttribute('aria-label','單元列表');
     for (const unit of engine.listUnits(filters)) {
       const card=el('article',null,'sc-card'); const records=store.read().units[unit.id];
-      card.append(el('span',unit.subject+' · '+unit.publisher,'sc-label'),textNode(unit.title,'h2'),el('p',unit.activities.filter(a=>a.scope===(legacy?'legacy_topic':'current_publisher_activity')).length+'個活動 · '+unit.candidateQuestionCount+'題練習'));
+      card.append(el('span',unit.subject,'sc-label'),textNode(unit.title,'h2'),el('p',unit.activities.filter(a=>a.scope===(legacy?'legacy_topic':'current_publisher_activity')).length+'個活動 · '+unit.candidateQuestionCount+'題練習'));
       const attempted=records?.attempts?.length||0; if(attempted)card.append(el('p','已完成 '+attempted+' 次本機練習','sc-record'));
       const b=button(records?.active&&!records.active.finished?'繼續練習':'開始練習',()=>begin(unit),'sc-primary');b.dataset.unitId=unit.id;card.append(b);if(engine.getTasks(unit.id,{allowCandidate:true}).length)card.append(button('實作與反思',()=>{selectedUnit=unit;view='tasks';render();},'sc-secondary')); grid.append(card);
     }
@@ -330,7 +332,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     const presenter=el('img');presenter.alt='';presenter.src=new URL('../../images/math-master/v3/presenter/presenter-'+(a?(a.correct?'correct':'wrong'):pickedChoice==null?'hint':'retry')+'-v1.png',import.meta.url);guide.append(presenter);rail.append(guide,el('p',a?'一起看本題分析':'選好答案，再按提交','sc-guide-caption'),button('← 單元列表',()=>{view='catalog';stopSpeech();pickedChoice=null;render();},'sc-unit-list'));
     layout.append(rail);
     const card=el('section',null,'sc-question');card.dataset.questionId=q.id;
-    card.append(el('p',legacy?`原主題 · ${selectedUnit.grade}年級 · ${selectedUnit.subject}`:`${selectedUnit.publisher} · ${selectedUnit.grade}年級${selectedUnit.semester===1?'上':'下'} · ${selectedUnit.subject}`,'sc-label'));
+    card.append(el('p',legacy?`原主題 · ${selectedUnit.grade}年級 · ${selectedUnit.subject}`:`${selectedUnit.grade}年級${selectedUnit.semester===1?'上':'下'} · ${selectedUnit.subject}`,'sc-label'));
     const heading=el('div',null,'sc-question-heading'),sound=button('',event=>say(q.stem+'。'+q.opts.map((o,i)=>'選項'+(i+1)+'，'+o).join('。'),event.currentTarget),'sc-speak sc-quiz-sound');sound.setAttribute('aria-label','聽題目');const icon=el('img');icon.src=new URL('../../images/ui/sound-rounded.svg',import.meta.url);icon.alt='';sound.append(icon,el('span','🔊 聽題目','sc-sr-only'));heading.append(textNode(q.stem,'h1','sc-stem'),sound);card.append(heading);
     const options=el('div',null,'sc-options sc-math-options');q.opts.forEach((o,i)=>{
       const selected=a?o===a.selected:pickedChoice===i,b=button('',()=>selectAnswer(i,q.id),'sc-option');b.dataset.optionIndex=String(i);b.setAttribute('aria-pressed',String(selected));b.disabled=!!a||store.readonly();b.append(el('span',String(i+1),'sc-option-no'),textNode(o,'span','sc-option-text'));
@@ -398,7 +400,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     const status=el('p','本機自評會在修改時保存。','sc-save-status');status.setAttribute('role','status');body.append(status);sourceDetails();
   }
   function updateSaveStatus(){const s=body.querySelector('.sc-save-status');if(s)s.textContent=store.error()||notice||'已保存本機自評，尚未經老師確認。';}
-  function sourceDetails(){const source=catalog.sources[selectedUnit.source_id];if(!source)return;const details=el('details');details.append(el('summary','查看教材範圍與來源'));details.append(el('p',selectedUnit.verification||'依核實來源對照，未核實出版社ISBN版次。'));const a=el('a',source.title||'課程來源');a.href=source.url;a.target='_blank';a.rel='noopener noreferrer';details.append(a);body.append(details);}
+  function sourceDetails(){const ids=selectedUnit.source_ids||[selectedUnit.source_id];const details=el('details');details.append(el('summary','查看教材範圍與來源'));details.append(el('p',selectedUnit.verification||'依核實來源對照，未核實出版社ISBN版次。'));for(const id of ids){const source=catalog.sources[id];if(!source)continue;const a=el('a',source.title||'課程來源');a.href=source.url;a.target='_blank';a.rel='noopener noreferrer';details.append(a);}body.append(details);}
   function render(){if(closed)return;if(!isActive()){close();return;}body.replaceChildren();header();if(view==='catalog')catalogView();else if(view==='quiz')quizView();else if(view==='tasks')tasksView();else resultView();body.dataset.grade=String(filters.grade);body.dataset.view=view;dialog.scrollTop=0;const heading=body.querySelector('h1');if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}}
   function loadError(error) {
     if (closed || error.name === 'AbortError') return;

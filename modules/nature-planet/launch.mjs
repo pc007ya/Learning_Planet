@@ -1,4 +1,4 @@
-import {loadScopedCurriculum} from '../science-curriculum/scoped-data.mjs';
+import {loadIntegratedCurriculum} from '../science-curriculum/scoped-data.mjs?v=20261115-integrated-v1';
 import { createNatureFullscreen } from './fullscreen.mjs';
 import {createUnitArtRenderer} from './unit-art.mjs?v=20261114-unit-art-v2';
 import {isScienceCurriculumEnabled} from '../science-curriculum/rollout.mjs';
@@ -6,7 +6,7 @@ import {leaveOverlayHistory,waitForOverlayHistory} from '../science-curriculum/o
 import {createNaturePlanetScene,WORLD_VERSION} from './runtime/planet-v11.mjs?v=20261115-load-v2';
 import {createUnitEntryController} from './planet-unit-entry.mjs';
 import {arrangeArtLabels,artActorReserve} from './planet-art-v2-labels.mjs';
-import {normalizeNatureFilters,natureUnits,restoreNatureState,canEnterNatureUnit,validateNatureMetadata} from './state.mjs?v=20261115-load-v2';
+import {normalizeNatureFilters,natureUnits,restoreNatureState,canEnterNatureUnit,validateNatureMetadata} from './state.mjs?v=20261115-integrated-v1';
 const make=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e;};
 const btn=(text,handler,cls)=>{const e=make('button',text,cls);e.type='button';e.onclick=handler;return e;};
 export function isLocalNatureCandidate(locationLike=location){return ['localhost','127.0.0.1','[::1]','::1'].includes(locationLike.hostname);}
@@ -33,7 +33,7 @@ export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,ca
  const title=make('div',null,'nature-title');title.append(make('small','LEARNING PLANET · 另一顆星球'),make('h1','生活與自然星球'));header.append(title);
  const grades=make('div',null,'nature-grade-switch');grades.setAttribute('role','group');grades.setAttribute('aria-label','年級');header.append(grades);if(inline)grades.hidden=true;
  const filtersBar=make('div',null,'nature-filters');(inline?header:shell).append(filtersBar);
- const versionButtons=[];for(const p of ['康軒','南一']){const b=btn(p,()=>changeFilters({publisher:p}));b.dataset.publisher=p;versionButtons.push(b);filtersBar.append(b);}for(const s of [1,2]){const b=btn(s===1?'上學期':'下學期',()=>changeFilters({semester:s}));b.dataset.semester=s;versionButtons.push(b);filtersBar.append(b);}
+ const versionButtons=[];for(const s of [1,2]){const b=btn(s===1?'上學期':'下學期',()=>changeFilters({semester:s}));b.dataset.semester=s;versionButtons.push(b);filtersBar.append(b);}
  const time=make('span',null,'nature-time');filtersBar.append(time);
  const layout=make('div',null,'nature-layout');shell.append(layout);
  const stage=make('section',null,'math-planet-stage nature-stage');stage.setAttribute('aria-label','可走自然星球');layout.append(stage);
@@ -63,7 +63,7 @@ export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,ca
   if(suppliedCatalog)return true;
   const current=++catalogTicket;catalogAbort?.abort();const controller=catalogAbort=new AbortController();
   const cancel=()=>controller.abort();abort.signal.addEventListener('abort',cancel,{once:true});
-  try{const loaded=await loadScopedCurriculum(filters,{exercises:false,signal:controller.signal});if(closed||current!==catalogTicket)return false;catalog=loaded.catalog;return true;}
+  try{const loaded=await loadIntegratedCurriculum(filters,{exercises:false,signal:controller.signal});if(closed||current!==catalogTicket)return false;catalog=loaded.catalog;return true;}
   finally{abort.signal.removeEventListener('abort',cancel);}
  }
  async function changeFilters(patch){if(closed||suspended||inline&&patch.grade&&patch.grade!==grade)return;const previous=filters.grade;snapshot();filters=normalizeNatureFilters({...filters,...patch});page=0;try{onFiltersChange?.({...filters});}catch(_){}if(!suppliedCatalog){selected=null;renderCatalog();renderPanel();clearLabels();}
@@ -78,7 +78,7 @@ export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,ca
   boardShip.disabled=!surface||!state.boarding?.available||locked||!!state.boarding?.reducedMotion;leaveShip.disabled=!surface||!!state.flight?.active||!state.boarding?.available||!!state.boarding?.active||!aboard;cancelBoard.disabled=!surface||arriving||(!state.boarding?.active&&!state.boarding?.approaching&&!aboard);
   fly.disabled=!surface||!state.flight?.available||!!state.flight?.active||state.flight?.canStart===false||!state.resourcesReady||state.oceanMotion?.mode==='static'||(state.boarding?.available&&!state.boarding.safeToFly);cancelShip.disabled=!surface||arriving||!state.flight?.active;returnShip.disabled=!surface||arriving||!state.flight?.active||['transfer-in','descent','settle'].includes(state.flight?.phase);for(const b of pad.querySelectorAll('button'))b.disabled=!surface||locked;
  }
- function renderPanel(){const u=relevant().find(x=>x.id===selected)||relevant()[0];if(u&&!selected)selected=u.id;renderUnitArt(u);infoGroup.textContent=`${filters.publisher} · ${filters.semester===1?'上':'下'}學期`;infoTitle.textContent=u?.title||'課程準備中';infoSub.textContent=u?.activities?.map(a=>a.title).slice(0,2).join(' · ')||'';const eligible=canEnterNatureUnit(state,selected,metadata);enter.disabled=!eligible||entering||typeof onEnterUnit!=='function';travel.disabled=!state.ready||!state.landed||state.contextLost;infoStatus.textContent=state.moving?'瑜瑜正在走向單元…':eligible?'已抵達，可以開始練習。':state.landed?'先前往這個單元，再開始練習。':'降落後即可探索。';syncControls();if(state.flight?.active||state.boarding?.active||state.boarding?.approaching||state.boarding?.occupancy==='aboard')travel.disabled=true;
+ function renderPanel(){const u=relevant().find(x=>x.id===selected)||relevant()[0];if(u&&!selected)selected=u.id;renderUnitArt(u);infoGroup.textContent=`${filters.semester===1?'上':'下'}學期`;infoTitle.textContent=u?.title||'課程準備中';infoSub.textContent=u?.activities?.map(a=>a.title).slice(0,2).join(' · ')||'';const eligible=canEnterNatureUnit(state,selected,metadata);enter.disabled=!eligible||entering||typeof onEnterUnit!=='function';travel.disabled=!state.ready||!state.landed||state.contextLost;infoStatus.textContent=state.moving?'瑜瑜正在走向單元…':eligible?'已抵達，可以開始練習。':state.landed?'先前往這個單元，再開始練習。':'降落後即可探索。';syncControls();if(state.flight?.active||state.boarding?.active||state.boarding?.approaching||state.boarding?.occupancy==='aboard')travel.disabled=true;
  }
  function navigate(id){entry.cancel();if(closed||suspended||!relevant().some(u=>u.id===id))return false;selected=id;renderPanel();renderCatalog();if(!state.landed){setStatus('先降落自然星球，再選單元。');return false;}const ok=map?.navigate(id);if(!ok)setStatus('目前沒有安全路線，請重試或回起點。');else setStatus('沿著林間小徑前往單元。');return ok;}
  function clearLabels(){labels.replaceChildren();labelButtons.clear();}

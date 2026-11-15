@@ -12,3 +12,12 @@ export async function loadScopedCurriculum(filters, {unitId=null, signal, fetche
  if(!catalog.units?.length||catalog.units.some(u=>u.grade!==scope.grade||u.publisher!==scope.publisher||u.semester!==scope.semester))throw Error('課程範圍不一致');
  return {catalog,content,scope};
 }
+
+/** Integrated curriculum loads only the chosen grade/semester, never all years. */
+export async function loadIntegratedCurriculum(filters, {unitId=null,signal,fetcher=fetch,exercises=true}={}) {
+ const {grade,semester}=curriculumScope(filters,unitId),key=`all-g${grade}-t${semester}`;
+ const get=async name=>{const r=await fetcher(new URL(`../../data/science-curriculum/scoped/${key}-${name}.json`,import.meta.url),{signal});if(!r.ok)throw Error('課程資料暫時無法讀取');return r.json();};
+ const [catalog,content]=await Promise.all([get('catalog'),exercises?get('exercises'):null]);
+ if(!catalog.units?.length||catalog.units.some(u=>u.grade!==grade||u.semester!==semester))throw Error('課程範圍不一致');
+ return {catalog,content,scope:{grade,semester,key}};
+}

@@ -1,8 +1,8 @@
 export const NATURE_WORLD_VERSION='nature-planet-world-v1';
 export function normalizeNatureFilters({grade=1,publisher='康軒',semester=1}={}) {
- return {grade:[1,2,3,4,5,6].includes(Number(grade))?Number(grade):1,publisher:['康軒','南一'].includes(publisher)?publisher:'康軒',semester:Number(semester)===2?2:1};
+ return {grade:[1,2,3,4,5,6].includes(Number(grade))?Number(grade):1,publisher:undefined,semester:Number(semester)===2?2:1};
 }
-export function natureUnits(catalog,filters) {const f=normalizeNatureFilters(filters);return (catalog?.units||[]).filter(u=>u.grade===f.grade&&u.publisher===f.publisher&&u.semester===f.semester);}
+export function natureUnits(catalog,filters) {const f=normalizeNatureFilters(filters);return (catalog?.units||[]).filter(u=>u.grade===f.grade&&u.semester===f.semester);}
 export function restoreNatureState(value,grade,metadata) {
  const valid=value?.worldVersion===NATURE_WORLD_VERSION&&value.grade===grade&&Array.isArray(value.position)&&value.position.length===3&&value.position.every(Number.isFinite);
  return valid?{worldVersion:NATURE_WORLD_VERSION,grade,position:[...value.position],mode:value.mode==='follow'?'follow':'overview',landed:value.landed===true}:null;

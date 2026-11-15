@@ -1,0 +1,1901 @@
+{
+  "policy": "同年級同學期才合併；只合併明確相同主題，保留所有來源活動、題目和來源 ID。相近但有獨立學習範圍及跨學期/年級內容保持獨立。不要只按題幹或活動標題刪除題目。",
+  "source_unit_count": 110,
+  "merged_unit_count": 88,
+  "merged_pair_count": 22,
+  "groups": [
+    {
+      "canonical_id": "s-kh-g1-t1-u01",
+      "source_unit_ids": [
+        "s-kh-g1-t1-u01",
+        "s-na-g1-t1-u01"
+      ],
+      "grade": 1,
+      "semester": 1,
+      "title": "我上一年級",
+      "evidence": "上學適應／學校的一天為共同主題，保留認識同學等差異活動",
+      "source_titles": [
+        "我上一年級",
+        "我上一年級了"
+      ],
+      "source_activities": {
+        "s-kh-g1-t1-u01": [
+          "開學了",
+          "認識新同學",
+          "學校的一天"
+        ],
+        "s-na-g1-t1-u01": [
+          "上學了",
+          "學校的一天"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g1-t1-u02",
+      "source_unit_ids": [
+        "s-kh-g1-t1-u02",
+        "s-na-g1-t1-u02"
+      ],
+      "grade": 1,
+      "semester": 1,
+      "title": "走，校園探索去",
+      "evidence": "校園探索為共同主題，保留康軒校園安全與南一探索活動",
+      "source_titles": [
+        "走，校園探索去",
+        "認識校園"
+      ],
+      "source_activities": {
+        "s-kh-g1-t1-u02": [
+          "校園大探索",
+          "校園安全小達人"
+        ],
+        "s-na-g1-t1-u02": [
+          "校園哪裡最好玩",
+          "一起探索校園"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g1-t1-u03",
+      "source_unit_ids": [
+        "s-kh-g1-t1-u03"
+      ],
+      "grade": 1,
+      "semester": 1,
+      "title": "一起來玩吧",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "一起來玩吧"
+      ],
+      "source_activities": {
+        "s-kh-g1-t1-u03": [
+          "快來玩吧",
+          "有趣的新玩法"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g1-t1-u04",
+      "source_unit_ids": [
+        "s-kh-g1-t1-u04"
+      ],
+      "grade": 1,
+      "semester": 1,
+      "title": "風兒吹過來",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "風兒吹過來"
+      ],
+      "source_activities": {
+        "s-kh-g1-t1-u04": [
+          "風在哪裡",
+          "風會做什麼",
+          "和風一起玩"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g1-t1-u05",
+      "source_unit_ids": [
+        "s-kh-g1-t1-u05",
+        "s-na-g1-t1-u05"
+      ],
+      "grade": 1,
+      "semester": 1,
+      "title": "聽！那是什麼聲音",
+      "evidence": "聲音探索與聲音遊戲為共同主題，保留各自活動",
+      "source_titles": [
+        "聽！那是什麼聲音",
+        "聲音好好玩"
+      ],
+      "source_activities": {
+        "s-kh-g1-t1-u05": [
+          "聲音的訊息",
+          "好聽的聲音",
+          "聲音大合奏"
+        ],
+        "s-na-g1-t1-u05": [
+          "聲音哪裡來",
+          "一起玩聲音"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g1-t1-u06",
+      "source_unit_ids": [
+        "s-kh-g1-t1-u06",
+        "s-na-g1-t1-u06"
+      ],
+      "grade": 1,
+      "semester": 1,
+      "title": "過年囉",
+      "evidence": "新年與除夕團圓為共同主題",
+      "source_titles": [
+        "過年囉",
+        "新的一年"
+      ],
+      "source_activities": {
+        "s-kh-g1-t1-u06": [
+          "熱鬧迎新年",
+          "團圓除夕夜"
+        ],
+        "s-na-g1-t1-u06": [
+          "迎接新的一年",
+          "除夕團圓夜",
+          "過新年了"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g1-t1-u03",
+      "source_unit_ids": [
+        "s-na-g1-t1-u03"
+      ],
+      "grade": 1,
+      "semester": 1,
+      "title": "哇！好想吃",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "哇！好想吃"
+      ],
+      "source_activities": {
+        "s-na-g1-t1-u03": [
+          "午餐大探索",
+          "午餐家家酒"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g1-t1-u04",
+      "source_unit_ids": [
+        "s-na-g1-t1-u04"
+      ],
+      "grade": 1,
+      "semester": 1,
+      "title": "一起來閱讀",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "一起來閱讀"
+      ],
+      "source_activities": {
+        "s-na-g1-t1-u04": [
+          "不同課本比一比",
+          "我愛圖書館"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g1-t2-u01",
+      "source_unit_ids": [
+        "s-kh-g1-t2-u01"
+      ],
+      "grade": 1,
+      "semester": 2,
+      "title": "更好的自己",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "更好的自己"
+      ],
+      "source_activities": {
+        "s-kh-g1-t2-u01": [
+          "肯定自己",
+          "讓自己更好"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g1-t2-u02",
+      "source_unit_ids": [
+        "s-kh-g1-t2-u02"
+      ],
+      "grade": 1,
+      "semester": 2,
+      "title": "大樹小花我愛你",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "大樹小花我愛你"
+      ],
+      "source_activities": {
+        "s-kh-g1-t2-u02": [
+          "大樹小花點點名",
+          "大樹小花的訪客",
+          "護樹護花小尖兵"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g1-t2-u03",
+      "source_unit_ids": [
+        "s-kh-g1-t2-u03"
+      ],
+      "grade": 1,
+      "semester": 2,
+      "title": "和書做朋友",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "和書做朋友"
+      ],
+      "source_activities": {
+        "s-kh-g1-t2-u03": [
+          "我的書朋友",
+          "愛上圖書館"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g1-t2-u04",
+      "source_unit_ids": [
+        "s-kh-g1-t2-u04",
+        "s-na-g1-t2-u03"
+      ],
+      "grade": 1,
+      "semester": 2,
+      "title": "玩具同樂會",
+      "evidence": "玩具探索、製作與同樂為共同主題",
+      "source_titles": [
+        "玩具同樂會",
+        "玩具總動員"
+      ],
+      "source_activities": {
+        "s-kh-g1-t2-u04": [
+          "我們的玩具",
+          "動手做玩具",
+          "超級大玩家"
+        ],
+        "s-na-g1-t2-u03": [
+          "什麼最好玩",
+          "玩具同樂會"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g1-t2-u05",
+      "source_unit_ids": [
+        "s-kh-g1-t2-u05",
+        "s-na-g1-t2-u05"
+      ],
+      "grade": 1,
+      "semester": 2,
+      "title": "五月五慶端午",
+      "evidence": "夏季與端午為共同主題，保留南一季節活動和康軒健康內容",
+      "source_titles": [
+        "五月五慶端午",
+        "夏天與端午"
+      ],
+      "source_activities": {
+        "s-kh-g1-t2-u05": [
+          "粽葉飄香慶端午",
+          "健康過一「夏」"
+        ],
+        "s-na-g1-t2-u05": [
+          "天氣變熱了",
+          "夏天的活動",
+          "熱鬧的端午節"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g1-t2-u06",
+      "source_unit_ids": [
+        "s-kh-g1-t2-u06"
+      ],
+      "grade": 1,
+      "semester": 2,
+      "title": "生活中的水",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "生活中的水"
+      ],
+      "source_activities": {
+        "s-kh-g1-t2-u06": [
+          "親水趣",
+          "珍惜水"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g1-t2-u01",
+      "source_unit_ids": [
+        "s-na-g1-t2-u01"
+      ],
+      "grade": 1,
+      "semester": 2,
+      "title": "訊息的傳達",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "訊息的傳達"
+      ],
+      "source_activities": {
+        "s-na-g1-t2-u01": [
+          "分享寒假生活",
+          "訊息在哪裡",
+          "讓我告訴你"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g1-t2-u02",
+      "source_unit_ids": [
+        "s-na-g1-t2-u02"
+      ],
+      "grade": 1,
+      "semester": 2,
+      "title": "美麗的春天",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "美麗的春天"
+      ],
+      "source_activities": {
+        "s-na-g1-t2-u02": [
+          "發現春天",
+          "在春天裡玩"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g1-t2-u04",
+      "source_unit_ids": [
+        "s-na-g1-t2-u04"
+      ],
+      "grade": 1,
+      "semester": 2,
+      "title": "有電話真方便",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "有電話真方便"
+      ],
+      "source_activities": {
+        "s-na-g1-t2-u04": [
+          "怎麼說比較好",
+          "電話好幫手",
+          "愛的傳聲筒"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g1-t2-u06",
+      "source_unit_ids": [
+        "s-na-g1-t2-u06"
+      ],
+      "grade": 1,
+      "semester": 2,
+      "title": "雨和水",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "雨和水"
+      ],
+      "source_activities": {
+        "s-na-g1-t2-u06": [
+          "天上來的水",
+          "雨後積水大清掃"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g2-t1-u01",
+      "source_unit_ids": [
+        "s-kh-g2-t1-u01"
+      ],
+      "grade": 2,
+      "semester": 1,
+      "title": "防震小達人",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "防震小達人"
+      ],
+      "source_activities": {
+        "s-kh-g2-t1-u01": [
+          "地震來了不慌張",
+          "地震應變有方法",
+          "防震大使Go！Go！Go！"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g2-t1-u02",
+      "source_unit_ids": [
+        "s-kh-g2-t1-u02"
+      ],
+      "grade": 2,
+      "semester": 1,
+      "title": "光影好好玩",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "光影好好玩"
+      ],
+      "source_activities": {
+        "s-kh-g2-t1-u02": [
+          "光和影",
+          "光影魔法師",
+          "光影小故事"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g2-t1-u03",
+      "source_unit_ids": [
+        "s-kh-g2-t1-u03",
+        "s-na-g2-t1-u03"
+      ],
+      "grade": 2,
+      "semester": 1,
+      "title": "玩泡泡",
+      "evidence": "泡泡製作與觀察為共同主題",
+      "source_titles": [
+        "玩泡泡",
+        "我愛泡泡"
+      ],
+      "source_activities": {
+        "s-kh-g2-t1-u03": [
+          "泡泡在哪裡",
+          "泡泡變變變"
+        ],
+        "s-na-g2-t1-u03": [
+          "泡泡怎麼來",
+          "大家來吹泡泡",
+          "美麗的泡泡"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g2-t1-u04",
+      "source_unit_ids": [
+        "s-kh-g2-t1-u04"
+      ],
+      "grade": 2,
+      "semester": 1,
+      "title": "學校附近",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "學校附近"
+      ],
+      "source_activities": {
+        "s-kh-g2-t1-u04": [
+          "學校附近有什麼",
+          "分享學校附近的故事"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g2-t1-u05",
+      "source_unit_ids": [
+        "s-kh-g2-t1-u05"
+      ],
+      "grade": 2,
+      "semester": 1,
+      "title": "歲末傳溫情",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "歲末傳溫情"
+      ],
+      "source_activities": {
+        "s-kh-g2-t1-u05": [
+          "溫馨送暖",
+          "傳送我的愛"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g2-t1-u06",
+      "source_unit_ids": [
+        "s-kh-g2-t1-u06"
+      ],
+      "grade": 2,
+      "semester": 1,
+      "title": "米粒魔術師",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "米粒魔術師"
+      ],
+      "source_activities": {
+        "s-kh-g2-t1-u06": [
+          "五花八門的米食",
+          "珍惜食物"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g2-t1-u01",
+      "source_unit_ids": [
+        "s-na-g2-t1-u01"
+      ],
+      "grade": 2,
+      "semester": 1,
+      "title": "標誌與生活",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "標誌與生活"
+      ],
+      "source_activities": {
+        "s-na-g2-t1-u01": [
+          "生活中的標誌",
+          "標誌的妙用"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g2-t1-u02",
+      "source_unit_ids": [
+        "s-na-g2-t1-u02"
+      ],
+      "grade": 2,
+      "semester": 1,
+      "title": "吸住了",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "吸住了"
+      ],
+      "source_activities": {
+        "s-na-g2-t1-u02": [
+          "什麼吸得住",
+          "吸住了真有用"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g2-t1-u04",
+      "source_unit_ids": [
+        "s-na-g2-t1-u04"
+      ],
+      "grade": 2,
+      "semester": 1,
+      "title": "大樹",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "大樹"
+      ],
+      "source_activities": {
+        "s-na-g2-t1-u04": [
+          "認識樹朋友",
+          "親近樹朋友",
+          "愛護樹朋友"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g2-t1-u05",
+      "source_unit_ids": [
+        "s-na-g2-t1-u05"
+      ],
+      "grade": 2,
+      "semester": 1,
+      "title": "和風做朋友",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "和風做朋友"
+      ],
+      "source_activities": {
+        "s-na-g2-t1-u05": [
+          "風兒在哪裡",
+          "風兒真奇妙",
+          "和風一起玩"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g2-t1-u06",
+      "source_unit_ids": [
+        "s-na-g2-t1-u06"
+      ],
+      "grade": 2,
+      "semester": 1,
+      "title": "冬天",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "冬天"
+      ],
+      "source_activities": {
+        "s-na-g2-t1-u06": [
+          "冷冷的天氣",
+          "預防天冷好方法",
+          "冬天送溫暖"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g2-t2-u01",
+      "source_unit_ids": [
+        "s-kh-g2-t2-u01"
+      ],
+      "grade": 2,
+      "semester": 2,
+      "title": "減塑行動家",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "減塑行動家"
+      ],
+      "source_activities": {
+        "s-kh-g2-t2-u01": [
+          "塑膠垃圾好可怕",
+          "我的減塑行動"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g2-t2-u02",
+      "source_unit_ids": [
+        "s-kh-g2-t2-u02",
+        "s-na-g2-t2-u02"
+      ],
+      "grade": 2,
+      "semester": 2,
+      "title": "奇妙的種子",
+      "evidence": "種子觀察與萌發為共同主題，保留種植活動",
+      "source_titles": [
+        "奇妙的種子",
+        "小種子長大了"
+      ],
+      "source_activities": {
+        "s-kh-g2-t2-u02": [
+          "種子藏哪裡",
+          "種子大發現"
+        ],
+        "s-na-g2-t2-u02": [
+          "種子在哪裡",
+          "一起來種吧！",
+          "種子發芽了"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g2-t2-u03",
+      "source_unit_ids": [
+        "s-kh-g2-t2-u03",
+        "s-na-g2-t2-u03"
+      ],
+      "grade": 2,
+      "semester": 2,
+      "title": "彩色的世界",
+      "evidence": "生活色彩探索為共同主題",
+      "source_titles": [
+        "彩色的世界",
+        "美麗的彩色世界"
+      ],
+      "source_activities": {
+        "s-kh-g2-t2-u03": [
+          "色彩大發現",
+          "色彩會說話",
+          "色彩大集合"
+        ],
+        "s-na-g2-t2-u03": [
+          "一起找顏色",
+          "色彩很特別",
+          "色彩真奇妙"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g2-t2-u04",
+      "source_unit_ids": [
+        "s-kh-g2-t2-u04"
+      ],
+      "grade": 2,
+      "semester": 2,
+      "title": "有您真好",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "有您真好"
+      ],
+      "source_activities": {
+        "s-kh-g2-t2-u04": [
+          "我和家人能溝通",
+          "感謝家人我愛您"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g2-t2-u05",
+      "source_unit_ids": [
+        "s-kh-g2-t2-u05"
+      ],
+      "grade": 2,
+      "semester": 2,
+      "title": "磁鐵真好玩",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "磁鐵真好玩"
+      ],
+      "source_activities": {
+        "s-kh-g2-t2-u05": [
+          "磁鐵妙用多",
+          "磁鐵找朋友",
+          "磁鐵小創客"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g2-t2-u06",
+      "source_unit_ids": [
+        "s-kh-g2-t2-u06",
+        "s-na-g2-t2-u06"
+      ],
+      "grade": 2,
+      "semester": 2,
+      "title": "我的成長故事",
+      "evidence": "成長回顧與新學年準備為共同主題",
+      "source_titles": [
+        "我的成長故事",
+        "成長與學習"
+      ],
+      "source_activities": {
+        "s-kh-g2-t2-u06": [
+          "快樂的學習",
+          "迎向三年級"
+        ],
+        "s-na-g2-t2-u06": [
+          "成長的發現",
+          "迎接新生活"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g2-t2-u01",
+      "source_unit_ids": [
+        "s-na-g2-t2-u01"
+      ],
+      "grade": 2,
+      "semester": 2,
+      "title": "有你真好",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "有你真好"
+      ],
+      "source_activities": {
+        "s-na-g2-t2-u01": [
+          "謝謝你的幫忙",
+          "校園生活中幫助我們的人"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g2-t2-u04",
+      "source_unit_ids": [
+        "s-na-g2-t2-u04"
+      ],
+      "grade": 2,
+      "semester": 2,
+      "title": "環保達人",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "環保達人"
+      ],
+      "source_activities": {
+        "s-na-g2-t2-u04": [
+          "大掃除時間",
+          "垃圾減量大作戰",
+          "神奇變身術"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g2-t2-u05",
+      "source_unit_ids": [
+        "s-na-g2-t2-u05"
+      ],
+      "grade": 2,
+      "semester": 2,
+      "title": "光和影",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "光和影"
+      ],
+      "source_activities": {
+        "s-na-g2-t2-u05": [
+          "和影子玩遊戲",
+          "光影好朋友",
+          "影子表演秀"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g3-t1-u01",
+      "source_unit_ids": [
+        "s-kh-g3-t1-u01",
+        "s-na-g3-t1-u01"
+      ],
+      "grade": 3,
+      "semester": 1,
+      "title": "多采多姿的植物",
+      "evidence": "植物構造、環境與功能為共同主題；保留花果種子與生活關聯等差異",
+      "source_titles": [
+        "多采多姿的植物",
+        "認識植物"
+      ],
+      "source_activities": {
+        "s-kh-g3-t1-u01": [
+          "植物是什麼",
+          "植物如何獲取陽光和水",
+          "花、果實和種子有什麼功能"
+        ],
+        "s-na-g3-t1-u01": [
+          "植物與環境",
+          "植物的身體",
+          "植物與生活"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g3-t1-u02",
+      "source_unit_ids": [
+        "s-kh-g3-t1-u02"
+      ],
+      "grade": 3,
+      "semester": 1,
+      "title": "生活中的力",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "生活中的力"
+      ],
+      "source_activities": {
+        "s-kh-g3-t1-u02": [
+          "力的現象有哪些",
+          "磁力有什麼特性",
+          "還有什麼不一樣的力"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g3-t1-u03",
+      "source_unit_ids": [
+        "s-kh-g3-t1-u03"
+      ],
+      "grade": 3,
+      "semester": 1,
+      "title": "奇妙的空氣",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "奇妙的空氣"
+      ],
+      "source_activities": {
+        "s-kh-g3-t1-u03": [
+          "空氣在哪裡",
+          "空氣還有什麼特性",
+          "乾淨空氣重要嗎"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g3-t1-u04",
+      "source_unit_ids": [
+        "s-kh-g3-t1-u04"
+      ],
+      "grade": 3,
+      "semester": 1,
+      "title": "廚房裡的科學",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "廚房裡的科學"
+      ],
+      "source_activities": {
+        "s-kh-g3-t1-u04": [
+          "如何辨認廚房中的材料",
+          "如何增加物質溶解的量",
+          "怎麼辨認水溶液的酸鹼"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g3-t1-u02",
+      "source_unit_ids": [
+        "s-na-g3-t1-u02"
+      ],
+      "grade": 3,
+      "semester": 1,
+      "title": "空氣和水",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "空氣和水"
+      ],
+      "source_activities": {
+        "s-na-g3-t1-u02": [
+          "空氣和水的特性",
+          "空氣和水的壓縮與傳動",
+          "流動的空氣"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g3-t1-u03",
+      "source_unit_ids": [
+        "s-na-g3-t1-u03"
+      ],
+      "grade": 3,
+      "semester": 1,
+      "title": "認識動物",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "認識動物"
+      ],
+      "source_activities": {
+        "s-na-g3-t1-u03": [
+          "動物的身體",
+          "動物的運動",
+          "動物與生活"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g3-t1-u04",
+      "source_unit_ids": [
+        "s-na-g3-t1-u04"
+      ],
+      "grade": 3,
+      "semester": 1,
+      "title": "磁鐵",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "磁鐵"
+      ],
+      "source_activities": {
+        "s-na-g3-t1-u04": [
+          "磁力的探討",
+          "磁鐵的特性",
+          "磁鐵與生活"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g3-t2-u01",
+      "source_unit_ids": [
+        "s-kh-g3-t2-u01",
+        "s-na-g3-t2-u01"
+      ],
+      "grade": 3,
+      "semester": 2,
+      "title": "田園樂",
+      "evidence": "蔬菜種植、生長與照顧為共同主題",
+      "source_titles": [
+        "田園樂",
+        "種菜好好玩"
+      ],
+      "source_activities": {
+        "s-kh-g3-t2-u01": [
+          "蔬菜是從哪裡來的",
+          "哪些因素會影響蔬菜生長",
+          "蔬菜生長會經歷哪些變化"
+        ],
+        "s-na-g3-t2-u01": [
+          "菜園裡的菜",
+          "照顧蔬菜",
+          "蔬菜長大了"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g3-t2-u02",
+      "source_unit_ids": [
+        "s-kh-g3-t2-u02",
+        "s-na-g3-t2-u02"
+      ],
+      "grade": 3,
+      "semester": 2,
+      "title": "溫度變化對物質的影響",
+      "evidence": "溫度改變對水及其他物質的影響為共同主題",
+      "source_titles": [
+        "溫度變化對物質的影響",
+        "溫度與物質變化的關係"
+      ],
+      "source_activities": {
+        "s-kh-g3-t2-u02": [
+          "什麼因素會影響物質變化",
+          "溫度改變對水有哪些變化",
+          "溫度改變對其他物質有什麼影響"
+        ],
+        "s-na-g3-t2-u02": [
+          "物質變化的現象",
+          "溫度改變對水的影響",
+          "溫度改變對物質的影響"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g3-t2-u03",
+      "source_unit_ids": [
+        "s-kh-g3-t2-u03"
+      ],
+      "grade": 3,
+      "semester": 2,
+      "title": "我是動物解說員",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "我是動物解說員"
+      ],
+      "source_activities": {
+        "s-kh-g3-t2-u03": [
+          "動物身體構造和功能有關嗎",
+          "動物身體構造和適應環境有關嗎",
+          "動物有什麼生存法寶"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g3-t2-u04",
+      "source_unit_ids": [
+        "s-kh-g3-t2-u04",
+        "s-na-g3-t2-u03"
+      ],
+      "grade": 3,
+      "semester": 2,
+      "title": "天氣變變變",
+      "evidence": "天氣觀測紀錄與資訊應用為共同主題",
+      "source_titles": [
+        "天氣變變變",
+        "天氣特派員"
+      ],
+      "source_activities": {
+        "s-kh-g3-t2-u04": [
+          "天氣對生活有何影響",
+          "如何觀測天氣",
+          "如何應用氣象資訊"
+        ],
+        "s-na-g3-t2-u03": [
+          "認識天氣與天氣資訊",
+          "測量與記錄天氣",
+          "天氣變化與生活"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g3-t2-u04",
+      "source_unit_ids": [
+        "s-na-g3-t2-u04"
+      ],
+      "grade": 3,
+      "semester": 2,
+      "title": "廚房中的科學",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "廚房中的科學"
+      ],
+      "source_activities": {
+        "s-na-g3-t2-u04": [
+          "認識廚房裡的材料",
+          "物質能溶解的量",
+          "菜汁變色了"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g4-t1-u01",
+      "source_unit_ids": [
+        "s-kh-g4-t1-u01"
+      ],
+      "grade": 4,
+      "semester": 1,
+      "title": "地表的靜與動",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "地表的靜與動"
+      ],
+      "source_activities": {
+        "s-kh-g4-t1-u01": [
+          "地表物質有什麼",
+          "地表環境會變動嗎",
+          "怎樣做好地震防災"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g4-t1-u02",
+      "source_unit_ids": [
+        "s-kh-g4-t1-u02",
+        "s-na-g4-t1-u02"
+      ],
+      "grade": 4,
+      "semester": 1,
+      "title": "水生生物與環境",
+      "evidence": "水生生物的環境、構造、適應與保護為共同主題",
+      "source_titles": [
+        "水生生物與環境",
+        "水中世界"
+      ],
+      "source_activities": {
+        "s-kh-g4-t1-u02": [
+          "生物生存的環境都相同嗎",
+          "水生生物如何適應環境",
+          "如何愛護環境"
+        ],
+        "s-na-g4-t1-u02": [
+          "水中生物的生長環境",
+          "水中生物的外形與構造",
+          "愛護水域環境"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g4-t1-u03",
+      "source_unit_ids": [
+        "s-kh-g4-t1-u03"
+      ],
+      "grade": 4,
+      "semester": 1,
+      "title": "有趣的聲光現象",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "有趣的聲光現象"
+      ],
+      "source_activities": {
+        "s-kh-g4-t1-u03": [
+          "聲音如何產生和傳播",
+          "光有什麼特性",
+          "如何應用聲與光"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g4-t1-u04",
+      "source_unit_ids": [
+        "s-kh-g4-t1-u04",
+        "s-na-g4-t1-u04"
+      ],
+      "grade": 4,
+      "semester": 1,
+      "title": "好玩的電路",
+      "evidence": "燈泡電路、串並聯與生活用電為共同主題",
+      "source_titles": [
+        "好玩的電路",
+        "電路好好玩"
+      ],
+      "source_activities": {
+        "s-kh-g4-t1-u04": [
+          "如何讓燈泡發亮",
+          "電路有哪些連接方式",
+          "用電觀念知多少"
+        ],
+        "s-na-g4-t1-u04": [
+          "讓燈泡亮的方式",
+          "電路的串聯和並聯",
+          "生活中的電"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g4-t1-u01",
+      "source_unit_ids": [
+        "s-na-g4-t1-u01"
+      ],
+      "grade": 4,
+      "semester": 1,
+      "title": "地球的夥伴—日月星辰",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "地球的夥伴—日月星辰"
+      ],
+      "source_activities": {
+        "s-na-g4-t1-u01": [
+          "太陽、月亮與星星",
+          "多變的月亮",
+          "月相變化與生活"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g4-t1-u03",
+      "source_unit_ids": [
+        "s-na-g4-t1-u03"
+      ],
+      "grade": 4,
+      "semester": 1,
+      "title": "光和能源",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "光和能源"
+      ],
+      "source_activities": {
+        "s-na-g4-t1-u03": [
+          "光的行進方向",
+          "能量和能源轉換",
+          "節能減碳"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g4-t2-u01",
+      "source_unit_ids": [
+        "s-kh-g4-t2-u01"
+      ],
+      "grade": 4,
+      "semester": 2,
+      "title": "白天和夜晚的天空",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "白天和夜晚的天空"
+      ],
+      "source_activities": {
+        "s-kh-g4-t2-u01": [
+          "日夜景象有什麼不同",
+          "一天中太陽的位置會改變嗎",
+          "月亮每天都在變嗎"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g4-t2-u02",
+      "source_unit_ids": [
+        "s-kh-g4-t2-u02",
+        "s-na-g4-t2-u03"
+      ],
+      "grade": 4,
+      "semester": 2,
+      "title": "水的移動",
+      "evidence": "毛細、連通管與虹吸等水移動現象為共同主題",
+      "source_titles": [
+        "水的移動",
+        "水的移動"
+      ],
+      "source_activities": {
+        "s-kh-g4-t2-u02": [
+          "毛細現象有什麼特性",
+          "虹吸現象有什麼特性",
+          "連通管原理有什麼特性"
+        ],
+        "s-na-g4-t2-u03": [
+          "水怎麼移動",
+          "認識連通管原理的特性",
+          "認識虹吸現象的特性"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g4-t2-u03",
+      "source_unit_ids": [
+        "s-kh-g4-t2-u03",
+        "s-na-g4-t2-u02"
+      ],
+      "grade": 4,
+      "semester": 2,
+      "title": "昆蟲大解密",
+      "evidence": "昆蟲構造、成長適應與生活關聯為共同主題",
+      "source_titles": [
+        "昆蟲大解密",
+        "昆蟲家族"
+      ],
+      "source_activities": {
+        "s-kh-g4-t2-u03": [
+          "昆蟲在哪裡",
+          "昆蟲如何適應環境與成長",
+          "昆蟲重要嗎"
+        ],
+        "s-na-g4-t2-u02": [
+          "認識昆蟲",
+          "昆蟲的一生",
+          "昆蟲與生活"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g4-t2-u04",
+      "source_unit_ids": [
+        "s-kh-g4-t2-u04"
+      ],
+      "grade": 4,
+      "semester": 2,
+      "title": "自然資源與利用",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "自然資源與利用"
+      ],
+      "source_activities": {
+        "s-kh-g4-t2-u04": [
+          "能量重要嗎",
+          "如何運用自然資源",
+          "開發自然資源會有什麼影響"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g4-t2-u01",
+      "source_unit_ids": [
+        "s-na-g4-t2-u01"
+      ],
+      "grade": 4,
+      "semester": 2,
+      "title": "生活中有趣的力",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "生活中有趣的力"
+      ],
+      "source_activities": {
+        "s-na-g4-t2-u01": [
+          "生活中的各種力",
+          "力的表示方法",
+          "浮力"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g4-t2-u04",
+      "source_unit_ids": [
+        "s-na-g4-t2-u04"
+      ],
+      "grade": 4,
+      "semester": 2,
+      "title": "了解臺灣的環境",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "了解臺灣的環境"
+      ],
+      "source_activities": {
+        "s-na-g4-t2-u04": [
+          "認識地表環境",
+          "變動的地表環境",
+          "地震與防災"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g5-t1-u01",
+      "source_unit_ids": [
+        "s-kh-g5-t1-u01"
+      ],
+      "grade": 5,
+      "semester": 1,
+      "title": "動物世界",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "動物世界"
+      ],
+      "source_activities": {
+        "s-kh-g5-t1-u01": [
+          "動物如何求生存",
+          "動物具有社會行為嗎",
+          "動物如何延續生命"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g5-t1-u02",
+      "source_unit_ids": [
+        "s-kh-g5-t1-u02"
+      ],
+      "grade": 5,
+      "semester": 1,
+      "title": "探索聲光世界",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "探索聲光世界"
+      ],
+      "source_activities": {
+        "s-kh-g5-t1-u02": [
+          "樂音與噪音有什麼不同",
+          "樂器如何發出不同的聲音",
+          "光有什麼特性與現象"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g5-t1-u03",
+      "source_unit_ids": [
+        "s-kh-g5-t1-u03"
+      ],
+      "grade": 5,
+      "semester": 1,
+      "title": "神祕的天空",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "神祕的天空"
+      ],
+      "source_activities": {
+        "s-kh-g5-t1-u03": [
+          "太陽的位置和四季有關嗎",
+          "太陽系有哪些成員",
+          "四季的星空有什麼不一樣"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g5-t1-u04",
+      "source_unit_ids": [
+        "s-kh-g5-t1-u04"
+      ],
+      "grade": 5,
+      "semester": 1,
+      "title": "燃燒與生鏽",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "燃燒與生鏽"
+      ],
+      "source_activities": {
+        "s-kh-g5-t1-u04": [
+          "空氣與燃燒有什麼關係",
+          "燃燒的條件與如何滅火",
+          "為何會生鏽與如何防鏽"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g5-t1-u01",
+      "source_unit_ids": [
+        "s-na-g5-t1-u01"
+      ],
+      "grade": 5,
+      "semester": 1,
+      "title": "太陽與光",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "太陽與光"
+      ],
+      "source_activities": {
+        "s-na-g5-t1-u01": [
+          "太陽在天空中的位置變化",
+          "認識光的現象與特性"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g5-t1-u02",
+      "source_unit_ids": [
+        "s-na-g5-t1-u02"
+      ],
+      "grade": 5,
+      "semester": 1,
+      "title": "植物世界",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "植物世界"
+      ],
+      "source_activities": {
+        "s-na-g5-t1-u02": [
+          "植物根莖葉的功能",
+          "植物的繁殖",
+          "植物與人類生活"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g5-t1-u03",
+      "source_unit_ids": [
+        "s-na-g5-t1-u03"
+      ],
+      "grade": 5,
+      "semester": 1,
+      "title": "水溶液",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "水溶液"
+      ],
+      "source_activities": {
+        "s-na-g5-t1-u03": [
+          "溶解現象",
+          "水溶液的酸鹼性",
+          "水溶液的導電性"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g5-t1-u04",
+      "source_unit_ids": [
+        "s-na-g5-t1-u04"
+      ],
+      "grade": 5,
+      "semester": 1,
+      "title": "力與運動",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "力與運動"
+      ],
+      "source_activities": {
+        "s-na-g5-t1-u04": [
+          "力的測量",
+          "摩擦力",
+          "運動狀態的快慢"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g5-t2-u01",
+      "source_unit_ids": [
+        "s-kh-g5-t2-u01"
+      ],
+      "grade": 5,
+      "semester": 2,
+      "title": "力與運動",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "力與運動"
+      ],
+      "source_activities": {
+        "s-kh-g5-t2-u01": [
+          "力有哪些種類",
+          "力對物體運動狀態有何影響",
+          "如何知道物體運動的快慢"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g5-t2-u02",
+      "source_unit_ids": [
+        "s-kh-g5-t2-u02"
+      ],
+      "grade": 5,
+      "semester": 2,
+      "title": "大地的奧祕",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "大地的奧祕"
+      ],
+      "source_activities": {
+        "s-kh-g5-t2-u02": [
+          "地層裡有什麼",
+          "大地如何變動",
+          "大地變動有什麼影響"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g5-t2-u03",
+      "source_unit_ids": [
+        "s-kh-g5-t2-u03"
+      ],
+      "grade": 5,
+      "semester": 2,
+      "title": "植物世界面面觀",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "植物世界面面觀"
+      ],
+      "source_activities": {
+        "s-kh-g5-t2-u03": [
+          "植物如何製造養分",
+          "植物有哪些繁殖方式",
+          "植物有哪些妙招"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g5-t2-u04",
+      "source_unit_ids": [
+        "s-kh-g5-t2-u04"
+      ],
+      "grade": 5,
+      "semester": 2,
+      "title": "熱的作用與傳播",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "熱的作用與傳播"
+      ],
+      "source_activities": {
+        "s-kh-g5-t2-u04": [
+          "溫度改變對物質的體積有何影響",
+          "熱是如何傳播",
+          "如何保溫與散熱"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g5-t2-u01",
+      "source_unit_ids": [
+        "s-na-g5-t2-u01"
+      ],
+      "grade": 5,
+      "semester": 2,
+      "title": "星星的世界",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "星星的世界"
+      ],
+      "source_activities": {
+        "s-na-g5-t2-u01": [
+          "認識星空",
+          "觀測星空",
+          "星星的移動"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g5-t2-u02",
+      "source_unit_ids": [
+        "s-na-g5-t2-u02"
+      ],
+      "grade": 5,
+      "semester": 2,
+      "title": "認識燃燒與生鏽",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "認識燃燒與生鏽"
+      ],
+      "source_activities": {
+        "s-na-g5-t2-u02": [
+          "空氣與燃燒的關係",
+          "氧氣和二氧化碳的特性",
+          "空氣與生鏽的關係"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g5-t2-u03",
+      "source_unit_ids": [
+        "s-na-g5-t2-u03"
+      ],
+      "grade": 5,
+      "semester": 2,
+      "title": "動物的生活",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "動物的生活"
+      ],
+      "source_activities": {
+        "s-na-g5-t2-u03": [
+          "動物的身體構造和運動",
+          "動物求生存的方式",
+          "動物延續生命的方式"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g5-t2-u04",
+      "source_unit_ids": [
+        "s-na-g5-t2-u04"
+      ],
+      "grade": 5,
+      "semester": 2,
+      "title": "聲音與樂器",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "聲音與樂器"
+      ],
+      "source_activities": {
+        "s-na-g5-t2-u04": [
+          "認識聲音三要素",
+          "製作簡易樂器",
+          "噪音與防治"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g6-t1-u01",
+      "source_unit_ids": [
+        "s-kh-g6-t1-u01",
+        "s-na-g6-t1-u01"
+      ],
+      "grade": 6,
+      "semester": 1,
+      "title": "探索天氣的變化",
+      "evidence": "水氣、天氣圖與天氣變化為共同主題，保留康軒氣候與南一颱風內容",
+      "source_titles": [
+        "探索天氣的變化",
+        "多樣的天氣變化"
+      ],
+      "source_activities": {
+        "s-kh-g6-t1-u01": [
+          "什麼是天氣變化的主角",
+          "如何預測天氣變化",
+          "氣候正在改變嗎"
+        ],
+        "s-na-g6-t1-u01": [
+          "大氣中的水",
+          "天氣圖與天氣變化",
+          "認識颱風"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g6-t1-u02",
+      "source_unit_ids": [
+        "s-kh-g6-t1-u02"
+      ],
+      "grade": 6,
+      "semester": 1,
+      "title": "水溶液",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "水溶液"
+      ],
+      "source_activities": {
+        "s-kh-g6-t1-u02": [
+          "物質溶解後消失了嗎",
+          "水溶液可以導電嗎",
+          "水溶液的酸鹼性可以改變嗎"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g6-t1-u03",
+      "source_unit_ids": [
+        "s-kh-g6-t1-u03"
+      ],
+      "grade": 6,
+      "semester": 1,
+      "title": "動物大解密",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "動物大解密"
+      ],
+      "source_activities": {
+        "s-kh-g6-t1-u03": [
+          "動物如何運動",
+          "動物如何呼吸",
+          "動物與我們生活有關嗎"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g6-t1-u04",
+      "source_unit_ids": [
+        "s-kh-g6-t1-u04",
+        "s-na-g6-t1-u04"
+      ],
+      "grade": 6,
+      "semester": 1,
+      "title": "電磁作用",
+      "evidence": "地磁指北針、電磁鐵及其應用為共同主題",
+      "source_titles": [
+        "電磁作用",
+        "奇妙的電磁世界"
+      ],
+      "source_activities": {
+        "s-kh-g6-t1-u04": [
+          "指北針為何能辨認方位",
+          "電磁鐵是什麼",
+          "電磁作用對生活有什麼影響"
+        ],
+        "s-na-g6-t1-u04": [
+          "指北針與地磁",
+          "神奇的電磁鐵",
+          "電磁作用與生活的關係"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g6-t1-u02",
+      "source_unit_ids": [
+        "s-na-g6-t1-u02"
+      ],
+      "grade": 6,
+      "semester": 1,
+      "title": "熱對物質的影響",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "熱對物質的影響"
+      ],
+      "source_activities": {
+        "s-na-g6-t1-u02": [
+          "物質受熱後的變化",
+          "熱的傳播方式",
+          "保溫與散熱"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g6-t1-u03",
+      "source_unit_ids": [
+        "s-na-g6-t1-u03"
+      ],
+      "grade": 6,
+      "semester": 1,
+      "title": "變動的大地",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "變動的大地"
+      ],
+      "source_activities": {
+        "s-na-g6-t1-u03": [
+          "流水的作用",
+          "水岸地貌",
+          "地表組成"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g6-t2-u01",
+      "source_unit_ids": [
+        "s-kh-g6-t2-u01",
+        "s-na-g6-t2-u01"
+      ],
+      "grade": 6,
+      "semester": 2,
+      "title": "簡單機械",
+      "evidence": "槓桿、輪軸、滑輪及動力傳送為共同主題",
+      "source_titles": [
+        "簡單機械",
+        "巧妙的施力工具"
+      ],
+      "source_activities": {
+        "s-kh-g6-t2-u01": [
+          "如何運用槓桿原理",
+          "輪軸與滑輪如何便利生活",
+          "還有哪些傳送動力的機械"
+        ],
+        "s-na-g6-t2-u01": [
+          "認識槓桿",
+          "滑輪與輪軸",
+          "傳送動力"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g6-t2-u02",
+      "source_unit_ids": [
+        "s-kh-g6-t2-u02"
+      ],
+      "grade": 6,
+      "semester": 2,
+      "title": "能量與生活",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "能量與生活"
+      ],
+      "source_activities": {
+        "s-kh-g6-t2-u02": [
+          "能量如何互相轉換",
+          "生活中如何利用能源"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-kh-g6-t2-u03",
+      "source_unit_ids": [
+        "s-kh-g6-t2-u03",
+        "s-na-g6-t2-u02"
+      ],
+      "grade": 6,
+      "semester": 2,
+      "title": "地球的生態",
+      "evidence": "生物關係與生態系為共同主題，保留生物多樣性及族群群集內容",
+      "source_titles": [
+        "地球的生態",
+        "地球的環境與生態"
+      ],
+      "source_activities": {
+        "s-kh-g6-t2-u03": [
+          "生物彼此間有什麼關係",
+          "不同生態系中的生物有什麼不同",
+          "如何維護生物多樣性"
+        ],
+        "s-na-g6-t2-u02": [
+          "族群與群集",
+          "生物間的交互作用",
+          "地球的生態系"
+        ]
+      }
+    },
+    {
+      "canonical_id": "s-na-g6-t2-u03",
+      "source_unit_ids": [
+        "s-na-g6-t2-u03"
+      ],
+      "grade": 6,
+      "semester": 2,
+      "title": "我們只有一個地球",
+      "evidence": "獨有或僅部分重疊主題，保守保留獨立單元",
+      "source_titles": [
+        "我們只有一個地球"
+      ],
+      "source_activities": {
+        "s-na-g6-t2-u03": [
+          "臺灣的生態",
+          "人類活動對環境的影響",
+          "打造永續家園"
+        ]
+      }
+    }
+  ],
+  "not_merged_examples": [
+    "二下有您真好（家人溝通）與有你真好（校園幫助者）名稱相似但對象不同",
+    "三上生活中的力與磁鐵只有部分重疊，前者含多種力",
+    "三上奇妙的空氣與空氣和水只有部分重疊，後者包含水與傳動",
+    "四上有趣的聲光現象與光和能源只有光部分重疊",
+    "五上太陽與光與神祕的天空/探索聲光世界橫跨兩個主題，不按標題併入單一來源",
+    "六下地球的環境與生態與我們只有一個地球不同；後者保留臺灣環境/永續行動獨立單元"
+  ]
+}

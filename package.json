@@ -29,7 +29,7 @@
     "test:nature-planet": "node --test tests/nature-planet/*.check.mjs",
     "test:resource-timing": "node --test tests/performance-diagnostics/*.check.mjs",
     "pretest:nature-planet": "python3 scripts/pack-nature-assets.py --verify-manifest",
-    "pretest:science-curriculum": "python3 scripts/split-science-curriculum.py --verify"
+    "pretest:science-curriculum": "python3 scripts/split-science-curriculum.py --verify && python3 scripts/integrate-science-curriculum.py && python3 scripts/integrate-science-curriculum.py --verify"
   },
   "dependencies": {
     "pixi.js": "^8.18.1",

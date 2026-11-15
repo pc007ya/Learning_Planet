@@ -7,3 +7,6 @@ tmp/
 
 # Reproducible lossless nature-model transport outputs
 *.glb.gzip.bin
+
+# Integrated curriculum generated from preserved source banks
+data/science-curriculum/scoped/all-g*-t*-*.json
