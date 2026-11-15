@@ -23,3 +23,31 @@ test('lost identity or lease cannot save timeout',()=>{
  const m=memory();let allowed=true;const s=createProgressStore(m,'a',{canWrite:()=>allowed});s.update(x=>x.units.u={attempts:[],seen:[],active:run()});allowed=false;
  assert.equal(s.update(x=>x.units.u.active.answers.q=timeoutAnswer('q')),false);assert.deepEqual(createProgressStore(m,'a').read().units.u.active.answers,{});
 });
+
+import {localDay,dailyQuestionSeconds,startQuestionClock,resumeQuestionClock} from '../../modules/science-curriculum/quiz-timer.mjs';
+test('local-day real perfect rounds advance 30/25/20; failures and duplicate receipts do not',()=>{
+ const now=new Date(2026,10,15,10).getTime();
+ const perfect=(id)=>({id,completed:now,total:1,correct:1,answers:[{correct:true}]});
+ assert.equal(dailyQuestionSeconds([],now),30);
+ assert.equal(dailyQuestionSeconds([perfect('a')],now),25);
+ assert.equal(dailyQuestionSeconds([perfect('a'),perfect('a')],now),25);
+ assert.equal(dailyQuestionSeconds([perfect('a'),perfect('b'),perfect('c')],now),20);
+ assert.equal(dailyQuestionSeconds([{...perfect('a'),correct:0}],now),30);
+ assert.equal(dailyQuestionSeconds([perfect('a')],new Date(2026,10,16,0).getTime()),30);
+});
+test('explicit reentry restores full budget; background expiration unchanged; stale unanswered resume preserves answers',()=>{
+ const now=new Date(2026,10,15,10).getTime(),r=run();startQuestionClock(r,[],now);
+ assert.equal(secondsRemaining(r.questionDeadline,now),30);
+ resumeQuestionClock(r,[],now+3600000);
+ assert.equal(secondsRemaining(r.questionDeadline,now+3600000),30);
+ assert.equal(secondsRemaining(r.questionDeadline,now+3700000),0);
+ const old=run(),before=JSON.stringify(old.answers);resumeQuestionClock(old,[],now);
+ assert.equal(secondsRemaining(old.questionDeadline,now),30);assert.equal(JSON.stringify(old.answers),before);assert.equal(old.id,'run');
+ old.answers.q=timeoutAnswer('q',now);const snapshot=structuredClone(old);resumeQuestionClock(old,[],now+3600000);assert.deepEqual(old,snapshot);
+});
+test('switching question starts full daily budget and next day restarts 30 without resetting prior answers',()=>{
+ const now=new Date(2026,10,15,23,59).getTime(),r=run(),a=[{id:'a',completed:now,total:1,correct:1,answers:[{correct:true}]}];
+ startQuestionClock(r,a,now);assert.equal(secondsRemaining(r.questionDeadline,now),25);
+ startQuestionClock(r,a,now+1000);assert.equal(secondsRemaining(r.questionDeadline,now+1000),25);
+ const tomorrow=new Date(2026,10,16,0).getTime();resumeQuestionClock(r,a,tomorrow);assert.equal(secondsRemaining(r.questionDeadline,tomorrow),30);assert.equal(r.timerDay,localDay(tomorrow));
+});

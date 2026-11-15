@@ -170,3 +170,46 @@ test('math-style panel keeps selection separate from submission and shows analys
 test('new active learner can open before the stale identity watcher ticks',async()=>{
  setup();storageMap.clear();let oldActive=true;await openScienceCurriculum({learnerId:'immediate-old',isActive:()=>oldActive});click('[data-unit-id]');const key='lp-science-curriculum-candidate-v2:immediate-old',before=localStorage.getItem(key);oldActive=false;const close=await openScienceCurriculum({grade:2,learnerId:'immediate-new'});assert.equal(document.querySelectorAll('dialog').length,1);click('[data-unit-id]');assert.equal(localStorage.getItem(key),before);assert.ok(JSON.parse(localStorage.getItem('lp-science-curriculum-candidate-v2:immediate-new')).units['s-kh-g2-t1-u01']);await close();
 });
+
+test('old expired unanswered resume gets 30 seconds; background timeout remains real and next question gets fresh time',async()=>{
+ setup();storageMap.clear();const originalNow=Date.now;let now=originalNow();Date.now=()=>now;
+ const key='lp-science-curriculum-candidate-v2:timer-resume';
+ try{
+  let close=await openScienceCurriculum({learnerId:'timer-resume'});click('[data-unit-id]');
+  assert.equal(document.querySelector('.sc-pace-circle strong').textContent,'30');
+  let saved=JSON.parse(localStorage.getItem(key)),id=Object.keys(saved.units)[0],runId=saved.units[id].active.id;
+  await close();now+=3600000;
+  close=await openScienceCurriculum({learnerId:'timer-resume'});click('[data-unit-id]');
+  assert.equal(document.querySelector('.sc-pace-circle strong').textContent,'30');
+  saved=JSON.parse(localStorage.getItem(key));assert.equal(saved.units[id].active.id,runId);assert.deepEqual(saved.units[id].active.answers,{});
+  now+=31000;document.dispatchEvent(new window.Event('visibilitychange'));await tick();
+  saved=JSON.parse(localStorage.getItem(key));const r=saved.units[id].active;
+  assert.equal(r.answers[r.questions[0].id].timedOut,true);
+  click('.sc-next');assert.equal(document.querySelector('.sc-pace-circle strong').textContent,'30');
+  assert.equal(JSON.parse(localStorage.getItem(key)).units[id].active.answers[r.questions[0].id].timedOut,true);
+  await close();
+ }finally{Date.now=originalNow;}
+});
+
+test('real completed rounds move nature timer 30 to 25 to 20; nonperfect stays; tomorrow returns 30',async()=>{
+ setup();storageMap.clear();const originalNow=Date.now;let now=new Date(2026,10,15,10).getTime();Date.now=()=>now;
+ const key='lp-science-curriculum-candidate-v2:timer-rounds';let close;
+ try{
+  close=await openScienceCurriculum({learnerId:'timer-rounds'});click('[data-unit-id]');
+  for(const [budget,perfect] of [[30,false],[30,true],[25,true],[20,true]]){
+   assert.equal(document.querySelector('.sc-pace-circle strong').textContent,String(budget));
+   for(let i=0;i<10;i++){
+    const state=JSON.parse(localStorage.getItem(key)),r=Object.values(state.units)[0].active,q=r.questions[r.index];
+    let choice=q.opts.indexOf(q.ans);if(!perfect&&i===0)choice=(choice+1)%4;
+    chooseAndSubmit('[data-option-index="'+choice+'"]');click('.sc-next');
+   }
+   clickText('再挑戰一次');
+  }
+  assert.equal(document.querySelector('.sc-pace-circle strong').textContent,'20');
+  const before=JSON.parse(localStorage.getItem(key)),attempts=Object.values(before.units)[0].attempts;
+  assert.equal(attempts.length,4);assert.deepEqual(attempts.map(a=>a.correct),[9,10,10,10]);
+  await close();now=new Date(2026,10,16,0,1).getTime();close=await openScienceCurriculum({learnerId:'timer-rounds'});click('[data-unit-id]');
+  assert.equal(document.querySelector('.sc-pace-circle strong').textContent,'30');
+  assert.deepEqual(Object.values(JSON.parse(localStorage.getItem(key)).units)[0].attempts,attempts);
+ }finally{await close?.();Date.now=originalNow;}
+});

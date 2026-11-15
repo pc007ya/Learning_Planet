@@ -1,5 +1,5 @@
 import {createResultPresenter} from './result-presenter.mjs';
-import {QUESTION_SECONDS,secondsRemaining,timeoutAnswer} from './quiz-timer.mjs';
+import {QUESTION_SECONDS,secondsRemaining,timeoutAnswer,startQuestionClock,resumeQuestionClock} from './quiz-timer.mjs?v=20261115-timer-reentry-v1';
 import {integrateProgress,needsIntegration} from './integration-progress.mjs';
 import {loadIntegratedCurriculum} from './scoped-data.mjs?v=20261115-integrated-v1';
 import { isScienceCurriculumEnabled } from './rollout.mjs';
@@ -244,12 +244,14 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
         });
         if (compatible) {
           u.questionPool = engine.reconcilePool(unit.id, u.questionPool || null, { legacySeen, allowCandidate: true });
+          resumeQuestionClock(saved, u.attempts);
         } else {
           const built = engine.createCycleRound(unit.id, { pool: u.questionPool || null, legacySeen, allowCandidate: true });
           if (saved && !saved.finished) (u.interrupted ||= []).push(saved);
           u.questionPool = built.pool;
           u.active = { id: crypto.randomUUID(), unitId: unit.id, requestedCount: 10, rewardEligible: true, questionDeadline: Date.now() + QUESTION_SECONDS * 1000, version: content.version || 'candidate-v3', started: Date.now(), questions: built.questions, answers: {}, index: 0, warnings: built.warnings, finished: false, poolCycleStart: built.poolCycleStart, poolCycleEnd: built.poolCycleEnd, poolSize: built.poolSize, questionCycles: built.questionCycles };
         }
+        if (!compatible) startQuestionClock(u.active, u.attempts);
         // A reserved round counts as allocated even when it is not completed.
         u.seen = [...new Set([...legacySeen, ...u.active.questions.map(q => q.id)])];
       });
@@ -292,7 +294,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     const ok = store.update(s => {
       const u = s.units[run.unitId], active = u?.active;
       if (!active || active.id !== run.id || active.index !== run.index || !active.answers[q.id] || active.finished) return;
-      if (active.index < active.questions.length - 1) { active.index++; active.questionDeadline = Date.now() + QUESTION_SECONDS * 1000; }
+      if (active.index < active.questions.length - 1) { active.index++; startQuestionClock(active, u.attempts); }
       else {
         if (Object.keys(active.answers).length !== active.questions.length) return;
         active.finished = true;
@@ -359,7 +361,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     line.append(textNode(selectedUnit.title, 'strong'), el('span', `第 ${run.index+1} / ${run.questions.length} 題`));
     const track = el('div', null, 'sc-progress-track'), fill = el('div', null, 'sc-progress-fill');
     track.setAttribute('role','progressbar');track.setAttribute('aria-label','本回作答進度');track.setAttribute('aria-valuemin','0');track.setAttribute('aria-valuemax',String(run.questions.length));track.setAttribute('aria-valuenow',String(Object.keys(run.answers).length));fill.style.width=(Object.keys(run.answers).length/run.questions.length*100)+'%';track.append(fill);copy.append(line,track);
-    const tools = el('div',null,'sc-quiz-tools'), pace=el('div',null,'sc-pace-circle');pace.setAttribute('aria-label','每題30秒');pace.append(el('strong',String(secondsRemaining(run.questionDeadline || Date.now()+30000))),el('small','秒'));
+    const tools = el('div',null,'sc-quiz-tools'), pace=el('div',null,'sc-pace-circle');pace.setAttribute('aria-label','本題限時'+(run.questionSeconds||30)+'秒');pace.append(el('strong',String(secondsRemaining(run.questionDeadline || Date.now()+30000))),el('small','秒'));
     const reading=button(readingBusy?'注音準備中':'ㄅ 注音',toggleReading,'sc-quiz-reading');reading.disabled=readingBusy;reading.setAttribute('aria-pressed',String(!!store.read().settings.zhuyin));const mute=button(speechMuted?'🔇 語音已靜音':'🔊 語音開啟',toggleSpeechMute,'sc-quiz-reading sc-speech-toggle');mute.setAttribute('aria-pressed',String(speechMuted));mute.setAttribute('aria-label',speechMuted?'開啟自動朗讀':'靜音自動朗讀');tools.append(pace,reading,mute);progress.append(back,copy,tools);layout.append(progress);
     const rail=el('aside',null,'sc-math-rail');
     const guidance=a?(a.correct?'答對了！再看看解釋，說說你用到的證據。':'沒關係，一起看看解釋，再想想怎麼判斷。'):'先讀題目，再比較選項；選好後按提交答案。';
@@ -381,7 +383,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     layout.append(analysis);
     const pool=store.read().units[selectedUnit.id]?.questionPool;
     const cycleNotice=run.poolCycleEnd>run.poolCycleStart?'前一輪題池已抽完，這回已開始下一輪；同一回合仍不重複。 ':'';
-    body.append(layout,el('p',cycleNotice+'每題30秒，切到背景仍倒數，返回後處理逾時。每回10題。第 '+(pool?.cycle??1)+' 輪題池尚有 '+(pool?.remainingIds.length??0)+' 題未抽；全部抽完後才開始下一輪。','sc-pool-status'));
+    body.append(layout,el('p',cycleNotice+'每日第一輪30秒；全對後25秒，再全對20秒。切到背景仍倒數；重新進入時未答題重新計時。每回10題。第 '+(pool?.cycle??1)+' 輪題池尚有 '+(pool?.remainingIds.length??0)+' 題未抽；全部抽完後才開始下一輪。','sc-pool-status'));
   }
   async function awardCurrent(finishedRun,retry=false){
     const id=finishedRun.id;
@@ -456,7 +458,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     stopTimer();
     if(closed||store?.error()||store?.readonly()||view!=='quiz'||!run||run.finished||run.answers[run.questions[run.index].id]||document.hidden||!ensureActive())return;
     if(!run.questionDeadline){
-      const ok=store.update(s=>{const active=s.units[run.unitId]?.active;if(active?.id===run.id&&!active.questionDeadline)active.questionDeadline=Date.now()+QUESTION_SECONDS*1000;});
+      const ok=store.update(s=>{const active=s.units[run.unitId]?.active;if(active?.id===run.id&&!active.questionDeadline)startQuestionClock(active,s.units[run.unitId].attempts);});
       if(!ok)return;run=store.read().units[run.unitId].active;
     }
     const tick=()=>{

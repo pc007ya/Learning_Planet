@@ -86,7 +86,7 @@ test('legacy tab shares learner lease with publisher mode and only draws after r
 
 test('legacy logout and browser Back close immediately, retain history and stop stale answer writes',async()=>{
   const env=setup();let active=true;const close=await openScienceCurriculum({curriculum:'legacy',unitId:'s1',learnerId:'logout',isActive:()=>active});const stale=document.querySelector('[data-option-index]'),before=env.storage.get(PREFIX+'logout');active=false;stale.click();await close();assert.equal(document.querySelectorAll('dialog').length,0);assert.equal(history.index,0);assert.equal(env.storage.get(PREFIX+'logout'),before);assert.equal(env.held.size,0);
-  const next=await openScienceCurriculum({curriculum:'legacy',unitId:'s1',learnerId:'logout'});history.back();await tick();assert.equal(document.querySelectorAll('dialog').length,0);assert.equal(history.index,0);stale.click();assert.equal(env.storage.get(PREFIX+'logout'),before);await next();
+  const next=await openScienceCurriculum({curriculum:'legacy',unitId:'s1',learnerId:'logout'});const resumed=env.storage.get(PREFIX+'logout');const oldRun=JSON.parse(before).units.s1.active,newRun=JSON.parse(resumed).units.s1.active;assert.deepEqual(newRun.answers,oldRun.answers);assert.deepEqual(newRun.questions,oldRun.questions);assert.equal(newRun.id,oldRun.id);history.back();await tick();assert.equal(document.querySelectorAll('dialog').length,0);assert.equal(history.index,0);stale.click();assert.equal(env.storage.get(PREFIX+'logout'),resumed);await next();
 });
 
 for(const id of ['s6','s7','s8','s20','s21','s24','s-kh-g1-t1-u01'])test(`legacy unknown or nonquiz ${id} fails closed without a fallback or profile write`,async t=>{
