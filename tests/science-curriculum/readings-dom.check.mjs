@@ -32,7 +32,7 @@ test('reading toggle annotates full stems and all options across grades without 
    const before=JSON.parse(localStorage.getItem(key));const uid=Object.keys(before.units)[0],deadline=before.units[uid].active.questionDeadline;
    const targets=()=>[document.querySelector('.sc-stem'),...document.querySelectorAll('.sc-option-text')];
    const original=targets().map(n=>n.textContent);
-   clickText('ㄅ 注音');await waitFor('.sc-reading');
+   clickText('ㄅ 注音');await waitFor('.sc-reading');assert.equal(document.querySelectorAll('.sc-notice:not(.sc-speech-status)').length,0,'successful toggle must not insert a layout-shifting notice');
    for(const [index,n]of targets().entries()){
     const bases=[...n.querySelectorAll('ruby')].map(r=>r.getAttribute('aria-label')).join('');
     const han=original[index].match(/\p{Script=Han}/gu)||[];

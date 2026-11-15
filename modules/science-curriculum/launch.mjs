@@ -226,7 +226,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     if (readingBusy) return;
     if (store.read().settings.zhuyin) { store.update(s => { s.settings.zhuyin = false; }); render(); return; }
     readingBusy = true; render();
-    try { readings = await import('./readings.mjs?v=20261115-complete-v1'); await readings.load(); if (closed) return; store.update(s => { s.settings.zhuyin = true; }); notice = '注音已開啟，可再次按注音按鈕關閉。'; }
+    try { readings = await import('./readings.mjs?v=20261115-complete-v1'); await readings.load(); if (closed) return; store.update(s => { s.settings.zhuyin = true; }); notice = ''; /* aria-pressed conveys success without a layout-shifting banner. */ }
     catch (_) { if (!closed) notice = '注音暫時無法載入，文字練習仍可使用。'; }
     finally { readingBusy = false; if (!closed) render(); }
   }
