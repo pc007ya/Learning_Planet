@@ -22,7 +22,7 @@
 <script src="./story-vocabulary-quiz.js?v=20261026-2"></script>
 <link rel="stylesheet" href="./story-vocabulary-quiz.css?v=20261026-2">
 <link rel="stylesheet" href="./modules/math-mission-map/style.css?v=20261110-v11-release1">
-<link rel="stylesheet" href="./modules/nature-planet/inline.css?v=20261114-inline-switch">
+<link rel="stylesheet" href="./modules/nature-planet/inline.css?v=20261115-tablet-v1">
 <script type="module" src="./modules/math-image-guard.mjs"></script>
 <script type="module" src="./modules/story-launch.mjs"></script>
 <script type="module" src="./modules/math-teaching/launch.mjs?v=20261106-grades456"></script>
@@ -47,7 +47,14 @@
 .story-vocabulary-books{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}.story-vocabulary-books button{flex:0 0 auto}
 .english-voice-settings{padding:10px 14px;margin:12px 0;background:#f3efff;border-radius:14px;color:#51446e}.english-voice-settings summary{cursor:pointer;font-weight:700}
 .english-voice-options{display:flex;gap:8px;flex-wrap:wrap;max-height:220px;overflow:auto}.english-voice-settings p{font-size:13px}
-</style></head>
+</style><style>
+.subject-world-toolbar:has(.math-mission-switch) .subject-world-filter{padding-right:260px}
+.subject-world-toolbar .math-mission-switch{position:absolute;right:50px;top:7px;padding:0;border:0}
+.subject-world-toolbar .math-mission-switch button{min-height:44px}
+.subject-world-toolbar .math-mission-switch>div{padding:0}
+@media(max-width:700px){.subject-world-toolbar:has(.math-mission-switch) .subject-world-filter{padding-right:215px}.subject-world-toolbar .math-mission-switch button{font-size:11px;padding:4px 7px}}
+</style>
+</head>
 <body>
 <x-dc>
 <template data-dc-template>
@@ -1715,7 +1722,6 @@
         </details>
         <sc-if value="{{ showMathKnowledge }}" hint-placeholder-val="{{ false }}">
           <div class="math-mission-switch">
-            <span>子單元呈現</span>
             <div role="group" aria-label="選擇數學子單元呈現方式">
               <button type="button" aria-pressed="{{ mathClassicActive }}" onClick="{{ showMathClassic }}">傳統</button>
               <button type="button" aria-pressed="{{ mathMissionActive }}" onClick="{{ showMathMissions }}">新版・3D 探索</button>
@@ -1724,7 +1730,6 @@
         </sc-if>
         <sc-if value="{{ showScienceMapSwitch }}" hint-placeholder-val="{{ false }}">
           <div class="math-mission-switch science-mission-switch">
-            <span>子單元呈現</span>
             <div role="group" aria-label="{{ scienceMapSwitchLabel }}">
               <button type="button" aria-pressed="{{ scienceClassicActive }}" onClick="{{ showScienceClassic }}">傳統</button>
               <button type="button" aria-pressed="{{ scienceMissionActive }}" onClick="{{ showScienceMissions }}">新版・3D 探索</button>
@@ -5486,7 +5491,7 @@ function readScienceMapView() {
 }
 function ScienceMissionMap(props) {
   const [View,setView]=React.useState(null),[failed,setFailed]=React.useState(false),[attempt,setAttempt]=React.useState(0);
-  React.useEffect(()=>{let active=true;setFailed(false);import("./modules/nature-planet/inline-view.mjs?v=20261114-unit-art-v2"+(attempt?"&retry="+attempt:"")).then(({createNatureInlineView})=>{if(active)setView(()=>createNatureInlineView(React));},()=>{if(active)setFailed(true);});return()=>{active=false;};},[attempt]);
+  React.useEffect(()=>{let active=true;setFailed(false);import("./modules/nature-planet/inline-view.mjs?v=20261115-tablet-v1"+(attempt?"&retry="+attempt:"")).then(({createNatureInlineView})=>{if(active)setView(()=>createNatureInlineView(React));},()=>{if(active)setFailed(true);});return()=>{active=false;};},[attempt]);
   if(View)return React.createElement(View,props);
   return React.createElement("p",{className:"math-mission-loading",role:"status"},failed?"探索地圖暫時無法載入。":"正在準備探索地圖…",failed&&React.createElement("button",{type:"button",onClick:()=>setAttempt(n=>n+1)},"重試"),failed&&React.createElement("button",{type:"button",onClick:props.onClassic},"切回傳統"));
 }
@@ -8544,7 +8549,7 @@ class Component extends DCLogic {
     this.naturePlanetOpening = true;
     let dismissed = false;
     try {
-      const { openNaturePracticePlanet } = await import("./modules/science-curriculum/nature-entry.mjs?v=20261114-unit-art-v2");
+      const { openNaturePracticePlanet } = await import("./modules/science-curriculum/nature-entry.mjs?v=20261115-tablet-v1");
       if (!isActive()) return;
       const close = await openNaturePracticePlanet({ grade, learnerId, isActive,
         onClose: () => { dismissed = true; this.naturePlanetClose = null; } });

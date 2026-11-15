@@ -8,3 +8,9 @@
 
 .nature-inline-host>p{color:#fff;background:rgba(18,31,53,.9);padding:18px;border-radius:16px}
 .nature-inline-host>p button{background:#fff;color:#263554;border:1px solid #a8bbcb;border-radius:10px;font:inherit}
+/* Fit the panel's remaining space instead of forcing a 570px nested scroller. */
+.subject-world-content:has(.nature-inline-host){display:flex;flex-direction:column;overflow:hidden;padding:6px 12px 8px}
+.subject-world-content:has(.nature-inline-host)>sc-if:has(.nature-inline-host){display:contents}
+.nature-inline-host,.nature-inline-host>div{display:flex;flex:1;min-height:0}
+.nature-dialog.nature-inline{flex:1;height:100%;min-height:0}
+@media(max-height:500px){.nature-dialog.nature-inline:not(.nature-fullscreen){overflow:auto}.nature-inline:not(.nature-fullscreen) .nature-shell{min-height:430px;grid-template-rows:auto minmax(200px,1fr) auto auto}}

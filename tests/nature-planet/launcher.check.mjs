@@ -52,3 +52,5 @@ test('day-night preview controls stay local while public time display remains',a
   await close();
  }
 });
+
+test('fullscreen fallback restores inline host, preserves exploration, and cleans on close',async()=>{env();const host=document.createElement('div');document.body.append(host);const close=await openNaturePlanet({grade:1,container:host,catalog});const panel=host.querySelector('.nature-inline');assert.ok(panel.querySelector('.nature-heading .nature-filters'));const toggle=panel.querySelector('.nature-fullscreen-toggle');click('↓ 降落生活星球');toggle.click();await tick();assert.ok(panel.classList.contains('nature-fullscreen'));assert.equal(panel.parentNode,document.body);assert.equal(document.body.style.overflow,'hidden');assert.equal(toggle.getAttribute('aria-label'),'離開全畫面');toggle.click();await tick();assert.equal(panel.parentNode,host);assert.equal(panel.querySelector('.nature-orbit').hidden,true);assert.equal(sceneStats.mounted,1);toggle.click();await tick();await close();assert.equal(document.querySelector('.nature-fullscreen'),null);assert.notEqual(document.body.style.overflow,'hidden');assert.equal(host.childNodes.length,0);});

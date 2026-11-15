@@ -1,6 +1,6 @@
 import { waitForOverlayHistory } from './overlay-history.mjs';
 import { claimRootOverlay } from './overlay-owner.mjs';
-import { openNaturePlanet } from '../nature-planet/launch.mjs?v=20261114-unit-art-v2';
+import { openNaturePlanet } from '../nature-planet/launch.mjs?v=20261115-tablet-v1';
 import { isScienceCurriculumEnabled } from './rollout.mjs';
 import { openScienceCurriculum } from './launch.mjs?v=20261112-v3';
 

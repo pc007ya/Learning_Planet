@@ -1,3 +1,4 @@
+import { createNatureFullscreen } from './fullscreen.mjs';
 import {createUnitArtRenderer} from './unit-art.mjs?v=20261114-unit-art-v2';
 import {isScienceCurriculumEnabled} from '../science-curriculum/rollout.mjs';
 import {leaveOverlayHistory,waitForOverlayHistory} from '../science-curriculum/overlay-history.mjs';
@@ -18,7 +19,7 @@ export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,ca
  if(!isActive())return ()=>Promise.resolve();
  if(opened)return opened.close;
  const opener=document.activeElement,dialog=make(inline?'section':'dialog',null,'nature-dialog math-mission-map math-planet-art-review'+(inline?' nature-inline':''));dialog.setAttribute('aria-label','生活與自然星球');
- for(const name of ['style.css','planet-art-v2.css','nature.css'])if(!document.querySelector('link[data-nature-css="'+name+'"]')){const e=make('link');e.rel='stylesheet';const cssUrl=new URL('./'+name,import.meta.url);cssUrl.searchParams.set('v','nature-isolated-v3');e.href=cssUrl;e.dataset.natureCss=name;document.head.append(e);}
+ for(const name of ['style.css','planet-art-v2.css','nature.css'])if(!document.querySelector('link[data-nature-css="'+name+'"]')){const e=make('link');e.rel='stylesheet';const cssUrl=new URL('./'+name,import.meta.url);cssUrl.searchParams.set('v','nature-tablet-v4');e.href=cssUrl;e.dataset.natureCss=name;document.head.append(e);}
  (container||document.body).append(dialog);try{if(!inline)dialog.showModal();}catch(error){dialog.remove();throw error;}
  let filters=normalizeNatureFilters({grade,publisher,semester}),map=null,metadata=null,closed=false,ticket=0,selected=null,state={},page=0,previewHour=null,suspended=false,entering=false,closeCompletion=null;
  const saved=new Map(initialExploration?[[grade,initialExploration]]:[]),labelButtons=new Map(),abort=new AbortController();let actorProjection=null,projection=[],watch=null;
@@ -29,11 +30,13 @@ export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,ca
  const back=btn('←',()=>{if(inline)onClassic?.();close();},'nature-back');back.setAttribute('aria-label',inline?'切回傳統':'返回原網站');header.append(back);
  const title=make('div',null,'nature-title');title.append(make('small','LEARNING PLANET · 另一顆星球'),make('h1','生活與自然星球'));header.append(title);
  const grades=make('div',null,'nature-grade-switch');grades.setAttribute('role','group');grades.setAttribute('aria-label','年級');header.append(grades);if(inline)grades.hidden=true;
- const filtersBar=make('div',null,'nature-filters');shell.append(filtersBar);
+ const filtersBar=make('div',null,'nature-filters');(inline?header:shell).append(filtersBar);
  const versionButtons=[];for(const p of ['康軒','南一']){const b=btn(p,()=>changeFilters({publisher:p}));b.dataset.publisher=p;versionButtons.push(b);filtersBar.append(b);}for(const s of [1,2]){const b=btn(s===1?'上學期':'下學期',()=>changeFilters({semester:s}));b.dataset.semester=s;versionButtons.push(b);filtersBar.append(b);}
  const time=make('span',null,'nature-time');filtersBar.append(time);
  const layout=make('div',null,'nature-layout');shell.append(layout);
  const stage=make('section',null,'math-planet-stage nature-stage');stage.setAttribute('aria-label','可走自然星球');layout.append(stage);
+ const fullscreenButton=btn('⛶',()=>fullscreen.toggle(),'nature-fullscreen-toggle');fullscreenButton.setAttribute('aria-label','全畫面探索');stage.append(fullscreenButton);
+ const fullscreen=createNatureFullscreen({element:dialog,button:fullscreenButton});
  const canvas=make('div',null,'math-planet-canvas');stage.append(canvas);
  const labels=make('div',null,'math-planet-labels');stage.append(labels);
  const badge=make('div',inline?'準備'+(grade<=2?'生活':'自然')+'星球…':'準備自然星球…','math-planet-badge');stage.append(badge);
@@ -78,7 +81,7 @@ export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,ca
    await map.ready;if(closed||current!==ticket)return;renderPanel();
   }catch(e){if(!closed&&current===ticket&&e.name!=='AbortError'){setStatus(e.message+' 可以重新載入。');gate.hidden=false;orbitTitle.textContent='地表暫時無法載入';orbitText.textContent='練習資料仍保留。可以重新載入，或返回原網站。';land.hidden=true;retry.hidden=false;land.disabled=true;}}
  }
- async function enterUnit(){if(entering||closed||!canEnterNatureUnit(state,selected,metadata)||typeof onEnterUnit!=='function')return false;entering=true;suspended=true;snapshot();map?.dispose();map=null;clearLabels();stage.dataset.suspended='true';renderPanel();let returned=false;const onReturn=()=>{if(returned)return;returned=true;if(closed)return;if(!isActive()){close();return;}entry.cancel();entering=false;suspended=false;delete stage.dataset.suspended;mount();};
+ async function enterUnit(){if(entering||closed||!canEnterNatureUnit(state,selected,metadata)||typeof onEnterUnit!=='function')return false;entering=true;fullscreen.exit();suspended=true;snapshot();map?.dispose();map=null;clearLabels();stage.dataset.suspended='true';renderPanel();let returned=false;const onReturn=()=>{if(returned)return;returned=true;if(closed)return;if(!isActive()){close();return;}entry.cancel();entering=false;suspended=false;delete stage.dataset.suspended;mount();};
   try{const result=await onEnterUnit(selected,{onReturn,exploration:saved.get(filters.grade)});if(result===false)onReturn();}catch(e){setStatus('課程暫時無法開啟，請再試一次。');onReturn();}return true;
  }
  function hidden(){if(document.hidden)entry.cancel();}
@@ -87,7 +90,7 @@ export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,ca
  function notifyClose(meta){try{onClose?.(meta);}catch(_){/* cleanup must survive host callback errors */}}
  function close(fromHistory=false){
   if(closed)return closeCompletion||Promise.resolve();
-  snapshot();closed=true;ticket++;entry.dispose();clearInterval(watch);abort.abort();document.removeEventListener('visibilitychange',hidden);window.removeEventListener('popstate',popped);window.removeEventListener('pagehide',pageHide);map?.dispose();map=null;if(!inline)dialog.close();dialog.remove();opened=null;opener?.isConnected&&opener.focus();
+  snapshot();fullscreen.dispose();closed=true;ticket++;entry.dispose();clearInterval(watch);abort.abort();document.removeEventListener('visibilitychange',hidden);window.removeEventListener('popstate',popped);window.removeEventListener('pagehide',pageHide);map?.dispose();map=null;if(!inline)dialog.close();dialog.remove();opened=null;opener?.isConnected&&opener.focus();
   if(inline||fromHistory||history.state?.natureCandidate!==historyToken){notifyClose();return closeCompletion=Promise.resolve();}
   return closeCompletion=leaveOverlayHistory({window,history,marker:'natureCandidate',token:historyToken,restoreState:originalHistory}).then(()=>{notifyClose();},()=>{notifyClose({historyError:true,historyBackRequested:false});});
  }

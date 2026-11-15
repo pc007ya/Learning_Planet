@@ -3,3 +3,16 @@
 .nature-dialog *{box-sizing:border-box}.nature-dialog button,.nature-filters button,.nature-grade-switch button,.nature-controls button,.nature-catalog-head button,.nature-footer button{min-height:44px;min-width:44px}.nature-pad{grid-template-columns:44px 44px 44px}.nature-pad button{min-height:44px}.nature-footer{min-height:44px}.nature-catalog-head{min-height:48px}.nature-unit-card{min-height:44px!important}
 /* Enlarged text / exceptionally short windows may scroll instead of clipping. */
 @media(max-height:500px){.nature-dialog{overflow:auto}.nature-shell{height:auto;min-height:570px;grid-template-rows:auto auto 300px auto auto}.nature-layout{min-height:300px}}
+/* Compact tablet header; focus mode contains only the map, detail and unit list. */
+.nature-inline .nature-shell{grid-template-rows:auto minmax(0,1fr) auto auto}
+.nature-inline .nature-heading{flex-wrap:wrap;gap:8px}
+.nature-inline .nature-title{flex-shrink:0}
+.nature-inline .nature-filters{margin-left:auto;flex:1;justify-content:flex-end;min-width:0;flex-wrap:wrap}
+.nature-inline .nature-time{margin-left:8px;white-space:nowrap}
+.nature-fullscreen-toggle{position:absolute;right:8px;top:8px;z-index:12;min-width:44px;min-height:44px;font-size:22px!important;background:#18243eea!important}
+.nature-stage .math-planet-badge{max-width:calc(100% - 72px)}
+.nature-dialog.nature-fullscreen{position:fixed!important;inset:0!important;margin:0!important;width:100vw!important;height:100dvh!important;max-width:none!important;max-height:none!important;min-height:0!important;border-radius:0;z-index:2147483000;overflow:hidden!important}
+.nature-fullscreen .nature-shell{height:100%;min-height:0;grid-template-rows:minmax(0,1fr) auto;padding:8px;gap:8px}
+.nature-fullscreen .nature-heading,.nature-fullscreen .nature-filters,.nature-fullscreen .nature-footer{display:none!important}
+.nature-fullscreen .nature-layout{min-height:0}
+@media(max-height:650px){.nature-inline .nature-title small{display:none}.nature-inline .nature-filters button{padding:4px 8px;font-size:12px}.nature-inline .nature-time{display:none}}
