@@ -1,17 +1,20 @@
+import {isSavedAnswer} from './quiz-timer.mjs';
 import { validQuestionPool } from './rotation.mjs';
 export const PREFIX = 'lp-science-curriculum-candidate-v2:';
 const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
 const strings = v => Array.isArray(v) && v.every(x => typeof x === 'string');
-const answer = v => object(v) && typeof v.questionId === 'string' && typeof v.selected === 'string' && typeof v.correct === 'boolean' && Number.isFinite(v.time);
+const answer = isSavedAnswer;
 function run(v) {
   if (!(object(v) && typeof v.id === 'string' && typeof v.unitId === 'string' && typeof v.version === 'string' && Number.isFinite(v.started) && typeof v.finished === 'boolean' &&
     Array.isArray(v.questions) && v.questions.length > 0 && v.questions.every(q => object(q) && typeof q.id === 'string' && typeof q.stem === 'string' && typeof q.ans === 'string' && typeof q.explain === 'string' && strings(q.opts) && q.opts.length === 4 && new Set(q.opts).size === 4 && q.opts.includes(q.ans)) &&
     new Set(v.questions.map(q => q.id)).size === v.questions.length && Number.isInteger(v.index) && v.index >= 0 && v.index < v.questions.length &&
-    object(v.answers) && Object.entries(v.answers).every(([id,a]) => { const q = v.questions.find(q => q.id === id); return answer(a) && a.questionId === id && q && q.opts.includes(a.selected) && a.correct === (a.selected === q.ans); }) && strings(v.warnings))) return false;
+    object(v.answers) && Object.entries(v.answers).every(([id,a]) => { const q = v.questions.find(q => q.id === id); return answer(a) && a.questionId === id && q && (a.timedOut === true || (q.opts.includes(a.selected) && a.correct === (a.selected === q.ans))); }) && strings(v.warnings))) return false;
   // The UI only advances after saving the preceding answer. Accept both the
   // unanswered and answered current question, including an unsubmitted result.
   if (v.questions.some((q,i) => i < v.index ? !Object.hasOwn(v.answers,q.id) : i > v.index && Object.hasOwn(v.answers,q.id))) return false;
   if (v.finished && (v.index !== v.questions.length - 1 || Object.keys(v.answers).length !== v.questions.length)) return false;
+  if (v.questionDeadline !== undefined && (!Number.isFinite(v.questionDeadline) || v.questionDeadline <= 0)) return false;
+  if (v.rewardEligible !== undefined && typeof v.rewardEligible !== 'boolean') return false;
   const metadata = ['questionCycles','poolCycleStart','poolCycleEnd','poolSize'];
   if (metadata.some(key => v[key] !== undefined)) {
     if (!metadata.every(key => v[key] !== undefined) || !Number.isSafeInteger(v.poolCycleStart) || v.poolCycleStart < 1 || !Number.isSafeInteger(v.poolCycleEnd) || v.poolCycleEnd < v.poolCycleStart || v.poolCycleEnd > v.poolCycleStart + 1 || !Number.isSafeInteger(v.poolSize) || v.poolSize < v.questions.length) return false;

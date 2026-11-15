@@ -1,10 +1,10 @@
 const selectedFilters=new Map();
 /** Same-page host; map/practice keep their existing session and record ownership. */
-export function createNatureInlineView(React,{load=(attempt=0)=>import('../science-curriculum/nature-entry.mjs?v=20261115-integrated-v1'+(attempt?'&retry='+attempt:''))}={}){
- return function NatureInlineView({grade,learnerId,isActive=()=>true,onClassic,initialExploration,onExplorationChange}){
+export function createNatureInlineView(React,{load=(attempt=0)=>import('../science-curriculum/nature-entry.mjs?v=20261115-quiz-v3'+(attempt?'&retry='+attempt:''))}={}){
+ return function NatureInlineView({grade,learnerId,isActive=()=>true,onClassic,initialExploration,onExplorationChange,onReward}){
   const host=React.useRef(null),[error,setError]=React.useState(null),[attempt,setAttempt]=React.useState(0),[loading,setLoading]=React.useState(true);
   React.useEffect(()=>{let alive=true,close=null;setError(null);setLoading(true);const active=()=>alive&&isActive();
-   Promise.resolve().then(()=>load(attempt)).then(async({openNaturePracticePlanet})=>{if(!active())return;const handle=await openNaturePracticePlanet({...selectedFilters.get(String(learnerId)+":"+grade),grade,learnerId,onFiltersChange:value=>selectedFilters.set(String(learnerId)+":"+grade,value),container:host.current,onClassic,initialExploration,onExplorationChange,isActive:active,onOpen:handle=>{close=handle;if(!active())handle();else setLoading(false);}});if(!active())await handle?.();else close=handle;}).catch(e=>{if(active()){setError(e);setLoading(false);}});
+   Promise.resolve().then(()=>load(attempt)).then(async({openNaturePracticePlanet})=>{if(!active())return;const handle=await openNaturePracticePlanet({...selectedFilters.get(String(learnerId)+":"+grade),grade,learnerId,onFiltersChange:value=>selectedFilters.set(String(learnerId)+":"+grade,value),container:host.current,onClassic,onReward,initialExploration,onExplorationChange,isActive:active,onOpen:handle=>{close=handle;if(!active())handle();else setLoading(false);}});if(!active())await handle?.();else close=handle;}).catch(e=>{if(active()){setError(e);setLoading(false);}});
    return()=>{alive=false;close?.();};
   },[grade,learnerId,attempt]);
   const label='自然';

@@ -1,6 +1,6 @@
 import {loadIntegratedCurriculum} from './scoped-data.mjs';
 import {unitArtURL} from '../nature-planet/unit-art.mjs';
-import {createProgressStore} from './store.mjs';
+import {createProgressStore} from './store.mjs?v=20261115-quiz-v3';
 
 const TINTS=['#58c7a0','#63b5e5','#9b8ce8','#e7aa61','#73c6b8','#c48dde'];
 /** Only the selected grade/semester catalog is needed to draw the classic cards. */

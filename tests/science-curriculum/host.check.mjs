@@ -27,7 +27,7 @@ test('one explicit release switch is shared by classic host and all three module
 
 test('released visible entry names and practice notice do not claim a candidate-only or cloud-scored experience',()=>{
  const cards=source.slice(source.indexOf('    const subjectUnits ='),source.indexOf('    const gradeWords ='));assert.doesNotMatch(cards,/nature-planet-candidate|自然星球3D地圖/);assert.match(source,/showScienceMissionMap/);assert.match(source,/science-mission-switch/);assert.doesNotMatch(cards,/生活單元練習|自然單元練習/);assert.match(cards,/scienceClassicCatalogs/);assert.match(source,/kind === "curriculum-unit"/);assert.match(source,/science: "自然"/);assert.doesNotMatch(cards,/（候選）|本機審查/);
- const panel=readFileSync(new URL('../../modules/science-curriculum/launch.mjs',import.meta.url),'utf8');assert.match(panel,/練習紀錄只存這台裝置，不改正式成績；不作能力認證。/);assert.doesNotMatch(panel,/候選審查版|題候選練習|練習候選/);
+ const panel=readFileSync(new URL('../../modules/science-curriculum/launch.mjs',import.meta.url),'utf8');assert.match(panel,/練習紀錄存這台裝置；新回合獎勵依真實答對數入帳，不改原版每日輪次，不作能力認證。/);assert.doesNotMatch(panel,/候選審查版|題候選練習|練習候選/);
 });
 
 

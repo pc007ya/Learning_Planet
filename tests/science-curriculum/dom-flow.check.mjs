@@ -125,13 +125,13 @@ test('speech status follows the clicked task without duplicating or moving draft
 function finishRound(){while(document.querySelector('.sc-question')){if(document.querySelector('[data-option-index]:not([disabled])'))chooseAndSubmit('[data-option-index]:not([disabled])');click('.sc-next');}}
 test('integrated sixty-question bank keeps four disjoint ten-question rounds in first cycle',async t=>{
  setup();storageMap.clear();const close=await openScienceCurriculum({learnerId:'three-cycles'});t.after(close);click('[data-unit-id]');const key='lp-science-curriculum-candidate-v2:three-cycles',unitId=Object.keys(JSON.parse(localStorage.getItem(key)).units)[0],rounds=[];
- for(let i=0;i<4;i++){const state=JSON.parse(localStorage.getItem(key));rounds.push(state.units[unitId].active.questions.map(q=>q.id));assert.equal(rounds[i].length,10);assert.equal(new Set(rounds[i]).size,10);finishRound();if(i<3)clickText('再練一回');}
+ for(let i=0;i<4;i++){const state=JSON.parse(localStorage.getItem(key));rounds.push(state.units[unitId].active.questions.map(q=>q.id));assert.equal(rounds[i].length,10);assert.equal(new Set(rounds[i]).size,10);finishRound();if(i<3)clickText('再挑戰一次');}
  assert.equal(new Set(rounds.slice(0,3).flat()).size,30);const state=JSON.parse(localStorage.getItem(key));assert.equal(state.units[unitId].questionPool.cycle,1);assert.equal(state.units[unitId].attempts.length,4);
 });
 test('reopening an unfinished round keeps its IDs, answers and reservation without drawing again',async t=>{
  setup();storageMap.clear();await openScienceCurriculum({learnerId:'resume-deck'});click('[data-unit-id]');chooseAndSubmit('[data-option-index]');const key='lp-science-curriculum-candidate-v2:resume-deck',before=JSON.parse(localStorage.getItem(key)),unitId=Object.keys(before.units)[0];clickText('← 返回自然星球');
  const close=await openScienceCurriculum({learnerId:'resume-deck',unitId});t.after(close);const after=JSON.parse(localStorage.getItem(key));assert.deepEqual(after.units[unitId].active,before.units[unitId].active);assert.deepEqual(after.units[unitId].questionPool,before.units[unitId].questionPool);assert.equal(document.querySelectorAll('[data-option-index][disabled]').length,4);
- finishRound();clickText('再練一回');const next=JSON.parse(localStorage.getItem(key));assert.equal(new Set([...before.units[unitId].active.questions,...next.units[unitId].active.questions].map(q=>q.id)).size,20);
+ finishRound();clickText('再挑戰一次');const next=JSON.parse(localStorage.getItem(key));assert.equal(new Set([...before.units[unitId].active.questions,...next.units[unitId].active.questions].map(q=>q.id)).size,20);
 });
 test('legacy five-question run is archived intact and its allocated IDs are not drawn again',async t=>{
  setup();storageMap.clear();const unitId=catalog.units[0].id,old=createCurriculumEngine(catalog,domContent).createRound(unitId,{count:5,allowCandidate:true}),q=old.questions[0];

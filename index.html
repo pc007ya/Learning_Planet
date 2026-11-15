@@ -22,7 +22,7 @@
 <script src="./story-vocabulary-quiz.js?v=20261026-2"></script>
 <link rel="stylesheet" href="./story-vocabulary-quiz.css?v=20261026-2">
 <link rel="stylesheet" href="./modules/math-mission-map/style.css?v=20261110-v11-release1">
-<link rel="stylesheet" href="./modules/nature-planet/inline.css?v=20261115-integrated-v1">
+<link rel="stylesheet" href="./modules/nature-planet/inline.css?v=20261115-quiz-v3">
 <script type="module" src="./modules/math-image-guard.mjs"></script>
 <script type="module" src="./modules/story-launch.mjs"></script>
 <script type="module" src="./modules/math-teaching/launch.mjs?v=20261106-grades456"></script>
@@ -5495,7 +5495,7 @@ function readScienceMapView() {
 }
 function ScienceMissionMap(props) {
   const [View,setView]=React.useState(null),[failed,setFailed]=React.useState(false),[attempt,setAttempt]=React.useState(0);
-  React.useEffect(()=>{let active=true;setFailed(false);import("./modules/nature-planet/inline-view.mjs?v=20261115-integrated-v1"+(attempt?"&retry="+attempt:"")).then(({createNatureInlineView})=>{if(active)setView(()=>createNatureInlineView(React));},()=>{if(active)setFailed(true);});return()=>{active=false;};},[attempt]);
+  React.useEffect(()=>{let active=true;setFailed(false);import("./modules/nature-planet/inline-view.mjs?v=20261115-quiz-v3"+(attempt?"&retry="+attempt:"")).then(({createNatureInlineView})=>{if(active)setView(()=>createNatureInlineView(React));},()=>{if(active)setFailed(true);});return()=>{active=false;};},[attempt]);
   if(View)return React.createElement(View,props);
   return React.createElement("p",{className:"math-mission-loading",role:"status"},failed?"探索地圖暫時無法載入。":"正在準備探索地圖…",failed&&React.createElement("button",{type:"button",onClick:()=>setAttempt(n=>n+1)},"重試"),failed&&React.createElement("button",{type:"button",onClick:props.onClassic},"切回傳統"));
 }
@@ -5651,7 +5651,7 @@ class Component extends DCLogic {
     const json = path => fetch(path).then(r => { if (!r.ok) throw new Error("題庫載入失敗"); return r.json(); });
     if (!s.teacher && s.subject === "science" && s.screen === "map" && s.scienceMapView !== "mission" && window.LPScienceRollout?.enabled === true) {
       const scope = s.grade + ":" + (s.scienceSemester || 1);
-      load("science-classic:" + scope, () => import("./modules/science-curriculum/classic-cards.mjs?v=20261115-classic-v2").then(async mod => {
+      load("science-classic:" + scope, () => import("./modules/science-curriculum/classic-cards.mjs?v=20261115-quiz-v3").then(async mod => {
         this.scienceClassicProgress = mod.getClassicProgress;
         return mod.loadClassicCards({grade:s.grade,semester:s.scienceSemester || 1});
       }), cards => state => ({scienceClassicCatalogs:{...state.scienceClassicCatalogs,[scope]:cards}}));
@@ -8534,6 +8534,33 @@ class Component extends DCLogic {
       SCI_UNITS.some(unit => unit.id === id && !unit.kind);
   }
 
+  async awardSciencePractice({runId,unitId,title}, learnerId) {
+    const unavailable = {status:"unavailable",xp:0,coins:0};
+    if(this.state.currentId !== learnerId || this.state.teacher)return unavailable;
+    const [{scienceReward},{createProgressStore}] = await Promise.all([import("./modules/science-curriculum/rewards.mjs?v=20261115-quiz-v3"),import("./modules/science-curriculum/store.mjs?v=20261115-quiz-v3")]);
+    if(this.state.currentId !== learnerId)return unavailable;
+    const store=createProgressStore(localStorage,learnerId),record=store.read().units[unitId],run=record?.active;
+    if(store.readonly() || run?.id!==runId || !run.finished || !record.attempts.some(a=>a.id===runId))return unavailable;
+    return new Promise(resolve=>{
+      let receipt=unavailable;
+      this.setState(state=>{
+        if(state.currentId!==learnerId || state.teacher)return {};
+        const student=state.students.find(st=>st.id===learnerId);if(!student)return {};
+        try {
+          const saved=JSON.parse(localStorage.getItem(PROFILE_STORE_KEY)||"{}");
+          // Refuse to overwrite a newer profile from another tab.
+          if(saved[learnerId] && JSON.stringify(saved[learnerId])!==JSON.stringify(student.profile)){receipt={status:"failed",xp:0,coins:0};return {};}
+          const result=scienceReward(student.profile,run,{title,date:localDateKey()});
+          if(result.receipt.status==='unavailable')return {};
+          const students=state.students.map(st=>st.id===learnerId?{...st,profile:result.profile}:st);
+          const profiles={...saved};for(const st of students)profiles[st.id]=st.profile;
+          localStorage.setItem(PROFILE_STORE_KEY,JSON.stringify(profiles));
+          receipt=result.receipt;return {students};
+        } catch (_) {receipt={status:"failed",xp:0,coins:0};return {};}
+      },()=>resolve(receipt));
+    });
+  }
+
   async openScienceCurriculumCandidate(legacyUnitId = null) {
     if (!this.state.currentId || this.state.subject !== "science" || this.scienceCurriculumOpening || this.naturePlanetOpening) return;
     if (window.LPScienceRollout?.enabled !== true) return;
@@ -8544,9 +8571,9 @@ class Component extends DCLogic {
     this.scienceCurriculumOpening = true;
     let dismissed = false;
     try {
-      const { openScienceCurriculum } = await import("./modules/science-curriculum/launch.mjs?v=20261115-integrated-v1");
+      const { openScienceCurriculum } = await import("./modules/science-curriculum/launch.mjs?v=20261115-quiz-v3");
       if (!isActive()) return;
-      const close = await openScienceCurriculum({ grade, learnerId, isActive, unitId: legacyUnitId, curriculum: legacyUnitId === null || integrated ? "publisher" : "legacy", semester: this.state.scienceSemester || 1,
+      const close = await openScienceCurriculum({ grade, learnerId, isActive, onReward: info=>this.awardSciencePractice(info,learnerId), unitId: legacyUnitId, curriculum: legacyUnitId === null || integrated ? "publisher" : "legacy", semester: this.state.scienceSemester || 1,
         onClose: () => { dismissed = true; this.scienceCurriculumClose = null; this.setState(st=>({scienceClassicRevision:st.scienceClassicRevision+1})); } });
       if (!dismissed && isActive()) this.scienceCurriculumClose = close;
       else await close?.();
@@ -8562,9 +8589,9 @@ class Component extends DCLogic {
     this.naturePlanetOpening = true;
     let dismissed = false;
     try {
-      const { openNaturePracticePlanet } = await import("./modules/science-curriculum/nature-entry.mjs?v=20261115-integrated-v1");
+      const { openNaturePracticePlanet } = await import("./modules/science-curriculum/nature-entry.mjs?v=20261115-quiz-v3");
       if (!isActive()) return;
-      const close = await openNaturePracticePlanet({ grade, learnerId, isActive,
+      const close = await openNaturePracticePlanet({ grade, learnerId, isActive, onReward: info=>this.awardSciencePractice(info,learnerId),
         onClose: () => { dismissed = true; this.naturePlanetClose = null; } });
       if (!dismissed && isActive()) this.naturePlanetClose = close;
       else await close?.();
@@ -11440,6 +11467,7 @@ class Component extends DCLogic {
       scienceMissionMap: showScienceMissionMap ? React.createElement(ScienceMissionMap, {
         key: "science:" + s.currentId + ":" + s.grade,
         grade: s.grade, learnerId: s.currentId,
+        onReward: info=>this.awardSciencePractice(info,scienceMapLearner),
         initialExploration: this.sciencePlanetExploration.get("science:" + s.currentId + ":" + s.grade),
         onExplorationChange: value => this.sciencePlanetExploration.set("science:" + scienceMapLearner + ":" + scienceMapGrade, value),
         isActive: () => this.state.screen === "map" && this.state.subject === "science" && this.state.grade === scienceMapGrade && this.state.currentId === scienceMapLearner && this.sessionGeneration === scienceMapGeneration && this.state.scienceMapView === "mission",

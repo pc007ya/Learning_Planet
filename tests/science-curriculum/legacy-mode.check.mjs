@@ -41,7 +41,7 @@ for (const id of legacyFixture().catalog.units.map(u=>u.id)) test(`legacy direct
   assert.ok(state(env).units[id].active.questions.every(q=>q.unitId===id));
   assert.equal(document.querySelector('.sc-question>.sc-label').textContent,`原主題 · ${unit.grade}年級 · 自然科學`);
   assert.doesNotMatch(document.body.textContent,/康軒|南一|上學期|下學期|年級上|年級下/);
-  submit();finish();assert.match(document.querySelector('.sc-score').textContent,/\/ 10 題/);
+  submit();finish();assert.match(document.querySelector('.sc-result-score').textContent,/\/ 10/);
   assert.equal(buttons().some(b=>b.textContent==='實作與反思'),false);
   assert.equal(env.storage.get('lp-profiles'),formal);assert.deepEqual([...new Set(env.writes)],[PREFIX+'learner']);
   assert.ok(env.requests.every(url=>url.includes('/data/science-curriculum/legacy/')));
@@ -59,14 +59,14 @@ test('legacy three-round pool is disjoint, fourth declares reset, and existing c
   const env=setup(),key=PREFIX+'cycles',prior={attempts:[{id:'historic-attempt',answers:[],total:0,correct:0}],seen:['historic-q']};
   env.storage.set(key,JSON.stringify({schemaVersion:1,units:{'s-kh-g1-t1-u01':prior},tasks:{'historic-note':{note:'保留觀察',checks:[true]}},settings:{roundCount:5}}));
   const close=await openScienceCurriculum({curriculum:'legacy',unitId:'s1',learnerId:'cycles'});t.after(close);const rounds=[];
-  for(let i=0;i<4;i++){const s=state(env,'cycles');rounds.push(s.units.s1.active.questions.map(q=>q.id));assert.equal(rounds[i].length,10);assert.equal(new Set(rounds[i]).size,10);if(i===3)assert.match(document.body.textContent,/第 2 輪題池/);finish();if(i<3)clickText('再練一回');}
+  for(let i=0;i<4;i++){const s=state(env,'cycles');rounds.push(s.units.s1.active.questions.map(q=>q.id));assert.equal(rounds[i].length,10);assert.equal(new Set(rounds[i]).size,10);if(i===3)assert.match(document.body.textContent,/第 2 輪題池/);finish();if(i<3)clickText('再挑戰一次');}
   assert.equal(new Set(rounds.slice(0,3).flat()).size,30);const s=state(env,'cycles');assert.equal(s.units.s1.attempts.length,4);assert.equal(s.units.s1.questionPool.cycle,2);assert.deepEqual(s.units['s-kh-g1-t1-u01'],prior);assert.deepEqual(s.tasks['historic-note'],{note:'保留觀察',checks:[true]});assert.equal(s.settings.roundCount,5);
 });
 
 test('legacy exact active snapshot and pool resume without allocating again, and another unit is independent',async t=>{
   const env=setup();const first=await openScienceCurriculum({curriculum:'legacy',unitId:'s1',learnerId:'resume'});submit();const before=state(env,'resume').units.s1;await first();
   const second=await openScienceCurriculum({curriculum:'legacy',unitId:'s2',learnerId:'resume'});assert.deepEqual(state(env,'resume').units.s1,before);await second();
-  const close=await openScienceCurriculum({curriculum:'legacy',unitId:'s1',learnerId:'resume'});t.after(close);assert.deepEqual(state(env,'resume').units.s1,before);assert.equal(document.querySelectorAll('[data-option-index][disabled]').length,4);finish();clickText('再練一回');assert.equal(new Set([...before.active.questions,...state(env,'resume').units.s1.active.questions].map(q=>q.id)).size,20);
+  const close=await openScienceCurriculum({curriculum:'legacy',unitId:'s1',learnerId:'resume'});t.after(close);assert.deepEqual(state(env,'resume').units.s1,before);assert.equal(document.querySelectorAll('[data-option-index][disabled]').length,4);finish();clickText('再挑戰一次');assert.equal(new Set([...before.active.questions,...state(env,'resume').units.s1.active.questions].map(q=>q.id)).size,20);
 });
 
 test('legacy and publisher are distinct singleton owners even when other arguments match',async t=>{

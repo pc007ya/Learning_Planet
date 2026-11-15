@@ -128,7 +128,7 @@ test('legacy ten-question resume reserves IDs and next round excludes them', asy
   const key=PREFIX+'legacy-ten';localStorage.setItem(key,JSON.stringify(state({active})));
   const close=await openScienceCurriculum({grade:3,learnerId:'legacy-ten',unitId:'u'});t.after(close);
   assert.deepEqual(JSON.parse(localStorage.getItem(key)).units.u.active,clone(active));finishRound();
-  [...document.querySelectorAll('button')].find(b=>b.textContent==='再練一回').click();
+  [...document.querySelectorAll('button')].find(b=>b.textContent==='再挑戰一次').click();
   const next=JSON.parse(localStorage.getItem(key)).units.u;assert.ok(next.active.questions.every(q=>!active.questions.some(prior=>prior.id===q.id)));
 });
 
