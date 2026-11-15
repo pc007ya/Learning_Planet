@@ -13,4 +13,19 @@
 .subject-world-content:has(.nature-inline-host)>sc-if:has(.nature-inline-host){display:contents}
 .nature-inline-host,.nature-inline-host>div{display:flex;flex:1;min-height:0}
 .nature-dialog.nature-inline{flex:1;height:100%;min-height:0}
+/* The science map uses the space below the HUD, including on narrow screens. */
+.subject-world:has(.nature-inline-host){height:calc(100dvh - 96px);min-height:0;max-height:none}
+@media(min-width:561px){
+ .nature-inline:not(.nature-fullscreen) .nature-detail{gap:6px;padding:10px!important}
+ .nature-inline:not(.nature-fullscreen) .nature-cover{height:60px!important;min-height:60px!important}
+ .nature-inline:not(.nature-fullscreen) .math-planet-return-note{display:none}
+ .nature-inline:not(.nature-fullscreen) .nature-detail h3{font-size:17px}
+ .nature-inline:not(.nature-fullscreen) .nature-detail p{font-size:11px;margin:2px 0}
+}
+@media(max-width:560px){
+ .nature-inline .nature-filters{flex-basis:100%;margin-left:0;justify-content:flex-start}
+ .nature-inline .nature-time{display:none}
+ .nature-inline .nature-shell{padding:6px;gap:6px}
+ .nature-inline .nature-filters button{padding:4px 8px}
+}
 @media(max-height:500px){.nature-dialog.nature-inline:not(.nature-fullscreen){overflow:auto}.nature-inline:not(.nature-fullscreen) .nature-shell{min-height:430px;grid-template-rows:auto minmax(200px,1fr) auto auto}}
