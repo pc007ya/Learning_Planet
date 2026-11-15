@@ -31,7 +31,7 @@ jobs:
           cache: npm
 
       - name: Check and build deployed modules
-        run: npm ci && npm run check
+        run: python3 scripts/pack-nature-assets.py --verify-manifest && npm ci && npm run check
 
       - name: Stage public site
         run: |

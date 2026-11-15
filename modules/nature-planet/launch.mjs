@@ -1,19 +1,21 @@
+import {loadScopedCurriculum} from '../science-curriculum/scoped-data.mjs';
 import { createNatureFullscreen } from './fullscreen.mjs';
 import {createUnitArtRenderer} from './unit-art.mjs?v=20261114-unit-art-v2';
 import {isScienceCurriculumEnabled} from '../science-curriculum/rollout.mjs';
 import {leaveOverlayHistory,waitForOverlayHistory} from '../science-curriculum/overlay-history.mjs';
-import {createNaturePlanetScene,WORLD_VERSION} from './runtime/planet-v11.mjs';
+import {createNaturePlanetScene,WORLD_VERSION} from './runtime/planet-v11.mjs?v=20261115-load-v2';
 import {createUnitEntryController} from './planet-unit-entry.mjs';
 import {arrangeArtLabels,artActorReserve} from './planet-art-v2-labels.mjs';
-import {normalizeNatureFilters,natureUnits,restoreNatureState,canEnterNatureUnit,validateNatureMetadata} from './state.mjs';
+import {normalizeNatureFilters,natureUnits,restoreNatureState,canEnterNatureUnit,validateNatureMetadata} from './state.mjs?v=20261115-load-v2';
 const make=(tag,text,cls)=>{const e=document.createElement(tag);if(text!=null)e.textContent=text;if(cls)e.className=cls;return e;};
 const btn=(text,handler,cls)=>{const e=make('button',text,cls);e.type='button';e.onclick=handler;return e;};
 export function isLocalNatureCandidate(locationLike=location){return ['localhost','127.0.0.1','[::1]','::1'].includes(locationLike.hostname);}
 let opened=null;
 /** Course launch owns no grades or mastery. onReturn resumes the identical world position. */
-export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,catalog,onEnterUnit,onClose,onOpen,container=null,onClassic,initialExploration,onExplorationChange,isActive=()=>true,landscapeDetailsV4=true}={}) {
+export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,catalog,onEnterUnit,onClose,onOpen,container=null,onClassic,initialExploration,onExplorationChange,onFiltersChange,isActive=()=>true,landscapeDetailsV4=true}={}) {
  if(!isScienceCurriculumEnabled())throw Error('自然星球暫時未開放。');
- const inline=!!container;
+ const inline=!!container, suppliedCatalog=!!catalog;
+ let catalogTicket=0,catalogAbort=null;
  if(!inline)await waitForOverlayHistory(window);
  if(opened&&!opened.isActive())await opened.close();
  if(!isActive())return ()=>Promise.resolve();
@@ -57,7 +59,16 @@ export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,ca
  function relevant(){return natureUnits(catalog,filters);}
  function snapshot(){if(map){const value=map.getState();saved.set(filters.grade,value);try{onExplorationChange?.(value);}catch(_){}}}
  function setStatus(text){status.textContent=text;}
- function changeFilters(patch){if(closed||suspended||inline&&patch.grade&&patch.grade!==grade)return;const previous=filters.grade;snapshot();filters=normalizeNatureFilters({...filters,...patch});page=0;selected=relevant()[0]?.id||null;renderCatalog();renderPanel();if(previous!==filters.grade)mount();else paintLabels();}
+ async function loadCatalog(){
+  if(suppliedCatalog)return true;
+  const current=++catalogTicket;catalogAbort?.abort();const controller=catalogAbort=new AbortController();
+  const cancel=()=>controller.abort();abort.signal.addEventListener('abort',cancel,{once:true});
+  try{const loaded=await loadScopedCurriculum(filters,{exercises:false,signal:controller.signal});if(closed||current!==catalogTicket)return false;catalog=loaded.catalog;return true;}
+  finally{abort.signal.removeEventListener('abort',cancel);}
+ }
+ async function changeFilters(patch){if(closed||suspended||inline&&patch.grade&&patch.grade!==grade)return;const previous=filters.grade;snapshot();filters=normalizeNatureFilters({...filters,...patch});page=0;try{onFiltersChange?.({...filters});}catch(_){}if(!suppliedCatalog){selected=null;renderCatalog();renderPanel();clearLabels();}
+  try{if(!suppliedCatalog&&!await loadCatalog())return;selected=relevant()[0]?.id||null;renderCatalog();renderPanel();if(previous!==filters.grade)mount();else paintLabels();}catch(error){if(error.name!=='AbortError')setStatus('選定教材暫時無法載入，請重新選擇。');}
+ }
  function renderCatalog(){if(inline){const label=filters.grade<=2?'生活':'自然';title.querySelector('h1').textContent=filters.grade+' 年級 · '+label+'星球';title.querySelector('small').textContent='LEARNING PLANET';dialog.setAttribute('aria-label',label+'星球3D探索');stage.setAttribute('aria-label','可走'+label+'星球');land.textContent='↓ 降落'+label+'星球';}const units=relevant(),pages=Math.max(1,Math.ceil(units.length/4));page=Math.max(0,Math.min(page,pages-1));cards.replaceChildren();count.textContent=`${filters.grade<3?'生活':'自然'} · ${filters.grade} 年級 · ${units.length} 單元`;pageLabel.textContent=`${page+1} / ${pages}`;prev.disabled=page===0;next.disabled=page===pages-1;
   for(const u of units.slice(page*4,page*4+4)){const b=btn(null,()=>navigate(u.id),'nature-unit-card');b.dataset.unit=u.id;b.setAttribute('aria-pressed',String(selected===u.id));b.append(make('small',u.id.split('-').at(-1).replace('u','單元 ')),make('b',u.title));cards.append(b);}
   for(const b of grades.children)b.setAttribute('aria-pressed',String(+b.dataset.grade===filters.grade));for(const b of versionButtons)b.setAttribute('aria-pressed',String(b.dataset.publisher?b.dataset.publisher===filters.publisher:+b.dataset.semester===filters.semester));
@@ -76,7 +87,7 @@ export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,ca
   const shown=new Set();for(const p of points){const at=settled.get(p.courseId),u=units.find(x=>x.id===p.courseId);if(!at||!u)continue;shown.add(u.id);let b=labelButtons.get(u.id);if(!b){b=btn(u.title,e=>entry.click(u.id,e),'math-planet-landmark');b.setAttribute('aria-label','前往'+u.title);b.dataset.unit=p.courseId;b.ondblclick=e=>entry.doubleClick(u.id,e);b.onpointerdown=e=>entry.pointerDown(u.id,e);b.onpointermove=e=>entry.pointerMove(u.id,e);b.onpointerup=e=>entry.pointerUp(u.id,e);b.onpointercancel=()=>entry.pointerCancel();b.onlostpointercapture=e=>entry.lostPointerCapture(u.id,e);labelButtons.set(u.id,b);labels.append(b);}b.style.left=at.x+'px';b.style.top=at.y+'px';b.style.width=(w<600?105:132)+'px';b.setAttribute('aria-pressed',String(p.courseId===selected));}for(const [id,b]of labelButtons)if(!shown.has(id)){b.remove();labelButtons.delete(id);}
  }
  async function mount(){const current=++ticket;map?.dispose();map=null;canvas.replaceChildren();clearLabels();projection=[];state={};metadata=null;renderPanel();land.disabled=true;land.hidden=false;retry.hidden=true;orbitTitle.textContent='走進大自然';orbitText.textContent='森林、花田、水岸與山林，每個單元都有自己的入口。';gate.hidden=false;setStatus('正在準備這個年級的'+(filters.grade<=2?'生活星球':'自然星球')+'…');badge.textContent=filters.grade+' 年級 · '+(filters.grade<=2?'生活星球':'自然星球');stage.setAttribute('aria-label','可走'+(filters.grade<=2?'生活星球':'自然星球'));
-  try{const base=new URL('./assets/',import.meta.url);const response=await fetch(new URL(`grade${filters.grade}-scene.json`,base),{signal:abort.signal,cache:'no-cache'});if(!response.ok)throw Error('場景資料暫時無法讀取');const data=await response.json();if(closed||current!==ticket)return;validateNatureMetadata(data,filters.grade,catalog);metadata=data;
+  try{const base=new URL('./assets/',import.meta.url);const response=await fetch(new URL(`grade${filters.grade}-scene.json`,base),{signal:abort.signal,cache:'no-cache'});if(!response.ok)throw Error('場景資料暫時無法讀取');const data=await response.json();if(closed||current!==ticket)return;validateNatureMetadata(data,filters.grade,catalog,{scoped:!suppliedCatalog});metadata=data;
    map=createNaturePlanetScene(canvas,{grade:filters.grade,assetBaseUrl:base.href,sceneData:data,manualLanding:true,flightCandidate:true,yuyuRigCandidate:true,crewedCandidate:true,crewedArrivalCandidate:true,skyCruiseCandidate:true,landscapeDetailsV4:landscapeDetailsV4!==false,resourcesReady:true,dayNight:{previewHour},initialState:restoreNatureState(saved.get(filters.grade),filters.grade,data),onState:s=>{if(closed||current!==ticket)return;state=s;fly.textContent=s.boarding?.available?'載人飛行待驗證':'無人火箭巡航';stage.dataset.phase=s.flight?.active?'flight':s.landed?'surface':s.landingStarted?'landing':'orbit';stage.dataset.worldVersion=WORLD_VERSION;if(s.dayNight)time.textContent=`${s.dayNight.time} · 一日 6 小時`;land.disabled=!s.ready||!s.rocketReady;gate.hidden=!!s.landed||!!s.landingStarted;renderPanel();if(s.landed){badge.textContent=`${s.grade} 年級 · ${s.grade<=2?'生活星球':'自然星球'}`;setStatus(s.boarding?.blockedReason?'候選通道暫停，請取消後重試。':s.boarding?.active?'候選艙門與斜道動作中，瑜瑜沿實體通道通行。':s.boarding?.approaching?'瑜瑜沿原小徑返回登船起點…':s.boarding?.occupancy==='aboard'?'瑜瑜已在候選艙內；飛行尚未放行。':s.flight?.active?'瑜瑜留在地面觀看，火箭正在'+({takeoff:'起飛','transfer-out':'前往巡航路線',cruise:'巡航','transfer-in':'返航',descent:'下降',settle:'停穩'}[s.flight.phase]||'等待')+'。':s.blocked?'前方沒有可走地面，請沿小徑前進。':s.moving?'瑜瑜前往單元中…':'點單元前往 · 拖曳看地圖 · 方向鍵移動');}},onProject:p=>{if(current!==ticket)return;projection=p;paintLabels();},onActorProject:p=>{actorProjection=p;},onGround:p=>map?.moveTo(p),onLandingState:s=>{if(current===ticket&&!state.landed){badge.textContent=s.shot==='waiting'?'地表準備中，火箭等待降落…':s.shot==='disembark'?'瑜瑜正在沿斜道離船…':'瑜瑜正乘火箭降落…';stage.style.setProperty('--landing-cut',s.cut||0);}},onError:e=>{if(current!==ticket)return;setStatus('3D 顯示暫時無法啟用；可重試，或返回原網站使用單元練習。');gate.hidden=false;orbitTitle.textContent='3D 暫時無法顯示';orbitText.textContent='練習資料仍保留。可以重新載入，或返回原網站。';land.hidden=true;retry.hidden=false;land.disabled=true;}});
    await map.ready;if(closed||current!==ticket)return;renderPanel();
   }catch(e){if(!closed&&current===ticket&&e.name!=='AbortError'){setStatus(e.message+' 可以重新載入。');gate.hidden=false;orbitTitle.textContent='地表暫時無法載入';orbitText.textContent='練習資料仍保留。可以重新載入，或返回原網站。';land.hidden=true;retry.hidden=false;land.disabled=true;}}
@@ -90,7 +101,7 @@ export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,ca
  function notifyClose(meta){try{onClose?.(meta);}catch(_){/* cleanup must survive host callback errors */}}
  function close(fromHistory=false){
   if(closed)return closeCompletion||Promise.resolve();
-  snapshot();fullscreen.dispose();closed=true;ticket++;entry.dispose();clearInterval(watch);abort.abort();document.removeEventListener('visibilitychange',hidden);window.removeEventListener('popstate',popped);window.removeEventListener('pagehide',pageHide);map?.dispose();map=null;if(!inline)dialog.close();dialog.remove();opened=null;opener?.isConnected&&opener.focus();
+  snapshot();fullscreen.dispose();catalogAbort?.abort();closed=true;ticket++;entry.dispose();clearInterval(watch);abort.abort();document.removeEventListener('visibilitychange',hidden);window.removeEventListener('popstate',popped);window.removeEventListener('pagehide',pageHide);map?.dispose();map=null;if(!inline)dialog.close();dialog.remove();opened=null;opener?.isConnected&&opener.focus();
   if(inline||fromHistory||history.state?.natureCandidate!==historyToken){notifyClose();return closeCompletion=Promise.resolve();}
   return closeCompletion=leaveOverlayHistory({window,history,marker:'natureCandidate',token:historyToken,restoreState:originalHistory}).then(()=>{notifyClose();},()=>{notifyClose({historyError:true,historyBackRequested:false});});
  }
@@ -98,6 +109,6 @@ export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,ca
  if(!inline)window.addEventListener('popstate',popped);window.addEventListener('pagehide',pageHide,{once:true});dialog.addEventListener('cancel',e=>{e.preventDefault();close();});watch=setInterval(()=>{if(!isActive())close();},300);opened={close,isActive};
  try{onOpen?.(close);}catch(_){await close();return close;}
  if(closed)return close;
- try{if(!catalog){const r=await fetch(new URL('../../data/science-curriculum/catalog.json',import.meta.url),{signal:abort.signal,cache:'no-cache'});if(!r.ok)throw Error('課程目錄暫時無法讀取');catalog=await r.json();}if(closed)return close;selected=relevant()[0]?.id||null;renderCatalog();renderPanel();await mount();}catch(e){if(!closed)setStatus(e.message);}
+ try{if(!await loadCatalog())return close;if(closed)return close;selected=relevant()[0]?.id||null;renderCatalog();renderPanel();await mount();}catch(e){if(!closed)setStatus(e.message);}
  return close;
 }

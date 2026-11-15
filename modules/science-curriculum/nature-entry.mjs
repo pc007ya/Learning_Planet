@@ -1,12 +1,12 @@
 import { waitForOverlayHistory } from './overlay-history.mjs';
 import { claimRootOverlay } from './overlay-owner.mjs';
-import { openNaturePlanet } from '../nature-planet/launch.mjs?v=20261115-tablet-v1';
+import { openNaturePlanet } from '../nature-planet/launch.mjs?v=20261115-tablet-load-v2';
 import { isScienceCurriculumEnabled } from './rollout.mjs';
-import { openScienceCurriculum } from './launch.mjs?v=20261112-v3';
+import { openScienceCurriculum } from './launch.mjs?v=20261115-tablet-load-v2';
 
 let session = null;
 /** The map owns exploration; its explicitly owned child owns local records. */
-export async function openNaturePracticePlanet({ grade = 1, publisher = '康軒', semester = 1, learnerId = 'preview', catalog, isActive = () => true, onClose, onOpen, container = null, onClassic, initialExploration, onExplorationChange } = {}) {
+export async function openNaturePracticePlanet({ grade = 1, publisher = '康軒', semester = 1, learnerId = 'preview', catalog, isActive = () => true, onClose, onOpen, container = null, onClassic, initialExploration, onExplorationChange, onFiltersChange } = {}) {
   if (!isScienceCurriculumEnabled()) throw Error('自然星球暫時未開放。');
   await waitForOverlayHistory(window);
   if (session && (session.closing || !session.isActive())) await session.close();
@@ -43,7 +43,7 @@ export async function openNaturePracticePlanet({ grade = 1, publisher = '康軒'
   session = current; owner.publishClose(close);
   try { onOpen?.(close); } catch (error) { resolveMapHandle(null); finish(); throw error; }
   try {
-    mapClose = await openNaturePlanet({ grade, publisher, semester, catalog, container, onClassic, initialExploration, onExplorationChange,
+    mapClose = await openNaturePlanet({ grade, publisher, semester, catalog, container, onClassic, initialExploration, onExplorationChange, onFiltersChange,
       // While a child is open, it checks identity and closes its history first.
       isActive: () => !closed && (childOpen || (!closing && owner.isActive())),
       onOpen: handle => { mapClose = handle; resolveMapHandle(handle); if (closed) handle(true); },

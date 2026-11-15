@@ -4,3 +4,6 @@ node_modules/
 __pycache__/
 **/__pycache__/
 tmp/
+
+# Reproducible lossless nature-model transport outputs
+*.glb.gzip.bin

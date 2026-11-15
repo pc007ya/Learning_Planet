@@ -13,9 +13,9 @@ export function canEnterNatureUnit(state,unitId,metadata) {
  const p=state.position;if(!Array.isArray(p)||p.length!==3)return false;
  return Math.hypot(p[0]-s.entry[0],p[2]+s.entry[1])<1.8-1e-9;
 }
-export function validateNatureMetadata(data,grade,catalog){
+export function validateNatureMetadata(data,grade,catalog,{scoped=false}={}){
  const units=(catalog?.units||[]).filter(u=>u.grade===grade),ids=units.map(u=>u.id),stations=data?.stationsData||[];
  if(data?.grade!==grade||data.worldVersion!==NATURE_WORLD_VERSION||data.layoutVersion!=='nature-gardens-v1')throw Error('自然星球版本不一致');
- if(new Set(stations.map(x=>x.id)).size!==stations.length||stations.length!==ids.length||ids.some(id=>!stations.some(x=>x.id===id)))throw Error('自然星球課程入口不完整');
+ if(new Set(stations.map(x=>x.id)).size!==stations.length||(!scoped&&stations.length!==ids.length)||ids.some(id=>!stations.some(x=>x.id===id)))throw Error('自然星球課程入口不完整');
  return true;
 }

@@ -1,3 +1,4 @@
+import {scopedFixture} from './scoped-fixtures.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -22,7 +23,7 @@ function setup() {
   window.HTMLElement.prototype.showModal=function(){this.open=true;};window.HTMLElement.prototype.close=function(){this.open=false;};window.HTMLElement.prototype.focus=function(){Object.defineProperty(document,'activeElement',{configurable:true,value:this});};document.querySelector('#entry').focus();
   window.speechSynthesis={cancel(){},speak(){},getVoices:()=>[]};window.SpeechSynthesisUtterance=function(t){this.text=t;};
   const fixture=legacyFixture(),requests=[];
-  globalThis.fetch=async url=>{const path=String(url);requests.push(path);const legacy=path.includes('/legacy/');const value=path.endsWith('catalog.json')?(legacy?fixture.catalog:publisherCatalog):(legacy?fixture.content:publisherContent);return new Response(JSON.stringify(value),{status:200});};
+  globalThis.fetch=async url=>{const path=String(url);requests.push(path);const legacy=path.includes('/legacy/');const value=path.endsWith('catalog.json')?(legacy?fixture.catalog:publisherCatalog):(legacy?fixture.content:publisherContent);return new Response(JSON.stringify(legacy?value:scopedFixture(url,publisherCatalog,publisherContent)),{status:200});};
   return {fixture,storage,writes,requests,held,locks,stack};
 }
 const buttons=()=>[...document.querySelectorAll('button')];

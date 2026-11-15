@@ -4,9 +4,9 @@ import {readFileSync} from 'node:fs';
 import {registerHooks} from 'node:module';
 import {parseHTML} from 'linkedom';
 // Real map launcher and real practice panel; only the GPU renderer is mocked.
-registerHooks({load(url,context,next){if(url.endsWith('/nature-planet/runtime/planet-v11.mjs'))return{format:'module',shortCircuit:true,source:`export const WORLD_VERSION='nature-planet-world-v1';export function createNaturePlanetScene(container,o){let dead=false;let s={worldVersion:WORLD_VERSION,grade:o.grade,position:o.initialState?.position||[0,0,4],ready:true,rocketReady:true,landed:o.initialState?.landed||false,moving:false,remainingWaypoints:0,mode:'overview'};const emit=()=>{if(!dead)o.onState({...s});};globalThis.bridgeScenes.mounted++;globalThis.bridgeScenes.positions.push([...s.position]);const api={ready:globalThis.bridgeSceneReady||Promise.resolve(true),beginLanding(){s.landed=true;emit();return true},navigate(id){const n=o.sceneData.stationsData.find(n=>n.id===id);s.position=[n.entry[0],n.entry[2],-n.entry[1]];emit();return true},getState(){return structuredClone(s)},dispose(){if(!dead)globalThis.bridgeScenes.disposed++;dead=true},setMode(){},reset(){},cancelLanding(){},setMovement(){},setDayNightPreview(){},moveTo(){}};queueMicrotask(emit);return api}`};return next(url,context)}});
+registerHooks({load(url,context,next){if(url.split('?')[0].endsWith('/nature-planet/runtime/planet-v11.mjs'))return{format:'module',shortCircuit:true,source:`export const WORLD_VERSION='nature-planet-world-v1';export function createNaturePlanetScene(container,o){let dead=false;let s={worldVersion:WORLD_VERSION,grade:o.grade,position:o.initialState?.position||[0,0,4],ready:true,rocketReady:true,landed:o.initialState?.landed||false,moving:false,remainingWaypoints:0,mode:'overview'};const emit=()=>{if(!dead)o.onState({...s});};globalThis.bridgeScenes.mounted++;globalThis.bridgeScenes.positions.push([...s.position]);const api={ready:globalThis.bridgeSceneReady||Promise.resolve(true),beginLanding(){s.landed=true;emit();return true},navigate(id){const n=o.sceneData.stationsData.find(n=>n.id===id);s.position=[n.entry[0],n.entry[2],-n.entry[1]];emit();return true},getState(){return structuredClone(s)},dispose(){if(!dead)globalThis.bridgeScenes.disposed++;dead=true},setMode(){},reset(){},cancelLanding(){},setMovement(){},setDayNightPreview(){},moveTo(){}};queueMicrotask(emit);return api}`};return next(url,context)}});
 const {openNaturePracticePlanet}=await import('../../modules/science-curriculum/nature-entry.mjs');
-const {openScienceCurriculum}=await import('../../modules/science-curriculum/launch.mjs?v=20261112-v3');
+const {openScienceCurriculum}=await import('../../modules/science-curriculum/launch.mjs?v=20261115-tablet-load-v2');
 const catalog=JSON.parse(readFileSync(new URL('../../data/science-curriculum/catalog.json',import.meta.url)));
 const content=JSON.parse(readFileSync(new URL('../../data/science-curriculum/exercises.json',import.meta.url)));
 // Full authored candidate data; only GPU rendering is mocked.
@@ -79,7 +79,7 @@ test('logout immediately after requesting a child leaves neither a suspended map
 });
 
 function delayNextExercises(){const original=fetch;let pending=false,aborted=false;globalThis.fetch=(url,options)=>{
- if(!pending&&String(url).includes('/exercises.json')){pending=true;return new Promise((resolve,reject)=>{options.signal.addEventListener('abort',()=>{aborted=true;reject(new DOMException('aborted','AbortError'));},{once:true});});}return original(url,options);
+ if(!pending&&/exercises\.json$/.test(String(url))){pending=true;return new Promise((resolve,reject)=>{options.signal.addEventListener('abort',()=>{aborted=true;reject(new DOMException('aborted','AbortError'));},{once:true});});}return original(url,options);
 };return {get pending(){return pending},get aborted(){return aborted}};}
 
 test('pending practice data is aborted before map handoff, without waiting for loading',async()=>{

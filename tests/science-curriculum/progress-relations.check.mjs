@@ -115,7 +115,7 @@ test('legacy migration consumes interrupted and completed allocations without re
   const attempt={id:'completed5',answers:questions.slice(15,20).map(answered),total:5,correct:5};
   const old=state({active,interrupted:[prior],attempts:[attempt]});
   const key=PREFIX+'legacy-history';localStorage.setItem(key,JSON.stringify(old));
-  const close=await openScienceCurriculum({learnerId:'legacy-history',unitId:'u'});t.after(close);
+  const close=await openScienceCurriculum({grade:3,learnerId:'legacy-history',unitId:'u'});t.after(close);
   const next=JSON.parse(localStorage.getItem(key)), unit=next.units.u;
   assert.deepEqual(unit.interrupted,[clone(prior),clone(active)]); assert.deepEqual(unit.attempts,[attempt]);
   assert.ok(unit.active.questions.every(q=>!questions.slice(0,20).some(p=>p.id===q.id)));
@@ -126,22 +126,22 @@ test('legacy ten-question resume reserves IDs and next round excludes them', asy
   setupDOM();const engine=createCurriculumEngine(catalog,content),round=engine.createRound('u',{count:10,allowCandidate:true,rng:()=>.371});
   const active={...makeRun([]),questions:round.questions};active.answers[active.questions[0].id]=answered(active.questions[0]);
   const key=PREFIX+'legacy-ten';localStorage.setItem(key,JSON.stringify(state({active})));
-  const close=await openScienceCurriculum({learnerId:'legacy-ten',unitId:'u'});t.after(close);
+  const close=await openScienceCurriculum({grade:3,learnerId:'legacy-ten',unitId:'u'});t.after(close);
   assert.deepEqual(JSON.parse(localStorage.getItem(key)).units.u.active,clone(active));finishRound();
   [...document.querySelectorAll('button')].find(b=>b.textContent==='再練一回').click();
   const next=JSON.parse(localStorage.getItem(key)).units.u;assert.ok(next.active.questions.every(q=>!active.questions.some(prior=>prior.id===q.id)));
 });
 
 test('close callback identifies a requested history traversal, but not host-driven dismissal', async () => {
-  setupDOM();let result;let close=await openScienceCurriculum({learnerId:'history-close',onClose:value=>result=value});await close();assert.equal(result.historyBackRequested,true);
-  setupDOM();close=await openScienceCurriculum({learnerId:'history-close',onClose:value=>result=value});close(true,'map-closed');assert.equal(result.historyBackRequested,false);assert.equal(result.reason,'map-closed');
+  setupDOM();let result;let close=await openScienceCurriculum({grade:3,learnerId:'history-close',onClose:value=>result=value});await close();assert.equal(result.historyBackRequested,true);
+  setupDOM();close=await openScienceCurriculum({grade:3,learnerId:'history-close',onClose:value=>result=value});close(true,'map-closed');assert.equal(result.historyBackRequested,false);assert.equal(result.reason,'map-closed');
 });
 
 test('quick close and reopen waits for old asynchronous popstate before mounting the new dialog',async t=>{
   setupDOM();const queue=[];history.back=()=>queue.push(()=>{history.state={host:'original'};window.dispatchEvent(new window.Event('popstate'));});
-  let notified=0;const first=await openScienceCurriculum({learnerId:'quick-reopen',onClose:()=>notified++});
+  let notified=0;const first=await openScienceCurriculum({grade:3,learnerId:'quick-reopen',onClose:()=>notified++});
   const closed=first();assert.equal(document.querySelector('dialog'),null);assert.equal(notified,0);
-  const opening=openScienceCurriculum({learnerId:'quick-reopen'});await new Promise(resolve=>setTimeout(resolve,0));
+  const opening=openScienceCurriculum({grade:3,learnerId:'quick-reopen'});await new Promise(resolve=>setTimeout(resolve,0));
   assert.equal(document.querySelector('dialog'),null);assert.equal(queue.length,1);
   queue.shift()();await closed;const second=await opening;t.after(()=>second(true));
   assert.equal(notified,1);assert.ok(document.querySelector('dialog'));assert.equal(queue.length,0);
@@ -149,12 +149,12 @@ test('quick close and reopen waits for old asynchronous popstate before mounting
 
 test('history API failure still cleans the session and lease, reports bounded metadata and permits reopening',async t=>{
   setupDOM();const notices=[];
-  const close=await openScienceCurriculum({learnerId:'history-failed',onClose:value=>notices.push(value)});
+  const close=await openScienceCurriculum({grade:3,learnerId:'history-failed',onClose:value=>notices.push(value)});
   history.back=()=>{throw Error('private native history details');};
   await close();assert.equal(document.querySelector('dialog'),null);assert.equal(notices.length,1);
   assert.deepEqual(notices[0],{fromHistory:false,reason:'close',historyBackRequested:false,historyError:true});
   assert.equal(JSON.stringify(notices).includes('private'),false);await close();assert.equal(notices.length,1);
-  const reopened=await openScienceCurriculum({learnerId:'history-failed',unitId:'u'});t.after(()=>reopened(true));
+  const reopened=await openScienceCurriculum({grade:3,learnerId:'history-failed',unitId:'u'});t.after(()=>reopened(true));
   assert.ok(document.querySelector('.sc-question'),'the same learner must reacquire the released lease');
   assert.doesNotMatch(document.body.textContent,/另一個分頁|private native/);
 });

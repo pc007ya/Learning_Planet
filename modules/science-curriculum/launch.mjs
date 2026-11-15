@@ -1,3 +1,4 @@
+import {loadScopedCurriculum} from './scoped-data.mjs';
 import { isScienceCurriculumEnabled } from './rollout.mjs';
 import { createCurriculumEngine } from './engine.mjs';
 import { createProgressStore, PREFIX } from './store.mjs';
@@ -75,7 +76,8 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
   async function load() {
     const dataPath = legacy ? '../../data/science-curriculum/legacy/' : '../../data/science-curriculum/';
     const get = async name => { const r = await fetch(new URL(dataPath + name, import.meta.url), { signal: abort.signal, cache: 'no-cache' }); if (!r.ok) throw Error('課程資料暫時無法讀取'); return r.json(); };
-    [catalog, content] = await Promise.all([get('catalog.json'), get('exercises.json')]);
+    if (legacy) [catalog, content] = await Promise.all([get('catalog.json'), get('exercises.json')]);
+    else { const loaded=await loadScopedCurriculum(filters,{unitId,signal:abort.signal}); catalog=loaded.catalog; content=loaded.content; Object.assign(filters,loaded.scope); }
     if ((catalog.kind === 'legacy_topic_catalog') !== legacy) throw new RangeError('課程資料與開啟模式不符，尚未開始練習。');
     if (closed || !isActive()) { close(); return; }
     const entry = unitId == null ? null : catalog.units.find(u => u.id === unitId);
@@ -280,7 +282,17 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
   }
   function filterGroup(label, values, current, choose) {
     const f = el('fieldset', null, 'sc-filters'); f.append(el('legend', label));
-    for (const [value, name] of values) { const b = button(name, () => { choose(value); notice = ''; render(); }); b.setAttribute('aria-pressed', String(value === current)); f.append(b); } return f;
+    for (const [value, name] of values) { const b = button(name, () => { choose(value); notice = ''; if(legacy) render(); else reloadScope(); }); b.setAttribute('aria-pressed', String(value === current)); f.append(b); } return f;
+  }
+  let scopeTicket=0, scopeAbort=null;
+  async function reloadScope(){
+    if(!ensureActive())return;
+    const ticket=++scopeTicket;scopeAbort?.abort();scopeAbort=new AbortController();
+    const cancel=()=>scopeAbort?.abort();abort.signal.addEventListener('abort',cancel,{once:true});
+    body.replaceChildren(button('← 返回自然星球',()=>close()),el('p','正在載入選定的教材…'));
+    try{const loaded=await loadScopedCurriculum(filters,{signal:scopeAbort.signal});if(closed||ticket!==scopeTicket||!ensureActive())return;catalog=loaded.catalog;content=loaded.content;engine=createCurriculumEngine(catalog,content);view='catalog';render();}
+    catch(error){if(closed||ticket!==scopeTicket||error.name==='AbortError')return;body.replaceChildren(button('← 返回自然星球',()=>close()),el('p','教材暫時無法載入，請重試。'),button('重新載入',reloadScope));}
+    finally{abort.signal.removeEventListener('abort',cancel);}
   }
   function catalogView() {
     body.append(textNode('選一個單元，開始探索', 'h1'));

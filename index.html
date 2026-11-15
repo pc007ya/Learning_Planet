@@ -22,7 +22,7 @@
 <script src="./story-vocabulary-quiz.js?v=20261026-2"></script>
 <link rel="stylesheet" href="./story-vocabulary-quiz.css?v=20261026-2">
 <link rel="stylesheet" href="./modules/math-mission-map/style.css?v=20261110-v11-release1">
-<link rel="stylesheet" href="./modules/nature-planet/inline.css?v=20261115-tablet-v1">
+<link rel="stylesheet" href="./modules/nature-planet/inline.css?v=20261115-tablet-load-v2">
 <script type="module" src="./modules/math-image-guard.mjs"></script>
 <script type="module" src="./modules/story-launch.mjs"></script>
 <script type="module" src="./modules/math-teaching/launch.mjs?v=20261106-grades456"></script>
@@ -5491,7 +5491,7 @@ function readScienceMapView() {
 }
 function ScienceMissionMap(props) {
   const [View,setView]=React.useState(null),[failed,setFailed]=React.useState(false),[attempt,setAttempt]=React.useState(0);
-  React.useEffect(()=>{let active=true;setFailed(false);import("./modules/nature-planet/inline-view.mjs?v=20261115-tablet-v1"+(attempt?"&retry="+attempt:"")).then(({createNatureInlineView})=>{if(active)setView(()=>createNatureInlineView(React));},()=>{if(active)setFailed(true);});return()=>{active=false;};},[attempt]);
+  React.useEffect(()=>{let active=true;setFailed(false);import("./modules/nature-planet/inline-view.mjs?v=20261115-tablet-load-v2"+(attempt?"&retry="+attempt:"")).then(({createNatureInlineView})=>{if(active)setView(()=>createNatureInlineView(React));},()=>{if(active)setFailed(true);});return()=>{active=false;};},[attempt]);
   if(View)return React.createElement(View,props);
   return React.createElement("p",{className:"math-mission-loading",role:"status"},failed?"探索地圖暫時無法載入。":"正在準備探索地圖…",failed&&React.createElement("button",{type:"button",onClick:()=>setAttempt(n=>n+1)},"重試"),failed&&React.createElement("button",{type:"button",onClick:props.onClassic},"切回傳統"));
 }
@@ -8531,7 +8531,7 @@ class Component extends DCLogic {
     this.scienceCurriculumOpening = true;
     let dismissed = false;
     try {
-      const { openScienceCurriculum } = await import("./modules/science-curriculum/launch.mjs?v=20261112-v3");
+      const { openScienceCurriculum } = await import("./modules/science-curriculum/launch.mjs?v=20261115-tablet-load-v2");
       if (!isActive()) return;
       const close = await openScienceCurriculum({ grade, learnerId, isActive, unitId: legacyUnitId, curriculum: legacyUnitId === null ? "publisher" : "legacy",
         onClose: () => { dismissed = true; this.scienceCurriculumClose = null; } });
@@ -8549,7 +8549,7 @@ class Component extends DCLogic {
     this.naturePlanetOpening = true;
     let dismissed = false;
     try {
-      const { openNaturePracticePlanet } = await import("./modules/science-curriculum/nature-entry.mjs?v=20261115-tablet-v1");
+      const { openNaturePracticePlanet } = await import("./modules/science-curriculum/nature-entry.mjs?v=20261115-tablet-load-v2");
       if (!isActive()) return;
       const close = await openNaturePracticePlanet({ grade, learnerId, isActive,
         onClose: () => { dismissed = true; this.naturePlanetClose = null; } });

@@ -1,3 +1,4 @@
+import {createNatureAssetFetch} from './asset-fetch.mjs';
 import {createSkyCruise} from './sky-cruise.mjs';
 import {createCrewedArrival} from './crewed-arrival.mjs';
 import {createCrewedWorldHost} from './crewed-world-host.mjs';
@@ -38,6 +39,7 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
   let resolveInitialized;const initialized=new Promise(resolve=>{resolveInitialized=resolve;});
   life.own(()=>resolveInitialized(false));
   const doc = container.ownerDocument, win = doc.defaultView;
+  const assetFetch = createNatureAssetFetch((url,init)=>win.fetch(url,init), {decompress:win.DecompressionStream});
   const root = doc.createElement('div'); root.tabIndex = 0;
   root.setAttribute('aria-label', '自然星球，可使用方向鍵移動');
   Object.assign(root.style, {position:'relative',width:'100%',height:'100%',minHeight:'0',overflow:'hidden',outlineOffset:'-3px'});
@@ -308,7 +310,7 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
       if(options.yuyuRigCandidate===true){rigMount=mountYuyuRig(THREE,{characterRoot:baselineCharacter});character=rigMount.characterRoot;yuyu={...baselineYuyu,root:character,animate:rigMount.animate};restoreRig=()=>{if(!rigMount)return;if(character){baselineCharacter.position.copy(character.position);baselineCharacter.quaternion.copy(character.quaternion);baselineCharacter.scale.copy(character.scale);}rigMount.dispose();rigMount=null;character=baselineCharacter;yuyu=baselineYuyu;};life.own(()=>restoreRig?.());}
       const base=new URL(assetBaseUrl.endsWith('/')?assetBaseUrl:assetBaseUrl+'/',doc.baseURI);
       const assetURL=name=>{const url=new URL(name,base);if(options.assetVersion)url.searchParams.set('v',options.assetVersion);return url;};
-      if(options.sceneData)data=structuredClone(options.sceneData);else {const fetchJson=await win.fetch(assetURL(`grade${grade}-scene.json`),{signal:assets.signal});if(!fetchJson.ok)throw Error(`場景資料 HTTP ${fetchJson.status}`);data=await fetchJson.json();}
+      if(options.sceneData)data=structuredClone(options.sceneData);else {const fetchJson=await assetFetch(assetURL(`grade${grade}-scene.json`),{signal:assets.signal});if(!fetchJson.ok)throw Error(`場景資料 HTTP ${fetchJson.status}`);data=await fetchJson.json();}
       if(life.disposed||assets.signal.aborted)return false;
       if(!Array.isArray(data.stationsData)||!Array.isArray(data.nodes)||!Array.isArray(data.edges)||!Array.isArray(data.spawn))throw Error('場景資料格式錯誤');
       character.position.set(...toWorld(data.spawn));
@@ -322,7 +324,7 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
         const {createSpaceProps}=modules[2] || await import('../planet-space-props.mjs');
         if(life.disposed||assets.signal.aborted)return false;
         director=createLandingDirector(THREE,scene);
-        props=createSpaceProps(scene,{visible:false,fetcher:win.fetch.bind(win),loader:new GLTFLoader(),signal:assets.signal,onState:value=>notify(onPropsState,value)});
+        props=createSpaceProps(scene,{visible:false,fetcher:assetFetch,loader:new GLTFLoader(),signal:assets.signal,onState:value=>notify(onPropsState,value)});
         life.own(()=>props.dispose());life.own(()=>director.dispose());
         const loaded=await props.ready;if(life.disposed||assets.signal.aborted)return false;
         if(!loaded||!director.attach(loaded.root))throw Error('降落火箭載入失敗');
@@ -337,13 +339,13 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
       // Observe rejection immediately even while the independent terrain request waits.
       propsLoading.catch(error=>{if(!life.disposed)fail(error);});
       resize();wake();
-      const response=await win.fetch(assetURL(`grade${grade}-terrain.glb`),{signal:assets.signal});if(!response.ok)throw Error(`地形模型 HTTP ${response.status}`);
+      const response=await assetFetch(assetURL(`grade${grade}-terrain.glb`),{signal:assets.signal});if(!response.ok)throw Error(`地形模型 HTTP ${response.status}`);
       const buffer=await response.arrayBuffer();if(life.disposed||assets.signal.aborted)return false;
       const gltf=await new GLTFLoader().parseAsync(buffer,base.href);parsedRoot=gltf.scene;
       if(life.disposed||assets.signal.aborted){disposeTree(parsedRoot);parsedRoot=null;return false;}
       terrain=parsedRoot;parsedRoot=null;life.own(()=>{disposeTree(terrain);terrain=null;});scene.add(terrain);terrain.updateMatrixWorld(true);
       const pilotCache=new Map();
-      const pilotFetch=async(url,init)=>{const key=String(url);if(pilotCache.has(key))return new Response(pilotCache.get(key).slice(0));const response=await win.fetch(url,init);if(!response.ok)return response;const bytes=await response.arrayBuffer();pilotCache.set(key,bytes);return new Response(bytes.slice(0));};
+      const pilotFetch=async(url,init)=>{const key=String(url);if(pilotCache.has(key))return new Response(pilotCache.get(key).slice(0));const response=await assetFetch(url,init);if(!response.ok)return response;const bytes=await response.arrayBuffer();pilotCache.set(key,bytes);return new Response(bytes.slice(0));};
       const mountPilot=()=>loadBotanicalPilot({THREE,GLTFLoader,terrain,data,sourceBuffer:buffer,fetcher:pilotFetch,signal:assets.signal,disposed:()=>life.disposed,assetVersion:options.assetVersion});
       if(grade===3){
         botanical=await mountPilot();
@@ -353,14 +355,14 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
       const descriptor=options.landscapeV3===false?null:reviewedLandscapeDescriptor(grade);
       if(descriptor&&data.grade===grade&&typeof data.sha256==='string'){
         try{
-          landscape=await loadVerifiedLandscape({THREE,GLTFLoader,terrain,data,sourceBuffer:buffer,fetcher:win.fetch.bind(win),signal:assets.signal,disposed:()=>life.disposed,descriptor,reviewFauna:reviewReleasedFauna,install:modules[3]?.installLandscapeV3||installLandscapeV3,transition:{deactivate(){landscapeInstalling=true;stopFrame();botanical?.dispose();botanical=null;},async restore(){if(!life.disposed&&!assets.signal.aborted&&grade===3)botanical=await mountPilot();}}});
+          landscape=await loadVerifiedLandscape({THREE,GLTFLoader,terrain,data,sourceBuffer:buffer,fetcher:assetFetch,signal:assets.signal,disposed:()=>life.disposed,descriptor,reviewFauna:reviewReleasedFauna,install:modules[3]?.installLandscapeV3||installLandscapeV3,transition:{deactivate(){landscapeInstalling=true;stopFrame();botanical?.dispose();botanical=null;},async restore(){if(!life.disposed&&!assets.signal.aborted&&grade===3)botanical=await mountPilot();}}});
           if(life.disposed||assets.signal.aborted){landscape?.dispose();landscape=null;return false;}
           if(landscape){life.own(()=>{landscape?.dispose();landscape=null;});landscapeMotion=createLandscapeMotionHost(landscape,{clock:ambientClock,getPlayerPosition:()=>character?.visible?character.getWorldPosition(new THREE.Vector3()):null,mode:oceanMode,reduced:reducedMotion?.matches===true,lowPower:options.lowPower===true||win.navigator?.connection?.saveData===true});life.own(()=>{landscapeMotion?.dispose();landscapeMotion=null;});}
         }catch(error){if(life.disposed||assets.signal.aborted)return false;if(error instanceof AggregateError)throw error;if(landscape){landscapeMotion?.dispose();landscapeMotion=null;landscape.dispose();landscape=null;if(grade===3)botanical=await mountPilot();}landscapeFallback=error.message||String(error);}
         finally{landscapeInstalling=false;wake();}
       }
-      if(landscape&&options.landscapeDetailsV4===true){try{details=await loadLandscapeDetails({THREE,GLTFLoader,terrain,data,sourceBuffer:buffer,landscape,fetcher:win.fetch.bind(win),signal:assets.signal,disposed:()=>life.disposed});if(details)life.own(()=>{details?.dispose();details=null;});}catch(error){if(life.disposed||assets.signal.aborted)return false;detailsFallback=error.message||String(error);}}
-      if(options.flightCandidate===true&&landscape&&!details){try{flightPlatform=await loadFlightPlatform({THREE,GLTFLoader,terrain,data,landscape,fetcher:win.fetch.bind(win),signal:assets.signal,disposed:()=>life.disposed});if(flightPlatform)life.own(()=>{flightPlatform?.dispose();flightPlatform=null;});}catch(error){if(life.disposed||assets.signal.aborted)return false;flightFallback=error.message||String(error);}}
+      if(landscape&&options.landscapeDetailsV4===true){try{details=await loadLandscapeDetails({THREE,GLTFLoader,terrain,data,sourceBuffer:buffer,landscape,fetcher:assetFetch,signal:assets.signal,disposed:()=>life.disposed});if(details)life.own(()=>{details?.dispose();details=null;});}catch(error){if(life.disposed||assets.signal.aborted)return false;detailsFallback=error.message||String(error);}}
+      if(options.flightCandidate===true&&landscape&&!details){try{flightPlatform=await loadFlightPlatform({THREE,GLTFLoader,terrain,data,landscape,fetcher:assetFetch,signal:assets.signal,disposed:()=>life.disposed});if(flightPlatform)life.own(()=>{flightPlatform?.dispose();flightPlatform=null;});}catch(error){if(life.disposed||assets.signal.aborted)return false;flightFallback=error.message||String(error);}}
       if(landscape&&options.worldWildlife!==false){try{worldWildlife=createWorldWildlife(THREE,{scene,terrain,landscape,details:details||flightPlatform,clock:ambientClock,mode:oceanMode,reduced:reducedMotion?.matches===true,lowPower:options.lowPower===true,reserveFlight:()=>crewApproach||Boolean(crew?.getState().active)||Boolean(flight?.active)||(manualLanding&&!state.landed)});life.own(()=>{worldWildlife?.dispose();worldWildlife=null;});}catch(error){wildlifeFallback=error.message||String(error);}}
       const activePhysicsData=flightPlatform?.physicsData||details?.physicsData||landscape?.physicsData||botanical?.physicsData||data;
       const hiddenActors=new Set(landscape?.manifest?.hideOriginalActorIds||[]);
