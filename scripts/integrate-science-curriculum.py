@@ -12,11 +12,20 @@ for grade in range(1,7):
    u=copy.deepcopy(original[group['canonical_id']]);u.update(title=group['title'],source_unit_ids=group['source_unit_ids'],source_titles=group['source_titles'],source_ids=list(dict.fromkeys(original[i]['source_id'] for i in group['source_unit_ids'])))
    u['activities']=[copy.deepcopy(a) for i in group['source_unit_ids'] for a in original[i]['activities']];cc['units'].append(u)
   cc['sources']={k:v for k,v in c['sources'].items() if k in {original[i]['source_id'] for i in ids}}
-  ee=copy.deepcopy(e);ee['questions']=[copy.deepcopy(q) for q in e['questions'] if q['unit_id'] in ids];ee['tasks']=[copy.deepcopy(t) for t in e['tasks'] if t['unit_id'] in ids]
+  ee=copy.deepcopy(e);ee['questions']=[copy.deepcopy(q) for q in e['questions'] if q['unit_id'] in ids];ee['tasks']=[copy.deepcopy(t) for t in e['tasks'] if ids.intersection(t.get('applicable_unit_ids',[t['unit_id']]))]
   for q in ee['questions']:q['source_unit_id']=q['unit_id'];q['unit_id']=mapping[q['unit_id']]
   for task in ee['tasks']:
-   task['source_unit_id']=task['unit_id'];task['unit_id']=mapping[task['unit_id']]
-   if 'applicable_unit_ids' in task:task['applicable_unit_ids']=list(dict.fromkeys(mapping[i] for i in task['applicable_unit_ids'] if i in ids))
+   source_id=task['unit_id'];task['source_unit_id']=source_id
+   applicable=list(dict.fromkeys(mapping[i] for i in task.get('applicable_unit_ids',[source_id]) if i in ids))
+   # A shared task keeps its ID and source primary, but needs a valid primary in this scope.
+   task['unit_id']=mapping[source_id] if source_id in ids else applicable[0]
+   if 'applicable_unit_ids' in task:task['applicable_unit_ids']=applicable
+  task_by_id={t['id']:t for t in ee['tasks']}
+  for task in ee['tasks']:
+   for dep_id in task.get('dependencies',[]):
+    assert dep_id in task_by_id,'Missing scoped dependency '+dep_id
+    dep=task_by_id[dep_id]
+    assert set(task.get('applicable_unit_ids',[task['unit_id']])) <= set(dep.get('applicable_unit_ids',[dep['unit_id']])), 'Unreachable scoped dependency '+dep_id
   qids={q['id'] for q in ee['questions']}
   for k in ['excluded_from_core','corrections']:ee['question_policy'][k]=[v for v in ee['question_policy'][k] if v['question_id'] in qids]
   # Keep duplicate source rows/IDs for saved rounds; only exclude exact semantic duplicates from NEW draws.

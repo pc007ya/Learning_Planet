@@ -15,6 +15,15 @@ export function integrateProgress(state,catalog) {
    }else {
     const attempts=new Set(target.attempts.map(a=>a.id));target.attempts.push(...source.attempts.filter(a=>!attempts.has(a.id)));
     target.seen=[...new Set([...target.seen,...source.seen])];
+    // Keep the target's cycle/active reservation; import only new source IDs.
+    if(target.questionPool) {
+     const p=target.questionPool,knownBank=new Set(p.bankIds);
+     const sourceBank=source.questionPool?.bankIds||source.seen;
+     const used=new Set(source.questionPool?.usedIds||source.seen);
+     for(const qid of sourceBank)if(!knownBank.has(qid)){
+      p.bankIds.push(qid);(used.has(qid)?p.usedIds:p.remainingIds).push(qid);knownBank.add(qid);
+     }
+    }
     const runs=[...(source.interrupted||[]),...(source.active&&!source.active.finished?[source.active]:[])];
     const known=new Set([target.active?.id,...(target.interrupted||[]).map(r=>r.id)]);
     for(const r of runs)if(!known.has(r.id))(target.interrupted||=[]).push(rewrite(r));

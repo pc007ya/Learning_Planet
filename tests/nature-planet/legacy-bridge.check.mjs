@@ -36,7 +36,7 @@ test('legacy root, publisher map child, legacy root and publisher catalog hand o
  const saved=state(env.storage,'legacy-bridge').units.s1;
  const map=await openNaturePracticePlanet({catalog,learnerId:'legacy-bridge',onClose:()=>mapClosed++});
  assert.equal(legacyClosed,1);assert.equal(document.querySelectorAll('dialog').length,1);assert.equal(history.index,1);await enter();
- assert.equal(document.querySelector('dialog.sc-dialog').dataset.curriculum,'publisher');assert.ok(document.querySelector('.sc-question').dataset.questionId.includes('s-kh-g1-t1-u01'));assert.equal(history.index,2);
+ assert.equal(document.querySelector('dialog.sc-dialog').dataset.curriculum,'publisher');assert.ok(/^s-(kh|na)-g1-t1-u01-/.test(document.querySelector('.sc-question').dataset.questionId));assert.equal(history.index,2);
  const second=await openScienceCurriculum({curriculum:'legacy',unitId:'s2',learnerId:'legacy-bridge'});
  assert.equal(mapClosed,1);assert.equal(document.querySelectorAll('dialog').length,1);assert.equal(document.querySelector('dialog').dataset.curriculum,'legacy');assert.equal(history.index,1);assert.equal(bridgeScenes.mounted,bridgeScenes.disposed);
  assert.deepEqual(state(env.storage,'legacy-bridge').units.s1,saved);assert.ok(state(env.storage,'legacy-bridge').units.s2);assert.ok(state(env.storage,'legacy-bridge').units['s-kh-g1-t1-u01']);
