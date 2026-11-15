@@ -1,9 +1,11 @@
+import {groundNavigation} from './ground-navigation.mjs';
+import {clampZoom,createZoomGesture} from '../../planet-controls/zoom-gesture.mjs';
 import { createLifetime, disposeTree, movementKey, editableTarget } from './lifecycle.mjs';
 import { createWalking, isWalkSurface } from './walking.mjs';
 import { dijkstra, toWorld } from './nav.mjs';
 import { createLandingTimeline, createLandingDirector } from '../planet-art-v2-landing.mjs';
-import { createYuyu } from './planet-yuyu.mjs';
-import { GROUND_WALK_SPEED, advanceGroundPath, samplePathLookahead, stepGroundYaw } from './ground-motion.mjs';
+import { createYuyu } from './planet-yuyu.mjs?v=20261115-walk-zoom-v1';
+import { GROUND_WALK_SPEED, advanceGroundPath, samplePathLookahead, stepGroundYaw } from './ground-motion.mjs?v=20261115-walk-zoom-v1';
 import { installVisualQuality, pickQualityTier, QUALITY_SETTINGS } from './visual-quality.mjs';
 
 /** A grade is immutable for one mount. Host owns lesson entry and learning progress. */
@@ -26,7 +28,7 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
   life.own(() => root.remove());
   const restored=initialState?.worldVersion===WORLD_VERSION && initialState.grade===grade ? initialState : null;
   const manualLanding=options.manualLanding===true;
-  const state = {worldVersion:WORLD_VERSION,grade,resourcesReady:options.resourcesReady!==false && !options.resourcesReady?.then,rocketReady:!manualLanding,landingStarted:!manualLanding,landingShot:'orbit',loading:true,ready:false,error:null,contextLost:false,landed:false,landingProgress:0,positionReady:false,mode:restored?.mode === 'follow'?'follow':'overview',position:[0,0,0],target:null,arrived:false,blocked:null,nearbyCourseId:null};
+  const state = {worldVersion:WORLD_VERSION,grade,resourcesReady:options.resourcesReady!==false && !options.resourcesReady?.then,rocketReady:!manualLanding,landingStarted:!manualLanding,landingShot:'orbit',loading:true,ready:false,error:null,contextLost:false,landed:false,landingProgress:0,positionReady:false,zoom:clampZoom(Number.isFinite(restored?.zoom)?restored.zoom:1),mode:restored?.mode === 'follow'?'follow':'overview',position:[0,0,0],target:null,arrived:false,blocked:null,nearbyCourseId:null};
   let THREE,renderer,scene,camera,look,character,yuyu,terrain,data,physics,frameId=0,last=0,path=[],width=1,height=1,visible=true;
   let director=null,props=null,visualQuality=null,walkMeshes=[],cameraPan=[0,0],viewport={left:0,right:0,top:0,bottom:0},characterYaw=-.54;
   const timeline=createLandingTimeline();
@@ -62,7 +64,7 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
     let route=null;
     for(const c of candidates){if(!physics.lineSafe(character.position,c.p))continue;const ids=dijkstra(data.nodes,data.edges,c.n.id,station.navNode);if(ids.length){route=ids;break;}}
     if(!route){state.blocked='no-safe-route';emit();return false;}
-    keys.clear();path=route.map(id=>new THREE.Vector3(...toWorld(by.get(id).p)));path.push(new THREE.Vector3(...toWorld(station.entry)));
+    keys.clear();path=route.map(id=>new THREE.Vector3(...toWorld(by.get(id).p)));const entryPoint=new THREE.Vector3(...toWorld(station.entry));entryPoint.y=physics.floor(entryPoint.x,entryPoint.z)??entryPoint.y;path.push(entryPoint);
     state.target=courseId;state.arrived=false;state.blocked=null;state.mode='follow';cameraSettling=true;
     notify(onSelect,{grade,courseId,title:station.title});emit();wake();return true;
   }
@@ -85,6 +87,11 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
     if(!route){state.blocked='no-safe-route';emit();return false;}
     keys.clear();clearNav();path=route;state.blocked=null;state.mode='follow';cameraSettling=true;emit();wake();return true;
   }
+  function setZoom(value){
+    if(!movementReady()||!Number.isFinite(value))return false;
+    state.zoom=clampZoom(value);cameraSettling=true;emit();wake();return true;
+  }
+  function zoomBy(factor){return Number.isFinite(factor)&&factor>0?setZoom(state.zoom*factor):false;}
   function setCameraPan(point){
     if(life.disposed||!Array.isArray(point)||point.length!==2||!point.every(Number.isFinite))return false;
     cameraPan=point.map(n=>Math.max(-100,Math.min(100,n)));cameraSettling=true;wake();return true;
@@ -132,6 +139,7 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
     const view=data.view || {},follow=state.mode==='follow';
     let targetLook=follow?character.position.clone().add(new THREE.Vector3(0,1,0)):new THREE.Vector3(...(view.overviewTarget || [0,2,-15]));
     let targetCam=follow?character.position.clone().add(new THREE.Vector3(...(view.followOffset || [19,24,31]))):new THREE.Vector3(...(view.overviewPosition || [104,118,130]));
+    if(state.landed)targetCam.sub(targetLook).multiplyScalar(1/state.zoom).add(targetLook);
     targetCam.add(new THREE.Vector3(cameraPan[0],0,cameraPan[1]));
     const cameraFloor=physics?.floor(targetCam.x,targetCam.z);targetCam.y=Math.max(targetCam.y,(cameraFloor??0)+3);targetLook.add(new THREE.Vector3(cameraPan[0],0,cameraPan[1]));
     let landingFrame=null;
@@ -178,14 +186,18 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
   function listen(target,name,handler,opts) {target.addEventListener(name,handler,opts);life.own(()=>target.removeEventListener(name,handler,opts));}
   listen(root,'keydown',e=>{if(editableTarget(e.target) || e.ctrlKey || e.metaKey || e.altKey)return;if(movementKey(e.key)){e.preventDefault();setMovement(e.key,true);}});
   listen(root,'keyup',e=>{if(movementKey(e.key)){e.preventDefault();setMovement(e.key,false);}});
-  listen(root,'focusout',()=>keys.clear()); listen(win,'blur',()=>{keys.clear();pointerStart=null;});
+  listen(root,'focusout',()=>keys.clear()); listen(win,'blur',()=>{keys.clear();pointerStart=null;zoomGesture.reset();});
+  const zoomGesture=createZoomGesture({enabled:()=>movementReady()&&!doc.hidden,zoomBy});life.own(()=>zoomGesture.reset());
   let pointerStart=null;
+  listen(canvas,'wheel',e=>zoomGesture.wheel(e),{passive:false});
   listen(canvas,'pointerdown',e=>{
+    if(zoomGesture.down(e)){pointerStart=null;return;}
     if(e.isPrimary===false||(e.button!=null&&e.button!==0))return;
     root.focus({preventScroll:true});pointerStart={id:e.pointerId,x:e.clientX,y:e.clientY,lastX:e.clientX,lastY:e.clientY,dragged:false};
     canvas.setPointerCapture?.(e.pointerId);
   });
   listen(canvas,'pointermove',e=>{
+    if(zoomGesture.move(e)){pointerStart=null;return;}
     if(!pointerStart||pointerStart.id!==e.pointerId||!movementReady())return;
     if(Math.hypot(e.clientX-pointerStart.x,e.clientY-pointerStart.y)>8)pointerStart.dragged=true;
     if(pointerStart.dragged){
@@ -194,9 +206,10 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
       pointerStart.lastX=e.clientX;pointerStart.lastY=e.clientY;
     }
   });
-  listen(canvas,'pointercancel',()=>{pointerStart=null;});
-  listen(canvas,'lostpointercapture',()=>{pointerStart=null;});
+  listen(canvas,'pointercancel',e=>{zoomGesture.up(e);pointerStart=null;});
+  listen(canvas,'lostpointercapture',e=>{zoomGesture.up(e);pointerStart=null;});
   listen(canvas,'pointerup',e=>{
+    if(zoomGesture.up(e)){pointerStart=null;return;}
     const press=pointerStart;pointerStart=null;
     if(!press||press.id!==e.pointerId||press.dragged||Math.hypot(e.clientX-press.x,e.clientY-press.y)>8)return;
     if(!movementReady())return;
@@ -205,7 +218,7 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
     const hit=ray.intersectObjects(walkMeshes,false).find(h=>h.face&&h.face.normal.clone().transformDirection(h.object.matrixWorld).y>.4);
     if(hit&&physics.valid(hit.point.x,hit.point.z,hit.point.y).ok)notify(onGround,[hit.point.x,hit.point.z]);
   });
-  listen(doc,'visibilitychange',()=>{keys.clear();pointerStart=null;if(doc.hidden)stopFrame();else wake();});
+  listen(doc,'visibilitychange',()=>{keys.clear();pointerStart=null;zoomGesture.reset();if(doc.hidden)stopFrame();else wake();});
   listen(canvas,'webglcontextlost',e=>{e.preventDefault();state.contextLost=true;keys.clear();stopFrame();emit();notify(onError,{grade,code:'WEBGL_CONTEXT_LOST',message:'3D 顯示暫時中斷，仍可使用課程清單。',recoverable:true});});
   listen(canvas,'webglcontextrestored',()=>{state.contextLost=false;cameraSettling=true;emit();wake();});
   function resize() {if(!renderer)return;const rect=root.getBoundingClientRect();width=Math.max(1,rect.width);height=Math.max(1,rect.height);renderer.setSize(width,height,false);camera.aspect=width/height;
@@ -255,7 +268,11 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
       visualQuality?.polishTerrain(terrain);
       const meshes=[];walkMeshes=meshes;terrain.traverse(o=>{if(isWalkSurface(o)){meshes.push(o);for(const m of Array.isArray(o.material)?o.material:[o.material])m.side=THREE.DoubleSide;}});
       if(!meshes.length)throw Error('模型未提供可走表面');
-      physics=createWalking(THREE,()=>data,()=>meshes);state.loading=false;state.ready=true;
+      physics=createWalking(THREE,()=>data,()=>meshes);
+      // Authored nav heights predate the rounded terrain. Match the visible ground,
+      // never relax obstacle/edge/cliff tests to compensate for stale metadata.
+      data=groundNavigation(THREE,data,physics);
+      state.loading=false;state.ready=true;
       if(!reset())throw Error(state.error || '出生點載入失敗');
       let validRestore=false;
       if(restored && Array.isArray(restored.position) && restored.position.length===3 && restored.position.every(Number.isFinite)){
@@ -274,5 +291,5 @@ export function createV11PlanetScene(container, options = {}, loadModules = load
   })();
   if(options.resourcesReady?.then)Promise.resolve(options.resourcesReady).then(()=>setResourcesReady(true),e=>fail(e));
   emit();
-  return {ready,initialized,cancelLanding,beginLanding,setResourcesReady,moveTo,stop,setCameraPan,panBy,pan:panBy,setCameraViewport,navigate,setMode,reset,setMovement,getState,skipLanding(){if(life.disposed || !state.ready || manualLanding)return false;state.landed=true;state.landingProgress=1;state.mode='follow';cameraSettling=true;emit();wake();return true;},dispose(){if(life.disposed)return;life.dispose();keys.clear();path=[];state.ready=false;state.loading=false;data=null;physics=null;}};
+  return {ready,initialized,setZoom,zoomBy,cancelLanding,beginLanding,setResourcesReady,moveTo,stop,setCameraPan,panBy,pan:panBy,setCameraViewport,navigate,setMode,reset,setMovement,getState,skipLanding(){if(life.disposed || !state.ready || manualLanding)return false;state.landed=true;state.landingProgress=1;state.mode='follow';cameraSettling=true;emit();wake();return true;},dispose(){if(life.disposed)return;life.dispose();keys.clear();path=[];state.ready=false;state.loading=false;data=null;physics=null;}};
 }

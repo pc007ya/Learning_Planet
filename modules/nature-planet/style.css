@@ -493,7 +493,8 @@
 :where(.nature-dialog) .math-planet-layout{grid-template-columns:minmax(0,1fr) minmax(230px,25%);align-items:start}
 :where(.nature-dialog) .math-planet-stage{position:relative;isolation:isolate;height:clamp(460px,62svh,650px);overflow:hidden;touch-action:pan-y;background:radial-gradient(ellipse at 45% 45%,#284763,#0d1834 70%);outline-offset:-4px}
 :where(.nature-dialog) .math-planet-stage:focus-visible{outline:3px solid #ffdc92}
-:where(.nature-dialog) .math-planet-canvas,:where(.nature-dialog) .math-planet-labels{position:absolute;inset:0;pointer-events:none}
+:where(.nature-dialog) .math-planet-canvas{position:absolute;inset:0;pointer-events:auto;touch-action:none}
+:where(.nature-dialog) .math-planet-labels{position:absolute;inset:0;pointer-events:none}
 :where(.nature-dialog) .math-planet-canvas canvas{display:block;width:100%;height:100%}
 :where(.nature-dialog) .math-planet-badge{position:absolute;top:12px;left:12px;max-width:calc(100% - 24px);padding:7px 12px;border:1px solid #b8d3ee40;border-radius:30px;background:#111e3cdb;color:#dff3ff;font-size:.74rem;pointer-events:none;z-index:4}
 :where(.nature-dialog) .math-planet-landing{position:absolute;top:48px;left:0;right:0;text-align:center;padding:10px}

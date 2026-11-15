@@ -78,7 +78,7 @@ export function createMissionMapView(React) {
       if (!count) return;
       let active = true;
       const element = stage.current;
-      import("./scene.mjs?v=20261107").then(({ createMissionScene }) => {
+      import("./scene.mjs?v=20261115-walk-zoom-v1").then(({ createMissionScene }) => {
         if (!active) return;
         scene.current = createMissionScene(element, points, {
           route,
@@ -94,7 +94,7 @@ export function createMissionMapView(React) {
       };
     }, [key, count, points, route]);
 
-    React.useEffect(() => { scene.current?.select(selectedOnRoute); }, [selectedOnRoute, key]);
+    React.useEffect(() => { scene.current?.select(selectedOnRoute); scene.current?.walkTo?.(selectedOnRoute); }, [selectedOnRoute, key]);
 
     function choose(index) {
       const unit = units[index];
@@ -125,7 +125,7 @@ export function createMissionMapView(React) {
       h("div", { className: "math-mission-routes", role: "group", "aria-label": "選擇子單元航線" }, routes),
       h("div", { className: "math-mission-layout" },
         h("div", { className: "math-mission-chart" },
-          h("div", { className: "math-mission-stage", ref: stage, "data-renderer": is3D ? "webgl" : "flat" },
+          h("div", { className: "math-mission-stage", ref: stage, tabIndex: 0, "data-renderer": is3D ? "webgl" : "flat" },
             h("div", { className: "math-mission-sky", "aria-hidden": true }),
             h("div", { className: "math-mission-surface", "aria-hidden": true }),
             !is3D && h("svg", {
@@ -151,10 +151,14 @@ export function createMissionMapView(React) {
                 h("span", { className: "math-mission-pin-title", "aria-hidden": true }, unit.title));
               }))),
           h("div", { className: "math-mission-chart-footer" },
-            h("span", null, is3D ? "拖曳轉動 · 點站點選任務" : "點站點選任務 · 平面地圖"),
+            h("span", null, is3D ? "點地走動 · 拖曳轉動 · 滾輪／雙指縮放" : "點站點選任務 · 平面地圖"),
             is3D && h("div", { className: "math-mission-orbit-controls", role: "group", "aria-label": "調整地圖視角" },
               h("button", { type: "button", "aria-label": "向左轉動地圖", onClick: () => scene.current?.rotate(-.22) }, "↶"),
-              h("button", { type: "button", onClick: () => scene.current?.reset() }, "全景"),
+              h("button", { type: "button", onClick: () => scene.current?.reset() }, "回起點"),
+              h("button", { type: "button", "aria-label":"放大地圖", onClick: () => scene.current?.zoomBy?.(1.2) }, "＋"),
+              h("button", { type: "button", "aria-label":"縮小地圖", onClick: () => scene.current?.zoomBy?.(1/1.2) }, "−"),
+              h("button", { type: "button", "aria-label":"還原地圖縮放", onClick: () => scene.current?.setZoom?.(1) }, "1:1"),
+              ...[["↑","up"],["←","left"],["↓","down"],["→","right"]].map(([label,key])=>h("button",{key,type:"button","aria-label":({up:"向前走",left:"向左走",down:"向後走",right:"向右走"})[key],onPointerDown:e=>{e.preventDefault();e.currentTarget.setPointerCapture?.(e.pointerId);scene.current?.setMovement?.(key,true);},onPointerUp:()=>scene.current?.setMovement?.(key,false),onPointerCancel:()=>scene.current?.setMovement?.(key,false),onLostPointerCapture:()=>scene.current?.setMovement?.(key,false),onKeyDown:e=>{if([" ","Enter"].includes(e.key)){e.preventDefault();scene.current?.setMovement?.(key,true);}},onKeyUp:e=>{if([" ","Enter"].includes(e.key)){e.preventDefault();scene.current?.setMovement?.(key,false);}},onBlur:()=>scene.current?.setMovement?.(key,false)},label)),
               h("button", { type: "button", "aria-label": "向右轉動地圖", onClick: () => scene.current?.rotate(.22) }, "↷")))),
         h(MissionDetails, { unit: selected, move: (delta) => choose(selectedIndex + delta), index: selectedIndex, count: units.length })));
   }
@@ -168,7 +172,7 @@ export function createMissionMapView(React) {
     React.useEffect(() => {
       let active = true;
       setFailed(false);
-      const path = './v11-host/view.mjs?v=20261110-v11-release1';
+      const path = './v11-host/view.mjs?v=20261115-walk-zoom-v1';
       import(path + (attempt ? '&retry=' + attempt : '')).then(module => {
         if (active) setView(() => module.createV11PlanetView(React));
       }).catch(() => { if (active) setFailed(true); });

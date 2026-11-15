@@ -2,7 +2,7 @@ import {createCrewedCraft} from '../../shared-actors/crewed-craft-model.mjs';
 import {mountCrewedBoarding} from '../../shared-actors/crewed-boarding.mjs';
 import {createCrewedDoorwayPermit} from '../../shared-actors/crewed-doorway-permit.mjs';
 import {createYuyuSurfaceSupport} from '../../shared-actors/yuyu-surface-support.mjs';
-import {createWalking} from './walking.mjs';
+import {createWalking} from './walking.mjs?v=20261115-walk-zoom-v1';
 import {createTriangleGrid,captureSkinnedVertices,conservativeTriangleEnvelopeCheck} from './crewed-mesh-safety.mjs';
 /** Strict private candidate. Geometric gates are real; production flight clearance remains unapproved. */
 export function createCrewedWorldHost(T,{scene,rig,data,worldRoots,walkMeshes,physicsData,actors,validatedAssets=false,initialOccupancy='outside'}={}){
@@ -14,7 +14,10 @@ export function createCrewedWorldHost(T,{scene,rig,data,worldRoots,walkMeshes,ph
  const sample=new T.Vector3();let radialMax=0,top=0;craft.root.traverse(o=>{if(!o.isMesh)return;for(let i=0;i<o.geometry.attributes.position.count;i++){o.getVertexPosition(i,sample).applyMatrix4(o.matrixWorld);radialMax=Math.max(radialMax,Math.hypot(sample.x-anchor.x,sample.z-anchor.z));top=Math.max(top,sample.y-anchor.y);}});
  const shipCollider={x:anchor.x,y:-anchor.z,r:radialMax+.15,kind:'crewed-ship'},derived={...physicsData,obstacles:[...physicsData.obstacles,shipCollider]},allWalk=[...walkMeshes,...craft.walkMeshes];
  for(const m of craft.walkMeshes)for(const material of Array.isArray(m.material)?m.material:[m.material])material.side=T.DoubleSide;
- const ray=new T.Raycaster(),down=new T.Vector3(0,-1,0),normal=new T.Vector3(),floorAt=(x,z)=>{ray.set(new T.Vector3(x,50,z),down);const hits=ray.intersectObjects(allWalk,false);return hits.find(h=>h.face&&Math.abs(normal.copy(h.face.normal).transformDirection(h.object.matrixWorld).y)>.4)?.point.y;};
+ // Terrain is immutable after this mount; cache its exact triangles, not support heights.
+ // The craft ramp/door moves, so its floor probes remain live raycasts.
+ const staticFloor=createWalking(T,()=>physicsData,()=>walkMeshes,{minimumFloorNormal:.4});
+ const ray=new T.Raycaster(),down=new T.Vector3(0,-1,0),normal=new T.Vector3(),floorAt=(x,z)=>{ray.set(new T.Vector3(x,50,z),down);const hits=ray.intersectObjects(craft.walkMeshes,false);const dynamicY=hits.find(h=>h.face&&Math.abs(normal.copy(h.face.normal).transformDirection(h.object.matrixWorld).y)>.4)?.point.y;const groundY=staticFloor.floor(x,z);return dynamicY==null?(groundY??undefined):groundY==null?dynamicY:Math.max(dynamicY,groundY);};
  const spawn=[data.spawn[0],floorAt(data.spawn[0],-data.spawn[1]),-data.spawn[1]];if(!Number.isFinite(spawn[1])){craft.dispose();throw Error('Actual ground approach missing');}
  const distance=(a,b)=>{const dx=b[0]-a[0],dz=b[2]-a[2],d=dx*dx+dz*dz,t=d?Math.max(0,Math.min(1,((anchor.x-a[0])*dx+(anchor.z-a[2])*dz)/d)):0;return Math.hypot(a[0]+t*dx-anchor.x,a[2]+t*dz-anchor.z);};
  const fauna=actors.map(a=>({id:a.id,clearance:Math.min(...a.path.slice(1).map((b,i)=>distance(a.path[i],b)))-8-a.radius}));

@@ -1,5 +1,5 @@
 /** Ground locomotion helpers: continuous waypoint advancement, stride cadence, and smooth yaw turns. */
-export const GROUND_WALK_SPEED = 2.4;
+export const GROUND_WALK_SPEED = 4.2;
 export const GROUND_WALK_STRIDE = 1.2;
 export const GROUND_TURN_RATE = 6.0;
 export const GROUND_LOOKAHEAD = 0.9;
@@ -106,4 +106,17 @@ export function advanceGroundPath({ position, path, distanceBudget, stopRadius =
   }
 
   return { moved: totalMoved > 1e-6, distance: totalMoved, arrived, blocked, blockReason };
+}
+
+/** Distance-locked gait: no wall-clock jump after idle, teleport, or arrival. */
+export function createGroundStride() {
+  let previous=null,phase=0;
+  return (position,walking,reduced=false,strideLength=GROUND_WALK_STRIDE)=>{
+    const distance=previous?Math.hypot(position.x-previous.x,position.z-previous.z):0;
+    previous={x:position.x,z:position.z};
+    if(!walking||reduced)return 0;
+    // Runtime frame travel is at most .21 units; ignore relocation, not a footstep.
+    if(distance<=GROUND_WALK_SPEED*.1)phase=(phase+distance/Math.max(.1,strideLength)*Math.PI*2)%(Math.PI*2);
+    return Math.sin(phase);
+  };
 }

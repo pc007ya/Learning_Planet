@@ -5,7 +5,7 @@ export function isWalkSurface(object){
  return false;
 }
 // Shared by the visible candidate and Node mesh validation. No render context needed.
-export function createWalking(THREE,getData,getMeshes){
+export function createWalking(THREE,getData,getMeshes,{minimumFloorNormal=0}={}){
  const ray=new THREE.Raycaster(),down=new THREE.Vector3(0,-1,0),origin=new THREE.Vector3();
  const cellSize=2,cellEps=1e-5;
  const vA=new THREE.Vector3(),vB=new THREE.Vector3(),vC=new THREE.Vector3();
@@ -21,6 +21,7 @@ export function createWalking(THREE,getData,getMeshes){
   wA.fromBufferAttribute(pos,iA).applyMatrix4(entry.matrixWorld);
   wB.fromBufferAttribute(pos,iB).applyMatrix4(entry.matrixWorld);
   wC.fromBufferAttribute(pos,iC).applyMatrix4(entry.matrixWorld);
+  if(minimumFloorNormal>0){vA.subVectors(wB,wA);vB.subVectors(wC,wA);vC.crossVectors(vA,vB).normalize();if(Math.abs(vC.y)<=minimumFloorNormal)return;}
   const minX=Math.min(wA.x,wB.x,wC.x),maxX=Math.max(wA.x,wB.x,wC.x);
   const minZ=Math.min(wA.z,wB.z,wC.z),maxZ=Math.max(wA.z,wB.z,wC.z);
   if(!Number.isFinite(minX)||!Number.isFinite(maxX)||!Number.isFinite(minZ)||!Number.isFinite(maxZ))return;
@@ -78,7 +79,7 @@ export function createWalking(THREE,getData,getMeshes){
  }
  function floor(x,z){
   ensureIndex();
-  origin.set(x,35,z);ray.set(origin,down);
+  origin.set(x,minimumFloorNormal>0?50:35,z);ray.set(origin,down);
   let bestDist=Infinity,bestOrder=Infinity,bestY=null;
   if(fallbackMeshes.length){
    const hits=ray.intersectObjects(fallbackMeshes.map(f=>f.mesh),false);

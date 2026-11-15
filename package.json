@@ -24,7 +24,7 @@
     "build:tides": "vite build --config vite.tides.config.mjs",
     "build:tides3d": "vite build --config vite.tides3d.config.mjs",
     "test:math-knowledge": "node --test tests/math-knowledge-*.check.mjs",
-    "test:math-planet-v11": "node --test tests/math-planet-v11-host.check.mjs tests/math-planet-v11-entry.check.mjs tests/math-planet-grade-loading.check.mjs tests/math-planet-landing.check.mjs modules/math-mission-map/v11/runtime.check.mjs modules/math-mission-map/v11/walking-broadphase.check.mjs",
+    "test:math-planet-v11": "node --test tests/math-planet-v11-host.check.mjs tests/math-planet-v11-entry.check.mjs tests/math-planet-grade-loading.check.mjs tests/math-planet-landing.check.mjs modules/math-mission-map/v11/runtime.check.mjs modules/math-mission-map/v11/walking-broadphase.check.mjs modules/math-mission-map/v11/ground-navigation.check.mjs tests/island-walk.check.mjs tests/planet-pointer-hit.check.mjs tests/planet-walk-speed.check.mjs",
     "test:science-curriculum": "node --test tests/science-curriculum/*.check.mjs",
     "test:nature-planet": "node --test --test-concurrency=1 tests/nature-planet/*.check.mjs",
     "test:resource-timing": "node --test tests/performance-diagnostics/*.check.mjs",

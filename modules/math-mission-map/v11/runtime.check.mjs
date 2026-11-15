@@ -123,3 +123,12 @@ test('rocket approach animates during terrain parse but cannot descend or walk',
  assert.equal(api.getState().ready,false);assert.equal(api.getState().landed,false);assert.equal(api.getState().landingProgress,.625);assert.ok(frames.some(f=>f.shot==='approach'));assert.ok(frames.some(f=>f.shot==='push-in'));assert.ok(!frames.some(f=>f.shot==='descent'));assert.equal(api.setMovement('w',true),false);
  f.release();assert.equal(await api.ready,true);for(let now=10000;now<15000;now+=50)win.nextFrame(now);assert.equal(api.getState().landed,true);api.dispose();
 });
+
+test('zoom API, wheel and pinch alter bounded zoom but never landing or tap navigation',async()=>{
+ const f=renderFixture();let taps=0;const api=createV11PlanetScene(f.container,{grade:1,assetBaseUrl:'/v11/',onGround:()=>taps++},f.modules);await api.ready;
+ assert.equal(api.setZoom(2),false);assert.equal(api.getState().zoom,1);api.skipLanding();assert.equal(api.zoomBy(1.2),true);assert.equal(api.getState().zoom,1.2);api.setZoom(100);assert.equal(api.getState().zoom,2);api.setZoom(-1);assert.equal(api.getState().zoom,.6);api.setZoom(1);
+ const root=f.container.children[0],canvas=root.children[0];root.focus=()=>{};let prevented=false;canvas.listeners.get('wheel')({deltaY:-100,preventDefault(){prevented=true;}});assert.ok(api.getState().zoom>1);assert.ok(prevented);
+ const e=(id,x)=>({pointerType:'touch',pointerId:id,clientX:x,clientY:100,button:0,isPrimary:id===1});
+ canvas.listeners.get('pointerdown')(e(1,100));canvas.listeners.get('pointerdown')(e(2,200));canvas.listeners.get('pointermove')(e(2,260));canvas.listeners.get('pointerup')(e(2,260));canvas.listeners.get('pointerup')(e(1,100));assert.equal(taps,0);assert.ok(api.getState().zoom>1.6);
+ api.dispose();assert.equal(api.zoomBy(1.2),false);
+});

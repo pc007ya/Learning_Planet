@@ -1,4 +1,4 @@
-import { createV11PlanetScene } from '../v11/planet-v11.mjs?v=20261110-v11-release1';
+import { createV11PlanetScene } from '../v11/planet-v11.mjs?v=20261115-walk-zoom-v1';
 import { runtimeState } from './state.mjs';
 
 /** Compatibility seam: old UI uses x/z pairs and surface/orbit, runtime uses xyz. */
@@ -90,6 +90,8 @@ export async function createPlanetSceneAsync(container, options, {signal,createS
       setResourcesReady(value){resourcesReady=value===true;runtime?.setResourcesReady(resourcesReady);phase();},
       setMode(mode){if(disposed)return false;if(mode==='surface'){wanted='surface';phase();return runtime.beginLanding();}wanted='orbit';runtime.cancelLanding();runtime.stop();phase();return true;},
       setView(view){return runtime.setMode(view==='overview'?'overview':'follow');},
+      setMovement(key,pressed){if(pressed&&!canExplore())return false;return runtime.setMovement(key,pressed);},
+      setZoom(value){return runtime.setZoom(value);},zoomBy(factor){return runtime.zoomBy(factor);},getState(){return runtime.getState();},
       pan(x,z){return runtime.panBy(x,z);},setCameraViewport(value){return runtime.setCameraViewport(value);},
       stop(){return runtime.stop();},retry(){return false;},dispose,
     };

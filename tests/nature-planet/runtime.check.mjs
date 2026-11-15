@@ -118,3 +118,11 @@ test('rocket approach animates during terrain parse but cannot descend or walk',
  assert.equal(api.getState().ready,false);assert.equal(api.getState().landed,false);assert.equal(api.getState().landingProgress,.625);assert.ok(frames.some(f=>f.shot==='approach'));assert.ok(frames.some(f=>f.shot==='push-in'));assert.ok(!frames.some(f=>f.shot==='descent'));assert.equal(api.setMovement('w',true),false);
  f.release();assert.equal(await api.ready,true);for(let now=10000;now<15000;now+=50)win.nextFrame(now);assert.equal(api.getState().landed,true);api.dispose();
 });
+test('ground zoom is bounded, observable, locked in orbit and reset safely',async()=>{
+ const f=renderFixture(),api=createNaturePlanetScene(f.container,{grade:1,assetBaseUrl:'/v11/'},f.modules);
+ await api.ready;assert.equal(api.setZoom(2),false);assert.equal(api.getState().zoom,1);api.skipLanding();
+ assert.equal(api.zoomBy(1.2),true);assert.equal(api.getState().zoom,1.2);assert.equal(api.setZoom(99),true);assert.equal(api.getState().zoom,2);
+ api.setZoom(.01);assert.equal(api.getState().zoom,.6);assert.equal(api.setZoom(NaN),false);assert.equal(api.zoomBy(-1),false);
+ assert.equal(api.setMovement('W',true),true);api.setMovement('W',false);api.reset();assert.equal(api.getState().zoom,1);
+ api.cancelLanding();assert.equal(api.zoomBy(1.2),false);api.dispose();assert.equal(api.setZoom(1),false);
+});

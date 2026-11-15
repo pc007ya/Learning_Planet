@@ -1,4 +1,4 @@
-import { createPlanetArtReview } from '../planet-art-v2-view.mjs?v=20261110-v11-release1';
+import { createPlanetArtReview } from '../planet-art-v2-view.mjs?v=20261115-walk-zoom-v1';
 import { loadV11Region } from './region.mjs';
 
 /** Preserve the latest host UI and original callbacks; replace only the 3D world. */
@@ -12,7 +12,7 @@ export function createV11PlanetView(React) {
       loadV11Region(props.grade,{signal:abort.signal}).then(region => {
         if (!active) return;
         setView(() => createPlanetArtReview(React, {region,onRetryRegion:() => retry(n => n+1),
-          sceneLoader:() => import('./adapter.mjs?v=20261110-v11-release1')}));
+          sceneLoader:() => import('./adapter.mjs?v=20261115-walk-zoom-v1')}));
       }).catch(() => {if (active) setError(true);});
       return () => {active=false;abort.abort();};
     },[props.grade,attempt]);

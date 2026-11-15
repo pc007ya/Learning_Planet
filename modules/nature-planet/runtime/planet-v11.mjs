@@ -1,7 +1,8 @@
+import {clampZoom,createZoomGesture} from '../../planet-controls/zoom-gesture.mjs';
 import {createNatureAssetFetch} from './asset-fetch.mjs';
 import {createSkyCruise} from './sky-cruise.mjs';
 import {createCrewedArrival} from './crewed-arrival.mjs';
-import {createCrewedWorldHost} from './crewed-world-host.mjs';
+import {createCrewedWorldHost} from './crewed-world-host.mjs?v=20261115-walk-zoom-v1';
 import {mountYuyuRig} from '../../shared-actors/yuyu-rig-adapter.mjs';
 import {loadFlightPlatform} from './flight-platform-loader.mjs';
 import {createShipFlight} from './ship-flight.mjs';
@@ -18,12 +19,12 @@ import { createLifetime, disposeTree, movementKey, editableTarget } from './life
 import { createWalking, isWalkSurface } from './walking.mjs';
 import { dijkstra, toWorld } from './nav.mjs';
 import { createLandingTimeline, createLandingDirector } from '../planet-art-v2-landing.mjs';
-import { createYuyu } from './planet-yuyu.mjs';
+import { createYuyu } from './planet-yuyu.mjs?v=20261115-walk-zoom-v1';
 import { createAerialMotion } from './aerial-motion.mjs?v=20261111-v23-cockpit';
 import { createOceanMotion, createOceanClock, OCEAN_MOTION_MODES } from './ocean-motion.mjs?v=20261111-v23-cockpit';
 
 import { createExplorationMotion } from './exploration-motion.mjs?v=20261111-v23-cockpit';
-import { GROUND_WALK_SPEED, GROUND_WALK_STRIDE, advanceGroundPath, samplePathLookahead, stepGroundYaw } from './ground-motion.mjs';
+import { GROUND_WALK_SPEED, GROUND_WALK_STRIDE, advanceGroundPath, samplePathLookahead, stepGroundYaw } from './ground-motion.mjs?v=20261115-walk-zoom-v1';
 import { resolveOverviewView } from './landmark-view-profiles.mjs';
 import { createLandmarkViewCamera } from './landmark-view-camera.mjs';
 
@@ -50,14 +51,14 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
   const manualLanding=options.manualLanding===true;
   const state = {worldVersion:WORLD_VERSION,grade,resourcesReady:options.resourcesReady!==false && !options.resourcesReady?.then,rocketReady:!manualLanding,landingStarted:!manualLanding,landingShot:'orbit',loading:true,ready:false,error:null,contextLost:false,landed:false,landingProgress:0,positionReady:false,mode:restored?.mode === 'follow'?'follow':'overview',position:[0,0,0],target:null,arrived:false,blocked:null,nearbyCourseId:null};
   let THREE,renderer,scene,camera,look,character,yuyu,terrain,data,physics,frameId=0,idleTimer=0,last=0,path=[],width=1,height=1,visible=true;
-  let director=null,props=null,arrivalRockets=[],walkMeshes=[],cameraPan=[0,0],viewport={left:0,right:0,top:0,bottom:0};
+  let director=null,props=null,arrivalRockets=[],walkMeshes=[],cameraPan=[0,0],zoom=1,viewport={left:0,right:0,top:0,bottom:0};
   const timeline=createLandingTimeline();
   let cameraSettling=true,lastNotify=0,landingElapsed=0,lastProject=-Infinity;
   const ambientClock=createOceanClock();
   let dayNight=null,ocean=null,aerial=null,exploration=null,landscape=null,landscapeMotion=null,landscapeInstalling=false,landscapeFallback=null,coastVisibility=null,landmarkCamera=null,details=null,detailsFallback=null,worldWildlife=null,wildlifeFallback=null,skyCruise=null,skyFallback=null,flight=null,flightRocket=null,flightFallback=null,flightView=null,flightPlatform=null,rigMount=null,releaseCharacter=null,restoreRig=null,crew=null,crewFallback=null,crewedArrival=null,crewedArrivalFallback=null,crewApproach=false,characterYaw=-.54,needsFrame=true,oceanMode=OCEAN_MOTION_MODES.includes(options.oceanMotion)?options.oceanMotion:'auto';
   const keys = new Set();
   const notify = (fn, value) => { if (!life.disposed && typeof fn === 'function') { try { fn(value); } catch (e) { console.error('Planet host callback failed',e); } } };
-  const getState = () => structuredClone({...state,disposed:life.disposed,cameraPan:[...cameraPan],position:character?character.getWorldPosition(new THREE.Vector3()).toArray():state.position,remainingWaypoints:path.length,landmarkView:landmarkCamera?.getState()||null,crewedArrival:{available:!!crewedArrival,reason:crewedArrivalFallback,...crewedArrival?.getState()},dayNight:dayNight?.getState()||null,coastVisibility:coastVisibility?.getState()||null,boarding:{available:!!crew,reason:crewFallback,approaching:crewApproach,reducedMotion:reducedMotion?.matches===true,...crew?.getState()},characterRig:{candidate:!!rigMount,boardingImplemented:false,safeToFly:false,...rigMount?.getState()},flight:{platform:details?'combined-v4':flightPlatform?'standalone-v4':'none',available:!!flight,reason:flightFallback,active:false,phase:'unavailable',boardingImplemented:false,...flight?.getState()},skyCruise:{actors:0,routes:0,reason:skyFallback,...skyCruise?.getState()},worldWildlife:{birds:0,marine:0,routes:0,quality:'static',status:worldWildlife?'active':'unavailable',reason:wildlifeFallback,...worldWildlife?.getState()},details:{status:details?'v4':'v3',reason:detailsFallback,report:details?.report||null},landscape:{status:landscape?'v3':landscapeFallback?'baseline-fallback':'baseline',reason:landscapeFallback,modelSha256:landscape?.manifest?.sha256||null,...landscapeMotion?.getState()},moving:keys.size>0||path.length>0,oceanMotion:{mode:oceanMode,quality:ocean?.quality||'static',actors:ocean?.actorCount||0,routes:ocean?.routeCount||0,yielding:ocean?.yieldingCount||0,parts:ocean?.partCount||0,seconds:ocean?.seconds||0},explorationMotion:{quality:exploration?.quality||'static',actors:exploration?.actorCount||0,parts:exploration?.partCount||0,seconds:exploration?.seconds||0},aerialMotion:{quality:aerial?.quality||'static',actors:aerial?.actorCount||0,parts:aerial?.partCount||0,seconds:aerial?.seconds||0}});
+  const getState = () => structuredClone({...state,disposed:life.disposed,zoom,cameraPan:[...cameraPan],position:character?character.getWorldPosition(new THREE.Vector3()).toArray():state.position,remainingWaypoints:path.length,landmarkView:landmarkCamera?.getState()||null,crewedArrival:{available:!!crewedArrival,reason:crewedArrivalFallback,...crewedArrival?.getState()},dayNight:dayNight?.getState()||null,coastVisibility:coastVisibility?.getState()||null,boarding:{available:!!crew,reason:crewFallback,approaching:crewApproach,reducedMotion:reducedMotion?.matches===true,...crew?.getState()},characterRig:{candidate:!!rigMount,boardingImplemented:false,safeToFly:false,...rigMount?.getState()},flight:{platform:details?'combined-v4':flightPlatform?'standalone-v4':'none',available:!!flight,reason:flightFallback,active:false,phase:'unavailable',boardingImplemented:false,...flight?.getState()},skyCruise:{actors:0,routes:0,reason:skyFallback,...skyCruise?.getState()},worldWildlife:{birds:0,marine:0,routes:0,quality:'static',status:worldWildlife?'active':'unavailable',reason:wildlifeFallback,...worldWildlife?.getState()},details:{status:details?'v4':'v3',reason:detailsFallback,report:details?.report||null},landscape:{status:landscape?'v3':landscapeFallback?'baseline-fallback':'baseline',reason:landscapeFallback,modelSha256:landscape?.manifest?.sha256||null,...landscapeMotion?.getState()},moving:keys.size>0||path.length>0,oceanMotion:{mode:oceanMode,quality:ocean?.quality||'static',actors:ocean?.actorCount||0,routes:ocean?.routeCount||0,yielding:ocean?.yieldingCount||0,parts:ocean?.partCount||0,seconds:ocean?.seconds||0},explorationMotion:{quality:exploration?.quality||'static',actors:exploration?.actorCount||0,parts:exploration?.partCount||0,seconds:exploration?.seconds||0},aerialMotion:{quality:aerial?.quality||'static',actors:aerial?.actorCount||0,parts:aerial?.partCount||0,seconds:aerial?.seconds||0}});
   const emit = () => notify(onState,getState());
   function stopFrame() { if(frameId) win.cancelAnimationFrame(frameId);if(idleTimer)win.clearTimeout(idleTimer);frameId=idleTimer=0;last=0;ambientClock.pause();rigMount?.pause(true);landscapeMotion?.pause();worldWildlife?.pause();skyCruise?.pause();ocean?.pause();aerial?.pause();exploration?.pause(); }
   life.own(stopFrame);
@@ -86,7 +87,7 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
   function fail(error) { if(life.disposed)return; resolveInitialized(false);assets.abort();stopFrame();keys.clear();path=[];state.loading=false;state.ready=false;state.error=error.message || String(error);emit();notify(onError,{grade,message:state.error,code:'SCENE_UNAVAILABLE',recoverable:true}); }
   function reset() {
     if(crewApproach||crew?.getState().active||crew?.getState().occupancy==='aboard'||flight?.active||!physics || !data || life.disposed || state.contextLost || !state.ready)return false;
-    clearNav();keys.clear();cameraPan=[0,0];const [x,,z]=toWorld(data.spawn), y=physics.floor(x,z);
+    clearNav();keys.clear();cameraPan=[0,0];zoom=1;const [x,,z]=toWorld(data.spawn), y=physics.floor(x,z);
     if(y===null) { fail(new Error('出生點缺少可走表面')); return false; }
     characterYaw=-.54;character.position.set(x,y,z);character.quaternion.setFromAxisAngle(new THREE.Vector3(0,1,0),characterYaw);character.visible=true;state.blocked=null;cameraSettling=true;emit();wake();return true;
   }
@@ -94,8 +95,12 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
   const cameraTransportLocked=()=>!!(flight?.active||crewedArrival?.active||crewApproach||crew?.getState().active||crew?.getState().occupancy==='aboard');
   function setMode(mode) { if(life.disposed || state.contextLost || !state.landed || cameraTransportLocked() || !['overview','follow'].includes(mode))return false;state.mode=mode;if(mode==='follow')cameraPan=[0,0];cameraSettling=true;emit();wake();return true; }
   const movementReady=()=>!flight?.active&&!crewApproach&&!crew?.getState().active&&crew?.getState().occupancy!=='aboard'&&state.ready&&state.landed&&(!manualLanding||(state.resourcesReady&&state.rocketReady))&&!state.contextLost&&!life.disposed;
+  const zoomReady=()=>movementReady()&&!doc.hidden;
+  function setZoom(value){if(!zoomReady()||!Number.isFinite(value))return false;zoom=clampZoom(value);cameraSettling=true;emit();wake();return true;}
+  function zoomBy(factor){return Number.isFinite(factor)&&factor>0?setZoom(zoom*factor):false;}
+  const zoomGesture=createZoomGesture({enabled:zoomReady,zoomBy});life.own(()=>zoomGesture.reset());
   function setMovement(key,pressed) {
-    const k=movementKey(key);if(!k || life.disposed)return false;
+    const k=movementKey(typeof key==='string'&&key.length===1?key.toLowerCase():key);if(!k || life.disposed)return false;
     if(!pressed){keys.delete(k);emit();wake();return true;}
     if(!movementReady() || doc.hidden)return false;
     keys.add(k);clearNav();state.mode='follow';cameraSettling=true;emit();wake();return true;
@@ -207,6 +212,7 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
     let targetLook=follow?actorPosition.clone().add(new THREE.Vector3(0,1,0)):new THREE.Vector3(...(view.overviewTarget || [0,2,-15]));
     let targetCam=follow?actorPosition.clone().add(new THREE.Vector3(...followOffset)):new THREE.Vector3(...(view.overviewPosition || [104,118,130]));
     targetCam.add(new THREE.Vector3(cameraPan[0],0,cameraPan[1]));
+    if(state.landed&&!cameraTransportLocked()){const zoomLook=targetLook.clone().add(new THREE.Vector3(cameraPan[0],0,cameraPan[1]));targetCam.sub(zoomLook).multiplyScalar(1/zoom).add(zoomLook);}
     const cameraFloor=physics?.floor(targetCam.x,targetCam.z);targetCam.y=Math.max(targetCam.y,(cameraFloor??0)+3);targetLook.add(new THREE.Vector3(cameraPan[0],0,cameraPan[1]));
     let landingFrame=null;
     if(crewedArrival&&!state.landed){const arrivalState=crewedArrival.getState();state.landingProgress=arrivalState.progress;state.landingShot=arrivalState.shot;character.visible=true;notify(onLandingState,arrivalState);if(arrivalState.complete){state.landed=true;state.mode='follow';emit();}}else if(manualLanding&&!state.landed){
@@ -255,16 +261,19 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
   const reducedChange=()=>{if(reducedMotion.matches)abandonCrewedArrival('reduced-motion');flight?.setReduced(reducedMotion.matches);if(reducedMotion.matches&&crew){crewApproach=false;keys.clear();clearNav();crew.cancel('reduced-motion');}landscapeMotion?.setReduced(reducedMotion.matches);worldWildlife?.setReduced(reducedMotion.matches);skyCruise?.setReduced(reducedMotion.matches);ocean?.setReduced(reducedMotion.matches);aerial?.setReduced(reducedMotion.matches);exploration?.setReduced(reducedMotion.matches);stopFrame();wake();};
   if(reducedMotion?.addEventListener)listen(reducedMotion,'change',reducedChange);
   else if(reducedMotion?.addListener){reducedMotion.addListener(reducedChange);life.own(()=>reducedMotion.removeListener(reducedChange));}
-  listen(root,'keydown',e=>{if(editableTarget(e.target) || e.ctrlKey || e.metaKey || e.altKey)return;if(movementKey(e.key)){e.preventDefault();setMovement(e.key,true);}});
-  listen(root,'keyup',e=>{if(movementKey(e.key)){e.preventDefault();setMovement(e.key,false);}});
-  listen(root,'focusout',()=>keys.clear()); listen(win,'blur',()=>{keys.clear();pointerStart=null;});
+  listen(root,'keydown',e=>{if(editableTarget(e.target) || e.ctrlKey || e.metaKey || e.altKey)return;if(movementKey(e.key.length===1?e.key.toLowerCase():e.key)){e.preventDefault();setMovement(e.key,true);}});
+  listen(root,'keyup',e=>{if(movementKey(e.key.length===1?e.key.toLowerCase():e.key)){e.preventDefault();setMovement(e.key,false);}});
+  listen(root,'focusout',()=>keys.clear()); listen(win,'blur',()=>{keys.clear();pointerStart=null;zoomGesture.reset();});
   let pointerStart=null;
+  listen(canvas,'wheel',e=>zoomGesture.wheel(e),{passive:false});
   listen(canvas,'pointerdown',e=>{
+    if(zoomGesture.down(e)){pointerStart=null;canvas.setPointerCapture?.(e.pointerId);return;}
     if(e.isPrimary===false||(e.button!=null&&e.button!==0))return;
     root.focus({preventScroll:true});pointerStart={id:e.pointerId,x:e.clientX,y:e.clientY,lastX:e.clientX,lastY:e.clientY,dragged:false};
     canvas.setPointerCapture?.(e.pointerId);
   });
   listen(canvas,'pointermove',e=>{
+    if(zoomGesture.move(e)){pointerStart=null;return;}
     if(!pointerStart||pointerStart.id!==e.pointerId||!movementReady())return;
     if(Math.hypot(e.clientX-pointerStart.x,e.clientY-pointerStart.y)>8)pointerStart.dragged=true;
     if(pointerStart.dragged){
@@ -273,9 +282,10 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
       pointerStart.lastX=e.clientX;pointerStart.lastY=e.clientY;
     }
   });
-  listen(canvas,'pointercancel',()=>{pointerStart=null;});
-  listen(canvas,'lostpointercapture',()=>{pointerStart=null;});
+  listen(canvas,'pointercancel',e=>{zoomGesture.up(e);pointerStart=null;});
+  listen(canvas,'lostpointercapture',e=>{zoomGesture.up(e);pointerStart=null;});
   listen(canvas,'pointerup',e=>{
+    if(zoomGesture.up(e)){pointerStart=null;return;}
     const press=pointerStart;pointerStart=null;
     if(!press||press.id!==e.pointerId||press.dragged||Math.hypot(e.clientX-press.x,e.clientY-press.y)>8)return;
     if(!movementReady())return;
@@ -284,7 +294,7 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
     const hit=ray.intersectObjects(walkMeshes,false).find(h=>h.face&&h.face.normal.clone().transformDirection(h.object.matrixWorld).y>.4);
     if(hit&&physics.valid(hit.point.x,hit.point.z,hit.point.y).ok)notify(onGround,[hit.point.x,hit.point.z]);
   });
-  listen(doc,'visibilitychange',()=>{keys.clear();pointerStart=null;if(doc.hidden)stopFrame();else wake();});
+  listen(doc,'visibilitychange',()=>{keys.clear();pointerStart=null;zoomGesture.reset();if(doc.hidden)stopFrame();else wake();});
   listen(canvas,'webglcontextlost',e=>{e.preventDefault();state.contextLost=true;keys.clear();stopFrame();emit();notify(onError,{grade,code:'WEBGL_CONTEXT_LOST',message:'3D 顯示暫時中斷，仍可使用課程清單。',recoverable:true});});
   listen(canvas,'webglcontextrestored',()=>{state.contextLost=false;cameraSettling=true;emit();wake();});
   function resize() {if(!renderer)return;const rect=root.getBoundingClientRect();width=Math.max(1,rect.width);height=Math.max(1,rect.height);renderer.setSize(width,height,false);camera.aspect=width/height;
@@ -411,5 +421,5 @@ export function createNaturePlanetScene(container, options = {}, loadModules = l
   })();
   if(options.resourcesReady?.then)Promise.resolve(options.resourcesReady).then(()=>setResourcesReady(true),e=>fail(e));
   emit();
-  return {ready,initialized,beginBoarding,disembark,cancelBoarding,beginFlight,returnFlight,cancelFlight,setDayNightPreview,setOceanMotion,cancelLanding,beginLanding,setResourcesReady,moveTo,stop,setCameraPan,panBy,pan:panBy,setCameraViewport,navigate,setMode,reset,setMovement,getState,skipLanding(){if(life.disposed || !state.ready || manualLanding)return false;state.landed=true;state.landingProgress=1;state.mode='follow';cameraSettling=true;emit();wake();return true;},dispose(){if(life.disposed)return;life.dispose();keys.clear();path=[];state.ready=false;state.loading=false;data=null;physics=null;}};
+  return {ready,initialized,setZoom,zoomBy,beginBoarding,disembark,cancelBoarding,beginFlight,returnFlight,cancelFlight,setDayNightPreview,setOceanMotion,cancelLanding,beginLanding,setResourcesReady,moveTo,stop,setCameraPan,panBy,pan:panBy,setCameraViewport,navigate,setMode,reset,setMovement,getState,skipLanding(){if(life.disposed || !state.ready || manualLanding)return false;state.landed=true;state.landingProgress=1;state.mode='follow';cameraSettling=true;emit();wake();return true;},dispose(){if(life.disposed)return;life.dispose();keys.clear();path=[];state.ready=false;state.loading=false;data=null;physics=null;}};
 }

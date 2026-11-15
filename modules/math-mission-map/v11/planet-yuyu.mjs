@@ -1,3 +1,4 @@
+import {createGroundStride,GROUND_WALK_STRIDE} from './ground-motion.mjs?v=20261115-walk-zoom-v1';
 // Yuyu's established identity: long chestnut hair, amber eyes, yellow star clip,
 // lavender star pyjamas and cream slippers. No external image or model dependency.
 export function createYuyu(THREE, { own, color, mesh }) {
@@ -153,8 +154,9 @@ export function createYuyu(THREE, { own, color, mesh }) {
   clip.rotation.y=-.2;
   oval(head,pink,[-.285,.16,.294],[.024,.024,.012],'yuyu-clip-pink-centre');
   body.rotation.y=.54;
-  function animate(time,walking,reduced=false) {
-    const stride=walking&&!reduced?Math.sin(time*.0109):0;
+  const groundStride=createGroundStride();
+  function animate(time,walking,reduced=false,{stride:strideLength=GROUND_WALK_STRIDE}={}) {
+    const stride=groundStride(root.position,walking,reduced,strideLength);
     legs.forEach((leg,i)=>{leg.rotation.x=stride*(i?-.32:.32);});
     arms.forEach((arm,i)=>{arm.rotation.x=stride*(i?.22:-.22);});
   }
