@@ -41,7 +41,7 @@ export function validProgress(v) {
     if (u.active?.questionCycles !== undefined && u.questionPool === undefined) return false;
     if (u.active !== undefined && u.questionPool !== undefined && !reservedInPool(u.active,u.questionPool)) return false;
     if (u.interrupted !== undefined && (!Array.isArray(u.interrupted) || !u.interrupted.every(r => run(r) && r.unitId === id))) return false;
-    if (!u.attempts.every(a => object(a) && typeof a.id === 'string' && Array.isArray(a.answers) && a.answers.every(answer) && Number.isInteger(a.total) && a.total === a.answers.length && Number.isInteger(a.correct) && a.correct >= 0 && a.correct <= a.total)) return false;
+    if (!u.attempts.every(a => object(a) && typeof a.id === 'string' && (a.rewardEligible === undefined || typeof a.rewardEligible === 'boolean') && Array.isArray(a.answers) && a.answers.every(answer) && Number.isInteger(a.total) && a.total === a.answers.length && Number.isInteger(a.correct) && a.correct >= 0 && a.correct <= a.total)) return false;
   }
   for (const t of Object.values(v.tasks)) {
     if (!object(t) || typeof t.note !== 'string' || !Array.isArray(t.checks) || !t.checks.every(c => c == null || typeof c === 'boolean')) return false;

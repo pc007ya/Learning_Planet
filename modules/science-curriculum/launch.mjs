@@ -267,7 +267,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
       else {
         if (Object.keys(active.answers).length !== active.questions.length) return;
         active.finished = true;
-        if (!u.attempts.some(a => a.id === active.id)) u.attempts.push({ id: active.id, started: active.started, completed: Date.now(), version: active.version, answers: Object.values(active.answers), total: active.questions.length, correct: Object.values(active.answers).filter(a => a.correct).length, poolCycleStart: active.poolCycleStart, poolCycleEnd: active.poolCycleEnd });
+        if (!u.attempts.some(a => a.id === active.id)) u.attempts.push({ id: active.id, rewardEligible: active.rewardEligible === true, started: active.started, completed: Date.now(), version: active.version, answers: Object.values(active.answers), total: active.questions.length, correct: Object.values(active.answers).filter(a => a.correct).length, poolCycleStart: active.poolCycleStart, poolCycleEnd: active.poolCycleEnd });
       }
       changed = true;
     });

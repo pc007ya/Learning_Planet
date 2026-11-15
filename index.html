@@ -8539,8 +8539,10 @@ class Component extends DCLogic {
     if(this.state.currentId !== learnerId || this.state.teacher)return unavailable;
     const [{scienceReward},{createProgressStore}] = await Promise.all([import("./modules/science-curriculum/rewards.mjs?v=20261115-quiz-v3"),import("./modules/science-curriculum/store.mjs?v=20261115-quiz-v3")]);
     if(this.state.currentId !== learnerId)return unavailable;
-    const store=createProgressStore(localStorage,learnerId),record=store.read().units[unitId],run=record?.active;
-    if(store.readonly() || run?.id!==runId || !run.finished || !record.attempts.some(a=>a.id===runId))return unavailable;
+    const store=createProgressStore(localStorage,learnerId),record=store.read().units[unitId],attempt=record?.attempts.find(a=>a.id===runId);
+    if(store.readonly() || !attempt)return unavailable;
+    const run=record.active?.id===runId?record.active:{id:runId,unitId,finished:true,rewardEligible:attempt.rewardEligible===true,questions:attempt.answers.map(a=>({id:a.questionId})),answers:Object.fromEntries(attempt.answers.map(a=>[a.questionId,a]))};
+    if(!run.finished)return unavailable;
     return new Promise(resolve=>{
       let receipt=unavailable;
       this.setState(state=>{
