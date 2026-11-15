@@ -312,7 +312,8 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     }
     body.append(grid,el('p',legacy?'沿用原主題分類，未宣稱出版社或學期對應。練習紀錄另存，原有成績與星星保留。':'課綱為全國共通要求；兩版單元安排不同。練習為原創，並非出版社官方題庫。','sc-footnote'));
   }
-  function unitNav() { body.append(button('← 單元列表',()=>{view='catalog';stopSpeech();render();},'sc-back')); }
+  function returnToUnits(){stopSpeech();pickedChoice=null;if(unitId!=null){close();return;}view='catalog';render();}
+  function unitNav() { body.append(button('← 單元列表',returnToUnits,'sc-back')); }
   function quizView() {
     const q = run.questions[run.index], a = run.answers[q.id];
     const layout = el('section', null, 'sc-math-master'); layout.setAttribute('aria-label', '生活與自然單元練習');
@@ -329,7 +330,7 @@ export async function openScienceCurriculum({ grade = 1, unitId = null, curricul
     const rail=el('aside',null,'sc-math-rail');
     const guidance=a?(a.correct?'答對了！再看看解釋，說說你用到的證據。':'沒關係，一起看看解釋，再想想怎麼判斷。'):'先讀題目，再比較選項；選好後按提交答案。';
     const guide=button('',event=>say(guidance,event.currentTarget),'sc-presenter');guide.setAttribute('aria-label','聽學習提示');
-    const presenter=el('img');presenter.alt='';presenter.src=new URL('../../images/math-master/v3/presenter/presenter-'+(a?(a.correct?'correct':'wrong'):pickedChoice==null?'hint':'retry')+'-v1.png',import.meta.url);guide.append(presenter);rail.append(guide,el('p',a?'一起看本題分析':'選好答案，再按提交','sc-guide-caption'),button('← 單元列表',()=>{view='catalog';stopSpeech();pickedChoice=null;render();},'sc-unit-list'));
+    const presenter=el('img');presenter.alt='';presenter.src=new URL('../../images/math-master/v3/presenter/presenter-'+(a?(a.correct?'correct':'wrong'):pickedChoice==null?'hint':'retry')+'-v1.png',import.meta.url);guide.append(presenter);rail.append(guide,el('p',a?'一起看本題分析':'選好答案，再按提交','sc-guide-caption'),button('← 單元列表',returnToUnits,'sc-unit-list'));
     layout.append(rail);
     const card=el('section',null,'sc-question');card.dataset.questionId=q.id;
     card.append(el('p',legacy?`原主題 · ${selectedUnit.grade}年級 · ${selectedUnit.subject}`:`${selectedUnit.grade}年級${selectedUnit.semester===1?'上':'下'} · ${selectedUnit.subject}`,'sc-label'));

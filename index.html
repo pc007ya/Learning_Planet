@@ -1754,6 +1754,10 @@
         <sc-if value="{{ showScienceMissionMap }}" hint-placeholder-val="{{ false }}">
           {{ scienceMissionMap }}
         </sc-if>
+        <sc-if value="{{ showScienceClassicTerms }}" hint-placeholder-val="{{ false }}">
+          <div class="math-mission-switch" role="group" aria-label="自然課程學期"><sc-for list="{{ scienceSemesterTabs }}" as="term" hint-placeholder-count="2"><button type="button" aria-pressed="{{ term.active }}" onClick="{{ term.go }}">{{ term.label }}</button></sc-for></div>
+          <sc-if value="{{ scienceClassicNotice }}" hint-placeholder-val="{{ false }}"><p role="status">{{ scienceClassicNotice }} <button onClick="{{ retryScienceClassic }}">重新載入</button></p></sc-if>
+        </sc-if>
         <div class="subject-world-grid">
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="6">
             <article class="subject-world-card" data-math-code="{{ u.displayCode }}" style="display:flex;flex-direction:column;gap:12px">
@@ -5514,6 +5518,7 @@ class Component extends DCLogic {
     grade: 1,
     mathMapView: readMathMapView(),
     scienceMapView: readScienceMapView(),
+    scienceSemester: 1, scienceClassicCatalogs: {}, scienceClassicRevision: 0,
     unit: null, quizSubject: "math",
     quizZhuyin: false, quizZhuyinLoading: false, quizZhuyinError: false, chineseZhuyin: null,
     qs: [], qi: 0, picked: null, mathChoice: null, sciChoice: null, locked: false, correct: 0, timeLeft: 30, quizRound: 0, quizRunId: "", feedbackTitle: "", resultMastery: 0, resultNote: "",
@@ -5644,6 +5649,13 @@ class Component extends DCLogic {
       this.dataRequests.set(key, request);
     };
     const json = path => fetch(path).then(r => { if (!r.ok) throw new Error("題庫載入失敗"); return r.json(); });
+    if (!s.teacher && s.subject === "science" && s.screen === "map" && s.scienceMapView !== "mission" && window.LPScienceRollout?.enabled === true) {
+      const scope = s.grade + ":" + (s.scienceSemester || 1);
+      load("science-classic:" + scope, () => import("./modules/science-curriculum/classic-cards.mjs?v=20261115-classic-v2").then(async mod => {
+        this.scienceClassicProgress = mod.getClassicProgress;
+        return mod.loadClassicCards({grade:s.grade,semester:s.scienceSemester || 1});
+      }), cards => state => ({scienceClassicCatalogs:{...state.scienceClassicCatalogs,[scope]:cards}}));
+    }
     const weekly = !s.teacher && ["weekly","weeklyQuiz"].includes(s.screen);
     const selected = weekly ? MATH_UNITS.concat(CH_UNITS, SCI_UNITS).filter(unit => unit.grade === s.grade && Number(s.weeklyConfig.modules[unit.id]?.count) > 0) : [];
     if ((!s.teacher && s.subject === "chinese" && s.screen !== "profile") || selected.some(unit => unit.id.startsWith("c")) || (this.backendRole === "admin" && s.adminTab === "vocab"))
@@ -8525,7 +8537,8 @@ class Component extends DCLogic {
   async openScienceCurriculumCandidate(legacyUnitId = null) {
     if (!this.state.currentId || this.state.subject !== "science" || this.scienceCurriculumOpening || this.naturePlanetOpening) return;
     if (window.LPScienceRollout?.enabled !== true) return;
-    if (legacyUnitId !== null && !this.isLegacyScienceCandidate(legacyUnitId)) return;
+    const integrated = /^s-(kh|na)-g[1-6]-t[12]-u\d+$/.test(String(legacyUnitId));
+    if (legacyUnitId !== null && !integrated && !this.isLegacyScienceCandidate(legacyUnitId)) return;
     const learnerId = this.state.currentId, grade = this.state.grade, generation = this.sessionGeneration;
     const isActive = () => this.state.currentId === learnerId && this.state.subject === "science" && this.state.grade === grade && this.sessionGeneration === generation;
     this.scienceCurriculumOpening = true;
@@ -8533,8 +8546,8 @@ class Component extends DCLogic {
     try {
       const { openScienceCurriculum } = await import("./modules/science-curriculum/launch.mjs?v=20261115-integrated-v1");
       if (!isActive()) return;
-      const close = await openScienceCurriculum({ grade, learnerId, isActive, unitId: legacyUnitId, curriculum: legacyUnitId === null ? "publisher" : "legacy",
-        onClose: () => { dismissed = true; this.scienceCurriculumClose = null; } });
+      const close = await openScienceCurriculum({ grade, learnerId, isActive, unitId: legacyUnitId, curriculum: legacyUnitId === null || integrated ? "publisher" : "legacy", semester: this.state.scienceSemester || 1,
+        onClose: () => { dismissed = true; this.scienceCurriculumClose = null; this.setState(st=>({scienceClassicRevision:st.scienceClassicRevision+1})); } });
       if (!dismissed && isActive()) this.scienceCurriculumClose = close;
       else await close?.();
     } catch (error) { if (isActive()) this.flash("生活與自然練習暫時無法開啟，請重試。"); }
@@ -8606,6 +8619,7 @@ class Component extends DCLogic {
   }
 
   async startUnit(id) {
+    if (this.state.subject === "science" && /^s-(kh|na)-g[1-6]-t[12]-u\d+$/.test(String(id))) { await this.openScienceCurriculumCandidate(id); return; }
     if (this.state.subject === "science" && this.isLegacyScienceCandidate(id)) { await this.openScienceCurriculumCandidate(id); return; }
     if (/^s-nature-planet-candidate-g[1-6]$/.test(String(id))) { await this.openNaturePlanetCandidate(); return; }
     if (/^s-curriculum-candidate-g[1-6]$/.test(String(id))) { await this.openScienceCurriculumCandidate(); return; }
@@ -10367,12 +10381,14 @@ class Component extends DCLogic {
     ];
     const activeTab = s.screen === "quiz" || s.screen === "result" || s.screen === "library" || s.screen === "writing" || s.screen === "memory" || s.screen === "video" || String(s.screen).indexOf("english") === 0 ? "map" : s.screen === "weeklyQuiz" || s.screen === "weeklyResult" ? "weekly" : s.screen === "collection" ? "gacha" : s.screen;
     const scienceCurriculumCandidate = s.subject === "science" && window.LPScienceRollout?.enabled === true;
-    const subjectUnits = s.subject === "math" ? [...MATH_UNITS,...MATH_EXPLORE_UNITS].sort((a,b)=>a.grade-b.grade||a.displayOrder-b.displayOrder) : s.subject === "english" ? EN_UNITS : s.subject === "science" ? SCI_UNITS.concat(scienceCurriculumCandidate ? [{ id: "s-curriculum-candidate-g" + s.grade, grade: s.grade, kind: "curriculum-candidate", difficulty: 1, icon: "🌱", art: "images/subject-unit-icons/v2/experiment-plant-water-v2.png", tint: "#dff7ed", title: s.grade <= 2 ? "生活單元練習" : "自然單元練習", sub: "康軒・南一・上下學期 · 每回10題" }] : []) : s.subject === "experiment" ? EXPERIMENT_UNITS : CH_UNITS;
+    const subjectUnits = s.subject === "math" ? [...MATH_UNITS,...MATH_EXPLORE_UNITS].sort((a,b)=>a.grade-b.grade||a.displayOrder-b.displayOrder) : s.subject === "english" ? EN_UNITS : s.subject === "science" ? SCI_UNITS.concat(scienceCurriculumCandidate ? (s.scienceClassicCatalogs?.[s.grade+":"+(s.scienceSemester || 1)] || []) : []) : s.subject === "experiment" ? EXPERIMENT_UNITS : CH_UNITS;
     const gradeWords = this.gradeWords(s.grade);
     const worldUnits = subjectUnits.filter((u) => s.subject === "experiment" || u.grade === s.grade).map((u) => {
       const isLib = u.kind === "library";
+      const isIntegratedUnit = u.kind === "curriculum-unit";
+      const progress = isIntegratedUnit ? this.scienceClassicProgress?.(u, localStorage, s.currentId) : null;
       const isNatureCandidate = u.kind === "nature-planet-candidate";
-      const isCurriculumCandidate = u.kind === "curriculum-candidate" || isNatureCandidate;
+      const isCurriculumCandidate = u.kind === "curriculum-candidate" || isNatureCandidate || isIntegratedUnit;
       const isLegacyScienceCandidate = this.isLegacyScienceCandidate(u.id);
       const isExperiment = u.kind === "experiment";
       const isPhonics = u.kind === "english-phonics";
@@ -10388,15 +10404,15 @@ class Component extends DCLogic {
         pct: isLib ? 100 : isExperiment ? 0 : Math.round(round / 3 * 100),
         stars: isLib || isExperiment || isCurriculumCandidate ? [] : [0, 1, 2].map((i) => ({ opacity: i < difficulty ? 1 : .28, gray: i < difficulty ? 0 : 1 })),
         showMastery: !isCurriculumCandidate && u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
-        showStatus: !isCurriculumCandidate && u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
+        showStatus: isIntegratedUnit || !isCurriculumCandidate && u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
         showProgress: !isCurriculumCandidate && u.kind !== "math-explore" && u.kind !== "english-story-library" && !isExperiment && !isPhonics,
         masteryMark: isLib ? "字庫" : isExperiment ? "" : masteryRoman(round),
         masteryBg: round ? "#e6f7ee" : "#fbfaff",
         masteryFg: round ? "#1d7a55" : "#b3a9d8",
         masteryBorder: round ? "#9fe3c4" : "#ece7ff",
-        stateLabel: isLegacyScienceCandidate ? (round ? "原版今日完成 " + masteryRoman(round) + " · 練習另存" : "練習另存，不改原版成績") : isCurriculumCandidate ? "" : isLib ? gradeWords.length + " 個字" : isExperiment ? "" : atLimit ? "今日已完成上限" : round ? "今日完成 " + masteryRoman(round) : "今日未開始",
+        stateLabel: isIntegratedUnit ? (progress?.hasActive ? "練習進行中" : progress?.completed ? "已完成 " + progress.completed + " 回 · 答對 " + progress.totalCorrect + "/" + progress.totalAnswers + " 題" : "尚未開始練習") : isLegacyScienceCandidate ? (round ? "原版今日完成 " + masteryRoman(round) + " · 練習另存" : "練習另存，不改原版成績") : isCurriculumCandidate ? "" : isLib ? gradeWords.length + " 個字" : isExperiment ? "" : atLimit ? "今日已完成上限" : round ? "今日完成 " + masteryRoman(round) : "今日未開始",
         stateColor: isLib || round ? "#35c98a" : "#b3a9d8",
-        btnLabel: isNatureCandidate ? "開啟自然3D地圖" : isCurriculumCandidate ? "開啟單元練習" : isLegacyScienceCandidate ? "開始10題練習" : u.kind === "english-story-library" ? "進入單字" : isPhonics ? "開始練習" : isLib ? "進入學習庫" : isExperiment ? "進入實驗室" : atLimit ? "今日改練其他單元" : round ? "挑戰第 " + masteryRoman(round + 1) + " 輪" : "開始第 I 輪",
+        btnLabel: isIntegratedUnit ? (progress?.hasActive ? "繼續練習" : "開始10題練習") : isNatureCandidate ? "開啟自然3D地圖" : isCurriculumCandidate ? "開啟單元練習" : isLegacyScienceCandidate ? "開始10題練習" : u.kind === "english-story-library" ? "進入單字" : isPhonics ? "開始練習" : isLib ? "進入學習庫" : isExperiment ? "進入實驗室" : atLimit ? "今日改練其他單元" : round ? "挑戰第 " + masteryRoman(round + 1) + " 輪" : "開始第 I 輪",
         btnBg: atLimit ? "#ece9f5" : "linear-gradient(90deg,#7c5cff,#22c8d8)",
         btnFg: atLimit ? "#9a90c8" : "#fff",
         start: () => this.startUnit(u.id),
@@ -11334,12 +11350,12 @@ class Component extends DCLogic {
       ].map((c) => Object.assign({}, c, { go: () => this.setState({ screen: "map", subject: c.key, grade: c.key === "chinese" && s.grade > 2 ? 2 : c.key === "science" ? Math.max(window.LPScienceRollout?.enabled === true ? 1 : 3, Math.min(6, s.grade)) : c.key === "english" ? s.grade : Math.min(6, s.grade) }) })),
       subjectWorldImage: ({ math: "images/home/planets/math-planet-v1.jpg", chinese: "images/home/planets/chinese-planet-v1.jpg", english: "images/home/planets/english-planet-v1.jpg", science: "images/home/learning-planet-hero-v1.jpg", experiment: "images/home/planets/experiment-planet-v1.jpg" })[moduleWorldSubject] || "images/home/planets/math-planet-v1.jpg",
       subjectWorldAccent: ({ math: "#9f79ff", chinese: "#ffb454", english: "#56d7ff", science: "#8c7cff", experiment: "#48e7c9" })[moduleWorldSubject] || "#9f79ff",
-      subjectWorldTitle: ({ math: "數學", chinese: "國文", english: "英文", science: s.grade <= 2 ? "生活" : "自然", experiment: "實驗" })[moduleWorldSubject] || "數學",
+      subjectWorldTitle: ({ math: "數學", chinese: "國文", english: "英文", science: "自然", experiment: "實驗" })[moduleWorldSubject] || "數學",
       subjectTabs: [
         { key: "math", icon: "🧮", label: "數學" },
         { key: "chinese", icon: "📖", label: "國文" },
         { key: "english", icon: "🔤", label: "英文" },
-        { key: "science", icon: "🔬", label: s.grade <= 2 ? "生活" : "自然" },
+        { key: "science", icon: "🔬", label: "自然" },
         { key: "experiment", icon: "🧪", label: "實驗" },
       ].map((c) => ({
         icon: c.icon, label: c.label, active: String(s.subject === c.key),
@@ -11410,7 +11426,11 @@ class Component extends DCLogic {
       isExperimentSubject: s.subject === "experiment",
       showGeoExplore: false,
       showScienceMapSwitch,
-      scienceMapSwitchLabel: "選擇" + (s.grade <= 2 ? "生活" : "自然") + "子單元呈現方式",
+      scienceMapSwitchLabel: "選擇自然子單元呈現方式",
+      showScienceClassicTerms: showScienceMapSwitch && !showScienceMissionMap,
+      scienceSemesterTabs: [1,2].map(term=>({label:term===1?"上學期":"下學期",active:String((s.scienceSemester || 1)===term),go:()=>this.setState({scienceSemester:term})})),
+      scienceClassicNotice: showScienceMapSwitch && !showScienceMissionMap && !s.scienceClassicCatalogs?.[s.grade+":"+(s.scienceSemester || 1)] ? "正在載入本年級學期的單元…" : "",
+      retryScienceClassic: ()=>this.loadLearningData(true).catch(()=>this.flash("單元載入失敗，請再試一次。")),
       scienceMapView: showScienceMissionMap ? "mission" : "classic",
       scienceClassicActive: String(s.scienceMapView !== "mission"),
       scienceMissionActive: String(s.scienceMapView === "mission"),

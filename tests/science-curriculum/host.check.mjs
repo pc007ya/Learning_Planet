@@ -13,7 +13,7 @@ test('released host routes preserve science grades1–6 on all hosts without que
  }
 });
 test('released science tabs include living grades while explicit rollback retains the old3to6 tabs',()=>{const expression=source.match(/gradeTabs: (.+?)\.map\(\(g\)/)[1];const grades=(subject,enabled)=>Array.from(vm.runInNewContext(expression,{s:{subject},scienceCurriculumCandidate:enabled}));assert.deepEqual(grades('science',true),[1,2,3,4,5,6]);assert.deepEqual(grades('science',false),[3,4,5,6]);assert.deepEqual(grades('math',true),[1,2,3,4,5,6]);});
-test('nature map gateway stays outside scoring and retains direct practice fallback',()=>{assert.match(source,/s-nature-planet-candidate-g/);assert.match(source,/async openNaturePlanetCandidate/);assert.match(source,/const isCurriculumCandidate = u.kind === "curriculum-candidate" \|\| isNatureCandidate/);assert.match(source,/const round = isLib \|\| isExperiment \|\| isCurriculumCandidate \? 0/);assert.match(source,/btnLabel: isNatureCandidate \? "開啟自然3D地圖" : isCurriculumCandidate \? "開啟單元練習"/);const original=source.match(/const SCI_UNITS = \[[\s\S]*?\n\];/)[0];assert.doesNotMatch(original,/nature-planet|candidate/)});
+test('nature map gateway stays outside scoring and retains direct practice fallback',()=>{assert.match(source,/s-nature-planet-candidate-g/);assert.match(source,/async openNaturePlanetCandidate/);assert.match(source,/const isCurriculumCandidate = u.kind === "curriculum-candidate" \|\| isNatureCandidate/);assert.match(source,/const round = isLib \|\| isExperiment \|\| isCurriculumCandidate \? 0/);assert.match(source,/isCurriculumCandidate \? "開啟單元練習"/);const original=source.match(/const SCI_UNITS = \[[\s\S]*?\n\];/)[0];assert.doesNotMatch(original,/nature-planet|candidate/)});
 
 test('host serializes pending direct-practice and map imports with one cross-entry guard',()=>{assert.match(source,/this\.scienceCurriculumOpening \|\| this\.naturePlanetOpening/);assert.match(source,/this\.naturePlanetOpening \|\| this\.scienceCurriculumOpening/)});
 
@@ -26,7 +26,7 @@ test('one explicit release switch is shared by classic host and all three module
 });
 
 test('released visible entry names and practice notice do not claim a candidate-only or cloud-scored experience',()=>{
- const cards=source.slice(source.indexOf('    const subjectUnits ='),source.indexOf('    const gradeWords ='));assert.doesNotMatch(cards,/nature-planet-candidate|自然星球3D地圖/);assert.match(source,/showScienceMissionMap/);assert.match(source,/science-mission-switch/);assert.match(cards,/生活單元練習/);assert.match(cards,/自然單元練習/);assert.doesNotMatch(cards,/（候選）|本機審查/);
+ const cards=source.slice(source.indexOf('    const subjectUnits ='),source.indexOf('    const gradeWords ='));assert.doesNotMatch(cards,/nature-planet-candidate|自然星球3D地圖/);assert.match(source,/showScienceMissionMap/);assert.match(source,/science-mission-switch/);assert.doesNotMatch(cards,/生活單元練習|自然單元練習/);assert.match(cards,/scienceClassicCatalogs/);assert.match(source,/kind === "curriculum-unit"/);assert.match(source,/science: "自然"/);assert.doesNotMatch(cards,/（候選）|本機審查/);
  const panel=readFileSync(new URL('../../modules/science-curriculum/launch.mjs',import.meta.url),'utf8');assert.match(panel,/練習紀錄只存這台裝置，不改正式成績；不作能力認證。/);assert.doesNotMatch(panel,/候選審查版|題候選練習|練習候選/);
 });
 
