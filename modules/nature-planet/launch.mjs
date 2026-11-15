@@ -3,7 +3,7 @@ import { createNatureFullscreen } from './fullscreen.mjs';
 import {createUnitArtRenderer} from './unit-art.mjs?v=20261114-unit-art-v2';
 import {isScienceCurriculumEnabled} from '../science-curriculum/rollout.mjs';
 import {leaveOverlayHistory,waitForOverlayHistory} from '../science-curriculum/overlay-history.mjs';
-import {createNaturePlanetScene,WORLD_VERSION} from './runtime/planet-v11.mjs?v=20261115-walk-zoom-v1';
+import {createNaturePlanetScene,WORLD_VERSION} from './runtime/planet-v11.mjs?v=20261115-walk-zoom-v2';
 import {createUnitEntryController} from './planet-unit-entry.mjs';
 import {arrangeArtLabels,artActorReserve} from './planet-art-v2-labels.mjs';
 import {normalizeNatureFilters,natureUnits,restoreNatureState,canEnterNatureUnit,validateNatureMetadata} from './state.mjs?v=20261115-integrated-v1';
@@ -21,7 +21,7 @@ export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,ca
  if(!isActive())return ()=>Promise.resolve();
  if(opened)return opened.close;
  const opener=document.activeElement,dialog=make(inline?'section':'dialog',null,'nature-dialog math-mission-map math-planet-art-review'+(inline?' nature-inline':''));dialog.setAttribute('aria-label','生活與自然星球');
- for(const name of ['style.css','planet-art-v2.css','nature.css'])if(!document.querySelector('link[data-nature-css="'+name+'"]')){const e=make('link');e.rel='stylesheet';const cssUrl=new URL('./'+name,import.meta.url);cssUrl.searchParams.set('v','20261115-walk-zoom-v1');e.href=cssUrl;e.dataset.natureCss=name;document.head.append(e);}
+ for(const name of ['style.css','planet-art-v2.css','nature.css'])if(!document.querySelector('link[data-nature-css="'+name+'"]')){const e=make('link');e.rel='stylesheet';const cssUrl=new URL('./'+name,import.meta.url);cssUrl.searchParams.set('v','20261115-walk-zoom-v2');e.href=cssUrl;e.dataset.natureCss=name;document.head.append(e);}
  (container||document.body).append(dialog);try{if(!inline)dialog.showModal();}catch(error){dialog.remove();throw error;}
  let filters=normalizeNatureFilters({grade,publisher,semester}),map=null,metadata=null,closed=false,ticket=0,selected=null,state={},page=0,previewHour=null,suspended=false,entering=false,closeCompletion=null;
  const saved=new Map(initialExploration?[[grade,initialExploration]]:[]),labelButtons=new Map(),abort=new AbortController();let actorProjection=null,projection=[],watch=null;
@@ -44,9 +44,10 @@ export async function openNaturePlanet({grade=1,publisher='康軒',semester=1,ca
  const badge=make('div',inline?'準備'+(grade<=2?'生活':'自然')+'星球…':'準備自然星球…','math-planet-badge');stage.append(badge);
  const gate=make('div',null,'nature-orbit');const orbitTitle=make('h2','走進大自然');const orbitText=make('p','森林、花田、水岸與山林，每個單元都有自己的入口。');const land=btn('↓ 降落自然星球',()=>{if(map?.beginLanding()){gate.hidden=true;badge.textContent='瑜瑜正乘火箭緩緩降落…';}},'math-mission-primary');const retry=btn('重新載入地表',()=>mount());retry.hidden=true;gate.append(orbitTitle,orbitText,land,retry);stage.append(gate);
  const controls=make('div',null,'nature-controls math-planet-camera-controls');stage.append(controls);
- const near=btn('瑜瑜附近',()=>map?.setMode('follow')),wide=btn('聚落全景',()=>map?.setMode('overview')),reset=btn('回起點',()=>{map?.reset();map?.setMode('follow');}),orbit=btn('↑ 軌道',()=>{if(map?.cancelLanding()){gate.hidden=false;renderPanel();}});const zoomIn=btn('＋',()=>map?.zoomBy?.(1.2)),zoomOut=btn('−',()=>map?.zoomBy?.(1/1.2)),zoomReset=btn('1:1',()=>map?.setZoom?.(1));zoomIn.setAttribute('aria-label','放大地圖');zoomOut.setAttribute('aria-label','縮小地圖');zoomReset.setAttribute('aria-label','還原地圖縮放');controls.append(near,wide,zoomIn,zoomOut,zoomReset,reset,orbit);
- const fly=btn('無人火箭巡航',()=>map?.beginFlight?.()),returnShip=btn('火箭返航',()=>map?.returnFlight?.()),cancelShip=btn('取消飛行',()=>map?.cancelFlight?.());if(isLocalNatureCandidate())controls.append(fly,returnShip,cancelShip);
- const boardShip=btn('登船候選',()=>map?.beginBoarding?.()),leaveShip=btn('離船候選',()=>map?.disembark?.()),cancelBoard=btn('取消登離',()=>map?.cancelBoarding?.());if(isLocalNatureCandidate())controls.append(boardShip,leaveShip,cancelBoard);
+ const near=btn('瑜瑜附近',()=>map?.setMode('follow')),wide=btn('聚落全景',()=>map?.setMode('overview')),reset=btn('回起點',()=>{map?.reset();map?.setMode('follow');}),orbit=btn('↑ 軌道',()=>{if(map?.cancelLanding()){gate.hidden=false;renderPanel();}});const zoomIn=btn('＋',()=>map?.zoomBy?.(1.2)),zoomOut=btn('−',()=>map?.zoomBy?.(1/1.2)),zoomReset=btn('1:1',()=>map?.setZoom?.(1));zoomIn.setAttribute('aria-label','放大地圖');zoomOut.setAttribute('aria-label','縮小地圖');zoomReset.setAttribute('aria-label','還原地圖縮放');const more=make('details',null,'nature-control-more'),moreToggle=make('summary','⋯');moreToggle.setAttribute('aria-label','更多地圖控制');const morePanel=make('div',null,'nature-control-menu');more.append(moreToggle,morePanel);morePanel.append(near,wide,zoomReset,reset,orbit);controls.append(zoomIn,zoomOut,more);
+ const fly=btn('無人火箭巡航',()=>map?.beginFlight?.()),returnShip=btn('火箭返航',()=>map?.returnFlight?.()),cancelShip=btn('取消飛行',()=>map?.cancelFlight?.());if(isLocalNatureCandidate())morePanel.append(fly,returnShip,cancelShip);
+ const boardShip=btn('登船候選',()=>map?.beginBoarding?.()),leaveShip=btn('離船候選',()=>map?.disembark?.()),cancelBoard=btn('取消登離',()=>map?.cancelBoarding?.());if(isLocalNatureCandidate())morePanel.append(boardShip,leaveShip,cancelBoard);
+ morePanel.addEventListener('click',e=>{if(e.target.closest('button'))more.open=false;});
  const pad=make('div',null,'nature-pad');pad.setAttribute('role','group');pad.setAttribute('aria-label','移動瑜瑜');stage.append(pad);
  for(const [text,key,name]of[['↑','up','向前走'],['←','left','向左走'],['↓','down','向後走'],['→','right','向右走']]){const b=btn(text,null);b.setAttribute('aria-label',name);b.onpointerdown=e=>{e.preventDefault();b.setPointerCapture(e.pointerId);map?.setMovement(key,true);};b.onpointerup=b.onpointercancel=b.onlostpointercapture=()=>map?.setMovement(key,false);pad.append(b);}
  const details=make('aside',null,'math-mission-detail nature-detail');details.setAttribute('aria-label','選擇的單元');layout.append(details);

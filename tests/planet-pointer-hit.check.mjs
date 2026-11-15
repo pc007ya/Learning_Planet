@@ -26,3 +26,11 @@ test('upper grade stage is keyboard focusable and controls wrap on narrow screen
  const css=postcss.parse(readFileSync(new URL('../modules/math-mission-map/style.css',import.meta.url),'utf8'));
  let wrap=false;css.walkRules('.math-mission-orbit-controls',r=>r.walkDecls('flex-wrap',d=>{if(d.value==='wrap')wrap=true}));assert.ok(wrap);
 });
+test('nature keeps optional map tools collapsed, away from the walking pad',()=>{
+ const source=readFileSync(new URL('../modules/nature-planet/launch.mjs',import.meta.url),'utf8');
+ assert.ok(source.includes('controls.append(zoomIn,zoomOut,more)'));
+ assert.ok(source.includes('morePanel.append(fly,returnShip,cancelShip)'));
+ const css=readFileSync(new URL('../modules/nature-planet/nature.css',import.meta.url),'utf8');
+ assert.ok(css.includes('.nature-control-more:not([open])>.nature-control-menu{display:none}'));
+ assert.ok(css.includes('max-width:142px!important'));
+});

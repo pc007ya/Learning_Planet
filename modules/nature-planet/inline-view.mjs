@@ -1,6 +1,6 @@
 const selectedFilters=new Map();
 /** Same-page host; map/practice keep their existing session and record ownership. */
-export function createNatureInlineView(React,{load=(attempt=0)=>import('../science-curriculum/nature-entry.mjs?v=20261115-walk-zoom-v1'+(attempt?'&retry='+attempt:''))}={}){
+export function createNatureInlineView(React,{load=(attempt=0)=>import('../science-curriculum/nature-entry.mjs?v=20261115-walk-zoom-v2'+(attempt?'&retry='+attempt:''))}={}){
  return function NatureInlineView({grade,learnerId,isActive=()=>true,onClassic,initialExploration,onExplorationChange,onReward,onSpeechMuteChange}){
   const host=React.useRef(null),[error,setError]=React.useState(null),[attempt,setAttempt]=React.useState(0),[loading,setLoading]=React.useState(true);
   React.useEffect(()=>{let alive=true,close=null;setError(null);setLoading(true);const active=()=>alive&&isActive();

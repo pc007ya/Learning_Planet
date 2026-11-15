@@ -16,3 +16,15 @@
 .nature-fullscreen .nature-heading,.nature-fullscreen .nature-filters,.nature-fullscreen .nature-footer{display:none!important}
 .nature-fullscreen .nature-layout{min-height:0}
 @media(max-height:650px){.nature-inline .nature-title small{display:none}.nature-inline .nature-filters button{padding:4px 8px;font-size:12px}.nature-inline .nature-time{display:none}}
+
+/* Keep walking and zoom in disjoint bottom corners, including local review tools. */
+.nature-stage .nature-controls{left:auto!important;right:10px!important;bottom:10px!important;width:142px;max-width:142px!important;display:flex;flex-wrap:nowrap;gap:5px!important;padding:0!important;background:none!important;border:0!important}
+.nature-stage .nature-controls>button,.nature-control-more>summary{box-sizing:border-box;min-width:44px;width:44px;height:44px;min-height:44px;padding:0;display:grid;place-items:center;font-size:16px}
+.nature-stage .nature-pad{left:10px;bottom:10px;grid-template-columns:44px 44px 44px;gap:3px}
+.nature-control-more{position:relative}
+.nature-control-more>summary{list-style:none;cursor:pointer;border:1px solid #b8c5ec88;border-radius:12px;background:#263957;color:#fff}
+.nature-control-more>summary::-webkit-details-marker{display:none}
+.nature-control-more>summary:focus-visible{outline:3px solid #f0d89c;outline-offset:2px}
+.nature-control-menu{position:absolute;right:0;bottom:51px;width:142px;max-height:180px;overflow:auto;display:grid;gap:5px;padding:6px;box-sizing:border-box;background:#172742f5;border:1px solid #bac9e077;border-radius:12px;z-index:10}
+.nature-control-menu button{width:100%;min-height:44px!important;font-size:12px!important}
+.nature-control-more:not([open])>.nature-control-menu{display:none}
