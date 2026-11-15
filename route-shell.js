@@ -6,7 +6,9 @@
   const root = new URL('./', script.src);
   const status = document.getElementById('route-status');
   try {
-    const response = await fetch(new URL('index.html', root));
+    // Revalidate the shared HTML on deep-link entry; its URL has a separate
+    // browser/CDN cache entry from the root navigation. Keep module caches intact.
+    const response = await fetch(new URL('index.html', root), {cache: 'no-cache'});
     if (!response.ok) throw new Error('Entry unavailable');
     const html = await response.text();
     const base = document.createElement('base');
