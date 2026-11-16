@@ -25,10 +25,15 @@ test('launcher authenticates frame claim, disposes on close, preserves history a
 });
 test('scope invalidation auto closes and blocks claims; owner hooks cover role/unmount/navigation',async()=>{
  const e=environment();const {openEnglishOriginal}=await import(new URL('launch.mjs?review=scope',base));let active=true;const close=await openEnglishOriginal({learnerId:'a',isActive:()=>active});const frame=e.document.body.children[0].children[1],claim=e.window.__LPEnglishOriginalHosts.get(frame.name);active=false;assert.equal(claim(frame.contentWindow),null);await new Promise(r=>setTimeout(r,230));assert.equal(e.document.body.children.length,0);await close();
- const main=fs.readFileSync(new URL('../../index.html',import.meta.url),'utf8');assert.match(main,/teardownRole\(\)\s*{\s*this.closeEnglishOriginal\(\)/);assert.match(main,/componentWillUnmount\(\)\s*{\s*this.closeEnglishOriginal\(\)/);assert.match(main,/lastEnglishOriginalNavigation!==undefined&&englishNavigation!==this.lastEnglishOriginalNavigation\)this.closeEnglishOriginal\(\)/);assert.match(main,/students.some\(x=>x.id===s.currentId\)/);
+ const main=fs.readFileSync(new URL('../../index.html',import.meta.url),'utf8');assert.match(main,/teardownRole\(\)\s*{\s*this.closeEnglishOriginal\?\.\(\)/);assert.match(main,/componentWillUnmount\(\)\s*{\s*this.closeEnglishOriginal\?\.\(\)/);assert.match(main,/lastEnglishOriginalNavigation!==undefined&&englishNavigation!==this.lastEnglishOriginalNavigation\)this.closeEnglishOriginal\?\.\(\)/);assert.match(main,/students.some\(x=>x.id===s.currentId\)/);
 });
 test('simultaneous launcher opens do not leave two dialogs',async()=>{
  const e=environment();const {openEnglishOriginal}=await import(new URL('launch.mjs?review=parallel',base));const closes=await Promise.all([openEnglishOriginal({learnerId:'a',isActive:()=>true}),openEnglishOriginal({learnerId:'a',isActive:()=>true})]);const count=e.document.body.children.length;
  // Cleanup before assertion, even when the concurrency invariant fails.
  for(const close of closes.reverse())await close();assert.equal(count,1,'Expected one owned overlay even when two requests arrive before initial await resolves');
+});
+
+test('navigation cleanup supports partial DC owners and still closes a real session',()=>{
+ const main=fs.readFileSync(new URL('../../index.html',import.meta.url),'utf8');const start=main.indexOf('  componentDidUpdate(prevProps, prevState) {')+'  componentDidUpdate(prevProps, prevState) {'.length;const part=main.slice(start,main.indexOf('    const mathNavigation',start));const fn=new Function(part);const state={screen:'map',subject:'english',grade:1,currentId:'a',teacher:false};
+ const partial={state:{...state}};fn.call(partial);partial.state.currentId='b';assert.doesNotThrow(()=>fn.call(partial));let closed=0;const owner={state:{...state},closeEnglishOriginal(){closed++}};fn.call(owner);fn.call(owner);assert.equal(closed,0);owner.state.currentId='b';fn.call(owner);assert.equal(closed,1);
 });

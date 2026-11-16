@@ -5640,7 +5640,7 @@ class Component extends DCLogic {
     this.backendUid = uid;
   }
   teardownRole() {
-    this.closeEnglishOriginal();
+    this.closeEnglishOriginal?.();
     this.sessionGeneration = (this.sessionGeneration || 0) + 1;
     for (const name of ['cloudRosterUnsubscribe','cloudStudentUnsubscribe']) { this[name]?.(); this[name] = null; }
     clearTimeout(this.cloudRosterTimer); clearTimeout(this.cloudProgressDebounceTimer);
@@ -5841,7 +5841,7 @@ class Component extends DCLogic {
   }
   componentDidUpdate(prevProps, prevState) {
     const englishNavigation=JSON.stringify([this.state.screen,this.state.subject,this.state.grade,this.state.currentId,this.state.teacher,this.sessionGeneration||0]);
-    if(this.lastEnglishOriginalNavigation!==undefined&&englishNavigation!==this.lastEnglishOriginalNavigation)this.closeEnglishOriginal();
+    if(this.lastEnglishOriginalNavigation!==undefined&&englishNavigation!==this.lastEnglishOriginalNavigation)this.closeEnglishOriginal?.();
     this.lastEnglishOriginalNavigation=englishNavigation;
     const mathNavigation = JSON.stringify([this.state.screen, this.state.subject, this.state.grade, this.state.currentId, this.state.unit, this.state.teacher, this.state.mathMapView]);
     if (this.lastMathNavigation !== undefined && mathNavigation !== this.lastMathNavigation) this.mathResourceNavigation = (this.mathResourceNavigation || 0) + 1;
@@ -5884,7 +5884,7 @@ class Component extends DCLogic {
     }
   }
   componentWillUnmount() {
-    this.closeEnglishOriginal();
+    this.closeEnglishOriginal?.();
     this.mathCourseRequest = (this.mathCourseRequest || 0) + 1;
     this.mathResourceNavigation = (this.mathResourceNavigation || 0) + 1;
     this.knowledgeClose?.();
