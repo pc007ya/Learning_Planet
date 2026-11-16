@@ -21,7 +21,7 @@ jobs:
           node-version: '22'
       - run: python3 tests/english-original/content-check.py
       - run: node tests/english-original/navigation.cjs
-      - run: node --test tests/english-original/*.check.mjs
+      - run: node --test tests/english-original/*.check.mjs tests/science-curriculum/reward-host.check.mjs
   regression:
     runs-on: ubuntu-latest
     timeout-minutes: 25
