@@ -1,0 +1,36 @@
+name: English original curriculum checks
+on:
+  pull_request:
+    paths:
+      - 'modules/english-original/**'
+      - 'tests/english-original/**'
+      - 'index.html'
+      - '.github/workflows/english-original-check.yml'
+  push:
+    branches: ['english-original-r30-20261116']
+permissions:
+  contents: read
+jobs:
+  english:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python3 tests/english-original/content-check.py
+      - run: node tests/english-original/navigation.cjs
+      - run: node --test tests/english-original/*.check.mjs tests/science-curriculum/reward-host.check.mjs
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: python3 scripts/pack-nature-assets.py --verify-manifest
+      - run: npm ci
+      - run: npm run check
