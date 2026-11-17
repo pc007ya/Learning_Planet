@@ -3,6 +3,12 @@ on:
   pull_request:
     paths:
       - 'chinese-grade6.html'
+      - 'chinese-zhuyin-supplement.html'
+      - 'data/chinese-zhuyin-supplement.json'
+      - 'styles/phonics-supplement.css'
+      - 'modules/phonics-supplement/**'
+      - 'tests/phonics-supplement.test.ts'
+      - 'vite.phonics-supplement.config.mjs'
       - 'modules/chinese-grade6/**'
       - 'src/chinese-practice/**'
       - 'modules/chinese-practice/**'

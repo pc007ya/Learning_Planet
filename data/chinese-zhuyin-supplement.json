@@ -1,0 +1,178 @@
+{
+  "kind": "original-supplement",
+  "checkedAt": "2026-11-17",
+  "title": "合起來讀：五組注音",
+  "disclaimer": "原創注音補充練習，不是康軒第 9 課課文或原題；例字不是出版社指定生字。",
+  "groups": [
+    {
+      "id": "iai",
+      "final": "ㄧㄞ",
+      "hanzi": "崖",
+      "reading": "ㄧㄞˊ",
+      "context": "山崖的崖",
+      "parts": "ㄧ、ㄞ",
+      "tone": "二聲",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=40997&la=0&powerMode=0",
+      "questions": [
+        {
+          "id": "iai-read",
+          "prompt": "山崖的崖，選出它的注音。",
+          "options": [
+            "ㄧㄣ",
+            "ㄨㄣ",
+            "ㄧㄞˊ"
+          ],
+          "answer": "ㄧㄞˊ",
+          "explanation": "山崖的崖，讀作ㄧㄞˊ，是二聲。"
+        },
+        {
+          "id": "iai-parts",
+          "prompt": "ㄧㄞ 是哪兩個注音符號合起來的？",
+          "options": [
+            "ㄧ、ㄞ",
+            "ㄧ、ㄣ",
+            "ㄨ、ㄣ"
+          ],
+          "answer": "ㄧ、ㄞ",
+          "explanation": "ㄧㄞ 由ㄧ、ㄞ合起來；說的時候要連在一起。"
+        }
+      ]
+    },
+    {
+      "id": "in",
+      "final": "ㄧㄣ",
+      "hanzi": "音",
+      "reading": "ㄧㄣ",
+      "context": "聲音的音",
+      "parts": "ㄧ、ㄣ",
+      "tone": "一聲",
+      "source": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=11090&word=%3D%E9%9F%B3",
+      "questions": [
+        {
+          "id": "in-read",
+          "prompt": "聲音的音，選出它的注音。",
+          "options": [
+            "ㄧㄞˊ",
+            "ㄨㄣ",
+            "ㄧㄣ"
+          ],
+          "answer": "ㄧㄣ",
+          "explanation": "聲音的音，讀作ㄧㄣ，是一聲。一聲不標調號。"
+        },
+        {
+          "id": "in-parts",
+          "prompt": "ㄧㄣ 是哪兩個注音符號合起來的？",
+          "options": [
+            "ㄧ、ㄣ",
+            "ㄧ、ㄞ",
+            "ㄨ、ㄣ"
+          ],
+          "answer": "ㄧ、ㄣ",
+          "explanation": "ㄧㄣ 由ㄧ、ㄣ合起來；說的時候要連在一起。"
+        }
+      ]
+    },
+    {
+      "id": "wen",
+      "final": "ㄨㄣ",
+      "hanzi": "溫",
+      "reading": "ㄨㄣ",
+      "context": "溫水的溫",
+      "parts": "ㄨ、ㄣ",
+      "tone": "一聲",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=43811",
+      "questions": [
+        {
+          "id": "wen-read",
+          "prompt": "溫水的溫，選出它的注音。",
+          "options": [
+            "ㄧㄞˊ",
+            "ㄧㄣ",
+            "ㄨㄣ"
+          ],
+          "answer": "ㄨㄣ",
+          "explanation": "溫水的溫，讀作ㄨㄣ，是一聲。一聲不標調號。"
+        },
+        {
+          "id": "wen-parts",
+          "prompt": "ㄨㄣ 是哪兩個注音符號合起來的？",
+          "options": [
+            "ㄨ、ㄣ",
+            "ㄧ、ㄞ",
+            "ㄧ、ㄣ"
+          ],
+          "answer": "ㄨ、ㄣ",
+          "explanation": "ㄨㄣ 由ㄨ、ㄣ合起來；說的時候要連在一起。"
+        }
+      ]
+    },
+    {
+      "id": "yue",
+      "final": "ㄩㄝ",
+      "hanzi": "月",
+      "reading": "ㄩㄝˋ",
+      "context": "月亮的月",
+      "parts": "ㄩ、ㄝ",
+      "tone": "四聲",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=44584&la=0&powerMode=0",
+      "questions": [
+        {
+          "id": "yue-read",
+          "prompt": "月亮的月，選出它的注音。",
+          "options": [
+            "ㄧㄞˊ",
+            "ㄧㄣ",
+            "ㄩㄝˋ"
+          ],
+          "answer": "ㄩㄝˋ",
+          "explanation": "月亮的月，讀作ㄩㄝˋ，是四聲。"
+        },
+        {
+          "id": "yue-parts",
+          "prompt": "ㄩㄝ 是哪兩個注音符號合起來的？",
+          "options": [
+            "ㄩ、ㄝ",
+            "ㄧ、ㄞ",
+            "ㄧ、ㄣ"
+          ],
+          "answer": "ㄩ、ㄝ",
+          "explanation": "ㄩㄝ 由ㄩ、ㄝ合起來；說的時候要連在一起。"
+        }
+      ]
+    },
+    {
+      "id": "yun",
+      "final": "ㄩㄣ",
+      "hanzi": "雲",
+      "reading": "ㄩㄣˊ",
+      "context": "白雲的雲",
+      "parts": "ㄩ、ㄣ",
+      "tone": "二聲",
+      "source": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=44932",
+      "questions": [
+        {
+          "id": "yun-read",
+          "prompt": "白雲的雲，選出它的注音。",
+          "options": [
+            "ㄧㄞˊ",
+            "ㄧㄣ",
+            "ㄩㄣˊ"
+          ],
+          "answer": "ㄩㄣˊ",
+          "explanation": "白雲的雲，讀作ㄩㄣˊ，是二聲。"
+        },
+        {
+          "id": "yun-parts",
+          "prompt": "ㄩㄣ 是哪兩個注音符號合起來的？",
+          "options": [
+            "ㄩ、ㄣ",
+            "ㄧ、ㄞ",
+            "ㄧ、ㄣ"
+          ],
+          "answer": "ㄩ、ㄣ",
+          "explanation": "ㄩㄣ 由ㄩ、ㄣ合起來；說的時候要連在一起。"
+        }
+      ]
+    }
+  ]
+}
