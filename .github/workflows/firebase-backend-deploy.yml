@@ -10,6 +10,10 @@ on:
       - ".github/workflows/firebase-backend-deploy.yml"
   workflow_dispatch:
     inputs:
+      rules_only:
+        description: "Deploy only Firestore rules, with no Functions or account reconciliation"
+        type: boolean
+        default: false
       runtime_only:
         description: "Deploy only the Node runtime, without rules or account reconciliation"
         type: boolean
@@ -33,6 +37,7 @@ jobs:
     env:
       # An explicit marker selects the safe branch for this upgrade's push.
       # Unmarked pushes and ordinary manual runs retain the existing backend flow.
+      RULES_ONLY: ${{ inputs.rules_only == true || (github.event_name == 'push' && contains(github.event.head_commit.message, '[firestore-rules-only]')) }}
       RUNTIME_ONLY: ${{ inputs.runtime_only == true || (github.event_name == 'push' && (contains(github.event.head_commit.message, '[functions-runtime-only]') || contains(github.event.head_commit.message, '[functions-runtime-verify-only]'))) }}
       # Bounded test-runner repair: verified commit and live revisions must match.
       RUNTIME_VERIFY_ONLY: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[functions-runtime-verify-only]') }}
@@ -57,14 +62,40 @@ jobs:
           git fetch --no-tags --depth=1 origin "$RUNTIME_BASE_SHA"
           node functions/scripts/verify-runtime-scope.cjs "$RUNTIME_BASE_SHA"
 
+      - name: Fail closed and validate rules-only change scope
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.before }}
+        run: |
+          if [[ "$EVENT_NAME" == "push" ]]; then
+            [[ "$BASE_SHA" =~ ^[a-f0-9]{40}$ ]] || exit 1
+            git fetch --no-tags --depth=1 origin "$BASE_SHA"
+            node scripts/verify-rules-deploy-scope.cjs "$BASE_SHA"
+          elif [[ "$RULES_ONLY" == "true" && "$RUNTIME_ONLY" == "true" ]]; then
+            exit 1
+          fi
+
+      - name: Deploy only Firestore rules
+        if: env.RULES_ONLY == 'true'
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LEARNPLANET }}
+
+      - name: Publish only Firestore rules
+        if: env.RULES_ONLY == 'true'
+        run: npx --yes firebase-tools@14.27.0 deploy --only firestore:rules --project learnplanet-cce52 --config firebase.json --non-interactive
+
       - name: Install Cloud Functions dependencies
+        if: env.RULES_ONLY != 'true'
         run: npm ci --prefix functions
 
       - name: Test Node.js runtime compatibility
+        if: env.RULES_ONLY != 'true'
         run: node --test functions/test/runtime-compat.node.cjs
 
       # The existing key stays in GitHub Secrets. No new credentials or grants.
       - name: Authenticate deployment service account
+        if: env.RULES_ONLY != 'true'
         uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LEARNPLANET }}
@@ -92,9 +123,9 @@ jobs:
           node functions/scripts/verify-deployed-runtime.cjs logs
 
       - name: Deploy Firebase Functions and Firestore Rules
-        if: env.RUNTIME_ONLY != 'true'
+        if: env.RUNTIME_ONLY != 'true' && env.RULES_ONLY != 'true'
         run: npx --yes firebase-tools@latest deploy --only functions,firestore:rules --project learnplanet-cce52 --non-interactive --force
 
       - name: Reconcile legacy student Google links
-        if: env.RUNTIME_ONLY != 'true'
+        if: env.RUNTIME_ONLY != 'true' && env.RULES_ONLY != 'true'
         run: node functions/scripts/reconcile-student-google-links.cjs
