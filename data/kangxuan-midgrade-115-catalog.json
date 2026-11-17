@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "year": 115,
+  "publisher": "康軒",
+  "sourceTitle": "115康軒版國小教材簡介─中年級",
+  "sourceUrl": "https://945cloud.knsh.com.tw/show/E/expo/pic/textbook_levels_mid/115康軒版國小教材簡介─中年級.pdf",
+  "sourcePdfPage": 2,
+  "sourcePrintedPages": [
+    1,
+    2
+  ],
+  "checkedAt": "2026-11-17",
+  "verificationMethod": "PDF 第 2 頁（印刷 1–2 頁）渲染後逐行視覺核對課次表",
+  "scope": "官方教材簡介課次表，不是課本全文、習作或音檔。學年度依官方檔案標題；精確印刷版次未核。",
+  "edition": null,
+  "contentImported": false,
+  "practiceAvailable": false,
+  "fullTextLicensed": false,
+  "books": [
+    {
+      "grade": 3,
+      "semester": "上",
+      "volume": 5,
+      "volumeDerived": true,
+      "lessons": [
+        {
+          "number": 1,
+          "title": "字的小旅行",
+          "brochureLabel": "修訂"
+        },
+        {
+          "number": 2,
+          "title": "妙故事點點名"
+        },
+        {
+          "number": 3,
+          "title": "繞口令村"
+        },
+        {
+          "number": 4,
+          "title": "小丑魚和海葵"
+        },
+        {
+          "number": 5,
+          "title": "飛舞的絲帶"
+        },
+        {
+          "number": 6,
+          "title": "小女生"
+        },
+        {
+          "number": 7,
+          "title": "淡水小鎮"
+        },
+        {
+          "number": 8,
+          "title": "安平古堡參觀記"
+        },
+        {
+          "number": 9,
+          "title": "馬太鞍的巴拉告"
+        },
+        {
+          "number": 10,
+          "title": "狐狸的故事"
+        },
+        {
+          "number": 11,
+          "title": "巨人的花園"
+        },
+        {
+          "number": 12,
+          "title": "模仿貓",
+          "brochureLabel": "NEW"
+        }
+      ],
+      "readingLadders": [
+        {
+          "number": 1,
+          "title": "丸子與我"
+        },
+        {
+          "number": 2,
+          "title": "拜訪火燒島"
+        }
+      ]
+    },
+    {
+      "grade": 3,
+      "semester": "下",
+      "volume": 6,
+      "volumeDerived": true,
+      "lessons": [
+        {
+          "number": 1,
+          "title": "許願"
+        },
+        {
+          "number": 2,
+          "title": "下雨的時候"
+        },
+        {
+          "number": 3,
+          "title": "遇見美如奶奶"
+        },
+        {
+          "number": 4,
+          "title": "工匠之祖"
+        },
+        {
+          "number": 5,
+          "title": "學田鼠開路"
+        },
+        {
+          "number": 6,
+          "title": "神奇密碼"
+        },
+        {
+          "number": 7,
+          "title": "油桐花・五月雪"
+        },
+        {
+          "number": 8,
+          "title": "大自然的美術館"
+        },
+        {
+          "number": 9,
+          "title": "臺灣的山椒魚"
+        },
+        {
+          "number": 10,
+          "title": "漁夫和金魚"
+        },
+        {
+          "number": 11,
+          "title": "聰明的鼠鹿"
+        },
+        {
+          "number": 12,
+          "title": "還要跌幾次"
+        }
+      ],
+      "readingLadders": [
+        {
+          "number": 1,
+          "title": "蘋果甜蜜蜜"
+        },
+        {
+          "number": 2,
+          "title": "故宮珍玩"
+        }
+      ]
+    },
+    {
+      "grade": 4,
+      "semester": "上",
+      "volume": 7,
+      "volumeDerived": true,
+      "lessons": [
+        {
+          "number": 1,
+          "title": "水陸小高手"
+        },
+        {
+          "number": 2,
+          "title": "放學後"
+        },
+        {
+          "number": 3,
+          "title": "我的籃球夢"
+        },
+        {
+          "number": 4,
+          "title": "永遠的馬偕"
+        },
+        {
+          "number": 5,
+          "title": "假如給我三天光明"
+        },
+        {
+          "number": 6,
+          "title": "攀登生命的高峰"
+        },
+        {
+          "number": 7,
+          "title": "美味的一堂課"
+        },
+        {
+          "number": 8,
+          "title": "建築界的長頸鹿"
+        },
+        {
+          "number": 9,
+          "title": "請到我的家鄉來"
+        },
+        {
+          "number": 10,
+          "title": "奇幻旋律"
+        },
+        {
+          "number": 11,
+          "title": "兔子先生等等我"
+        },
+        {
+          "number": 12,
+          "title": "老鞋匠和小精靈"
+        }
+      ],
+      "readingLadders": [
+        {
+          "number": 1,
+          "title": "種樹的人"
+        },
+        {
+          "number": 2,
+          "title": "國王的噴泉"
+        }
+      ]
+    },
+    {
+      "grade": 4,
+      "semester": "下",
+      "volume": 8,
+      "volumeDerived": true,
+      "lessons": [
+        {
+          "number": 1,
+          "title": "一束鮮花"
+        },
+        {
+          "number": 2,
+          "title": "心動不如行動"
+        },
+        {
+          "number": 3,
+          "title": "選拔動物之星"
+        },
+        {
+          "number": 4,
+          "title": "米食飄香"
+        },
+        {
+          "number": 5,
+          "title": "讀書報告——藍色小洋裝"
+        },
+        {
+          "number": 6,
+          "title": "我愛鹿港"
+        },
+        {
+          "number": 7,
+          "title": "未來的模樣"
+        },
+        {
+          "number": 8,
+          "title": "動物老師的智慧"
+        },
+        {
+          "number": 9,
+          "title": "向太空出發"
+        },
+        {
+          "number": 10,
+          "title": "小青蛙想看海"
+        },
+        {
+          "number": 11,
+          "title": "窗前的月光"
+        },
+        {
+          "number": 12,
+          "title": "如來佛的手掌心"
+        }
+      ],
+      "readingLadders": [
+        {
+          "number": 1,
+          "title": "她是我姐姐"
+        },
+        {
+          "number": 2,
+          "title": "南安小熊回家"
+        }
+      ]
+    }
+  ]
+}
