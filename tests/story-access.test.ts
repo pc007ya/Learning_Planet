@@ -25,7 +25,12 @@ describe('Story login entry', () => {
   it.each(['market-storybook.html', 'magic-ball-storybook.html', 'snow-before-storybook.html', 'lost-lighthouse-storybook.html', 'mixed-up-museum-storybook.html', 'bridge-construction-storybook.html', 'little-robot-storybook.html', 'magic-potion-storybook.html', 'science-homework-storybook.html', 'picky-bear-storybook.html', 'story-planet.html'])('%s loads its reader only through the login entry', path => {
     const html = readFileSync(path, 'utf8');
     const scripts = [...html.matchAll(/<script[^>]*src="([^"]+)"[^>]*>/g)];
-    expect(scripts).toHaveLength(1);
+    expect(scripts).toHaveLength(2);
+    const active = scripts.filter(m => !m[0].includes('application/x-lp-deferred'));
+    expect(active).toHaveLength(1);
+    expect(active[0][1]).toContain('auth-v2/page-access.mjs');
+    expect(scripts[0][0]).toContain('application/x-lp-deferred');
+    expect(html).toContain('data-auth-content hidden inert');
     expect(scripts[0][1]).toContain('modules/story-entry.mjs');
     expect(html).toMatch(/data-story-reader="modules\/(little-star\/little-star|story-planet\/story-planet)\.js\?/);
   });

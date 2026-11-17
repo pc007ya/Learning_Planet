@@ -1,3 +1,4 @@
+import { installLocalStudentFixture } from './browser-auth-fixture.mjs';
 import {chromium} from 'playwright';
 import {mkdir,writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
@@ -6,7 +7,7 @@ const browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CH
 const results=[];await mkdir('artifacts/tides3d',{recursive:true});
 try{
  for(const size of [{width:1440,height:900},{width:1280,height:720},{width:1024,height:600},{width:1024,height:768},{width:390,height:844},{width:360,height:780}].filter(s=>!process.env.TIDES_ONLY_SIZE||`${s.width}x${s.height}`===process.env.TIDES_ONLY_SIZE)){
-  const context=await browser.newContext({viewport:size,hasTouch:true});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()==='error'&&!m.location().url?.endsWith('favicon.ico'))errors.push(m.text());});
+  const context=await browser.newContext({viewport:size,hasTouch:true});await installLocalStudentFixture(context);const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()==='error'&&!m.location().url?.endsWith('favicon.ico'))errors.push(m.text());});
   await page.goto(root+'tides/');await page.locator('body[data-tides3d-ready=true]').waitFor({timeout:30000});await page.evaluate(()=>document.fonts.ready);
   assert.equal(await page.locator('#space canvas').count(),1);
   const fits=await page.evaluate(()=>{const a=document.querySelector('aside'),footer=document.querySelector('footer').getBoundingClientRect();return {h:innerHeight,w:innerWidth,pageH:document.documentElement.scrollHeight,pageW:document.documentElement.scrollWidth,sideOverflow:a.scrollHeight-a.clientHeight,sideBottom:a.getBoundingClientRect().bottom,footerTop:footer.top};});
@@ -65,6 +66,6 @@ try{
   await page.locator('#zhuyin').click();assert.equal(await page.locator('ruby').count(),0);assert.equal(await page.locator('.world-handle.moon').getAttribute('aria-valuenow'),'90');assert(beforeReading!==null);
   assert.deepEqual(errors,[]);results.push({size,fits,handle:{width:handle.width,height:handle.height},status:'PASS'});await context.close();
  }
- const reduced=await browser.newContext({viewport:{width:390,height:844}});const reducedPage=await reduced.newPage();await reducedPage.emulateMedia({reducedMotion:'reduce'});await reducedPage.goto(root+'tides/');await reducedPage.locator('body[data-tides3d-ready=true]').waitFor();await reducedPage.locator('#demo').click();await reducedPage.waitForTimeout(400);assert.equal(await reducedPage.locator('#space').getAttribute('data-water-detail'),'still');assert.equal(await reducedPage.locator('#space').getAttribute('data-water-time'),'0.000');await reduced.close();
+ const reduced=await browser.newContext({viewport:{width:390,height:844}});await installLocalStudentFixture(reduced);const reducedPage=await reduced.newPage();await reducedPage.emulateMedia({reducedMotion:'reduce'});await reducedPage.goto(root+'tides/');await reducedPage.locator('body[data-tides3d-ready=true]').waitFor();await reducedPage.locator('#demo').click();await reducedPage.waitForTimeout(400);assert.equal(await reducedPage.locator('#space').getAttribute('data-water-detail'),'still');assert.equal(await reducedPage.locator('#space').getAttribute('data-water-time'),'0.000');await reduced.close();
 }finally{await browser.close();await writeFile('artifacts/tides3d/results.json',JSON.stringify(results,null,2));}
 console.log(JSON.stringify(results,null,2));

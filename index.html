@@ -1328,7 +1328,7 @@
           <p class="login-scanner-status"><i></i>STUDENT IDENTITY SCANNER</p>
           <h1>學員登入</h1>
           <p>輸入學員帳號與密碼，啟動學習星球任務。</p>
-          <label class="login-auth-field">學員帳號<input value="{{ studentLoginAccount }}" onChange="{{ changeStudentAccount }}" onKeyDown="{{ studentLoginKey }}" autoComplete="username" placeholder="DEMO"></label>
+          <p class="login-auth-help">DEMO 僅供首頁試用；受保護課程與故事需正式學員帳號登入。</p><label class="login-auth-field">學員帳號<input value="{{ studentLoginAccount }}" onChange="{{ changeStudentAccount }}" onKeyDown="{{ studentLoginKey }}" autoComplete="username" placeholder="DEMO"></label>
           <label class="login-auth-field">密碼<span class="password-field-wrap"><input type="{{ studentLoginPasswordType }}" value="{{ studentLoginPassword }}" onChange="{{ changeStudentPassword }}" onKeyDown="{{ studentLoginKey }}" autoComplete="current-password" placeholder="DEMO"><button type="button" class="password-eye" onClick="{{ toggleStudentLoginPassword }}" title="{{ studentLoginPasswordToggleTitle }}" aria-label="{{ studentLoginPasswordToggleTitle }}">{{ studentLoginPasswordEye }}</button></span></label>
           <p class="login-auth-error">{{ studentLoginError }}</p>
           <button class="login-auth-submit" onClick="{{ submitStudentLogin }}">登入學習星球</button>
@@ -1739,8 +1739,8 @@
         </sc-if>
         </div>
         <sc-if value="{{ isChineseMap }}" hint-placeholder-val="{{ false }}">
-          <a href="{{ chineseGrade6Url }}" target="_blank" rel="noopener noreferrer" style="display:block;margin:0 0 16px;padding:18px 24px;border-radius:22px;background:#473267;color:white;text-decoration:none"><strong>六年級原創能力練習 ↗</strong><br><small>原創閱讀理解・每回10題・獨立出版社來源對照（非已完成教材）</small></a>
-          <a href="chinese-practice.html?from=map" target="_blank" rel="noopener noreferrer" aria-label="開啟國語生字練習簿" style="display:flex;align-items:center;gap:16px;margin:0 0 20px;padding:18px 24px;border:1px solid rgba(255,205,121,.5);border-radius:22px;background:rgba(76,42,96,.65);color:#fff;text-decoration:none;backdrop-filter:blur(12px)"><img src="images/subject-unit-icons/v1/chinese-writing-v1.png" alt="" style="width:60px;height:60px;object-fit:contain"><span><strong style="font-size:20px;display:block">國語生字練習簿 ↗</strong><small style="color:#ffe4ae">選教材・勾生字・自訂字・A4 列印／PDF</small></span></a>
+          <a onClick="{{ guardProtectedEntry }}" href="{{ chineseGrade6Url }}" target="_blank" rel="noopener noreferrer" style="display:block;margin:0 0 16px;padding:18px 24px;border-radius:22px;background:#473267;color:white;text-decoration:none"><strong>六年級原創能力練習 ↗</strong><br><small>原創閱讀理解・每回10題・獨立出版社來源對照（非已完成教材）</small></a>
+          <a onClick="{{ guardProtectedEntry }}" href="chinese-practice.html?from=map" target="_blank" rel="noopener noreferrer" aria-label="開啟國語生字練習簿" style="display:flex;align-items:center;gap:16px;margin:0 0 20px;padding:18px 24px;border:1px solid rgba(255,205,121,.5);border-radius:22px;background:rgba(76,42,96,.65);color:#fff;text-decoration:none;backdrop-filter:blur(12px)"><img src="images/subject-unit-icons/v1/chinese-writing-v1.png" alt="" style="width:60px;height:60px;object-fit:contain"><span><strong style="font-size:20px;display:block">國語生字練習簿 ↗</strong><small style="color:#ffe4ae">選教材・勾生字・自訂字・A4 列印／PDF</small></span></a>
         </sc-if>
         <div class="subject-world-content" data-math-view="{{ mathMapView }}" data-science-view="{{ scienceMapView }}">
         <sc-if value="{{ showMathKnowledge }}" hint-placeholder-val="{{ false }}">
@@ -11494,6 +11494,11 @@ class Component extends DCLogic {
       startAssigned: () => this.startUnit(s.assigned),
       goSignin: go("signin"), goRank: go("rank"), goAchieve: go("achieve"), goShop: go("shop"), goMap: go("map"), goCloset: go("closet"), goWeekly: () => this.setState({screen:"weekly",grade:Math.min(6,s.grade)}),
 
+      guardProtectedEntry: (event) => {
+        if (this.state.currentId !== "demo-local") return;
+        event.preventDefault();
+        this.flash("DEMO 僅供首頁試用；請先登出並用正式學員帳號登入，再開啟此課程。");
+      },
       chineseGrade6Url: "chinese-grade6.html?seconds=" + encodeURIComponent(this.seconds()),
       weeklyKey: weekKey(), weeklyTime: s.weeklyConfig.timeSeconds,
       weeklySections: weeklyUnits.map((entry) => ({ icon: entry.unit.icon, title: entry.unit.title, count: entry.count, stars: "⭐".repeat(Math.max(1, Math.min(3, entry.difficulty))) })),

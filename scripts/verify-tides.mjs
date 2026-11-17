@@ -1,3 +1,4 @@
+import { installLocalStudentFixture } from './browser-auth-fixture.mjs';
 // Reproducible CI browser acceptance. Run against a local static server on 4173.
 import { chromium } from 'playwright';
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -8,7 +9,7 @@ await mkdir('artifacts/tides',{recursive:true});
 try{
   for(const size of [{width:1024,height:600},{width:1024,height:768},{width:1280,height:720},{width:390,height:844}]){
     const context=await browser.newContext({viewport:size,hasTouch:true});
-    const page=await context.newPage();const errors=[];
+    await installLocalStudentFixture(context);const page=await context.newPage();const errors=[];
     page.on('pageerror',error=>errors.push(String(error)));
     const requests=[];page.on('request',r=>requests.push(r.url()));
     assert((await page.goto('http://127.0.0.1:4173/experiments/3d/earth-moon/tides/classic.html'))?.ok());

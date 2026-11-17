@@ -21,7 +21,12 @@ async function harness(pagePath='/princess-weekend-storybook.html',reader='modul
 describe('book49 guarded entry (mock auth, no browser credentials)',()=>{
  it('loads only the approved login entry from its dedicated HTML',()=>{
   const html=readFileSync('princess-weekend-storybook.html','utf8');const scripts=[...html.matchAll(/<script[^>]*src="([^"]+)"[^>]*>/g)];
-  expect(scripts).toHaveLength(1);expect(scripts[0][1]).toContain('modules/story-entry.mjs');expect(html).toContain('type="module"');expect(html).toContain('data-story-reader="modules/book-49/reader.js?');expect(html).not.toMatch(/<script[^>]*src="modules\/book-49\/reader\.js/);
+  expect(scripts).toHaveLength(2);
+    const active = scripts.filter(m => !m[0].includes('application/x-lp-deferred'));
+    expect(active).toHaveLength(1);
+    expect(active[0][1]).toContain('auth-v2/page-access.mjs');
+    expect(scripts[0][0]).toContain('application/x-lp-deferred');
+    expect(html).toContain('data-auth-content hidden inert');expect(scripts[0][1]).toContain('modules/story-entry.mjs');expect(html).toContain('type="module"');expect(html).toContain('data-story-reader="modules/book-49/reader.js?');expect(html).not.toMatch(/<script[^>]*src="modules\/book-49\/reader\.js/);
  });
  it('waits for restored auth before loading book49 and refuses anonymous entry',async()=>{
   const h=await harness();expect(h.loadModule.mock.calls.map(c=>c[0])).toEqual(['../auth-v2/firebase-client.js']);h.user(null);await tick();expect(h.location.replace).toHaveBeenCalledWith('https://learnplanet.win/stories/');expect(h.loadModule).toHaveBeenCalledTimes(1);
