@@ -1,3 +1,4 @@
+import { installLocalStudentFixture } from './browser-auth-fixture.mjs';
 import {chromium} from 'playwright';
 import {mkdir,writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
@@ -6,7 +7,7 @@ const browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CH
 const results=[];await mkdir('artifacts/tides3d',{recursive:true});
 try{
  for(const size of [{width:1440,height:900},{width:1280,height:720},{width:1024,height:600},{width:1024,height:768},{width:390,height:844},{width:360,height:780}].filter(s=>!process.env.TIDES_ONLY_SIZE||`${s.width}x${s.height}`===process.env.TIDES_ONLY_SIZE)){
-  const context=await browser.newContext({viewport:size,hasTouch:true});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()==='error'&&!m.location().url?.endsWith('favicon.ico'))errors.push(m.text());});
+  const context=await browser.newContext({viewport:size,hasTouch:true});await installLocalStudentFixture(context);const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()==='error'&&!m.location().url?.endsWith('favicon.ico'))errors.push(m.text());});
   await page.goto(root+'tides/');await page.locator('body[data-tides3d-ready=true]').waitFor({timeout:30000});await page.evaluate(()=>document.fonts.ready);
   assert.equal(await page.locator('#space canvas').count(),1);
   const fits=await page.evaluate(()=>{const a=document.querySelector('aside'),footer=document.querySelector('footer').getBoundingClientRect();return {h:innerHeight,w:innerWidth,pageH:document.documentElement.scrollHeight,pageW:document.documentElement.scrollWidth,sideOverflow:a.scrollHeight-a.clientHeight,sideBottom:a.getBoundingClientRect().bottom,footerTop:footer.top};});

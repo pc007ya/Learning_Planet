@@ -1,3 +1,4 @@
+import { installLocalStudentFixture } from './browser-auth-fixture.mjs';
 import {chromium} from 'playwright';
 import {mkdir,writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
@@ -59,9 +60,9 @@ async function verifyQuiz(page,planet,reading,suffix){
  await page.screenshot({timeout:45000,path:`${output}/${suffix}-quiz-${reading?'on':'off'}.png`});await page.locator('#ep-quiz-close').click();await page.locator('#ep-quiz').waitFor({state:'hidden'});assert.deepEqual(await diagnostics(page),before,'Opening/closing quiz changed the paused experiment');
 }
 try{
- const hub=await browser.newPage({viewport:{width:1024,height:600},deviceScaleFactor:1});const response=await hub.goto(root,{waitUntil:'domcontentloaded'});assert(response?.ok(),'Hub unavailable');assert.equal(await hub.locator('.card').count(),6);await hub.screenshot({timeout:45000,path:`output/hub-1024x600.png`.replace('output',output)});await hub.close();
+ const hub=await browser.newPage({viewport:{width:1024,height:600},deviceScaleFactor:1});await installLocalStudentFixture(hub.context());const response=await hub.goto(root,{waitUntil:'domcontentloaded'});assert(response?.ok(),'Hub unavailable');await hub.locator('.card').first().waitFor({state:'visible'});assert.equal(await hub.locator('.card').count(),6);await hub.screenshot({timeout:45000,path:`output/hub-1024x600.png`.replace('output',output)});await hub.close();
  for(const size of sizes)for(const planet of planets){
-  const context=await browser.newContext({viewport:size,deviceScaleFactor:1});const page=await context.newPage();page.setDefaultTimeout(10000);const pageErrors=[];const appChunks=new Set();page.on('response',response=>{if(/\/chunks\/app-[^/]+\.js/.test(response.url()))appChunks.add(response.url());});page.on('pageerror',error=>pageErrors.push(String(error)));const suffix=`${planet}-${size.width}x${size.height}`;
+  const context=await browser.newContext({viewport:size,deviceScaleFactor:1});await installLocalStudentFixture(context);const page=await context.newPage();page.setDefaultTimeout(10000);const pageErrors=[];const appChunks=new Set();page.on('response',response=>{if(/\/chunks\/app-[^/]+\.js/.test(response.url()))appChunks.add(response.url());});page.on('pageerror',error=>pageErrors.push(String(error)));const suffix=`${planet}-${size.width}x${size.height}`;
   try{
    const response=await page.goto(root+planet+'/',{waitUntil:'domcontentloaded',timeout:30000});assert(response?.ok(),'Lesson unavailable '+response?.status());await page.locator('body[data-planet-ready="true"]').waitFor({timeout:20000});await page.evaluate(()=>document.fonts.ready);assert.equal(await page.locator('#ep-scene canvas').count(),1);assert.equal(await page.locator('#ep-zhuyin').getAttribute('aria-pressed'),'false');
    assert(await page.evaluate(()=>{const canvas=document.querySelector('#ep-scene canvas'),sample=document.createElement('canvas');sample.width=sample.height=64;const ctx=sample.getContext('2d');ctx.drawImage(canvas,0,0,64,64);const p=ctx.getImageData(0,0,64,64).data;let count=0;for(let i=0;i<p.length;i+=4)if(p[i]+p[i+1]+p[i+2]>170)count++;return count>25;}),'WebGL scene did not paint');
