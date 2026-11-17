@@ -30,7 +30,7 @@ export function buildGarden(T,{scene,nodes,mesh,color,own}){
  function cylinder(p,rt,rb,h,mat,pos,sides=20){return mesh(p,new T.CylinderGeometry(rt,rb,h,sides),mat,pos);}
  function group(x=0,y=0,z=0){const g=new T.Group();g.position.set(x,y,z);scene.add(g);return g;}
  function shape(rx,rz){const s=new T.Shape();for(let i=0;i<=64;i++){const a=i/64*Math.PI*2,k=.98+.025*Math.sin(a*5)+.016*Math.cos(a*3),x=Math.cos(a)*rx*k,z=Math.sin(a)*rz*k;if(i)s.lineTo(x,z);else s.moveTo(x,z);}s.closePath();return s;}
- function land(rx,rz,depth,y,mat){const g=new T.ExtrudeGeometry(shape(rx,rz),{depth,bevelEnabled:true,bevelSize:.12,bevelThickness:.1,bevelSegments:2,steps:1});g.translate(0,0,-depth);const m=mesh(scene,g,mat,[0,y,0]);m.rotation.x=-Math.PI/2;return m;}
+ function land(rx,rz,depth,y,mat){const g=new T.ExtrudeGeometry(shape(rx,rz),{depth,bevelEnabled:true,bevelSize:.12,bevelThickness:.035,bevelSegments:2,steps:1});g.translate(0,0,-depth);const m=mesh(scene,g,mat,[0,y,0]);m.rotation.x=-Math.PI/2;return m;}
  land(8.05,4.8,.62,-.12,color(0x967559));land(8.03,4.78,.16,-.015,color(0xe8cf9b));land(7.8,4.52,.08,.035,color(0x8bb78c));
  // Shallow bay in the meadow; the middle wooden footbridge is the only pond crossing.
  const pond=mesh(scene,new T.CircleGeometry(1,64),palette.water,[0,.09,0]);pond.rotation.x=-Math.PI/2;pond.scale.set(3.35,.79,1);
