@@ -1810,6 +1810,7 @@ function M() {
   z.stop(), rt();
   const e = Z(s.selections, s.overrides), t = s.book === "primer" && C(s.filters);
   p.innerHTML = `<header class="topbar no-print"><a class="brand" href="index.html" aria-label="回到學習星球首頁"><img src="images/brand/learning-planet-brand-web-v1.webp" alt="Learning Planet 學習星球" fetchpriority="high"></a><button data-action="return">← 返回國語星球</button></header>
+  <nav class="no-print"><a href="chinese-grade6.html">六年級原創能力練習／出版社來源對照 ↗</a></nav>
   <section class="hero no-print"><p class="eyebrow">國語星球 / HANDWRITING</p><h1>我的生字練習簿</h1><p>挑一課、選幾個字，慢慢寫出自己的進步。</p><span class="badge">${a(jt)} · 康軒首冊目錄 9 課</span></section>
   <p class="feedback no-print" role="status" aria-live="polite">${a(w)}</p>
   ${j ? `<section class="print-toolbar no-print"><button data-action="edit">← 返回選字</button><strong>${e.length} 字 · ${nt(e)} 頁 A4</strong><button class="primary" data-action="print">列印／另存 PDF</button><p>列印選 A4、比例 100%、關閉瀏覽器頁首頁尾。目的地選「儲存為 PDF」。</p></section>
