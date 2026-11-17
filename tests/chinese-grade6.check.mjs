@@ -47,3 +47,13 @@ test('targeted source-check gap retains uncertainty rather than treating newer/o
  assert.equal(u.questions[4].options[u.questions[4].answer],'不足，還需要可核對的來源或主辦回覆');
  assert.equal(u.questions[6].options[u.questions[6].answer],'目前完整公告是換場地；較晚的取消傳聞仍待確認');
 });
+
+test('115 official book registry remains separate from lesson edition and learning completion',()=>{
+ const r=sources.bookRegistry;assert.equal(r.year,115);assert.equal(r.volume,11);assert.equal(r.sourceUpdatedAt,'2026-05-25');assert.equal(r.sourcePage,10);assert.equal(r.lessonEditionVerified,false);assert.equal(new URL(r.url).hostname,'textbooks.naer.edu.tw');
+ assert.deepEqual(r.publishers.map(p=>[p.publisher,p.license,p.edition,p.revision]),[['南一','國審字第113008','再版','1151400137'],['康軒','國審字第113024','再版','1151400421'],['翰林','國審字第113015','再版','1151400575']]);
+ for(const lesson of sources.lessons){assert.equal(lesson.year,115);assert.equal(lesson.edition,null);assert.equal(lesson.fullTextLicensed,false);assert.equal(lesson.contentImported,false);assert.equal(lesson.practiceAvailable,false);}
+ const t=ui();t.click('[data-action="sources"]');assert.ok(t.root.querySelector('[aria-label="115學年度官方書目核實"]'));assert.match(t.root.textContent,/不代表已逐課比對/);assert.match(t.root.textContent,/1151400421/);assert.equal(t.root.querySelectorAll('[data-unit]').length,0);t.click('[data-action="home"]');assert.equal(t.root.querySelectorAll('[data-unit]').length,12);t.app.destroy();
+});
+test('legacy source data without book registry still renders its preserved links',()=>{
+ const {document,window}=parseHTML('<main></main>');const legacy={...sources};delete legacy.bookRegistry;const root=document.querySelector('main');const app=mountPractice(root,bank,legacy);assert.match(root.textContent,/12課原創/);root.querySelector('[data-action="sources"]').dispatchEvent(new window.Event('click',{bubbles:true}));assert.equal([...root.querySelectorAll('a')].filter(a=>a.href.includes('pedia.cloud.edu.tw')).length,36);assert.equal(root.querySelector('[aria-label="115學年度官方書目核實"]'),null);app.destroy();
+});

@@ -1119,5 +1119,37 @@
       "learningObjectiveAlignment": "待核：僅核標題，不從課名推測教學目標",
       "practiceAvailable": false
     }
-  ]
+  ],
+  "bookRegistry": {
+    "url": "https://textbooks.naer.edu.tw/DownLoadFile.aspx?ASParam=TUZIRSs3NSUyNjglMjQlN2QlMWYlMDByJTA4JTA2ZSUxZSUwNSU3ZWIlN2UlMTAlMDBtJTFjJTA3cCUwYSUxYiUxY2l0YiU3ZSUwY2J0eGxyJTAyJTAwJTAwZiUxYiUwNQ%3D%3D",
+    "year": 115,
+    "volume": 11,
+    "grade": 6,
+    "publishers": [
+      {
+        "publisher": "南一",
+        "license": "國審字第113008",
+        "edition": "再版",
+        "revision": "1151400137"
+      },
+      {
+        "publisher": "康軒",
+        "license": "國審字第113024",
+        "edition": "再版",
+        "revision": "1151400421"
+      },
+      {
+        "publisher": "翰林",
+        "license": "國審字第113015",
+        "edition": "再版",
+        "revision": "1151400575"
+      }
+    ],
+    "checkedAt": "2026-11-17",
+    "sourceTitle": "國教院 115 學年度審定本教科用書清冊",
+    "sourceUpdatedAt": "2026-05-25",
+    "sourcePage": 10,
+    "scope": "書籍層級審定資料，不代表已逐課比對印刷正文、習作或音檔。",
+    "lessonEditionVerified": false
+  }
 }
