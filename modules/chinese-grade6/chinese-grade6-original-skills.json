@@ -477,6 +477,511 @@
         "timerPolicy": "inherit_existing_policy",
         "masteryClaim": false
       }
+    },
+    {
+      "id": "zh-original-g6-narrative",
+      "grade": 6,
+      "semester": null,
+      "publisher": null,
+      "contentKind": "original_skill_practice",
+      "title": "從動作讀懂心情",
+      "objective": "依對話與動作推論人物心情，辨識敘事視角與比喻。",
+      "notice": "原創能力練習，非出版社課文；未核定對應任何課的學習目標。",
+      "publisherLessonIds": [],
+      "learningObjectiveAlignment": "general_skill_only",
+      "passage": [
+        "輪到小禾報告時，她站在教室前方，把準備卡捏得皺皺的。明明昨晚練習了好幾次，第一句話卻像躲進了口袋，怎麼也找不著。",
+        "後排的小勻沒有替她說出答案，只把自己的身體坐直，朝她輕輕點頭。小禾低頭看卡片，慢慢吐一口氣，從「我想介紹這座橋」說起。",
+        "報告中，她把「橋墩」說成「橋面」，停了一下，自己更正後繼續說。講完時，她的手心仍然濕濕的，聲音卻比開頭穩定。",
+        "回到座位，小禾對小勻說：「我不是突然不怕了，是發現說錯一句，也能接著說下去。」窗邊的風翻過準備卡，卡上的摺痕還在。"
+      ],
+      "questions": [
+        {
+          "id": "zh-original-g6-narrative-1",
+          "prompt": "哪項細節最能支持小禾一開始很緊張？",
+          "options": [
+            "把準備卡捏皺，第一句話說不出來",
+            "昨晚曾經練習報告",
+            "報告主題與橋有關"
+          ],
+          "answer": 0,
+          "explanation": "捏皺卡片與一時說不出話，同時呈現她在台前的不安；練習與報告主題本身不足以判斷緊張。",
+          "skill": "人物推論",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段：把準備卡捏得皺皺的；第一句話……找不著"
+        },
+        {
+          "id": "zh-original-g6-narrative-2",
+          "prompt": "「第一句話卻像躲進了口袋」主要想表現什麼？",
+          "options": [
+            "她真的把一句話寫在口袋裡",
+            "她決定把報告內容保密",
+            "原本準備好的話一時說不出口"
+          ],
+          "answer": 2,
+          "explanation": "這是把抽象的「說不出口」寫成具體畫面，並不是在交代物品藏放的位置。",
+          "skill": "比喻理解",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段：明明昨晚練習了好幾次，第一句話卻像躲進了口袋"
+        },
+        {
+          "id": "zh-original-g6-narrative-3",
+          "prompt": "小勻實際做了什麼？",
+          "options": [
+            "大聲說出小禾忘記的句子",
+            "坐直身體，向小禾點頭",
+            "走到台前替小禾報告"
+          ],
+          "answer": 1,
+          "explanation": "第二段明說小勻沒有替她說答案，而是用坐直與點頭回應。",
+          "skill": "擷取訊息",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：沒有替她說出答案，只把自己的身體坐直，朝她輕輕點頭"
+        },
+        {
+          "id": "zh-original-g6-narrative-4",
+          "prompt": "從全文看，小勻的動作最合理的作用是什麼？",
+          "options": [
+            "讓小禾感受到有人專心聽她說",
+            "保證小禾報告一定獲得最高分",
+            "提醒小禾立即停止報告"
+          ],
+          "answer": 0,
+          "explanation": "點頭與坐直可解讀為專心聆聽和鼓勵；文章沒有分數，也沒有催她停止的訊息。",
+          "skill": "合理推論",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段點頭後，小禾看卡片、吐氣並開始說"
+        },
+        {
+          "id": "zh-original-g6-narrative-5",
+          "prompt": "小禾說錯詞語後怎麼處理？",
+          "options": [
+            "把錯誤怪罪給小勻",
+            "放棄報告，立刻回座位",
+            "停一下，自己更正後繼續"
+          ],
+          "answer": 2,
+          "explanation": "第三段直接描述她更正詞語並繼續報告的過程。",
+          "skill": "事件順序",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段：停了一下，自己更正後繼續說"
+        },
+        {
+          "id": "zh-original-g6-narrative-6",
+          "prompt": "哪個敘述最準確地描述報告結束時的小禾？",
+          "options": [
+            "比開始更緊張，完全無法說話",
+            "仍有緊張反應，但說話比開頭穩定",
+            "緊張完全消失，手心也立即乾了"
+          ],
+          "answer": 1,
+          "explanation": "手心仍濕與聲音更穩同時存在，不能只看其中一項就說她完全不怕或毫無進步。",
+          "skill": "整合訊息",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段：手心仍然濕濕的，聲音卻比開頭穩定"
+        },
+        {
+          "id": "zh-original-g6-narrative-7",
+          "prompt": "小禾最後一句話表達的體會是什麼？",
+          "options": [
+            "即使緊張或說錯，仍可以繼續嘗試",
+            "只有完全不緊張的人才適合報告",
+            "準備充分就絕對不可能說錯"
+          ],
+          "answer": 0,
+          "explanation": "她沒有宣稱不再害怕，而是發現錯誤不必讓報告中止。",
+          "skill": "主旨",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第四段：我不是突然不怕了……說錯一句，也能接著說下去"
+        },
+        {
+          "id": "zh-original-g6-narrative-8",
+          "prompt": "文章主要由誰來敘述事件？",
+          "options": [
+            "小禾全篇用「我」直接敘述",
+            "小勻全篇用「我」直接敘述",
+            "故事外的敘述者，以「她」描述小禾"
+          ],
+          "answer": 2,
+          "explanation": "敘述文字使用「小禾」「她」；引號內人物說「我」並不代表整篇都改成第一人稱敘事。",
+          "skill": "敘事視角",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一至三段的敘述以「小禾」「她」稱人物"
+        },
+        {
+          "id": "zh-original-g6-narrative-9",
+          "prompt": "結尾再提準備卡的摺痕，與開頭形成什麼關聯？",
+          "options": [
+            "表示她從此不再需要準備報告",
+            "呼應捏皺卡片的細節，留下這次經驗的痕跡",
+            "證明報告內容已經被風吹掉"
+          ],
+          "answer": 1,
+          "explanation": "結尾重現準備卡，呼應開頭動作；摺痕還在，不等於內容消失或以後不必準備。",
+          "skill": "首尾呼應",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段：卡捏得皺皺的；第四段：卡上的摺痕還在"
+        },
+        {
+          "id": "zh-original-g6-narrative-10",
+          "prompt": "若用一句話概括故事，哪項最貼切？",
+          "options": [
+            "小禾在同伴鼓勵下，練習帶著緊張完成報告",
+            "小勻代替小禾報告，獲得全班第一名",
+            "小禾完全沒有準備，靠猜測完成報告"
+          ],
+          "answer": 0,
+          "explanation": "摘要須保留緊張、鼓勵與自行完成的經過；文中沒有名次，也明說她事前練習。",
+          "skill": "摘要",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段事前練習；第二段鼓勵；第三、四段更正後完成"
+        }
+      ],
+      "assessment": {
+        "roundSize": 10,
+        "questionCount": 10,
+        "bankSize": 10,
+        "bankComplete": false,
+        "randomizeOptions": true,
+        "timerPolicy": "inherit_existing_policy",
+        "masteryClaim": false
+      }
+    },
+    {
+      "id": "zh-original-g6-compare",
+      "grade": 6,
+      "semester": null,
+      "publisher": null,
+      "contentKind": "original_skill_practice",
+      "title": "兩份資料，一起核對",
+      "objective": "比較公告與觀察紀錄，區分規定、實況與資料限制。",
+      "notice": "原創能力練習，非出版社課文；未核定對應任何課的學習目標。",
+      "publisherLessonIds": [],
+      "learningObjectiveAlignment": "general_skill_only",
+      "passage": [
+        "【資料甲：圖書角使用公告】週一至週五午休開放。每次最多借兩本書，請在七天內歸還。若發現缺頁，借書前先告知值日生。公告下方註明：「本週開始試行，下週蒐集建議。」",
+        "【資料乙：週三值日紀錄】午休共有十二位同學到圖書角，其中八位辦理借書。小澄發現一本書缺頁，先告知值日生，改選另一本。當天沒有記錄每位同學借了幾本，也沒有統計歸還情形。",
+        "【討論】阿青說：「有十二位到場，所以今天一定借出了二十四本。」小澄回答：「公告寫的是上限，紀錄也只寫八位辦理借書，還不能這樣算。」"
+      ],
+      "questions": [
+        {
+          "id": "zh-original-g6-compare-1",
+          "prompt": "依資料甲，圖書角在哪個時段開放？",
+          "options": [
+            "週一至週五午休",
+            "每天放學後",
+            "只有週三上午"
+          ],
+          "answer": 0,
+          "explanation": "公告限定週一至週五的午休，不能擴大成每天或改成其他時段。",
+          "skill": "擷取訊息",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "資料甲：週一至週五午休開放"
+        },
+        {
+          "id": "zh-original-g6-compare-2",
+          "prompt": "「每次最多借兩本」中的「最多」表示什麼？",
+          "options": [
+            "每位到場者一定要借兩本",
+            "整個圖書角一天只能借出兩本",
+            "一次借閱的數量上限是兩本"
+          ],
+          "answer": 2,
+          "explanation": "「最多」規定上限，並不要求每人都借足，也不是全體的每日總量。",
+          "skill": "詞義與限制",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "資料甲：每次最多借兩本"
+        },
+        {
+          "id": "zh-original-g6-compare-3",
+          "prompt": "小澄發現缺頁後的做法，與公告有何關係？",
+          "options": [
+            "證明缺頁書必須自己黏好才能離開",
+            "符合借書前先告知的規定",
+            "違反一定要借走缺頁書的規定"
+          ],
+          "answer": 1,
+          "explanation": "她先告知值日生，與公告相符；公告沒有強制借走或自行修補的規定。",
+          "skill": "跨文本比對",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "資料甲：借書前先告知；資料乙：先告知值日生，改選另一本"
+        },
+        {
+          "id": "zh-original-g6-compare-4",
+          "prompt": "資料乙能直接確認哪件事？",
+          "options": [
+            "週三有八位同學辦理借書",
+            "週三恰好借出十六本書",
+            "週三所有到場同學都借了書"
+          ],
+          "answer": 0,
+          "explanation": "紀錄提供借書人數，沒有每人本數，因此不能推出精確總本數。",
+          "skill": "事實判讀",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "資料乙：其中八位辦理借書；沒有記錄每位同學借了幾本"
+        },
+        {
+          "id": "zh-original-g6-compare-5",
+          "prompt": "阿青推算二十四本時，混淆了什麼？",
+          "options": [
+            "把七天內歸還看成七個月內歸還",
+            "把缺頁的書當成剛買的新書",
+            "把到場人數當借書人數，又把上限當實際本數"
+          ],
+          "answer": 2,
+          "explanation": "到場者不全是借書者，而且即使借書也不必借足上限；這是推算的兩個缺口。",
+          "skill": "辨識推論錯誤",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "資料乙到場十二位、借書八位；資料甲最多兩本"
+        },
+        {
+          "id": "zh-original-g6-compare-6",
+          "prompt": "若要知道週三實際借出總本數，最需要補哪項資料？",
+          "options": [
+            "公告上使用的字體名稱",
+            "各次借閱實際借出的本數",
+            "圖書角窗簾的顏色"
+          ],
+          "answer": 1,
+          "explanation": "實際借出本數才可加總；環境裝飾與字體無法補足借閱數據。",
+          "skill": "資訊需求",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "資料乙：沒有記錄每位同學借了幾本"
+        },
+        {
+          "id": "zh-original-g6-compare-7",
+          "prompt": "能不能由這兩份資料判定大家都準時還書？",
+          "options": [
+            "不能，紀錄沒有統計歸還情形",
+            "能，因為公告規定七天內歸還",
+            "能，因為週三有人發現缺頁"
+          ],
+          "answer": 0,
+          "explanation": "規定不是已遵守的證據；要判斷是否準時還書，仍需借還日期紀錄。",
+          "skill": "資料限制",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "資料甲七天內歸還；資料乙沒有統計歸還情形"
+        },
+        {
+          "id": "zh-original-g6-compare-8",
+          "prompt": "資料甲與資料乙的主要功能有何不同？",
+          "options": [
+            "甲記錄所有借還結果，乙規定每年預算",
+            "甲乙都只是描述小澄的外貌",
+            "甲說明使用規定，乙記錄一天的觀察"
+          ],
+          "answer": 2,
+          "explanation": "公告告知如何使用，值日紀錄描述週三發生的事；兩種資料可互補但不能互相取代。",
+          "skill": "文本目的",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "資料甲標題使用公告；資料乙標題週三值日紀錄"
+        },
+        {
+          "id": "zh-original-g6-compare-9",
+          "prompt": "公告寫「下週蒐集建議」，最能支持哪個判斷？",
+          "options": [
+            "下週一定停止所有借閱",
+            "試行後還會聽取使用者回饋",
+            "規定已確定永遠不再修改"
+          ],
+          "answer": 1,
+          "explanation": "蒐集建議顯示仍將聽取回饋，並未宣告永久不改或停止借閱。",
+          "skill": "合理推論",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "資料甲：本週開始試行，下週蒐集建議"
+        },
+        {
+          "id": "zh-original-g6-compare-10",
+          "prompt": "哪項摘要同時尊重兩份資料？",
+          "options": [
+            "圖書角依公告試行，週三記到八位借書者，但總本數與歸還情形待補",
+            "圖書角每天借出二十四本，所有書都在七天內歸還",
+            "圖書角因缺頁問題，已決定永遠關閉"
+          ],
+          "answer": 0,
+          "explanation": "摘要區分規定、當日觀察與未記錄資訊，不把缺漏資料補成已知事實。",
+          "skill": "跨文本摘要",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "甲試行公告；乙借書八位、總本數與歸還情形未記"
+        }
+      ],
+      "assessment": {
+        "roundSize": 10,
+        "questionCount": 10,
+        "bankSize": 10,
+        "bankComplete": false,
+        "randomizeOptions": true,
+        "timerPolicy": "inherit_existing_policy",
+        "masteryClaim": false
+      }
+    },
+    {
+      "id": "zh-original-g6-announcement",
+      "grade": 6,
+      "semester": null,
+      "publisher": null,
+      "contentKind": "original_skill_practice",
+      "title": "把通知寫清楚",
+      "objective": "依對象與目的選取資訊，辨識條件、語氣與修訂重點。",
+      "notice": "原創能力練習，非出版社課文；未核定對應任何課的學習目標。",
+      "publisherLessonIds": [],
+      "learningObjectiveAlignment": "general_skill_only",
+      "passage": [
+        "【原創通知】六年級舊書交換活動將在週五下午一點至兩點，於圖書室旁走廊舉行。參加者可帶一至三本保存完整的課外書，先到服務桌登記，再領取交換卡。課本與習作不列入這次交換。",
+        "交換時，一張卡可換一本書；也可以只看展覽，不參加交換。若下雨，活動改到視聽教室，時間不變。需要協助搬書的同學，可在週四放學前向班級服務員登記。",
+        "【待修訂草稿】有同學想把通知縮成：「星期五大家帶書來，去那裡換。遇到那種天氣就改地方。」班級編輯認為，文字變短了，但重要資訊反而不清楚。"
+      ],
+      "questions": [
+        {
+          "id": "zh-original-g6-announcement-1",
+          "prompt": "通知的主要目的為何？",
+          "options": [
+            "讓六年級同學知道舊書交換的參與方式",
+            "報告上個月全部借閱統計",
+            "證明每位同學都喜歡同一本書"
+          ],
+          "answer": 0,
+          "explanation": "通知交代活動時間、地點、條件與流程，目的是方便讀者參與，不是在報告調查結果。",
+          "skill": "寫作目的",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一、二段的時間地點、參與與交換規則"
+        },
+        {
+          "id": "zh-original-g6-announcement-2",
+          "prompt": "下列哪本書符合通知中的交換條件？",
+          "options": [
+            "缺少數頁的課外故事書",
+            "保存完整的數學習作",
+            "保存完整的課外故事書"
+          ],
+          "answer": 2,
+          "explanation": "條件同時要求課外書與保存完整，並明確排除課本及習作。",
+          "skill": "多條件判讀",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段：保存完整的課外書；課本與習作不列入"
+        },
+        {
+          "id": "zh-original-g6-announcement-3",
+          "prompt": "參加交換時，應先做哪件事？",
+          "options": [
+            "先到視聽教室等雨停",
+            "到服務桌登記",
+            "直接拿走想要的書"
+          ],
+          "answer": 1,
+          "explanation": "流程是先登記再領卡，不能略過登記直接拿書；雨天場地也不是晴天必到之處。",
+          "skill": "流程",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段：先到服務桌登記，再領取交換卡"
+        },
+        {
+          "id": "zh-original-g6-announcement-4",
+          "prompt": "如果週五下雨，通知明確說明哪項改變？",
+          "options": [
+            "地點改到視聽教室，時間不變",
+            "時間延到下週五，地點不變",
+            "活動取消，不再舉行"
+          ],
+          "answer": 0,
+          "explanation": "通知只更換雨天場地，明示時間不變，沒有延期或取消。",
+          "skill": "條件句",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：若下雨……改到視聽教室，時間不變"
+        },
+        {
+          "id": "zh-original-g6-announcement-5",
+          "prompt": "不帶書的同學是否仍能參加看展？",
+          "options": [
+            "不能，所有人必須交換三本",
+            "不能，沒有交換卡就必須離校",
+            "能，通知說可以只看展覽"
+          ],
+          "answer": 2,
+          "explanation": "通知把看展與交換分開，允許不交換的參觀方式。",
+          "skill": "擷取訊息",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：也可以只看展覽，不參加交換"
+        },
+        {
+          "id": "zh-original-g6-announcement-6",
+          "prompt": "需要協助搬書的同學，應在何時向誰登記？",
+          "options": [
+            "下週一早上，向圖書室訪客登記",
+            "週四放學前，向班級服務員登記",
+            "週五活動結束後，向任何同學登記"
+          ],
+          "answer": 1,
+          "explanation": "須同時讀準期限與受理對象，不能只挑日期或人物之一。",
+          "skill": "整合訊息",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：週四放學前向班級服務員登記"
+        },
+        {
+          "id": "zh-original-g6-announcement-7",
+          "prompt": "草稿中「去那裡換」最需要怎樣修改？",
+          "options": [
+            "改寫清楚的活動地點",
+            "刪掉所有標點符號",
+            "加上更多「很棒」的形容詞"
+          ],
+          "answer": 0,
+          "explanation": "「那裡」缺少明確指涉，讀者無法據此找到活動場地；讚美語不會補足地點。",
+          "skill": "指代與修訂",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "草稿：去那裡換；第一段：圖書室旁走廊"
+        },
+        {
+          "id": "zh-original-g6-announcement-8",
+          "prompt": "若只能加一個小標題，哪個最能概括第二段的雨天安排？",
+          "options": [
+            "交換書籍的內容摘要",
+            "去年的活動成果",
+            "雨天備案"
+          ],
+          "answer": 2,
+          "explanation": "這部分交代下雨時改用的場地，屬於雨天備案，而非書籍摘要或往年成果。",
+          "skill": "小標題",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：若下雨，活動改到視聽教室，時間不變"
+        },
+        {
+          "id": "zh-original-g6-announcement-9",
+          "prompt": "提醒同學不要帶習作，哪句最清楚又有禮貌？",
+          "options": [
+            "隨便帶什麼都一樣，可以不看規定。",
+            "本次交換不含習作，請帶保存完整的課外書。",
+            "你連要帶什麼都不知道嗎？"
+          ],
+          "answer": 1,
+          "explanation": "清楚指出限制並提供可行做法，比責備或否定規定更能幫助讀者準備。",
+          "skill": "語氣與對象",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段明定課外書與排除習作；題幹要求清楚有禮"
+        },
+        {
+          "id": "zh-original-g6-announcement-10",
+          "prompt": "哪項資訊在通知中尚未交代，不應自行當成規定？",
+          "options": [
+            "活動後未換出的書要如何處理",
+            "活動在週五下午一點開始",
+            "一張交換卡可換一本書"
+          ],
+          "answer": 0,
+          "explanation": "原文已提供開始時間與換書規則，卻沒有未換出書籍的後續處理方式，應再詢問主辦者。",
+          "skill": "辨識資訊缺口",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "全通知沒有未換出書籍的處理規則"
+        }
+      ],
+      "assessment": {
+        "roundSize": 10,
+        "questionCount": 10,
+        "bankSize": 10,
+        "bankComplete": false,
+        "randomizeOptions": true,
+        "timerPolicy": "inherit_existing_policy",
+        "masteryClaim": false
+      }
     }
   ]
 }
