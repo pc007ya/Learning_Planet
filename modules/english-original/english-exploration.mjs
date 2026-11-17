@@ -19,16 +19,16 @@ export function createExplorer(container,options){
  const own=r=>(resources.add(r),r),color=(c,extra={})=>own(new T.MeshStandardMaterial({color:c,roughness:.85,...extra}));
  const scene=new T.Scene();scene.background=new T.Color('#d7f0ee');scene.fog=new T.Fog('#d7f0ee',28,55);
  const camera=new T.PerspectiveCamera(43,1,.1,100),renderer=new T.WebGLRenderer({antialias:true});
- renderer.setPixelRatio(Math.min(win.devicePixelRatio||1,1.75));renderer.outputColorSpace=T.SRGBColorSpace;
+ renderer.setPixelRatio(Math.min(win.devicePixelRatio||1,1.75));renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.1;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
  let toolbar,status;
  const canvas=renderer.domElement;canvas.style.cssText='display:block;width:100%;height:100%;touch-action:none';canvas.tabIndex=0;canvas.setAttribute('aria-label','3D 探索。方向鍵或 WASD 移動，點地面走動，點課程標牌走到課程。');container.append(canvas);
  const oldPosition=container.style.position;container.style.position='relative';
- function mesh(parent,geometry,material,pos=[0,0,0]){const m=new T.Mesh(own(geometry),material);m.position.set(...pos);parent.add(m);return m;}
+ function mesh(parent,geometry,material,pos=[0,0,0]){const m=new T.Mesh(own(geometry),material);m.position.set(...pos);m.castShadow=true;m.receiveShadow=true;parent.add(m);return m;}
  function listen(target,event,fn,opts){target.addEventListener(event,fn,opts);cleanup.push(()=>target.removeEventListener(event,fn,opts));}
  function dispose(){if(closed)return;closed=true;win.cancelAnimationFrame(frame);cleanup.reverse().forEach(f=>f());resources.forEach(r=>r.dispose?.());renderer.dispose();renderer.forceContextLoss?.();canvas.remove();toolbar?.remove();status?.remove();container.style.position=oldPosition;}
  function fail(e){dispose();options.onError?.(e);}
  try {
- const hemi=new T.HemisphereLight(0xfff9df,0x347b83,2.2);scene.add(hemi);const sun=new T.DirectionalLight(0xfff5dc,2.3);sun.position.set(-6,14,8);scene.add(sun);
+ const hemi=new T.HemisphereLight(0xfff9df,0x347b83,1.5);scene.add(hemi);const sun=new T.DirectionalLight(0xfff5dc,2.3);sun.position.set(-6,14,8);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);Object.assign(sun.shadow.camera,{left:-10,right:10,top:10,bottom:-10});sun.shadow.bias=-.001;scene.add(sun);
  const water=color(0x76cfce,{roughness:.35}),soil=color(0x9e8564),sand=color(0xeee2ba),grassColors=[0x91c699,0xb5d59a,0x87c7b0,0xa6c89b];
  mesh(scene,new T.CylinderGeometry(18,19,.5,80),water,[0,-.67,0]);
  // Raised grassy islands, sandy rims and physical walkable wooden bridges.
@@ -36,7 +36,7 @@ export function createExplorer(container,options){
   mesh(scene,new T.CylinderGeometry(1.48,1.24,.65,12),soil,[n.x,-.39,n.z]);
   mesh(scene,new T.CylinderGeometry(1.5,1.45,.13,32),sand,[n.x,-.08,n.z]);
   mesh(scene,new T.CylinderGeometry(1.39,1.43,.08,32),color(grassColors[i%4]),[n.x,.015,n.z]);
-  if(i){const a=nodes[i-1],length=Math.hypot(n.x-a.x,n.z-a.z),angle=Math.atan2(n.x-a.x,n.z-a.z);const bridge=new T.Group();bridge.position.set((n.x+a.x)/2,.04,(n.z+a.z)/2);bridge.rotation.y=angle;scene.add(bridge);for(let k=-length/2;k<length/2;k+=.22)mesh(bridge,new T.BoxGeometry(1.55,.09,.19),color(k%2?0xd3b480:0xbfa06c),[0,0,k]);}
+  if(i){const a=nodes[i-1],length=Math.hypot(n.x-a.x,n.z-a.z),angle=Math.atan2(n.x-a.x,n.z-a.z);const bridge=new T.Group();bridge.position.set((n.x+a.x)/2,.04,(n.z+a.z)/2);bridge.rotation.y=angle;scene.add(bridge);for(let k=-length/2+1.08;k<length/2-1.08;k+=.22)mesh(bridge,new T.BoxGeometry(1.55,.09,.19),color(k%2?0xd3b480:0xbfa06c),[0,0,k]);}
   // Each actual collision disc has a matching decoration; the centre stays open.
   const obs=nav.obstacles.slice(i*3,i*3+3),building=obs[0],tree=obs[1],flowers=obs[2],roofColors=[0x2b9ca4,0xe6a260,0xc086a6,0x7c9fc4];
   const house=new T.Group();house.position.set(building.x,.07,building.z);scene.add(house);
@@ -50,7 +50,7 @@ export function createExplorer(container,options){
   for(let k=0;k<5;k++){const a=k*1.26,x=flowers.x+Math.cos(a)*.12,z=flowers.z+Math.sin(a)*.12;mesh(scene,new T.CylinderGeometry(.012,.012,.16,6),color(0x54874b),[x,.15,z]);mesh(scene,new T.SphereGeometry(.055,8,6),color(i%2?0xffce75:0xf0b5c2),[x,.25,z]);}
   // Distinct topical pavilion signs. English titles use the same course data as the list.
   const bitmap=doc.createElement('canvas');bitmap.width=512;bitmap.height=128;const ctx=bitmap.getContext('2d');ctx.fillStyle='#fffbea';ctx.beginPath();ctx.roundRect(2,2,508,124,24);ctx.fill();ctx.strokeStyle='#227b84';ctx.lineWidth=5;ctx.stroke();ctx.fillStyle='#205b66';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 29px sans-serif';ctx.fillText(`${n.number}  ${n.title}`,256,64,475);
-  const sign=new T.Sprite(own(new T.SpriteMaterial({map:own(new T.CanvasTexture(bitmap)),depthTest:false})));sign.position.set(n.x,1.28,n.z-.12);sign.scale.set(2.9,.725,1);sign.userData.unitId=n.id;scene.add(sign);pickables.push(sign);
+  const sign=new T.Sprite(own(new T.SpriteMaterial({map:Object.assign(own(new T.CanvasTexture(bitmap)),{colorSpace:T.SRGBColorSpace}),depthTest:false})));sign.position.set(n.x,1.85,n.z-.12);sign.scale.set(2.9,.725,1);sign.userData.unitId=n.id;scene.add(sign);pickables.push(sign);
   const marker=mesh(scene,new T.TorusGeometry(.32,.055,8,32),color(0x37a3b0),[n.x,.09,n.z+.5]);marker.rotation.x=-Math.PI/2;marker.userData.unitId=n.id;markers.push(marker);
  });
  // Small original shore creatures sit off walking decks; gently bob in the water, never block routes.
@@ -77,7 +77,7 @@ export function createExplorer(container,options){
  function resize(){const oldOverview=overview;overview=Math.max(17,8/(Math.tan(43*Math.PI/360)*(container.clientWidth/Math.max(1,container.clientHeight))));radius=radius/oldOverview*overview;renderer.setSize(Math.max(1,container.clientWidth),Math.max(1,container.clientHeight),false);camera.aspect=container.clientWidth/Math.max(1,container.clientHeight);camera.updateProjectionMatrix();}
  const observer=new win.ResizeObserver(resize);observer.observe(container);cleanup.push(()=>observer.disconnect());
  function animate(time){if(closed)return;try{const dt=last?Math.min(.05,(time-last)/1000):0;last=time;let moved=0;if(!doc.hidden){let x=(keys.has('d')||keys.has('ArrowRight')?1:0)-(keys.has('a')||keys.has('ArrowLeft')?1:0),z=(keys.has('s')||keys.has('ArrowDown')?1:0)-(keys.has('w')||keys.has('ArrowUp')?1:0);const prev=actor.root.position.clone();if(x||z){const len=Math.hypot(x,z);const p={x:prev.x+(x*Math.cos(theta)+z*Math.sin(theta))/len*dt*2.4,z:prev.z+(-x*Math.sin(theta)+z*Math.cos(theta))/len*dt*2.4};if(nav.clear(prev,p)){actor.root.position.x=p.x;actor.root.position.z=p.z;moved=1;}}else moved=advance(actor.root.position,route,dt,nav);if(moved){options.onPosition?.({x:actor.root.position.x,z:actor.root.position.z});actor.root.rotation.y=Math.atan2(actor.root.position.x-prev.x,actor.root.position.z-prev.z);actor.body.rotation.y=0;}actor.animate(time/1000,!!moved,win.matchMedia('(prefers-reduced-motion: reduce)').matches,{stride:.624});birds.forEach((b,i)=>b.position.y=-.24+Math.sin(time*.0017+i)*.025);if(pending&&!route.length){const n=pending;pending=null;status.textContent=`✓ ${n.number} · ${n.title}`;options.onSelect?.(n.id);if(closed)return;}}
- camera.position.set(radius*Math.sin(phi)*Math.sin(theta),radius*Math.cos(phi),radius*Math.sin(phi)*Math.cos(theta));camera.lookAt(0,0,0);renderer.render(scene,camera);frame=win.requestAnimationFrame(animate);}catch(e){fail(e);}}
+ const follow=Math.max(0,Math.min(1,(1-radius/overview)/.55)),cx=actor.root.position.x*follow,cz=actor.root.position.z*follow;camera.position.set(cx+radius*Math.sin(phi)*Math.sin(theta),radius*Math.cos(phi),cz+radius*Math.sin(phi)*Math.cos(theta));camera.lookAt(cx,0,cz);renderer.render(scene,camera);frame=win.requestAnimationFrame(animate);}catch(e){fail(e);}}
  resize();updateProgress(progress,selected);frame=win.requestAnimationFrame(animate);
  return {dispose,updateProgress};
  } catch(error){dispose();throw error;}
