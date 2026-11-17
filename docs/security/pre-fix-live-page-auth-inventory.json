@@ -1,0 +1,1067 @@
+[
+  {
+    "path": "mini4wd-lab.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 866,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "picky-bear-storybook.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 596,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "bridge-construction-storybook.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 602,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "music-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 506,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "volcano-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 493,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "moonlight-garden-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 499,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "nature-planet-preview.html",
+    "classification": "excluded-preview",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "path": "underwater-world-storybook.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 546,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "elf-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 550,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-concepts.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 431,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "chinese-grade6.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 430,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "fox-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 509,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "index.html",
+    "classification": "root-login",
+    "http_status": 200,
+    "bytes": 1349104,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "cloud-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 553,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-knowledge-grade2.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 3073,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "birthday-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 492,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "pirate-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 527,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "dragon-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 514,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "time-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 488,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-knowledge-grade3.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 3073,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "red-hood-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 519,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-knowledge-grade6.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 3073,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "science-optics.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 8596,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "chinese-practice.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 706,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "bear-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 506,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "mermaid-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 527,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-knowledge-grade1.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 3073,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "lost-lighthouse-storybook.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 605,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "science-fire-weather.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 5713,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-geometry.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 3244,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "chinese-115-midgrade-catalog.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 4748,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "parrot-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 494,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-capacity.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 2892,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "princess-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 549,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "earth-orbit-v01.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 6566,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "magic-potion-storybook.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 581,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "fairy-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 506,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-fractions.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 1467,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-knowledge-grade4.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 3073,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "unicorn-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 519,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-foundations.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 409,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "amusement-park-storybook.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 546,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-division.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 2622,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "mixed-up-museum-storybook.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 592,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-teaching.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 443,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "little-robot-storybook.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 589,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "princess-weekend-storybook.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 615,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "mirror-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 470,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "gifted-learning-path.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 35862,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "science-homework-storybook.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 605,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "witch-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 517,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "rabbit-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 508,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "snow-before-storybook.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 597,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "bears-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 498,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "knight-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 507,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "science-curriculum-preview.html",
+    "classification": "excluded-preview",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "path": "wizard-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 511,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "english-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 521,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "giant-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 506,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "science-earth-lab.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 8032,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "magic-ball-storybook.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 591,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-multiplication.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 451,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "market-storybook.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 594,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math-knowledge-grade5.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 3073,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "genie-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 541,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "star-library-storybook.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 488,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "story-planet.html",
+    "classification": "story-guard",
+    "http_status": 200,
+    "bytes": 486,
+    "live_gate": false,
+    "live_story_gate": true,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "chinese-zhuyin-supplement.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 447,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "docs/IMAGE_JPEG_PREVIEW.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 6547,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "admin/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 488,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 488,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "qa/mini4wd-tablet.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 2149,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "qa/cube-tablet.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 1414,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "stories/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 488,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "roles/staff-login.html",
+    "classification": "fragment",
+    "http_status": 200,
+    "bytes": 1532,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "roles/student-profile.html",
+    "classification": "fragment",
+    "http_status": 200,
+    "bytes": 7729,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "roles/admin.html",
+    "classification": "fragment",
+    "http_status": 200,
+    "bytes": 34666,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "roles/teacher.html",
+    "classification": "fragment",
+    "http_status": 200,
+    "bytes": 6361,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "gacha/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 488,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "teacher/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 488,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "english/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 488,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "chinese/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 488,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "weekly/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 488,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "student/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 488,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 488,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "science/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 488,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "docs/acceptance/v11-visual-preview.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 1539,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "math/grade-3/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 491,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "qa/science-curriculum/audio-diagnostic.html",
+    "classification": "excluded-preview",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "path": "stories/54-ocean/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 491,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "modules/english-original/index.html",
+    "classification": "parent-host",
+    "http_status": 200,
+    "bytes": 317204,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "english/story-vocabulary/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 491,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "english/story-vocabulary/words/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 494,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "student/avatar/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 491,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/plant-water/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 491,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/3d/index.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 5823,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/earth-orbit/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 491,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/magnet/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 491,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/3d/ocean-buoyancy/index.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 5279,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/3d/plants/index.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 5280,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/3d/force-motion/index.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 5286,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/3d/weather/index.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 5287,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/3d/earth-moon/classic.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 3796,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/3d/earth-moon/index.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 5271,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/3d/magnet/index.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 5280,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/3d/earth-moon/tides/classic.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 2495,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "experiments/3d/earth-moon/tides/index.html",
+    "classification": "unguarded",
+    "http_status": 200,
+    "bytes": 6062,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": false,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  },
+  {
+    "path": "science/galaxy/index.html",
+    "classification": "route-shell",
+    "http_status": 200,
+    "bytes": 491,
+    "live_gate": false,
+    "live_story_gate": false,
+    "live_route_shell": true,
+    "verification": "unauthenticated HTTP only; not browser or backend authorization"
+  }
+]

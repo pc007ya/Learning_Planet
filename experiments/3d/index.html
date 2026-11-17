@@ -20,8 +20,8 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:14px;fo
 @media(max-height:650px){main{padding:9px;gap:7px}header a{min-height:44px}header p{font-size:12px} .grid{grid-template-rows:repeat(2,minmax(155px,1fr));gap:7px}.card{gap:3px;padding:5px}.card svg{height:62px;width:75px}.card span{font-size:11px}}
 @media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(170px,1fr))}footer{flex-wrap:wrap}}
 </style>
-</head>
-<body>
+<style>[data-auth-content][hidden]{display:none!important}[data-auth-content]{display:contents}</style></head>
+<body><p id="page-auth-status" role="status">正在確認登入…</p><div data-auth-content hidden inert>
 <main>
 <header><a href="../../index.html?planet=experiment" aria-label="返回原實驗星球">←</a><div><h1>3D 實驗新星球</h1><p>選一顆星球，親手試驗，從觀察找到科學規律。</p></div></header>
 <nav class="grid" aria-label="六顆獨立實驗星球">
@@ -52,5 +52,5 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:14px;fo
 </nav>
 <footer><span>各星球為獨立 HTML。僅進入課程後載入 3D 引擎，舊版實驗保留。</span><a href="../../index.html?planet=experiment">返回原實驗星球</a></footer>
 </main>
-</body>
+</div><script type="module" data-page-access data-entry="../../auth-v2/page-script-loader.mjs" data-login="../" src="../../auth-v2/page-access.mjs"></script></body>
 </html>
