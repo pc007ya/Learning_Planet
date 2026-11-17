@@ -12,7 +12,7 @@ export function createPageAccess({ authorize, unlock, lock, redirect, fail }) {
       if (current !== revision) return;
       if (!LEARNING_ROLES.includes(token?.claims?.role)) { redirect(); return; }
       activeUid = user.uid;
-      await unlock();
+      await unlock(user);
       // A sign-out may have arrived while the app module was loading.
       if (current !== revision) lock();
     } catch (error) {

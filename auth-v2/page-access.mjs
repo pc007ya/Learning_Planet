@@ -26,7 +26,8 @@ const update = createPageAccess({
     window.location.replace(login.href);
   },
   fail,
-  unlock: async () => {
+  unlock: async (user) => {
+    if (content) content.dataset.authUid = user.uid;
     // Authentication is already verified. Reveal before initialization so canvas
     // and Three.js code can measure the real layout instead of a zero-size box.
     if (content) { content.hidden = false; content.inert = false; }

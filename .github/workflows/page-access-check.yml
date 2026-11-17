@@ -2,7 +2,9 @@ name: Standalone page login checks
 on:
   pull_request:
     paths:
-      - 'auth-v2/page-access*'
+      - 'auth-v2/**'
+      - 'src/chinese-practice/**'
+      - 'tests/chinese-practice-session.test.ts'
       - 'chinese*.html'
       - 'tests/page-access.check.mjs'
       - '.github/workflows/page-access-check.yml'
@@ -17,3 +19,5 @@ jobs:
         with:
           node-version: '22'
       - run: node --test tests/page-access.check.mjs
+      - run: npm ci
+      - run: npx vitest run tests/chinese-practice-session.test.ts
