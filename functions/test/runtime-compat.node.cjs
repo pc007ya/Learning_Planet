@@ -161,3 +161,11 @@ after(async () => {
     tls.connect = originalTlsConnect;
   }
 });
+
+test('retired public bootstrap rejects all caller roles before any I/O', async () => {
+  for (const role of [null, undefined, 'student', 'teacher', 'admin']) {
+    for (const data of [{}, {username:'admin',password:'admin123'}, {username:'other',password:'anything'}]) {
+      await rejectsCode('bootstrapFirstAdmin', request(role,data), 'failed-precondition');
+    }
+  }
+});
