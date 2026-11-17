@@ -2,6 +2,10 @@ import { PracticeRound,questionSeconds } from './model.mjs';
 import { mountWriting } from './writing.mjs';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const passage=u=>`<section class="passage" aria-label="原創短文">${u.passage.map(p=>`<p>${esc(p)}</p>`).join('')}</section>`;
+function registryPanel(registry){
+ if(!registry)return '';
+ return `<section class="panel" aria-label="115學年度官方書目核實"><h2>115學年度官方書目核實</h2><p>國語第 ${esc(registry.volume)} 冊 · ${esc(registry.grade)} 年級。保留原有 115 上學期目錄與練習，以下另列書籍層級資料。</p><ul>${registry.publishers.map(p=>`<li><strong>${esc(p.publisher)}</strong>：${esc(p.edition)} · ${esc(p.license)} · 再版修訂文號 ${esc(p.revision)}</li>`).join('')}</ul><p>${esc(registry.scope)}</p><p><a href="${esc(registry.url)}" target="_blank" rel="noopener noreferrer">${esc(registry.sourceTitle)} ↗</a>（文件更新 ${esc(registry.sourceUpdatedAt)}；PDF 第 ${esc(registry.sourcePage)} 頁；核對 ${esc(registry.checkedAt)}）</p></section>`;
+}
 export function mountPractice(root,bank,sources,{seconds=30,now=()=>Date.now(),schedule=setInterval,cancel=clearInterval,writingOptions={}}={}){
  let round=null,timer=null,screen='home',writing=null;
  const leaveWriting=()=>{if(writing&&!writing.canLeave())return false;writing?.destroy();writing=null;return true;};
@@ -10,7 +14,7 @@ export function mountPractice(root,bank,sources,{seconds=30,now=()=>Date.now(),s
  const heading='<header><a href="index.html">← 學習星球</a><a href="chinese-practice.html">國語生字練習簿</a><button data-action="home">原創練習首頁</button><button data-action="sources">出版社來源對照</button></header>';
  function render(){
   let body='';
-  if(screen==='sources')body=`<h1>六上課程來源對照</h1><p>115 上學期 · 36筆出版社目錄資訊，不是已完成教材。教材尚未建置、學習目標待核；不提供出版社課文。第11冊為年級／學期推導，印刷版次未核。</p>${['南一版','康軒版','翰林版'].map(pub=>`<section class="panel"><h2>${pub}</h2><ul>${sources.lessons.filter(l=>l.publisher===pub).map(l=>`<li><a href="${esc(l.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(l.title)} ↗</a><div class="notice">教材尚未建置 · 學習目標待核 · ${esc(l.checkedAt)} 核目錄標題</div></li>`).join('')}</ul></section>`).join('')}`;
+  if(screen==='sources')body=`<h1>六上課程來源對照</h1><p>115 上學期 · 36筆出版社目錄資訊，不是已完成教材。教材尚未建置、學習目標待核；不提供出版社課文。逐課對應的印刷版次未核；官方書籍資料另列於下方。</p>${registryPanel(sources.bookRegistry)}${['南一版','康軒版','翰林版'].map(pub=>`<section class="panel"><h2>${pub}</h2><ul>${sources.lessons.filter(l=>l.publisher===pub).map(l=>`<li><a href="${esc(l.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(l.title)} ↗</a><div class="notice">教材尚未建置 · 學習目標待核 · ${esc(l.checkedAt)} 核目錄標題</div></li>`).join('')}</ul></section>`).join('')}`;
   else if(!round)body=`<h1>六年級原創能力練習</h1>${notice}<p>${bank.units.length}課原創閱讀材料、共${bank.units.reduce((sum,u)=>sum+u.questions.length,0)}題。每課一回10題，現有題庫每課10題，不代表已完成全部能力題庫。</p><p>先讀短文，不計時。按開始後每題 ${questionSeconds(seconds)} 秒，沿用一般題首回計時；查看短文時時間仍繼續，答完可看解析。</p><div class="cards">${bank.units.map(u=>`<article class="panel"><h2>${esc(u.title)}</h2><p>${esc(u.objective)}</p><button class="primary" data-unit="${esc(u.id)}">閱讀短文 →</button><button data-writing-unit="${esc(u.id)}">自行摘要與提出證據</button></article>`).join('')}</div>`;
   else {const u=round.unit,q=round.questions[round.index];body=`<h1>${esc(u.title)}</h1>${notice}<section class="panel">`;
    if(round.phase==='reading')body+=`${passage(u)}<p>讀完再開始：${round.questions.length}題，每題 ${round.seconds} 秒。</p><button class="primary" data-action="start">我讀完了，開始答題</button>`;
