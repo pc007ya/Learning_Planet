@@ -44,6 +44,6 @@ lock();
 window.addEventListener('pagehide', lock);
 window.addEventListener('pageshow', event => { if (event.persisted) window.location.reload(); });
 try {
-  const { auth, onAuthStateChanged } = await import('./firebase-client.js?v=20261117-single-auth');
+  const { auth, onAuthStateChanged } = await import('./firebase-client.js');
   onAuthStateChanged(auth, update, fail);
 } catch { fail(); }
