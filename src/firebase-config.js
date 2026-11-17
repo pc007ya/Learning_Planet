@@ -1,10 +1,9 @@
 /** Learning Planet - Firebase integration + global mobile viewport guard. */
-import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import {
-  getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged,
-  browserLocalPersistence, setPersistence
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 const DEFAULT_FIREBASE_CONFIG = {
   apiKey: "AIzaSyCVXHP1mgnD3WOtxGBnHW3dHa1PH3F8g-k",
@@ -35,7 +34,7 @@ export function initFirebase(config) {
     if (!activeConfig?.apiKey) return false;
     app = getApps().length === 0 ? initializeApp(activeConfig) : getApp();
     auth = getAuth(app);
-    setPersistence(auth, browserLocalPersistence).catch(console.error);
+    // Persistence is owned by the shared auth client, not a second SDK instance.
     googleProvider = new GoogleAuthProvider();
     googleProvider.setCustomParameters({ prompt: "select_account" });
     try { db = getFirestore(app); } catch (e) { console.warn("[Firebase] Firestore initialization skipped:", e); }
