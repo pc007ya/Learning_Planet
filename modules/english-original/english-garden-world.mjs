@@ -15,8 +15,9 @@ export function themeFor(unit){
 }
 export function coastFactor(a){return .98+.075*Math.sin(a*3)+.045*Math.cos(a*5);}
 export function gardenFootprints(nodes){return nodes.map(n=>({x:n.x,z:n.z-.6,r:.94,unitId:n.id,theme:themeFor(n)}));}
+export function gardenEntries(nodes){return nodes.map((n,i)=>{const prev=nodes[(i+nodes.length-1)%nodes.length],next=nodes[(i+1)%nodes.length],dx=next.x-prev.x,dz=next.z-prev.z,len=Math.hypot(dx,dz)||1;return{x:n.x-dz/len*.45,z:n.z+.5+dx/len*.45,r:.18};});}
 export function createGardenNavigation(nodes){
- const obstacles=[...gardenFootprints(nodes),...nodes.map(n=>({x:n.x+.35,z:n.z+.5,r:.19})),{x:-6.1,z:.1,r:.64},{x:5.8,z:-1.9,r:.64}],step=.2;
+ const obstacles=[...gardenFootprints(nodes),...gardenEntries(nodes),{x:-6.1,z:.1,r:.64},{x:5.8,z:-1.9,r:.64}],step=.2;
  const safe=p=>Number.isFinite(p.x)&&Number.isFinite(p.z)&&Math.hypot(p.x/7.35,p.z/4.15)<coastFactor(Math.atan2(p.z/4.15,p.x/7.35))&&(!((p.x/3.48)**2+(p.z/.94)**2<1)||Math.abs(p.x)<.38)&&!obstacles.some(o=>Math.hypot(p.x-o.x,p.z-o.z)<o.r);
  const clear=(a,b)=>{const n=Math.max(1,Math.ceil(Math.hypot(b.x-a.x,b.z-a.z)/.035));for(let i=0;i<=n;i++){const t=i/n;if(!safe({x:a.x+(b.x-a.x)*t,z:a.z+(b.z-a.z)*t}))return false;}return true;};
  const grid=new Map(),key=(x,z)=>`${x},${z}`;
@@ -42,7 +43,7 @@ export function buildGarden(T,{scene,nodes,mesh,color,own}){
  function curvedRoad(points,closed=false){const curve=new T.CatmullRomCurve3(points,closed,'catmullrom',.4);const g=new T.TubeGeometry(curve,128,.24,8,closed);const roadMesh=mesh(scene,g,road,[0,.1,0]);roadMesh.scale.y=.12;return curve;}
  const mainPath=curvedRoad(points,true);
  curvedRoad([new T.Vector3(0,0,-2),new T.Vector3(-.13,0,-1.6),new T.Vector3(0,0,-1.05)]);
- curvedRoad([new T.Vector3(0,0,1.05),new T.Vector3(.2,0,1.8),new T.Vector3(-.4,0,3.1)]);
+ curvedRoad([new T.Vector3(0,0,1.05),new T.Vector3(.65,0,1.35),new T.Vector3(.9,0,2.2),new T.Vector3(.4,0,2.9),new T.Vector3(-.4,0,3.1)]);
  // Small path-edge paving accents, not an artificial movement restriction.
  for(let i=0;i<36;i++){const p=mainPath.getPoint(i/36),t=mainPath.getTangent(i/36),side=i%2?1:-1;ball(scene,.045,color(0xc9bb9b),[p.x+t.z*.28*side,.12,p.z-t.x*.28*side],[1.4,.4,1]);}
  for(let z=-1.05;z<=1.05;z+=.16)box(scene,[1.12,.1,.14],z%2?palette.cream:palette.wood,[0,.16,z]);

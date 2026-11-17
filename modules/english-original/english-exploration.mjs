@@ -1,4 +1,4 @@
-import {createGardenNavigation,buildGarden,themeFor} from './english-garden-world.mjs';
+import {createGardenNavigation,buildGarden,themeFor,gardenEntries} from './english-garden-world.mjs';
 import {createYuyu} from '../math-mission-map/v11/planet-yuyu.mjs';
 
 // A connected garden village, not a graph of floating lesson buttons.
@@ -31,10 +31,10 @@ export function createExplorer(container,options){
  const hemi=new T.HemisphereLight(0xfff9df,0x347b83,1.5);scene.add(hemi);const sun=new T.DirectionalLight(0xfff5dc,2.3);sun.position.set(-6,14,8);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);Object.assign(sun.shadow.camera,{left:-10,right:10,top:10,bottom:-10});sun.shadow.bias=-.001;scene.add(sun);
  const ocean=color(0x67b5bc,{roughness:.45});mesh(scene,new T.CylinderGeometry(18,19,.5,80),ocean,[0,-.8,0]);
  const garden=buildGarden(T,{scene,nodes,mesh,color,own});
- nodes.forEach(n=>{
+ const entries=gardenEntries(nodes);nodes.forEach((n,i)=>{
   const bitmap=doc.createElement('canvas');bitmap.width=256;bitmap.height=128;const ctx=bitmap.getContext('2d');ctx.fillStyle='#fffbea';ctx.beginPath();ctx.roundRect(3,3,250,122,18);ctx.fill();ctx.strokeStyle='#227b84';ctx.lineWidth=6;ctx.stroke();ctx.fillStyle='#205b66';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 52px sans-serif';ctx.fillText(String(n.number),128,38);ctx.font='bold 35px sans-serif';ctx.fillText(themeFor(n).toUpperCase(),128,91,225);
   const sign=new T.Sprite(own(new T.SpriteMaterial({map:Object.assign(own(new T.CanvasTexture(bitmap)),{colorSpace:T.SRGBColorSpace}),depthTest:false,toneMapped:false})));sign.position.set(n.x,2.05,n.z-.6);sign.scale.set(1.3,.65,1);sign.userData.unitId=n.id;scene.add(sign);pickables.push(sign);
-  mesh(scene,new T.CylinderGeometry(.025,.035,.5,10),color(0x76533c),[n.x+.35,.33,n.z+.5]);const marker=mesh(scene,new T.BoxGeometry(.23,.14,.025),color(0x37a3b0),[n.x+.46,.51,n.z+.5]);marker.userData.unitId=n.id;markers.push(marker);
+  mesh(scene,new T.CylinderGeometry(.025,.035,.5,10),color(0x76533c),[entries[i].x,.33,entries[i].z]);const marker=mesh(scene,new T.BoxGeometry(.23,.14,.025),color(0x37a3b0),[entries[i].x+.11,.51,entries[i].z]);marker.userData.unitId=n.id;markers.push(marker);
  });
  const actor=createYuyu(T,{own,color,mesh});actor.root.scale.setScalar(.52);const spawn=nodes.find(n=>n.id===selected)||nodes[0];actor.root.position.set(spawn.x,.08,spawn.z+.5);scene.add(actor.root);
  toolbar=doc.createElement('div');toolbar.style.cssText='position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;max-width:calc(100% - 20px)';container.append(toolbar);
