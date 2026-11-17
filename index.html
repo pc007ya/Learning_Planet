@@ -1328,7 +1328,7 @@
           <p class="login-scanner-status"><i></i>STUDENT IDENTITY SCANNER</p>
           <h1>學員登入</h1>
           <p>輸入學員帳號與密碼，啟動學習星球任務。</p>
-          <label class="login-auth-field">學員帳號<input value="{{ studentLoginAccount }}" onChange="{{ changeStudentAccount }}" onKeyDown="{{ studentLoginKey }}" autoComplete="username" placeholder="DEMO"></label>
+          <p class="login-auth-help">DEMO 僅供首頁試用；受保護課程與故事需正式學員帳號登入。</p><label class="login-auth-field">學員帳號<input value="{{ studentLoginAccount }}" onChange="{{ changeStudentAccount }}" onKeyDown="{{ studentLoginKey }}" autoComplete="username" placeholder="DEMO"></label>
           <label class="login-auth-field">密碼<span class="password-field-wrap"><input type="{{ studentLoginPasswordType }}" value="{{ studentLoginPassword }}" onChange="{{ changeStudentPassword }}" onKeyDown="{{ studentLoginKey }}" autoComplete="current-password" placeholder="DEMO"><button type="button" class="password-eye" onClick="{{ toggleStudentLoginPassword }}" title="{{ studentLoginPasswordToggleTitle }}" aria-label="{{ studentLoginPasswordToggleTitle }}">{{ studentLoginPasswordEye }}</button></span></label>
           <p class="login-auth-error">{{ studentLoginError }}</p>
           <button class="login-auth-submit" onClick="{{ submitStudentLogin }}">登入學習星球</button>

@@ -1,0 +1,434 @@
+[
+  {
+    "path": "mini4wd-lab.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "picky-bear-storybook.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "bridge-construction-storybook.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "music-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "volcano-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "moonlight-garden-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "nature-planet-preview.html",
+    "classification": "excluded-preview"
+  },
+  {
+    "path": "underwater-world-storybook.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "elf-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "math-concepts.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "chinese-grade6.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "fox-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "index.html",
+    "classification": "root-login"
+  },
+  {
+    "path": "cloud-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "math-knowledge-grade2.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "birthday-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "pirate-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "dragon-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "time-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "math-knowledge-grade3.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "red-hood-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "math-knowledge-grade6.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "science-optics.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "chinese-practice.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "bear-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "mermaid-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "math-knowledge-grade1.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "lost-lighthouse-storybook.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "science-fire-weather.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "math-geometry.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "chinese-115-midgrade-catalog.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "parrot-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "math-capacity.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "princess-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "earth-orbit-v01.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "magic-potion-storybook.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "fairy-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "math-fractions.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "math-knowledge-grade4.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "unicorn-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "math-foundations.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "amusement-park-storybook.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "math-division.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "mixed-up-museum-storybook.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "math-teaching.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "little-robot-storybook.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "princess-weekend-storybook.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "mirror-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "gifted-learning-path.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "science-homework-storybook.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "witch-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "rabbit-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "snow-before-storybook.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "bears-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "knight-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "science-curriculum-preview.html",
+    "classification": "excluded-preview"
+  },
+  {
+    "path": "wizard-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "english-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "giant-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "science-earth-lab.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "magic-ball-storybook.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "math-multiplication.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "market-storybook.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "math-knowledge-grade5.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "genie-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "star-library-storybook.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "story-planet.html",
+    "classification": "story-guard"
+  },
+  {
+    "path": "chinese-zhuyin-supplement.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "docs/IMAGE_JPEG_PREVIEW.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "admin/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "math/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "qa/mini4wd-tablet.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "qa/cube-tablet.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "stories/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "roles/staff-login.html",
+    "classification": "fragment"
+  },
+  {
+    "path": "roles/student-profile.html",
+    "classification": "fragment"
+  },
+  {
+    "path": "roles/admin.html",
+    "classification": "fragment"
+  },
+  {
+    "path": "roles/teacher.html",
+    "classification": "fragment"
+  },
+  {
+    "path": "gacha/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "teacher/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "english/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "chinese/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "weekly/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "student/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "experiments/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "science/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "docs/acceptance/v11-visual-preview.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "math/grade-3/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "qa/science-curriculum/audio-diagnostic.html",
+    "classification": "excluded-preview"
+  },
+  {
+    "path": "stories/54-ocean/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "modules/english-original/index.html",
+    "classification": "parent-host"
+  },
+  {
+    "path": "english/story-vocabulary/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "english/story-vocabulary/words/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "student/avatar/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "experiments/plant-water/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "experiments/3d/index.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "experiments/earth-orbit/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "experiments/magnet/index.html",
+    "classification": "route-shell"
+  },
+  {
+    "path": "experiments/3d/ocean-buoyancy/index.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "experiments/3d/plants/index.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "experiments/3d/force-motion/index.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "experiments/3d/weather/index.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "experiments/3d/earth-moon/classic.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "experiments/3d/earth-moon/index.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "experiments/3d/magnet/index.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "experiments/3d/earth-moon/tides/classic.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "experiments/3d/earth-moon/tides/index.html",
+    "classification": "unguarded"
+  },
+  {
+    "path": "science/galaxy/index.html",
+    "classification": "route-shell"
+  }
+]
