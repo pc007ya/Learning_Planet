@@ -447,37 +447,7 @@ exports.resolveGoogleLinkConflict = onCall(async (request) => {
   return { ok: true, email: payload.email };
 });
 
-// One-time initialization endpoint. It is intentionally disabled after the
-// first admin exists, so a public browser can never create an administrator.
-exports.bootstrapFirstAdmin = onCall(async (request) => {
-  const existing = await db.collection('admins').limit(1).get();
-  if (!existing.empty) throw new HttpsError('failed-precondition', 'An administrator already exists.');
-  const data = request.data || {};
-  // The only browser-side first-run credential is the documented default.
-  // All other administrator creation happens after an authenticated admin
-  // signs in, through createTeacher. This prevents a visitor from choosing
-  // their own administrator account during an uninitialized deployment.
-  if ((data.username && String(data.username).trim().toLowerCase() !== 'admin') || (data.password && String(data.password) !== 'admin123')) {
-    throw new HttpsError('permission-denied', 'Initial administrator uses the documented default credentials only.');
-  }
-  const username = normalizeUsername(data.username || 'admin');
-  const password = requirePassword(data.password || 'admin123');
-  const displayName = String(data.displayName || '系統管理者').trim();
-  const email = authEmail(username, 'admin');
-  let user;
-  try {
-    user = await admin.auth().createUser({ email, password, displayName, disabled: false });
-  } catch (error) {
-    if (error.code !== 'auth/email-already-exists') throw new HttpsError('internal', error.message || 'Unable to create administrator.');
-    user = await admin.auth().getUserByEmail(email);
-    await admin.auth().updateUser(user.uid, { password, displayName, disabled: false });
-  }
-  await admin.auth().setCustomUserClaims(user.uid, { role: 'admin' });
-  await db.collection('admins').doc(user.uid).set({
-    username, displayName, role: 'admin', authEmail: email,
-    googleEmail: null, googleLinked: false, firstLoginCompleted: false,
-    face: typeof data.face === 'string' ? data.face : '', enabled: true,
-    createdAt: admin.firestore.FieldValue.serverTimestamp(), updatedAt: admin.firestore.FieldValue.serverTimestamp()
-  }, { merge: true });
-  return { uid: user.uid, username };
+// Public bootstrap is retired. Existing account sign-in is unaffected.
+exports.bootstrapFirstAdmin = onCall(async () => {
+  throw new HttpsError('failed-precondition', 'Public administrator initialization is disabled.');
 });

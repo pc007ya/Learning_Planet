@@ -10,6 +10,10 @@ on:
       - ".github/workflows/firebase-backend-deploy.yml"
   workflow_dispatch:
     inputs:
+      bootstrap_only:
+        description: "Deploy only retired bootstrap endpoint, no rules or reconciliation"
+        type: boolean
+        default: false
       rules_only:
         description: "Deploy only Firestore rules, with no Functions or account reconciliation"
         type: boolean
@@ -37,6 +41,7 @@ jobs:
     env:
       # An explicit marker selects the safe branch for this upgrade's push.
       # Unmarked pushes and ordinary manual runs retain the existing backend flow.
+      BOOTSTRAP_ONLY: ${{ inputs.bootstrap_only == true || (github.event_name == 'push' && contains(github.event.head_commit.message, '[bootstrap-security-only]')) }}
       RULES_ONLY: ${{ inputs.rules_only == true || (github.event_name == 'push' && contains(github.event.head_commit.message, '[firestore-rules-only]')) }}
       RUNTIME_ONLY: ${{ inputs.runtime_only == true || (github.event_name == 'push' && (contains(github.event.head_commit.message, '[functions-runtime-only]') || contains(github.event.head_commit.message, '[functions-runtime-verify-only]'))) }}
       # Bounded test-runner repair: verified commit and live revisions must match.
@@ -71,6 +76,9 @@ jobs:
             [[ "$BASE_SHA" =~ ^[a-f0-9]{40}$ ]] || exit 1
             git fetch --no-tags --depth=1 origin "$BASE_SHA"
             node scripts/verify-rules-deploy-scope.cjs "$BASE_SHA"
+            node scripts/verify-bootstrap-deploy-scope.cjs "$BASE_SHA"
+          elif [[ "$BOOTSTRAP_ONLY" == "true" && ( "$RULES_ONLY" == "true" || "$RUNTIME_ONLY" == "true" ) ]]; then
+            exit 1
           elif [[ "$RULES_ONLY" == "true" && "$RUNTIME_ONLY" == "true" ]]; then
             exit 1
           fi
@@ -122,8 +130,12 @@ jobs:
           sleep 90
           node functions/scripts/verify-deployed-runtime.cjs logs
 
+      - name: Deploy only retired bootstrap endpoint
+        if: env.BOOTSTRAP_ONLY == 'true'
+        run: npx --yes firebase-tools@14.27.0 deploy --only functions:bootstrapFirstAdmin --project learnplanet-cce52 --config firebase.json --non-interactive
+
       - name: Deploy Firebase Functions and Firestore Rules
-        if: env.RUNTIME_ONLY != 'true' && env.RULES_ONLY != 'true'
+        if: env.RUNTIME_ONLY != 'true' && env.RULES_ONLY != 'true' && env.BOOTSTRAP_ONLY != 'true'
         run: npx --yes firebase-tools@latest deploy --only functions,firestore:rules --project learnplanet-cce52 --non-interactive --force
 
       - name: Reconcile legacy student Google links

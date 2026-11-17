@@ -1,0 +1,28 @@
+name: Bootstrap security tests
+on:
+  pull_request:
+    paths: ['functions/**', 'scripts/verify-bootstrap-deploy-scope.cjs', '.github/workflows/bootstrap-security-test.yml', '.github/workflows/firebase-backend-deploy.yml']
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --prefix functions
+      - run: node --test functions/test/runtime-compat.node.cjs
+      - name: Validate isolated bootstrap diff
+        env:
+          BOOTSTRAP_ONLY: 'true'
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: node scripts/verify-bootstrap-deploy-scope.cjs "$BASE_SHA"
+      - name: Reject retirement without security mode
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if node scripts/verify-bootstrap-deploy-scope.cjs "$BASE_SHA"; then exit 1; fi
