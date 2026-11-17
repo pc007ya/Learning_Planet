@@ -1,0 +1,5 @@
+/* Native ruby keeps line wrapping between characters; no absolute-position overlap. */
+.english-zhuyin{ruby-position:over;ruby-align:center;line-height:2.4;white-space:nowrap;}
+.english-zhuyin rt{font-family:"Bopomofo","Noto Sans TC",sans-serif;font-size:.48em;font-weight:500;line-height:1.2;letter-spacing:0;color:inherit;opacity:.9;user-select:none;}
+.english-zhuyin-base{font:inherit;}
+button:has(.english-zhuyin){line-height:2.4;white-space:normal;}
