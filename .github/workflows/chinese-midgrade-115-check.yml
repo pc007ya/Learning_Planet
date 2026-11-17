@@ -1,0 +1,25 @@
+name: Chinese 115 midgrade catalog checks
+on:
+  pull_request:
+    paths:
+      - 'chinese-115-midgrade-catalog.html'
+      - 'data/kangxuan-midgrade-115-catalog.json'
+      - 'src/chinese-practice/**'
+      - 'modules/chinese-practice/**'
+      - 'tests/chinese-midgrade-115.check.mjs'
+      - '.github/workflows/chinese-midgrade-115-check.yml'
+permissions:
+  contents: read
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: node --test tests/chinese-midgrade-115.check.mjs
+      - run: npm run test:chinese-practice
+      - run: npm run build:chinese-practice
