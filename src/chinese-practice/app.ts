@@ -1,3 +1,4 @@
+import { practiceSessionKey } from './session';
 import { PrimerPlayback } from './primer-playback';
 import { PRIMER_SEGMENTS } from './primer-segment-audio';
 import { primerStudy } from './primer-view';
@@ -6,6 +7,7 @@ import { PRIMER, hasPrimer, textbookBookLabel } from './primer';
 import { CATALOG_SUMMARY, CHECKED_AT, GRADE_COVERAGE, LESSONS, lessonDisplayTitle, lessonLabel, soundSource, type Category } from './catalog';
 import { customSelections, dictionaryUrl, keyOf, hasPendingSounds, matchingLessons, paginate, practiceRows, removeCharacter, selectionOf, setSelections, strokeLink, validSound, type Filters, type Selection } from './model';
 const root = document.querySelector<HTMLElement>('#practice-app')!;
+const sessionKey = practiceSessionKey(root.dataset.authUid);
 const esc = (value:unknown) => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]!));
 const link = (url:string,label:string) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
 const categories: Category[] = ['生字','認讀字','語詞'];
@@ -13,7 +15,7 @@ interface State { book:'primer'|'textbook'; filters:Filters; categories:Category
 const defaultState:State = {book:'textbook',filters:{year:115,semester:'上',grade:1,publisher:'南一'},categories:['生字'],selections:[],overrides:{},layout:'low',name:'',date:'',allowBlank:false};
 let state = defaultState;
 try {
-  const saved = JSON.parse(sessionStorage.getItem('lp-chinese-practice-v1') ?? 'null');
+  const saved = JSON.parse(sessionStorage.getItem(sessionKey) ?? 'null');
   if (saved && Array.isArray(saved.selections) && saved.filters && Array.isArray(saved.categories)) {
     const canonical = LESSONS.flatMap(lesson => lesson.vocabulary.map((_,index)=>selectionOf(lesson,index)));
     const selections = saved.selections.flatMap((old:Selection) => {
@@ -32,7 +34,7 @@ const primerPlayback=new PrimerPlayback(key=>{
  root.querySelectorAll<HTMLElement>('[data-primer-segment]').forEach(button=>{const active=button.dataset.primerSegment===key;button.setAttribute('aria-pressed',String(active));});
  const full=root.querySelector<HTMLElement>('[data-primer-play]');if(full)full.textContent=key?.startsWith('full:')?'■ 停止朗讀':'▶ 播放慢速課文';
 });
-const save = () => { try { sessionStorage.setItem('lp-chinese-practice-v1',JSON.stringify(state)); } catch { /* Keep working in memory. */ } };
+const save = () => { try { sessionStorage.setItem(sessionKey,JSON.stringify(state)); } catch { /* Keep working in memory. */ } };
 const option = (value:string|number,label:string,selected:string|number) => `<option value="${esc(value)}" ${value === selected ? 'selected':''}>${esc(label)}</option>`;
 const field = (name:string,label:string,content:string) => `<label class="filter">${label}<select name="${name}">${content}</select></label>`;
 const selected = (id:string) => state.selections.some(item=>item.id === id && !item.omitted?.length);

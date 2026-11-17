@@ -24,6 +24,9 @@ test('static page includes all titles and return navigation without progress wri
  assert.equal(document.querySelectorAll('.readings li').length,8);
  for(const b of data.books)for(const l of b.lessons)assert.ok(document.body.textContent.includes(l.title));
  assert.equal(document.querySelector('nav a').getAttribute('href'),'chinese-practice.html');
- assert.ok(page.includes('不是完整教材'));assert.equal(document.querySelectorAll('script').length,0);
+ assert.ok(page.includes('不是完整教材'));assert.equal(document.querySelectorAll('script').length,1);
+ assert.equal(document.querySelector('script').getAttribute('src'),'auth-v2/page-access.mjs');
+ assert.ok(document.querySelector('main').hasAttribute('hidden'));
+ assert.equal(document.querySelector('script').getAttribute('data-entry'),null);
  for(const p of ['src/chinese-practice/app.ts','modules/chinese-practice/chinese-practice.js'])assert.ok(read(p).includes('chinese-115-midgrade-catalog.html'));
 });
