@@ -590,6 +590,10 @@
   .subject-world-content { min-height:0;flex:1;overflow-y:auto;overscroll-behavior:contain;padding:12px 18px 22px;scrollbar-color:var(--subject-world-accent) rgba(255,255,255,.09);scrollbar-width:thin; }
   .subject-world-grid { display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));grid-auto-rows:1fr;align-items:stretch;padding-bottom:8px; }
   .subject-world-card { position:relative;overflow:hidden;min-height:260px;border:1px solid rgba(255,255,255,.3)!important;border-radius:24px!important;padding:17px!important;background:linear-gradient(145deg,rgba(23,18,66,.56),rgba(8,9,41,.34))!important;color:#fff;box-shadow:inset 0 1px rgba(255,255,255,.16),0 16px 30px rgba(0,0,0,.24)!important;backdrop-filter:blur(18px) saturate(1.15);transition:transform .2s ease,box-shadow .2s ease; }
+  .english-original-unit ruby { ruby-position:over;ruby-align:center;line-height:2.5;white-space:nowrap; }
+  .english-original-unit .subject-world-card-head strong { line-height:2.5!important; }
+  .english-original-unit .subject-world-card-sub,.english-original-unit .subject-battle-face { line-height:2.5!important; }
+  .english-original-unit .subject-battle-button { margin-top:auto; }
   .subject-world-card:hover { box-shadow:0 19px 38px rgba(0,0,0,.3),0 0 20px color-mix(in srgb,var(--subject-world-accent) 24%,transparent)!important; }
   .subject-world-card::before { content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--subject-world-accent); }
   .subject-world-card-head { min-height:64px; }
@@ -1760,10 +1764,14 @@
           <div class="math-mission-switch" role="group" aria-label="自然課程學期"><sc-for list="{{ scienceSemesterTabs }}" as="term" hint-placeholder-count="2"><button type="button" aria-pressed="{{ term.active }}" onClick="{{ term.go }}">{{ term.label }}</button></sc-for></div>
           <sc-if value="{{ scienceClassicNotice }}" hint-placeholder-val="{{ false }}"><p role="status">{{ scienceClassicNotice }} <button onClick="{{ retryScienceClassic }}">重新載入</button></p></sc-if>
         </sc-if>
-        <sc-if value="{{ showEnglishOriginal }}" hint-placeholder-val="{{ false }}">
-          <button type="button" onClick="{{ openEnglishOriginal }}" style="width:100%;padding:16px;margin:0 0 20px;border-radius:18px;background:#163755;color:white;border:1px solid #8cd5ee;font:inherit;cursor:pointer">原創48課：課文、單字與3D課程地圖<br><small>原創延伸／出版社待核；傳統與3D共用本機進度</small></button>
-        </sc-if>
         <div class="subject-world-grid">
+        <sc-if value="{{ showEnglishOriginal }}" hint-placeholder-val="{{ false }}">
+          <article class="subject-world-card english-original-unit" style="display:flex;flex-direction:column;gap:12px">
+            <div class="subject-world-card-head"><strong><ruby>英<rt aria-hidden="true" style="font-size:.45em">ㄧㄥ</rt></ruby><ruby>文<rt aria-hidden="true" style="font-size:.45em">ㄨㄣˊ</rt></ruby><ruby>原<rt aria-hidden="true" style="font-size:.45em">ㄩㄢˊ</rt></ruby><ruby>創<rt aria-hidden="true" style="font-size:.45em">ㄔㄨㄤˋ</rt></ruby><ruby>延<rt aria-hidden="true" style="font-size:.45em">ㄧㄢˊ</rt></ruby><ruby>伸<rt aria-hidden="true" style="font-size:.45em">ㄕㄣ</rt></ruby></strong><span class="subject-world-card-sub"><ruby>課<rt aria-hidden="true" style="font-size:.45em">ㄎㄜˋ</rt></ruby><ruby>文<rt aria-hidden="true" style="font-size:.45em">ㄨㄣˊ</rt></ruby>・<ruby>單<rt aria-hidden="true" style="font-size:.45em">ㄉㄢ</rt></ruby><ruby>字<rt aria-hidden="true" style="font-size:.45em">ㄗˋ</rt></ruby>・<ruby>拼<rt aria-hidden="true" style="font-size:.45em">ㄆㄧㄣ</rt></ruby><ruby>寫<rt aria-hidden="true" style="font-size:.45em">ㄒㄧㄝˇ</rt></ruby>・<ruby>口<rt aria-hidden="true" style="font-size:.45em">ㄎㄡˇ</rt></ruby><ruby>說<rt aria-hidden="true" style="font-size:.45em">ㄕㄨㄛ</rt></ruby></span></div>
+            <p class="subject-world-card-sub"><ruby>依<rt aria-hidden="true" style="font-size:.45em">ㄧ</rt></ruby><ruby>年<rt aria-hidden="true" style="font-size:.45em">ㄋㄧㄢˊ</rt></ruby><ruby>級<rt aria-hidden="true" style="font-size:.45em">ㄐㄧˊ</rt></ruby><ruby>選<rt aria-hidden="true" style="font-size:.45em">ㄒㄩㄢˇ</rt></ruby><ruby>課<rt aria-hidden="true" style="font-size:.45em">ㄎㄜˋ</rt></ruby>，<ruby>本<rt aria-hidden="true" style="font-size:.45em">ㄅㄣˇ</rt></ruby><ruby>機<rt aria-hidden="true" style="font-size:.45em">ㄐㄧ</rt></ruby><ruby>保<rt aria-hidden="true" style="font-size:.45em">ㄅㄠˇ</rt></ruby><ruby>存<rt aria-hidden="true" style="font-size:.45em">ㄘㄨㄣˊ</rt></ruby><ruby>進<rt aria-hidden="true" style="font-size:.45em">ㄐㄧㄣˋ</rt></ruby><ruby>度<rt aria-hidden="true" style="font-size:.45em">ㄉㄨˋ</rt></ruby>；<ruby>非<rt aria-hidden="true" style="font-size:.45em">ㄈㄟ</rt></ruby><ruby>出<rt aria-hidden="true" style="font-size:.45em">ㄔㄨ</rt></ruby><ruby>版<rt aria-hidden="true" style="font-size:.45em">ㄅㄢˇ</rt></ruby><ruby>社<rt aria-hidden="true" style="font-size:.45em">ㄕㄜˋ</rt></ruby><ruby>同<rt aria-hidden="true" style="font-size:.45em">ㄊㄨㄥˊ</rt></ruby><ruby>步<rt aria-hidden="true" style="font-size:.45em">ㄅㄨˋ</rt></ruby><ruby>教<rt aria-hidden="true" style="font-size:.45em">ㄐㄧㄠˋ</rt></ruby><ruby>材<rt aria-hidden="true" style="font-size:.45em">ㄘㄞˊ</rt></ruby>。</p>
+            <button type="button" onClick="{{ openEnglishOriginal }}" class="subject-battle-button"><span class="subject-battle-face"><ruby>進<rt aria-hidden="true" style="font-size:.45em">ㄐㄧㄣˋ</rt></ruby><ruby>入<rt aria-hidden="true" style="font-size:.45em">ㄖㄨˋ</rt></ruby><ruby>子<rt aria-hidden="true" style="font-size:.45em">˙ㄗ</rt></ruby><ruby>單<rt aria-hidden="true" style="font-size:.45em">ㄉㄢ</rt></ruby><ruby>元<rt aria-hidden="true" style="font-size:.45em">ㄩㄢˊ</rt></ruby> →</span></button>
+          </article>
+        </sc-if>
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="6">
             <article class="subject-world-card" data-math-code="{{ u.displayCode }}" style="display:flex;flex-direction:column;gap:12px">
               <div class="subject-world-card-head" style="display:flex;align-items:center;gap:12px">
@@ -5514,11 +5522,12 @@ class Component extends DCLogic {
   }
   async openEnglishOriginal() {
     const s=this.state;
+    if(s.currentId==="demo-local"){this.flash("英文原創延伸需要正式學員帳號，請先登入。");return;}
     if(this.englishOriginalOpening||this.englishOriginalClose||s.screen!=="map"||s.subject!=="english"||s.teacher||!s.currentId||!s.students.some(x=>x.id===s.currentId))return;
     const learnerId=s.currentId,grade=s.grade,generation=this.sessionGeneration||0,request=(this.englishOriginalRequest||0)+1;
     this.englishOriginalRequest=request;this.englishOriginalOpening=true;
     const isActive=()=>this.englishOriginalRequest===request&&this.state.screen==="map"&&this.state.subject==="english"&&!this.state.teacher&&this.state.currentId===learnerId&&this.state.grade===grade&&(this.sessionGeneration||0)===generation;
-    try { const {openEnglishOriginal}=await import("./modules/english-original/launch.mjs?v=20261117-r33");if(!isActive())return;
+    try { const {openEnglishOriginal}=await import("./modules/english-original/launch.mjs?v=20261117-unit-ui");if(!isActive())return;
       let dismissed=false;const close=await openEnglishOriginal({learnerId,grade,isActive,onClose:()=>{dismissed=true;if(this.englishOriginalRequest===request)this.englishOriginalClose=null;}});
       if(!dismissed&&isActive())this.englishOriginalClose=close;else await close?.();
     }catch(e){if(isActive())this.flash("英文原創課程暫時無法開啟，請重試。");}
