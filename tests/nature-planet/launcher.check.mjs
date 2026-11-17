@@ -54,3 +54,32 @@ test('day-night preview controls stay local while public time display remains',a
 });
 
 test('fullscreen fallback restores inline host, preserves exploration, and cleans on close',async()=>{env();const host=document.createElement('div');document.body.append(host);const close=await openNaturePlanet({grade:1,container:host,catalog});const panel=host.querySelector('.nature-inline');assert.ok(panel.querySelector('.nature-heading .nature-filters'));const toggle=panel.querySelector('.nature-fullscreen-toggle');click('↓ 降落自然星球');toggle.click();await tick();assert.ok(panel.classList.contains('nature-fullscreen'));assert.equal(panel.parentNode,document.body);assert.equal(document.body.style.overflow,'hidden');assert.equal(toggle.getAttribute('aria-label'),'離開全畫面');toggle.click();await tick();assert.equal(panel.parentNode,host);assert.equal(panel.querySelector('.nature-orbit').hidden,true);assert.equal(sceneStats.mounted,1);toggle.click();await tick();await close();assert.equal(document.querySelector('.nature-fullscreen'),null);assert.notEqual(document.body.style.overflow,'hidden');assert.equal(host.childNodes.length,0);});
+
+test('overlapping grade and semester loads mount the latest grade rather than reuse old geometry',async t=>{
+ env();const close=await openNaturePlanet({grade:1});t.after(()=>close(true));
+ const original=globalThis.fetch,pending=[];
+ globalThis.fetch=async(url,options)=>{
+  if(String(url).includes('/scoped/all-g2-'))return new Promise(resolve=>pending.push(()=>original(url,options).then(resolve)));
+  return original(url,options);
+ };
+ click('2年');click('下學期');assert.equal(pending.length,2);
+ await pending[1]();await tick();await tick();
+ assert.equal(sceneStats.mounted,2,'latest grade must mount after its second filter load');
+ await pending[0]();await tick();
+ assert.equal(sceneStats.mounted,2,'stale first filter must not mount');
+ assert.ok([...document.querySelectorAll('.nature-unit-card')].every(b=>b.dataset.unit.includes('-g2-t2-')));
+});
+
+test('pending filters do not overwrite another grade exploration snapshot',async t=>{
+ env();const close=await openNaturePlanet({grade:2});t.after(()=>close(true));
+ click('↓ 降落自然星球');click('前往單元');
+ click('1年');await tick();await tick();
+ const original=globalThis.fetch,pending=[];
+ globalThis.fetch=async(url,options)=>{
+  if(String(url).includes('/scoped/all-g2-'))return new Promise(resolve=>pending.push(()=>original(url,options).then(resolve)));
+  return original(url,options);
+ };
+ click('2年');click('下學期');await pending[1]();await tick();await tick();
+ assert.equal(document.querySelector('.nature-orbit').hidden,true,'grade 2 landed state survives overlapping filter requests');
+ await pending[0]();await tick();
+});

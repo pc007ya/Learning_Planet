@@ -5515,7 +5515,7 @@ class Component extends DCLogic {
     const learnerId=s.currentId,grade=s.grade,generation=this.sessionGeneration||0,request=(this.englishOriginalRequest||0)+1;
     this.englishOriginalRequest=request;this.englishOriginalOpening=true;
     const isActive=()=>this.englishOriginalRequest===request&&this.state.screen==="map"&&this.state.subject==="english"&&!this.state.teacher&&this.state.currentId===learnerId&&this.state.grade===grade&&(this.sessionGeneration||0)===generation;
-    try { const {openEnglishOriginal}=await import("./modules/english-original/launch.mjs?v=20261116-r30");if(!isActive())return;
+    try { const {openEnglishOriginal}=await import("./modules/english-original/launch.mjs?v=20261117-r33");if(!isActive())return;
       let dismissed=false;const close=await openEnglishOriginal({learnerId,grade,isActive,onClose:()=>{dismissed=true;if(this.englishOriginalRequest===request)this.englishOriginalClose=null;}});
       if(!dismissed&&isActive())this.englishOriginalClose=close;else await close?.();
     }catch(e){if(isActive())this.flash("英文原創課程暫時無法開啟，請重試。");}
@@ -5843,6 +5843,10 @@ class Component extends DCLogic {
     const englishNavigation=JSON.stringify([this.state.screen,this.state.subject,this.state.grade,this.state.currentId,this.state.teacher,this.sessionGeneration||0]);
     if(this.lastEnglishOriginalNavigation!==undefined&&englishNavigation!==this.lastEnglishOriginalNavigation)this.closeEnglishOriginal?.();
     this.lastEnglishOriginalNavigation=englishNavigation;
+    if (this.gachaRound && !this.gachaRoundActive(this.gachaRound)) {
+      this.cancelGachaRound();
+      this.setState({ gachaStage: "idle", gachaResult: null });
+    }
     const mathNavigation = JSON.stringify([this.state.screen, this.state.subject, this.state.grade, this.state.currentId, this.state.unit, this.state.teacher, this.state.mathMapView]);
     if (this.lastMathNavigation !== undefined && mathNavigation !== this.lastMathNavigation) this.mathResourceNavigation = (this.mathResourceNavigation || 0) + 1;
     this.lastMathNavigation = mathNavigation;
@@ -5885,6 +5889,7 @@ class Component extends DCLogic {
   }
   componentWillUnmount() {
     this.closeEnglishOriginal?.();
+    this.cancelGachaRound?.();
     this.mathCourseRequest = (this.mathCourseRequest || 0) + 1;
     this.mathResourceNavigation = (this.mathResourceNavigation || 0) + 1;
     this.knowledgeClose?.();
@@ -7192,16 +7197,30 @@ class Component extends DCLogic {
     if (!this.state.speechMuted) this.speakText("全部配對成功，做得真好");
   }
 
+  gachaRoundActive(round) {
+    return !!round && this.gachaRound === round && this.state.screen === "gacha" &&
+      this.state.currentId === round.learnerId && !this.state.teacher &&
+      (this.sessionGeneration || 0) === round.generation;
+  }
+  cancelGachaRound() {
+    this.gachaRound = null;
+    for (const key of ["gachaCoinTimer", "gachaSpinTimer", "gachaShakeTimer", "gachaDropTimer"]) {
+      clearTimeout(this[key]); this[key] = null;
+    }
+    cancelAnimationFrame(this.gachaConfettiFrame);
+    this.cancelGachaCoinDrag();
+  }
   prepareGacha() {
     const items = this.state.gachaBank || [];
     const p = this.prof();
     if (!items.length) { this.flash("扭蛋圖鑑還在載入中，請稍等一下"); return; }
-    if (this.state.gachaStage !== "idle") return;
+    if (this.state.screen !== "gacha" || !this.state.currentId || this.state.teacher || this.gachaRound || this.state.gachaStage !== "idle") return;
     if (p.coins < 10) { this.flash("星星幣不夠，抽一次需要 10 顆 ⭐"); return; }
+    const round = this.gachaRound = { learnerId: this.state.currentId, generation: this.sessionGeneration || 0, phase: "coin" };
     this.playGachaSound("roll");
     this.setState({ gachaStage: "coin", gachaResult: null });
     clearTimeout(this.gachaCoinTimer);
-    this.gachaCoinTimer = setTimeout(() => this.setState({ gachaStage: "ready" }), 1000);
+    this.gachaCoinTimer = setTimeout(() => { if (!this.gachaRoundActive(round)) return; round.phase = "ready"; this.setState({ gachaStage: "ready" }); }, 1000);
   }
   startGachaCoinDrag(event) {
     const items = this.state.gachaBank || [];
@@ -7273,13 +7292,15 @@ class Component extends DCLogic {
     if (kind === "pop") { tone(260, 0, .18, "sine", .07, 760); tone(880, .08, .16, "triangle", .05, 1400); tone(420, .18, .12, "sine", .035, 620); }
   }
   turnGachaKnob() {
-    if (this.state.gachaStage !== "ready") return;
+    const round = this.gachaRound;
+    if (!this.gachaRoundActive(round) || round.phase !== "ready" || this.state.gachaStage !== "ready") return;
+    round.phase = "spinning";
     this.playGachaSound("turn");
     const colors = ["red", "blue", "yellow", "green", "purple", "cyan"];
     this.setState({ gachaStage: "spinning", gachaCapsuleColor: colors[Math.floor(Math.random() * colors.length)] });
     clearTimeout(this.gachaSpinTimer); clearTimeout(this.gachaShakeTimer); clearTimeout(this.gachaDropTimer);
-    this.gachaSpinTimer = setTimeout(() => this.setState({ gachaStage: "shaking" }), 1000);
-    this.gachaShakeTimer = setTimeout(() => this.setState({ gachaStage: "dropping" }), 4000);
+    this.gachaSpinTimer = setTimeout(() => { if (this.gachaRoundActive(round)) this.setState({ gachaStage: "shaking" }); }, 1000);
+    this.gachaShakeTimer = setTimeout(() => { if (!this.gachaRoundActive(round)) return; round.phase = "dropping"; this.setState({ gachaStage: "dropping" }); }, 4000);
   }
   openGachaCapsule() {
     if (this.state.gachaStage !== "dropping") return;
@@ -7287,9 +7308,15 @@ class Component extends DCLogic {
     this.finishGachaDraw();
   }
   finishGachaDraw() {
+    const round = this.gachaRound;
+    if (!this.gachaRoundActive(round) || round.phase !== "dropping" || this.state.gachaStage !== "dropping") return;
+    round.phase = "settling"; // Synchronous lock: double taps must not debit twice.
     const items = this.state.gachaBank || [];
-    if (!items.length) return;
+    if (!items.length) { this.clearGachaResult(); this.flash("扭蛋圖鑑尚未載入，請重試。"); return; }
     const cost = 10;
+    if (!Number.isFinite(this.prof().coins) || this.prof().coins < cost) {
+      this.clearGachaResult(); this.flash("星星幣不夠，這次沒有扣款，請重新投幣。"); return;
+    }
     const totalWeight = items.reduce((sum, item) => sum + Math.max(1, Number(item.weight) || 1), 0);
     let ticket = Math.random() * totalWeight;
     let item = items[items.length - 1];
@@ -7299,6 +7326,8 @@ class Component extends DCLogic {
     }
     const ownedBefore = Number((this.prof().gachaOwned || {})[item.id] || 0);
     this.patch((profile) => {
+      if (!this.gachaRoundActive(round) || round.awarded || !Number.isFinite(profile.coins) || profile.coins < cost) return {};
+      round.awarded = true;
       const gachaOwned = Object.assign({}, profile.gachaOwned || {}, { [item.id]: Number((profile.gachaOwned || {})[item.id] || 0) + 1 });
       return {
         coins: profile.coins - cost,
@@ -7308,9 +7337,14 @@ class Component extends DCLogic {
         log: [{ icon: "🫧", tint: "#eafbfd", text: "星光扭蛋獲得「" + item.character + "・" + item.name + "」", amount: "-" + cost + " ⭐", color: "#22aebc", when: "剛剛" }].concat(profile.log || []).slice(0, 8),
       };
     });
-    this.setState({ gachaStage: "result", gachaResult: Object.assign({}, item, { duplicate: ownedBefore > 0 }) });
-    this.startGachaConfetti();
-    if (!this.state.speechMuted) this.speakText("恭喜獲得" + item.character + item.name);
+    this.setState(() => !this.gachaRoundActive(round) ? {} : round.awarded
+      ? { gachaStage: "result", gachaResult: Object.assign({}, item, { duplicate: ownedBefore > 0 }) }
+      : { gachaStage: "idle", gachaResult: null }, () => {
+      if (!this.gachaRoundActive(round)) return;
+      if (!round.awarded) { this.cancelGachaRound(); this.flash("星星幣不足，這次沒有扣款，請重新投幣。"); return; }
+      this.startGachaConfetti();
+      if (!this.state.speechMuted) this.speakText("恭喜獲得" + item.character + item.name);
+    });
   }
   startGachaConfetti() {
     const canvas = document.getElementById("gacha-confetti"); if (!canvas) return;
@@ -7319,7 +7353,7 @@ class Component extends DCLogic {
     const run = () => { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach((p) => { p.y += p.v; p.x += Math.sin(p.y / 32); if (p.y > canvas.height + 18) { p.y = -12; p.x = Math.random() * canvas.width; } ctx.fillStyle = p.c; ctx.fillRect(p.x, p.y, p.s, p.s * .58); }); this.gachaConfettiFrame = requestAnimationFrame(run); };
     run();
   }
-  clearGachaResult() { cancelAnimationFrame(this.gachaConfettiFrame); this.setState({ gachaStage: "idle", gachaResult: null }); }
+  clearGachaResult() { this.cancelGachaRound(); this.setState({ gachaStage: "idle", gachaResult: null }); }
 
   buildJunyi(unitId) {
     const mod = this.state.junyiBank.find((m) => m.id === unitId);

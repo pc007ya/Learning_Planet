@@ -26,7 +26,7 @@ function question(id,index=0,rng=Math.random){
  }else if(u.kind==='subtract'){
   q.a=r(10,20);q.b=r(1,q.a);q.ans=q.a-q.b;q.stem=variant===1?`小安有 ${q.a} 個，小文有 ${q.b} 個，相差幾個？`:`${q.a} − ${q.b} ＝ ？`;q.explain=`${q.a} 拿走 ${q.b}，剩 ${q.ans}；${q.b} ＋ ${q.ans} ＝ ${q.a}。`;q.hint='先點掉要拿走的積木，再數留下的。';q.steps=q.b;
  }else if(u.kind==='length'){
-  q.n=r(3,9);q.size=variant+1;q.ans=q.n;q.stem=`物件長度是幾個相同的${['小積木','短紙條','長紙條'][variant]}？`;q.explain=`從同一端開始，${q.n} 個相同單位首尾相接，沒有空隙也不重疊。`;q.hint='單位要一樣長，從物件左端排起。';q.steps=q.n;
+  q.n=r(1,10);q.size=variant+1;q.unitLabel=['小積木','短紙條','長紙條','小木片','小紙片','長積木'][r(0,5)];q.ans=q.n;q.stem=`物件長度是幾個相同的${q.unitLabel}？`;q.explain=`從同一端開始，${q.n} 個相同單位首尾相接，沒有空隙也不重疊。`;q.hint='單位要一樣長，從物件左端排起。';q.steps=q.n;
  }else if(u.kind==='calendar'||u.kind==='dates'){
   q.y=[2024,2026,2027,2028][r(0,3)];q.m=r(1,12);q.d=r(Math.max(1,days(q.y,q.m)-5),days(q.y,q.m));q.delta=r(1,9);q.target=addDays(q.y,q.m,q.d,q.delta);q.iso=dateLabel(q.target);
   if(u.kind==='calendar'&&variant===0){q.ans='星期'+'日一二三四五六'[new Date(Date.UTC(q.y,q.m-1,q.d)).getUTCDay()];q.stem=`${q.y}/${q.m}/${q.d} 是星期幾？`;choices=Array.from({length:7},(_,i)=>'星期'+'日一二三四五六'[i]);q.steps=1;q.explain=`在月曆找到 ${q.d} 日，往上對齊星期欄，就是${q.ans}。`;}
@@ -54,9 +54,9 @@ function picture(q,step=q.steps){
  if(q.kind==='place'){
   const labels=['千','百','十','個'];q.digits.forEach((n,i)=>{if(q.unitId==='u109'&&i===0)return;b+=rect(40+i*145,35,135,290,'#fffaf0')+text(108+i*145,70,labels[i]);for(let k=0;k<n;k++)if(i<step)b+=rect(58+i*145+(k%3)*35,105+Math.floor(k/3)*48,28,34,['#bfa8ee','#79b5f5','#6ad6ca','#ffd070'][i]);});b+=`<path d="M55 353H610" stroke="#31546a" stroke-width="3"/><circle cx="${55+555*q.n/q.cap}" cy="353" r="6" fill="#e69631"/>`+text(55,375,'0',16)+text(610,375,q.cap,16);
  }else if(q.kind==='subtract'){for(let i=0;i<q.a;i++){const x=55+i%10*58,y=100+Math.floor(i/10)*95;b+=rect(x,y,42,42,i<step?'#e1e5e8':'#ffd070');if(i<step)b+=`<path d="M${x} ${y}l42 42m0-42-42 42" stroke="#bf5b61" stroke-width="3"/>`;}}
- else if(q.kind==='length'){const w=50;b+=rect(55,100,q.n*w,45,'#ffd070');for(let i=0;i<q.n;i++)b+=rect(55+i*w,175,w,35,i<step?'#6ad6ca':'#eef2f4');b+=text(320,260,'相同單位 · 首尾相接');}
+ else if(q.kind==='length'){const w=30+(q.size||1)*5;b+=rect(55,100,q.n*w,45,'#ffd070');for(let i=0;i<q.n;i++)b+=rect(55+i*w,175,w,35,i<step?'#6ad6ca':'#eef2f4');b+=text(320,260,`${q.unitLabel||'相同單位'} · 首尾相接`);}
  else if(q.kind==='calendar'||q.kind==='dates'){
-  const dates=[new Date(Date.UTC(q.y,q.m-1,1)),new Date(Date.UTC(q.y,q.m,1))],selected=q.steps===1?(q.kind==='dates'?days(q.y,q.m):q.d):addDays(q.y,q.m,q.d,step).getUTCDate(),selMonth=q.steps===1?q.m:addDays(q.y,q.m,q.d,step).getUTCMonth()+1;
+  const dates=[new Date(Date.UTC(q.y,q.m-1,1)),new Date(Date.UTC(q.y,q.m,1))],selected=q.variant===0?(q.kind==='dates'?days(q.y,q.m):q.d):addDays(q.y,q.m,q.d,step).getUTCDate(),selMonth=q.variant===0?q.m:addDays(q.y,q.m,q.d,step).getUTCMonth()+1;
   dates.forEach((dt,p)=>{const x0=20+p*325,m=dt.getUTCMonth()+1,y=dt.getUTCFullYear(),offset=dt.getUTCDay();b+=text(x0+145,35,`${y} / ${m}`);for(let c=0;c<7;c++)b+=text(x0+c*42+20,68,'日一二三四五六'[c],15);for(let d=1;d<=days(y,m);d++){const k=offset+d-1,x=x0+k%7*42,y0=85+Math.floor(k/7)*40;b+=rect(x,y0,38,35,step>0&&d===selected&&m===selMonth?'#ffd070':m===q.m&&d===q.d?'#b9eee8':'#fff')+text(x+19,y0+24,d,16);}});
  }else if(q.kind==='area'){
   [q.a,q.b].forEach((n,p)=>{b+=text(165+p*330,50,p?'B':'A');for(let i=0;i<n;i++)b+=rect(60+p*330+i%4*43,90+Math.floor(i/4)*43,43,43,i<step?'#6ad6ca':'#edf3f7');});
