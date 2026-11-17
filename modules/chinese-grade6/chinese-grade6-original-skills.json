@@ -982,6 +982,1020 @@
         "timerPolicy": "inherit_existing_policy",
         "masteryClaim": false
       }
+    },
+    {
+      "id": "zh-original-g6-poem",
+      "grade": 6,
+      "semester": null,
+      "publisher": null,
+      "contentKind": "original_skill_practice",
+      "title": "讀出雨後的畫面",
+      "objective": "結合詩句理解意象、擬人、視角與情緒轉折。",
+      "notice": "原創基礎閱讀與思辨補充，非出版社課文；未核定對應任何課的學習目標。",
+      "publisherLessonIds": [],
+      "learningObjectiveAlignment": "general_skill_only",
+      "passage": [
+        "【原創小詩：雨後操場】第一節：雨把操場洗成一面鏡子，／白雲低下頭，看看自己的臉。／我停在水窪旁，／把急著奔跑的腳步收回來。",
+        "第二節：一片葉子躺在水上，／像一艘還沒出發的小船。／風輕輕推它一下，／遠方的鐘聲便落進波紋裡。",
+        "第三節：同學喊我進教室，／我抬起頭，應了一聲。／水窪沒有跟我走，／那片小小的天空，卻留在心裡。"
+      ],
+      "questions": [
+        {
+          "id": "zh-original-g6-poem-1",
+          "prompt": "第一節把雨後操場比作鏡子，主要凸顯哪個畫面？",
+          "options": [
+            "積水映出天空的景象",
+            "跑道上的線條特別筆直",
+            "操場被鋪上一整塊玻璃"
+          ],
+          "answer": 0,
+          "explanation": "接著寫白雲看自己的臉，可知重點是水面倒映天空，不是在說材質真的變成玻璃。",
+          "skill": "意象理解",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一節：洗成一面鏡子；白雲……看看自己的臉"
+        },
+        {
+          "id": "zh-original-g6-poem-2",
+          "prompt": "「白雲低下頭，看看自己的臉」使用了哪種表達方式？",
+          "options": [
+            "列出白雲形成的科學步驟",
+            "引用同學對天氣的直接說話",
+            "把白雲寫得像會做動作的人"
+          ],
+          "answer": 2,
+          "explanation": "低頭與照看自己的臉是人的動作，詩句把這些動作賦予白雲。",
+          "skill": "擬人",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一節：白雲低下頭，看看自己的臉"
+        },
+        {
+          "id": "zh-original-g6-poem-3",
+          "prompt": "詩中的「我」原本打算做什麼？",
+          "options": [
+            "敲鐘",
+            "奔跑",
+            "乘船"
+          ],
+          "answer": 1,
+          "explanation": "「急著奔跑的腳步」指出原本的動作意圖；後面的船與鐘不是他要從事的事。",
+          "skill": "擷取訊息",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一節：把急著奔跑的腳步收回來"
+        },
+        {
+          "id": "zh-original-g6-poem-4",
+          "prompt": "第二節「還沒出發的小船」實際指的是什麼？",
+          "options": [
+            "躺在水上的葉子",
+            "準備上課的同學",
+            "倒映在水裡的教室"
+          ],
+          "answer": 0,
+          "explanation": "前一句先寫葉子，下一句用小船比喻它的形狀與漂浮姿態。",
+          "skill": "指涉與比喻",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二節：一片葉子躺在水上，像一艘……小船"
+        },
+        {
+          "id": "zh-original-g6-poem-5",
+          "prompt": "「風輕輕推它一下」中的「它」指什麼？",
+          "options": [
+            "第一節裡的白雲",
+            "遠方發聲的鐘",
+            "水上的那片葉子"
+          ],
+          "answer": 2,
+          "explanation": "此句承接葉子像小船的描寫，風推動的是葉子，不是鐘或雲。",
+          "skill": "代詞指涉",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二節葉子、小船、風推它的連續描寫"
+        },
+        {
+          "id": "zh-original-g6-poem-6",
+          "prompt": "「鐘聲落進波紋裡」最適合怎樣理解？",
+          "options": [
+            "水窪裡藏著一座正在搖動的鐘",
+            "把聽到的鐘聲與眼前水紋連在一起描寫",
+            "鐘聲變成物體，沉到水窪底部"
+          ],
+          "answer": 1,
+          "explanation": "詩把聽覺與視覺交織，並沒有說聲音成為物體或水下真的有鐘。",
+          "skill": "感官整合",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二節：遠方的鐘聲便落進波紋裡"
+        },
+        {
+          "id": "zh-original-g6-poem-7",
+          "prompt": "最後是什麼直接讓「我」回應並準備離開？",
+          "options": [
+            "同學喊他進教室",
+            "葉子漂到腳邊",
+            "雨又開始下了"
+          ],
+          "answer": 0,
+          "explanation": "第三節直接寫同學呼喊，接著是抬頭應聲；文中沒有再下雨的情節。",
+          "skill": "事件關聯",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三節：同學喊我進教室，我抬起頭，應了一聲"
+        },
+        {
+          "id": "zh-original-g6-poem-8",
+          "prompt": "「小小的天空，卻留在心裡」主要表達什麼？",
+          "options": [
+            "他把天空的照片藏在書包裡",
+            "他決定一直待在水窪旁不上課",
+            "離開水窪後，仍記得剛才看見的美"
+          ],
+          "answer": 2,
+          "explanation": "前句說水窪沒有跟著走，對比留下的是感受與記憶，而非實體或未提及的照片。",
+          "skill": "含蓄語意",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三節：水窪沒有跟我走……天空卻留在心裡"
+        },
+        {
+          "id": "zh-original-g6-poem-9",
+          "prompt": "全詩中「我」的注意力如何改變？",
+          "options": [
+            "從等待雨停，轉為划船，再敲鐘",
+            "從急著奔跑，轉為停下觀察，再帶著印象回應同學",
+            "從專心上課，轉為奔跑，再回家"
+          ],
+          "answer": 1,
+          "explanation": "三節依序寫收回腳步、觀察葉子水紋與回應同學，不能把比喻當成真的划船。",
+          "skill": "整體結構",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一節收回腳步；第二節觀察；第三節應聲與留下印象"
+        },
+        {
+          "id": "zh-original-g6-poem-10",
+          "prompt": "哪個想法最貼近這首詩的主旨？",
+          "options": [
+            "放慢腳步，平常的角落也可能帶來發現",
+            "看到水窪就應該立刻跑過去",
+            "觀察自然必須離開學校很遠"
+          ],
+          "answer": 0,
+          "explanation": "詩中的發現來自校園水窪與短暫停步，不是鼓勵在積水處奔跑或強調遠行。",
+          "skill": "主旨",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "全詩由校園水窪引出觀察與記憶"
+        }
+      ],
+      "assessment": {
+        "roundSize": 10,
+        "questionCount": 10,
+        "bankSize": 10,
+        "bankComplete": false,
+        "randomizeOptions": true,
+        "timerPolicy": "inherit_existing_policy",
+        "masteryClaim": false
+      }
+    },
+    {
+      "id": "zh-original-g6-argument",
+      "grade": 6,
+      "semester": null,
+      "publisher": null,
+      "contentKind": "original_skill_practice",
+      "title": "讓主張有理由",
+      "objective": "辨別主張、支持理由、反對意見與試行證據的範圍。",
+      "notice": "原創基礎閱讀與思辨補充，非出版社課文；未核定對應任何課的學習目標。",
+      "publisherLessonIds": [],
+      "learningObjectiveAlignment": "general_skill_only",
+      "passage": [
+        "【原創提案】小林建議把週三午間廣播最後五分鐘留給同學介紹一本書。她的理由是：聽到不同人的介紹，可能讓大家接觸平常不會注意的書。不過，她也提醒介紹者只說選書理由與一段感想，不透露結局。",
+        "小傑提出疑慮：「午休有人想安靜休息，增加節目可能打擾他們。」小林於是修改提案：不延長原有廣播時間，只用最後五分鐘取代原本的歌曲；先試行兩週，再詢問聆聽者與想休息同學的感受。",
+        "試行後，班上收到二十份問卷：十二份表示願意繼續聽，五份表示希望保留安靜時段，三份沒有表態。這只是同一班的回覆，尚未蒐集其他班的意見。",
+        "小林在報告裡寫：「本班回覆中，願意繼續聽的人較多，但仍有不同需求。我們還要比較安靜時段的安排，並詢問其他班，才提出下一步建議。」"
+      ],
+      "questions": [
+        {
+          "id": "zh-original-g6-argument-1",
+          "prompt": "小林最初提出的主張是什麼？",
+          "options": [
+            "讓同學在週三廣播最後五分鐘介紹書",
+            "每天延長午間廣播五分鐘",
+            "停止所有廣播，只播放歌曲"
+          ],
+          "answer": 0,
+          "explanation": "主張限定週三、原節目最後五分鐘與介紹書；不是每天增加時長。",
+          "skill": "辨識主張",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段：週三午間廣播最後五分鐘……介紹一本書"
+        },
+        {
+          "id": "zh-original-g6-argument-2",
+          "prompt": "哪項是她用來支持主張的理由？",
+          "options": [
+            "每位同學一定會因此讀完十本書",
+            "介紹節目已得到所有班級贊成",
+            "不同人的介紹可能拓展接觸書籍的機會"
+          ],
+          "answer": 2,
+          "explanation": "她提出的是接觸不同書籍的可能性，不是保證閱讀量，也沒有全校調查證據。",
+          "skill": "理由與證據",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段：可能讓大家接觸平常不會注意的書"
+        },
+        {
+          "id": "zh-original-g6-argument-3",
+          "prompt": "為何提案特別提醒「不透露結局」？",
+          "options": [
+            "證明結局比選書理由更適合完整播出",
+            "限制介紹內容，保留讀者自行閱讀的空間",
+            "表示介紹者不需要讀懂書"
+          ],
+          "answer": 1,
+          "explanation": "題內限制與「選書理由、一段感想」合看，是避免把完整情節尤其結局先說出來，並非要求不了解書。",
+          "skill": "合理推論",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段：只說選書理由與一段感想，不透露結局"
+        },
+        {
+          "id": "zh-original-g6-argument-4",
+          "prompt": "小傑的疑慮主要關心哪種需求？",
+          "options": [
+            "部分同學希望午休安靜休息",
+            "介紹者想把整本書念完",
+            "所有人都想延長廣播"
+          ],
+          "answer": 0,
+          "explanation": "他明確說明想安靜休息者可能被打擾，並未代表所有人的想法。",
+          "skill": "理解不同立場",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：午休有人想安靜休息……可能打擾"
+        },
+        {
+          "id": "zh-original-g6-argument-5",
+          "prompt": "修改後的提案與原有廣播時間有何關係？",
+          "options": [
+            "總時間增加五分鐘，歌曲全部保留",
+            "總時間縮短五分鐘，取消介紹書",
+            "總時間不變，以介紹書取代末段歌曲"
+          ],
+          "answer": 2,
+          "explanation": "修改文字明說不延長，並用介紹取代最後五分鐘歌曲。",
+          "skill": "比較方案",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：不延長原有廣播時間……取代原本的歌曲"
+        },
+        {
+          "id": "zh-original-g6-argument-6",
+          "prompt": "哪項最準確描述問卷結果？",
+          "options": [
+            "全校每個班多數同學都願意繼續聽",
+            "二十份回覆中，十二份願意繼續聽，仍有不同意向",
+            "二十份回覆全部願意繼續聽"
+          ],
+          "answer": 1,
+          "explanation": "問卷僅來自一班，且五份希望安靜、三份未表態；不能把較多支持寫成一致或全校支持。",
+          "skill": "資料判讀",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段：十二、五、三份；只是同一班"
+        },
+        {
+          "id": "zh-original-g6-argument-7",
+          "prompt": "三份「沒有表態」的問卷應如何解讀？",
+          "options": [
+            "不能直接算成支持或反對",
+            "一定代表支持，只是不想寫字",
+            "一定代表反對，但不好意思說"
+          ],
+          "answer": 0,
+          "explanation": "未表態只表示沒有提供明確立場，無法替填答者補出動機或選擇。",
+          "skill": "限制推論",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段：三份沒有表態"
+        },
+        {
+          "id": "zh-original-g6-argument-8",
+          "prompt": "「不延長時間」是否已證明小傑的疑慮完全解決？",
+          "options": [
+            "有，因為節目只換內容就不會打擾任何人",
+            "有，因為沒有表態的三份都是支持",
+            "沒有，仍有人希望保留安靜時段"
+          ],
+          "answer": 2,
+          "explanation": "不延長只處理總時長，問卷仍呈現安靜需求，不能宣稱所有疑慮都消失。",
+          "skill": "評估理由",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段不延長；第三段五份希望安靜"
+        },
+        {
+          "id": "zh-original-g6-argument-9",
+          "prompt": "要判斷其他班的接受情形，最需要補充什麼？",
+          "options": [
+            "請小林猜測其他班會選哪個答案",
+            "蒐集其他班對節目與休息需求的回覆",
+            "只重算本班的十二份支持問卷"
+          ],
+          "answer": 1,
+          "explanation": "若問題是其他班的看法，就需要那些班級的資料，重算原樣本無法補足。",
+          "skill": "證據規劃",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段：尚未蒐集其他班的意見"
+        },
+        {
+          "id": "zh-original-g6-argument-10",
+          "prompt": "小林最後的報告有哪些值得保留的特點？",
+          "options": [
+            "承認支持與不同需求並存，也指出資料不足",
+            "只留下支持數字，刪除其他回覆",
+            "把本班結果宣布為全校永久規定"
+          ],
+          "answer": 0,
+          "explanation": "她區分已知結果與待查事項，沒有掩蓋不同需求或超出資料做永久決定。",
+          "skill": "論證態度",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第四段：較多，但仍有不同需求；還要比較並詢問"
+        }
+      ],
+      "assessment": {
+        "roundSize": 10,
+        "questionCount": 10,
+        "bankSize": 10,
+        "bankComplete": false,
+        "randomizeOptions": true,
+        "timerPolicy": "inherit_existing_policy",
+        "masteryClaim": false
+      }
+    },
+    {
+      "id": "zh-original-g6-schedule",
+      "grade": 6,
+      "semester": null,
+      "publisher": null,
+      "contentKind": "original_skill_practice",
+      "title": "把行程表讀成行動",
+      "objective": "整合時段、地點、條件與補充說明，判斷可行安排。",
+      "notice": "原創基礎閱讀與思辨補充，非出版社課文；未核定對應任何課的學習目標。",
+      "publisherLessonIds": [],
+      "learningObjectiveAlignment": "general_skill_only",
+      "passage": [
+        "【原創校園走讀行程表】對象：六年級參加者。09:00–09:10，穿堂集合與點名；09:10–09:30，校史牆觀察；09:30–09:40，移動與休息；09:40–10:00，老樹區觀察；10:00–10:10，返回教室。",
+        "【補充說明】各班由帶隊老師依行程同行，不自行離隊。請攜帶鉛筆與紀錄板；老樹區只做地面觀察，不攀爬。09:00前若公告下雨備案，整場活動改在圖書室，以校園照片進行觀察；集合地點也改至圖書室，集合時間與活動結束時間不變。",
+        "【紀錄任務】在兩處觀察站各記下一項「看到的細節」與一個「想再問的問題」。休息時可整理筆記，不必急著把每個問題寫成答案；回教室後再討論如何查證。",
+        "【當天情境】出發前，小寧看到08:50發布的公告：「今天使用下雨備案。」她原本想在09:40直接去老樹區與大家會合，現在需要重新確認安排。"
+      ],
+      "questions": [
+        {
+          "id": "zh-original-g6-schedule-1",
+          "prompt": "依一般行程，09:00先在哪裡集合？",
+          "options": [
+            "穿堂",
+            "老樹區",
+            "校史牆"
+          ],
+          "answer": 0,
+          "explanation": "行程表第一個時段標示穿堂集合與點名；這題問的是未改備案的一般行程。",
+          "skill": "讀取表格",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段：09:00–09:10穿堂集合與點名"
+        },
+        {
+          "id": "zh-original-g6-schedule-2",
+          "prompt": "一般行程中，09:30–09:40主要安排什麼？",
+          "options": [
+            "老樹區完整觀察",
+            "回教室進行結論發表",
+            "移動與休息"
+          ],
+          "answer": 2,
+          "explanation": "這個時段介於兩個觀察站之間，表上明示移動與休息，不能用下一段活動代替。",
+          "skill": "時段定位",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段：09:30–09:40移動與休息"
+        },
+        {
+          "id": "zh-original-g6-schedule-3",
+          "prompt": "09:20時，依一般行程應進行哪項活動？",
+          "options": [
+            "返回教室",
+            "校史牆觀察",
+            "老樹區觀察"
+          ],
+          "answer": 1,
+          "explanation": "09:20落在09:10到09:30的校史牆觀察時段。",
+          "skill": "區間整合",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段：09:10–09:30校史牆觀察"
+        },
+        {
+          "id": "zh-original-g6-schedule-4",
+          "prompt": "每處觀察站的紀錄任務是什麼？",
+          "options": [
+            "一項看到的細節，加上一個想再問的問題",
+            "只寫一個已確定的完整答案",
+            "把觀察到的每樣東西都帶回教室"
+          ],
+          "answer": 0,
+          "explanation": "任務分成觀察細節與待問問題，沒有要求現場解答全部問題或收集實物。",
+          "skill": "擷取訊息",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段：各記下一項看到的細節與一個想再問的問題"
+        },
+        {
+          "id": "zh-original-g6-schedule-5",
+          "prompt": "為何休息時不必急著把每個問題寫成答案？",
+          "options": [
+            "所有觀察問題都不需要答案",
+            "只要文字寫得多就算已完成查證",
+            "還能回教室討論查證，未知不必先猜成結論"
+          ],
+          "answer": 2,
+          "explanation": "說明安排後續查證，允許保留問題；並不是取消查證或用字數取代證據。",
+          "skill": "合理推論",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段：回教室後再討論如何查證"
+        },
+        {
+          "id": "zh-original-g6-schedule-6",
+          "prompt": "當天08:50公告使用備案，小寧應如何調整？",
+          "options": [
+            "仍去穿堂集合，之後自行改走校史牆",
+            "依原集合時間到圖書室，和班級一起參加",
+            "09:40自行到老樹區等待"
+          ],
+          "answer": 1,
+          "explanation": "公告早於09:00，符合整場改到圖書室的條件；集合時間不變，且不可自行離隊。",
+          "skill": "條件與行動",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段備案條件與同行規則；第四段08:50公告"
+        },
+        {
+          "id": "zh-original-g6-schedule-7",
+          "prompt": "啟用下雨備案後，哪兩項明確保持不變？",
+          "options": [
+            "集合時間與活動結束時間",
+            "觀察地點與觀察材料",
+            "每位同學寫下的問題內容"
+          ],
+          "answer": 0,
+          "explanation": "補充說明只明確保留起訖時間；地點與材料改成圖書室及照片，問題內容未固定。",
+          "skill": "比較不變項",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：集合時間與活動結束時間不變"
+        },
+        {
+          "id": "zh-original-g6-schedule-8",
+          "prompt": "按表定安排，活動在什麼時間結束？",
+          "options": [
+            "10:00",
+            "09:40",
+            "10:10"
+          ],
+          "answer": 2,
+          "explanation": "最後一段是10:00到10:10返回教室，因此表定結束為10:10，不是最後觀察結束的10:00。",
+          "skill": "整體時序",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段：10:00–10:10返回教室"
+        },
+        {
+          "id": "zh-original-g6-schedule-9",
+          "prompt": "想近看老樹枝葉時，哪個做法符合一般活動規則？",
+          "options": [
+            "自行離隊，到別處尋找比較低的樹",
+            "留在地面觀察，把看不清的部分記成待問問題",
+            "先攀上樹，再回隊伍補寫紀錄"
+          ],
+          "answer": 1,
+          "explanation": "規則要求地面觀察且不自行離隊；看不清之處可保留問題，不能以好奇為由忽略限制。",
+          "skill": "規則應用",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：不自行離隊、只做地面觀察、不攀爬；第三段待問問題"
+        },
+        {
+          "id": "zh-original-g6-schedule-10",
+          "prompt": "哪項資訊未在資料中提供，不能直接推定？",
+          "options": [
+            "每位同學回教室後都已找到問題的答案",
+            "活動需要攜帶鉛筆與紀錄板",
+            "備案以校園照片進行觀察"
+          ],
+          "answer": 0,
+          "explanation": "資料說回教室討論如何查證，不代表所有問題已有答案；攜帶物與備案材料則有明文。",
+          "skill": "區分計畫與成果",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段討論如何查證；第二段明列攜帶物與照片"
+        }
+      ],
+      "assessment": {
+        "roundSize": 10,
+        "questionCount": 10,
+        "bankSize": 10,
+        "bankComplete": false,
+        "randomizeOptions": true,
+        "timerPolicy": "inherit_existing_policy",
+        "masteryClaim": false
+      }
+    },
+    {
+      "id": "zh-original-g6-interview",
+      "grade": 6,
+      "semester": null,
+      "publisher": null,
+      "contentKind": "original_skill_practice",
+      "title": "訪談內容怎麼摘寫",
+      "objective": "辨別問答重點、時間與語氣限制，忠實轉述並設計追問。",
+      "notice": "原創基礎閱讀與思辨補充，非出版社課文；未核定對應任何出版社課目的學習目標。",
+      "publisherLessonIds": [],
+      "learningObjectiveAlignment": "general_skill_only",
+      "passage": [
+        "【原創訪談紀錄】校刊記者小岑訪問校園修繕志工林先生。小岑問：「您以前就很會修東西嗎？」林先生答：「不是。我第一次修椅子時，把一顆螺絲鎖歪了。後來向有經驗的人請教，才知道動手前要先看清楚結構。」",
+        "小岑問：「現在遇到壞掉的東西，您都能修好嗎？」林先生答：「不一定。有些零件已經找不到，有些情況需要專業工具。我會先檢查，再決定能不能處理；不能處理時，就向學校說明，不勉強嘗試。」",
+        "小岑問：「這學期有什麼改變？」林先生答：「以前我常直接把東西修好。這學期，我開始把觀察到的問題寫下來，交給總務處。像是同一張桌子反覆鬆動，就要一起查原因，不能只一再鎖緊。」",
+        "【編輯討論】小岑準備把訪談整理成短文，想保留林先生如何學習、如何判斷能力範圍，以及這學期的新做法。編輯提醒：「可以刪去重複語句，但別把『不一定』改成『一定』，也不要替受訪者補上沒說過的承諾。」"
+      ],
+      "questions": [
+        {
+          "id": "zh-original-g6-interview-1",
+          "prompt": "林先生提第一次修椅子的經驗，主要說明什麼？",
+          "options": [
+            "他曾出錯，之後透過請教學習",
+            "他第一次就已熟悉所有修繕結構",
+            "他認為請教別人會降低修繕能力"
+          ],
+          "answer": 0,
+          "explanation": "鎖歪螺絲與後來請教形成學習歷程，不是宣稱天生熟練或否定請教。",
+          "skill": "經驗與用意",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段：第一次……鎖歪；後來向有經驗的人請教"
+        },
+        {
+          "id": "zh-original-g6-interview-2",
+          "prompt": "下列哪句轉述最忠實保留林先生對修繕能力的看法？",
+          "options": [
+            "他認為所有壞掉的東西都能修好",
+            "他說只要多花時間就不需要專業工具",
+            "他會先檢查，再判斷能否處理"
+          ],
+          "answer": 2,
+          "explanation": "林先生保留「不一定」的限制，並列出零件、工具等因素；轉述不能抹去這些條件。",
+          "skill": "忠實轉述",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：不一定；先檢查，再決定能不能處理"
+        },
+        {
+          "id": "zh-original-g6-interview-3",
+          "prompt": "哪個例子是林先生明確提到的修繕限制？",
+          "options": [
+            "志工只在假日才能進學校",
+            "零件可能已經找不到",
+            "學校所有物品都不准移動"
+          ],
+          "answer": 1,
+          "explanation": "第二段明列零件與工具的限制，沒有提供物品移動或到校時段規定。",
+          "skill": "擷取訊息",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：有些零件已經找不到"
+        },
+        {
+          "id": "zh-original-g6-interview-4",
+          "prompt": "不能處理時，林先生說會怎麼做？",
+          "options": [
+            "向學校說明，不勉強嘗試",
+            "先承諾一定修好，再想辦法",
+            "隱瞞問題，等別人自行發現"
+          ],
+          "answer": 0,
+          "explanation": "他的回應把說明能力範圍與不勉強嘗試放在一起，沒有作出一定修好的承諾。",
+          "skill": "條件與行動",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：不能處理時，就向學校說明，不勉強嘗試"
+        },
+        {
+          "id": "zh-original-g6-interview-5",
+          "prompt": "這學期的新做法與以前有什麼不同？",
+          "options": [
+            "不再檢查物品，只填寫活動心得",
+            "把所有物品都交給學生自行修理",
+            "除了修繕，也記下問題並交給總務處"
+          ],
+          "answer": 2,
+          "explanation": "他增加的是問題紀錄與交接，不是取消檢查或把修理工作全部交給學生。",
+          "skill": "前後比較",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段：以前……直接修好；這學期……問題寫下來，交給總務處"
+        },
+        {
+          "id": "zh-original-g6-interview-6",
+          "prompt": "「同一張桌子反覆鬆動」這個例子支持什麼想法？",
+          "options": [
+            "所有桌子鬆動都由同一種原因造成",
+            "重複出現的問題需要一起查原因",
+            "桌子只要鎖緊一次就永遠不會再鬆"
+          ],
+          "answer": 1,
+          "explanation": "例子強調不能只重做表面處理，並未確定鬆動原因或說所有桌子都相同。",
+          "skill": "例子與論點",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段：反覆鬆動，就要一起查原因"
+        },
+        {
+          "id": "zh-original-g6-interview-7",
+          "prompt": "若想深入了解新的紀錄做法，哪個追問最切合訪談內容？",
+          "options": [
+            "您會記下哪些細節，幫助總務處判斷原因？",
+            "您最喜歡哪種校刊封面顏色？",
+            "您能否保證每張桌子從此不再損壞？"
+          ],
+          "answer": 0,
+          "explanation": "追問應延伸「問題紀錄如何幫助查因」，不跳到無關裝飾，也不要求受訪者作無根據的保證。",
+          "skill": "設計追問",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段問題紀錄交給總務處；一起查原因"
+        },
+        {
+          "id": "zh-original-g6-interview-8",
+          "prompt": "短文寫成「林先生承諾本學期修好校內所有物品」，問題在哪裡？",
+          "options": [
+            "只是把訪談的重複語句刪短",
+            "完整保留了他對零件與工具的說明",
+            "加上未說過的承諾，且抹去能力限制"
+          ],
+          "answer": 2,
+          "explanation": "原訪談明說不一定能修，也沒有全校全部修好的承諾；這不只是文字精簡。",
+          "skill": "評估改寫",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段不一定；第四段不要補上沒說過的承諾"
+        },
+        {
+          "id": "zh-original-g6-interview-9",
+          "prompt": "哪個小標題最能概括第二段？",
+          "options": [
+            "這學期的校刊排版計畫",
+            "先檢查，也承認能力的界線",
+            "從不出錯的修繕專家"
+          ],
+          "answer": 1,
+          "explanation": "第二段核心是先判斷能否處理與說明限制，不是自稱完全不出錯，也與排版無關。",
+          "skill": "段落主旨",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段的檢查、零件工具限制、不能處理時說明"
+        },
+        {
+          "id": "zh-original-g6-interview-10",
+          "prompt": "以下哪項仍需要另外查證，不能只靠這份訪談確定？",
+          "options": [
+            "新紀錄做法是否已降低桌子再次鬆動的次數",
+            "林先生說他第一次修椅子曾鎖歪螺絲",
+            "林先生表示不能處理時會向學校說明"
+          ],
+          "answer": 0,
+          "explanation": "訪談交代新做法，卻沒有前後次數資料；說明有計畫或行動，不等於已證明成效。",
+          "skill": "成效與證據",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段介紹紀錄做法，未提供鬆動次數比較"
+        }
+      ],
+      "assessment": {
+        "roundSize": 10,
+        "questionCount": 10,
+        "bankSize": 10,
+        "bankComplete": false,
+        "randomizeOptions": true,
+        "timerPolicy": "inherit_existing_policy",
+        "masteryClaim": false
+      }
+    },
+    {
+      "id": "zh-original-g6-perspective",
+      "grade": 6,
+      "semester": null,
+      "publisher": null,
+      "contentKind": "original_skill_practice",
+      "title": "同一件事，兩種視角",
+      "objective": "區分親見、猜測與補充資訊，以多方紀錄修正事件理解。",
+      "notice": "原創基礎閱讀與思辨補充，非出版社課文；未核定對應任何出版社課目的學習目標。",
+      "publisherLessonIds": [],
+      "learningObjectiveAlignment": "general_skill_only",
+      "passage": [
+        "【原創事件：美術作品整理】週四放學前，教室後方展板上的一張海報被取下，放進旁邊的資料夾。那是小言與小浩一起完成的作品。",
+        "【小言的日記】「我回教室時，看見小浩正在把海報放進資料夾。我心裡一沉，以為他不想展出我們的作品。當時老師正在門外和家長說話，我沒有上前詢問，就先去搭車了。」",
+        "【小浩給老師的訊息】「老師，您剛才提醒展板上方有水滴。我把靠近濕處的海報收進乾燥資料夾，還沒來得及告訴小言。明天請您和我們一起確認展板乾了，再決定什麼時候重新貼上。」",
+        "【週五的對話】小言讀了訊息後說：「原來你是想保護作品。我昨天只看見你收起來，還不知道水滴的事。」小浩說：「我應該早點說明。不過展板能不能使用，還是先和老師確認。」"
+      ],
+      "questions": [
+        {
+          "id": "zh-original-g6-perspective-1",
+          "prompt": "兩份紀錄都能支持哪個共同事實？",
+          "options": [
+            "小浩把海報放進資料夾",
+            "小浩決定永遠不再展示海報",
+            "小言親眼看見展板上方滴水"
+          ],
+          "answer": 0,
+          "explanation": "小言日記與小浩訊息都提到收海報；永久不展示不是共同紀錄，小言也明說原本不知道水滴。",
+          "skill": "共同資訊",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段看見收海報；第三段自述把海報收進資料夾"
+        },
+        {
+          "id": "zh-original-g6-perspective-2",
+          "prompt": "小言在日記中「以為他不想展出」屬於什麼？",
+          "options": [
+            "小浩親口對他說出的決定",
+            "老師公開宣布的展示規則",
+            "當時根據所見作出的猜測"
+          ],
+          "answer": 2,
+          "explanation": "「以為」表明這是小言的理解，文中沒有小浩或老師說不要展示的話。",
+          "skill": "事實與解讀",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：以為……沒有上前詢問"
+        },
+        {
+          "id": "zh-original-g6-perspective-3",
+          "prompt": "「我心裡一沉」放在日記中，最接近哪種心情？",
+          "options": [
+            "因為趕上交通車而安心",
+            "因為擔心作品不再展出而失落",
+            "因為終於領到獎品而興奮"
+          ],
+          "answer": 1,
+          "explanation": "這句緊接看見收作品，後面又猜測不想展出；情緒須結合上下文，而非只看最後去搭車。",
+          "skill": "語境與情緒",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段：心裡一沉，以為他不想展出作品"
+        },
+        {
+          "id": "zh-original-g6-perspective-4",
+          "prompt": "小浩的訊息補上小言當時缺少的哪項關鍵資訊？",
+          "options": [
+            "老師提醒展板上方有水滴",
+            "海報原本由別班同學完成",
+            "小言曾要求取消所有展示"
+          ],
+          "answer": 0,
+          "explanation": "水滴的訊息解釋收起海報的原因；第一段已說作品由小言與小浩完成。",
+          "skill": "資訊差異",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段：您剛才提醒展板上方有水滴"
+        },
+        {
+          "id": "zh-original-g6-perspective-5",
+          "prompt": "依小浩的說明，他收起海報的主要目的為何？",
+          "options": [
+            "藉此決定誰可以參加美術課",
+            "把共同作品改成自己的作品",
+            "先讓作品避開潮濕處"
+          ],
+          "answer": 2,
+          "explanation": "訊息把靠近濕處、乾燥資料夾連在一起；週五對話也把此行動理解為保護作品。",
+          "skill": "行動動機",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段靠近濕處→乾燥資料夾；第四段保護作品"
+        },
+        {
+          "id": "zh-original-g6-perspective-6",
+          "prompt": "週四當下為何沒有立即澄清誤會？",
+          "options": [
+            "老師已禁止兩人談論海報",
+            "小言沒有詢問就離開，小浩也還沒來得及說明",
+            "兩人已完整討論過，但都拒絕接受解釋"
+          ],
+          "answer": 1,
+          "explanation": "兩份紀錄分別提供缺少溝通的原因；文中並無完整討論或禁止交談的情節。",
+          "skill": "跨段因果",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段沒有詢問先搭車；第三段還沒來得及告訴小言"
+        },
+        {
+          "id": "zh-original-g6-perspective-7",
+          "prompt": "小言讀完訊息後，對事件的理解有何改變？",
+          "options": [
+            "從擔心被取消展示，轉為理解保護作品的用意",
+            "從確定展板乾燥，轉為拒絕詢問老師",
+            "從知道有水滴，轉為認為作品不是自己的"
+          ],
+          "answer": 0,
+          "explanation": "他承認原本只看到收起的動作，不知道水滴；新增資訊改變了對動機的解讀。",
+          "skill": "觀點修正",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第四段：原來……昨天只看見……還不知道水滴"
+        },
+        {
+          "id": "zh-original-g6-perspective-8",
+          "prompt": "週五是否已能確定海報當天一定會重新貼上？",
+          "options": [
+            "能，因為誤會解開就代表展板已經乾了",
+            "能，因為小言知道水滴的事就等於老師批准",
+            "不能，仍要和老師確認展板能否使用"
+          ],
+          "answer": 2,
+          "explanation": "理解動機不等於確認場地狀況；對話仍保留檢查與決定的步驟。",
+          "skill": "區分條件",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第三段確認乾了再決定；第四段還是先和老師確認"
+        },
+        {
+          "id": "zh-original-g6-perspective-9",
+          "prompt": "如果要寫一則不偏向任何人的事件摘要，哪項最合適？",
+          "options": [
+            "小浩未立即說明，因此他一定故意讓小言難過",
+            "依小浩說明，海報為避濕先被收起；小言起初誤解，後來透過訊息了解原因",
+            "小言沒有問就離開，因此他以後說的話都不可信"
+          ],
+          "answer": 1,
+          "explanation": "中立摘要應保留資訊來源，整合行動、資訊差與後續澄清，不把一次行為擴張成人格定論或猜測惡意。",
+          "skill": "整合與中立摘要",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "各段共同呈現收起、猜測、原因與澄清"
+        },
+        {
+          "id": "zh-original-g6-perspective-10",
+          "prompt": "下次遇到類似情況，哪種詢問最有助於了解事實？",
+          "options": [
+            "我看到你把作品收起來，可以告訴我原因嗎？",
+            "你一定不喜歡我的作品，對不對？",
+            "只要我沒有看到原因，就表示沒有原因吧？"
+          ],
+          "answer": 0,
+          "explanation": "先描述看到的動作，再開放詢問原因，可補足資訊；預先指責或以不知道否定原因，容易延續誤解。",
+          "skill": "溝通與查證",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第二段未詢問而猜測；第四段得知原因後修正理解"
+        }
+      ],
+      "assessment": {
+        "roundSize": 10,
+        "questionCount": 10,
+        "bankSize": 10,
+        "bankComplete": false,
+        "randomizeOptions": true,
+        "timerPolicy": "inherit_existing_policy",
+        "masteryClaim": false
+      }
+    },
+    {
+      "id": "zh-original-g6-source-check",
+      "grade": 6,
+      "semester": null,
+      "publisher": null,
+      "contentKind": "original_skill_practice",
+      "title": "查來源，也看更新",
+      "objective": "依目的選讀資訊，核對發布者、日期與完整來源，區分已知與待查。",
+      "notice": "原創基礎閱讀與思辨補充，非出版社課文；網頁與通知均為虛構教學情境。",
+      "publisherLessonIds": [],
+      "learningObjectiveAlignment": "general_skill_only",
+      "passage": [
+        "【閱讀任務】小穎想確認週六校園故事活動的地點與報名方式。她先列出兩個要找的問題，再查看下列三份資料。這些網頁與訊息都是本課的虛構情境，不是實際活動通知。",
+        "【資料甲：主辦單位活動頁】頁首寫「圖書室活動小組發布」，更新時間為週五16:00。內容：「因場地維修，週六活動改在二樓多功能教室，原定上午十點開始不變。報名表仍在本頁下方，已報名者不必重填。其他安排請以本頁後續更新為準。」頁面列有圖書室服務分機。",
+        "【資料乙：同學轉傳截圖】截圖只看得到「週六上午十點，圖書室見」，看不到頁首、日期與網址。同學說：「這張是我上週存的，我還沒確認有沒有更新。」",
+        "【資料丙：社團分享文章】作者在週五17:00寫道：「聽說活動取消了，大家不用去了！」但沒有附消息來源，也沒有列出向誰確認。",
+        "【查核紀錄】小穎回到主辦單位活動頁，確認甲是完整頁面且確實更新到週五16:00。她把「目前公告是換場地，不是取消」記下，並準備用頁面列出的服務分機詢問：17:00的傳聞是否對應到尚未刊登的新變動。她尚未收到回覆。"
+      ],
+      "questions": [
+        {
+          "id": "zh-original-g6-source-check-1",
+          "prompt": "小穎要查地點與報名方式，開始閱讀時最有效的做法是什麼？",
+          "options": [
+            "先帶著這兩個問題，找相關欄位，再讀必要的完整說明",
+            "先把每篇所有文字逐字抄完，最後才看問題",
+            "只看留言數最多的訊息，不必看內文"
+          ],
+          "answer": 0,
+          "explanation": "閱讀目的明確時，可先定位相關資訊；但找到關鍵字後仍要讀完整條件，不能只看熱度。",
+          "skill": "閱讀目的與策略",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "第一段先列兩問題；甲有地點變更及報名條件"
+        },
+        {
+          "id": "zh-original-g6-source-check-2",
+          "prompt": "依目前看到的主辦公告，週六活動地點為何？",
+          "options": [
+            "圖書室",
+            "校門口集合區",
+            "二樓多功能教室"
+          ],
+          "answer": 2,
+          "explanation": "甲的完整更新公告說明換場地；乙是上週保存且缺少日期的截圖，不能用來取代新公告。",
+          "skill": "定位目前資訊",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "資料甲週五16:00：改在二樓多功能教室"
+        },
+        {
+          "id": "zh-original-g6-source-check-3",
+          "prompt": "假如小穎已經報名，依資料甲是否需要重填報名表？",
+          "options": [
+            "先取消原報名才能參加",
+            "不必重填報名表",
+            "必須重新填兩份表"
+          ],
+          "answer": 1,
+          "explanation": "「已報名者不必重填」是完整條件；不能只看到「報名表」就認為所有人要再填。",
+          "skill": "條件辨讀",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "資料甲：已報名者不必重填"
+        },
+        {
+          "id": "zh-original-g6-source-check-4",
+          "prompt": "資料乙的截圖目前缺少哪些查核線索？",
+          "options": [
+            "發布者頁首、日期與網址",
+            "活動名稱使用的字體大小",
+            "同學手機的品牌與電量"
+          ],
+          "answer": 0,
+          "explanation": "缺頁首、日期、網址，使讀者難以確認來源與時效；手機規格不能補足這些資訊。",
+          "skill": "來源線索",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "資料乙明說看不到頁首、日期與網址"
+        },
+        {
+          "id": "zh-original-g6-source-check-5",
+          "prompt": "丙的發文時間比甲晚，是否就足以確定活動取消？",
+          "options": [
+            "足夠，較晚發文必定比任何公告正確",
+            "足夠，只要有人寫「聽說」就已完成查證",
+            "不足，還需要可核對的來源或主辦回覆"
+          ],
+          "answer": 2,
+          "explanation": "新時間只是線索，不保證內容正確；丙未附來源，小穎也尚未取得主辦確認。",
+          "skill": "時效與可信度",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "丙週五17:00但無來源；查核紀錄尚未收到回覆"
+        },
+        {
+          "id": "zh-original-g6-source-check-6",
+          "prompt": "當甲與丙的內容不同時，小穎的下一步為何合理？",
+          "options": [
+            "只依自己比較喜歡哪個場地來決定消息真假",
+            "用主辦頁列出的聯絡方式詢問是否另有更新",
+            "把丙的傳聞改成更肯定的語氣再轉傳"
+          ],
+          "answer": 1,
+          "explanation": "回到可識別的主辦聯絡管道，可釐清較晚傳聞是否有新依據；喜好與轉傳語氣都不是證據。",
+          "skill": "核對管道",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "查核紀錄：用服務分機詢問尚未刊登的新變動"
+        },
+        {
+          "id": "zh-original-g6-source-check-7",
+          "prompt": "根據查核紀錄，哪個結論最符合目前證據？",
+          "options": [
+            "目前完整公告是換場地；較晚的取消傳聞仍待確認",
+            "已收到主辦回覆，確定沒有任何新變動",
+            "已收到主辦回覆，確定活動全部取消"
+          ],
+          "answer": 0,
+          "explanation": "資料只說準備詢問且未收到回覆，應同時保留已核公告與待查傳聞，不可代寫查證結果。",
+          "skill": "已知與待查",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "末段：目前公告換場地；尚未收到回覆"
+        },
+        {
+          "id": "zh-original-g6-source-check-8",
+          "prompt": "如果要把目前資訊告訴同學，哪種寫法最負責任？",
+          "options": [
+            "只傳「一定照舊在圖書室」，省去時間與來源",
+            "只傳「一定取消」，因為這句比較簡短",
+            "附上主辦完整頁面與更新時間，說明取消傳聞還在確認"
+          ],
+          "answer": 2,
+          "explanation": "傳達時讓同學可回查來源，並區分已核對的公告內容與未確認部分，比沒有依據的肯定句清楚。",
+          "skill": "資訊轉述",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "甲有更新時間與完整頁面；末段仍待回覆"
+        },
+        {
+          "id": "zh-original-g6-source-check-9",
+          "prompt": "若要找回乙的原始消息，最值得先向同學詢問什麼？",
+          "options": [
+            "截圖存放的相簿名稱是否好記",
+            "原頁連結或可辨識發布者與日期的完整畫面",
+            "截圖是在什麼品牌的手機上拍的"
+          ],
+          "answer": 1,
+          "explanation": "原頁與完整畫面有助辨識來源及日期；品牌或相簿名稱無法直接確認公告內容。",
+          "skill": "蒐集查核資料",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "乙沒有頁首日期網址，同學只記得上週存的"
+        },
+        {
+          "id": "zh-original-g6-source-check-10",
+          "prompt": "這次查核最能提醒我們哪件事？",
+          "options": [
+            "核對來源、時間與內容，遇到矛盾時保留不確定並再確認",
+            "只要來自主辦單位，就永遠不必注意更新",
+            "只要截圖有人轉傳，就和完整公告一樣充分"
+          ],
+          "answer": 0,
+          "explanation": "主辦頁較可追溯仍可能更新；截圖也可能缺脈絡。查核要結合多項線索，不用單一標記保證永遠正確。",
+          "skill": "查核策略統整",
+          "evidenceScope": "本原創短文或題內句子",
+          "reviewEvidence": "甲後續更新、乙缺線索、丙無來源、查核紀錄待回覆"
+        }
+      ],
+      "assessment": {
+        "roundSize": 10,
+        "questionCount": 10,
+        "bankSize": 10,
+        "bankComplete": false,
+        "randomizeOptions": true,
+        "timerPolicy": "inherit_existing_policy",
+        "masteryClaim": false
+      }
     }
   ]
 }
