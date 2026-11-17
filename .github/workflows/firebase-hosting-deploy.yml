@@ -37,6 +37,11 @@ jobs:
         run: |
           mkdir -p _site
           rsync -a --exclude='_site' --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='functions' --exclude='firebase-debug.log' --exclude='src' --exclude='tests' --exclude='modules/math-mission-map/v11/qa' --exclude='docs/science-curriculum' --exclude='qa/science-curriculum' --exclude='science-curriculum-preview.html' --exclude='nature-planet-preview.html' --exclude='*.check.mjs' --exclude='*.test.mjs' ./ _site/
+          # index.html imports this runtime module; keep all other source private.
+          mkdir -p _site/src
+          cp src/firebase-config.js _site/src/firebase-config.js
+          test -s _site/src/firebase-config.js
+          cmp src/firebase-config.js _site/src/firebase-config.js
 
       - name: Authenticate deployment service account
         uses: google-github-actions/auth@v2
