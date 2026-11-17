@@ -24,8 +24,8 @@ export async function requireTeacher() {
 
 export async function requireStudent() {
   const role = await resolveCurrentRole(false);
-  if (role === 'admin' || role === 'teacher') {
-    throw new Error('此為學生學習專屬區域');
+  if (role !== 'student') {
+    throw new Error('存取受限：需要已登入的學員權限');
   }
   return true;
 }

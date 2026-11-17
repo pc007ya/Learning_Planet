@@ -18,3 +18,8 @@ test('all four standalone Chinese pages have fail-closed bootstraps',()=>{
  const html=readFileSync(file,'utf8');assert.match(html,/<main data-auth-content hidden inert/);assert.match(html,/data-page-access/);assert.match(html,/\[data-auth-content\]\[hidden\]/);assert.equal((html.match(/<script/g)||[]).length,1);assert.match(html,/src="auth-v2\/page-access.mjs"/);
  }
 });
+
+test('requireStudent does not accept missing or unknown roles',()=>{
+ const source=readFileSync('auth-v2/role-router.js','utf8');
+ assert.match(source,/if \(role !== 'student'\)/);
+});
