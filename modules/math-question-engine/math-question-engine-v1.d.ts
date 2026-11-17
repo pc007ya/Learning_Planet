@@ -1,6 +1,7 @@
 export type MathEngineQuestion = {
   conceptId: string;
   templateId: string;
+  answerType?: "missing-addend" | "split-remainder";
   questionKey: string;
   operands: number[];
   stem: string;
