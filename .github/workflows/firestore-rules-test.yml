@@ -20,3 +20,5 @@ jobs:
           java-version: '21'
       - run: npm install --no-save --package-lock=false @firebase/rules-unit-testing@4.0.1 firebase@11.10.0 firebase-tools@14.27.0
       - run: npx firebase emulators:exec --config firebase.rules-test.json --only firestore --project demo-learning-planet-audit 'node tests/firestore-owner-boundaries.emulator.mjs'
+
+      - run: node --test tests/rules-deploy-scope.check.cjs
