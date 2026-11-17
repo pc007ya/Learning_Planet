@@ -32,7 +32,7 @@
     "test:resource-timing": "node --test tests/performance-diagnostics/*.check.mjs",
     "pretest:nature-planet": "python3 scripts/pack-nature-assets.py --verify-manifest",
     "pretest:science-curriculum": "python3 scripts/split-science-curriculum.py --verify && python3 scripts/integrate-science-curriculum.py && python3 scripts/integrate-science-curriculum.py --verify",
-    "test:math-bank-audit": "node --test tests/math-bank-audit.check.mjs",
+    "test:math-bank-audit": "node --test tests/math-bank-audit.check.mjs tests/math-shape-banks.check.mjs",
     "test:english-weekly": "node scripts/build-english-weekly.mjs --check && node --test tests/english-weekly.check.mjs"
   },
   "dependencies": {

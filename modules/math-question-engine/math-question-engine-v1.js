@@ -32,7 +32,8 @@ function canonicalQuestionKey(question) {
   const operands = question.operands || (question.figData ? [question.figData.a, question.figData.b] : []);
   if (operands.length < 2) return String(question.questionKey || "");
   const concept = CONCEPTS[question.conceptId];
-  return canonicalKeyForOperands(question.conceptId, Number(operands[0]), Number(operands[1]), !concept || concept.commutative !== false);
+  const key = canonicalKeyForOperands(question.conceptId, Number(operands[0]), Number(operands[1]), !concept || concept.commutative !== false);
+  return question.answerType ? `${key}:${question.answerType}:${operands.join(":")}` : key;
 }
 
 function enumerateCandidates(concept) {
@@ -126,11 +127,36 @@ function makeQuestion(concept, candidate, templateId, mode, random) {
   };
 }
 
+// Large banks test three different learning steps, not cosmetic rewordings.
+function makeSkillQuestion(concept, candidate, answerType, mode, random) {
+  const q = makeQuestion(concept, candidate, "make-ten", mode, random);
+  if (!answerType) return q;
+  const {a,b,answer} = candidate;
+  const take = 10 - a, rest = b - take;
+  q.answerType = answerType;
+  q.templateId = answerType;
+  q.ans = answerType === "missing-addend" ? b : rest;
+  q.stem = answerType === "missing-addend"
+    ? `盒裡原有 ${a} 顆星星，要變成 ${answer} 顆，還要放進幾顆？`
+    : `用湊十法算 ${a} ＋ ${b}：先從 ${b} 拿 ${take} 給 ${a} 湊成 10，${b} 還剩幾個？`;
+  const choices = misconceptionChoices(a,b,q.ans,random);
+  q.opts = choices.options;
+  q.misconceptionMap = choices.misconceptions;
+  q.questionKey = canonicalQuestionKey(q);
+  q.speakText = q.stem;
+  q.explain = answerType === "missing-addend"
+    ? `${a} 加 ${b} 是 ${answer}，所以還要放 ${b} 顆。${q.explain}`
+    : `${b} 拆成 ${take} 和 ${rest}，拿走 ${take} 後還剩 ${rest} 個，再算 10 ＋ ${rest}。`;
+  return q;
+}
+
 function generateSession({ conceptId, count = 10, history = [], mode = "practice", random } = {}) {
   const concept = CONCEPTS[conceptId];
   if (!concept) return [];
   const rng = safeRandom(random);
-  const available = enumerateCandidates(concept);
+  const base = enumerateCandidates(concept);
+  const extended = Number(count) > base.length;
+  const available = extended ? base.flatMap(candidate => [null,"missing-addend","split-remainder"].map(answerType => ({...candidate,answerType,key:answerType ? `${candidate.key}:${answerType}:${candidate.a}:${candidate.b}` : candidate.key}))) : base;
   const requested = Math.max(1, Math.min(Number(count) || 10, available.length));
   const selected = [];
   while (selected.length < requested && available.length) {
@@ -138,24 +164,24 @@ function generateSession({ conceptId, count = 10, history = [], mode = "practice
     available.splice(available.indexOf(candidate), 1);
     selected.push(candidate);
   }
-  return selected.map((candidate, index) => makeQuestion(concept, candidate, concept.templates[index % concept.templates.length], mode, rng));
+  return selected.map((candidate, index) => candidate.answerType ? makeSkillQuestion(concept, candidate, candidate.answerType, mode, rng) : makeQuestion(concept, candidate, concept.templates[index % concept.templates.length], mode, rng));
 }
 
 function generateRelatedQuestion(question, { excludeKeys = [], mode = "practice", random } = {}) {
   const concept = question && CONCEPTS[question.conceptId];
   if (!concept) return null;
   const rng = safeRandom(random);
-  const excluded = new Set([canonicalQuestionKey(question), ...excludeKeys]);
+  const excluded = new Set([canonicalQuestionKey(question), canonicalKeyForOperands(concept.conceptId,...question.operands,concept.commutative), ...excludeKeys]);
   const sourceAnswer = Number(question.ans);
   const candidates = enumerateCandidates(concept)
-    .filter((candidate) => !excluded.has(candidate.key))
+    .filter((candidate) => !excluded.has(candidate.key) && (!question.answerType || !excluded.has(`${candidate.key}:${question.answerType}:${candidate.a}:${candidate.b}`)))
     .sort((left, right) => Math.abs(left.answer - sourceAnswer) - Math.abs(right.answer - sourceAnswer));
   if (!candidates.length) return null;
   const closestDistance = Math.abs(candidates[0].answer - sourceAnswer);
   const closest = candidates.filter((candidate) => Math.abs(candidate.answer - sourceAnswer) === closestDistance);
   const candidate = closest[Math.floor(rng() * closest.length)];
   const templateIndex = Math.max(0, concept.templates.indexOf(question.templateId));
-  const related = makeQuestion(concept, candidate, concept.templates[(templateIndex + 1) % concept.templates.length], mode, rng);
+  const related = question.answerType ? makeSkillQuestion(concept,candidate,question.answerType,mode,rng) : makeQuestion(concept, candidate, concept.templates[(templateIndex + 1) % concept.templates.length], mode, rng);
   related.adaptiveRetry = true;
   related.retryOf = canonicalQuestionKey(question);
   return related;
