@@ -5515,7 +5515,7 @@ class Component extends DCLogic {
     const learnerId=s.currentId,grade=s.grade,generation=this.sessionGeneration||0,request=(this.englishOriginalRequest||0)+1;
     this.englishOriginalRequest=request;this.englishOriginalOpening=true;
     const isActive=()=>this.englishOriginalRequest===request&&this.state.screen==="map"&&this.state.subject==="english"&&!this.state.teacher&&this.state.currentId===learnerId&&this.state.grade===grade&&(this.sessionGeneration||0)===generation;
-    try { const {openEnglishOriginal}=await import("./modules/english-original/launch.mjs?v=20261116-r30");if(!isActive())return;
+    try { const {openEnglishOriginal}=await import("./modules/english-original/launch.mjs?v=20261117-r33");if(!isActive())return;
       let dismissed=false;const close=await openEnglishOriginal({learnerId,grade,isActive,onClose:()=>{dismissed=true;if(this.englishOriginalRequest===request)this.englishOriginalClose=null;}});
       if(!dismissed&&isActive())this.englishOriginalClose=close;else await close?.();
     }catch(e){if(isActive())this.flash("英文原創課程暫時無法開啟，請重試。");}
