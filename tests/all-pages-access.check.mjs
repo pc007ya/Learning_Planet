@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import path from 'node:path';
+import {execFileSync} from 'node:child_process';
 import {loadPageScripts} from '../auth-v2/page-script-loader.mjs';
 const inventory=JSON.parse(fs.readFileSync(new URL('../docs/security/page-auth-inventory.json',import.meta.url)));
 const scoped=inventory.filter(x=>['unguarded','story-guard'].includes(x.classification)&&!/^(chinese-|docs\/|qa\/)/.test(x.path));
@@ -27,4 +27,9 @@ test('both hosting artifacts exclude development docs and QA',()=>{
  for(const f of ['.github/workflows/pages.yml','.github/workflows/firebase-hosting-deploy.yml']){
   const text=fs.readFileSync(f,'utf8'); assert.ok(text.includes("--exclude='docs' --exclude='qa'"));
  }
+});
+
+test('every tracked HTML entry must have an explicit audit classification',()=>{
+ const actual=execFileSync('git',['ls-files','--','*.html'],{encoding:'utf8'}).trim().split('\n').filter(Boolean).sort();
+ assert.deepEqual(inventory.map(x=>x.path).sort(),actual,'New HTML must be audited and classified before deployment');
 });
