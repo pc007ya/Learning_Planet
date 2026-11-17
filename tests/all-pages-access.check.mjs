@@ -33,3 +33,10 @@ test('every tracked HTML entry must have an explicit audit classification',()=>{
  const actual=execFileSync('git',['ls-files','--','*.html'],{encoding:'utf8'}).trim().split('\n').filter(Boolean).sort();
  assert.deepEqual(inventory.map(x=>x.path).sort(),actual,'New HTML must be audited and classified before deployment');
 });
+
+test('DEMO Chinese entry explains the restriction before opening a protected page',()=>{
+ const html=fs.readFileSync('index.html','utf8');
+ assert.equal((html.match(/onClick="\{\{ guardProtectedEntry \}\}"/g)||[]).length,2);
+ assert.match(html,/if \(this.state.currentId !== "demo-local"\) return;\s*event.preventDefault\(\);/);
+ assert.match(html,/請先登出並用正式學員帳號登入/);
+});

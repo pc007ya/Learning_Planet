@@ -23,3 +23,13 @@ test('requireStudent does not accept missing or unknown roles',()=>{
  const source=readFileSync('auth-v2/role-router.js','utf8');
  assert.match(source,/if \(role !== 'student'\)/);
 });
+
+
+test('shell and protected tabs share one Firebase SDK and persistence policy',()=>{
+ const legacy=readFileSync('src/firebase-config.js','utf8');
+ const canonical=readFileSync('auth-v2/firebase-client.js','utf8');
+ const versions=[...legacy.matchAll(/firebasejs\/([^/]+)\//g),...canonical.matchAll(/firebasejs\/([^/]+)\//g)].map(m=>m[1]);
+ assert.deepEqual([...new Set(versions)],['10.14.1']);
+ assert.doesNotMatch(legacy,/setPersistence\(/);
+ assert.match(canonical,/await setPersistence\(auth, browserLocalPersistence\)/);
+});
