@@ -28,3 +28,15 @@ Base: main aed03cdf. 本輪不把 HTTP 或程式模擬當真瀏覽器驗收。
 - `git diff --check` PASS。
 - 全 `npm run check` 本地因 sparse checkout 未下載 `images/science-unit-art/s-kh-g1-t1-u01.webp` 而停止，不是主站圖不存在的結論。整合者需完整checkout/CI再跑 aggregate。
 - 真實瀏覽器、觸控／聲音：未驗。
+
+## 後續：原創英文週考 opt-in 整合
+
+- 48 課全部接入（1–6 年級各8課）。從現有 original_enrichment curriculum 的 vocabulary 產生獨立 weekly-en-* 詞義題庫，不搬入出版社試題、不覆蓋既有題庫。
+- 預設維持0題，管理員在每週考卷設定明確選取；原本已交卷直接顯示舊結果，沒有重新出題或改分。後台年級選項補齊至6。
+- 每題3個不重複選項、唯一正解，固定基礎詞義難度，最大題數依該課詞彙數，不虛構進階難度或無音訊聽力題。週考明細與科目成績識別原創英文。既有題仍照原產生器。
+- `node scripts/build-english-weekly.mjs` 可重生，`--check` 可阻擋 curriculum 與部署題庫不同步；已接入 npm check。
+- `npm run test:english-weekly` 5測試通過（48課來源同步、各課全額唯一正解、非法輸入、實際startWeeklyExam含舊卷不重建）；既有7扭蛋測試、46國文/角色/導航測試、typecheck通過。未宣稱瀏覽器實點、TTS或GPU驗收。
+
+## 注音第9課現有來源再查
+
+repo 的 `primer-kangxuan-115-upper.json` 只有使用者提供目錄照片 IMG_7500.HEIC 的目次證據：第9課「動物狂歡會」、第90頁。`primer-learning.json` 明定範圍為前8課，coverage與sourceRecords也僅1–8；gapUpdateSources補圖僅30/31/79頁。`primer-segments.json` 的 lesson8.…[9] 是第8課陣列索引，不是第9課資料。未在本repo找到第9課正文／練習照片或已轉錄原文，不能拿課名推造。此結論限於repo，沒有聲稱已遍搜使用者所有Library與聊天附件。保留缺口，需可讀的第90頁起該課內容與練習來源才可做教材轉錄。

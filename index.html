@@ -18,6 +18,7 @@
 <script src="./entry-image-progress.js" defer></script>
 <script src="./sci-art.js"></script>
 <script src="./science-rollout.js"></script>
+<script src="./modules/english-original/weekly-bank.js?v=20261117"></script>
 <script src="./english-vocabulary-tools.js?v=20261026"></script>
 <script src="./story-vocabulary-quiz.js?v=20261026-2"></script>
 <link rel="stylesheet" href="./story-vocabulary-quiz.css?v=20261026-2">
@@ -4514,10 +4515,11 @@ const SPEECH_MUTE_STORE_KEY = "learning-planet.question-speech-muted.v1";
 const AUTO_NEXT_STORE_KEY = "learning-planet.quiz-auto-next.v1";
 const WARDROBE_FIT_STORE_KEY = "learning-planet.wardrobe-fit.v1";
 const WEEKLY_CONFIG_STORE_KEY = "learning-planet.weekly-exam-config.v1";
-const WEEKLY_SUBJECT_META = { math: { label: "數學", icon: "🔢" }, science: { label: "自然", icon: "🔬" }, chinese: { label: "國語", icon: "📖" } };
+const EN_WEEKLY_UNITS = window.LPEnglishWeekly.units;
+const WEEKLY_SUBJECT_META = { english: { label: "原創英文", icon: "🇬🇧" }, math: { label: "數學", icon: "🔢" }, science: { label: "自然", icon: "🔬" }, chinese: { label: "國語", icon: "📖" } };
 function weeklySubjectForUnit(unitId) {
   const id = String(unitId || "");
-  return id.charAt(0) === "c" ? "chinese" : id.charAt(0) === "s" ? "science" : "math";
+  return id.startsWith("weekly-en-") ? "english" : id.charAt(0) === "c" ? "chinese" : id.charAt(0) === "s" ? "science" : "math";
 }
 const DEFAULT_WARDROBE_FIT = { x: 0, y: 0, width: 100, height: 100, topEnd: 0, bottomStart: 0 };
 const CORRECT_FEEDBACKS = [
@@ -7734,8 +7736,8 @@ class Component extends DCLogic {
         const big = "1/" + pair[0], small = "1/" + pair[1];
         q = { stem: "哪一個分數比較大？", ans: big, fig: "fraccmp", figData: { a: pair[0], b: pair[1] }, explain: "分成越多份，每一份就越小，所以 " + big + " 比 " + small + " 大。", opts: shuffle([big, small, "一樣大", "沒辦法比"]) };
       } else if (unitId === "u39") {
-        const d = r(2, 4);
-        const T = r(1, 3);
+        const d = r(1, 9);
+        const T = r(1, Math.floor(9 / d));
         const maxO = Math.floor(9 / d);
         const O = r(0, maxO);
         const tensPart = 10 * d * T, onesPart = d * O, dividend = tensPart + onesPart, quotient = 10 * T + O;
@@ -7896,7 +7898,12 @@ class Component extends DCLogic {
           [ml + " 立方公分 ＝ ？ 毫升", ml,
             [ml * 10, ml / 10, ml + 100], "1 立方公分等於 1 毫升，所以數字一樣。"],
         ][form];
-        q = { stem, ans, fig: "capacity", figData: {}, opts: shuffle([ans, ...wrongs]), explain };
+        const distinctWrongs = [...new Set(wrongs)].filter(value => value !== ans);
+        for (let offset = 1; distinctWrongs.length < 3; offset += 1) {
+          const candidate = ans + offset;
+          if (!distinctWrongs.includes(candidate)) distinctWrongs.push(candidate);
+        }
+        q = { stem, ans, fig: "capacity", figData: {}, opts: shuffle([ans, ...distinctWrongs.slice(0, 3)]), explain };
       } else if (unitId === "u56") {
         const type = lvl === 0 ? "right" : lvl === 1 ? ["right", "acute"][r(0, 1)] : ["right", "acute", "obtuse"][r(0, 2)];
         const maxB = lvl === 0 ? 14 : lvl === 1 ? 17 : 20;
@@ -8484,14 +8491,14 @@ class Component extends DCLogic {
       }
       if (!this.matchesMathNavigation(navigation)) return;
       if (generation !== (this.sessionGeneration || 0) || this.state.screen !== "weekly") return;
-    const units = MATH_UNITS.concat(CH_UNITS, SCI_UNITS).filter((unit) => unit.grade === this.state.grade && unit.kind !== "library" && unit.kind !== "writing" && unit.kind !== "math-game" && unit.kind !== "memory");
+    const units = MATH_UNITS.concat(CH_UNITS, SCI_UNITS, EN_WEEKLY_UNITS).filter((unit) => unit.grade === this.state.grade && unit.kind !== "library" && unit.kind !== "writing" && unit.kind !== "math-game" && unit.kind !== "memory");
     const questions = [];
     units.forEach((unit) => {
       const setup = this.state.weeklyConfig.modules[unit.id] || { count: 0, difficulty: unit.difficulty || 1 };
-      const count = Math.max(0, Math.min(10, Number(setup.count) || 0));
+      const count = Math.max(0, Math.min(unit.maxQuestions || 10, Math.floor(Number(setup.count) || 0)));
       if (!count) return;
-      const built = unit.id.charAt(0) === "c" ? this.buildChinese(unit.grade) : (unit.id === "u36" || unit.id === "u37") ? this.buildJunyi(unit.id) : unit.id.charAt(0) === "s" ? this.buildScience(unit.id, (Number(setup.difficulty) || 1) - 1) : this.buildMath(unit.id, (Number(setup.difficulty) || 1) - 1, { mode: "exam" });
-      built.slice(0, count).forEach((question) => questions.push(Object.assign({}, question, { unitId: unit.id, unitTitle: unit.title, difficulty: setup.difficulty || unit.difficulty || 1 })));
+      const built = unit.kind === "english-weekly" ? window.LPEnglishWeekly.build(unit.id, count) : unit.id.charAt(0) === "c" ? this.buildChinese(unit.grade) : (unit.id === "u36" || unit.id === "u37") ? this.buildJunyi(unit.id) : unit.id.charAt(0) === "s" ? this.buildScience(unit.id, (Number(setup.difficulty) || 1) - 1) : this.buildMath(unit.id, (Number(setup.difficulty) || 1) - 1, { mode: "exam" });
+      built.slice(0, count).forEach((question) => questions.push(Object.assign({}, question, { unitId: unit.id, unitTitle: unit.title, difficulty: unit.kind === "english-weekly" ? 1 : setup.difficulty || unit.difficulty || 1 })));
     });
     if (!questions.length) { this.flash("老師還沒有設定這個年級的週考題目"); return; }
     questions.sort(() => Math.random() - .5);
@@ -10529,9 +10536,9 @@ class Component extends DCLogic {
     const libFiltered = s.libUnit === "全部" ? gradeWords : gradeWords.filter((w) => w.u === s.libUnit);
     const detail = s.detailChar ? this.allWords().find((w) => w.c === s.detailChar) : null;
     const weeklyExamDone = !!(p.weeklyExam && p.weeklyExam.week === weekKey() && p.weeklyExam.submitted);
-    const weeklyUnits = allUnits.filter((candidate) => candidate.grade === s.grade && candidate.kind !== "library" && candidate.kind !== "writing").map((candidate) => {
+    const weeklyUnits = allUnits.concat(EN_WEEKLY_UNITS).filter((candidate) => candidate.grade === s.grade && candidate.kind !== "library" && candidate.kind !== "writing").map((candidate) => {
       const setup = s.weeklyConfig.modules[candidate.id] || { count: 0, difficulty: candidate.difficulty || 1 };
-      return { unit: candidate, count: Number(setup.count) || 0, difficulty: Number(setup.difficulty) || candidate.difficulty || 1 };
+      return { unit: candidate, count: Math.max(0, Math.min(candidate.maxQuestions || 10, Math.floor(Number(setup.count) || 0))), difficulty: candidate.kind === "english-weekly" ? 1 : Number(setup.difficulty) || candidate.difficulty || 1 };
     }).filter((entry) => entry.count > 0);
     const examQuestion = s.examQs[s.examIndex];
     const resultAnimation = s.resultAnimation || { correct: 0, score: 0, xp: 0, coins: 0, totalXp: 0, ready: false };

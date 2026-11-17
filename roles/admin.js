@@ -451,14 +451,14 @@ renderBackendVals(s,allUnits,className){return {      adminTabs: ((teacherById(s
       weeklyTeacherTime: s.weeklyConfig.timeSeconds,
       weeklyTimeOptions: [15, 20, 30, 45, 60, 90, 120].map((value) => ({ value, label: value + " 秒" })),
       changeWeeklyTime: (e) => this.updateWeeklyTime(e.target.value),
-      weeklyTeacherGrades: [1, 2, 3].map((grade) => ({ label: ["", "一年級", "二年級", "三年級"][grade], go: () => this.setState({ weeklyTeacherGrade: grade }), bg: s.weeklyTeacherGrade === grade ? "#7c5cff" : "#fff", fg: s.weeklyTeacherGrade === grade ? "#fff" : "#7c74a8", border: s.weeklyTeacherGrade === grade ? "#7c5cff" : "#ddd5ff" })),
-      weeklyModuleRows: allUnits.filter((candidate) => candidate.grade === s.weeklyTeacherGrade && candidate.kind !== "library" && candidate.kind !== "writing").map((candidate) => {
+      weeklyTeacherGrades: [1, 2, 3, 4, 5, 6].map((grade) => ({ label: ["", "一年級", "二年級", "三年級", "四年級", "五年級", "六年級"][grade], go: () => this.setState({ weeklyTeacherGrade: grade }), bg: s.weeklyTeacherGrade === grade ? "#7c5cff" : "#fff", fg: s.weeklyTeacherGrade === grade ? "#fff" : "#7c74a8", border: s.weeklyTeacherGrade === grade ? "#7c5cff" : "#ddd5ff" })),
+      weeklyModuleRows: allUnits.concat(EN_WEEKLY_UNITS).filter((candidate) => candidate.grade === s.weeklyTeacherGrade && candidate.kind !== "library" && candidate.kind !== "writing").map((candidate) => {
         const setup = s.weeklyConfig.modules[candidate.id] || { count: 0, difficulty: candidate.difficulty || 1 };
-        return { icon: candidate.icon, title: candidate.title, subject: candidate.id.charAt(0) === "c" ? "國文" : "數學", count: setup.count || 0, difficulty: setup.difficulty || candidate.difficulty || 1,
-          countOptions: Array.from({ length: 11 }, (_, value) => ({ value, label: value + " 題" })), difficultyOptions: [1, 2, 3].map((value) => ({ value, label: "⭐".repeat(value) })),
+        return { icon: candidate.icon, title: candidate.title, subject: WEEKLY_SUBJECT_META[weeklySubjectForUnit(candidate.id)].label, count: Math.max(0, Math.min(candidate.maxQuestions || 10, Math.floor(Number(setup.count) || 0))), difficulty: candidate.kind === "english-weekly" ? 1 : setup.difficulty || candidate.difficulty || 1,
+          countOptions: Array.from({ length: (candidate.maxQuestions || 10) + 1 }, (_, value) => ({ value, label: value + " 題" })), difficultyOptions: (candidate.kind === "english-weekly" ? [1] : [1, 2, 3]).map((value) => ({ value, label: "⭐".repeat(value) })),
           changeCount: (e) => this.updateWeeklyModule(candidate.id, "count", e.target.value), changeDifficulty: (e) => this.updateWeeklyModule(candidate.id, "difficulty", e.target.value) };
       }),
-      weeklyTeacherTotal: allUnits.filter((candidate) => candidate.grade === s.weeklyTeacherGrade).reduce((sum, candidate) => sum + Number((s.weeklyConfig.modules[candidate.id] || {}).count || 0), 0),
+      weeklyTeacherTotal: allUnits.concat(EN_WEEKLY_UNITS).filter((candidate) => candidate.grade === s.weeklyTeacherGrade).reduce((sum, candidate) => sum + Math.max(0, Math.min(candidate.maxQuestions || 10, Math.floor(Number((s.weeklyConfig.modules[candidate.id] || {}).count) || 0))), 0),
 
       studentCount: s.students.filter((st) => st.classId === s.studentClassFilter).length,
       loggedIn: s.students.filter((st) => st.classId === s.studentClassFilter && hasSignedToday(st.profile)).length,
