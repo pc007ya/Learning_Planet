@@ -35,7 +35,7 @@
     "test:math-bank-audit": "node --test tests/math-bank-audit.check.mjs tests/math-shape-banks.check.mjs",
     "test:english-weekly": "node scripts/build-english-weekly.mjs --check && node --test tests/english-weekly.check.mjs",
     "test:math-special-modes": "node --test tests/math-special-modes.check.mjs",
-    "test:chinese-grade6": "node --test tests/chinese-grade6.check.mjs"
+    "test:chinese-grade6": "node --test tests/chinese-grade6.check.mjs tests/chinese-grade6-writing.check.mjs"
   },
   "dependencies": {
     "pixi.js": "^8.18.1",
