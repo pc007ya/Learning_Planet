@@ -1,0 +1,9 @@
+const fs=require('node:fs');const assert=require('node:assert/strict');const z=require('../../modules/english-original/english-zhuyin.js');
+const root=require('node:path').resolve(__dirname,'../..');
+const files=['index.html','curriculum.json','speech-r33.js','bootstrap.js','english-progress-r29.js','english-writer-lease-r29.js','launch.mjs'];
+let count=0;for(const f of files){const source=fs.readFileSync(root+'/modules/english-original/'+f,'utf8');const unknown=z.tokens(source).filter(t=>/[\u3400-\u9fff]/.test(t.char)&&!t.reading);assert.deepEqual([...new Set(unknown.map(t=>t.char))],[],f+' unmapped Han');count+=z.tokens(source).filter(t=>t.reading).length;}
+const cases={'重聽':'ㄔㄨㄥˊ ㄊㄧㄥ','重複':'ㄔㄨㄥˊ ㄈㄨˋ','銀行':'ㄧㄣˊ ㄏㄤˊ','旅行':'ㄌㄩˇ ㄒㄧㄥˊ','睡覺':'ㄕㄨㄟˋ ㄐㄧㄠˋ','覺得':'ㄐㄩㄝˊ ˙ㄉㄜ','可數':'ㄎㄜˇ ㄕㄨˇ','數量':'ㄕㄨˋ ㄌㄧㄤˋ','量測':'ㄌㄧㄤˊ ㄘㄜˋ','測量':'ㄘㄜˋ ㄌㄧㄤˊ','教室':'ㄐㄧㄠˋ ㄕˋ','先教':'ㄒㄧㄢ ㄐㄧㄠ','因為':'ㄧㄣ ㄨㄟˋ','作為':'ㄗㄨㄛˋ ㄨㄟˊ','穿著':'ㄔㄨㄢ ㄓㄨㄛˊ','試著':'ㄕˋ ˙ㄓㄜ','家長':'ㄐㄧㄚ ㄓㄤˇ','長度':'ㄔㄤˊ ㄉㄨˋ','重的':'ㄓㄨㄥˋ ˙ㄉㄜ','下載':'ㄒㄧㄚˋ ㄗㄞˋ'};
+for(const [s,r] of Object.entries(cases))assert.equal(z.tokens(s).map(x=>x.reading).join(' '),r,s);
+assert.equal(z.tokens('Hello! I am Yuyu.').map(x=>x.char).join(''),'Hello! I am Yuyu.');assert(z.tokens('Hello!').every(x=>!x.reading));
+console.log(JSON.stringify({files:files.length,annotatedCharacterOccurrences:count,contextCases:Object.keys(cases).length,coverage:'no unmapped Han in supplied corpus',limits:'coverage is not independent verification of every pronunciation'},null,2));
+const reviewed={'目的地':'ㄇㄨˋ ㄉㄧˋ ㄉㄧˋ','仔細地':'ㄗˇ ㄒㄧˋ ˙ㄉㄜ','慢慢地':'ㄇㄢˋ ㄇㄢˋ ˙ㄉㄜ','待在':'ㄉㄞ ㄗㄞˋ','繫安全帶':'ㄐㄧˋ ㄢ ㄑㄩㄢˊ ㄉㄞˋ','子音':'ㄗˇ ㄧㄣ','冠詞':'ㄍㄨㄢˋ ㄘˊ','喜好':'ㄒㄧˇ ㄏㄠˋ','處理':'ㄔㄨˇ ㄌㄧˇ','重新':'ㄔㄨㄥˊ ㄒㄧㄣ','重試':'ㄔㄨㄥˊ ㄕˋ','選擇':'ㄒㄩㄢˇ ㄗㄜˊ','儲存':'ㄔㄨˊ ㄘㄨㄣˊ','數一數':'ㄕㄨˇ ㄧ ㄕㄨˇ','容量':'ㄖㄨㄥˊ ㄌㄧㄤˋ','數字':'ㄕㄨˋ ㄗˋ','檔案':'ㄉㄤˇ ㄢˋ'};for(const [s,r]of Object.entries(reviewed))assert.equal(z.tokens(s).map(x=>x.reading).join(' '),r,s);console.log('17 official-source risk regressions passed');
