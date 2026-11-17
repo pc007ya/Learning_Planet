@@ -1,6 +1,8 @@
 import { initializeApp, getApps, getApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
 import {
   getAuth,
+  browserLocalPersistence,
+  setPersistence,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -63,6 +65,9 @@ async function resolveFirebaseConfig() {
 const firebaseConfig = await resolveFirebaseConfig();
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 export const auth = getAuth(app);
+// One SDK instance and one persistence policy across the shell and new tabs.
+// Await migration before exposing login or registering protected-page observers.
+await setPersistence(auth, browserLocalPersistence);
 export const db = getFirestore(app);
 export const functions = getFunctions(app, 'asia-east1');
 export const googleProvider = new GoogleAuthProvider();
