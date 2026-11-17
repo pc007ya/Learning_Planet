@@ -5,7 +5,7 @@ import {createYuyu} from '../math-mission-map/v11/planet-yuyu.mjs';
 export function gardenLayout(units) {
   if(!Array.isArray(units)||!units.length||units.length>8)throw Error('Expected 1–8 units');
   const seen=new Set();
-  return units.map((u,i)=>{if(!u?.id||seen.has(u.id))throw Error('Unique course IDs required');seen.add(u.id);const col=i<4?i:7-i;return {...u,number:i+1,x:(col-1.5)*3.4,z:i<4?-2.4:2.4};});
+  return units.map((u,i)=>{if(!u?.id||seen.has(u.id))throw Error('Unique course IDs required');seen.add(u.id);const [x,z]=[[-4.8,-1.4],[-2.7,-2.4],[0,-2.5],[3.5,-1.9],[5,.8],[2.5,2.5],[-.4,2.6],[-3.7,1.8]][i];return {...u,number:i+1,x,z};});
 }
 export function advance(position,route,dt,nav,speed=2.4){
   let remaining=Math.min(.05,Math.max(0,dt))*speed,moved=0;
@@ -33,8 +33,8 @@ export function createExplorer(container,options){
  const garden=buildGarden(T,{scene,nodes,mesh,color,own});
  nodes.forEach(n=>{
   const bitmap=doc.createElement('canvas');bitmap.width=256;bitmap.height=128;const ctx=bitmap.getContext('2d');ctx.fillStyle='#fffbea';ctx.beginPath();ctx.roundRect(3,3,250,122,18);ctx.fill();ctx.strokeStyle='#227b84';ctx.lineWidth=6;ctx.stroke();ctx.fillStyle='#205b66';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 52px sans-serif';ctx.fillText(String(n.number),128,38);ctx.font='bold 35px sans-serif';ctx.fillText(themeFor(n).toUpperCase(),128,91,225);
-  const sign=new T.Sprite(own(new T.SpriteMaterial({map:Object.assign(own(new T.CanvasTexture(bitmap)),{colorSpace:T.SRGBColorSpace}),depthTest:false,toneMapped:false})));sign.position.set(n.x,1.85,n.z-.6);sign.scale.set(1.3,.65,1);sign.userData.unitId=n.id;scene.add(sign);pickables.push(sign);
-  const marker=mesh(scene,new T.TorusGeometry(.24,.035,8,32),color(0x37a3b0),[n.x,.13,n.z+.5]);marker.rotation.x=-Math.PI/2;marker.userData.unitId=n.id;markers.push(marker);
+  const sign=new T.Sprite(own(new T.SpriteMaterial({map:Object.assign(own(new T.CanvasTexture(bitmap)),{colorSpace:T.SRGBColorSpace}),depthTest:false,toneMapped:false})));sign.position.set(n.x,2.05,n.z-.6);sign.scale.set(1.3,.65,1);sign.userData.unitId=n.id;scene.add(sign);pickables.push(sign);
+  mesh(scene,new T.CylinderGeometry(.025,.035,.5,10),color(0x76533c),[n.x+.35,.33,n.z+.5]);const marker=mesh(scene,new T.BoxGeometry(.23,.14,.025),color(0x37a3b0),[n.x+.46,.51,n.z+.5]);marker.userData.unitId=n.id;markers.push(marker);
  });
  const actor=createYuyu(T,{own,color,mesh});actor.root.scale.setScalar(.52);const spawn=nodes.find(n=>n.id===selected)||nodes[0];actor.root.position.set(spawn.x,.08,spawn.z+.5);scene.add(actor.root);
  toolbar=doc.createElement('div');toolbar.style.cssText='position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;max-width:calc(100% - 20px)';container.append(toolbar);

@@ -1,6 +1,7 @@
 /** Original English garden. Footprints are shared by rendering and collision tests. */
 export function themeFor(unit){
  const t=unit.title.toLowerCase();
+ if(/happy school day/.test(t))return 'plaza';
  if(/color|show/.test(t))return 'art';
  if(/old|time|calendar|routine|often|morning|saturday|sunday/.test(t))return 'clock';
  if(/toy|play|club/.test(t))return 'play';
@@ -12,10 +13,11 @@ export function themeFor(unit){
  if(/classroom|school|class|pencil|bag|room/.test(t))return 'school';
  return 'library';
 }
-export function gardenFootprints(nodes){return nodes.map(n=>({x:n.x,z:n.z-.6,r:.72,unitId:n.id,theme:themeFor(n)}));}
+export function coastFactor(a){return .98+.075*Math.sin(a*3)+.045*Math.cos(a*5);}
+export function gardenFootprints(nodes){return nodes.map(n=>({x:n.x,z:n.z-.6,r:.94,unitId:n.id,theme:themeFor(n)}));}
 export function createGardenNavigation(nodes){
- const obstacles=gardenFootprints(nodes),step=.2;
- const safe=p=>Number.isFinite(p.x)&&Number.isFinite(p.z)&&(p.x/7.35)**2+(p.z/4.15)**2<1&&(!((p.x/3.48)**2+(p.z/.94)**2<1)||Math.abs(p.x)<.38)&&!obstacles.some(o=>Math.hypot(p.x-o.x,p.z-o.z)<o.r);
+ const obstacles=[...gardenFootprints(nodes),...nodes.map(n=>({x:n.x+.35,z:n.z+.5,r:.19})),{x:-6.1,z:.1,r:.64},{x:5.8,z:-1.9,r:.64}],step=.2;
+ const safe=p=>Number.isFinite(p.x)&&Number.isFinite(p.z)&&Math.hypot(p.x/7.35,p.z/4.15)<coastFactor(Math.atan2(p.z/4.15,p.x/7.35))&&(!((p.x/3.48)**2+(p.z/.94)**2<1)||Math.abs(p.x)<.38)&&!obstacles.some(o=>Math.hypot(p.x-o.x,p.z-o.z)<o.r);
  const clear=(a,b)=>{const n=Math.max(1,Math.ceil(Math.hypot(b.x-a.x,b.z-a.z)/.035));for(let i=0;i<=n;i++){const t=i/n;if(!safe({x:a.x+(b.x-a.x)*t,z:a.z+(b.z-a.z)*t}))return false;}return true;};
  const grid=new Map(),key=(x,z)=>`${x},${z}`;
  for(let x=-37;x<=37;x++)for(let z=-21;z<=21;z++){const p={x:x*step,z:z*step,gx:x,gz:z};if(safe(p))grid.set(key(x,z),p);}
@@ -29,22 +31,26 @@ export function buildGarden(T,{scene,nodes,mesh,color,own}){
  function ball(p,r,mat,pos,scale){const m=mesh(p,new T.SphereGeometry(r,20,14),mat,pos);if(scale)m.scale.set(...scale);return m;}
  function cylinder(p,rt,rb,h,mat,pos,sides=20){return mesh(p,new T.CylinderGeometry(rt,rb,h,sides),mat,pos);}
  function group(x=0,y=0,z=0){const g=new T.Group();g.position.set(x,y,z);scene.add(g);return g;}
- function shape(rx,rz){const s=new T.Shape();for(let i=0;i<=64;i++){const a=i/64*Math.PI*2,k=.98+.025*Math.sin(a*5)+.016*Math.cos(a*3),x=Math.cos(a)*rx*k,z=Math.sin(a)*rz*k;if(i)s.lineTo(x,z);else s.moveTo(x,z);}s.closePath();return s;}
+ function shape(rx,rz){const s=new T.Shape();for(let i=0;i<=64;i++){const a=i/64*Math.PI*2,k=coastFactor(a),x=Math.cos(a)*rx*k,z=Math.sin(a)*rz*k;if(i)s.lineTo(x,-z);else s.moveTo(x,-z);}s.closePath();return s;}
  function land(rx,rz,depth,y,mat){const g=new T.ExtrudeGeometry(shape(rx,rz),{depth,bevelEnabled:true,bevelSize:.12,bevelThickness:.035,bevelSegments:2,steps:1});g.translate(0,0,-depth);const m=mesh(scene,g,mat,[0,y,0]);m.rotation.x=-Math.PI/2;return m;}
  land(8.05,4.8,.62,-.12,color(0x967559));land(8.03,4.78,.16,-.015,color(0xe8cf9b));land(7.8,4.52,.08,.035,color(0x8bb78c));
  // Shallow bay in the meadow; the middle wooden footbridge is the only pond crossing.
  const pond=mesh(scene,new T.CircleGeometry(1,64),palette.water,[0,.09,0]);pond.rotation.x=-Math.PI/2;pond.scale.set(3.35,.79,1);
  const shore=mesh(scene,new T.TorusGeometry(1,.055,8,64),color(0xd4c293),[0,.085,0]);shore.rotation.x=-Math.PI/2;shore.scale.set(3.4,.86,1);
  const road=color(0xd6c29d);
- const points=nodes.map(n=>({x:n.x,z:n.z+.5}));
- function roadTo(a,b,width=.55){const dx=b.x-a.x,dz=b.z-a.z,m=box(scene,[width,.025,Math.hypot(dx,dz)],road,[(a.x+b.x)/2,.095,(a.z+b.z)/2]);m.rotation.y=Math.atan2(dx,dz);}
- points.forEach((p,i)=>roadTo(p,points[(i+1)%points.length]));roadTo({x:0,z:-1.9},{x:0,z:-.9});roadTo({x:0,z:.9},{x:0,z:2.9});
+ const points=nodes.map(n=>new T.Vector3(n.x,0,n.z+.5));
+ function curvedRoad(points,closed=false){const curve=new T.CatmullRomCurve3(points,closed,'catmullrom',.4);const g=new T.TubeGeometry(curve,128,.24,8,closed);const roadMesh=mesh(scene,g,road,[0,.1,0]);roadMesh.scale.y=.12;return curve;}
+ const mainPath=curvedRoad(points,true);
+ curvedRoad([new T.Vector3(0,0,-2),new T.Vector3(-.13,0,-1.6),new T.Vector3(0,0,-1.05)]);
+ curvedRoad([new T.Vector3(0,0,1.05),new T.Vector3(.2,0,1.8),new T.Vector3(-.4,0,3.1)]);
+ // Small path-edge paving accents, not an artificial movement restriction.
+ for(let i=0;i<36;i++){const p=mainPath.getPoint(i/36),t=mainPath.getTangent(i/36),side=i%2?1:-1;ball(scene,.045,color(0xc9bb9b),[p.x+t.z*.28*side,.12,p.z-t.x*.28*side],[1.4,.4,1]);}
  for(let z=-1.05;z<=1.05;z+=.16)box(scene,[1.12,.1,.14],z%2?palette.cream:palette.wood,[0,.16,z]);
  for(const x of [-.55,.55]){box(scene,[.04,.05,2.25],palette.wood,[x,.47,0]);for(const z of [-1,-.5,0,.5,1])cylinder(scene,.035,.04,.44,palette.wood,[x,.26,z],8);}
  function tree(x,z,size=1,tint=palette.leaf){cylinder(scene,.055*size,.09*size,.62*size,palette.wood,[x,.38*size,z],10);ball(scene,.31*size,tint,[x,.88*size,z],[1,1.2,1]);ball(scene,.23*size,tint,[x-.15*size,.74*size,z+.08*size]);}
  function flower(x,z,c=palette.pink){cylinder(scene,.01,.013,.22,palette.leaf,[x,.18,z],6);for(let j=0;j<5;j++){const a=j/5*Math.PI*2;ball(scene,.042,c,[x+Math.cos(a)*.045,.31,z+Math.sin(a)*.045]);}ball(scene,.025,palette.gold,[x,.32,z]);}
  // Shore decorations stay outside the navigation boundary, including their canopy.
- for(let i=0;i<34;i++){const a=i/34*Math.PI*2,x=Math.cos(a)*7.6,z=Math.sin(a)*4.42;if(i%3===0)tree(x,z,.75+(i%4)*.1,i%2?palette.leaf:color(0x6a9c8d));else if(i%3===1)ball(scene,.18,color(0x949c8a),[x,.15,z],[1.4,.7,1]);else for(let k=0;k<3;k++)flower(x+k*.1,z, i%2?palette.pink:palette.gold);}
+ for(let i=0;i<34;i++){const a=i/34*Math.PI*2,x=Math.cos(a)*7.6*coastFactor(a),z=Math.sin(a)*4.42*coastFactor(a);if(i%3===0)tree(x,z,.75+(i%4)*.1,i%2?palette.leaf:color(0x6a9c8d));else if(i%3===1)ball(scene,.18,color(0x949c8a),[x,.15,z],[1.4,.7,1]);else for(let k=0;k<3;k++)flower(x+k*.1,z, i%2?palette.pink:palette.gold);}
  function door(g,x=0,z=.33){box(g,[.17,.34,.035],palette.wood,[x,.24,z]);ball(g,.018,palette.gold,[x+.05,.24,z+.03]);}
  function window(g,x,y,z){box(g,[.16,.18,.025],palette.teal,[x,y,z]);box(g,[.018,.18,.035],palette.cream,[x,y,z+.01]);box(g,[.16,.018,.035],palette.cream,[x,y,z+.01]);}
  function roof(g,mat,y=.9){const r=mesh(g,new T.ConeGeometry(.67,.4,4),mat,[0,y,0]);r.rotation.y=Math.PI/4;return r;}
@@ -58,9 +64,14 @@ export function buildGarden(T,{scene,nodes,mesh,color,own}){
  function market(g){box(g,[.9,.4,.5],palette.cream,[0,.3,0]);for(let i=0;i<6;i++)box(g,[.16,.08,.74],i%2?palette.cream:palette.pink,[-.4+i*.16,.72,0]);for(const x of [-.43,.43])cylinder(g,.025,.025,.7,palette.wood,[x,.4,.23],8);for(let i=0;i<9;i++)ball(g,.065,[palette.gold,palette.pink,palette.leaf][i%3],[(i%3-1)*.23,.56,Math.floor(i/3)*.14-.12]);}
  function nature(g){cylinder(g,.3,.4,.2,palette.wood,[0,.17,0]);for(let i=0;i<5;i++){const a=i*1.3,x=Math.sin(a)*.3,z=Math.cos(a)*.3;cylinder(g,.018,.02,.65,palette.leaf,[x,.56,z],8);for(let j=0;j<7;j++){const t=j*Math.PI*2/7;ball(g,.07,palette.gold,[x+Math.cos(t)*.12,.9+Math.sin(t)*.12,z]);}ball(g,.085,palette.wood,[x,.9,z+.015]);}}
  function library(g){box(g,[.9,.65,.65],palette.cream,[0,.41,0]);roof(g,palette.blue,.95);door(g);for(const x of [-.32,.32])window(g,x,.5,.34);for(let i=0;i<4;i++)box(g,[.09,.25,.16],[palette.pink,palette.teal,palette.gold,palette.blue][i],[-.15+i*.1,.93,.05]);}
- const builders={school,art,clock,play,animal,sport,garden,market,nature,library};
+ function plaza(g){cylinder(g,.39,.45,.16,palette.cream,[0,.15,0]);cylinder(g,.33,.33,.03,palette.water,[0,.25,0]);cylinder(g,.08,.13,.55,palette.cream,[0,.45,0]);ball(g,.14,palette.gold,[0,.8,0]);for(const x of [-.42,.42]){box(g,[.2,.06,.48],palette.wood,[x,.26,0]);for(const z of [-.16,.16])box(g,[.04,.22,.04],palette.wood,[x,.13,z]);}}
+ const builders={school,art,clock,play,animal,sport,garden,market,nature,library,plaza};
  const footprints=gardenFootprints(nodes);
- for(const f of footprints){const g=group(f.x,.1,f.z);g.name=`english-${f.theme}-${f.unitId}`;builders[f.theme](g);}
+ for(const f of footprints){const g=group(f.x,.1,f.z);g.name=`english-${f.theme}-${f.unitId}`;g.scale.setScalar(1.25);builders[f.theme](g);}
+ // Sculpted rocky headlands and clustered plants break the flat coastline silhouette.
+ for(const [x,z]of[[-6.1,.1],[5.8,-1.9]]){ball(scene,.62,color(0x858e78),[x,.2,z],[1,.85,.85]);ball(scene,.38,color(0xa0aa8f),[x-.22,.55,z+.06],[.9,.8,1]);ball(scene,.29,color(0x71916d),[x+.2,.58,z-.06],[1.2,.65,1]);tree(x-.25,z-.15,.85);}
+ // Clustered shrubs inside each landmark's already-blocked footprint, never over a road.
+ footprints.forEach((f,i)=>{for(let k=0;k<3;k++){const a=Math.PI+k*.6;ball(scene,.12,i%2?palette.leaf:color(0x8da56b),[f.x+Math.cos(a)*.67,.16,f.z+Math.sin(a)*.67],[1.2,.7,1]);}});
  // Water lilies and a moving duck family use the pond, outside the footbridge.
  for(const x of [-2.6,-1.9,1.5,2.4]){const lily=mesh(scene,new T.CircleGeometry(.16,16),palette.leaf,[x,.11,.2*Math.sin(x)]);lily.rotation.x=-Math.PI/2;ball(scene,.055,palette.pink,[x,.16,.2*Math.sin(x)]);}
  const ducks=[];for(let i=0;i<3;i++){const g=group(-1.1-i*.28,.17,.08+i*.13);ball(g,.11,palette.gold,[0,0,0],[1.4,.8,1]);ball(g,.065,palette.gold,[.1,.09,0]);const beak=mesh(g,new T.ConeGeometry(.025,.07,8),palette.pink,[.18,.09,0]);beak.rotation.z=-Math.PI/2;ducks.push(g);}
