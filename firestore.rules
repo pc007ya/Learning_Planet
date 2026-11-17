@@ -80,9 +80,18 @@ service cloud.firestore {
       allow read: if isAdmin() || (
         isTeacher() && resource.data.classId in teacherDoc().data.assignedClassIds
       ) || (isStudent() && resource.data.studentId == request.auth.uid);
-      allow create, update: if isAdmin() || (
+      allow create: if isAdmin() || (
         isTeacher() && request.resource.data.classId in teacherDoc().data.assignedClassIds
       ) || (isStudent() && request.resource.data.studentId == request.auth.uid);
+      // Updates must authorize the existing document as well as its replacement.
+      allow update: if isAdmin() || (
+        isTeacher()
+        && resource.data.classId in teacherDoc().data.assignedClassIds
+        && request.resource.data.classId in teacherDoc().data.assignedClassIds
+      ) || (isStudent()
+        && resource.data.studentId == request.auth.uid
+        && request.resource.data.studentId == request.auth.uid
+        && request.resource.data.classId == resource.data.classId);
       allow delete: if isAdmin();
     }
 
@@ -90,13 +99,17 @@ service cloud.firestore {
       allow read: if isAdmin() || (
         isTeacher() && resource.data.classId in teacherDoc().data.assignedClassIds
       ) || (isStudent() && resource.data.userId == request.auth.uid);
-      allow create, update: if isStudent()
+      function validStudentResult() {
+        return isStudent()
         && request.resource.data.userId == request.auth.uid
         && request.resource.data.classId == get(/databases/$(database)/documents/students/$(request.auth.uid)).data.classId
         && request.resource.data.keys().hasOnly([
           'userId', 'testId', 'classId', 'title', 'answers', 'correct', 'total', 'score',
           'subjectScores', 'baseXp', 'bonusXp', 'earnedXp', 'earnedCoins', 'duration', 'completedAt'
         ]);
+      }
+      allow create: if validStudentResult();
+      allow update: if validStudentResult() && resource.data.userId == request.auth.uid;
       allow delete: if isAdmin();
     }
 
@@ -104,8 +117,15 @@ service cloud.firestore {
       allow read: if isAdmin() || (
         isTeacher() && resource.data.classId in teacherDoc().data.assignedClassIds
       ) || (isStudent() && resource.data.studentId == request.auth.uid);
-      allow create, update: if isAdmin() || (
+      allow create: if isAdmin() || (
         isTeacher()
+        && request.resource.data.classId in teacherDoc().data.assignedClassIds
+        && request.resource.data.courseId in teacherDoc().data.assignedCourseIds
+      );
+      allow update: if isAdmin() || (
+        isTeacher()
+        && resource.data.classId in teacherDoc().data.assignedClassIds
+        && resource.data.courseId in teacherDoc().data.assignedCourseIds
         && request.resource.data.classId in teacherDoc().data.assignedClassIds
         && request.resource.data.courseId in teacherDoc().data.assignedCourseIds
       );
