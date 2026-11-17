@@ -1,0 +1,482 @@
+{
+  "schemaVersion": 1,
+  "contentKind": "original_skill_practice",
+  "copyright": "本次原創短文、題幹與解析；不含出版社課文、圖片或原音。",
+  "alignmentNotice": "六年級能力練習候選；未宣稱與36課課文內容或各課目標對齊。",
+  "units": [
+    {
+      "id": "zh-original-g6-evidence",
+      "grade": 6,
+      "semester": null,
+      "publisher": null,
+      "contentKind": "original_skill_practice",
+      "title": "找證據，不急著下結論",
+      "objective": "區分文本事實、推論與需要補充的證據。",
+      "notice": "原創能力練習，非出版社課文；未核定對應任何課的學習目標。",
+      "publisherLessonIds": [],
+      "learningObjectiveAlignment": "general_skill_only",
+      "passage": [
+        "午休後，班上的盆栽葉片有些下垂。小安說：「一定是缺水。」小晴提醒大家先摸一摸土壤，結果表面仍然濕潤。",
+        "他們查了植物照顧紀錄，發現盆栽上午一直放在強烈日照下。大家先把它移到明亮但不曝曬的地方，暫時沒有再澆水。",
+        "放學前，部分葉片挺了起來。小安在紀錄簿上寫：「移動位置後，部分葉片恢復；原因還需要持續觀察。」"
+      ],
+      "questions": [
+        {
+          "id": "zh-original-g6-evidence-1",
+          "prompt": "小安最初認為葉片下垂的原因是什麼？",
+          "options": [
+            "缺水",
+            "太冷",
+            "缺少肥料"
+          ],
+          "answer": 0,
+          "explanation": "第一段直接寫出小安的猜測。",
+          "skill": "擷取訊息",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-evidence-2",
+          "prompt": "哪個觀察使大家沒有立刻再澆水？",
+          "options": [
+            "葉片全部掉落",
+            "土壤表面仍濕潤",
+            "花盆是白色"
+          ],
+          "answer": 1,
+          "explanation": "小晴檢查土壤，發現表面濕潤。",
+          "skill": "連結證據",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-evidence-3",
+          "prompt": "照顧紀錄提供了哪項資訊？",
+          "options": [
+            "盆栽已經一週沒水",
+            "盆栽去年才種下",
+            "盆栽上午受到強烈日照"
+          ],
+          "answer": 2,
+          "explanation": "第二段提到上午一直在強烈日照下。",
+          "skill": "擷取訊息",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-evidence-4",
+          "prompt": "大家先採取什麼行動？",
+          "options": [
+            "移到明亮但不曝曬處",
+            "立刻加入肥料",
+            "剪掉所有葉片"
+          ],
+          "answer": 0,
+          "explanation": "行動是移動位置，沒有再澆水。",
+          "skill": "擷取訊息",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-evidence-5",
+          "prompt": "放學前發生了什麼變化？",
+          "options": [
+            "整株開滿花",
+            "部分葉片挺起",
+            "所有葉片完全恢復"
+          ],
+          "answer": 1,
+          "explanation": "文章只說部分，不是全部。",
+          "skill": "精確閱讀",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-evidence-6",
+          "prompt": "哪一句最符合文章證據？",
+          "options": [
+            "每次下垂都是曝曬造成",
+            "濕土一定不會缺水",
+            "移動後部分葉片恢復"
+          ],
+          "answer": 2,
+          "explanation": "紀錄只支持「移動後部分葉片恢復」；「每次」與「一定」把一次觀察擴大成沒有證據的通則。",
+          "skill": "限制推論",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-evidence-7",
+          "prompt": "小安最後為何寫「還需要持續觀察」？",
+          "options": [
+            "現有紀錄不足以完全確定原因",
+            "他已經證明所有原因",
+            "他完全沒有觀察"
+          ],
+          "answer": 0,
+          "explanation": "現象先後發生，不代表唯一原因已經確定。",
+          "skill": "合理推論",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-evidence-8",
+          "prompt": "哪個紀錄最有助於後續比較？",
+          "options": [
+            "只畫花盆顏色",
+            "每天相同時間記土壤與葉片狀態",
+            "只寫今天很開心"
+          ],
+          "answer": 1,
+          "explanation": "在相近條件下持續記錄，較能比較變化。",
+          "skill": "證據規劃",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-evidence-9",
+          "prompt": "哪個詞最能避免把觀察說得太滿？",
+          "options": [
+            "全部",
+            "永遠",
+            "部分"
+          ],
+          "answer": 2,
+          "explanation": "文本觀察只涵蓋部分葉片。",
+          "skill": "詞語精確",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-evidence-10",
+          "prompt": "本文最適合的摘要是哪項？",
+          "options": [
+            "同學先檢查與查紀錄，再移動盆栽並持續觀察",
+            "同學證明每株植物都不能澆水",
+            "同學立刻澆水後全部葉片恢復"
+          ],
+          "answer": 0,
+          "explanation": "摘要需包含實際過程，不能加入相反或誇大的內容。",
+          "skill": "摘要",
+          "evidenceScope": "本原創短文或題內句子"
+        }
+      ],
+      "assessment": {
+        "roundSize": 10,
+        "questionCount": 10,
+        "bankSize": 10,
+        "bankComplete": false,
+        "randomizeOptions": true,
+        "timerPolicy": "inherit_existing_policy",
+        "masteryClaim": false
+      }
+    },
+    {
+      "id": "zh-original-g6-structure",
+      "grade": 6,
+      "semester": null,
+      "publisher": null,
+      "contentKind": "original_skill_practice",
+      "title": "讀懂步驟與因果",
+      "objective": "辨別事件順序，選擇適當連接詞並修正歧義。",
+      "notice": "原創能力練習，非出版社課文；未核定對應任何課的學習目標。",
+      "publisherLessonIds": [],
+      "learningObjectiveAlignment": "general_skill_only",
+      "passage": [
+        "班級要製作一張校園無障礙路線圖。第一組先實地觀察坡道、階梯和出入口，再把位置標在草圖上。",
+        "第二組請同學依草圖試走，發現圖上兩條路的顏色太接近，容易看錯。因此，他們改用不同線型，並加上清楚的圖例。",
+        "最後，兩組一起核對路線與標示，再把完成的地圖張貼在布告欄。"
+      ],
+      "questions": [
+        {
+          "id": "zh-original-g6-structure-1",
+          "prompt": "第一組最先做什麼？",
+          "options": [
+            "實地觀察",
+            "張貼地圖",
+            "設計獎狀"
+          ],
+          "answer": 0,
+          "explanation": "第一段的「先」指出首個步驟。",
+          "skill": "順序",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-structure-2",
+          "prompt": "試走時發現什麼問題？",
+          "options": [
+            "圖上完全沒有路",
+            "兩條路顏色太接近",
+            "校門消失了"
+          ],
+          "answer": 1,
+          "explanation": "第二段直接說明顏色容易混淆。",
+          "skill": "擷取訊息",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-structure-3",
+          "prompt": "哪個是針對問題採取的改進？",
+          "options": [
+            "把所有標示刪掉",
+            "只換布告欄",
+            "改用不同線型並加圖例"
+          ],
+          "answer": 2,
+          "explanation": "不同線型可補足顏色不易區分的問題。",
+          "skill": "因果",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-structure-4",
+          "prompt": "「因此」在文中表示什麼關係？",
+          "options": [
+            "前因後果",
+            "時間相反",
+            "內容無關"
+          ],
+          "answer": 0,
+          "explanation": "因為容易看錯，所以修改呈現。",
+          "skill": "連接詞",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-structure-5",
+          "prompt": "正確順序是哪項？",
+          "options": [
+            "修正→張貼→觀察→試走",
+            "觀察→試走→修正→核對張貼",
+            "張貼→觀察→完成→試走"
+          ],
+          "answer": 1,
+          "explanation": "依三段敘述排序。",
+          "skill": "順序",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-structure-6",
+          "prompt": "「先核對路線，___張貼地圖。」應填什麼？",
+          "options": [
+            "雖然",
+            "但是",
+            "再"
+          ],
+          "answer": 2,
+          "explanation": "「先……再……」說明先後。",
+          "skill": "句型",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-structure-7",
+          "prompt": "哪句話表意最清楚？",
+          "options": [
+            "第二組把地圖的線型改得更容易辨認",
+            "他們把那個改成那樣",
+            "那裡的那條那個很好"
+          ],
+          "answer": 0,
+          "explanation": "具體指出對象與修改內容，減少指代不清。",
+          "skill": "表達",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-structure-8",
+          "prompt": "「雖然要多花時間，___核對能減少錯誤。」應填什麼？",
+          "options": [
+            "因此",
+            "但是",
+            "所以"
+          ],
+          "answer": 1,
+          "explanation": "前後呈現讓步與轉折。",
+          "skill": "句型",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-structure-9",
+          "prompt": "第三段在全文的作用是什麼？",
+          "options": [
+            "說明最初猜想",
+            "提出新的反例",
+            "交代最後核對與公布"
+          ],
+          "answer": 2,
+          "explanation": "第三段以「最後」收束製作過程。",
+          "skill": "篇章結構",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-structure-10",
+          "prompt": "若地圖缺少圖例，最需要補充哪項？",
+          "options": [
+            "各種線型與符號代表的意思",
+            "每位同學的生日",
+            "教室椅子顏色"
+          ],
+          "answer": 0,
+          "explanation": "圖例用於解釋圖中符號，與路線辨識直接相關。",
+          "skill": "資訊設計",
+          "evidenceScope": "本原創短文或題內句子"
+        }
+      ],
+      "assessment": {
+        "roundSize": 10,
+        "questionCount": 10,
+        "bankSize": 10,
+        "bankComplete": false,
+        "randomizeOptions": true,
+        "timerPolicy": "inherit_existing_policy",
+        "masteryClaim": false
+      }
+    },
+    {
+      "id": "zh-original-g6-viewpoint",
+      "grade": 6,
+      "semester": null,
+      "publisher": null,
+      "contentKind": "original_skill_practice",
+      "title": "分清意見與事實",
+      "objective": "辨識觀點、理由、反例與尊重不同意見的表達。",
+      "notice": "原創能力練習，非出版社課文；未核定對應任何課的學習目標。",
+      "publisherLessonIds": [],
+      "learningObjectiveAlignment": "general_skill_only",
+      "passage": [
+        "班會討論是否把每週一次的午間活動改成閱讀分享。小柏支持改變，認為同學可以交換閱讀心得。小芸則擔心，喜歡安靜閱讀的人可能不想每次都發言。",
+        "班長提出試行兩週的做法：願意分享的人輪流發言，其他人可以寫下問題或安靜聆聽。兩週後，再用問卷了解同學的感受。",
+        "大家同意先試行，而不是立刻決定永遠採用。"
+      ],
+      "questions": [
+        {
+          "id": "zh-original-g6-viewpoint-1",
+          "prompt": "小柏支持閱讀分享的理由是什麼？",
+          "options": [
+            "能交換閱讀心得",
+            "一定能讓所有人成績滿分",
+            "不用再讀任何書"
+          ],
+          "answer": 0,
+          "explanation": "第一段明確提出交換心得的理由。",
+          "skill": "理由",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-viewpoint-2",
+          "prompt": "小芸擔心什麼？",
+          "options": [
+            "活動沒有椅子",
+            "不是每個人都想每次發言",
+            "大家不認識班長"
+          ],
+          "answer": 1,
+          "explanation": "她關注的是不同同學的參與偏好。",
+          "skill": "觀點",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-viewpoint-3",
+          "prompt": "班長提出的試行時間是多久？",
+          "options": [
+            "兩年",
+            "一天",
+            "兩週"
+          ],
+          "answer": 2,
+          "explanation": "第二段明示兩週。",
+          "skill": "擷取訊息",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-viewpoint-4",
+          "prompt": "不願發言的同學可以怎麼參與？",
+          "options": [
+            "寫問題或安靜聆聽",
+            "必須離開教室",
+            "不能參加任何活動"
+          ],
+          "answer": 0,
+          "explanation": "方案提供了不同參與方式。",
+          "skill": "擷取訊息",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-viewpoint-5",
+          "prompt": "哪一項是文中已發生的事實？",
+          "options": [
+            "問卷結果全數贊成",
+            "大家同意先試行",
+            "每個人都愛上閱讀分享"
+          ],
+          "answer": 1,
+          "explanation": "文中明確寫出大家同意先試行；尚未提供問卷結果，也沒有證據證明每個人都喜歡。",
+          "skill": "事實意見",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-viewpoint-6",
+          "prompt": "哪一句是意見而非可直接確認的紀錄？",
+          "options": [
+            "班長提議試行兩週",
+            "方案允許同學寫問題",
+            "閱讀分享比所有活動都有趣"
+          ],
+          "answer": 2,
+          "explanation": "「比所有活動都有趣」涉及個人評價，不是可直接核對的事件紀錄。",
+          "skill": "事實意見",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-viewpoint-7",
+          "prompt": "問卷在方案中主要有什麼用途？",
+          "options": [
+            "了解同學試行後的感受",
+            "證明活動永遠沒有缺點",
+            "取代所有閱讀"
+          ],
+          "answer": 0,
+          "explanation": "第二段交代問卷的目的。",
+          "skill": "目的",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-viewpoint-8",
+          "prompt": "哪種回應最尊重不同看法？",
+          "options": [
+            "只有我的方法正確",
+            "我理解你想安靜閱讀，我們可以保留不發言的選擇",
+            "不同意的人都不愛學習"
+          ],
+          "answer": 1,
+          "explanation": "先理解需求，再提出兼顧差異的做法。",
+          "skill": "溝通",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-viewpoint-9",
+          "prompt": "哪個結論超出文章證據？",
+          "options": [
+            "大家同意先試行",
+            "兩週後預計用問卷了解感受",
+            "試行已證明每位同學都滿意"
+          ],
+          "answer": 2,
+          "explanation": "文中尚未提供試行後結果。",
+          "skill": "限制推論",
+          "evidenceScope": "本原創短文或題內句子"
+        },
+        {
+          "id": "zh-original-g6-viewpoint-10",
+          "prompt": "這篇文章的重點是什麼？",
+          "options": [
+            "討論不同需求並以試行收集回饋",
+            "證明安靜閱讀沒有價值",
+            "要求所有人每天演講"
+          ],
+          "answer": 0,
+          "explanation": "全文呈現討論、折衷方案及回饋方式。",
+          "skill": "主旨",
+          "evidenceScope": "本原創短文或題內句子"
+        }
+      ],
+      "assessment": {
+        "roundSize": 10,
+        "questionCount": 10,
+        "bankSize": 10,
+        "bankComplete": false,
+        "randomizeOptions": true,
+        "timerPolicy": "inherit_existing_policy",
+        "masteryClaim": false
+      }
+    }
+  ]
+}
