@@ -7116,8 +7116,14 @@ class Component extends DCLogic {
     this.setState({ mmLinks, mmStatus: "done", mmSelected: null, mmNote: rewarded ? "全部連對！獲得 5 顆星幣。" : "全部連對！今天的本單元獎勵已完成。" });
     if (!this.state.speechMuted) this.speakText("全部連對，好厲害");
   }
+  memoryRoundActive(round) {
+    return !!round && this.memoryRound === round && this.state.screen === "memory" &&
+      this.state.unit === round.unitId && this.state.currentId === round.learnerId &&
+      !this.state.teacher && (this.sessionGeneration || 0) === round.generation;
+  }
   startMemory(unitId) {
     const id = unitId || "u38";
+    const round = this.memoryRound = {unitId:id,learnerId:this.state.currentId,generation:this.sessionGeneration || 0,completed:false};
     clearTimeout(this.memoryPreviewTimer);
     clearTimeout(this.memoryResolveTimer);
     const shuffle = (items) => items.slice().sort(() => Math.random() - .5);
@@ -7160,11 +7166,12 @@ class Component extends DCLogic {
     const playNote = id === "s6" ? "翻兩張牌，把名詞和對應的圖示配成一對！" : "翻兩張牌，找出數字和數量相同的一對！";
     this.setState({ screen: "memory", unit: id, memoryDeck: deck, memoryFlipped: deck.map((card) => card.id), memoryMatched: [], memoryMoves: 0, memoryLocked: true, memoryStatus: "preview", memoryNote: introNote, memoryPlayNote: playNote }, () => {
       if (!this.state.speechMuted) this.speakText(introNote);
-      this.memoryPreviewTimer = setTimeout(() => this.setState({ memoryFlipped: [], memoryLocked: false, memoryStatus: "play", memoryNote: playNote }), 2600);
+      this.memoryPreviewTimer = setTimeout(() => { if (this.memoryRoundActive(round)) this.setState({ memoryFlipped: [], memoryLocked: false, memoryStatus: "play", memoryNote: playNote }); }, 2600);
     });
   }
   flipMemoryCard(id) {
-    const s = this.state;
+    const s = this.state, round = this.memoryRound;
+    if (!this.memoryRoundActive(round) || !s.memoryDeck.some(card => card.id === id)) return;
     if (s.screen !== "memory" || s.memoryStatus !== "play" || s.memoryLocked || s.memoryFlipped.indexOf(id) >= 0 || s.memoryMatched.indexOf(id) >= 0) return;
     const flipped = s.memoryFlipped.concat(id);
     if (flipped.length < 2) { this.setState({ memoryFlipped: flipped }); return; }
@@ -7175,6 +7182,7 @@ class Component extends DCLogic {
     this.setState({ memoryFlipped: flipped, memoryLocked: true, memoryMoves: s.memoryMoves + 1, memoryNote: matched ? (isSci ? "答對了！名詞和圖示配成一對。" : "答對了！這一對的數字和數量一樣。") : "再記一下位置，這一對還不一樣。" });
     clearTimeout(this.memoryResolveTimer);
     this.memoryResolveTimer = setTimeout(() => {
+      if (!this.memoryRoundActive(round)) return;
       if (!matched) { this.setState({ memoryFlipped: [], memoryLocked: false }); return; }
       const memoryMatched = Array.from(new Set(s.memoryMatched.concat(flipped)));
       const complete = memoryMatched.length === s.memoryDeck.length;
@@ -7183,6 +7191,11 @@ class Component extends DCLogic {
     }, matched ? 640 : 950);
   }
   finishMemory(memoryMatched) {
+    const roundState = this.memoryRound;
+    if (!this.memoryRoundActive(roundState) || roundState.completed || this.state.memoryStatus !== "play" ||
+        !this.state.memoryDeck.length || new Set(memoryMatched).size !== this.state.memoryDeck.length ||
+        !this.state.memoryDeck.every(card => memoryMatched.includes(card.id))) return;
+    roundState.completed = true;
     const profile = this.prof();
     const unitId = this.state.unit === "s6" ? "s6" : "u38";
     const round = dailyMasteryRound(profile, unitId);
@@ -7388,8 +7401,8 @@ class Component extends DCLogic {
       } else if (raw.type === "block-count") {
         let cubes = [];
         if (v.cubes) cubes = v.cubes;
-        else if (v.columns) v.columns.forEach((h, x) => { for (let y = 0; y < h; y += 1) cubes.push([x, y, 0]); });
-        figData = { cubes: cubes.map((c) => ({ left: c[0] * 34 + c[2] * 15, bottom: c[1] * 30 + c[2] * 12 })) };
+        else if (v.columns) v.columns.forEach((h, x) => { for (let z = 0; z < h; z += 1) cubes.push([x, 0, z]); });
+        figData = { cubes: cubes.map((c) => ({ left: c[0] * 34 + c[1] * 15, bottom: c[2] * 30 + c[1] * 12 })) };
         fig = "blockCount";
       } else if (raw.type === "gridChoices") {
         fig = "gridChoices";
