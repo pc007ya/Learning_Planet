@@ -1,0 +1,31 @@
+name: Chinese grade-six original practice checks
+on:
+  pull_request:
+    paths:
+      - 'chinese-grade6.html'
+      - 'modules/chinese-grade6/**'
+      - 'src/chinese-practice/**'
+      - 'modules/chinese-practice/**'
+      - 'tests/chinese-grade6.check.mjs'
+      - 'package.json'
+      - '.github/workflows/chinese-grade6-check.yml'
+permissions:
+  contents: read
+concurrency:
+  group: chinese-grade6-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: python3 scripts/pack-nature-assets.py --verify-manifest
+      - run: npm run check
+      - run: npm run build:chinese-practice
+      - run: node --test tests/english-original/*.check.mjs tests/science-curriculum/reward-host.check.mjs tests/gacha-session.check.mjs
