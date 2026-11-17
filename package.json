@@ -13,7 +13,7 @@
     "build:stories": "vite build --config vite.story.config.ts",
     "test:math-foundations-bank": "node --test tests/math-foundations-bank.check.mjs",
     "test:gacha-session": "node --test tests/gacha-session.check.mjs",
-    "check": "npm run test:math-foundations-bank && npm run test:gacha-session && npm run test:resource-timing && npm run test:science-curriculum && npm run test:nature-planet && npm run test:math-planet-v11 && npm run test:math-knowledge && npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit && npm run build:experiments && npm run build:stories && npm run build:little-star && npm run build:math-teaching && npm run build:optics && npm run build:earth-lab && npm run build:fire-weather && npm run build:underwater-world && npm run build:amusement-park && npm run build:experiment-planets && npm run build:tides && npm run build:tides3d",
+    "check": "npm run test:english-weekly && npm run test:math-bank-audit && npm run test:math-foundations-bank && npm run test:gacha-session && npm run test:resource-timing && npm run test:science-curriculum && npm run test:nature-planet && npm run test:math-planet-v11 && npm run test:math-knowledge && npm run typecheck && npm run test:earth-orbit && npm run build:earth-orbit && npm run build:experiments && npm run build:stories && npm run build:little-star && npm run build:math-teaching && npm run build:optics && npm run build:earth-lab && npm run build:fire-weather && npm run build:underwater-world && npm run build:amusement-park && npm run build:experiment-planets && npm run build:tides && npm run build:tides3d",
     "deploy": "npx -y firebase-tools@latest deploy --only hosting",
     "deploy:all": "npx -y firebase-tools@latest deploy",
     "build:little-star": "vite build --config vite.little-star.config.ts",
@@ -31,7 +31,9 @@
     "test:nature-planet": "node --test --test-concurrency=1 tests/nature-planet/*.check.mjs",
     "test:resource-timing": "node --test tests/performance-diagnostics/*.check.mjs",
     "pretest:nature-planet": "python3 scripts/pack-nature-assets.py --verify-manifest",
-    "pretest:science-curriculum": "python3 scripts/split-science-curriculum.py --verify && python3 scripts/integrate-science-curriculum.py && python3 scripts/integrate-science-curriculum.py --verify"
+    "pretest:science-curriculum": "python3 scripts/split-science-curriculum.py --verify && python3 scripts/integrate-science-curriculum.py && python3 scripts/integrate-science-curriculum.py --verify",
+    "test:math-bank-audit": "node --test tests/math-bank-audit.check.mjs",
+    "test:english-weekly": "node scripts/build-english-weekly.mjs --check && node --test tests/english-weekly.check.mjs"
   },
   "dependencies": {
     "pixi.js": "^8.18.1",
