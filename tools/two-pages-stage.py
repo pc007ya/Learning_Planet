@@ -27,6 +27,7 @@ for p in sorted(ROOT.rglob('*')):
  manifest[rel]={'unit':unit,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest(),'url':BASE+rel if unit=='assets' else '/Learning_Planet/'+rel}
  if rel in rewrites and p.suffix in {'.js','.mjs'}:syntax.append(str(dest))
 for unit in ('app','assets'):(OUT/unit/'.nojekyll').write_text('')
+(OUT/'assets/index.html').write_text('<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>Learning Planet assets</title><p>Public learning assets. No sign-in here.</p>')
 assert len(manifest)==len(original)
 assert not any(k.endswith(('.js','.mjs','.html')) and v['unit']=='assets' for k,v in manifest.items())
 assert all(v['sha256']==original[k] for k,v in manifest.items() if v['unit']=='assets')
@@ -37,4 +38,8 @@ for unit in ('app','assets'):assert sum(v['bytes'] for v in manifest.values() if
 assert all(not(OUT/'app'/k).exists() and (OUT/'assets'/k).is_file() for k,v in manifest.items() if v['unit']=='assets')
 for f in syntax:subprocess.run(['node','--check',f],check=True,capture_output=True)
 report={'baselineFiles':len(manifest),'app':{'files':1+sum(v['unit']=='app' for v in manifest.values()),'bytes':sum(v['bytes'] for v in manifest.values() if v['unit']=='app')},'assets':{'files':1+sum(v['unit']=='assets' for v in manifest.values()),'bytes':sum(v['bytes'] for v in manifest.values() if v['unit']=='assets')},'rewrittenFiles':rewrites,'jsSyntaxChecked':len(syntax),'binaryChanges':0,'authChanges':0,'deploy':False,'blockers':['Second dedicated repository and Pages endpoint do not exist yet','Browser runtime and dynamic resource coverage must pass before deployment','Root-relative asset URLs only describe same-owner GitHub Pages; formal custom domain routing unverified','Very little growth headroom; no lossy compression applied']}
+for unit in ('app','assets'):
+ files=[p for p in (OUT/unit).rglob('*') if p.is_file()]
+ report[unit]={'files':len(files),'bytes':sum(p.stat().st_size for p in files)}
+ assert report[unit]['bytes']<1_000_000_000
 (OUT/'split-manifest.json').write_text(json.dumps(manifest,sort_keys=True));(OUT/'split-report.json').write_text(json.dumps(report,indent=2));print(json.dumps(report))
