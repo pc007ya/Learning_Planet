@@ -1,8 +1,8 @@
 name: Deploy Firebase Hosting
 
 on:
-  push:
-    branches: [main]
+  # Static pages and assets are published by pages.yml.
+  # Keep Firebase Hosting manual-only while its retained storage is audited.
   workflow_dispatch:
 
 permissions:
