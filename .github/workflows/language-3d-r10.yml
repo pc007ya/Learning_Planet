@@ -28,12 +28,14 @@ jobs:
       - name: Install locked dependencies
         run: npm ci
       - name: Verify destination, camera raycasts, collision and labels
-        run: node --test tests/chinese-r9-host.check.mjs tests/chinese-r10.test.mjs tests/english-r10-pointer.check.mjs
+        run: node --test tests/chinese-r9-host.check.mjs tests/chinese-r10.check.mjs tests/english-r10-pointer.check.mjs
       - name: Install Chromium for no-network fixtures
+        id: browser
         run: |
           npm install --no-save --package-lock=false playwright@1.56.1
           npx playwright install --with-deps chromium
       - name: Verify the official workbook return button and retain the 3D map
         run: node qa/language-3d-r10/chinese-r10-browser.cjs
       - name: Verify English ground pointer, titles, opening the unit and return
+        if: always() && steps.browser.conclusion == 'success'
         run: node qa/language-3d-r10/english-map-browser.cjs "$PWD"
