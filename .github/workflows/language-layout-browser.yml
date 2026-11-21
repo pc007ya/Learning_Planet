@@ -2,6 +2,9 @@ name: Language entrance layout verification (no deploy)
 on:
   push:
     branches: [qa/language-layout-browser-check]
+concurrency:
+  group: language-layout-browser-only
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -25,7 +28,7 @@ jobs:
           const fs=require('node:fs');
           const assert=require('node:assert/strict');
           const source=fs.readFileSync('index.html','utf8');
-          const sourceCss=[...source.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].slice(0,3).map(m=>m[1]).join('\n');
+          const sourceCss=[...source.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map(m=>m[1]).join('\n');
           const css=fs.readFileSync('modules/math-mission-map/style.css','utf8')+sourceCss;
           const group=label=>source.match(new RegExp('<div class="math-mission-switch[^"]*">\\s*<div role="group" aria-label="選擇'+label+'子單元呈現方式">[\\s\\S]*?<\\/div>\\s*<\\/div>'))?.[0];
           const card=label=>source.match(new RegExp('<article [^>]*'+label+'[^>]*>[\\s\\S]*?<\\/article>'))?.[0];
