@@ -20,6 +20,7 @@ export function createDeferredCover(url: string, hooks: CoverHooks) {
     load() {
       if (disposed || ready || image) return;
       const pending = new Image();
+      if (url.startsWith('https://pc007ya.github.io/Learning_Planet_Assets/images/story/')) pending.crossOrigin = 'anonymous';
       image = pending;
       pending.decoding = 'async';
       pending.fetchPriority = 'low';

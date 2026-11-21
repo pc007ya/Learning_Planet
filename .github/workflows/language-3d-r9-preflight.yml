@@ -33,6 +33,14 @@ jobs:
           python3 scripts/patch-ipad-ux.py
           python3 scripts/pack-nature-assets.py --verify-manifest
           npm run check
+      - name: Check CORS mode before loading story texture images
+        run: node --test qa/language-3d-r9/cover-r9-cors.test.cjs
+      - name: Verify published assets match candidate Git paths
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin 0e39222ba892fbc823a884bad636cfb484501169
+          git diff --exit-code FETCH_HEAD HEAD -- images/story images/story-vocabulary images/science images/math-grade1
+          curl -fsSI --max-time 15 https://pc007ya.github.io/Learning_Planet_Assets/images/story/birthday-v1/apron.svg | tr -d '\r' | grep -Eiq '^access-control-allow-origin:[[:space:]]*\*$'
       - name: Stage the production bundle without publishing it
         run: |
           set -euo pipefail
@@ -48,7 +56,14 @@ jobs:
           tar --dereference --hard-dereference --directory split/app -cf - --exclude=.git --exclude=.github . | gzip -6 | wc -c | awk '{print "Main package gzip estimate bytes: "$1}'
           sha256sum split/asset-integrity.json
           cp split/asset-integrity.json "$RUNNER_TEMP/language-3d-r9-assets.json"
+      - name: Render both staged maps without real accounts
+        run: |
+          set -euo pipefail
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+          node qa/language-3d-r9/browser.cjs
       - name: Keep the small staging size receipt
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           path: |
