@@ -11,9 +11,9 @@ const loaders={
 };
 function addStyles(doc){
  if(doc.querySelector('link[data-chinese-planet]'))return;
- const css=doc.createElement('link');css.rel='stylesheet';css.href=new URL('./map.css',import.meta.url);css.dataset.chinesePlanet='';doc.head.append(css);
+ const css=doc.createElement('link');css.rel='stylesheet';css.href=new URL('./map.css?v=20261121-r10',import.meta.url);css.dataset.chinesePlanet='';doc.head.append(css);
 }
-export function mountChinesePlanet(container,{lessons,lessonDisplayTitle,initialGrade=1,initialPublisher='南一',onClose,openLiteracy,openOriginal,showCatalogDetails,loadMetadata=loaders,loadWorld=()=>import('./world-r9.mjs')}){
+export function mountChinesePlanet(container,{lessons,lessonDisplayTitle,initialGrade=1,initialPublisher='南一',onClose,openLiteracy,openOriginal,showCatalogDetails,loadMetadata=loaders,loadWorld=()=>import('./world-r9.mjs?v=20261121-r10')}){
  const doc=container.ownerDocument;addStyles(doc);
  let grade=initialGrade,publisher=publishers.includes(initialPublisher)?initialPublisher:'南一',semester='上';
  let world=null,stations=[],current=null,arrived=null,disposer=0,alive=true,walking=false,loaded={},pending=false,paused=false;
