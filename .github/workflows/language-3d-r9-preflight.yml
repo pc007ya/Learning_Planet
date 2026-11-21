@@ -1,0 +1,74 @@
+name: Check Chinese and English 3D integration (no deployment)
+on:
+  push:
+    branches: ["qa/official-language-3d-r9"]
+permissions:
+  contents: read
+concurrency:
+  group: language-3d-r9-preflight
+  cancel-in-progress: true
+jobs:
+  check:
+    if: github.repository == 'pc007ya/Learning_Planet' && github.ref == 'refs/heads/qa/official-language-3d-r9'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Run targeted navigation and access checks
+        run: |
+          set -euo pipefail
+          python3 qa/language-3d-r9/two-pages-paths-test.py
+          node --test tests/chinese-r9-host.check.mjs qa/language-3d-r9/english-navigation.check.cjs
+      - name: Use the same application build as the official Pages release
+        run: |
+          set -euo pipefail
+          python3 scripts/patch-ipad-ux.py
+          python3 scripts/pack-nature-assets.py --verify-manifest
+          npm run check
+      - name: Check CORS mode before loading story texture images
+        run: node --test qa/language-3d-r9/cover-r9-cors.check.cjs
+      - name: Verify published assets match candidate Git paths
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin 0e39222ba892fbc823a884bad636cfb484501169
+          git diff --exit-code FETCH_HEAD HEAD -- images/story images/story-vocabulary images/science images/math-grade1
+          curl -fsSI --max-time 15 https://pc007ya.github.io/Learning_Planet_Assets/images/story/birthday-v1/apron.svg | tr -d '\r' | grep -Eiq '^access-control-allow-origin:[[:space:]]*\*$'
+      - name: Stage the production bundle without publishing it
+        run: |
+          set -euo pipefail
+          mkdir -p _site/src
+          rsync -a --exclude='_site' --exclude='node_modules' --exclude='.git' --exclude='.github' --exclude='functions' --exclude='firebase-debug.log' --exclude='src' --exclude='tests' --exclude='modules/math-mission-map/v11/qa' --exclude='docs' --exclude='qa' --exclude='science-curriculum-preview.html' --exclude='nature-planet-preview.html' --exclude='*.check.mjs' --exclude='*.test.mjs' ./ _site/
+          cp src/firebase-config.js _site/src/firebase-config.js
+          test -s _site/src/firebase-config.js
+          cmp src/firebase-config.js _site/src/firebase-config.js
+          test -s _site/modules/chinese-planet/map-r9.mjs
+          test -s _site/modules/english-original/english-exploration-r9.mjs
+          python3 qa/language-3d-r9/measure.py _site | tee "$RUNNER_TEMP/language-3d-r9-size.json"
+          python3 qa/language-3d-r9/two-pages-stage.py _site split | tee "$RUNNER_TEMP/language-3d-r9-split.json"
+          tar --dereference --hard-dereference --directory split/app -cf - --exclude=.git --exclude=.github . | gzip -6 | wc -c | awk '{print "Main package gzip estimate bytes: "$1}'
+          sha256sum split/asset-integrity.json
+          cp split/asset-integrity.json "$RUNNER_TEMP/language-3d-r9-assets.json"
+      - name: Render both staged maps without real accounts
+        run: |
+          set -euo pipefail
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+          node qa/language-3d-r9/browser.cjs
+      - name: Keep the small staging size receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          path: |
+            ${{ runner.temp }}/language-3d-r9-size.json
+            ${{ runner.temp }}/language-3d-r9-split.json
+            ${{ runner.temp }}/language-3d-r9-assets.json
+          name: language-3d-r9-size-NOT-DEPLOYED
+          retention-days: 5

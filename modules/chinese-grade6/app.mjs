@@ -6,7 +6,7 @@ function registryPanel(registry){
  if(!registry)return '';
  return `<section class="panel" aria-label="115學年度官方書目核實"><h2>115學年度官方書目核實</h2><p>國語第 ${esc(registry.volume)} 冊 · ${esc(registry.grade)} 年級。保留原有 115 上學期目錄與練習，以下另列書籍層級資料。</p><ul>${registry.publishers.map(p=>`<li><strong>${esc(p.publisher)}</strong>：${esc(p.edition)} · ${esc(p.license)} · 再版修訂文號 ${esc(p.revision)}</li>`).join('')}</ul><p>${esc(registry.scope)}</p><p><a href="${esc(registry.url)}" target="_blank" rel="noopener noreferrer">${esc(registry.sourceTitle)} ↗</a>（文件更新 ${esc(registry.sourceUpdatedAt)}；PDF 第 ${esc(registry.sourcePage)} 頁；核對 ${esc(registry.checkedAt)}）</p></section>`;
 }
-export function mountPractice(root,bank,sources,{seconds=30,now=()=>Date.now(),schedule=setInterval,cancel=clearInterval,writingOptions={}}={}){
+export function mountPractice(root,bank,sources,{seconds=30,now=()=>Date.now(),schedule=setInterval,cancel=clearInterval,writingOptions={},initialUnit=null}={}){
  let round=null,timer=null,screen='home',writing=null;
  const leaveWriting=()=>{if(writing&&!writing.canLeave())return false;writing?.destroy();writing=null;return true;};
  const stop=()=>{if(timer!==null)cancel(timer);timer=null;round?.exit();round=null;};
@@ -37,10 +37,13 @@ export function mountPractice(root,bank,sources,{seconds=30,now=()=>Date.now(),s
   else if(action==='next'&&round.next()){if(round.phase==='result'&&timer!==null){cancel(timer);timer=null;}render();}
   else if(el.dataset.answer!==undefined){const opt=round.questions[round.index].options[Number(el.dataset.answer)];if(round.answer(opt))render();}
  }
+ const starting=typeof initialUnit==='string'&&bank.units.find(u=>u.id===initialUnit);
+ if(starting){screen='practice';round=new PracticeRound(starting,seconds,now);}
  root.addEventListener('click',click);render();
  return {isDirty:()=>!!writing?.isDirty(),getWriting:()=>writing,suspend(){writing?.destroy();writing=null;stop();screen='home';render();},destroy(){writing?.destroy();writing=null;stop();root.removeEventListener('click',click);},getRound:()=>round};
 }
 const root=typeof document!=='undefined'?document.querySelector('#grade6-app'):null;
 if(root){Promise.all(['chinese-grade6-original-skills.json','chinese-grade6-source-map.json'].map(async name=>{const r=await fetch(new URL(name,import.meta.url));if(!r.ok)throw Error('load');return r.json();})).then(([bank,sources])=>{
- const app=mountPractice(root,bank,sources,{seconds:questionSeconds(new URLSearchParams(location.search).get('seconds'))});window.addEventListener('pagehide',()=>app.suspend());window.addEventListener('beforeunload',event=>{if(app.isDirty()){event.preventDefault();event.returnValue='';}});
+ const params=new URLSearchParams(location.search);
+ const app=mountPractice(root,bank,sources,{seconds:questionSeconds(params.get('seconds')),initialUnit:params.get('unit')});window.addEventListener('pagehide',()=>app.suspend());window.addEventListener('beforeunload',event=>{if(app.isDirty()){event.preventDefault();event.returnValue='';}});
  }).catch(()=>{root.innerHTML='<h1>教材暫時無法載入</h1><p>請重新整理再試，未建立任何作答紀錄。</p><a href="index.html">返回學習星球</a>';});}
