@@ -55,7 +55,7 @@ const authFixture='export const auth={};export function onAuthStateChanged(_auth
    const trace=[];
    let walked=false;
    for(const position of points){
-    try{await canvas[touch?'tap':'click']({position,timeout:4000});trace.push(await status.textContent());}
+    try{await canvas[touch?'tap':'click']({position,timeout:4000});trace.push(await status.evaluate(e=>{const c=e.cloneNode(true);c.querySelectorAll('rt,rp').forEach(n=>n.remove());return c.textContent;}));}
     catch(error){trace.push(String(error));}
     if(trace.at(-1)?.includes('前往地圖位置')){walked=true;break;}
    }
