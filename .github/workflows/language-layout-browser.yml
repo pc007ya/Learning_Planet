@@ -1,0 +1,82 @@
+name: Language entrance layout verification (no deploy)
+on:
+  push:
+    branches: [qa/language-layout-browser-check]
+permissions:
+  contents: read
+jobs:
+  viewport:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: test "$(git hash-object index.html)" = 47c598cbdf0060a61dd8f4a6844e002068984f43
+      - run: npm install --no-save --package-lock=false playwright@1.56.1
+      - run: npx playwright install --with-deps chromium
+      - name: Check rendered toolbar and cards at desktop and phone sizes
+        run: |
+          node <<'JS'
+          const {chromium}=require('playwright');
+          const fs=require('node:fs');
+          const assert=require('node:assert/strict');
+          const source=fs.readFileSync('index.html','utf8');
+          const sourceCss=[...source.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].slice(0,3).map(m=>m[1]).join('\n');
+          const css=fs.readFileSync('modules/math-mission-map/style.css','utf8')+sourceCss;
+          const group=label=>source.match(new RegExp('<div class="math-mission-switch[^"]*">\\s*<div role="group" aria-label="選擇'+label+'子單元呈現方式">[\\s\\S]*?<\\/div>\\s*<\\/div>'))?.[0];
+          const card=label=>source.match(new RegExp('<article [^>]*'+label+'[^>]*>[\\s\\S]*?<\\/article>'))?.[0];
+          const bound=(s,name)=>s.includes('onClick="{{ '+name+' }}"');
+          assert(bound(group('國文'),'showChineseClassic') && bound(group('國文'),'openChineseR9'));
+          assert(bound(group('英文'),'openEnglishOriginal') && bound(group('英文'),'openEnglishExploration'));
+          for(const [name,dest] of [['chinese-grade6','{{ chineseGrade6Url }}'],['chinese-workbook','chinese-practice.html?from=map']]){
+            const c=card('data-language-card="'+name+'"');
+            assert(bound(c,'guardProtectedEntry') && c.includes('href="'+dest+'"') && c.includes('target="_blank" rel="noopener noreferrer"'));
+          }
+          assert(source.includes('chineseGrade6Url: "chinese-grade6.html?seconds=" + encodeURIComponent(this.seconds())'));
+          assert(!source.includes('跟瑜瑜到字旅島找課程'));
+          const cn=card('data-language-card="chinese-grade6"')+card('data-language-card="chinese-workbook"');
+          const en=card('english-original-unit');
+          const fixture=(label,cards)=>'<style>'+css+'</style><section class="subject-world" style="--subject-world-accent:#59d8ff"><div class="subject-world-toolbar"><details class="subject-world-filter" data-world="'+label+'" open><summary aria-label="收折或展開"></summary><div class="subject-world-tabs">'+['數學','國文','英文','自然','實驗'].map(x=>'<button>🪐 '+x+'</button>').join('')+'</div><div class="subject-world-grades">'+['一年級','二年級','三年級','四年級','五年級','六年級','繪本單字'].map(x=>'<button>'+x+'</button>').join('')+'</div></details>'+group(label)+'</div><div class="subject-world-content"><div class="subject-world-grid">'+cards+'</div></div></section>';
+          (async()=>{
+            const browser=await chromium.launch();
+            for(const [width,height] of [[1024,768],[875,863],[390,844],[320,720]]){
+              const page=await browser.newPage({viewport:{width,height}});
+              const summaryDistance=()=>page.locator('.subject-world-toolbar').evaluate(el=>{
+                const controls=el.querySelector('.math-mission-switch').getBoundingClientRect(), bar=el.getBoundingClientRect(), tab=el.querySelector('.subject-world-tabs').getBoundingClientRect(), grade=el.querySelector('.subject-world-grades').getBoundingClientRect();
+                return {right:bar.right-controls.right,top:controls.top-bar.top,controlLeft:controls.left,barLeft:bar.left,gradeBottom:grade.bottom,tabRight:tab.right,controlTop:controls.top,width:controls.width};
+              });
+              await page.setContent(fixture('數學',''));
+              const math=await summaryDistance();
+              for(const [label,cards] of [['國文',cn],['英文',en]]){
+                await page.setContent(fixture(label,cards));
+                const p=await summaryDistance();
+                assert(p.width>100 && p.controlLeft>=p.barLeft && p.right>=0);
+                if(width>700) {
+                  assert.equal(p.right,math.right); assert.equal(p.top,math.top);
+                  assert(p.tabRight<=p.controlLeft+1);
+                } else assert(p.controlTop>=p.gradeBottom);
+                const toggles=page.locator('.language-map-switch button');
+                assert.deepEqual(await toggles.allTextContents(),['傳統','3D 探索']);
+                for(const b of await toggles.all())assert((await b.boundingBox()).height>=44);
+                await page.locator('summary').click();
+                await toggles.last().focus();
+                assert(await toggles.last().evaluate(el=>document.activeElement===el));
+                await page.locator('summary').click();
+                if(label==='英文'){
+                  assert.equal(await page.locator('.english-original-unit strong').evaluate(el=>{const clone=el.cloneNode(true);clone.querySelectorAll('rt').forEach(x=>x.remove());return clone.textContent;}),'英文課程延伸');
+                  assert.equal(await page.locator('.english-original-unit .subject-world-card-sub, .english-original-unit p, .english-original-unit .math-mission-switch').count(),0);
+                }else{
+                  assert.equal(await page.locator('.subject-world-grid article a.subject-battle-button').count(),2);
+                  assert(await page.locator('[data-language-card="chinese-workbook"] strong').isVisible());
+                }
+                console.log(label,width,height,'passed');
+              }
+              await page.close();
+            }
+            await browser.close();
+          })().catch(e=>{console.error(e);process.exit(1)});
+          JS
