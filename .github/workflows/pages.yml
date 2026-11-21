@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 concurrency:
@@ -15,7 +16,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -54,15 +55,60 @@ jobs:
                   html += "\n" + snippet + "\n"
               path.write_text(html, encoding="utf-8")
           PY
+      - name: Verify the already-published GitHub asset unit
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin 0e39222ba892fbc823a884bad636cfb484501169
+          git diff --exit-code FETCH_HEAD HEAD -- images/story images/story-vocabulary images/science images/math-grade1
+          curl -fsSI --max-time 15 https://pc007ya.github.io/Learning_Planet_Assets/images/story/birthday-v1/apron.svg | tr -d '\r' | grep -Eiq '^access-control-allow-origin:[[:space:]]*\*$'
+      - name: Stage the app separately and enforce the uncompressed Pages limit
+        run: |
+          set -euo pipefail
+          python3 qa/language-3d-r9/two-pages-stage.py _site split
+          sha256sum split/asset-integrity.json
+          env PYTHONDONTWRITEBYTECODE=1 python3 - <<'PYTHON'
+          import json, os
+          from pathlib import Path
+          app=Path('split/app')
+          receipt=app/'language-3d-release.json'
+          assert not receipt.exists()
+          summary=json.loads(Path('split/split-report.json').read_text())
+          receipt.write_text(json.dumps({
+              'commit':os.environ['GITHUB_SHA'],
+              'language3d':'r9',
+              'appStagedBytes':summary['app']['bytes'],
+              'assetStagedBytes':summary['assets']['bytes'],
+          },sort_keys=True)+'\n')
+          assert summary['app']['bytes'] + receipt.stat().st_size < 1_000_000_000
+          PYTHON
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
+        id: upload
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
-          path: '_site'
+          path: split/app
+      - name: Verify the actual compressed GitHub Pages archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
+        run: |
+          test -n "$ARTIFACT_ID"
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$ARTIFACT_ID" --jq '.size_in_bytes' | tee "$RUNNER_TEMP/language-pages-archive-bytes.txt"
+          test "$(cat "$RUNNER_TEMP/language-pages-archive-bytes.txt")" -lt 1000000000
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         with:
           artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Verify the exact release on the official domain
+        run: |
+          set -euo pipefail
+          for path in language-3d-release.json modules/chinese-planet/map-r9.mjs modules/english-original/english-exploration-r9.mjs; do
+            curl -fsS --retry 5 --retry-all-errors --max-time 15 "https://learnplanet.win/$path?release=$GITHUB_SHA" -o "$RUNNER_TEMP/live-r9"
+            cmp "split/app/$path" "$RUNNER_TEMP/live-r9"
+          done
+          for route in chinese/ english/; do
+            curl -fsS --retry 3 --max-time 15 "https://learnplanet.win/$route" | grep -q 'route-shell.js'
+          done
