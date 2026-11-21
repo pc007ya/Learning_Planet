@@ -54,6 +54,16 @@
 .subject-world-toolbar .math-mission-switch button{min-height:44px}
 .subject-world-toolbar .math-mission-switch>div{padding:0}
 @media(max-width:700px){.subject-world-toolbar:has(.math-mission-switch) .subject-world-filter{padding-right:215px}.subject-world-toolbar .math-mission-switch button{font-size:11px;padding:4px 7px}}
+/* Match the math controls on wide screens; give language tabs their full scroll width on phones. */
+.subject-world-toolbar .language-map-switch button{white-space:nowrap}
+@media(max-width:700px){
+  .subject-world-toolbar:has(.language-map-switch){display:flex;flex-direction:column}
+  .subject-world-toolbar:has(.language-map-switch) .subject-world-filter{padding-right:50px}
+  .subject-world-toolbar .language-map-switch{position:static;align-self:flex-end;margin:0 10px 6px}
+}
+.subject-world-card .language-card-icon img{width:100%;height:100%;object-fit:contain;padding:5px}
+.subject-world-card .language-card-icon{background:color-mix(in srgb,var(--subject-world-accent) 21%,#edf4ff)}
+.subject-world-card .language-card-link{display:block}
 </style>
 </head>
 <body>
@@ -1741,12 +1751,23 @@
             </div>
           </div>
         </sc-if>
-        </div>
         <sc-if value="{{ isChineseMap }}" hint-placeholder-val="{{ false }}">
-          <button type="button" onClick="{{ openChineseR9 }}" style="display:block;width:100%;text-align:left;margin:0 0 16px;padding:18px 24px;border:1px solid rgba(255,225,171,.49);border-radius:22px;background:#235b56;color:white;cursor:pointer"><strong>新版・3D 探索</strong><br><small>跟瑜瑜到字旅島找課程，傳統入口仍可使用</small></button>
-          <a onClick="{{ guardProtectedEntry }}" href="{{ chineseGrade6Url }}" target="_blank" rel="noopener noreferrer" style="display:block;margin:0 0 16px;padding:18px 24px;border-radius:22px;background:#473267;color:white;text-decoration:none"><strong>六年級原創能力練習 ↗</strong><br><small>原創閱讀理解・每回10題・獨立出版社來源對照（非已完成教材）</small></a>
-          <a onClick="{{ guardProtectedEntry }}" href="chinese-practice.html?from=map" target="_blank" rel="noopener noreferrer" aria-label="開啟國語生字練習簿" style="display:flex;align-items:center;gap:16px;margin:0 0 20px;padding:18px 24px;border:1px solid rgba(255,205,121,.5);border-radius:22px;background:rgba(76,42,96,.65);color:#fff;text-decoration:none;backdrop-filter:blur(12px)"><img src="images/subject-unit-icons/v1/chinese-writing-v1.png" alt="" style="width:60px;height:60px;object-fit:contain"><span><strong style="font-size:20px;display:block">國語生字練習簿 ↗</strong><small style="color:#ffe4ae">選教材・勾生字・自訂字・A4 列印／PDF</small></span></a>
+          <div class="math-mission-switch language-map-switch">
+            <div role="group" aria-label="選擇國文子單元呈現方式">
+              <button type="button" aria-pressed="true" onClick="{{ showChineseClassic }}">傳統</button>
+              <button type="button" onClick="{{ openChineseR9 }}">3D 探索</button>
+            </div>
+          </div>
         </sc-if>
+        <sc-if value="{{ showEnglishOriginal }}" hint-placeholder-val="{{ false }}">
+          <div class="math-mission-switch language-map-switch">
+            <div role="group" aria-label="選擇英文子單元呈現方式">
+              <button type="button" onClick="{{ openEnglishOriginal }}">傳統</button>
+              <button type="button" onClick="{{ openEnglishExploration }}">3D 探索</button>
+            </div>
+          </div>
+        </sc-if>
+        </div>
         <div class="subject-world-content" data-math-view="{{ mathMapView }}" data-science-view="{{ scienceMapView }}">
         <sc-if value="{{ showMathKnowledge }}" hint-placeholder-val="{{ false }}">
           <button type="button" data-math-knowledge-open="true" onClick="{{ openMathKnowledge }}" aria-label="{{ knowledgeLabel }}" style="width:100%;display:flex;align-items:center;gap:18px;text-align:left;margin:0 0 20px;padding:20px 24px;border:1px solid rgba(198,173,255,.48);border-radius:24px;background:radial-gradient(ellipse at 15% 35%,rgba(127,86,180,.48),transparent 58%),linear-gradient(110deg,rgba(24,26,65,.94),rgba(16,38,62,.9));color:#fff;font-family:inherit;cursor:pointer;box-shadow:0 10px 35px rgba(17,12,48,.22)">
@@ -1767,12 +1788,13 @@
         </sc-if>
         <div class="subject-world-grid">
         <sc-if value="{{ showEnglishOriginal }}" hint-placeholder-val="{{ false }}">
-          <article class="subject-world-card english-original-unit" style="display:flex;flex-direction:column;gap:12px">
-            <div class="subject-world-card-head"><strong><ruby>英<rt aria-hidden="true" style="font-size:.45em">ㄧㄥ</rt></ruby><ruby>文<rt aria-hidden="true" style="font-size:.45em">ㄨㄣˊ</rt></ruby><ruby>原<rt aria-hidden="true" style="font-size:.45em">ㄩㄢˊ</rt></ruby><ruby>創<rt aria-hidden="true" style="font-size:.45em">ㄔㄨㄤˋ</rt></ruby><ruby>延<rt aria-hidden="true" style="font-size:.45em">ㄧㄢˊ</rt></ruby><ruby>伸<rt aria-hidden="true" style="font-size:.45em">ㄕㄣ</rt></ruby></strong><span class="subject-world-card-sub"><ruby>課<rt aria-hidden="true" style="font-size:.45em">ㄎㄜˋ</rt></ruby><ruby>文<rt aria-hidden="true" style="font-size:.45em">ㄨㄣˊ</rt></ruby>・<ruby>單<rt aria-hidden="true" style="font-size:.45em">ㄉㄢ</rt></ruby><ruby>字<rt aria-hidden="true" style="font-size:.45em">ㄗˋ</rt></ruby>・<ruby>拼<rt aria-hidden="true" style="font-size:.45em">ㄆㄧㄣ</rt></ruby><ruby>寫<rt aria-hidden="true" style="font-size:.45em">ㄒㄧㄝˇ</rt></ruby>・<ruby>口<rt aria-hidden="true" style="font-size:.45em">ㄎㄡˇ</rt></ruby><ruby>說<rt aria-hidden="true" style="font-size:.45em">ㄕㄨㄛ</rt></ruby></span></div>
-            <p class="subject-world-card-sub"><ruby>依<rt aria-hidden="true" style="font-size:.45em">ㄧ</rt></ruby><ruby>年<rt aria-hidden="true" style="font-size:.45em">ㄋㄧㄢˊ</rt></ruby><ruby>級<rt aria-hidden="true" style="font-size:.45em">ㄐㄧˊ</rt></ruby><ruby>選<rt aria-hidden="true" style="font-size:.45em">ㄒㄩㄢˇ</rt></ruby><ruby>課<rt aria-hidden="true" style="font-size:.45em">ㄎㄜˋ</rt></ruby>，<ruby>本<rt aria-hidden="true" style="font-size:.45em">ㄅㄣˇ</rt></ruby><ruby>機<rt aria-hidden="true" style="font-size:.45em">ㄐㄧ</rt></ruby><ruby>保<rt aria-hidden="true" style="font-size:.45em">ㄅㄠˇ</rt></ruby><ruby>存<rt aria-hidden="true" style="font-size:.45em">ㄘㄨㄣˊ</rt></ruby><ruby>進<rt aria-hidden="true" style="font-size:.45em">ㄐㄧㄣˋ</rt></ruby><ruby>度<rt aria-hidden="true" style="font-size:.45em">ㄉㄨˋ</rt></ruby>；<ruby>非<rt aria-hidden="true" style="font-size:.45em">ㄈㄟ</rt></ruby><ruby>出<rt aria-hidden="true" style="font-size:.45em">ㄔㄨ</rt></ruby><ruby>版<rt aria-hidden="true" style="font-size:.45em">ㄅㄢˇ</rt></ruby><ruby>社<rt aria-hidden="true" style="font-size:.45em">ㄕㄜˋ</rt></ruby><ruby>同<rt aria-hidden="true" style="font-size:.45em">ㄊㄨㄥˊ</rt></ruby><ruby>步<rt aria-hidden="true" style="font-size:.45em">ㄅㄨˋ</rt></ruby><ruby>教<rt aria-hidden="true" style="font-size:.45em">ㄐㄧㄠˋ</rt></ruby><ruby>材<rt aria-hidden="true" style="font-size:.45em">ㄘㄞˊ</rt></ruby>。</p>
-            <div class="math-mission-switch" role="group" aria-label="英文原創課程呈現方式">
-              <button type="button" onClick="{{ openEnglishOriginal }}">傳統列表</button>
-              <button type="button" onClick="{{ openEnglishExploration }}">3D 探索</button>
+          <article class="subject-world-card english-original-unit subject-world-explore-card">
+            <div class="subject-world-card-head" style="display:flex;align-items:center;gap:12px">
+              <span class="subject-world-explore-icon language-card-icon" aria-hidden="true">📖</span>
+              <strong><ruby>英<rt aria-hidden="true" style="font-size:.45em">ㄧㄥ</rt></ruby><ruby>文<rt aria-hidden="true" style="font-size:.45em">ㄨㄣˊ</rt></ruby><ruby>課<rt aria-hidden="true" style="font-size:.45em">ㄎㄜˋ</rt></ruby><ruby>程<rt aria-hidden="true" style="font-size:.45em">ㄔㄥˊ</rt></ruby><ruby>延<rt aria-hidden="true" style="font-size:.45em">ㄧㄢˊ</rt></ruby><ruby>伸<rt aria-hidden="true" style="font-size:.45em">ㄕㄣ</rt></ruby></strong>
+            </div>
+            <div class="subject-world-card-bottom">
+              <button type="button" class="subject-battle-button" data-spark="true" onClick="{{ openEnglishOriginal }}"><span class="subject-battle-face"><span aria-hidden="true">✦</span>進入課程</span></button>
             </div>
           </article>
         </sc-if>
@@ -1807,6 +1829,26 @@
               </div>
             </article>
           </sc-for>
+          <sc-if value="{{ isChineseMap }}" hint-placeholder-val="{{ false }}">
+            <article class="subject-world-card subject-world-explore-card" data-language-card="chinese-grade6">
+              <div class="subject-world-card-head" style="display:flex;align-items:center;gap:12px">
+                <span class="subject-world-explore-icon language-card-icon" aria-hidden="true">📚</span>
+                <div style="min-width:0"><strong>六年級原創能力練習</strong><span class="subject-world-card-sub">原創閱讀理解・每回 10 題・獨立出版社來源對照（非已完成教材）</span></div>
+              </div>
+              <div class="subject-world-card-bottom">
+                <a class="subject-battle-button language-card-link" aria-label="開始能力練習（另開分頁）" onClick="{{ guardProtectedEntry }}" href="{{ chineseGrade6Url }}" target="_blank" rel="noopener noreferrer"><span class="subject-battle-face"><span aria-hidden="true">✦</span>開始能力練習<span aria-hidden="true">↗</span></span></a>
+              </div>
+            </article>
+            <article class="subject-world-card subject-world-explore-card" data-language-card="chinese-workbook">
+              <div class="subject-world-card-head" style="display:flex;align-items:center;gap:12px">
+                <span class="subject-world-explore-icon language-card-icon" aria-hidden="true"><img src="images/subject-unit-icons/v1/chinese-writing-v1.png" alt=""></span>
+                <div style="min-width:0"><strong>國語生字練習簿</strong><span class="subject-world-card-sub">選教材・勾生字・自訂字・A4 列印／PDF</span></div>
+              </div>
+              <div class="subject-world-card-bottom">
+                <a class="subject-battle-button language-card-link" aria-label="開啟國語生字練習簿（另開分頁）" onClick="{{ guardProtectedEntry }}" href="chinese-practice.html?from=map" target="_blank" rel="noopener noreferrer"><span class="subject-battle-face"><span aria-hidden="true">✦</span>開啟國語生字練習簿<span aria-hidden="true">↗</span></span></a>
+              </div>
+            </article>
+          </sc-if>
           <sc-if value="{{ showGeoExplore }}" hint-placeholder-val="{{ false }}">
             <article class="subject-world-card subject-world-explore-card" data-math-explore="area">
               <div class="subject-world-card-head" style="display:flex;align-items:center;gap:12px">
@@ -11545,6 +11587,7 @@ class Component extends DCLogic {
         this.flash("DEMO 僅供首頁試用；請先登出並用正式學員帳號登入，再開啟此課程。");
       },
       openChineseR9: ()=>this.openChineseR9(),
+      showChineseClassic: () => this.closeChineseR9(),
       chineseGrade6Url: "chinese-grade6.html?seconds=" + encodeURIComponent(this.seconds()),
       weeklyKey: weekKey(), weeklyTime: s.weeklyConfig.timeSeconds,
       weeklySections: weeklyUnits.map((entry) => ({ icon: entry.unit.icon, title: entry.unit.title, count: entry.count, stars: "⭐".repeat(Math.max(1, Math.min(3, entry.difficulty))) })),
