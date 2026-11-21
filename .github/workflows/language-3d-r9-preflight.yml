@@ -20,6 +20,8 @@ jobs:
         with:
           node-version: '22'
           cache: npm
+      - name: Install locked dependencies
+        run: npm ci
       - name: Run targeted navigation and access checks
         run: |
           set -euo pipefail
@@ -30,7 +32,6 @@ jobs:
           set -euo pipefail
           python3 scripts/patch-ipad-ux.py
           python3 scripts/pack-nature-assets.py --verify-manifest
-          npm ci
           npm run check
       - name: Stage the production bundle without publishing it
         run: |
