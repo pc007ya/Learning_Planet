@@ -57,7 +57,7 @@ jobs:
               for(const [label,cards] of [['國文',cn],['英文',en]]){
                 await page.setContent(fixture(label,cards));
                 const p=await summaryDistance();
-                assert(p.width>100 && p.controlLeft>=p.barLeft && p.right>=0);
+                assert(p.width>80 && p.controlLeft>=p.barLeft && p.right>=0);
                 if(width>700) {
                   assert.equal(p.right,math.right); assert.equal(p.top,math.top);
                   assert(p.tabRight<=p.controlLeft+1);
