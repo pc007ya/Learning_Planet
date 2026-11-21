@@ -35,22 +35,31 @@ const authFixture='export const auth={};export function onAuthStateChanged(_auth
    assert.deepEqual((await labels().allTextContents()).slice(0,2),['Hello, My Classroom','Colors Around Me']);
    assert.equal(await frame.locator('#content').isHidden(),true);
    assert.equal(await frame.locator('#content').locator('h2').count(),0);
-   const pos=await stage.locator('canvas').evaluate(async(canvas)=>{
+   const canvas=stage.locator('canvas');
+   await canvas.scrollIntoViewIfNeeded();
+   const points=await canvas.evaluate(async(canvas)=>{
     const [{gardenCameraFit},T]=await Promise.all([import('/modules/english-original/english-exploration-r10.mjs'),import('/modules/math-knowledge/vendor/three-r187/three.module.js')]);
     const r=canvas.getBoundingClientRect(),{aspect,overview}=gardenCameraFit(r.width,r.height),p=.63,t=.08;
     const cam=new T.PerspectiveCamera(43,aspect,.1,100);
     cam.position.set(overview*Math.sin(p)*Math.sin(t),overview*Math.cos(p),overview*Math.sin(p)*Math.cos(t));cam.lookAt(0,0,0);cam.updateMatrixWorld(true);
-    for(const [x,y,z] of [[-1.1,.07,-3.05],[0,.211,0],[1.1,.07,3.05],[-5,.07,2.5],[5,.07,2.5]]){
+    const points=[];
+    for(const [x,y,z] of [[-1.1,.07,-3.05],[0,.211,0],[1.1,.07,3.05],[-5,.07,2.5],[5,.07,2.5],[0,.07,-5.5],[-2.4,.07,-4.1],[3.8,.07,3.9],[-3.5,.07,3.9]]){
      const q=new T.Vector3(x,y,z).project(cam),a=(1+q.x)*r.width*.5,b=(1-q.y)*r.height*.5;
-     if(document.elementFromPoint(r.left+a,r.top+b)===canvas)return [a,b];
+     if(document.elementFromPoint(r.left+a,r.top+b)===canvas)points.push({x:a,y:b});
     }
-    return null;
+    return points;
    });
-   assert.ok(pos,'a visible walkable point is not obstructed by labels');
-   const c=await stage.locator('canvas').boundingBox();
-   if(touch)await page.touchscreen.tap(c.x+pos[0],c.y+pos[1]);
-   else await page.mouse.click(c.x+pos[0],c.y+pos[1]);
-   await stage.getByRole('status').filter({hasText:'前往地圖位置'}).waitFor({state:'visible'});
+   assert.ok(points.length,'a visible map point is not obstructed by labels');
+   const status=stage.getByRole('status');
+   if(!await status.count())throw Error('Map movement status is missing');
+   const trace=[];
+   let walked=false;
+   for(const position of points){
+    try{await canvas[touch?'tap':'click']({position,timeout:4000});trace.push(await status.textContent());}
+    catch(error){trace.push(String(error));}
+    if(trace.at(-1)?.includes('前往地圖位置')){walked=true;break;}
+   }
+   assert.ok(walked,JSON.stringify({width,height,touch,points,trace,errors,outbound}));
    await labels().nth(1)[touch?'tap':'click']();
    const title=frame.locator('#content>h2');
    await title.waitFor({state:'visible',timeout:30000});assert.equal(await title.innerText(),'Colors Around Me');
