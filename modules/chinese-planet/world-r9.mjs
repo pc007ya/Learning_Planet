@@ -4,6 +4,7 @@ import {createYuyu} from '../math-mission-map/v11/planet-yuyu.mjs';
 import {riverLayout,CHANNEL_HALF,RAMP_HALF} from './river-crossing-r7.mjs';
 import {buildDistricts,route as districtRoute,insideBank} from './district-layout-r7.mjs';
 import {addChineseLessonLandmark} from './lesson-landmarks-r9.mjs';
+import {districtGroundRoute,ringGroundRoute,placementForLessonLabels} from './map-navigation-r10.mjs';
 import {ROAD_RADIUS,PORCH_RADIUS,HOUSE_RADIUS,RIBBON_WIDTH,polar,canWalk,walkRoute} from './paths.mjs';
 
 const themes=[
@@ -14,7 +15,7 @@ const themes=[
  [0xb1ad83,0x595c46,0x975d6c,0xf9d88b,0xe8896d],
  [0x7c9ba4,0x3d5167,0x506c90,0xf1c481,0xa98ec5]
 ];
-export function mountWorld(container,stations,grade,{onArrive,onPick,onUnavailable,onZoom},{
+export function mountWorld(container,stations,grade,{onArrive,onPick,onGround,onUnavailable,onZoom},{
  makeRenderer=options=>new THREE.WebGLRenderer(options),
  win=container.ownerDocument.defaultView,
  doc=container.ownerDocument,
@@ -30,14 +31,15 @@ export function mountWorld(container,stations,grade,{onArrive,onPick,onUnavailab
  renderer.setPixelRatio(Math.min(win.devicePixelRatio||1,1.40));
  renderer.outputColorSpace=THREE.SRGBColorSpace;
  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.04;
- container.append(renderer.domElement);
+ const names=doc.createElement('div');names.className='han-lesson-labels';
+ container.append(renderer.domElement,names);
  const geometries=new Set(),materials=new Set(),materialCache=new Map();
  let dead=false,observer=null,frame=0,cleanupListeners=()=>{};
  function dispose(){
   if(dead)return;dead=true;
   if(frame)win.cancelAnimationFrame(frame);
   observer?.disconnect();cleanupListeners();
-  renderer.domElement.remove();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();
+  renderer.domElement.remove();names.remove();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();
   renderer.dispose();renderer.forceContextLoss();
  }
  try{
@@ -266,7 +268,7 @@ export function mountWorld(container,stations,grade,{onArrive,onPick,onUnavailab
  const stone=color(0x8f9291),bronze=color(0x89705b),lacquer=color(0xa65140),ridge=color(0x413b52);
  const darkRed=color(0x8c3f3f),shell=color(0xcf804e),shade=color(0x618773),white=color(0xffe3bd);
  const ivoryStone=color(0xc8aa81);
- const pickables=[];
+ const pickables=[], lessonLabels=[];
  function timber(group,a,b,r,mat){
   const v=new THREE.Vector3(...a),w=new THREE.Vector3(...b),d=w.clone().sub(v);const c=v.addScaledVector(d,.5);
   const sh=tube(group,c.x,c.y,c.z,r,d.length(),r,mat);sh.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.normalize());return sh;
@@ -335,6 +337,10 @@ export function mountWorld(container,stations,grade,{onArrive,onPick,onUnavailab
   }
   collect(art,localParts);bounds.min.y=Math.min(.25,bounds.min.y);bounds.expandByScalar(.036);
   bounds.getCenter(center);bounds.getSize(size);
+  const label=doc.createElement('button');label.type='button';label.className='han-lesson-label';
+  label.textContent=s.title;label.style.visibility='hidden';
+  label.addEventListener('click',()=>{if(!dead&&!paused)onPick(s.id);});names.append(label);
+  lessonLabels.push({label,world:g.localToWorld(new THREE.Vector3(0,bounds.max.y+.18,0)),width:0,height:0});
   const hit=cub(g,...center.toArray(),...size.toArray(),stone);hit.visible=false;hit.userData.hitOnly=true;hit.userData.station=s.id;pickables.push(hit);
  }
  // Off-road details never collide with course access.
@@ -640,7 +646,9 @@ export function mountWorld(container,stations,grade,{onArrive,onPick,onUnavailab
   let next;
   if(district){
    const goal=anchors.get(station.id)?.id;if(!goal)return false;
-   const course=districtRoute(district,districtNode,goal);if(!course)return false;
+   const course=districtNode?districtRoute(district,districtNode,goal):
+    districtGroundRoute(district,p,district.nodes.get(goal),{stationId:goal});
+   if(!course)return false;
    next=course.slice(1).map(q=>[q.x,q.z,q.y]);
   }else{
    if(!canWalk(p.x,p.z,stations))return false;
@@ -649,18 +657,63 @@ export function mountWorld(container,stations,grade,{onArrive,onPick,onUnavailab
   }
   wanted=station.id;route=next;index=0;return true;
  }
- function resize(){if(dead)return;const w=container.clientWidth,h=container.clientHeight;if(w&&h){cam.aspect=w/h;cam.updateProjectionMatrix();if(district)fitDistrict(cam.aspect);renderer.setSize(w,h,false);}}
+ let viewportWidth=0,viewportHeight=0,press=null,paused=false,labelCamera=null;
+ const groundMeshes=[];
+ for(const source of [terrain,plan])source.traverse(o=>{
+  // Geometry may have been batched for drawing; the original meshes keep
+  // their world-space positions for precise ray tests without new visuals.
+  if(o.isMesh&&/^(島面|字旅島地面|課程步道|雙島共用橋面|雙島共用步道|圓形接點|行走橋面 \(elevation matched\))$/.test(o.name))groundMeshes.push(o);
+ });
+ function resize(){
+  if(dead)return;const w=container.clientWidth,h=container.clientHeight;
+  if(w&&h){labelCamera=null;viewportWidth=w;viewportHeight=h;cam.aspect=w/h;cam.updateProjectionMatrix();if(district)fitDistrict(cam.aspect);renderer.setSize(w,h,false);
+   for(const entry of lessonLabels){entry.width=entry.label.offsetWidth;entry.height=entry.label.offsetHeight;}
+  }
+ }
  observer=new win.ResizeObserver(resize);observer.observe(container);resize();
+ const projectedLabel=new THREE.Vector3();
+ let lastLabelUpdate=-Infinity;
+ function paintLabels(t){
+  if(t-lastLabelUpdate<33||!viewportWidth||!viewportHeight)return;
+  cam.updateMatrixWorld();
+  const matrix=cam.matrixWorld.elements;
+  if(labelCamera&&matrix.every((v,i)=>Math.abs(v-labelCamera[i])<.00025))return;
+  lastLabelUpdate=t;labelCamera=[...matrix];
+  const labels=lessonLabels.map(entry=>{
+   projectedLabel.copy(entry.world).project(cam);
+   return {...entry,x:(projectedLabel.x+1)*viewportWidth/2,y:(1-projectedLabel.y)*viewportHeight/2,
+    visible:projectedLabel.z>-1&&projectedLabel.z<1&&Math.abs(projectedLabel.x)<1.07&&Math.abs(projectedLabel.y)<1.13};
+  });
+  for(const entry of placementForLessonLabels(labels,viewportWidth,viewportHeight)){
+   const show=entry.display?'visible':'hidden';
+   if(entry.label.style.visibility!==show)entry.label.style.visibility=show;
+   if(entry.display)entry.label.style.transform='translate('+Math.round(entry.left)+'px,'+Math.round(entry.top)+'px)';
+  }
+ }
+ function down(e){if(dead||paused||e.button!==0||e.isPrimary===false){press=null;return;}press={id:e.pointerId,x:e.clientX,y:e.clientY,dragged:false};}
+ function move(e){if(press?.id===e.pointerId&&Math.hypot(e.clientX-press.x,e.clientY-press.y)>8)press.dragged=true;}
+ function cancel(){press=null;}
  function pointer(e){
-  if(dead||e.button!==0)return;
-  const box=renderer.domElement.getBoundingClientRect();
+  const start=press;cancel();
+  if(dead||paused||e.button!==0||!start||start.id!==e.pointerId||start.dragged||Math.hypot(e.clientX-start.x,e.clientY-start.y)>8)return;
+  const box=renderer.domElement.getBoundingClientRect();if(!box.width||!box.height)return;
   ndc.set(((e.clientX-box.left)/box.width)*2-1,1-((e.clientY-box.top)/box.height)*2);
-  ray.setFromCamera(ndc,cam);const selected=ray.intersectObjects(pickables,false)[0]?.object.userData.station;
-  if(selected)onPick(selected);
+  ray.setFromCamera(ndc,cam);
+  const selected=ray.intersectObjects(pickables,false)[0]?.object.userData.station;
+  if(selected){onPick(selected);return;}
+  if(wanted)return; // Existing lesson walk/arrival remains authoritative.
+  const p=actor.root.position;
+  for(const hit of ray.intersectObjects(groundMeshes,false)){
+   if(!hit.face||hit.face.normal.clone().transformDirection(hit.object.matrixWorld).y<=.40)continue;
+   const next=district?districtGroundRoute(district,p,hit.point,{sourceNode:districtNode}):ringGroundRoute(stations,p,hit.point,raise);
+   if(!next||next.length<2)continue;
+   route=next.slice(1).map(q=>[q.x,q.z,q.y]);index=0;districtNode=null;
+   onGround?.();wake();break;
+  }
  }
  const onContextLoss=e=>{e.preventDefault();dispose();onUnavailable('3D 顯示中斷，可切回練習簿或重新開啟。');};
  const tick=(t)=>{
-  frame=0;if(dead||doc.hidden){last=0;return;}
+  frame=0;if(dead||paused||doc.hidden){last=0;return;}
   try{
   const dt=last?Math.min(.044,(t-last)/1000):0;last=t;
   let move=dt*6.0,moved=0;
@@ -715,17 +768,21 @@ export function mountWorld(container,stations,grade,{onArrive,onPick,onUnavailab
   cam.position.y+=(viewTarget.y+39*scale-cam.position.y)*a;
   cam.position.z+=(viewTarget.z+31*scale-cam.position.z)*a;
   }
-  cam.lookAt(viewTarget);renderer.render(scene,cam);
+  cam.lookAt(viewTarget);renderer.render(scene,cam);paintLabels(t);
   if(!dead)frame=win.requestAnimationFrame(tick);
   }catch(error){dispose();onUnavailable('3D 顯示中斷，可切回練習簿或重新開啟。');console.warn('Chinese 3D renderer interrupted:',error);}
  };
- const wake=()=>{if(!dead&&!doc.hidden&&!frame)frame=win.requestAnimationFrame(tick);};
- doc.addEventListener('visibilitychange',wake);
- renderer.domElement.addEventListener('pointerup',pointer);renderer.domElement.addEventListener('webglcontextlost',onContextLoss);wake();
+ const wake=()=>{if(!dead&&!paused&&!doc.hidden&&!frame)frame=win.requestAnimationFrame(tick);};
+ const visibility=()=>{cancel();wake();};
+ const bindings=[['pointerdown',down],['pointermove',move],['pointerup',pointer],['pointercancel',cancel],['pointerleave',cancel],['webglcontextlost',onContextLoss]];
+ doc.addEventListener('visibilitychange',visibility);
+ for(const [name,fn] of bindings)renderer.domElement.addEventListener(name,fn);wake();
  cleanupListeners=()=>{
-  doc.removeEventListener('visibilitychange',wake);renderer.domElement.removeEventListener('pointerup',pointer);
-  renderer.domElement.removeEventListener('webglcontextlost',onContextLoss);
+  doc.removeEventListener('visibilitychange',visibility);
+  for(const [name,fn] of bindings)renderer.domElement.removeEventListener(name,fn);
  };
- return {select,setNear(value){near=!!value;onZoom?.(near);},dispose};
+ return {select,setNear(value){near=!!value;onZoom?.(near);},setPaused(value){
+  paused=!!value;last=0;cancel();if(paused&&frame){win.cancelAnimationFrame(frame);frame=0;}else if(!paused){resize();wake();}
+ },dispose};
  }catch(error){dispose();throw error;}
 }

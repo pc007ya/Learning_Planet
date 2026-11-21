@@ -11,12 +11,12 @@ const loaders={
 };
 function addStyles(doc){
  if(doc.querySelector('link[data-chinese-planet]'))return;
- const css=doc.createElement('link');css.rel='stylesheet';css.href=new URL('./map.css',import.meta.url);css.dataset.chinesePlanet='';doc.head.append(css);
+ const css=doc.createElement('link');css.rel='stylesheet';css.href=new URL('./map.css?v=20261121-r10',import.meta.url);css.dataset.chinesePlanet='';doc.head.append(css);
 }
-export function mountChinesePlanet(container,{lessons,lessonDisplayTitle,initialGrade=1,initialPublisher='南一',onClose,openLiteracy,openOriginal,showCatalogDetails,loadMetadata=loaders,loadWorld=()=>import('./world-r9.mjs')}){
+export function mountChinesePlanet(container,{lessons,lessonDisplayTitle,initialGrade=1,initialPublisher='南一',onClose,openLiteracy,openOriginal,showCatalogDetails,loadMetadata=loaders,loadWorld=()=>import('./world-r9.mjs?v=20261121-r10')}){
  const doc=container.ownerDocument;addStyles(doc);
  let grade=initialGrade,publisher=publishers.includes(initialPublisher)?initialPublisher:'南一',semester='上';
- let world=null,stations=[],current=null,arrived=null,disposer=0,alive=true,walking=false,loaded={},pending=false;
+ let world=null,stations=[],current=null,arrived=null,disposer=0,alive=true,walking=false,loaded={},pending=false,paused=false;
  const button=(a,t)=>`<button type="button" data-map-action="${a}">${t}</button>`;
  container.classList.add('han-map');
  container.innerHTML=`<header class="han-top"><h2>國語星球 · 字旅島</h2>${button('close','← 傳統課程')}</header>
@@ -70,13 +70,18 @@ export function mountChinesePlanet(container,{lessons,lessonDisplayTitle,initial
    stations=stationsOnRing(chineseStations({lessons,lessonDisplayTitle,midgrade:loaded.outline,originalUnits:loaded.original?.units||[]},
    grade===6?{grade,track:'original'}:{grade,year:115,semester,publisher,track:'publisher'}));paintMenu();
    if(!stations.length){tell('這個範圍目前沒有可展示的課程站點。');return;}
-   world=api.mountWorld(view,stations,grade,{onPick:pick,onArrive:id=>{
+   world=api.mountWorld(view,stations,grade,{onPick:pick,onGround:()=>{
+    if(!alive||token!==disposer)return;
+    clearSelection();menu.hidden=true;menuButton.setAttribute('aria-expanded','false');
+    tell('點道路可步行探索；點房子或課名可前往課程。');
+   },onArrive:id=>{
     if(!alive||token!==disposer||current!==id)return;
     const s=stations.find(x=>x.id===id);arrived=id;walking=false;paintSelection();tell('已抵達「'+s.title+'」，'+(s.kind==='outline'?'可查看索引。':'可開啟原有課程。'));
    },onUnavailable:t=>{
     world?.dispose();world=null;clearSelection();tell(t);
    },onZoom:near=>{zoomButton.textContent=near?'全島':'近景';zoomButton.setAttribute('aria-pressed',String(near));}});
-   tell('點房子或站點讓瑜瑜步行前往。抵達後再點一次，或按開啟。');
+   if(paused)world.setPaused?.(true);
+   tell('點道路可步行；點課名或房子前往。抵達後再點一次，或按開啟。');
   }catch(e){if(alive&&token===disposer){tell('3D 地圖暫時無法開啟。可切回傳統課程。');view.replaceChildren();console.warn('Chinese 3D map unavailable:',e);}}
   finally{if(alive&&token===disposer)pending=false;}
  }
@@ -95,5 +100,5 @@ export function mountChinesePlanet(container,{lessons,lessonDisplayTitle,initial
  function key(e){if(e.key==='Escape'){e.preventDefault();if(!menu.hidden){menu.hidden=true;menuButton.setAttribute('aria-expanded','false');menuButton.focus();}else onClose?.();}}
  container.addEventListener('click',click);container.addEventListener('keydown',key);repopulate();
  find('[data-map-action=close]').focus();
- return {destroy(){if(!alive)return;alive=false;++disposer;world?.dispose();world=null;container.removeEventListener('click',click);container.removeEventListener('keydown',key);container.replaceChildren();}};
+ return {setPaused(value){paused=!!value;world?.setPaused?.(paused);},destroy(){if(!alive)return;alive=false;++disposer;world?.dispose();world=null;container.removeEventListener('click',click);container.removeEventListener('keydown',key);container.replaceChildren();}};
 }

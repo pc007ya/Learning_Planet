@@ -58,6 +58,7 @@ test('every projected outline opens its exact heading, never a quiz route',()=>{
 function dom(){
  const {document,window}=parseHTML('<html><body><button>啟動</button><main id="practice-app" data-auth-uid="scope"></main></body></html>');
  Object.defineProperty(document,'baseURI',{value:base,configurable:true});
+ window.setTimeout=setTimeout;window.clearTimeout=clearTimeout;
  const create=document.createElement.bind(document);
  document.createElement=tag=>{const el=create(tag);if(tag==='dialog'){el.showModal=()=>{el.open=true;};el.close=()=>{el.open=false;};}return el;};
  return {document,window};
@@ -65,7 +66,7 @@ function dom(){
 test('modal fails closed without auth, unsubscribes on expiry, and blocks late imports',async()=>{
  const {document}=dom();
  let active=false,notify,unsub=0,started=0,mounts=0,resolveLoad,aborted;
- const options={doc:document,grade:1,isActive:()=>active,watchSession:cb=>{notify=cb;return()=>unsub++;},
+ const options={doc:document,grade:1,expectedUid:'scope',isActive:()=>active,watchSession:cb=>{notify=cb;return()=>unsub++;},
   load:signal=>{started++;aborted=signal;return new Promise(done=>resolveLoad=done);},mount:()=>{mounts++;return {destroy(){}};}};
  assert.equal(openChineseR9(options),null);await sleep();assert.equal(started,0);
  active=true;
@@ -75,16 +76,20 @@ test('modal fails closed without auth, unsubscribes on expiry, and blocks late i
  assert.equal(unsub,1);assert.equal(mounts,0);assert.equal(aborted.aborted,true);assert.equal(document.querySelector('dialog'),null);
  close();assert.equal(unsub,1);
 });
-test('traditional close, account change and course activation do not duplicate navigation',async()=>{
- let {document}=dom(),active=true,mountConfig,disposed=0,unsubscribe=0;const to=[];
- const cfg={doc:document,grade:3,seconds:60,isActive:()=>active,watchSession:()=>()=>unsubscribe++,
-  load:async()=>lessons,mount:(_,config)=>{mountConfig=config;return {destroy(){disposed++;}};},navigate:target=>to.push(target.href)};
- openChineseR9(cfg);await sleep();mountConfig.openLiteracy('invalid');assert.equal(to.length,0);
+test('course launch keeps the 3D cover, blocks repeats and disposes on logout',async()=>{
+ const {document}=dom();let active=true,mountConfig,disposed=0,unsubscribe=0,paused=0,resumed=0,notify;
+ const cfg={doc:document,grade:3,seconds:60,expectedUid:'scope',isActive:()=>active,watchSession:cb=>{notify=cb;return()=>unsubscribe++;},
+  load:async()=>lessons,mount:(_,config)=>{mountConfig=config;return {destroy(){disposed++;},setPaused(value){if(value)paused++;else resumed++;}};}};
+ openChineseR9(cfg);await sleep();mountConfig.openLiteracy('invalid');assert.equal(document.querySelector('iframe'),null);
  mountConfig.openLiteracy(lessons[0].id);mountConfig.openOriginal(bank.units[0].id);
- assert.equal(to.length,1);assert.equal(disposed,1);assert.equal(unsubscribe,1);
- openChineseR9(cfg);await sleep();mountConfig.onClose();assert.equal(to.length,1);assert.equal(disposed,2);
- openChineseR9(cfg);await sleep();active=false;mountConfig.openOriginal(bank.units[0].id);
- assert.equal(to.length,1);assert.equal(disposed,3);
+ const frame=document.querySelector('iframe');
+ assert.equal(document.querySelectorAll('iframe').length,1);assert.match(frame.src,/chinese-practice\.html\?lesson=/);
+ assert.equal(frame.inert,true);assert.equal(frame.style.visibility,'hidden');
+ assert.ok(document.querySelector('dialog').open);assert.equal(disposed,0);assert.equal(unsubscribe,0);assert.equal(paused,1);
+ document.querySelector('dialog nav button').click();
+ assert.equal(document.querySelector('iframe'),null);assert.ok(document.querySelector('dialog').open);assert.equal(resumed,1);
+ mountConfig.openOriginal(bank.units[0].id);
+ active=false;notify();assert.equal(document.querySelector('dialog'),null);assert.equal(disposed,1);assert.equal(unsubscribe,1);
 });
 test('real compiled workbook with targeted location opens exact card while keeping the existing app',async()=>{
  const {document}=dom();
