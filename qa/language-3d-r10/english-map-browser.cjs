@@ -5,13 +5,13 @@ const {chromium}=require('playwright');
 // Run against an unchanged production build/root with the R10 source applied.
 // The only replacement is the access transport; the parent launcher, child
 // bootstrap, lesson runtime, progress, DOM events and Three are real files.
-const root=path.resolve(process.argv[2]||'.'),origin='http://english-r10.invalid';
+const root=path.resolve(process.argv[2]||'.'),origin='http://127.0.0.1:39281';
 const mime={'.mjs':'text/javascript','.js':'text/javascript','.html':'text/html','.css':'text/css','.json':'application/json','.webp':'image/webp','.jpg':'image/jpeg','.png':'image/png'};
-const authGate='http://english-r10.invalid/auth-v2/page-access.mjs';
+const authGate=origin+'/auth-v2/firebase-client.js';
 const parentHtml='<!doctype html><meta charset="utf-8"><button id="open">進入英文 3D</button><div id="who">測試學員</div><script type="module">\nimport {openEnglishOriginal} from "/modules/english-original/launch.mjs";document.querySelector("#open").onclick=()=>openEnglishOriginal({learnerId:"qa-r10-english",grade:1,isActive:()=>document.querySelector("#who").textContent==="測試學員",initialView:"map"});</script>';
-const authFixture='const target=document.querySelector("[data-auth-content]");target.hidden=false;target.inert=false;document.querySelector("#page-auth-status").hidden=true;for(const x of document.querySelectorAll("script[data-auth-script]")){const s=document.createElement("script");if(x.src){s.src=x.src;await new Promise((ok,fail)=>{s.onload=ok;s.onerror=fail;document.head.append(s);});}else{s.textContent=x.textContent;document.head.append(s);}}';
+const authFixture='export const auth={};export function onAuthStateChanged(_auth,on){queueMicrotask(()=>on({uid:"qa-r10-english",async getIdTokenResult(){return {claims:{role:"student"}};}}));return ()=>{};}';
 (async()=>{
- const browser=await chromium.launch();
+ const browser=await chromium.launch({args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  try{
   for(const [width,height,touch] of [[1170,830,false],[768,955,true],[390,844,true]]){
    const context=await browser.newContext({viewport:{width,height},hasTouch:touch});
@@ -28,7 +28,7 @@ const authFixture='const target=document.querySelector("[data-auth-content]");ta
    });
    await page.goto(origin);await page.locator('#open').click();
    const frame=page.frameLocator('iframe'),stage=frame.locator('#mapStage');
-   await stage.locator('canvas').waitFor({state:'visible'});
+   try{await stage.locator('canvas').waitFor({state:'visible',timeout:16000});}catch(error){console.error({errors,outbound,frames:page.frames().map(f=>f.url()),dom:(await page.locator('body').innerText()).slice(0,500),inside:await page.frames()[1]?.locator('body').innerText({timeout:3000}).catch(()=>null)});throw error;}
    const labels=()=>stage.locator('.english-map-labels button:not([hidden])');
    await labels().nth(7).waitFor({state:'visible'});
    assert.equal(await labels().count(),8);
