@@ -40,7 +40,12 @@ const server=http.createServer((req,res)=>{
   const page=await browser.newPage({viewport:{width,height},hasTouch});
   const errors=[], blocked=[];
   page.on('pageerror',e=>errors.push(String(e)));
-  await page.route('**/*',route=>new URL(route.request().url()).origin===origin?route.continue():(blocked.push(route.request().url()),route.abort()));
+  await page.route('**/*',route=>{
+   const url=new URL(route.request().url());
+   if(url.origin===origin)return route.continue();
+   if(url.origin==='https://fonts.googleapis.com'&&url.pathname==='/css2')return route.fulfill({status:200,contentType:'text/css',body:''});
+   blocked.push(url.href);return route.abort();
+  });
   await page.goto(origin+'/qa-r10.html');
   await page.locator('#open').click();
   const map=page.locator('dialog canvas');
