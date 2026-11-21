@@ -26,7 +26,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 qa/language-3d-r9/two-pages-paths-test.py
-          node --test tests/chinese-r9-host.check.mjs qa/language-3d-r9/english-navigation.test.cjs
+          node --test tests/chinese-r9-host.check.mjs qa/language-3d-r9/english-navigation.check.cjs
       - name: Use the same application build as the official Pages release
         run: |
           set -euo pipefail
@@ -34,7 +34,7 @@ jobs:
           python3 scripts/pack-nature-assets.py --verify-manifest
           npm run check
       - name: Check CORS mode before loading story texture images
-        run: node --test qa/language-3d-r9/cover-r9-cors.test.cjs
+        run: node --test qa/language-3d-r9/cover-r9-cors.check.cjs
       - name: Verify published assets match candidate Git paths
         run: |
           set -euo pipefail
