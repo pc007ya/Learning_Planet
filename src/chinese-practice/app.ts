@@ -91,7 +91,7 @@ function lessonCards() {
   return lessons.map(lesson=>{
     const entries = lesson.vocabulary.flatMap((item,index)=>state.categories.includes(item.category)?[selectionOf(lesson,index)]:[]);
     const checked = entries.length>0 && entries.every(entry=>selected(entry.id));
-    return `<article class="lesson-card"><div class="lesson-header"><h3>${lesson.number===0?'前導單元':`第 ${lesson.number} 課`} ${esc(lessonDisplayTitle(lesson))}</h3><label><input type="checkbox" data-lesson="${lesson.id}" ${checked?'checked':''} ${entries.length?'':'disabled'}> 勾整課（目前分類）</label></div>
+    return `<article class="lesson-card" data-map-lesson="${esc(lesson.id)}" tabindex="-1"><div class="lesson-header"><h3>${lesson.number===0?'前導單元':`第 ${lesson.number} 課`} ${esc(lessonDisplayTitle(lesson))}</h3><label><input type="checkbox" data-lesson="${lesson.id}" ${checked?'checked':''} ${entries.length?'':'disabled'}> 勾整課（目前分類）</label></div>
     <p class="muted">${lesson.vocabulary.filter(item=>item.category==='生字').length} 生字 / ${lesson.vocabulary.filter(item=>item.category==='認讀字').length} 認讀字 / ${lesson.vocabulary.filter(item=>item.category==='語詞').length} 語詞 · ${link(lesson.sourceUrl,'官方詞表 ↗')}</p>
     <div class="word-grid">${lesson.vocabulary.map((item,index)=>state.categories.includes(item.category)?`<label class="word-option ${selected(keyOf(lesson,index))?'chosen':''}"><input type="checkbox" data-entry="${keyOf(lesson,index)}" ${selected(keyOf(lesson,index))?'checked':''}><strong>${esc(item.text)}</strong><small>${esc(item.category)}</small></label>`:'').join('')}</div>
     ${lesson.vocabulary.some(hasPendingSounds)?`<p class="warning">${lesson.vocabulary.filter(hasPendingSounds).length} 個詞條的注音仍待語境確認，請核對後列印。</p>`:''}<details class="metadata"><summary>教材版本與查核資訊</summary><p>${esc(lessonLabel(lesson))} · 查核 ${lesson.checkedAt} · 已核詞表<br>課綱：待核；版次：未提供；冊次：第 ${lesson.volume} 冊（由年級、學期推導）。<br>注音：官方字／詞音讀；選音依據見個別詞條註記，多音或缺音請依課文覆核。${lesson.sourceNote?`<br>${esc(lesson.sourceNote)}`:''}</p></details></article>`;
@@ -214,7 +214,17 @@ root.addEventListener('click',async event=>{
   } else return;
   render();
 });
+const deepLinkId=new URLSearchParams(location.search).get('lesson');
+const deepLinkLesson=deepLinkId?LESSONS.find(lesson=>lesson.id===deepLinkId):undefined;
+if(deepLinkLesson){
+  state={...state,book:'textbook',filters:{year:deepLinkLesson.year,grade:deepLinkLesson.grade,semester:deepLinkLesson.semester,publisher:deepLinkLesson.publisher}};
+  message='已開啟「'+lessonDisplayTitle(deepLinkLesson)+'」的生字詞。';
+}
 render();
+if(deepLinkLesson){
+  const card=[...root.querySelectorAll<HTMLElement>('[data-map-lesson]')].find(node=>node.dataset.mapLesson===deepLinkLesson.id);
+  card?.setAttribute('data-map-selected','true');card?.focus({preventScroll:true});card?.scrollIntoView?.({block:'start'});
+}
 
 root.addEventListener('play',event=>{if(event.target instanceof HTMLAudioElement)primerPlayback.adopt(event.target,`full:${primerLesson}`);},true);
 root.addEventListener('error',event=>{if(event.target instanceof HTMLAudioElement){const message=root.querySelector('.primer-audio-error');if(message)message.textContent='音檔暫時無法播放，請稍後再試。';}},true);

@@ -1743,6 +1743,7 @@
         </sc-if>
         </div>
         <sc-if value="{{ isChineseMap }}" hint-placeholder-val="{{ false }}">
+          <button type="button" onClick="{{ openChineseR9 }}" style="display:block;width:100%;text-align:left;margin:0 0 16px;padding:18px 24px;border:1px solid rgba(255,225,171,.49);border-radius:22px;background:#235b56;color:white;cursor:pointer"><strong>新版・3D 探索</strong><br><small>跟瑜瑜到字旅島找課程，傳統入口仍可使用</small></button>
           <a onClick="{{ guardProtectedEntry }}" href="{{ chineseGrade6Url }}" target="_blank" rel="noopener noreferrer" style="display:block;margin:0 0 16px;padding:18px 24px;border-radius:22px;background:#473267;color:white;text-decoration:none"><strong>六年級原創能力練習 ↗</strong><br><small>原創閱讀理解・每回10題・獨立出版社來源對照（非已完成教材）</small></a>
           <a onClick="{{ guardProtectedEntry }}" href="chinese-practice.html?from=map" target="_blank" rel="noopener noreferrer" aria-label="開啟國語生字練習簿" style="display:flex;align-items:center;gap:16px;margin:0 0 20px;padding:18px 24px;border:1px solid rgba(255,205,121,.5);border-radius:22px;background:rgba(76,42,96,.65);color:#fff;text-decoration:none;backdrop-filter:blur(12px)"><img src="images/subject-unit-icons/v1/chinese-writing-v1.png" alt="" style="width:60px;height:60px;object-fit:contain"><span><strong style="font-size:20px;display:block">國語生字練習簿 ↗</strong><small style="color:#ffe4ae">選教材・勾生字・自訂字・A4 列印／PDF</small></span></a>
         </sc-if>
@@ -1769,7 +1770,10 @@
           <article class="subject-world-card english-original-unit" style="display:flex;flex-direction:column;gap:12px">
             <div class="subject-world-card-head"><strong><ruby>英<rt aria-hidden="true" style="font-size:.45em">ㄧㄥ</rt></ruby><ruby>文<rt aria-hidden="true" style="font-size:.45em">ㄨㄣˊ</rt></ruby><ruby>原<rt aria-hidden="true" style="font-size:.45em">ㄩㄢˊ</rt></ruby><ruby>創<rt aria-hidden="true" style="font-size:.45em">ㄔㄨㄤˋ</rt></ruby><ruby>延<rt aria-hidden="true" style="font-size:.45em">ㄧㄢˊ</rt></ruby><ruby>伸<rt aria-hidden="true" style="font-size:.45em">ㄕㄣ</rt></ruby></strong><span class="subject-world-card-sub"><ruby>課<rt aria-hidden="true" style="font-size:.45em">ㄎㄜˋ</rt></ruby><ruby>文<rt aria-hidden="true" style="font-size:.45em">ㄨㄣˊ</rt></ruby>・<ruby>單<rt aria-hidden="true" style="font-size:.45em">ㄉㄢ</rt></ruby><ruby>字<rt aria-hidden="true" style="font-size:.45em">ㄗˋ</rt></ruby>・<ruby>拼<rt aria-hidden="true" style="font-size:.45em">ㄆㄧㄣ</rt></ruby><ruby>寫<rt aria-hidden="true" style="font-size:.45em">ㄒㄧㄝˇ</rt></ruby>・<ruby>口<rt aria-hidden="true" style="font-size:.45em">ㄎㄡˇ</rt></ruby><ruby>說<rt aria-hidden="true" style="font-size:.45em">ㄕㄨㄛ</rt></ruby></span></div>
             <p class="subject-world-card-sub"><ruby>依<rt aria-hidden="true" style="font-size:.45em">ㄧ</rt></ruby><ruby>年<rt aria-hidden="true" style="font-size:.45em">ㄋㄧㄢˊ</rt></ruby><ruby>級<rt aria-hidden="true" style="font-size:.45em">ㄐㄧˊ</rt></ruby><ruby>選<rt aria-hidden="true" style="font-size:.45em">ㄒㄩㄢˇ</rt></ruby><ruby>課<rt aria-hidden="true" style="font-size:.45em">ㄎㄜˋ</rt></ruby>，<ruby>本<rt aria-hidden="true" style="font-size:.45em">ㄅㄣˇ</rt></ruby><ruby>機<rt aria-hidden="true" style="font-size:.45em">ㄐㄧ</rt></ruby><ruby>保<rt aria-hidden="true" style="font-size:.45em">ㄅㄠˇ</rt></ruby><ruby>存<rt aria-hidden="true" style="font-size:.45em">ㄘㄨㄣˊ</rt></ruby><ruby>進<rt aria-hidden="true" style="font-size:.45em">ㄐㄧㄣˋ</rt></ruby><ruby>度<rt aria-hidden="true" style="font-size:.45em">ㄉㄨˋ</rt></ruby>；<ruby>非<rt aria-hidden="true" style="font-size:.45em">ㄈㄟ</rt></ruby><ruby>出<rt aria-hidden="true" style="font-size:.45em">ㄔㄨ</rt></ruby><ruby>版<rt aria-hidden="true" style="font-size:.45em">ㄅㄢˇ</rt></ruby><ruby>社<rt aria-hidden="true" style="font-size:.45em">ㄕㄜˋ</rt></ruby><ruby>同<rt aria-hidden="true" style="font-size:.45em">ㄊㄨㄥˊ</rt></ruby><ruby>步<rt aria-hidden="true" style="font-size:.45em">ㄅㄨˋ</rt></ruby><ruby>教<rt aria-hidden="true" style="font-size:.45em">ㄐㄧㄠˋ</rt></ruby><ruby>材<rt aria-hidden="true" style="font-size:.45em">ㄘㄞˊ</rt></ruby>。</p>
-            <button type="button" onClick="{{ openEnglishOriginal }}" class="subject-battle-button"><span class="subject-battle-face"><ruby>進<rt aria-hidden="true" style="font-size:.45em">ㄐㄧㄣˋ</rt></ruby><ruby>入<rt aria-hidden="true" style="font-size:.45em">ㄖㄨˋ</rt></ruby><ruby>子<rt aria-hidden="true" style="font-size:.45em">˙ㄗ</rt></ruby><ruby>單<rt aria-hidden="true" style="font-size:.45em">ㄉㄢ</rt></ruby><ruby>元<rt aria-hidden="true" style="font-size:.45em">ㄩㄢˊ</rt></ruby> →</span></button>
+            <div class="math-mission-switch" role="group" aria-label="英文原創課程呈現方式">
+              <button type="button" onClick="{{ openEnglishOriginal }}">傳統列表</button>
+              <button type="button" onClick="{{ openEnglishExploration }}">3D 探索</button>
+            </div>
           </article>
         </sc-if>
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="6">
@@ -5515,20 +5519,48 @@ function ScienceMissionMap(props) {
 }
 
 class Component extends DCLogic {
+  closeChineseR9() {
+    this.chineseR9Request=(this.chineseR9Request||0)+1;
+    const close=this.chineseR9Close;this.chineseR9Close=null;this.chineseR9Opening=false;
+    close?.(false);
+  }
+  async openChineseR9() {
+    const {currentId:learner,grade,screen,subject,teacher}=this.state;
+    const auth=window.LearningPlanetAuthV2;
+    const uid=auth?.auth?.currentUser?.uid;
+    if(screen!=="map"||subject!=="chinese"||teacher||!Number.isInteger(grade)||grade<1||grade>6||this.chineseR9Close||this.chineseR9Opening)return;
+    const bound=()=>this.state.students.some(student=>student.id===learner&&student.profile?.cloudUid===uid);
+    if(!uid||!learner||learner==="demo-local"||!bound()||typeof auth?.onAuthStateChanged!=="function"){
+      this.flash("請用正式學員帳號登入，再開啟國語 3D 探索。");return;
+    }
+    const generation=this.sessionGeneration||0,request=(this.chineseR9Request||0)+1;
+    this.chineseR9Request=request;this.chineseR9Opening=true;
+    const isActive=()=>this.chineseR9Request===request&&generation===(this.sessionGeneration||0)&&
+      this.state.screen==="map"&&this.state.subject==="chinese"&&!this.state.teacher&&this.state.grade===grade&&
+      this.state.currentId===learner&&auth.auth.currentUser?.uid===uid&&bound();
+    try{
+      const {openChineseR9}=await import("./modules/chinese-planet/launch-r9.mjs");
+      if(!isActive())return;
+      this.chineseR9Close=openChineseR9({grade,seconds:this.seconds(),isActive,
+        watchSession:notify=>auth.onAuthStateChanged(auth.auth,user=>{if(user?.uid!==uid){this.closeChineseR9();notify();}},()=>{this.closeChineseR9();notify();}),
+        onClose:()=>{if(this.chineseR9Request===request)this.chineseR9Close=null;}});
+    }catch(error){if(isActive())this.flash("國語 3D 地圖暫時無法載入，仍可用傳統課程。");}
+    finally{if(this.chineseR9Request===request)this.chineseR9Opening=false;}
+  }
   closeEnglishOriginal() {
     this.englishOriginalRequest=(this.englishOriginalRequest||0)+1;
     const close=this.englishOriginalClose;this.englishOriginalClose=null;this.englishOriginalOpening=false;
     if(close)Promise.resolve(close()).catch(()=>{});
   }
-  async openEnglishOriginal() {
+  async openEnglishOriginal(initialView="classic") {
     const s=this.state;
     if(s.currentId==="demo-local"){this.flash("英文原創延伸需要正式學員帳號，請先登入。");return;}
     if(this.englishOriginalOpening||this.englishOriginalClose||s.screen!=="map"||s.subject!=="english"||s.teacher||!s.currentId||!s.students.some(x=>x.id===s.currentId))return;
     const learnerId=s.currentId,grade=s.grade,generation=this.sessionGeneration||0,request=(this.englishOriginalRequest||0)+1;
     this.englishOriginalRequest=request;this.englishOriginalOpening=true;
     const isActive=()=>this.englishOriginalRequest===request&&this.state.screen==="map"&&this.state.subject==="english"&&!this.state.teacher&&this.state.currentId===learnerId&&this.state.grade===grade&&(this.sessionGeneration||0)===generation;
-    try { const {openEnglishOriginal}=await import("./modules/english-original/launch.mjs?v=20261117-unit-ui");if(!isActive())return;
-      let dismissed=false;const close=await openEnglishOriginal({learnerId,grade,isActive,onClose:()=>{dismissed=true;if(this.englishOriginalRequest===request)this.englishOriginalClose=null;}});
+    try { const {openEnglishOriginal}=await import("./modules/english-original/launch.mjs?v=20261121-english-map-r9");if(!isActive())return;
+      let dismissed=false;const close=await openEnglishOriginal({learnerId,grade,isActive,initialView,onClose:()=>{dismissed=true;if(this.englishOriginalRequest===request)this.englishOriginalClose=null;}});
       if(!dismissed&&isActive())this.englishOriginalClose=close;else await close?.();
     }catch(e){if(isActive())this.flash("英文原創課程暫時無法開啟，請重試。");}
     finally{if(this.englishOriginalRequest===request)this.englishOriginalOpening=false;}
@@ -5652,6 +5684,7 @@ class Component extends DCLogic {
     this.backendUid = uid;
   }
   teardownRole() {
+    this.closeChineseR9?.();
     this.closeEnglishOriginal?.();
     this.sessionGeneration = (this.sessionGeneration || 0) + 1;
     for (const name of ['cloudRosterUnsubscribe','cloudStudentUnsubscribe']) { this[name]?.(); this[name] = null; }
@@ -5852,6 +5885,9 @@ class Component extends DCLogic {
     } catch (error) { console.warn("Student progress sync failed:", error); }
   }
   componentDidUpdate(prevProps, prevState) {
+    const chineseNavigation=JSON.stringify([this.state.screen,this.state.subject,this.state.grade,this.state.currentId,this.state.teacher,this.sessionGeneration||0]);
+    if(this.lastChineseR9Navigation!==undefined&&chineseNavigation!==this.lastChineseR9Navigation)this.closeChineseR9?.();
+    this.lastChineseR9Navigation=chineseNavigation;
     const englishNavigation=JSON.stringify([this.state.screen,this.state.subject,this.state.grade,this.state.currentId,this.state.teacher,this.sessionGeneration||0]);
     if(this.lastEnglishOriginalNavigation!==undefined&&englishNavigation!==this.lastEnglishOriginalNavigation)this.closeEnglishOriginal?.();
     this.lastEnglishOriginalNavigation=englishNavigation;
@@ -11508,6 +11544,7 @@ class Component extends DCLogic {
         event.preventDefault();
         this.flash("DEMO 僅供首頁試用；請先登出並用正式學員帳號登入，再開啟此課程。");
       },
+      openChineseR9: ()=>this.openChineseR9(),
       chineseGrade6Url: "chinese-grade6.html?seconds=" + encodeURIComponent(this.seconds()),
       weeklyKey: weekKey(), weeklyTime: s.weeklyConfig.timeSeconds,
       weeklySections: weeklyUnits.map((entry) => ({ icon: entry.unit.icon, title: entry.unit.title, count: entry.count, stars: "⭐".repeat(Math.max(1, Math.min(3, entry.difficulty))) })),
@@ -11564,6 +11601,7 @@ class Component extends DCLogic {
 
       showEnglishOriginal: s.screen === "map" && s.subject === "english" && !s.teacher && !!s.currentId && s.students.some(x=>x.id===s.currentId) && s.grade <= 6,
       openEnglishOriginal: ()=>this.openEnglishOriginal(),
+      openEnglishExploration: ()=>this.openEnglishOriginal("map"),
       showChallengeRules: s.subject !== "experiment",
       isExperimentSubject: s.subject === "experiment",
       showGeoExplore: false,
