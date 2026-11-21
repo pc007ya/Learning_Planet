@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import * as T from '../modules/math-knowledge/vendor/three-r187/three.module.js';
 import {gardenLayout,gardenCameraFit,englishLabelLayout,gardenStationSignPosition,pickGardenGround,advance} from '../modules/english-original/english-exploration-r10.mjs';
 import {buildGarden,gardenRoadPaths,createGardenNavigation} from '../modules/english-original/english-garden-world-r10.mjs';
-const source=readFileSync(new URL('../base/modules/english-original/index.html',import.meta.url),'utf8');
+const source=readFileSync(new URL('../modules/english-original/index.html',import.meta.url),'utf8');
 const data=JSON.parse(source.match(/^const DATA=(.*);$/m)[1]);
 function makeScene(units){
  const nodes=gardenLayout(units),nav=createGardenNavigation(nodes),scene=new T.Scene();
